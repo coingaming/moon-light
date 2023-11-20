@@ -1,0 +1,23 @@
+{
+  "name": "moonlight",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm --filter \"./packages/**\" -r run build",
+    "clean": "rimraf packages/**/lib && rimraf docs/{lib,dist,.cache}",
+    "doc": "pnpm run --filter \"docs\"",
+    "nuke": "pnpm run clean && rimraf docs/.next/ && rimraf packages/**/node_modules/ && rimraf docs/node_modules/ && rimraf node_modules/"
+  },
+  "keywords": [],
+  "author": "Karl Kallavus",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "rimraf": "^5.0.5"
+  }
+}

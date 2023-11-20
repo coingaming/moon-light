@@ -1,0 +1,53 @@
+# System
+.DS_Store
+
+# ENV
+.env
+
+# IDE
+.vscode
+.idea
+
+# Node
+node_modules
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log
+/node_modules
+/.pnp
+.pnp.js
+
+# Build
+lib
+dist
+cache
+.cache
+
+# testing
+/coverage
+
+# TypeScript cache
+*.tsbuildinfo
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+*.pem
+
+# vercel
+.vercel
+
+#template
+/next-docs/styles/output.css
+
+#personal DS Metrics
+/next-docs/public/metrics/_token.js
+/next-docs/public/metrics/data

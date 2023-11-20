@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "target": "ES6",
+    "baseUrl": "../",
+    "rootDir": "src",
+    "outDir": "lib/es",
+    "module": "esnext"
+  },
+  "paths": {
+    "@heathmont/moon-*": ["./packages/*/src", "./docs/src", "src"]
+  },
+  "exclude": ["node_modules", "src/**/__tests__"]
+}
