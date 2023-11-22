@@ -1,29 +1,8 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import { Examples } from '../app/types';
 
-export async function writeToFile({
-  contentToWrite,
-  path,
-}) {
-  if (!contentToWrite) {
-    throw new Error('Content for writeToFile function must be provided.');
-  }
-  if (!path) {
-    throw new Error('Path for writeToFile function must be provided.');
-  }
-
-  try {
-    await fs.writeFile(path, contentToWrite, 'utf8');
-    console.log(`${path} file has been written successfully.`);
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error('Error writing to file:', err.message);
-      throw err;
-    }
-  }
-}
-
-export async function hasSubfolders(_path) {
+export async function hasSubfolders(_path: string) {
   try {
     const files = await fs.readdir(_path, { withFileTypes: true });
 
@@ -43,15 +22,14 @@ export async function hasSubfolders(_path) {
   }
 }
 
-// type FilesTypes = Record<string, string>;
+type FilesContent = Record<string, string | undefined>;
 
 export async function processFiles(
-  dirPath,
-  processCallback, // (filePath: string) => Promise<FilesTypes>
+  dirPath: string,
+  processCallback: (filePath: string) => Promise<FilesContent>
 ) {
   const files = await fs.readdir(dirPath);
-  // const result: Record<string, Record<string, unknown> | string[] | string> = {};
-  const result = {};
+  const result: Record<string, Record<string, unknown> | string[] > | FilesContent = {};
 
   for (const file of files) {
     const filePath = path.join(dirPath, file);
@@ -65,13 +43,15 @@ export async function processFiles(
         result[file] = await processCallback(filePath);
       }
     }
+
     if (stats.isFile()) {
       const extname = path.extname(filePath).toLowerCase();
       const fileName = path.basename(filePath);
       const fileNameWithoutExtension = path.parse(fileName).name
 
       if (extname === '.md') {
-        result[fileNameWithoutExtension] = 'string';
+        const content = await readFromFile(filePath);
+        result[fileNameWithoutExtension] = content;
       }
     }
   }
@@ -79,36 +59,36 @@ export async function processFiles(
   return result;
 }
 
-export const getTemplate = (content) => {
-  return `export interface Examples ${content};
-`
-}
-
-const getFilesTypes = async (dirPath) => {
+const getFilesContent = async (dirPath: string) => {
   const files = await fs.readdir(dirPath);
-  const result = {};
+  const result: FilesContent = {};
 
   for (const file of files) {
     const filePath = path.join(dirPath, file);
     const fileName = path.basename(filePath);
     const fileNameWithoutExtension = path.parse(fileName).name
-    result[fileNameWithoutExtension] = 'string';
+    const content = await readFromFile(filePath);
+    result[fileNameWithoutExtension] = content;
   }
   return result;
 }
 
+export async function readFromFile(pathToFile: string) {
+  try {
+    const data = await fs.readFile(pathToFile, 'utf8');
+    return data;
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error(`Error reading from file ${pathToFile}:`, err.message);
+      throw err;
+    }
+  }
+}
 
-export const buildExamplesType = async () => {
+export async function getExamples() {
   const components = (
-    await processFiles('./app/', getFilesTypes)
-  );
-
-  await writeToFile({
-    contentToWrite: getTemplate(JSON.stringify(components, null, 2)),
-    path: './app/types.ts'
-  });
+    await processFiles('./app/', getFilesContent)
+  ) as unknown as Examples;
 
   return components;
 }
-
-buildExamplesType();

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getExamples } from "./utils/getExamples";
+import { getExamples } from "../utils/getExamples";
 
 export default async function Home() {
   const { server, client } = await getExamples();
@@ -13,7 +13,7 @@ export default async function Home() {
         <ul role="list" className="">
           {Object.entries(server).map(([key, _value]) => (
             <li key={key} className="py-4">
-              <Link href={`components/server/${key}`}>{key}</Link>
+              <Link href={`server/${key}`}>{key}</Link>
             </li>
           ))}
         </ul>
@@ -24,7 +24,7 @@ export default async function Home() {
         <ul role="list" className="">
           {Object.entries(client).map(([key, _value]) => (
             <li key={key} className="py-4">
-              <Link href={`components/client/${key}`}>{key}</Link>
+              <Link href={`client/${key}`}>{key}</Link>
             </li>
           ))}
         </ul>
