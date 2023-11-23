@@ -1,6 +1,6 @@
 import { Default } from '@/app/server/input/examples/Default';
-import ExampleSection from '@/components/exampleSection';
-import QuickNav from '@/components/QuickNav';
+import { ExampleSection } from '@/components/exampleSection/ExampleSection';
+import { QuickNav } from '@/components/QuickNav';
 import { getExamples } from '@/utils/getExamples';
 import { MDX } from '@/components/MDX';
 

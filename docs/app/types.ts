@@ -1,4 +1,4 @@
-export interface Examples {
+export type Examples = {
   "client": {
     "accordion": {
       "description": "string",

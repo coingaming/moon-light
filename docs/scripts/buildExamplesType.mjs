@@ -80,7 +80,7 @@ export async function processFiles(
 }
 
 export const getTemplate = (content) => {
-  return `export interface Examples ${content};
+  return `export type Examples = ${content};
 `
 }
 

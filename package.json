@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "pnpm --filter \"./packages/**\" -r run build",
-    "clean": "rimraf packages/**/lib && rimraf docs/{lib,dist,.cache}",
+    "clean": "rimraf packages/**/lib && rimraf docs/{lib,dist,.cache,.next}",
     "doc": "pnpm run --filter \"docs\"",
     "nuke": "pnpm run clean && rimraf docs/.next/ && rimraf packages/**/node_modules/ && rimraf docs/node_modules/ && rimraf node_modules/"
   },

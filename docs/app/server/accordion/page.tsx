@@ -1,41 +1,33 @@
-import { ContentOutsideSizes } from '@/app/server/accordion/examples/ContentOutsideSizes';
-import { Default } from '@/app/server/accordion/examples/Default';
-import { Disabled } from '@/app/server/accordion/examples/Disabled';
-import { Sizes } from '@/app/server/accordion/examples/Sizes';
-import ExampleSection from '@/components/exampleSection';
-import PropsTable from '@/components/propsTable';
-import QuickNav from '@/components/QuickNav';
+import { PropsTable } from '@/components/propsTable';
+import { QuickNav } from '@/components/QuickNav';
 import { getExamples } from '@/utils/getExamples';
 import { MDX } from '@/components/MDX';
+import { ExampleSection } from '@/components/exampleSection/ExampleSection';
 
 export default async function Accordion() {
   const { server } = await getExamples();
-  const examplesList = Object.keys(server.accordion.examples);
+  const { Default, Sizes, Disabled, ...rest } = server.accordion.examples;
+  const sorted = Object.keys({ Default, Sizes, Disabled, ...rest });
+  const examples = sorted.map(async (exampleName) => {
+    const exampleKey = exampleName as keyof typeof server.accordion.examples;
+    const Component = (await import(`@/app/server/accordion/examples/${exampleKey}`))[exampleKey];
+
+    return (
+      <ExampleSection
+        key={exampleKey}
+        title={exampleName}
+        component={<Component />}
+        description={Component.description}
+        code={server.accordion.examples[exampleKey]}
+      />
+    );
+  });
+
   return (
     <div className="w-full max-w-3xl flex flex-col gap-12 text-moon-14 px-6 md:px-0">
       <h1 className="font-medium text-moon-32">Accordion</h1>
       <MDX markdown={server.accordion.description} />
-      <QuickNav items={examplesList} />
-      <ExampleSection
-        title="Default"
-        component={<Default />}
-        code={server.accordion.examples.Default}
-      />
-      <ExampleSection
-        title="Disabled"
-        component={<Disabled />}
-        code={server.accordion.examples.Disabled}
-      />
-      <ExampleSection
-        title="Sizes"
-        component={<Sizes />}
-        code={server.accordion.examples.Sizes}
-      />
-      <ExampleSection
-        title="ContentOutsideSizes"
-        component={<ContentOutsideSizes />}
-        code={server.accordion.examples.ContentOutsideSizes}
-      />
+      {examples}
       <PropsTable
         title="Accordion props"
         data={[
@@ -43,7 +35,7 @@ export default async function Accordion() {
             name: 'itemSize',
             type: 'sm | md | lg | xl',
             defaultState: 'md',
-            description: 'Size of accordeon item',
+            description: 'Size of accordion item',
           },
           {
             name: 'singleOpen',
@@ -61,7 +53,7 @@ export default async function Accordion() {
             name: 'value',
             type: 'string[]',
             defaultState: '-',
-            description: 'The accordeon items value',
+            description: 'The accordion items value',
           },
           {
             name: 'onValueChange',
@@ -79,7 +71,7 @@ export default async function Accordion() {
             name: 'value',
             type: 'string',
             defaultState: '-',
-            description: 'The accordeon item value',
+            description: 'The accordion item value',
           },
           {
             name: 'disabled',

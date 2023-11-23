@@ -1,4 +1,4 @@
-import { mergeClassnames } from '@heathmont/moon-base-tw';
+import mergeClassnames from '@heathmont/moon-base-tw/lib/mergeClassnames/mergeClassnames';
 import { GenericLink } from '@heathmont/moon-icons-tw';
 
 type Props = {

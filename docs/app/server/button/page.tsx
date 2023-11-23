@@ -1,66 +1,35 @@
-import { Animations } from '@/app/server/button/examples/Animations';
-import { Default } from '@/app/server/button/examples/Default';
-import { Disabled } from '@/app/server/button/examples/Disabled';
-import { FullWidth } from '@/app/server/button/examples/FullWidth';
-import { Icons } from '@/app/server/button/examples/Icons';
-import { Multiline } from '@/app/server/button/examples/Multiline';
-import { Sizes } from '@/app/server/button/examples/Sizes';
-import { Variants } from '@/app/server/button/examples/Variants';
-import ExampleSection from '@/components/exampleSection';
-import PropsTable from '@/components/propsTable';
-import QuickNav from '@/components/QuickNav';
+import { ExampleSection } from '@/components/exampleSection/ExampleSection';
+import { PropsTable } from '@/components/propsTable';
+import { QuickNav } from '@/components/QuickNav';
 import { getExamples } from '@/utils/getExamples';
 import { MDX } from '@/components/MDX';
 
 export default async function Button() {
   const { server } = await getExamples();
-  const examplesList = Object.keys(server.button.examples);
+  const { Default, Sizes, Disabled, ...rest } = server.button.examples;
+  const sortedExamples = Object.keys({ Default, Sizes, Disabled, ...rest });
+
+  const examples = sortedExamples.map(async (exampleName) => {
+    const exampleKey = exampleName as keyof typeof server.button.examples;
+    const Component = (await import(`@/app/server/button/examples/${exampleKey}`))[exampleKey];
+
+    return (
+      <ExampleSection
+        key={exampleKey}
+        title={exampleName}
+        component={<Component />}
+        description={Component.description}
+        code={server.button.examples[exampleKey]}
+      />
+    );
+  });
+
   return (
     <div className="w-full max-w-3xl flex flex-col gap-12 text-moon-14 px-6 md:px-0">
       <h1 className="font-medium text-moon-32">Button</h1>
       <MDX markdown={server.button.description} />
-      <QuickNav items={examplesList} />
-      <ExampleSection
-        title="Default"
-        description="Buttons in moon.io have specific functions and their appearance indicates those functions to the user. To ensure that the buttons communicate the right actions, it is essential to use the appropriate variants consistently across products."
-        component={<Default />}
-        code={server.button.examples.Default}
-      />
-      <ExampleSection
-        title="Sizes"
-        component={<Sizes />}
-        code={server.button.examples.Sizes}
-      />
-      <ExampleSection
-        title="Variants"
-        component={<Variants />}
-        code={server.button.examples.Variants}
-      />
-      <ExampleSection
-        title="Icons"
-        component={<Icons />}
-        code={server.button.examples.Icons}
-      />
-      <ExampleSection
-        title="FullWidth"
-        component={<FullWidth />}
-        code={server.button.examples.FullWidth}
-      />
-      <ExampleSection
-        title="Disabled"
-        component={<Disabled />}
-        code={server.button.examples.Disabled}
-      />
-      <ExampleSection
-        title="Animations"
-        component={<Animations />}
-        code={server.button.examples.Animations}
-      />
-      <ExampleSection
-        title="Multiline"
-        component={<Multiline />}
-        code={server.button.examples.Multiline}
-      />
+      <QuickNav items={sortedExamples} />
+      {examples}
       <PropsTable
         title="Button props"
         data={[

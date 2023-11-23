@@ -18,3 +18,5 @@ export const Default = () => (
     </Accordion.Content>
   </Accordion>
 );
+
+Default.description = "TEST Default Accordion description";

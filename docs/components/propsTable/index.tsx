@@ -14,7 +14,7 @@ type TableProps = {
   description?: string | JSX.Element;
 };
 
-const PropsTable = ({ data, title, description }: TableProps) => {
+export const PropsTable = ({ data, title, description }: TableProps) => {
   return (
     <section className="flex flex-col gap-6">
       <HeaderSection title={title} description={description} className="pb-6" />
@@ -25,5 +25,3 @@ const PropsTable = ({ data, title, description }: TableProps) => {
     </section>
   );
 };
-
-export default PropsTable;

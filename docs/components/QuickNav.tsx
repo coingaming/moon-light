@@ -1,4 +1,4 @@
-const QuickNav = ({ items }: { items: string[] }) => (
+export const QuickNav = ({ items }: { items: string[] }) => (
   <ul>
     {items.map((item) => (
       <li key={item}>
@@ -7,5 +7,3 @@ const QuickNav = ({ items }: { items: string[] }) => (
     ))}
   </ul>
 );
-
-export default QuickNav;
