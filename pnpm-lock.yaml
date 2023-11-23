@@ -33,6 +33,9 @@ importers:
       '@heathmont/moon-icons-tw':
         specifier: ^9.28.6
         version: 9.28.6(react-dom@18.2.0)(react@18.2.0)
+      '@heathmont/moon-themes-tw':
+        specifier: workspace:^10.10.7
+        version: link:../packages/themes
       next:
         specifier: 14.0.3
         version: 14.0.3(react-dom@18.2.0)(react@18.2.0)
@@ -127,6 +130,8 @@ importers:
       tailwindcss-radix:
         specifier: 2.8.0
         version: 2.8.0
+
+  packages/themes: {}
 
 packages:
 

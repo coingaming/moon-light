@@ -13,10 +13,6 @@ export interface Examples {
       }
     }
   },
-  "fonts": {
-    "DMSans-Regular": "string",
-    "DMSans-Semibold": "string"
-  },
   "server": {
     "accordion": {
       "description": "string",

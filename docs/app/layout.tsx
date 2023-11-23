@@ -1,4 +1,7 @@
+import Settings from '@/components/settings/Settings';
+import { RtlProvider } from '@/components/settings/utils/RTLProvider';
 import './globals.css';
+import './themes.css';
 
 export const metadata = {
   title: 'Moon Design System',
@@ -13,11 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" dir="ltr">
-      <body>
-        <main className="theme-moon-light bg-goku flex flex-col items-center py-20">
-          {children}
-        </main>
-      </body>
+      <RtlProvider>
+        <body className="theme-moon-light">
+          <main className="bg-goku flex flex-col items-center py-20">
+            {children}
+          </main>
+          <Settings />
+        </body>
+      </RtlProvider>
     </html>
   );
 }
