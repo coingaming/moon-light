@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { getExamples } from "../utils/getExamples";
+import SearchButton from '@/components/search/SearchButton';
+import { getExamples } from "@/utils/getExamples";
 
 export default async function Home() {
   const { server, client } = await getExamples();
@@ -8,6 +9,9 @@ export default async function Home() {
     <div className="flex flex-col gap-4">
       <h1 className="text-4xl font-bold tracking-tight">Moon Design System</h1>
 
+      <SearchButton />
+
+      {/* TODO remove  */}
       <div>
         <h2 className="text-2xl font-bold tracking-tight">Server components</h2>
         <ul role="list" className="">

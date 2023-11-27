@@ -8,6 +8,7 @@ export default async function Accordion() {
   const { server } = await getExamples();
   const { Default, Sizes, Disabled, ...rest } = server.accordion.examples;
   const sorted = Object.keys({ Default, Sizes, Disabled, ...rest });
+
   const examples = sorted.map(async (exampleName) => {
     const exampleKey = exampleName as keyof typeof server.accordion.examples;
     const Component = (await import(`@/app/server/accordion/examples/${exampleKey}`))[exampleKey];

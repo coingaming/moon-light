@@ -7,6 +7,7 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@heathmont/moon-core-tw/**/*.{js,ts,jsx,tsx}',
     './node_modules/@heathmont/moon-base-tw/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@heathmont/moon-cmdk-tw/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
