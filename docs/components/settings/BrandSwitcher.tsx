@@ -1,21 +1,24 @@
-"use client"
+"use client";
 
-import React, { useCallback, useState } from 'react';
-import MenuItem from '@heathmont/moon-core-tw/lib/es/menuItem/MenuItem';
-import useTheme, { Brand, themes } from './utils/useThemes';
+import React, { useCallback, useState } from "react";
+import MenuItem from "@heathmont/moon-core-tw/lib/es/menuItem/MenuItem";
+import useTheme, { Brand, themes } from "./utils/useThemes";
 
 const THEMES = Object.keys(themes);
 
 const BrandSwitcher = () => {
   const { setBrand, getBrand } = useTheme();
   const [theme, setTheme] = useState(getBrand);
-  const onClickSetTheme = useCallback((value: string) => () => {
-    setTheme(value);
-    setBrand(value as Brand);
-  }, [setTheme, setBrand]);
+  const onClickSetTheme = useCallback(
+    (value: string) => () => {
+      setTheme(value);
+      setBrand(value as Brand);
+    },
+    [setTheme, setBrand]
+  );
   return (
     <>
-      <div className="max-h-72 over overflow-auto">
+      <div className="max-h-72 overflow-auto">
         {THEMES.map((themeName) => (
           <MenuItem
             key={themeName}

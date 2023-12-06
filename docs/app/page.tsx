@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import SearchButton from '@/components/search/SearchButton';
+import Link from "next/link";
+import SearchButton from "@/components/search/SearchButton";
 import { getExamples } from "@/utils/getExamples";
 
 export default async function Home() {
@@ -7,13 +7,13 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-4xl font-bold tracking-tight">Moon Design System</h1>
+      <h1 className="text-moon-48 font-medium">Moon Design System</h1>
 
       <SearchButton />
 
       {/* TODO remove  */}
       <div>
-        <h2 className="text-2xl font-bold tracking-tight">Server components</h2>
+        <h2 className="text-moon-32 font-medium">Server components</h2>
         <ul role="list" className="">
           {Object.entries(server).map(([key, _value]) => (
             <li key={key} className="py-4">
@@ -24,7 +24,7 @@ export default async function Home() {
       </div>
 
       <div>
-        <h2 className="text-2xl font-bold tracking-tight">Client components</h2>
+        <h2 className="text-moon-32 font-medium">Client components</h2>
         <ul role="list" className="">
           {Object.entries(client).map(([key, _value]) => (
             <li key={key} className="py-4">
@@ -34,5 +34,5 @@ export default async function Home() {
         </ul>
       </div>
     </div>
-  )
+  );
 }
