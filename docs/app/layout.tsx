@@ -23,7 +23,7 @@ export default async function RootLayout({
     <html lang="en" dir="ltr">
       <SearchProvider actions={actions}>
         <RtlProvider>
-          <body className="theme-moon-light">
+          <body className="theme-moon-light bg-gohan">
             <Sidebar />
             <main className="min-h-screen ms-80 bg-goku flex-1 flex flex-col rounded-ss-3xl px-5 xl:px-20 2xl:px-32 pt-12 xl:pb-52">
               {children}
