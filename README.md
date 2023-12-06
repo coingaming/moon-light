@@ -27,28 +27,25 @@
 3. Run storybook for development:
 
    ```sh
-   pnpm run next dev
+   pnpm run doc dev
    ```
 
-4. For Hot Module Replacement run these tasks in parallel:
+4. Build and run storybook for production at `localhost:80`:
 
    ```sh
-   pnpm run watch
-   ```
-
-   ```sh
-   pnpm run next dev
-   ```
-
-5. Build and run storybook for production at `localhost:80`:
-
-   ```sh
-   pnpm run next build
+   pnpm run doc build
    ```
 
    ```sh
-   pnpm run next start
+   pnpm run doc start
    ```
+
+4. Run e2e tests:
+
+   ```sh
+   pnpm run doc test:e2e
+   ```
+
 
 ## Architecture
 
