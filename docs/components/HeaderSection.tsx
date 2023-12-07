@@ -1,5 +1,5 @@
-import mergeClassnames from '@heathmont/moon-base-tw/lib/mergeClassnames/mergeClassnames';
-import { GenericLink } from '@heathmont/moon-icons-tw';
+import mergeClassnames from "@heathmont/moon-base-tw/lib/mergeClassnames/mergeClassnames";
+import { GenericLink } from "@heathmont/moon-icons-tw";
 
 type Props = {
   title?: string;
@@ -10,7 +10,7 @@ const HeaderSection = ({ title, description, className }: Props) => (
   <>
     <h2
       id={title}
-      className={mergeClassnames('text-moon-20 font-medium', className)}
+      className={mergeClassnames("text-moon-20 font-medium", className)}
     >
       <a
         href={`#${title}`}
