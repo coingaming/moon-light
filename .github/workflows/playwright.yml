@@ -22,6 +22,8 @@ jobs:
         run: corepack prepare pnpm@latest --activate
       - name: Install dependencies
         run: pnpm i
+      - name: Build packages
+        run: pnpm run build
       - name: Run your tests
         run: pnpm run doc test
         env:
