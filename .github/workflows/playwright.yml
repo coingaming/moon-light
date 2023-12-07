@@ -7,9 +7,9 @@ on:
 jobs:
   playwright:
     name: 'Playwright Tests'
-    runs-on: darwin-latest
+    runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.40.0-jammy
+      image: mcr.microsoft.com/playwright:v1.40.0-arm64
     steps:
       - uses: actions/checkout@v4
       - name: Use Node
