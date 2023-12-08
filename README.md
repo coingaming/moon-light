@@ -43,7 +43,7 @@
 4. Run e2e tests:
 
    ```sh
-   pnpm run doc test:e2e
+   pnpm run doc test
    ```
 
 

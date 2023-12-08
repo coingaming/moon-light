@@ -1,0 +1,30 @@
+name: Build docs
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  playwright:
+    name: 'Build docs'
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.40.0-jammy
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Corepack enable
+        run: corepack enable
+      - name: Use pnpm@latest
+        run: corepack prepare pnpm@latest --activate
+      - name: Install dependencies
+        run: pnpm i
+      - name: Build packages
+        run: pnpm run build
+      # - name: Run your tests
+      #   run: pnpm run doc test
+      #   env:
+      #     HOME: /root
