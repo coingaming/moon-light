@@ -25,20 +25,20 @@ importers:
   docs:
     dependencies:
       '@heathmont/moon-base-tw':
-        specifier: workspace:^10.10.7
-        version: link:../packages/base
+        specifier: ^10.11.1
+        version: 10.11.2(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-cmdk-tw':
-        specifier: workspace:^10.10.7
-        version: link:../packages/cmdk
+        specifier: ^10.11.1
+        version: 10.11.2(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-core-tw':
-        specifier: workspace:^10.10.7
-        version: link:../packages/core
+        specifier: ^10.11.1
+        version: 10.11.2(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-icons-tw':
         specifier: ^9.28.6
         version: 9.28.6(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-themes-tw':
-        specifier: workspace:^10.10.7
-        version: link:../packages/themes
+        specifier: ^10.11.1
+        version: 10.11.2
       next:
         specifier: 14.0.3
         version: 14.0.3(react-dom@18.2.0)(react@18.2.0)
@@ -255,6 +255,58 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
+  /@heathmont/moon-base-tw@10.11.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-mPke2IWKkKW2NZ2vH6/eScw7aMGYmKWMSLwX4xEvGFCSL48zZO3fHj3vKFMwqRGNi1nRuvIsQmtxKP074fCV+A==}
+    peerDependencies:
+      react: '>= 18.2.0'
+      react-dom: '>= 18.2.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tailwind-merge: 1.14.0
+    dev: false
+
+  /@heathmont/moon-cmdk-tw@10.11.2(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8tUh6WVuCFJLifVh6d93JslDClCaqB9RgTLT89TQ6CEyGZp1LwTsomIWdl4OMVqyp+me5RQEDBJ6vygzNHdJmA==}
+    peerDependencies:
+      react: '>= 18.2.0'
+      react-dom: '>= 18.2.0'
+    dependencies:
+      '@headlessui/react': 1.7.16(react-dom@18.2.0)(react@18.2.0)
+      '@heathmont/moon-core-tw': 10.11.2(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      cmdk: 0.2.0(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tailwind-merge: 1.14.0
+      tailwindcss-radix: 2.8.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+    dev: false
+
+  /@heathmont/moon-core-tw@10.11.2(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8MYFOU4x8gMTPGGCNlSRLvmWGxw8iJX2QYEx089RyW2rlm1MUpLNAVX9zvJ5AeCF/ORE4njkk17UhTaCY7/Skw==}
+    peerDependencies:
+      react: '>= 18.2.0'
+      react-dom: '>= 18.2.0'
+    dependencies:
+      '@headlessui/react': 1.7.16(react-dom@18.2.0)(react@18.2.0)
+      '@popperjs/core': 2.11.8
+      '@radix-ui/react-accordion': 1.1.2(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-toast': 1.1.4(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-tooltip': 1.0.6(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-popper: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0)
+      scroll-into-view-if-needed: 2.2.31
+      smooth-scroll-into-view-if-needed: 1.1.33
+      tailwind-merge: 1.14.0
+      tailwindcss-radix: 2.8.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+    dev: false
+
   /@heathmont/moon-icons-tw@9.28.6(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-cDA7WO4Z07Sfm0Mv+/fBFRBGIMJonGrutcaYRLr6zl6OSfiUOxlsMjRSSivYOb/45WxUjpnbGxTA1AZGhXBFRA==}
     peerDependencies:
@@ -263,6 +315,10 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@heathmont/moon-themes-tw@10.11.2:
+    resolution: {integrity: sha512-ZPeN0tPv9mRu8/HhdTTSps0Pp0mCy4mcYLizrvFgN1yThVVTmKSreJUcxXo6BHXk2Ikz1oZbHRN+Jpwg3KaSsw==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.13:
