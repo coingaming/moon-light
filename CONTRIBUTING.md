@@ -40,7 +40,7 @@ It is essential that each component feature has a corresponding documentation pa
 You can run the test suite using the following commands:
 
 ```sh
-pnpm run next test
+pnpm run doc test
 ```
 
 Please ensure that the tests are passing when submitting a pull request.
