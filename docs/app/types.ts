@@ -3,7 +3,9 @@ export type Examples = {
     "accordion": {
       "description": "string",
       "examples": {
-        "Default": "string"
+        "Default": "string",
+        "OneItemOpened": "string",
+        "OpenByDefault": "string"
       }
     },
     "button": {
