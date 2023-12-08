@@ -1,8 +1,8 @@
 "use client"
 
 import React from 'react';
-import { Accordion } from '@heathmont/moon-core-tw';
-import { ControlsChevronDownSmall } from '@heathmont/moon-icons-tw';
+import Accordion from '@heathmont/moon-core-tw/lib/es/accordion/Accordion';
+import ControlsChevronDownSmall from '@heathmont/moon-icons-tw/es/icons/ControlsChevronDownSmall';
 
 export const OneItemOpened = () => (
   <Accordion singleOpen>
