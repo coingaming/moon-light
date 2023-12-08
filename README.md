@@ -6,9 +6,11 @@
 
    ```sh
    corepack enable
+   ```
 
-   // Note that we are using pnpm version 8
+   Note that we are using pnpm version 8
 
+   ```
    corepack prepare pnpm@latest --activate
    ```
 
