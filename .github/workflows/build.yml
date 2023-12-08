@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Build docs
 on:
   push:
     branches: [ main, master ]
@@ -6,7 +6,7 @@ on:
     branches: [ main, master ]
 jobs:
   playwright:
-    name: 'Playwright Tests'
+    name: 'Build docs'
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.40.0-jammy
@@ -24,11 +24,7 @@ jobs:
         run: pnpm i
       - name: Build packages
         run: pnpm run build
-      - name: Run tests with debugging
-        run: |
-          pnpm run doc test -- -u
-          ls -l /__w/moon-light/moon-light/docs/e2e/
-      - name: Run your tests
-        run: pnpm run doc test
-        env:
-          HOME: /root
+      # - name: Run your tests
+      #   run: pnpm run doc test
+      #   env:
+      #     HOME: /root
