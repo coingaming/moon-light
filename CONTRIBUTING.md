@@ -115,16 +115,18 @@ Thanks to [changeset](https://github.com/changesets/changesets), we can generate
 3. Run `pnpm changeset version` command. This will bump the versions of the packages previously specified with pnpm changeset (and any dependents of those) and update the changelog files.
 4. Run `pnpm install`. This will update the lockfile and rebuild packages.
 5. Commit the changes. (e.g `git add .` and `git commit -m "chore: bump version X.X.X"`)
-5. Push your changes.
-6. Raise a pull request from [`develop` into `master`](https://github.com/coingaming/moon-design/compare/master...develop).
-7. Obtain at least 1 approval.
-8. Click the "Merge Pull Request" button to trigger an automatic release process.
-9. After release is done tag a version on `master` branch and push your tag
+6. Push your changes.
+7. Raise a pull request from [`develop` into `master`](https://github.com/coingaming/moon-design/compare/master...develop).
+8. Obtain at least 1 approval.
+9. Click the "Merge Pull Request" button to trigger an automatic release process.
+10. After release is done tag a version on `master` branch and push your tag
+
 ```
 git checkout master
 git tag vX.X.X
 git push && git push --tags
 ```
+
 10. Communicate the release to the team!
 
 ## Additional materials

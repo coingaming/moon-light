@@ -40,12 +40,11 @@
    pnpm run doc start
    ```
 
-4. Run e2e tests:
+5. Run e2e tests:
 
    ```sh
    pnpm run doc test
    ```
-
 
 ## Architecture
 
