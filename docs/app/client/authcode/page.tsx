@@ -1,15 +1,18 @@
-import React from "react";
+import React, { use } from "react";
 import { getExamples } from "@/utils/getExamples";
 import { MDX } from "@/components/MDX";
 import { ExampleSection } from "@/components/exampleSection/ExampleSection";
+import { MainLayout } from "@/components/MainLayout";
 
+import dynamic from "next/dynamic";
 
-export default async function AuthCodePage() {
+const TITLE = 'AuthCode'
+
+export default async function AuthCodePage(request: any) {
   const { client: { authcode: {
     description,
     examples
   } } } = await getExamples()
-
   // Titles
   const titles: [keyof typeof examples, string][]  = [
     ['Default', 'Default'],
@@ -23,6 +26,7 @@ export default async function AuthCodePage() {
     ['Password', 'Password'],
     ['DifferentGaps', 'Different Gaps']
   ]
+  const isMockup = request?.searchParams?.raw && titles?.map((i) => i[0])?.includes(request?.searchParams?.raw);
 
   const e = titles.map(
     async (title: [keyof typeof examples, string]) => {
@@ -38,13 +42,23 @@ export default async function AuthCodePage() {
     }
   )
 
-  return (
-    <div className="flex flex-col gap-4 text-moon-14">
-      <h1 className="font-medium text-moon-32">AuthCode</h1>
-
-      <MDX markdown={description} />
-      {e}
-      {/* Props table/s */}
+  if (isMockup) {
+    const Component = dynamic(() => import(`@/app/client/authcode/examples/${request?.searchParams?.raw}`), {
+      loading: () => <p>Loading...</p>,
+  });
+    return <div className="p-4">
+      <Component />
     </div>
+  }
+
+  return (
+    <MainLayout isMockup={isMockup}>
+      <div className="flex flex-col gap-4 text-moon-14">
+        <h1 className="font-medium text-moon-32">{TITLE}</h1>
+        <MDX markdown={description} />
+        {e}
+        {/* TODO: Props table/s */}
+      </div>
+    </MainLayout>
   )
 }

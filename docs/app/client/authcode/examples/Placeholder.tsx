@@ -10,3 +10,5 @@ export const Placeholder = () => {
   };
   return <AuthCode onChange={handleOnChange} placeholder="123456" />;
 };
+
+export default Placeholder

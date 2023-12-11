@@ -10,3 +10,5 @@ export const AllowedCharacters = () => {
   };
   return <AuthCode allowedCharacters="numeric" onChange={handleOnChange} />;
 };
+
+export default AllowedCharacters

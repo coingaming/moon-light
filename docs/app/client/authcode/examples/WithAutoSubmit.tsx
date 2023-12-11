@@ -44,3 +44,6 @@ export const WithAutoSubmit = () => {
     </Form>
   );
 };
+
+
+export default WithAutoSubmit

@@ -40,3 +40,5 @@ export const WithManualSubmit = () => {
     </Form>
   );
 };
+
+export default WithManualSubmit

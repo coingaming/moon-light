@@ -54,3 +54,5 @@ export const ErrorState = () => {
     </Form>
   );
 };
+
+export default ErrorState

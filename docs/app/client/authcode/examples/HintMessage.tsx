@@ -15,3 +15,5 @@ export const HintMessage = () => {
     </div>
   );
 };
+
+export default HintMessage

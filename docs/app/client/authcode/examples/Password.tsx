@@ -10,3 +10,5 @@ export const Password = () => {
   };
   return <AuthCode onChange={handleOnChange} isPassword />;
 };
+
+export default Password

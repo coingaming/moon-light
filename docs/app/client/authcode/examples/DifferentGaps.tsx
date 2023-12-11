@@ -19,3 +19,5 @@ export const DifferentGaps = () => {
     </div>
   );
 };
+
+export default DifferentGaps
