@@ -108,3 +108,15 @@ test('Default: should change focus when the user finish the input', async ({ pag
     await expect(secondInput).toBeFocused()
 })
 
+test('Password: should not print any character', async ({ page }) => {
+    const inputs = await (await page.locator('div > input')).all()
+    await inputs[0].fill('1')
+    await inputs[1].fill('1')
+    await inputs[2].fill('1')
+    await inputs[3].fill('1')
+    await inputs[4].fill('1')
+    await inputs[5].fill('1')
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Password-filled.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
