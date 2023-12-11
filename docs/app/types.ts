@@ -6,6 +6,12 @@ export type Examples = {
         "Default": "string"
       }
     },
+    "authcode": {
+      "description": "string",
+      "examples": {
+        "Default": "string"
+      }
+    },
     "button": {
       "description": "string",
       "examples": {

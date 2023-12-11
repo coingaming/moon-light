@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { mergeClassnames } from "@heathmont/moon-base-tw";
 import ToggleCodeBtn from "./ToggleCodeBtn";
 import CodeCopy from "../CodeCopy";
@@ -23,6 +23,24 @@ const CodePreviewWrapper = ({
       setHeight(wrapperRef?.current?.querySelector("#code")?.clientHeight || 0);
     }
   }, []);
+
+  // Remove "use client" from NextJS in the example
+  const cleanChildren = useMemo(() => {
+    if (
+      React.Children.toArray(children).length !== 1
+      || !React.isValidElement(children)
+    ) {
+      // In case we have different number of children, return children
+      return children;
+    } else {
+      const c = React.cloneElement((children as React.ReactElement), {
+        ...((children as React.ReactElement)?.props || {}),
+        children: (children as React.ReactElement).props.children.replace(`"use client"\n\n`, '')
+      })
+      return c;
+    }
+  }, [children])
+
   return (
     <div
       ref={wrapperRef}
@@ -36,7 +54,7 @@ const CodePreviewWrapper = ({
           expand && "max-h-96 overflow-scroll"
         )}
       >
-        {children}
+        {cleanChildren}
       </div>
       <CodeCopy code={code} />
       {height > 72 && (
