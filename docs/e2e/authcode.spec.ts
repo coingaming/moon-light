@@ -25,7 +25,7 @@ test('Default: should exists 6 input in the DOM', async ({ page }) => {
     await expect(elementExists.length).toBe(6)
 })
 
-test('Default: user should be able to input in every box', async({ page, browser }) => {
+test('Default: user should be able to input in every box', async({ page }) => {
     const inputs = (await page.$$('div > input'))
     await inputs[0].fill('1')
     await inputs[1].fill('1')
