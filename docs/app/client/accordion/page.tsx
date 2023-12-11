@@ -22,12 +22,15 @@ export default async function AccordionPage(request: {
       accordion: { description, descriptions: exampleDescriptions, examples },
     },
   } = await getExamples();
-  const ordered = ["Default",  "ControlOutside",
-  "Customization",
-  "Disabled",
-  "HeaderContent",
-  "OpenByDefault",
-  "SingleOpen"];
+  const ordered = [
+    "Default",
+    "ControlOutside",
+    "Customization",
+    "Disabled",
+    "HeaderContent",
+    "OpenByDefault",
+    "SingleOpen",
+  ];
   const searchParam = request?.searchParams?.raw;
   const isMockup = !!searchParam && Object.keys(examples).includes(searchParam);
 
@@ -37,7 +40,7 @@ export default async function AccordionPage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      },
+      }
     );
     return (
       <div className="p-4" id="playwright-test">

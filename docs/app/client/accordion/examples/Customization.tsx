@@ -28,4 +28,4 @@ export const Customization = () => (
   </>
 );
 
-export default Customization
+export default Customization;

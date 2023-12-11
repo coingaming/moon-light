@@ -40,4 +40,4 @@ export const HeaderContent = () => (
   </Accordion>
 );
 
-export default HeaderContent
+export default HeaderContent;

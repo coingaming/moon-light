@@ -26,4 +26,4 @@ export const Disabled = () => (
   </Accordion>
 );
 
-export default Disabled
+export default Disabled;
