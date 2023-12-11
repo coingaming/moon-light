@@ -3,7 +3,8 @@ export type Examples = {
     "accordion": {
       "description": "string",
       "examples": {
-        "Default": "string"
+        "Default": "string",
+        "OpenByDefault": "string"
       }
     },
     "authcode": {
