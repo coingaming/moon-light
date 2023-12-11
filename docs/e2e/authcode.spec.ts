@@ -171,3 +171,10 @@ test('WithManualSubmit: should submit on the button click', async ({ page }) => 
     await expect(dialogMessage).toBe('123456')
 })
 
+test('HintMessage: should have text hint', async ({ page }) => {
+    await expect(await page.locator('p[role="alert"]').innerText()).toBe('Hint message')
+})
+
+test('CustomLength: should have custom length inputs', async ({ page }) => {
+    await expect((await page.locator('div > input').all()).length).toBe(4)
+})
