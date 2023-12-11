@@ -14,7 +14,7 @@ export default async function AuthCodePage(request: any) {
     examples
   } } } = await getExamples()
   // Titles
-  const titles: [keyof typeof examples, string][]  = [
+  const titles: [keyof typeof examples, string][] = [
     ['Default', 'Default'],
     ['WithManualSubmit', 'React Hook Form integration - Manual Submit'],
     ['WithAutoSubmit', 'React Hook Form integration - Auto Submit'],
@@ -30,23 +30,23 @@ export default async function AuthCodePage(request: any) {
 
   const e = titles.map(
     async (title: [keyof typeof examples, string]) => {
-        const exampleKey = title[0];
-        const Component = (await import(`@/app/client/authcode/examples/${exampleKey}`))[exampleKey];
+      const exampleKey = title[0];
+      const Component = (await import(`@/app/client/authcode/examples/${exampleKey}`))[exampleKey];
 
-        return <ExampleSection
-            key={exampleKey}
-            title={title[1]}
-            component={<Component />}
-            code={examples?.[exampleKey]}
-        />
+      return <ExampleSection
+        key={exampleKey}
+        title={title[1]}
+        component={<Component />}
+        code={examples?.[exampleKey]}
+      />
     }
   )
 
   if (isMockup) {
     const Component = dynamic(() => import(`@/app/client/authcode/examples/${request?.searchParams?.raw}`), {
       loading: () => <p>Loading...</p>,
-  });
-    return <div className="p-4">
+    });
+    return <div className="p-4" id="playwright-test">
       <Component />
     </div>
   }
