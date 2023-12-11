@@ -20,6 +20,61 @@ test('Default: should be visible in a short term', async ({ page }) => {
     })
 })
 
+test('ErrorState: should be visible in a short term', async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-ErrorState.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
+
+test('AllowedCharacters: should be visible in a short term', async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-AllowedCharacters.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
+
+test('CustomLength: should be visible in a short term', async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-CustomLength.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
+
+test('DifferentGaps: should be visible in a short term', async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-DifferentGaps.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
+
+test('HintMessage: should be visible in a short term', async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-HintMessage.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
+
+test('Password: should be visible in a short term', async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Password.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
+
+test('Placeholder: should be visible in a short term', async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Placeholder.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
+
+test('WithAutoSubmit: should be visible in a short term', async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithAutoSubmit.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
+
+test('WithManualSubmit: should be visible in a short term', async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithManualSubmit.png`, {
+        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+    })
+})
+
+
 test('Default: should exists 6 input in the DOM', async ({ page }) => {
     const elementExists = await page.$$('div > input')
     await expect(elementExists.length).toBe(6)
