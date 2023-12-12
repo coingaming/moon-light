@@ -8,6 +8,9 @@ export type Examples = {
     },
     "button": {
       "description": "string",
+      "descriptions": {
+        "Default": "string"
+      },
       "examples": {
         "Default": "string"
       }
