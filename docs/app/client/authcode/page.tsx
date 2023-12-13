@@ -1,12 +1,12 @@
-import React, { use } from "react"
+import React from "react"
 import Image from 'next/image'
 import { getExamples } from "@/utils/getExamples"
 import { MDX } from "@/components/MDX"
-import { ExampleSection, ExampleSectionData, withExamples } from "@/components/exampleSection/ExampleSection"
+import { ExampleSectionData } from "@/components/exampleSection/ExampleSection"
 import { MainLayout } from "@/components/MainLayout"
 
 import dynamic from "next/dynamic"
-import TitleTags, { TagTypes } from "@/components/TitleTags"
+import TitleTags from "@/components/TitleTags"
 
 import image from './authcode.webp'
 import { Loader } from "@heathmont/moon-base-tw"
@@ -39,8 +39,8 @@ export default async function AuthCodePage(request: any) {
             <h1 className="font-medium text-moon-32">{TITLE}</h1>
             <div className="mt-2" />
             <TitleTags tags={[
-              TagTypes.ARIA,
-              TagTypes.RTL
+              'ARIA',
+              'RTL'
             ]} />
             <div className="mt-4" />
             <MDX markdown={description} />
@@ -52,12 +52,12 @@ export default async function AuthCodePage(request: any) {
           />
         </div>
         <ExampleSectionData
+          componentName="authcode"
           client={{
             description,
             descriptions: exampleDescriptions,
             examples
           }}
-          componentName="authcode"
           data={ordered}
         />
         {/* TODO: Props table/s */}

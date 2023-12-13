@@ -1,28 +1,25 @@
 import { Tag } from "@heathmont/moon-base-tw";
 
-export enum TagTypes {
-    ARIA = 'ARIA',
-    RTL = 'RTL',
-}
+type TagTypes = 'ARIA' | 'RTL';
 
-export interface ITitleTags {
+export interface TitleTagsProps {
     tags: TagTypes[];
 }
 
-export function TitleTags({ tags = [] }: ITitleTags) {
+export function TitleTags({ tags = [] }: TitleTagsProps) {
     const _assignColor = (tag: TagTypes) => {
         let cls: {
             bg?: string;
             color?: string;
         } = { bg: undefined, color: undefined }
         switch (tag) {
-            case TagTypes.ARIA:
+            case 'ARIA':
                 cls = {
                     bg: "bg-nappa",
                     color: "text-goten"
                 }
                 break
-            case TagTypes.RTL:
+            case 'RTL':
                 cls = {
                     bg: "bg-whis",
                     color: "text-goten"
