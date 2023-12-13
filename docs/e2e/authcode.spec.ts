@@ -10,9 +10,9 @@ test.beforeEach(async ({ page }, testInfo) => {
     await page.goto(`/client/authcode/${example}`)
     await page.waitForTimeout(DEFAULT_TIMEOUT)
 });
-test.afterEach(async ({ page }, testInfo) => {
+test.afterEach(async ({ page }) => {
     // Cleanup from route
-    await page.close({ runBeforeUnload: true })
+    await page.close()
 })
 
 test('Default: should render and match screenshot', async ({ page }) => {
@@ -93,10 +93,11 @@ test('Default: should be able to input in every box', async ({ page }) => {
 
     await page.waitForTimeout(100)
 
-    inputs.forEach(async (_, index) => {
-        const input = await page.locator(`div > input:nth-child(${(index + 1)})`)
-        await expect(input).toHaveValue('1')
-    })
+    await expect(await inputs[0].inputValue()).toBe('1')
+    await expect(await inputs[1].inputValue()).toBe('1')
+    await expect(await inputs[2].inputValue()).toBe('1')
+    await expect(await inputs[3].inputValue()).toBe('1')
+    await expect(await inputs[4].inputValue()).toBe('1')
 })
 
 test('Default: should change focus when the user finish the input', async ({ page }) => {
