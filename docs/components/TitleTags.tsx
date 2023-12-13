@@ -6,38 +6,25 @@ export interface TitleTagsProps {
   tags: TagTypes[];
 }
 
+const colors: Record<TagTypes, string> = {
+  "ARIA": "bg-nappa",
+  "RTL": "bg-whis",
+}
+
 export function TitleTags({ tags = [] }: TitleTagsProps) {
-  const _assignColor = (tag: TagTypes) => {
-    let cls: {
-      bg?: string;
-      color?: string;
-    } = { bg: undefined, color: undefined };
-    switch (tag) {
-      case "ARIA":
-        cls = {
-          bg: "bg-nappa",
-          color: "text-goten",
-        };
-        break;
-      case "RTL":
-        cls = {
-          bg: "bg-whis",
-          color: "text-goten",
-        };
-        break;
-    }
-    return cls;
-  };
   return (
     <div className="flex gap-2">
-      {tags.map((tag: TagTypes) => {
-        const cls = _assignColor(tag);
-        return (
-          <Tag key={tag} size="xs" bgColor={cls.bg} color={cls.color}>
-            {tag}
-          </Tag>
-        );
-      })}
+      {tags.map((tag: TagTypes) => (
+        <Tag
+          key={tag}
+          size="xs"
+          bgColor={colors[tag]}
+          color="text-goten"
+        >
+          {tag}
+        </Tag>
+      )
+      )}
     </div>
   );
 }
