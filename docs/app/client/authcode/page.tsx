@@ -13,7 +13,9 @@ import { Loader } from "@heathmont/moon-base-tw";
 
 const TITLE = "AuthCode";
 
-export default async function AuthCodePage(request: any) {
+export default async function AuthCodePage(request: {
+  searchParams: { raw: string };
+}) {
   const {
     client: {
       authcode: { description, descriptions: exampleDescriptions, examples },
@@ -21,7 +23,7 @@ export default async function AuthCodePage(request: any) {
   } = await getExamples();
   const ordered = ["Default", "WithManualSubmit", "WithAutoSubmit"];
   const isMockup =
-    request?.searchParams?.raw &&
+    !!request?.searchParams?.raw &&
     Object.keys(examples).includes(request?.searchParams?.raw);
 
   if (isMockup) {
