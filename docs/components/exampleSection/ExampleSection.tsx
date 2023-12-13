@@ -13,7 +13,6 @@ type Props = {
   description?: JSX.Element;
   component: JSX.Element;
   code: string;
-  
 };
 
 export const ExampleSection = async ({
@@ -23,7 +22,10 @@ export const ExampleSection = async ({
   code,
 }: Props) => (
   <div className="flex flex-col gap-4 relative">
-    <HeaderSection title={title} description={description} />
+    <HeaderSection
+      title={title}
+      description={description ? <MDX markdown={description} /> : undefined}
+    />
     <div className="bg-gohan rounded-moon-i-sm overflow-hidden mt-2">
       <ComponentPreview component={component} />
       <CodePreview code={code} />
@@ -39,7 +41,7 @@ export async function withExamples(
     examples: Record<string, string>;
   },
   data: string[],
-  componentName: string,
+  componentName: string
 ) {
   const { descriptions, examples } = client;
 
@@ -51,7 +53,7 @@ export async function withExamples(
       () => import(`@/app/client/${componentName}/examples/${ex}`),
       {
         loading: () => <Loader />,
-      },
+      }
     );
     let title;
     if (descriptions?.[exampleDescriptionKey]) {
