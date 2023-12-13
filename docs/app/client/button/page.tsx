@@ -1,6 +1,7 @@
 import { Default } from "@/app/client/button/examples/Default";
 import { getExamples } from "@/utils/getExamples";
 import { MDX } from "@/components/MDX";
+import { PropsTable } from "@/components/propsTable";
 
 export default async function Home() {
   const { client } = await getExamples()
@@ -16,6 +17,23 @@ export default async function Home() {
           <Default />
         </div>
         <pre className="bg-goku rounded-moon-s-sm p-4">{client.button.examples.Default}</pre>
+        <PropsTable
+          title="Props"
+          data={[
+            {
+              name: 'itemSize',
+              type: 'string',
+              defaultState: '-',
+              description: 'Lalallaala test description'
+            },
+            {
+              name: 'itemSize',
+              type: 'string',
+              defaultState: '-',
+              description: 'Lalallaala test description'
+            }
+          ]}
+        />
       </div>
     </div>
   )
