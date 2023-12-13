@@ -5,8 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build:types": "node scripts/buildExamplesType.mjs",
-    "cli": "node scripts/cli.mjs",
-    "cli:help": "node scripts/cli.mjs help",
     "build": "pnpm run build:types && next build",
     "lint": "next lint",
     "start": "next start",
