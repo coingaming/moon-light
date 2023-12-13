@@ -19,7 +19,7 @@ export default async function AuthCodePage(request: any) {
     descriptions: exampleDescriptions,
     examples
   } } } = await getExamples()
-  const ordered = ['Default', 'ErrorState', 'AllowedCharacters']
+  const ordered = ['Default', 'WithManualSubmit', 'WithAutoSubmit']
   const isMockup = request?.searchParams?.raw && Object.keys(examples).includes(request?.searchParams?.raw);
 
   if (isMockup) {
