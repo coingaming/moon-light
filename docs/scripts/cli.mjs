@@ -13,9 +13,9 @@ title: ${title || name}
     const _example = `"use client";
 
 import React from "react";
-export const ${name} = () => (
+export const ${name} = () => {
     return <div />
-)
+}
 
 export default ${name}
 `;
