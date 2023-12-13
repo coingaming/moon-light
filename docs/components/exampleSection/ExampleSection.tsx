@@ -10,7 +10,7 @@ import { MDX } from "../MDX";
 
 type Props = {
   title: string;
-  description?: string ;
+  description?: JSX.Element;
   component: JSX.Element;
   code: string;
   
@@ -23,7 +23,7 @@ export const ExampleSection = async ({
   code,
 }: Props) => (
   <div className="flex flex-col gap-4 relative">
-    <HeaderSection title={title} description={description ? <MDX markdown={description} /> : undefined} />
+    <HeaderSection title={title} description={description} />
     <div className="bg-gohan rounded-moon-i-sm overflow-hidden mt-2">
       <ComponentPreview component={component} />
       <CodePreview code={code} />
