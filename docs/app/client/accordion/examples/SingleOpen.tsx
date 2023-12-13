@@ -4,7 +4,7 @@ import React from "react";
 import Accordion from "@heathmont/moon-core-tw/lib/es/accordion/Accordion";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
-export const Single = () => (
+export const SingleOpen = () => (
   <Accordion singleOpen>
     <Accordion.Item value="item-1">
       <Accordion.Header className="moon-open:[&_svg]:rotate-180">
@@ -42,3 +42,5 @@ export const Single = () => (
     </Accordion.Item>
   </Accordion>
 );
+
+export default SingleOpen

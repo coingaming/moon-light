@@ -25,3 +25,5 @@ export const OpenByDefault = () => (
     </Accordion.Item>
   </Accordion>
 );
+
+export default OpenByDefault

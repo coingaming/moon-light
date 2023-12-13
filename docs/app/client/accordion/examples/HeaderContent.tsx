@@ -39,3 +39,5 @@ export const HeaderContent = () => (
     </Accordion.Item>
   </Accordion>
 );
+
+export default HeaderContent

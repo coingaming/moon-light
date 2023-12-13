@@ -10,7 +10,7 @@ export const Customization = () => (
       <Accordion.Item value="item-1">
         <Accordion.Header className="moon-open:[&_svg]:rotate-180 bg-beerus">
           <Accordion.Button>
-            <span>Test accordion with backgound</span>
+            <span>Test accordion with background</span>
             <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
           </Accordion.Button>
         </Accordion.Header>
@@ -27,3 +27,5 @@ export const Customization = () => (
     </Accordion>
   </>
 );
+
+export default Customization
