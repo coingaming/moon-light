@@ -9,6 +9,7 @@ type ColorModes = {
 };
 
 type Themes = {
+  moon: ColorModes;
   betadda: ColorModes;
   bitcasino: ColorModes;
   bombay: ColorModes;
@@ -28,6 +29,10 @@ type Themes = {
 };
 
 export const themes: Themes = {
+  moon: {
+    dark: 'theme-moon-dark',
+    light: 'theme-moon-light',
+  },
   betadda: {
     dark: 'theme-betadda-dark',
     light: 'theme-betadda-light',
@@ -95,7 +100,7 @@ export type Mode = keyof ColorModes;
 
 const useTheme = () => {
   const [themeState, setThemeState] = React.useState({
-    brand: 'moonDesign' as Brand,
+    brand: 'moon' as Brand,
     colorMode: 'light' as Mode,
   });
 
