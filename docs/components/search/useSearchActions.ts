@@ -1,5 +1,5 @@
-import { Examples } from '@/app/types';
-import { getExamples } from '@/utils/getExamples';
+import { Examples } from "@/app/types";
+import { getExamples } from "@/utils/getExamples";
 
 export type Action = {
   id: string;
@@ -13,22 +13,22 @@ export const useSearchActions = async (): Promise<Action[]> => {
 
   let actions: Action[] = [
     {
-      id: 'homepage',
-      name: 'Homepage',
-      href: '/',
+      id: "homepage",
+      name: "Homepage",
+      href: "/",
     },
   ];
 
   const mapActions = (
     examples: Examples["client"] | Examples["server"],
-    type: 'client' | 'server'
+    type: "client" | "server",
   ) => {
     for (const [componentName, value] of Object.entries(examples)) {
       const action = {
         id: `${type}#${componentName}`,
         name: componentName,
         href: `/${type}/${componentName}`,
-        section: type
+        section: type,
       };
       actions.push(action);
 
@@ -37,15 +37,15 @@ export const useSearchActions = async (): Promise<Action[]> => {
           id: `${type}#${componentName}#${exampleName}`,
           name: `${componentName} - ${exampleName}`,
           href: `/${type}/${componentName}#${exampleName}`,
-          section: type
+          section: type,
         };
         actions.push(action);
       }
     }
-  }
+  };
 
-  mapActions(examples.server, 'server');
-  mapActions(examples.client, 'client');
+  mapActions(examples.server, "server");
+  mapActions(examples.client, "client");
 
   return actions;
 
@@ -73,6 +73,4 @@ export const useSearchActions = async (): Promise<Action[]> => {
   // const components = [...component];
   // mapNavigation(navigation);
   // mapNavigation(components, 'components');
-
-
 };

@@ -1,4 +1,4 @@
-import NativeSelect from '@heathmont/moon-base-tw/lib/nativeSelect/NativeSelect';
+import NativeSelect from "@heathmont/moon-base-tw/lib/nativeSelect/NativeSelect";
 
 export const Default = () => (
   <NativeSelect>

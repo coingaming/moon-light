@@ -1,5 +1,5 @@
-import Button from '@heathmont/moon-base-tw/lib/button/Button';
-import { OtherFrame } from '@heathmont/moon-icons-tw';
+import Button from "@heathmont/moon-base-tw/lib/button/Button";
+import { OtherFrame } from "@heathmont/moon-icons-tw";
 
 export const Icons = () => (
   <>

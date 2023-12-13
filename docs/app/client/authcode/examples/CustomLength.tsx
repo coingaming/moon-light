@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import React from 'react';
-import { AuthCode, Form } from '@heathmont/moon-core-tw';
-import { Controller, useForm } from 'react-hook-form';
+import React from "react";
+import { AuthCode, Form } from "@heathmont/moon-core-tw";
+import { Controller, useForm } from "react-hook-form";
 
 export const CustomLength = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      authCode: '',
+      authCode: "",
     },
   });
   const codeLength = 4;
@@ -38,4 +38,4 @@ export const CustomLength = () => {
   );
 };
 
-export default CustomLength
+export default CustomLength;

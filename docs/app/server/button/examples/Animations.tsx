@@ -1,4 +1,4 @@
-import Button from '@heathmont/moon-base-tw/lib/button/Button';
+import Button from "@heathmont/moon-base-tw/lib/button/Button";
 
 export const Animations = () => (
   <>

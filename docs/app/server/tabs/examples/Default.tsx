@@ -1,4 +1,4 @@
-import Tabs from '@heathmont/moon-base-tw/lib/tabs/Tabs';
+import Tabs from "@heathmont/moon-base-tw/lib/tabs/Tabs";
 
 export const Default = () => (
   <Tabs>

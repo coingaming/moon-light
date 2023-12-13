@@ -1,4 +1,3 @@
-
 import { SearchProvider } from "@/components/search/SearchProvider";
 import { RtlProvider } from "@/components/settings/utils/RTLProvider";
 import { useSearchActions } from "@/components/search/useSearchActions";
@@ -22,9 +21,7 @@ export default async function RootLayout({
     <html lang="en" dir="ltr">
       <SearchProvider actions={actions}>
         <RtlProvider>
-          <body className="theme-moon-light bg-gohan">
-            {children}
-          </body>
+          <body className="theme-moon-light bg-gohan">{children}</body>
         </RtlProvider>
       </SearchProvider>
     </html>

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import { AuthCode, Hint } from '@heathmont/moon-core-tw';
+import React, { useState } from "react";
+import { AuthCode, Hint } from "@heathmont/moon-core-tw";
 
 export const HintMessage = () => {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState("");
   const handleOnChange = (res: string) => {
     setResult(res);
   };
@@ -16,4 +16,4 @@ export const HintMessage = () => {
   );
 };
 
-export default HintMessage
+export default HintMessage;

@@ -1,8 +1,8 @@
-import { ExampleSection } from '@/components/exampleSection/ExampleSection';
-import { PropsTable } from '@/components/propsTable';
-import { QuickNav } from '@/components/QuickNav';
-import { getExamples } from '@/utils/getExamples';
-import { MDX } from '@/components/MDX';
+import { ExampleSection } from "@/components/exampleSection/ExampleSection";
+import { PropsTable } from "@/components/propsTable";
+import { QuickNav } from "@/components/QuickNav";
+import { getExamples } from "@/utils/getExamples";
+import { MDX } from "@/components/MDX";
 
 export default async function Button() {
   const { server } = await getExamples();
@@ -11,7 +11,9 @@ export default async function Button() {
 
   const examples = sortedExamples.map(async (exampleName) => {
     const exampleKey = exampleName as keyof typeof server.button.examples;
-    const Component = (await import(`@/app/server/button/examples/${exampleKey}`))[exampleKey];
+    const Component = (
+      await import(`@/app/server/button/examples/${exampleKey}`)
+    )[exampleKey];
 
     return (
       <ExampleSection
@@ -34,64 +36,64 @@ export default async function Button() {
         title="Button props"
         data={[
           {
-            name: 'animation',
+            name: "animation",
             type: "'progress' | 'success' | 'error' | 'pulse' | boolean",
-            defaultState: '-',
-            description: 'Animation of button',
+            defaultState: "-",
+            description: "Animation of button",
           },
           {
-            name: 'as',
-            type: 'a | button',
-            defaultState: 'button',
-            description: 'Rendered HTML element',
+            name: "as",
+            type: "a | button",
+            defaultState: "button",
+            description: "Rendered HTML element",
           },
           {
-            name: 'children',
-            type: 'React.ReactNode',
-            defaultState: '-',
-            description: 'Children content',
+            name: "children",
+            type: "React.ReactNode",
+            defaultState: "-",
+            description: "Children content",
           },
           {
-            name: 'className',
-            type: 'string',
-            defaultState: '-',
-            description: 'Tailwind classes for customization',
+            name: "className",
+            type: "string",
+            defaultState: "-",
+            description: "Tailwind classes for customization",
           },
           {
-            name: 'disabled',
-            type: 'boolean',
-            defaultState: 'false',
-            description: 'Disabled button',
+            name: "disabled",
+            type: "boolean",
+            defaultState: "false",
+            description: "Disabled button",
           },
           {
-            name: 'fullWidth',
-            type: 'boolean',
-            defaultState: 'false',
-            description: 'Full width button',
+            name: "fullWidth",
+            type: "boolean",
+            defaultState: "false",
+            description: "Full width button",
           },
           {
-            name: 'iconLeft',
-            type: 'JSX.Element',
-            defaultState: '-',
-            description: 'Left icon',
+            name: "iconLeft",
+            type: "JSX.Element",
+            defaultState: "-",
+            description: "Left icon",
           },
           {
-            name: 'iconRight',
-            type: 'JSX.Element',
-            defaultState: '-',
-            description: 'Right icon',
+            name: "iconRight",
+            type: "JSX.Element",
+            defaultState: "-",
+            description: "Right icon",
           },
           {
-            name: 'size',
-            type: 'xs | sm | md | lg | xl',
-            defaultState: 'md',
-            description: 'Size of button',
+            name: "size",
+            type: "xs | sm | md | lg | xl",
+            defaultState: "md",
+            description: "Size of button",
           },
           {
-            name: 'variant',
-            type: 'fill | outline | ghost',
-            defaultState: 'fill',
-            description: 'Visual/Logical variant of button',
+            name: "variant",
+            type: "fill | outline | ghost",
+            defaultState: "fill",
+            description: "Visual/Logical variant of button",
           },
         ]}
       />

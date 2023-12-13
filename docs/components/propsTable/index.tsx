@@ -1,5 +1,5 @@
-import PropsTableItem from './PropsTableItem';
-import HeaderSection from '../HeaderSection';
+import PropsTableItem from "./PropsTableItem";
+import HeaderSection from "../HeaderSection";
 
 export type Data = {
   name: string;

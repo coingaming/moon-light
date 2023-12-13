@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import React from 'react';
-import { AuthCode, Form } from '@heathmont/moon-core-tw';
-import { Controller, useForm, SubmitHandler } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import React from "react";
+import { AuthCode, Form } from "@heathmont/moon-core-tw";
+import { Controller, useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
 const schema = z.object({
   authCode: z
     .string()
-    .length(6, { message: 'Must be exactly 6 characters long' }),
+    .length(6, { message: "Must be exactly 6 characters long" }),
 });
 
 type ValidationSchema = z.infer<typeof schema>;
@@ -17,7 +17,7 @@ type ValidationSchema = z.infer<typeof schema>;
 export const WithAutoSubmit = () => {
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      authCode: '',
+      authCode: "",
     },
     resolver: zodResolver(schema),
   });
@@ -45,5 +45,4 @@ export const WithAutoSubmit = () => {
   );
 };
 
-
-export default WithAutoSubmit
+export default WithAutoSubmit;

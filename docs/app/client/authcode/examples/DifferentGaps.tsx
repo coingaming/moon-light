@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react';
-import { AuthCode } from '@heathmont/moon-core-tw';
+import React, { useState } from "react";
+import { AuthCode } from "@heathmont/moon-core-tw";
 
 export const DifferentGaps = () => {
-  const [result1, setResult1] = useState('');
+  const [result1, setResult1] = useState("");
   const handleOnChange1 = () => {
     setResult1(result1);
   };
-  const [result12, setResult2] = useState('');
+  const [result12, setResult2] = useState("");
   const handleOnChange2 = () => {
     setResult2(result12);
   };
@@ -20,4 +20,4 @@ export const DifferentGaps = () => {
   );
 };
 
-export default DifferentGaps
+export default DifferentGaps;

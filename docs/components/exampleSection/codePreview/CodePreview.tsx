@@ -1,4 +1,4 @@
-import CodePreviewWrapper from './wrapper/CodePreviewWrapper';
+import CodePreviewWrapper from "./wrapper/CodePreviewWrapper";
 
 const CodePreview = ({ code }: { code: string }) => {
   return (

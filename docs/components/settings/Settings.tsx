@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import Switch from '@heathmont/moon-core-tw/lib/es/switch/Switch'
-import IconButton from '@heathmont/moon-core-tw/lib/es/iconButton/IconButton';
-import Popover from '@heathmont/moon-core-tw/lib/es/popover/Popover'
-import MenuItem from '@heathmont/moon-core-tw/lib/es/menuItem/MenuItem'
+import Switch from "@heathmont/moon-core-tw/lib/es/switch/Switch";
+import IconButton from "@heathmont/moon-core-tw/lib/es/iconButton/IconButton";
+import Popover from "@heathmont/moon-core-tw/lib/es/popover/Popover";
+import MenuItem from "@heathmont/moon-core-tw/lib/es/menuItem/MenuItem";
 
 import {
   MediaTuner,
@@ -11,11 +11,11 @@ import {
   OtherSun,
   TextLeftAlign,
   TextRightAlign,
-} from '@heathmont/moon-icons-tw';
-import BrandSwitcher from './BrandSwitcher';
-import { useRtl } from '@/components/settings/utils/RTLProvider';
-import useTheme from '@/components/settings/utils/useThemes';
-import { isLocalhost } from './utils/isLocalhost';
+} from "@heathmont/moon-icons-tw";
+import BrandSwitcher from "./BrandSwitcher";
+import { useRtl } from "@/components/settings/utils/RTLProvider";
+import useTheme from "@/components/settings/utils/useThemes";
+import { isLocalhost } from "./utils/isLocalhost";
 
 const Settings = () => {
   const { toggleDarkLightMode, isDarkThemeEnabled } = useTheme();
@@ -24,7 +24,7 @@ const Settings = () => {
   return (
     <Popover
       className="fixed z-50 bottom-4 lg:bottom-20 end-4"
-      position={isRTLEnabled ? 'top-end' : 'top-start'}
+      position={isRTLEnabled ? "top-end" : "top-start"}
     >
       <Popover.Trigger>
         <IconButton
@@ -36,7 +36,7 @@ const Settings = () => {
       <Popover.Panel className="flex flex-col gap-1 p-3">
         {isLocalhost() && <BrandSwitcher />}
         <MenuItem as="div" className="cursor-default">
-          {isDarkThemeEnabled ? 'Dark mode' : 'Light mode'}
+          {isDarkThemeEnabled ? "Dark mode" : "Light mode"}
           <Switch
             checked={isDarkThemeEnabled}
             onChange={toggleDarkLightMode}
@@ -47,7 +47,7 @@ const Settings = () => {
           />
         </MenuItem>
         <MenuItem as="div" className="cursor-default">
-          {isRTLEnabled ? 'RTL mode' : 'LTR mode'}
+          {isRTLEnabled ? "RTL mode" : "LTR mode"}
           <Switch
             checked={isRTLEnabled}
             onChange={toggleRTL}

@@ -1,7 +1,7 @@
-import { ExampleSection } from '@/components/exampleSection/ExampleSection';
-import { QuickNav } from '@/components/QuickNav';
-import { getExamples } from '@/utils/getExamples';
-import { MDX } from '@/components/MDX';
+import { ExampleSection } from "@/components/exampleSection/ExampleSection";
+import { QuickNav } from "@/components/QuickNav";
+import { getExamples } from "@/utils/getExamples";
+import { MDX } from "@/components/MDX";
 
 export default async function Checkbox() {
   const { server } = await getExamples();
@@ -9,7 +9,9 @@ export default async function Checkbox() {
 
   const examples = sortedExamples.map(async (exampleName) => {
     const exampleKey = exampleName as keyof typeof server.checkbox.examples;
-    const Component = (await import(`@/app/server/checkbox/examples/${exampleKey}`))[exampleKey];
+    const Component = (
+      await import(`@/app/server/checkbox/examples/${exampleKey}`)
+    )[exampleKey];
 
     return (
       <ExampleSection

@@ -1,5 +1,5 @@
-import Accordion from '@heathmont/moon-base-tw/lib/accordion/Accordion';
-import { ControlsChevronDownSmall } from '@heathmont/moon-icons-tw';
+import Accordion from "@heathmont/moon-base-tw/lib/accordion/Accordion";
+import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
 export const ContentOutsideSizes = () => (
   <>
