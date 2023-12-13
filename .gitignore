@@ -33,6 +33,7 @@ cache
 *.tsbuildinfo
 
 # next.js
+/docs/.next
 /.next/
 /out/
 
