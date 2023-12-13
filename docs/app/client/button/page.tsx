@@ -2,6 +2,7 @@ import { Default } from "@/app/client/button/examples/Default";
 import { getExamples } from "@/utils/getExamples";
 import { MDX } from "@/components/MDX";
 import { PropsTable } from "@/components/propsTable";
+import props from './props'
 
 export default async function Home() {
   const { client } = await getExamples()
@@ -11,28 +12,14 @@ export default async function Home() {
 
       <MDX markdown={client.button.description} />
 
-      <div className="space-y-2">
+      <div className="space-y-2 pb-20">
         <h2>Default</h2>
         <div className={'flex flex-wrap items-center justify-around p-4 gap-2 w-full bg-goku rounded-moon-s-sm'}>
           <Default />
         </div>
-        <pre className="bg-goku rounded-moon-s-sm p-4">{client.button.examples.Default}</pre>
         <PropsTable
           title="Props"
-          data={[
-            {
-              name: 'itemSize',
-              type: 'string',
-              defaultState: '-',
-              description: 'Lalallaala test description'
-            },
-            {
-              name: 'itemSize',
-              type: 'string',
-              defaultState: '-',
-              description: 'Lalallaala test description'
-            }
-          ]}
+          data={props}
         />
       </div>
     </div>
