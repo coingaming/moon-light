@@ -1,4 +1,3 @@
-import mergeClassnames from '@heathmont/moon-base-tw/lib/mergeClassnames/mergeClassnames';
 import CodePreview from './codePreview/CodePreview';
 import ComponentPreview from './ComponentPreview';
 import HeaderSection from '../HeaderSection';
@@ -8,7 +7,6 @@ import dynamic from 'next/dynamic';
 import { Loader } from '@heathmont/moon-base-tw';
 import formatTitle from '@/utils/formatTitle';
 import { MDX } from '../MDX';
-import { Examples } from '@/app/types';
 
 type Props = {
   title: string;
@@ -32,38 +30,30 @@ export const ExampleSection = async ({
   </div>
 );
 
+
 export async function withExamples(
   WrappedComponent: React.ComponentType<Props>,
+  client: { description?: string; descriptions: Record<string, string>; examples: Record<string, string> },
   data: string[],
   componentName: string
 ) {
-  // TODO: Proper type?
-  const { client } = await getExamples() as any;
   const {
     descriptions,
     examples
-  } = client?.[componentName as keyof typeof client]
+  } = client
 
-  const ReturnComponent = (props: Props) => {
-    return (
-      <WrappedComponent
-        {...props}
-      />
-    )
-  }
-
-  if (!examples) return null
+  if (!examples) return <div />
   return data?.map?.(async (ex: string) => {
     const exampleKey = ex as keyof typeof examples
     const exampleDescriptionKey = ex as keyof typeof descriptions
-    const Component = dynamic(() => import(`@/app/client/authcode/examples/${ex}`), {
+    const Component = dynamic(() => import(`@/app/client/${componentName}/examples/${ex}`), {
       loading: () => <Loader />,
     });
     let title
     if (descriptions?.[exampleDescriptionKey]) {
       title = (await serialize(descriptions?.[exampleDescriptionKey], { parseFrontmatter: true }))?.frontmatter?.title
     }
-    return <ReturnComponent
+    return <WrappedComponent
       key={ex}
       title={title as string | undefined || formatTitle(ex)}
       component={<Component />}
@@ -77,3 +67,13 @@ export async function withExamples(
     />
   })
 }
+
+export const ExampleSectionData = ({
+  client,
+  data,
+  componentName
+}: {
+  client: { description?: string; descriptions: Record<string, string>; examples: Record<string, string> };
+  data: string[];
+  componentName: string;
+}) => withExamples(ExampleSection, client, data, componentName)

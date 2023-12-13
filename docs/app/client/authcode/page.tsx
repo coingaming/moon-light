@@ -2,7 +2,7 @@ import React, { use } from "react"
 import Image from 'next/image'
 import { getExamples } from "@/utils/getExamples"
 import { MDX } from "@/components/MDX"
-import { ExampleSection, withExamples } from "@/components/exampleSection/ExampleSection"
+import { ExampleSection, ExampleSectionData, withExamples } from "@/components/exampleSection/ExampleSection"
 import { MainLayout } from "@/components/MainLayout"
 
 import dynamic from "next/dynamic"
@@ -19,9 +19,8 @@ export default async function AuthCodePage(request: any) {
     descriptions: exampleDescriptions,
     examples
   } } } = await getExamples()
-  const _ordered = ['Default']
+  const ordered = ['Default', 'ErrorState', 'AllowedCharacters']
   const isMockup = request?.searchParams?.raw && Object.keys(examples).includes(request?.searchParams?.raw);
-
 
   if (isMockup) {
     const Component = dynamic(() => import(`@/app/client/authcode/examples/${request?.searchParams?.raw}`), {
@@ -34,7 +33,7 @@ export default async function AuthCodePage(request: any) {
 
   return (
     <MainLayout isMockup={isMockup}>
-      <div className="flex flex-col gap-4 text-moon-14">
+      <div className="flex flex-col gap-4 text-moon-14 pb-20">
         <div className="grid grid-cols-2 gap-4">
           <div>
             <h1 className="font-medium text-moon-32">{TITLE}</h1>
@@ -52,8 +51,15 @@ export default async function AuthCodePage(request: any) {
             alt="AuthCode Image"
           />
         </div>
-
-        {withExamples(ExampleSection, _ordered, 'authcode')}
+        <ExampleSectionData
+          client={{
+            description,
+            descriptions: exampleDescriptions,
+            examples
+          }}
+          componentName="authcode"
+          data={ordered}
+        />
         {/* TODO: Props table/s */}
       </div>
     </MainLayout>
