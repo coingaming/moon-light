@@ -54,7 +54,7 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
         case EnumPropTypes.NUMBER: return 'number';
         case EnumPropTypes.REACTNODE: return 'ReactNode';
         case EnumPropTypes.STRING: return 'string';
-        default: return item;
+        default: return `"${item}"`;
       }
     }).join(' | ')
   })
