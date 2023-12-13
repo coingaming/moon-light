@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build:types": "node scripts/buildExamplesType.mjs",
+    "cli": "node scripts/cli.mjs",
+    "cli:help": "node scripts/cli.mjs help",
     "build": "pnpm run build:types && next build",
     "lint": "next lint",
     "start": "next start",
@@ -16,6 +18,7 @@
     "@heathmont/moon-core-tw": "^10.11.1",
     "@heathmont/moon-icons-tw": "^9.28.6",
     "@heathmont/moon-themes-tw": "^10.11.1",
+    "commander": "^11.1.0",
     "next": "14.0.3",
     "next-mdx-remote": "^4.4.1",
     "react": "^18",

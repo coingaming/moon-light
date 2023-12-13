@@ -13,10 +13,6 @@ export default async function ButtonPage() {
     descriptions: exampleDescriptions,
     examples
   } } } = await getExamples()
-  // Titles
-  const titles: [keyof typeof examples, string][] = [
-    ['Default', 'Default'],
-  ]
 
   const e = Object.keys(examples).map(
     async (title: string) => {
@@ -34,7 +30,8 @@ export default async function ButtonPage() {
           markdown={exampleDescriptions?.[exampleKey]}
           options={{
             parseFrontmatter: true
-          }} />}
+          }}
+        />}
         component={<Component />}
         code={examples?.[exampleKey]}
       />
