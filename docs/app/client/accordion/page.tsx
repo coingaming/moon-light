@@ -4,7 +4,6 @@ import { getExamples } from "@/utils/getExamples";
 import { MDX } from "@/components/MDX";
 import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
 import { MainLayout } from "@/components/MainLayout";
-
 import dynamic from "next/dynamic";
 import TitleTags from "@/components/TitleTags";
 
