@@ -9,6 +9,7 @@ export type Examples = {
     "authcode": {
       "description": "string",
       "descriptions": {
+        "AllowedCharacters": "string",
         "WithAutoSubmit": "string",
         "WithManualSubmit": "string"
       },
