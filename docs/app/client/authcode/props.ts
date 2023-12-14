@@ -24,7 +24,7 @@ const Props: PropsTableProp[] = [
     type: ["boolean"],
     defaultState: "false",
     description:
-      "When set to true, inputs automatically receive the keyboard focus on the input.",
+      "When set to true, inputs automatically receive the keyboard focus.",
   },
   {
     name: "isPassword",
