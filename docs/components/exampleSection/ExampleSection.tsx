@@ -1,11 +1,11 @@
-import CodePreview from "./codePreview/CodePreview";
-import ComponentPreview from "./ComponentPreview";
-import HeaderSection from "../HeaderSection";
-import { getExamples } from "@/utils/getExamples";
 import { serialize } from "next-mdx-remote/serialize";
 import dynamic from "next/dynamic";
 import { Loader } from "@heathmont/moon-base-tw";
+
 import formatTitle from "@/utils/formatTitle";
+import CodePreview from "./codePreview/CodePreview";
+import ComponentPreview from "./ComponentPreview";
+import HeaderSection from "../HeaderSection";
 import { MDX } from "../MDX";
 
 type Props = {
@@ -79,11 +79,7 @@ export async function withExamples(
   });
 }
 
-export const ExampleSectionData = ({
-  client,
-  data,
-  componentName,
-}: {
+interface ExampleSectionDataProps {
   client: {
     description?: string;
     descriptions: Record<string, string>;
@@ -91,4 +87,10 @@ export const ExampleSectionData = ({
   };
   data: string[];
   componentName: string;
-}) => withExamples(ExampleSection, client, data, componentName);
+}
+export const ExampleSectionData = ({
+  client,
+  data,
+  componentName,
+}: ExampleSectionDataProps) =>
+  withExamples(ExampleSection, client, data, componentName);

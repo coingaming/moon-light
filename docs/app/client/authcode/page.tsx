@@ -10,6 +10,7 @@ import TitleTags from "@/components/TitleTags";
 
 import image from "./authcode.webp";
 import { Loader } from "@heathmont/moon-base-tw";
+import { PageHeadComponent } from "@/components/PageHeadComponent";
 
 const TITLE = "AuthCode";
 
@@ -23,14 +24,11 @@ export default async function AuthCodePage(request: {
   } = await getExamples();
   const ordered = ["Default", "WithManualSubmit", "WithAutoSubmit"];
   const searchParam = request?.searchParams?.raw;
-  const isMockup =
-    !!searchParam &&
-    Object.keys(examples).includes(searchParam);
+  const isMockup = !!searchParam && Object.keys(examples).includes(searchParam);
 
   if (isMockup) {
     const Component = dynamic(
-      () =>
-        import(`@/app/client/authcode/examples/${searchParam}`),
+      () => import(`@/app/client/authcode/examples/${searchParam}`),
       {
         loading: () => <Loader />,
         ssr: false,
@@ -46,16 +44,13 @@ export default async function AuthCodePage(request: {
   return (
     <MainLayout isMockup={isMockup}>
       <div className="flex flex-col gap-4 text-moon-14 pb-20">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <h1 className="font-medium text-moon-32">{TITLE}</h1>
-            <div className="mt-2" />
-            <TitleTags tags={["ARIA", "RTL"]} />
-            <div className="mt-4" />
-            <MDX markdown={description} />
-          </div>
-          <Image src={image} width={500} alt="AuthCode Image" />
-        </div>
+        <PageHeadComponent
+          title={TITLE}
+          description={description}
+          tags={["ARIA", "RTL"]}
+          image={image}
+        />
+
         <ExampleSectionData
           componentName="authcode"
           client={{
