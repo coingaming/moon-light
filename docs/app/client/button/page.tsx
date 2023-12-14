@@ -4,6 +4,8 @@ import { MDX } from "@/components/MDX";
 import { serialize } from "next-mdx-remote/serialize";
 import { ExampleSection } from "@/components/exampleSection/ExampleSection";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { MainLayout } from "@/components/MainLayout";
+import dynamic from "next/dynamic";
 
 const TITLE = "Button";
 

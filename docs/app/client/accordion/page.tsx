@@ -1,28 +1,74 @@
-import { Default } from "./examples/Default";
+import React from "react";
+import Image from "next/image";
 import { getExamples } from "@/utils/getExamples";
 import { MDX } from "@/components/MDX";
+import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
+import { MainLayout } from "@/components/MainLayout";
+import dynamic from "next/dynamic";
+import TitleTags from "@/components/TitleTags";
 
-export default async function Home() {
-  const { client } = await getExamples();
-  return (
-    <div className="flex flex-col gap-4 text-moon-14">
-      <h1>Accordion</h1>
+import image from "./accordion.webp";
+import { Loader } from "@heathmont/moon-base-tw";
+import { PageHeadComponent } from "@/components/PageHeadComponent";
 
-      <MDX markdown={client.accordion.description} />
+const TITLE = "Accordion";
 
-      <div className="space-y-2">
-        <h2>Default</h2>
-        <div
-          className={
-            "flex flex-wrap items-center justify-around p-4 gap-2 w-full bg-gohan rounded-moon-s-sm"
-          }
-        >
-          <Default />
-        </div>
-        <pre className="bg-gohan rounded-moon-s-sm p-4">
-          {client.accordion.examples.Default}
-        </pre>
+export default async function AccordionPage(request: {
+  searchParams: { raw: string };
+}) {
+  const {
+    client: {
+      accordion: { description, descriptions: exampleDescriptions, examples },
+    },
+  } = await getExamples();
+  const ordered = [
+    "Default",
+    "ControlOutside",
+    "Customization",
+    "Disabled",
+    "HeaderContent",
+    "OpenByDefault",
+    "SingleOpen",
+  ];
+  const searchParam = request?.searchParams?.raw;
+  const isMockup = !!searchParam && Object.keys(examples).includes(searchParam);
+
+  if (isMockup) {
+    const Component = dynamic(
+      () => import(`@/app/client/accordion/examples/${searchParam}`),
+      {
+        loading: () => <Loader />,
+        ssr: false,
+      },
+    );
+    return (
+      <div className="p-4" id="playwright-test">
+        <Component />
       </div>
-    </div>
+    );
+  }
+
+  return (
+    <MainLayout isMockup={isMockup}>
+      <div className="flex flex-col gap-4 text-moon-14 pb-20">
+        <PageHeadComponent
+          title={TITLE}
+          description={description}
+          tags={["ARIA", "RTL"]}
+          image={image}
+        />
+
+        <ExampleSectionData
+          componentName="accordion"
+          client={{
+            description,
+            descriptions: exampleDescriptions,
+            examples,
+          }}
+          data={ordered}
+        />
+        {/* TODO: Props table/s */}
+      </div>
+    </MainLayout>
   );
 }

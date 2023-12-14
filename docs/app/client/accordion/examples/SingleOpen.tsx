@@ -4,13 +4,13 @@ import React from "react";
 import Accordion from "@heathmont/moon-core-tw/lib/es/accordion/Accordion";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
-export const Default = () => (
-  <Accordion>
+export const SingleOpen = () => (
+  <Accordion singleOpen>
     <Accordion.Item value="item-1">
       <Accordion.Header className="moon-open:[&_svg]:rotate-180">
         <Accordion.Button>
-          <span>Default</span>
-          <ControlsChevronDownSmall className="text-trunks text-moon-24 transition moon-open:text-bulma" />
+          <span>Test accordion</span>
+          <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
         </Accordion.Button>
       </Accordion.Header>
       <Accordion.Content>
@@ -27,7 +27,7 @@ export const Default = () => (
       <Accordion.Header className="moon-open:[&_svg]:rotate-180">
         <Accordion.Button>
           <span>Test accordion</span>
-          <ControlsChevronDownSmall className="text-trunks text-moon-24 transition moon-open:text-bulma" />
+          <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
         </Accordion.Button>
       </Accordion.Header>
       <Accordion.Content>
@@ -43,4 +43,4 @@ export const Default = () => (
   </Accordion>
 );
 
-export default Default;
+export default SingleOpen;

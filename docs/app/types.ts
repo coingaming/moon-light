@@ -2,8 +2,18 @@ export type Examples = {
   "client": {
     "accordion": {
       "description": "string",
+      "descriptions": {
+        "ControlOutside": "string"
+      },
       "examples": {
-        "Default": "string"
+        "ControlOutside": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "HeaderContent": "string",
+        "OpenByDefault": "string",
+        "SingleOpen": "string",
+        "Sizes": "string"
       }
     },
     "authcode": {

@@ -10,7 +10,7 @@ import { MDX } from "../MDX";
 
 type Props = {
   title: string;
-  description?: string | JSX.Element;
+  description?: JSX.Element;
   component: JSX.Element;
   code: string;
 };
