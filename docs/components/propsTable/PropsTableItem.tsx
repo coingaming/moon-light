@@ -1,11 +1,12 @@
-import type { Data } from "./index";
+import { PropsTableProp, PropsTablePropTypes } from "@/types";
+import { Tag } from "@heathmont/moon-base-tw";
 
 type PropsTableItemProps = {
-  prop: Data;
+  prop: PropsTableProp;
 };
 
 const PropsTableItem = ({ prop }: PropsTableItemProps) => {
-  const { name, type, defaultState, description } = prop;
+  const { name, type, defaultState, required, description } = prop;
   return (
     <div className="flex flex-col gap-4 pb-6 relative after:absolute after:h-px after:bg-beerus after:inset-x-0 after:bottom-0 ">
       <div className="flex w-full items-center gap-6 text-moon-16">
@@ -13,9 +14,14 @@ const PropsTableItem = ({ prop }: PropsTableItemProps) => {
           Prop
         </span>
         <p>
-          <span className="py-1 px-2 bg-frieza-10 text-frieza rounded-moon-i-xs">
+          <Tag
+            className="text-moon-16"
+            isUppercase={false}
+            color="text-frieza"
+            bgColor="bg-frieza-10"
+          >
             {name}
-          </span>
+          </Tag>
         </p>
       </div>
       <div className="flex w-full items-center gap-6 text-moon-16 ">
@@ -24,6 +30,12 @@ const PropsTableItem = ({ prop }: PropsTableItemProps) => {
         </span>
         <p>{defaultState || "-"}</p>
       </div>
+      <div className="flex w-full items-center gap-6 text-moon-16 ">
+        <span className="w-36 font-semibold overflow-hidden whitespace-nowrap text-ellipsis">
+          Required
+        </span>
+        <p>{required ? "Yes" : "No"}</p>
+      </div>
       <div className="flex flex-col md:flex-row w-full md:items-center gap-6 text-moon-16 ">
         <span className="w-36 font-semibold overflow-hidden whitespace-nowrap text-ellipsis">
           Description
@@ -31,7 +43,23 @@ const PropsTableItem = ({ prop }: PropsTableItemProps) => {
         <p>{description}</p>
       </div>
       <div className="md:ps-36">
-        <p className="text-moon-16 text-frieza md:ps-6">{type}</p>
+        <p className="text-moon-16 text-frieza md:ps-6">
+          {type
+            ?.map((item: PropsTablePropTypes) => {
+              if (item.startsWith("(")) return item;
+              switch (item) {
+                case "number":
+                  return "number";
+                case "boolean":
+                  return "boolean";
+                case "string":
+                  return "string";
+                default:
+                  return `"${item}"`;
+              }
+            })
+            .join(" | ")}
+        </p>
       </div>
     </div>
   );

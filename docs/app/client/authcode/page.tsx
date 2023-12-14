@@ -1,18 +1,15 @@
 import React from "react";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+import { Loader } from "@heathmont/moon-base-tw";
 import { getExamples } from "@/utils/getExamples";
-import { MDX } from "@/components/MDX";
 import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
 import { MainLayout } from "@/components/MainLayout";
-
-import dynamic from "next/dynamic";
-import TitleTags from "@/components/TitleTags";
-
-import image from "./authcode.webp";
-import { Loader } from "@heathmont/moon-base-tw";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
+import { PropsTable } from "@/components/propsTable";
 
-const TITLE = "AuthCode";
+import props from "./props";
+import image from "./authcode.webp";
+
 const ordered = [
   "Default",
   "WithManualSubmit",
@@ -44,7 +41,7 @@ export default async function AuthCodePage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      },
+      }
     );
     return (
       <div className="p-4" id="playwright-test">
@@ -57,7 +54,7 @@ export default async function AuthCodePage(request: {
     <MainLayout isMockup={isMockup}>
       <div className="flex flex-col gap-4 text-moon-14 pb-20">
         <PageHeadComponent
-          title={TITLE}
+          title={"AuthCode"}
           description={description}
           tags={["ARIA", "RTL"]}
           image={image}
@@ -72,7 +69,16 @@ export default async function AuthCodePage(request: {
           }}
           data={ordered}
         />
-        {/* TODO: Props table/s */}
+        <PropsTable
+          title="AuthCode props"
+          description={
+            <span>
+              These are props specific to the{" "}
+              <span className="text-frieza">AuthCode</span> component:
+            </span>
+          }
+          data={props}
+        />
       </div>
     </MainLayout>
   );
