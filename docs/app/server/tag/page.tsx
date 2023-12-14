@@ -1,8 +1,8 @@
-import { Default } from '@/app/server/tag/examples/Default';
-import { ExampleSection } from '@/components/exampleSection/ExampleSection';
-import { QuickNav } from '@/components/QuickNav';
-import { getExamples } from '@/utils/getExamples';
-import { MDX } from '@/components/MDX';
+import { Default } from "@/app/server/tag/examples/Default";
+import { ExampleSection } from "@/components/exampleSection/ExampleSection";
+import { QuickNav } from "@/components/QuickNav";
+import { getExamples } from "@/utils/getExamples";
+import { MDX } from "@/components/MDX";
 
 export default async function Tag() {
   const { server } = await getExamples();

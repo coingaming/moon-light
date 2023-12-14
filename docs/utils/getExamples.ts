@@ -1,6 +1,6 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-import { Examples } from '../app/types';
+import { promises as fs } from "fs";
+import path from "path";
+import { Examples } from "../app/types";
 
 export async function hasSubfolders(_path: string) {
   try {
@@ -16,7 +16,7 @@ export async function hasSubfolders(_path: string) {
     return false;
   } catch (err) {
     if (err instanceof Error) {
-      console.error('Error checking folders:', err.message);
+      console.error("Error checking folders:", err.message);
       throw err;
     }
   }
@@ -26,10 +26,12 @@ type FilesContent = Record<string, string | undefined>;
 
 export async function processFiles(
   dirPath: string,
-  processCallback: (filePath: string) => Promise<FilesContent>
+  processCallback: (filePath: string) => Promise<FilesContent>,
 ) {
   const files = await fs.readdir(dirPath);
-  const result: Record<string, Record<string, unknown> | string[] > | FilesContent = {};
+  const result:
+    | Record<string, Record<string, unknown> | string[]>
+    | FilesContent = {};
 
   for (const file of files) {
     const filePath = path.join(dirPath, file);
@@ -47,9 +49,9 @@ export async function processFiles(
     if (stats.isFile()) {
       const extname = path.extname(filePath).toLowerCase();
       const fileName = path.basename(filePath);
-      const fileNameWithoutExtension = path.parse(fileName).name
+      const fileNameWithoutExtension = path.parse(fileName).name;
 
-      if (extname === '.md') {
+      if (extname === ".md") {
         const content = await readFromFile(filePath);
         result[fileNameWithoutExtension] = content;
       }
@@ -66,16 +68,16 @@ const getFilesContent = async (dirPath: string) => {
   for (const file of files) {
     const filePath = path.join(dirPath, file);
     const fileName = path.basename(filePath);
-    const fileNameWithoutExtension = path.parse(fileName).name
+    const fileNameWithoutExtension = path.parse(fileName).name;
     const content = await readFromFile(filePath);
     result[fileNameWithoutExtension] = content;
   }
   return result;
-}
+};
 
 export async function readFromFile(pathToFile: string) {
   try {
-    const data = await fs.readFile(pathToFile, 'utf8');
+    const data = await fs.readFile(pathToFile, "utf8");
     return data;
   } catch (err) {
     if (err instanceof Error) {
@@ -86,9 +88,10 @@ export async function readFromFile(pathToFile: string) {
 }
 
 export async function getExamples() {
-  const components = (
-    await processFiles('./app/', getFilesContent)
-  ) as unknown as Examples;
+  const components = (await processFiles(
+    "./app/",
+    getFilesContent,
+  )) as unknown as Examples;
 
   return components;
 }

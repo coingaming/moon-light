@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-type Type = 'sessionStorage' | 'localStorage';
+type Type = "sessionStorage" | "localStorage";
 
 const isStorageAvailable = (type: Type) => {
   try {
     window.sessionStorage;
     const storage = window[type];
-    const x = '__storage_test__';
+    const x = "__storage_test__";
     storage.setItem(x, x);
     storage.removeItem(x);
     return true;

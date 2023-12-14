@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useContext } from 'react';
-import { SearchCmdk } from '@heathmont/moon-cmdk-tw/lib/es/index';
-import { SearchContext } from './SearchProvider';
+import { useContext } from "react";
+import { SearchCmdk } from "@heathmont/moon-cmdk-tw/lib/es/index";
+import { SearchContext } from "./SearchProvider";
 
 const SearchButton = () => {
   const { setOpen } = useContext(SearchContext);

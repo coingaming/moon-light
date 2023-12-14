@@ -6,6 +6,25 @@ export type Examples = {
         "Default": "string"
       }
     },
+    "authcode": {
+      "description": "string",
+      "descriptions": {
+        "WithAutoSubmit": "string",
+        "WithManualSubmit": "string"
+      },
+      "examples": {
+        "AllowedCharacters": "string",
+        "CustomLength": "string",
+        "Default": "string",
+        "DifferentGaps": "string",
+        "ErrorState": "string",
+        "HintMessage": "string",
+        "Password": "string",
+        "Placeholder": "string",
+        "WithAutoSubmit": "string",
+        "WithManualSubmit": "string"
+      }
+    },
     "button": {
       "description": "string",
       "descriptions": {

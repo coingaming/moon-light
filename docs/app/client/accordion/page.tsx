@@ -1,6 +1,6 @@
-import { Default } from './examples/Default';
-import { getExamples } from '@/utils/getExamples';
-import { MDX } from '@/components/MDX';
+import { Default } from "./examples/Default";
+import { getExamples } from "@/utils/getExamples";
+import { MDX } from "@/components/MDX";
 
 export default async function Home() {
   const { client } = await getExamples();
@@ -14,7 +14,7 @@ export default async function Home() {
         <h2>Default</h2>
         <div
           className={
-            'flex flex-wrap items-center justify-around p-4 gap-2 w-full bg-gohan rounded-moon-s-sm'
+            "flex flex-wrap items-center justify-around p-4 gap-2 w-full bg-gohan rounded-moon-s-sm"
           }
         >
           <Default />

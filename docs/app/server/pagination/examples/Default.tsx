@@ -1,4 +1,4 @@
-import Pagination from '@heathmont/moon-base-tw/lib/pagination/Pagination';
+import Pagination from "@heathmont/moon-base-tw/lib/pagination/Pagination";
 
 export const Default = () => (
   <Pagination>
