@@ -24,8 +24,19 @@
 
 html,
 body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:
+    "DM Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
   /* Prevent automatic zooming of fonts on some mobile devices. */
   text-size-adjust: none;
   text-rendering: optimizeLegibility;

@@ -1,7 +1,7 @@
 packages:
   # Docs using the latest Next.js.
-  - 'docs'
+  - "docs"
   # All packages in subdirectories of 'packages/'
-  - 'packages/**'
+  - "packages/**"
   # Exclude packages that are inside test directories.
-  - '!**/test/**'
+  - "!**/test/**"

@@ -16,10 +16,13 @@
     "@heathmont/moon-core-tw": "^10.11.1",
     "@heathmont/moon-icons-tw": "^9.28.6",
     "@heathmont/moon-themes-tw": "^10.11.1",
+    "@hookform/resolvers": "^3.3.2",
     "next": "14.0.3",
     "next-mdx-remote": "^4.4.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.49.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",

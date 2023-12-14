@@ -1,4 +1,4 @@
-import Table from '@heathmont/moon-base-tw/lib/table/Table';
+import Table from "@heathmont/moon-base-tw/lib/table/Table";
 
 export const Default = () => (
   <Table>

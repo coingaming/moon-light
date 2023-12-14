@@ -1,6 +1,8 @@
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 
-export function MDX({ markdown }: { markdown: string }) {
-  return <MDXRemote source={markdown} />
+export function MDX({
+  markdown,
+  ...rest
+}: { markdown: string } & Omit<MDXRemoteProps, "source">) {
+  return <MDXRemote {...rest} source={markdown} />;
 }
-
