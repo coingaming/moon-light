@@ -43,4 +43,4 @@ export const SingleOpen = () => (
   </Accordion>
 );
 
-export default SingleOpen
+export default SingleOpen;

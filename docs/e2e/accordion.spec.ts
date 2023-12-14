@@ -381,7 +381,7 @@ test("Customization: should open accordion", async ({ page }) => {
     `${COMPONENT_NAME}-Customization-Open.png`,
     {
       maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
-    }
+    },
   );
 });
 

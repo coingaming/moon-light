@@ -43,4 +43,4 @@ export const Default = () => (
   </Accordion>
 );
 
-export default Default
+export default Default;
