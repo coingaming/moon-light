@@ -32,7 +32,7 @@ export default async function AuthCodePage(request: {
         import(`@/app/client/authcode/examples/${request?.searchParams?.raw}`),
       {
         loading: () => <Loader />,
-        ssr: false
+        ssr: false,
       },
     );
     return (
