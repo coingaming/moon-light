@@ -22,14 +22,15 @@ export default async function AuthCodePage(request: {
     },
   } = await getExamples();
   const ordered = ["Default", "WithManualSubmit", "WithAutoSubmit"];
+  const searchParam = request?.searchParams?.raw;
   const isMockup =
-    !!request?.searchParams?.raw &&
-    Object.keys(examples).includes(request?.searchParams?.raw);
+    !!searchParam &&
+    Object.keys(examples).includes(searchParam);
 
   if (isMockup) {
     const Component = dynamic(
       () =>
-        import(`@/app/client/authcode/examples/${request?.searchParams?.raw}`),
+        import(`@/app/client/authcode/examples/${searchParam}`),
       {
         loading: () => <Loader />,
         ssr: false,
