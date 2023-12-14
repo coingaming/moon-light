@@ -3,12 +3,7 @@ export type Examples = {
     "accordion": {
       "description": "string",
       "descriptions": {
-        "ControlOutside": "string",
-        "Customization": "string",
-        "Disabled": "string",
-        "HeaderContent": "string",
-        "OpenByDefault": "string",
-        "SingleOpen": "string"
+        "ControlOutside": "string"
       },
       "examples": {
         "ControlOutside": "string",

@@ -4,6 +4,7 @@ import { getExamples } from "@/utils/getExamples";
 import { MDX } from "@/components/MDX";
 import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
 import { MainLayout } from "@/components/MainLayout";
+
 import dynamic from "next/dynamic";
 import TitleTags from "@/components/TitleTags";
 
@@ -21,7 +22,12 @@ export default async function AccordionPage(request: {
       accordion: { description, descriptions: exampleDescriptions, examples },
     },
   } = await getExamples();
-  const ordered = ["Default", "WithManualSubmit", "WithAutoSubmit"];
+  const ordered = ["Default",  "ControlOutside",
+  "Customization",
+  "Disabled",
+  "HeaderContent",
+  "OpenByDefault",
+  "SingleOpen"];
   const searchParam = request?.searchParams?.raw;
   const isMockup = !!searchParam && Object.keys(examples).includes(searchParam);
 
