@@ -15,7 +15,7 @@ export default async function Home() {
 
         {/* TODO remove  */}
         <div>
-          <h2 className="text-moon-32 font-medium">Server componentstestcspell</h2>
+          <h2 className="text-moon-32 font-medium">Server components</h2>
           <ul role="list" className="">
             {Object.entries(server).map(([key, _value]) => (
               <li key={key} className="py-4">
