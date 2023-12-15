@@ -13,6 +13,18 @@ import { Loader } from "@heathmont/moon-base-tw";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
 
 const TITLE = "AuthCode";
+const ordered = [
+  "Default",
+  "WithManualSubmit",
+  "WithAutoSubmit",
+  "AllowedCharacters",
+  "CustomLength",
+  "ErrorState",
+  "HintMessage",
+  "Placeholder",
+  "Password",
+  "DifferentGaps",
+];
 
 export default async function AuthCodePage(request: {
   searchParams: { raw: string };
@@ -22,7 +34,7 @@ export default async function AuthCodePage(request: {
       authcode: { description, descriptions: exampleDescriptions, examples },
     },
   } = await getExamples();
-  const ordered = ["Default", "WithManualSubmit", "WithAutoSubmit"];
+
   const searchParam = request?.searchParams?.raw;
   const isMockup = !!searchParam && Object.keys(examples).includes(searchParam);
 

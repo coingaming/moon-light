@@ -19,6 +19,13 @@ export type Examples = {
     "authcode": {
       "description": "string",
       "descriptions": {
+        "AllowedCharacters": "string",
+        "CustomLength": "string",
+        "DifferentGaps": "string",
+        "ErrorState": "string",
+        "HintMessage": "string",
+        "Password": "string",
+        "Placeholder": "string",
         "WithAutoSubmit": "string",
         "WithManualSubmit": "string"
       },
