@@ -25,7 +25,7 @@ const Breadcrumbs = () => {
           {page && page[0].toUpperCase() + page.slice(1)}
         </Link>
       );
-    }),
+    })
   );
   return <Breadcrumb divider="/" breadcrumbs={breadcrumbsPath} />;
 };

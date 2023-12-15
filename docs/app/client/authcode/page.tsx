@@ -41,7 +41,7 @@ export default async function AuthCodePage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      },
+      }
     );
     return (
       <div className="p-4" id="playwright-test">
