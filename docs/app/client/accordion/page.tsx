@@ -49,7 +49,11 @@ export default async function AccordionPage(request: {
   }
 
   return (
-    <MainLayout isMockup={isMockup} componentName="accordion">
+    <MainLayout
+      isMockup={isMockup}
+      componentName="accordion"
+      contentSidebar={ordered}
+    >
       <div className="flex flex-col gap-4 text-moon-14 pb-20">
         <PageHeadComponent
           title={TITLE}

@@ -46,7 +46,9 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
             </svg>
           </Link>
         </div>
-        <div className="p-6 h-full flex items-center">{children}</div>
+        <div className="p-6 h-full flex items-center hidden lg:block">
+          {children}
+        </div>
       </div>
     </header>
   );

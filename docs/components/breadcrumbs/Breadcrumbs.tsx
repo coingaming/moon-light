@@ -2,10 +2,10 @@
 
 import { Breadcrumb } from "@heathmont/moon-core-tw";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 const Breadcrumbs = () => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const [_, ...pages] = pathname === "/" ? [] : pathname.split("/");
   if (pathname === "/") {
     return null;
@@ -27,11 +27,7 @@ const Breadcrumbs = () => {
       );
     }),
   );
-  return (
-    <div className="relative z-10 hidden lg:block pb-12">
-      <Breadcrumb divider="/" breadcrumbs={breadcrumbsPath} />
-    </div>
-  );
+  return <Breadcrumb divider="/" breadcrumbs={breadcrumbsPath} />;
 };
 
 export default Breadcrumbs;
