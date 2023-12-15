@@ -24,6 +24,7 @@ export default async function AccordionPage(request: {
   const ordered = [
     "Default",
     "OpenByDefault",
+    "SingleOpen",
     "Disabled",
     "HeaderContent",
     "Sizes",
