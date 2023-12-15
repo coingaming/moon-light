@@ -1,5 +1,5 @@
 ---
-title: Nice button title
+title: Default
 ---
 
 # This is the description in markdown
