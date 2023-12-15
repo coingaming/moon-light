@@ -56,7 +56,7 @@ export default async function AuthCodePage(request: {
       componentName="authcode"
       contentSidebar={ordered}
     >
-      <div className="flex flex-col gap-4 text-moon-14 pb-20">
+      <div className="flex flex-col gap-12 text-moon-14 pb-20">
         <PageHeadComponent
           title={"AuthCode"}
           description={description}

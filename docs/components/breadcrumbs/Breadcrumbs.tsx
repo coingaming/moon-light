@@ -14,8 +14,8 @@ const Breadcrumbs = () => {
     pages.map((page, index) => {
       let pageLink = page;
       switch (page) {
-        case "components":
-          pageLink = "/components";
+        case "client":
+          pageLink = "#";
           break;
         default:
           break;

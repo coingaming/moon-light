@@ -14,7 +14,7 @@ const HeaderSection = ({ title, description, className, href }: Props) => (
       className={mergeClassnames("text-moon-20 font-medium", className)}
     >
       <a
-        href={`#${href}` || `#${title}`}
+        href={`#${href || title}`}
         className="flex items-center gap-3 [&:hover_svg]:opacity-100 cursor-pointer"
       >
         {title}

@@ -23,12 +23,12 @@ export default async function AccordionPage(request: {
   } = await getExamples();
   const ordered = [
     "Default",
-    "ControlOutside",
-    "Customization",
+    "OpenByDefault",
     "Disabled",
     "HeaderContent",
-    "OpenByDefault",
-    "SingleOpen",
+    "Sizes",
+    "Customization",
+    "ControlOutside",
   ];
   const searchParam = request?.searchParams?.raw;
   const isMockup = !!searchParam && Object.keys(examples).includes(searchParam);
@@ -54,7 +54,7 @@ export default async function AccordionPage(request: {
       componentName="accordion"
       contentSidebar={ordered}
     >
-      <div className="flex flex-col gap-4 text-moon-14 pb-20">
+      <div className="flex flex-col gap-12 text-moon-14 pb-20">
         <PageHeadComponent
           title={TITLE}
           description={description}
