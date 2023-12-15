@@ -65,6 +65,7 @@ export async function withExamples(
     return (
       <WrappedComponent
         key={ex}
+        href={ex}
         title={(title as string | undefined) || formatTitle(ex)}
         component={<Component />}
         description={

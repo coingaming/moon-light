@@ -10,11 +10,11 @@ type Props = {
 const HeaderSection = ({ title, description, className, href }: Props) => (
   <>
     <h2
-      id={title}
+      id={href || title}
       className={mergeClassnames("text-moon-20 font-medium", className)}
     >
       <a
-        href={`#${href}`}
+        href={`#${href}` || `#${title}`}
         className="flex items-center gap-3 [&:hover_svg]:opacity-100 cursor-pointer"
       >
         {title}
