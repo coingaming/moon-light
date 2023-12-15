@@ -5,7 +5,7 @@ export type PropsTablePropTypes = "number" | "boolean" | "string" | string;
 export interface PropsTableProp {
   /* This field is mandatory, name of the prop */
   name: string;
-  /* Type field is mandatory, array contains the types of the prop, should contains atleast 1 value */
+  /* Type field is mandatory, array contains the types of the prop, should contains at least 1 value */
   type: [PropsTablePropTypes, ...PropsTablePropTypes[]];
   /* Description is mandatory for every props */
   description: string;
