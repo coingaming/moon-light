@@ -22,12 +22,12 @@ export const getData = async (name: string): Promise<[string, string][]> => {
               componentData?.descriptions?.[exampleKey] as string,
               {
                 parseFrontmatter: true,
-              },
+              }
             )
           )?.frontmatter?.title;
         }
         return [title, key];
-      },
+      }
     ) || [];
 
   return (await Promise.all(titles)) as [string, string][];
