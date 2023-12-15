@@ -21,7 +21,7 @@ export default async function RootLayout({
     <html lang="en" dir="ltr">
       <SearchProvider actions={actions}>
         <RtlProvider>
-          <body className="theme-moon-light bg-gohan">{children}</body>
+          <body className="theme-moon-light bg-goku">{children}</body>
         </RtlProvider>
       </SearchProvider>
     </html>

@@ -21,6 +21,6 @@ export const PageHeadComponent = ({
       {description && <MDX markdown={description} />}
     </div>
 
-    {image && <Image src={image} width={500} alt="AuthCode Image" />}
+    {image && <Image src={image} width={500} alt={`${title} image`} />}
   </div>
 );

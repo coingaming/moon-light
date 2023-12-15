@@ -51,7 +51,7 @@ export default async function AuthCodePage(request: {
   }
 
   return (
-    <MainLayout isMockup={isMockup}>
+    <MainLayout isMockup={isMockup} componentName="authcode">
       <div className="flex flex-col gap-4 text-moon-14 pb-20">
         <PageHeadComponent
           title={"AuthCode"}

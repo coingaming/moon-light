@@ -6,10 +6,7 @@ import SidebarItem from "./SidebarItem";
 export default async function Sidebar() {
   const { server, client } = await getExamples();
   return (
-    <aside className="fixed z-10 h-screen flex flex-shrink-0 flex-col top-0 w-80 flex-grow gap-6 pt-12 pb-28 lg:pb-20 px-5 lg:px-8 bg-gohan overflow-y-scroll">
-      <div className="flex items-center flex-shrink-0 ps-3 text-bulma">
-        <Link href="/">Moon Design System</Link>
-      </div>
+    <aside className="fixed z-10 top-0 h-screen flex flex-shrink-0 flex-col w-72 flex-grow gap-6 pt-24 pb-28 lg:pb-20 px-5 lg:px-8 bg-goku overflow-y-scroll border-e border-beerus">
       <div>
         <SearchButton />
       </div>

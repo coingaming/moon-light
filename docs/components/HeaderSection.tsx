@@ -5,15 +5,16 @@ type Props = {
   title?: string;
   description?: string | JSX.Element;
   className?: string;
+  href?: string;
 };
-const HeaderSection = ({ title, description, className }: Props) => (
+const HeaderSection = ({ title, description, className, href }: Props) => (
   <>
     <h2
       id={title}
       className={mergeClassnames("text-moon-20 font-medium", className)}
     >
       <a
-        href={`#${title}`}
+        href={`#${href}`}
         className="flex items-center gap-3 [&:hover_svg]:opacity-100 cursor-pointer"
       >
         {title}
