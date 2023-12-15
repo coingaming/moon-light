@@ -13,9 +13,11 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
     <section className="flex flex-col gap-6">
       <HeaderSection title={title} description={description} className="pb-6" />
       <hr className="h-px bg-beerus w-full" />
-      {data.map((prop: PropsTableProp) => (
-        <PropsTableItem prop={prop} key={prop.name} />
-      ))}
+      {data
+        .sort((x: PropsTableProp) => (x.required ? -1 : 1))
+        .map((prop: PropsTableProp) => (
+          <PropsTableItem prop={prop} key={prop.name} />
+        ))}
     </section>
   );
 };

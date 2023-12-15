@@ -7,6 +7,21 @@ type PropsTableItemProps = {
 
 const PropsTableItem = ({ prop }: PropsTableItemProps) => {
   const { name, type, defaultState, required, description } = prop;
+
+  const renderType = (item: PropsTablePropTypes) => {
+    if (/\(([^)]+)\) => \w/.test(item)) return item;
+    switch (item) {
+      case "number":
+        return "number";
+      case "boolean":
+        return "boolean";
+      case "string":
+        return "string";
+      default:
+        return `"${item}"`;
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4 pb-6 relative after:absolute after:h-px after:bg-beerus after:inset-x-0 after:bottom-0 ">
       <div className="flex w-full items-center gap-6 text-moon-16">
@@ -44,21 +59,7 @@ const PropsTableItem = ({ prop }: PropsTableItemProps) => {
       </div>
       <div className="md:ps-36">
         <p className="text-moon-16 text-frieza md:ps-6">
-          {type
-            ?.map((item: PropsTablePropTypes) => {
-              if (item.startsWith("(")) return item;
-              switch (item) {
-                case "number":
-                  return "number";
-                case "boolean":
-                  return "boolean";
-                case "string":
-                  return "string";
-                default:
-                  return `"${item}"`;
-              }
-            })
-            .join(" | ")}
+          {type?.map(renderType).join(" | ")}
         </p>
       </div>
     </div>
