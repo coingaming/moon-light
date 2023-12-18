@@ -13,7 +13,7 @@ const BrandSwitcher = () => {
   const onClickSetTheme = useCallback(
     (value: Brand) => () => {
       setTheme(value);
-      setBrand(value as Brand);
+      setBrand(value);
     },
     [setTheme, setBrand]
   );

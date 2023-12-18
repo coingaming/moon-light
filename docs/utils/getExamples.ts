@@ -28,7 +28,7 @@ export async function isEmptyDirectory(_path: string) {
     return files.length === 0;
   } catch (err) {
     if (err instanceof Error) {
-      console.log("Error checking directory Empty:", err.message);
+      console.error("Error checking directory Empty:", err.message);
       throw err;
     }
   }
@@ -38,7 +38,7 @@ type FilesContent = Record<string, string | undefined>;
 
 export async function processFiles(
   dirPath: string,
-  processCallback: (filePath: string) => Promise<FilesContent>,
+  processCallback: (filePath: string) => Promise<FilesContent>
 ) {
   const files = await fs.readdir(dirPath);
   const result:
@@ -106,7 +106,7 @@ export async function readFromFile(pathToFile: string) {
 export async function getExamples() {
   const components = (await processFiles(
     "./app/",
-    getFilesContent,
+    getFilesContent
   )) as unknown as Examples;
 
   return components;

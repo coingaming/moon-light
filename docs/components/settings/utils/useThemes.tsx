@@ -89,7 +89,6 @@ const useTheme = () => {
     if (!isStorageAvailable("localStorage")) {
       return "";
     }
-    console.log(localStorage.getItem("themeMode") || "light");
     return localStorage.getItem("themeMode") || "light";
   };
 
@@ -100,7 +99,6 @@ const useTheme = () => {
     toggleDarkLightMode: toggleMode,
     getTheme,
     getMode,
-    currentBrand: getBrand(),
     isDarkThemeEnabled: getMode() === "dark",
   };
 };

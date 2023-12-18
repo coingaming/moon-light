@@ -19,10 +19,13 @@ import { isLocalhost } from "./utils/isLocalhost";
 import { useLayoutEffect } from "react";
 
 const Settings = () => {
-  const { apply, toggleDarkLightMode, isDarkThemeEnabled, currentBrand } =
-    useTheme();
+  const { apply, toggleDarkLightMode, isDarkThemeEnabled } = useTheme();
   const { isRTLEnabled, toggleRTL } = useRtl();
-  useLayoutEffect(() => apply(), []);
+
+  // Apply the current theme from localStorage
+  useLayoutEffect(() => {
+    apply();
+  }, []);
   return (
     <Popover
       className="fixed z-50 bottom-4 lg:bottom-20 end-4"
