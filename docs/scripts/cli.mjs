@@ -32,7 +32,7 @@ export default ${name}
         content: _documentation,
         path: path.join(
           `docs/app/client/${component}/descriptions`,
-          `${name}.md`
+          `${name}.md`,
         ),
       },
       example: {
@@ -43,7 +43,7 @@ export default ${name}
         content: _e2e,
         path: path.join(`docs/e2e/`, `${component}.spec.ts`), // CARE THIS JUST ADD THE END OF THE FILE
       },
-    }
+    },
   );
 }
 
@@ -107,14 +107,14 @@ program
       const filesContent = generateFilesContent(
         options.component,
         options.name,
-        options.title
+        options.title,
       );
       if (typeof options.title === "string" && options.title?.length > 0) {
         // Documentation
         try {
           await fs.access(filesContent.documentation.path, fs.constants.F_OK);
           console.log(
-            `[!!] File ${filesContent.documentation.path} already exists`
+            `[!!] File ${filesContent.documentation.path} already exists`,
           );
         } catch (err) {
           console.log(`[!] Creating ${filesContent.documentation.path}...`);
@@ -143,7 +143,7 @@ program
         await fs.appendFile(
           filesContent.e2e.path,
           filesContent.e2e.content,
-          "utf-8"
+          "utf-8",
         );
       } catch (err) {
         console.log(`[!!] Not exists e2e file ${filesContent.e2e.path}...`);
