@@ -9,16 +9,15 @@ const PropsTableItem = ({ prop }: PropsTableItemProps) => {
   const { name, type, defaultState, required, description } = prop;
 
   const renderType = (item: PropsTablePropTypes) => {
-    if (/\(([^)]+)\) => \w/.test(item)) return item;
-    switch (item) {
-      case "number":
-        return "number";
-      case "boolean":
-        return "boolean";
-      case "string":
-        return "string";
-      default:
-        return `"${item}"`;
+    // Check using Regex if the prop is a arrow function
+    const isArrowFunction = /\(([^)]+)\) => \w/.test(item);
+
+    if (isArrowFunction) {
+      return item;
+    } else if (["number", "boolean", "string"].includes(item)) {
+      return item;
+    } else {
+      return `"${item}"`;
     }
   };
 

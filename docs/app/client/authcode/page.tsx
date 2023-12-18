@@ -72,10 +72,10 @@ export default async function AuthCodePage(request: {
         <PropsTable
           title="AuthCode props"
           description={
-            <span>
+            <p>
               These are props specific to the{" "}
               <span className="text-frieza">AuthCode</span> component:
-            </span>
+            </p>
           }
           data={props}
         />

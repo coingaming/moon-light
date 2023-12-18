@@ -10,8 +10,5 @@
   ],
   "enableGlobDot": true,
   "dictionaries": ["project-words"],
-  "ignorePaths": [
-    "**/*.svg",
-    ".git",
-  ]
+  "ignorePaths": ["**/*.svg", ".git"]
 }
