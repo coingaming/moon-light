@@ -27,16 +27,14 @@ const PropsTableItem = ({ prop }: PropsTableItemProps) => {
         <span className="w-36 overflow-hidden whitespace-nowrap text-ellipsis font-semibold">
           Prop
         </span>
-        <p>
-          <Tag
-            className="text-moon-16"
-            isUppercase={false}
-            color="text-frieza"
-            bgColor="bg-frieza-10"
-          >
-            {name}
-          </Tag>
-        </p>
+        <Tag
+          className="text-moon-16"
+          isUppercase={false}
+          color="text-frieza"
+          bgColor="bg-frieza-10"
+        >
+          {name}
+        </Tag>
       </div>
       <div className="flex w-full items-center gap-6 text-moon-16 ">
         <span className="w-36 font-semibold overflow-hidden whitespace-nowrap text-ellipsis">
