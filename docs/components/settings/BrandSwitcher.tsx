@@ -15,7 +15,7 @@ const BrandSwitcher = () => {
       setTheme(value);
       setBrand(value);
     },
-    [setTheme, setBrand]
+    [setTheme, setBrand],
   );
   return (
     <>
