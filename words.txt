@@ -2,3 +2,5 @@ crey
 authcode
 webp
 heathmont
+frieza
+beerus

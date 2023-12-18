@@ -1,15 +1,9 @@
 import PropsTableItem from "./PropsTableItem";
 import HeaderSection from "../HeaderSection";
-
-export type Data = {
-  name: string;
-  type: string;
-  defaultState: string | React.ReactNode;
-  description: string;
-};
+import { type PropsTableProp } from "@/types";
 
 type TableProps = {
-  data: Data[];
+  data: PropsTableProp[];
   title?: string;
   description?: string | JSX.Element;
 };
@@ -19,9 +13,11 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
     <section className="flex flex-col gap-6">
       <HeaderSection title={title} description={description} className="pb-6" />
       <hr className="h-px bg-beerus w-full" />
-      {data.map((prop: Data) => (
-        <PropsTableItem prop={prop} key={prop.name} />
-      ))}
+      {data
+        .sort((x: PropsTableProp) => (x.required ? -1 : 1))
+        .map((prop: PropsTableProp) => (
+          <PropsTableItem prop={prop} key={prop.name} />
+        ))}
     </section>
   );
 };
