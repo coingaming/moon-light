@@ -1,15 +1,15 @@
 import React from "react";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+import { Loader } from "@heathmont/moon-base-tw";
 import { getExamples } from "@/utils/getExamples";
-import { MDX } from "@/components/MDX";
 import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
 import { MainLayout } from "@/components/MainLayout";
-import dynamic from "next/dynamic";
-import TitleTags from "@/components/TitleTags";
-
-import image from "./accordion.webp";
-import { Loader } from "@heathmont/moon-base-tw";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
+import { PropsTable } from "@/components/propsTable";
+
+import props from "./props";
+import itemProps from "./itemProps";
+import image from "./accordion.webp";
 
 const TITLE = "Accordion";
 
@@ -72,7 +72,26 @@ export default async function AccordionPage(request: {
           }}
           data={ordered}
         />
-        {/* TODO: Props table/s */}
+        <PropsTable
+          title="Accordion props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">Accordion</span> component:
+            </p>
+          }
+          data={props}
+        />
+        <PropsTable
+          title="Accordion.Item props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">Accordion.Item</span> component:
+            </p>
+          }
+          data={itemProps}
+        />
       </div>
     </MainLayout>
   );
