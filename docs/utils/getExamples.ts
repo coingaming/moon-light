@@ -22,6 +22,18 @@ export async function hasSubfolders(_path: string) {
   }
 }
 
+export async function isEmptyDirectory(_path: string) {
+  try {
+    const files = await fs.readdir(_path);
+    return files.length === 0;
+  } catch (err) {
+    if (err instanceof Error) {
+      console.log("Error checking directory Empty:", err.message);
+      throw err;
+    }
+  }
+}
+
 type FilesContent = Record<string, string | undefined>;
 
 export async function processFiles(
@@ -42,7 +54,11 @@ export async function processFiles(
       if (_hasSubfolders) {
         result[file] = await processFiles(filePath, processCallback);
       } else {
-        result[file] = await processCallback(filePath);
+        // Check if the directory is empty
+        const isEmpty = await isEmptyDirectory(filePath);
+        if (!isEmpty) {
+          result[file] = await processCallback(filePath);
+        }
       }
     }
 
