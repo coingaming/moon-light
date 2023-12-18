@@ -7,8 +7,9 @@ import dynamic from "next/dynamic";
 
 import { Loader } from "@heathmont/moon-base-tw";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
-
+import { avatarProps, avatarStatusProps } from "./props";
 import image from "./avatar.webp";
+import { PropsTable } from "@/components/propsTable";
 
 const TITLE = "Avatar";
 const ordered: string[] = [
@@ -66,7 +67,26 @@ export default async function AuthCodePage(request: {
           }}
           data={ordered}
         />
-        {/* TODO: Props table/s */}
+        <PropsTable
+          title="Avatar props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">Avatar</span> component:
+            </p>
+          }
+          data={avatarProps}
+        />
+        <PropsTable
+          title="Avatar.Status props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">Avatar.Status</span> component:
+            </p>
+          }
+          data={avatarStatusProps}
+        />
       </div>
     </MainLayout>
   );

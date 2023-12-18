@@ -11,8 +11,10 @@ const PropsTableItem = ({ prop }: PropsTableItemProps) => {
   const renderType = (item: PropsTablePropTypes) => {
     // Check using Regex if the prop is a arrow function
     const isArrowFunction = /\(([^)]+)\) => \w/.test(item);
+    // Check using Regex if the prop is a object
+    const isObject = /\{*\}/.test(item);
 
-    if (isArrowFunction) {
+    if (isArrowFunction || isObject) {
       return item;
     } else if (["number", "boolean", "string"].includes(item)) {
       return item;
