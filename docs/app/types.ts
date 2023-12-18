@@ -44,9 +44,17 @@ export type Examples = {
     },
     "avatar": {
       "description": "string",
-      "descriptions": {},
+      "descriptions": {
+        "Customization": "string",
+        "StatusOrigin": "string"
+      },
       "examples": {
-        "Default": "string"
+        "ActiveStatus": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Sizes": "string",
+        "StatusOrigin": "string",
+        "Variants": "string"
       }
     },
     "button": {

@@ -11,7 +11,14 @@ import { PageHeadComponent } from "@/components/PageHeadComponent";
 import image from "./avatar.webp";
 
 const TITLE = "Avatar";
-const ordered: string[] = ["Default"];
+const ordered: string[] = [
+  "Default",
+  "Variants",
+  "Sizes",
+  "ActiveStatus",
+  "StatusOrigin",
+  "Customization",
+];
 
 export default async function AuthCodePage(request: {
   searchParams: { raw: string };
@@ -31,7 +38,7 @@ export default async function AuthCodePage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      },
+      }
     );
     return (
       <div className="p-4" id="playwright-test">
