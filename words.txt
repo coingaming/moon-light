@@ -2,5 +2,14 @@ crey
 authcode
 webp
 heathmont
-frieza
+authcode
+goku
+gohan
+Frontmatter
+frontmatter
+bulma
 beerus
+authcode
+webp
+heathmont
+frieza
