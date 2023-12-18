@@ -32,18 +32,18 @@ export default async function Button() {
       <MDX markdown={server.button.description} />
       <QuickNav items={sortedExamples} />
       {examples}
-      <PropsTable
+      {/* <PropsTable
         title="Button props"
         data={[
           {
             name: "animation",
-            type: "'progress' | 'success' | 'error' | 'pulse' | boolean",
+            type: ["'progress' | 'success' | 'error' | 'pulse' | boolean"],
             defaultState: "-",
             description: "Animation of button",
           },
           {
             name: "as",
-            type: "a | button",
+            type: ["a | button"],
             defaultState: "button",
             description: "Rendered HTML element",
           },
@@ -96,7 +96,7 @@ export default async function Button() {
             description: "Visual/Logical variant of button",
           },
         ]}
-      />
+      /> */}
     </div>
   );
 }

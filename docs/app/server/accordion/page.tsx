@@ -36,31 +36,31 @@ export default async function Accordion() {
         data={[
           {
             name: "itemSize",
-            type: "sm | md | lg | xl",
+            type: ["sm | md | lg | xl"],
             defaultState: "md",
             description: "Size of accordion item",
           },
           {
             name: "singleOpen",
-            type: "boolean",
+            type: ["boolean"],
             defaultState: "false",
             description: "Whether only one item can be opened at a time",
           },
           {
             name: "defaultValue",
-            type: "string",
+            type: ["string"],
             defaultState: "-",
             description: "The value of the item to expand",
           },
           {
             name: "value",
-            type: "string[]",
+            type: ["string[]"],
             defaultState: "-",
             description: "The accordion items value",
           },
           {
             name: "onValueChange",
-            type: "(value: string[]) => void",
+            type: ["(value: string[]) => void"],
             defaultState: "-",
             description:
               "Event handler called when the expanded state of an item changes and prop singleOpen in false state",
@@ -72,13 +72,13 @@ export default async function Accordion() {
         data={[
           {
             name: "value",
-            type: "string",
+            type: ["string"],
             defaultState: "-",
             description: "The accordion item value",
           },
           {
             name: "disabled",
-            type: "boolean",
+            type: ["boolean"],
             defaultState: "false",
             description: "Set disabled/non-disabled",
           },
