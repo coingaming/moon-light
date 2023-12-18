@@ -42,6 +42,11 @@ export type Examples = {
         "WithManualSubmit": "string"
       }
     },
+    "avatar": {
+      "description": "string",
+      "descriptions": {},
+      "examples": {}
+    },
     "button": {
       "description": "string",
       "descriptions": {
