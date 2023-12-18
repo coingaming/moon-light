@@ -21,3 +21,6 @@ lab
 livecasino
 moonDesign
 sportsbet
+tradeart
+goku
+bulma
