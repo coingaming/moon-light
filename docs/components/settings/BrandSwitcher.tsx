@@ -1,20 +1,21 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useLayoutEffect, useState } from "react";
 import MenuItem from "@heathmont/moon-core-tw/lib/es/menuItem/MenuItem";
-import useTheme, { Brand, themes } from "./utils/useThemes";
+import useTheme, { type Brand } from "./utils/useThemes";
+import { themes } from "@/constants";
 
-const THEMES = Object.keys(themes);
+const THEMES = Object.keys(themes) as Brand[];
 
 const BrandSwitcher = () => {
   const { setBrand, getBrand } = useTheme();
-  const [theme, setTheme] = useState(getBrand);
+  const [theme, setTheme] = useState(getBrand());
   const onClickSetTheme = useCallback(
-    (value: string) => () => {
+    (value: Brand) => () => {
       setTheme(value);
       setBrand(value as Brand);
     },
-    [setTheme, setBrand],
+    [setTheme, setBrand]
   );
   return (
     <>

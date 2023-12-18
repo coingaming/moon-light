@@ -16,11 +16,13 @@ import BrandSwitcher from "./BrandSwitcher";
 import { useRtl } from "@/components/settings/utils/RTLProvider";
 import useTheme from "@/components/settings/utils/useThemes";
 import { isLocalhost } from "./utils/isLocalhost";
+import { useLayoutEffect } from "react";
 
 const Settings = () => {
-  const { toggleDarkLightMode, isDarkThemeEnabled } = useTheme();
+  const { apply, toggleDarkLightMode, isDarkThemeEnabled, currentBrand } =
+    useTheme();
   const { isRTLEnabled, toggleRTL } = useRtl();
-
+  useLayoutEffect(() => apply(), []);
   return (
     <Popover
       className="fixed z-50 bottom-4 lg:bottom-20 end-4"
