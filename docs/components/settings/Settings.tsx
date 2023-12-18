@@ -22,10 +22,11 @@ const Settings = () => {
   const { apply, toggleDarkLightMode, isDarkThemeEnabled } = useTheme();
   const { isRTLEnabled, toggleRTL } = useRtl();
 
-  // Apply the current theme from localStorage
+  // Apply the current theme from localStorage when loaded
   useLayoutEffect(() => {
     apply();
   }, []);
+
   return (
     <Popover
       className="fixed z-50 bottom-4 lg:bottom-20 end-4"
