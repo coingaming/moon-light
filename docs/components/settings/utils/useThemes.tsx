@@ -33,13 +33,6 @@ const useTheme = () => {
     localStorage.setItem("theme", className);
   };
 
-  const getTheme = () => {
-    if (!isStorageAvailable("localStorage")) {
-      return "light";
-    }
-    return localStorage.getItem("theme") || "light";
-  };
-
   const getBrand = (): Brand => {
     if (!isStorageAvailable("localStorage")) {
       return "moonDesign";
@@ -63,11 +56,6 @@ const useTheme = () => {
     localStorage.setItem("brand", brand);
   };
 
-  const apply = () => {
-    setBrand(getBrand());
-    setTheme(getTheme());
-  };
-
   /**
    * Toggle between themes 'dark' and 'light' states
    */
@@ -89,7 +77,16 @@ const useTheme = () => {
     if (!isStorageAvailable("localStorage")) {
       return "";
     }
-    return localStorage.getItem("themeMode") || "light";
+    const modeFromLocalstorage = localStorage.getItem("themeMode") || "";
+    if (["dark", "light"].includes(modeFromLocalstorage)) {
+      return modeFromLocalstorage;
+    }
+    return "light";
+  };
+
+  const apply = () => {
+    setBrand(getBrand());
+    setTheme(getMode());
   };
 
   return {
@@ -97,7 +94,6 @@ const useTheme = () => {
     setBrand,
     getBrand,
     toggleDarkLightMode: toggleMode,
-    getTheme,
     getMode,
     isDarkThemeEnabled: getMode() === "dark",
   };
