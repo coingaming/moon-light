@@ -6,7 +6,7 @@ const Props: PropsTableProp[] = [
     type: ["sm | md | lg | xl"],
     required: false,
     defaultState: "md",
-    description: "Size of accordeon item",
+    description: "Size of accordion item",
   },
   {
     name: "singleOpen",
@@ -25,7 +25,7 @@ const Props: PropsTableProp[] = [
     name: "value",
     type: ["string[]"],
     required: false,
-    description: "The accordeon items value",
+    description: "The accordion items value",
   },
   {
     name: "onValueChange",

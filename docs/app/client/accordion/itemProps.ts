@@ -5,7 +5,7 @@ const Props: PropsTableProp[] = [
     name: "value",
     type: ["string"],
     required: true,
-    description: "The accordeon item value",
+    description: "The accordion item value",
   },
   {
     name: "disabled",
