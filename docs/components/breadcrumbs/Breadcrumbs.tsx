@@ -10,24 +10,21 @@ const Breadcrumbs = () => {
   if (pathname === "/") {
     return null;
   }
-  const breadcrumbsPath = [<Link href="/">Home</Link>].concat(
-    pages.map((page, index) => {
-      let pageLink = page;
-      switch (page) {
-        case "client":
-          pageLink = "#";
-          break;
-        default:
-          break;
-      }
-      return (
-        <Link href={pageLink} key={index}>
-          {page && page[0].toUpperCase() + page.slice(1)}
-        </Link>
-      );
-    })
-  );
-  return <Breadcrumb divider="/" breadcrumbs={breadcrumbsPath} />;
+
+  const HomeLink = <Link href="/">Home</Link>;
+
+  const formatPageLink = (page: string) => (page === "client" ? "#" : page);
+
+  const restPages = pathname
+    .split("/")
+    .filter((page) => page !== "")
+    .map((page, index) => (
+      <Link href={formatPageLink(page)} key={index}>
+        {page && page[0].toUpperCase() + page.slice(1)}
+      </Link>
+    ));
+
+  return <Breadcrumb divider="/" breadcrumbs={[HomeLink, ...restPages]} />;
 };
 
 export default Breadcrumbs;

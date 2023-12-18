@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Logo from "./logo";
+import Logo from "./Logo";
 
 export const Header = ({ children }: { children: React.ReactNode }) => {
   return (
