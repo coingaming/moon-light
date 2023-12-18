@@ -1,8 +1,8 @@
+import { test, expect } from "@playwright/test";
 import {
   PLAYWRIGHT_DEFAULT_TIMEOUT,
   PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
 } from "@/constants";
-import { test, expect } from "@playwright/test";
 
 const COMPONENT_NAME = "authcode";
 
