@@ -39,7 +39,7 @@ export default async function AuthCodePage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      },
+      }
     );
     return (
       <div className="p-4" id="playwright-test">
@@ -49,7 +49,11 @@ export default async function AuthCodePage(request: {
   }
 
   return (
-    <MainLayout isMockup={isMockup}>
+    <MainLayout
+      isMockup={isMockup}
+      componentName="avatar"
+      contentSidebar={ordered}
+    >
       <div className="flex flex-col gap-4 text-moon-14 pb-20">
         <PageHeadComponent
           title={TITLE}
