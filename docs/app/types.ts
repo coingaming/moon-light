@@ -45,7 +45,9 @@ export type Examples = {
     "avatar": {
       "description": "string",
       "descriptions": {},
-      "examples": {}
+      "examples": {
+        "Default": "string"
+      }
     },
     "button": {
       "description": "string",
