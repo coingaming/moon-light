@@ -1,20 +1,21 @@
 import { test, expect } from "@playwright/test";
+import {
+  PLAYWRIGHT_DEFAULT_TIMEOUT,
+  PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+} from "@/constants";
 
 const COMPONENT_NAME = "accordion";
-const MAX_DIFF_PIXEL_RATIO = 0.01;
-
-const DEFAULT_TIMEOUT = 1000; // We wait max for 1 second for mounting
 
 test.beforeEach(async ({ page }, testInfo) => {
   const example = testInfo.title?.split(":")?.[0] ?? "Default";
   const title = testInfo.title?.split(":")?.[1] || "";
   await page.goto(`/client/accordion/${example}`);
-  await page.waitForTimeout(DEFAULT_TIMEOUT);
+  await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
 });
 
 test("Default: should be visible in a short term", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Default.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -29,7 +30,7 @@ test("Default: should open default accordion", async ({ page }) => {
   await expect(state).toEqual("open");
 
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Default-Open.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -86,7 +87,7 @@ test("Default: should close test accordion", async ({ page }) => {
 
 test("OpenByDefault: should be visible in a short term", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-OpenByDefault.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -123,7 +124,7 @@ test("OpenByDefault: should open accordion", async ({ page }) => {
 
 test("SingleOpen: should be visible in a short term", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-SingleOpen.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -183,7 +184,7 @@ test("SingleOpen: should open first accordion and close second", async ({
 
 test("Disabled: should be visible in a short term", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Disabled.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -194,7 +195,7 @@ test("Disabled: should be disabled", async ({ page }) => {
 
 test("HeaderContent: should be visible in a short term", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Disabled.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -231,7 +232,7 @@ test("HeaderContent: should close accordion", async ({ page }) => {
 
 test("Sizes: should be visible in a short term", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Sizes.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -361,7 +362,7 @@ test("Sizes: should close SM accordion", async ({ page }) => {
 
 test("Customization: should be visible in a short term", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Customization.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -380,7 +381,7 @@ test("Customization: should open accordion", async ({ page }) => {
   await expect(page).toHaveScreenshot(
     `${COMPONENT_NAME}-Customization-Open.png`,
     {
-      maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
     },
   );
 });
@@ -411,7 +412,7 @@ test("Customization: should close accordion", async ({ page }) => {
 
 test("ControlOutside: should be visible in a short term", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-ControlOutside.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 

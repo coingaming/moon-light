@@ -1,14 +1,15 @@
 import { test, expect } from "@playwright/test";
+import {
+  PLAYWRIGHT_DEFAULT_TIMEOUT,
+  PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+} from "@/constants";
 
 const COMPONENT_NAME = "authcode";
-const MAX_DIFF_PIXEL_RATIO = 0.01;
-
-const DEFAULT_TIMEOUT = 500; // We wait max for .5 second for mounting
 
 test.beforeEach(async ({ page }, testInfo) => {
   const example = testInfo.title?.split(":")?.[0] ?? "Default";
   await page.goto(`/client/authcode/${example}`);
-  await page.waitForTimeout(DEFAULT_TIMEOUT);
+  await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
 });
 test.afterEach(async ({ page }) => {
   // Cleanup from route
@@ -17,13 +18,13 @@ test.afterEach(async ({ page }) => {
 
 test("Default: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
 test("ErrorState: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-ErrorState.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -33,44 +34,44 @@ test("AllowedCharacters: should render and match screenshot", async ({
   await expect(page).toHaveScreenshot(
     `${COMPONENT_NAME}-AllowedCharacters.png`,
     {
-      maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
     },
   );
 });
 
 test("CustomLength: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-CustomLength.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
 test("DifferentGaps: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-DifferentGaps.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
 test("HintMessage: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-HintMessage.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
 test("Password: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Password.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
 test("Placeholder: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Placeholder.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
 test("WithAutoSubmit: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithAutoSubmit.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
@@ -80,7 +81,7 @@ test("WithManualSubmit: should render and match screenshot", async ({
   await expect(page).toHaveScreenshot(
     `${COMPONENT_NAME}-WithManualSubmit.png`,
     {
-      maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
     },
   );
 });
@@ -130,7 +131,7 @@ test("Password: should not print any character", async ({ page }) => {
   await page.getByLabel("Character 5").fill("1");
   await page.getByLabel("Character 6").fill("1");
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Password-filled.png`, {
-    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
 
