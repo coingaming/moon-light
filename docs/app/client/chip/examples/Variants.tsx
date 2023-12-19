@@ -1,8 +1,10 @@
-"use client";
+import { Chip } from "@heathmont/moon-core-tw";
 
-import React from "react";
-export const Variants = () => {
-    return <div />
-}
+const Variants = () => (
+  <>
+    <Chip variant="ghost">Ghost variant</Chip>
+    <Chip className="border border-beerus">Default variant</Chip>
+  </>
+);
 
-export default Variants
+export default Variants;

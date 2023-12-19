@@ -1,8 +1,12 @@
-"use client";
+import { Chip } from "@heathmont/moon-core-tw";
 
-import React from "react";
-export const Sizes = () => {
-    return <div />
-}
+const Sizes = () => (
+  <>
+    <Chip className="border border-beerus" size="sm">
+      Small
+    </Chip>
+    <Chip className="border border-beerus">Medium is Default</Chip>
+  </>
+);
 
-export default Sizes
+export default Sizes;

@@ -1,8 +1,30 @@
 "use client";
 
-import React from "react";
-export const Customization = () => {
-    return <div />
-}
+import { Chip } from "@heathmont/moon-core-tw";
+import { useCallback, useState } from "react";
 
-export default Customization
+const Customization = () => {
+  const [isActive, setIsActive] = useState(false);
+  const onClick = useCallback(() => {
+    setIsActive(!isActive);
+  }, [setIsActive, isActive]);
+
+  return (
+    <>
+      <Chip
+        onClick={onClick}
+        isActive={isActive}
+        isStroke
+        className={
+          isActive
+            ? "outline-none text-bulma hover:text-chichi shadow shadow-bulma hover:shadow-bulma"
+            : "border border-beerustext-chichi hover:bg-chichi-10 hover:shadow-none"
+        }
+      >
+        Custom Chip
+      </Chip>
+    </>
+  );
+};
+
+export default Customization;

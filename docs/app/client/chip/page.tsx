@@ -10,7 +10,17 @@ import { PropsTable } from "@/components/propsTable";
 import props from "./props";
 import image from "./chip.webp";
 
-const ordered = ["Default"];
+const ordered = [
+  "Default",
+  "Sizes",
+  "Variants",
+  "Active",
+  "Disabled",
+  "Icons",
+  "IsStroke",
+  "WithOnClick",
+  "Customization",
+];
 
 export default async function AuthCodePage(request: {
   searchParams: { raw: string };
@@ -54,7 +64,7 @@ export default async function AuthCodePage(request: {
         />
 
         <ExampleSectionData
-          componentName="authcode"
+          componentName="chip"
           client={{
             description,
             descriptions: exampleDescriptions,
@@ -63,11 +73,11 @@ export default async function AuthCodePage(request: {
           data={ordered}
         />
         <PropsTable
-          title="AuthCode props"
+          title="Chip props"
           description={
             <p>
               These are props specific to the{" "}
-              <span className="text-frieza">AuthCode</span> component:
+              <span className="text-frieza">Chip</span> component:
             </p>
           }
           data={props}
