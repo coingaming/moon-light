@@ -12,7 +12,10 @@ import {
 
 export const HeaderContent = () => (
   <Accordion>
-    <Accordion.Item value="item-3">
+    <Accordion.Item
+      value="item-3"
+      className="border border-beerus rounded-moon-s-sm"
+    >
       <Accordion.Header>
         <Accordion.Button className="moon-open:[&_span_svg]:rotate-180">
           <span className="grow">Test accordion</span>

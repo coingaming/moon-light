@@ -6,7 +6,11 @@ import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
 export const Disabled = () => (
   <Accordion>
-    <Accordion.Item disabled value="item-1">
+    <Accordion.Item
+      disabled
+      value="item-1"
+      className="border border-beerus rounded-moon-s-sm"
+    >
       <Accordion.Header className="moon-open:[&_svg]:rotate-180" disabled>
         <Accordion.Button>
           <span>Test accordion</span>

@@ -6,7 +6,10 @@ import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
 export const Default = () => (
   <Accordion>
-    <Accordion.Item value="item-1">
+    <Accordion.Item
+      value="item-1"
+      className="border border-beerus rounded-moon-s-sm"
+    >
       <Accordion.Header className="moon-open:[&_svg]:rotate-180">
         <Accordion.Button>
           <span>Default</span>
@@ -23,7 +26,10 @@ export const Default = () => (
         mollit anim id est laborum.
       </Accordion.Content>
     </Accordion.Item>
-    <Accordion.Item value="item-2">
+    <Accordion.Item
+      value="item-2"
+      className="border border-beerus rounded-moon-s-sm"
+    >
       <Accordion.Header className="moon-open:[&_svg]:rotate-180">
         <Accordion.Button>
           <span>Test accordion</span>

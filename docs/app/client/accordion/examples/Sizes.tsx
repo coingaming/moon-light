@@ -7,7 +7,10 @@ import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 export const Sizes = () => (
   <>
     <Accordion itemSize="xl">
-      <Accordion.Item value="item-1">
+      <Accordion.Item
+        value="item-1"
+        className="border border-beerus rounded-moon-s-sm"
+      >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>X Large (xl)</span>
@@ -26,7 +29,10 @@ export const Sizes = () => (
       </Accordion.Item>
     </Accordion>
     <Accordion itemSize="lg">
-      <Accordion.Item value="item-1">
+      <Accordion.Item
+        value="item-1"
+        className="border border-beerus rounded-moon-s-sm"
+      >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>Large (lg)</span>
@@ -45,7 +51,10 @@ export const Sizes = () => (
       </Accordion.Item>
     </Accordion>
     <Accordion>
-      <Accordion.Item value="item-2">
+      <Accordion.Item
+        value="item-2"
+        className="border border-beerus rounded-moon-s-sm"
+      >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>Medium is default (md)</span>
@@ -64,7 +73,10 @@ export const Sizes = () => (
       </Accordion.Item>
     </Accordion>
     <Accordion itemSize="sm">
-      <Accordion.Item value="item-3">
+      <Accordion.Item
+        value="item-3"
+        className="border border-beerus rounded-moon-s-sm"
+      >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>Small (sm)</span>
