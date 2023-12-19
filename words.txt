@@ -13,3 +13,6 @@ authcode
 webp
 heathmont
 frieza
+libc
+compat
+corepack
