@@ -11,13 +11,13 @@ const IsActive = () => {
     (item: string) => {
       if (isActive.includes(item)) {
         setIsActive((prev: string[]) =>
-          prev.filter((sport: string) => sport !== item)
+          prev.filter((sport: string) => sport !== item),
         );
       } else {
         setIsActive([...isActive, item]);
       }
     },
-    [setIsActive, isActive]
+    [setIsActive, isActive],
   );
 
   return (
