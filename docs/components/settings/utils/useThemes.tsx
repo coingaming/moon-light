@@ -85,8 +85,13 @@ const useTheme = () => {
   };
 
   const apply = () => {
-    setBrand(getBrand());
-    setTheme(getMode());
+    const brand = getBrand();
+    const theme = getMode() as Mode;
+    setThemeState((prev) => ({
+      ...prev,
+      colorMode: theme,
+    }));
+    setBrand(brand);
   };
 
   return {
