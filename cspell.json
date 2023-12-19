@@ -16,6 +16,14 @@
     "pnpm-lock.yaml",
     "node_modules",
     "pnpm-workspace.yaml",
-    "docs/package.json"
+    "docs/package.json",
+    "client/accordion/examples/Default.tsx",
+    "client/accordion/examples/SingleOpen.tsx",
+    "client/accordion/examples/ControlOutside.tsx",
+    "client/accordion/examples/Customization.tsx",
+    "client/accordion/examples/Disables.tsx",
+    "client/accordion/examples/HeaderContent.tsx",
+    "client/accordion/examples/OpenByDefault.tsx",
+    "client/accordion/examples/Sizes.tsx"
   ]
 }
