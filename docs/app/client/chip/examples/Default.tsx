@@ -1,5 +1,8 @@
-import { Chip } from "@heathmont/moon-core-tw";
+"use client";
 
-const Default = () => <Chip className="border border-beerus">Default</Chip>;
+import React from "react";
+export const Default = () => {
+  return <div />;
+};
 
 export default Default;
