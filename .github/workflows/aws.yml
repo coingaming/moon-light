@@ -33,7 +33,7 @@ on:
 env:
   AWS_REGION: eu-north-1
   ECR_REPOSITORY: moon-design
-  ECS_SERVICE: moon-design
+  ECS_SERVICE: moon-design-service
   ECS_CLUSTER: moon-design-cluster
   ECS_TASK_DEFINITION: .config/aws-task-definition.json # e.g. .aws/task-definition.json
   CONTAINER_NAME: moon-design
