@@ -17,8 +17,25 @@ const defaultComponents: ComponentProps<any> = {
       {props.children}
     </ul>
   ),
-  code: (props: HTMLProps<HTMLSpanElement>) => (
-    <code {...props} className="text-chichi bg-gohan">
+  ol: (
+    props: React.DetailedHTMLProps<
+      React.OlHTMLAttributes<HTMLOListElement>,
+      HTMLOListElement
+    >
+  ) => {
+    const { type, ...rest } = props;
+
+    return (
+      <ol {...rest} className="list-decimal ps-4 gap-2 flex flex-col">
+        {props.children}
+      </ol>
+    );
+  },
+  code: (props: HTMLProps<HTMLPreElement>) => (
+    <code
+      {...props}
+      className="p-2 bg-gohan rounded-moon-s-sm text-moon-14 text-bulma"
+    >
       {props.children}
     </code>
   ),

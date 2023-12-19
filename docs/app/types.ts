@@ -14,6 +14,10 @@ export type Examples = {
         "OpenByDefault": "string",
         "SingleOpen": "string",
         "Sizes": "string"
+      },
+      "props": {
+        "itemProps": "string",
+        "props": "string"
       }
     },
     "authcode": {
