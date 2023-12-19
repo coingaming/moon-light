@@ -4,7 +4,7 @@ import { GenericUser } from "@heathmont/moon-icons-tw";
 import image from "../avatar_example.jpeg";
 
 const sharedProps = {
-  className: "border-trunks border",
+  className: "border-beerus border",
 };
 
 const ActiveStatus = () => (
@@ -15,7 +15,7 @@ const ActiveStatus = () => (
     </Avatar>
     <Avatar {...sharedProps}>
       md
-      <Avatar.Status />
+      <Avatar.Status className="bg-trunks" />
     </Avatar>
     <Avatar imageUrl={image.src}>
       <Avatar.Status />

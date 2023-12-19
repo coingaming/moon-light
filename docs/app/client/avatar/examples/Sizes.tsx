@@ -3,7 +3,7 @@ import { GenericUser } from "@heathmont/moon-icons-tw";
 import image from "../avatar_example.jpeg";
 
 const sharedProps = {
-  className: "border-trunks border",
+  className: "border border-beerus",
 };
 
 const Example = () => (
