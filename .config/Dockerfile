@@ -24,6 +24,4 @@ RUN corepack enable \
 # Uncomment the following line in case you want to disable telemetry.
 ENV NEXT_TELEMETRY_DISABLED 1
 
-EXPOSE 3000
-
 CMD ["pnpm", "run", "doc", "start"]
