@@ -1,15 +1,18 @@
 import React from "react";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+import { Loader } from "@heathmont/moon-base-tw";
 import { getExamples } from "@/utils/getExamples";
-import { MDX } from "@/components/MDX";
 import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
 import { MainLayout } from "@/components/MainLayout";
-import dynamic from "next/dynamic";
-import TitleTags from "@/components/TitleTags";
-
-import image from "./bottomsheet.webp";
-import { Loader } from "@heathmont/moon-base-tw";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
+import { PropsTable } from "@/components/propsTable";
+
+import props from "./props/props";
+import panelProps from "./props/panelProps";
+import draghandleProps from "./props/draghandleProps";
+import titleProps from "./props/titleProps";
+import backdropProps from "./props/backdropProps";
+import image from "./bottomsheet.webp";
 
 const TITLE = "BottomSheet";
 
@@ -38,7 +41,7 @@ export default async function BottomSheetPage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      },
+      }
     );
     return (
       <div className="p-4" id="playwright-test">
@@ -48,7 +51,11 @@ export default async function BottomSheetPage(request: {
   }
 
   return (
-    <MainLayout isMockup={isMockup}>
+    <MainLayout
+      isMockup={isMockup}
+      componentName="bottomsheet"
+      contentSidebar={ordered}
+    >
       <div className="flex flex-col gap-4 text-moon-14 pb-20">
         <PageHeadComponent
           title={TITLE}
@@ -66,7 +73,58 @@ export default async function BottomSheetPage(request: {
           }}
           data={ordered}
         />
-        {/* TODO: Props table/s */}
+        <PropsTable
+          title="BottomSheet props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">BottomSheet</span> component:
+            </p>
+          }
+          data={props}
+        />
+        <PropsTable
+          title="BottomSheet.Panel props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">BottomSheet.Panel</span> component:
+            </p>
+          }
+          data={panelProps}
+        />
+        <PropsTable
+          title="BottomSheet.Draghandle props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">BottomSheet.Draghandle</span>{" "}
+              component:
+            </p>
+          }
+          data={draghandleProps}
+        />
+        <PropsTable
+          title="BottomSheet.Title props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">BottomSheet.Title</span> component:
+            </p>
+          }
+          data={titleProps}
+        />
+        <PropsTable
+          title="BottomSheet.Backdrop props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">BottomSheet.Backdrop</span>{" "}
+              component:
+            </p>
+          }
+          data={backdropProps}
+        />
       </div>
     </MainLayout>
   );

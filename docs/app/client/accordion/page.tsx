@@ -7,8 +7,8 @@ import { MainLayout } from "@/components/MainLayout";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
 import { PropsTable } from "@/components/propsTable";
 
-import props from "./props";
-import itemProps from "./itemProps";
+import props from "./props/props";
+import itemProps from "./props/itemProps";
 import image from "./accordion.webp";
 
 const TITLE = "Accordion";
@@ -40,7 +40,7 @@ export default async function AccordionPage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      },
+      }
     );
     return (
       <div className="p-4" id="playwright-test">
