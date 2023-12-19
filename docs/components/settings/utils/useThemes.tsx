@@ -89,7 +89,7 @@ const useTheme = () => {
     const theme = getMode();
     setThemeState((prev) => ({
       ...prev,
-      colorMode: theme as "light" | "dark",
+      colorMode: theme as Mode,
     }));
     setBrand(brand);
   };
