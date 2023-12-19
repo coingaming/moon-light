@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  console.log("intercepted", request.url);
-  let isPlaywright = !!request.headers.get("x-playwright");
+  // console.log("intercepted", request.url);
+  // let isPlaywright = !!request.headers.get("x-playwright");
   // if (!isPlaywright) {
   //   return NextResponse.next()
   // }

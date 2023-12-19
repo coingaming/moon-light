@@ -19,9 +19,9 @@ export const ${name} = () => {
 
 export default ${name}
 `;
-  const _e2e = `test('${name}: should render and match screenshot', async ({ page }) => {
+  const _e2e = `\ntest('${name}: should render and match screenshot', async ({ page }) => {
     await expect(page).toHaveScreenshot(\`${component}-${name}.png\`, {
-        maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO
     })
 })
 `;

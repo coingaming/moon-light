@@ -28,7 +28,7 @@ export async function isEmptyDirectory(_path: string) {
     return files.length === 0;
   } catch (err) {
     if (err instanceof Error) {
-      console.log("Error checking directory Empty:", err.message);
+      console.error("Error checking directory Empty:", err.message);
       throw err;
     }
   }

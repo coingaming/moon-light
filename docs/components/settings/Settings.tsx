@@ -16,10 +16,16 @@ import BrandSwitcher from "./BrandSwitcher";
 import { useRtl } from "@/components/settings/utils/RTLProvider";
 import useTheme from "@/components/settings/utils/useThemes";
 import { isLocalhost } from "./utils/isLocalhost";
+import { useLayoutEffect } from "react";
 
 const Settings = () => {
-  const { toggleDarkLightMode, isDarkThemeEnabled } = useTheme();
+  const { apply, toggleDarkLightMode, isDarkThemeEnabled } = useTheme();
   const { isRTLEnabled, toggleRTL } = useRtl();
+
+  // Apply the current theme from localStorage when loaded
+  useLayoutEffect(() => {
+    apply();
+  }, []);
 
   return (
     <Popover
