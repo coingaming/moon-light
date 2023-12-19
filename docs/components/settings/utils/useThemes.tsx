@@ -77,9 +77,9 @@ const useTheme = () => {
     if (!isStorageAvailable("localStorage")) {
       return "";
     }
-    const modeFromLocalstorage = localStorage.getItem("themeMode") || "";
-    if (["dark", "light"].includes(modeFromLocalstorage)) {
-      return modeFromLocalstorage;
+    const modeFromLocalStorage = localStorage.getItem("themeMode") || "";
+    if (["dark", "light"].includes(modeFromLocalStorage)) {
+      return modeFromLocalStorage;
     }
     return "light";
   };
