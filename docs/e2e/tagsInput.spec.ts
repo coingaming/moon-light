@@ -16,26 +16,28 @@ test.afterEach(async ({ page }) => {
   await page.close();
 });
 
-test('Default: should render and match screenshot', async ({ page }) => {
-    await expect(page).toHaveScreenshot(`tagsInput-Default.png`, {
-        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO
-    })
-})
+test("Default: should render and match screenshot", async ({ page }) => {
+  await expect(page).toHaveScreenshot(`tagsInput-Default.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
 
-test('DifferentSizes: should render and match screenshot', async ({ page }) => {
-    await expect(page).toHaveScreenshot(`tagsInput-DifferentSizes.png`, {
-        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO
-    })
-})
+test("DifferentSizes: should render and match screenshot", async ({ page }) => {
+  await expect(page).toHaveScreenshot(`tagsInput-DifferentSizes.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
 
-test('States: should render and match screenshot', async ({ page }) => {
-    await expect(page).toHaveScreenshot(`tagsInput-States.png`, {
-        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO
-    })
-})
+test("States: should render and match screenshot", async ({ page }) => {
+  await expect(page).toHaveScreenshot(`tagsInput-States.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
 
-test('UppercaseLowercase: should render and match screenshot', async ({ page }) => {
-    await expect(page).toHaveScreenshot(`tagsInput-UppercaseLowercase.png`, {
-        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO
-    })
-})
+test("UppercaseLowercase: should render and match screenshot", async ({
+  page,
+}) => {
+  await expect(page).toHaveScreenshot(`tagsInput-UppercaseLowercase.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});

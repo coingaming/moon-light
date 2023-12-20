@@ -12,7 +12,12 @@ import image from "./tagsinput.webp";
 import { PropsTable } from "@/components/propsTable";
 
 const TITLE = "TagsInput";
-const ordered: string[] = ["Default"];
+const ordered: string[] = [
+  "Default",
+  "DifferentSizes",
+  "States",
+  "UppercaseLowercase",
+];
 
 export default async function AuthCodePage(request: {
   searchParams: { raw: string };
