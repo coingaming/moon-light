@@ -34,7 +34,7 @@ test("Collapsed: should open collapsed crumbs and match screenshot", async ({
   });
 });
 
-test("Collapsed: click outsite should close collapsed crumbs", async ({
+test("Collapsed: click outside should close collapsed crumbs", async ({
   page,
 }) => {
   await page.locator("li > button").click();
@@ -48,22 +48,31 @@ test("Collapsed: click outsite should close collapsed crumbs", async ({
 
 test("Collapsed: first crumb hover should match screenshot", async ({
   page,
+  isMobile,
 }) => {
-  await page.getByText("Home").hover();
-  await page.waitForTimeout(100);
-  await expect(page).toHaveScreenshot(`breadcrumb-Collapsed-Home-hover.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  if (!isMobile) {
+    await page.getByText("Home").hover();
+    await page.waitForTimeout(100);
+    await expect(page).toHaveScreenshot(`breadcrumb-Collapsed-Home-hover.png`, {
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    });
+  }
 });
 
 test("Collapsed: 2nd last crumb hover should match screenshot", async ({
   page,
+  isMobile,
 }) => {
-  await page.getByText("Page 4").hover();
-  await page.waitForTimeout(100);
-  await expect(page).toHaveScreenshot(`breadcrumb-Collapsed-Page4-hover.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  if (!isMobile) {
+    await page.getByText("Page 4").hover();
+    await page.waitForTimeout(100);
+    await expect(page).toHaveScreenshot(
+      `breadcrumb-Collapsed-Page4-hover.png`,
+      {
+        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+      },
+    );
+  }
 });
 
 // TODO: Add enter press test when component is updated to support it
@@ -77,28 +86,47 @@ test("FourItems: should render and match screenshot", async ({ page }) => {
 
 test("FourItems: first crumb hover should match screenshot", async ({
   page,
+  isMobile,
 }) => {
-  await page.getByText("Home").hover();
-  await page.waitForTimeout(100);
-  await expect(page).toHaveScreenshot(`breadcrumb-FourItems-Home-hover.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  if (!isMobile) {
+    await page.getByText("Home").hover();
+    await page.waitForTimeout(100);
+    await expect(page).toHaveScreenshot(`breadcrumb-FourItems-Home-hover.png`, {
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    });
+  }
 });
 
-test("FourItems: 2nd crumb hover should match screenshot", async ({ page }) => {
-  await page.getByText("Page 1").hover();
-  await page.waitForTimeout(100);
-  await expect(page).toHaveScreenshot(`breadcrumb-FourItems-Page1-hover.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+test("FourItems: 2nd crumb hover should match screenshot", async ({
+  page,
+  isMobile,
+}) => {
+  if (!isMobile) {
+    await page.getByText("Page 1").hover();
+    await page.waitForTimeout(100);
+    await expect(page).toHaveScreenshot(
+      `breadcrumb-FourItems-Page1-hover.png`,
+      {
+        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+      },
+    );
+  }
 });
 
-test("FourItems: 3rd crumb hover should match screenshot", async ({ page }) => {
-  await page.getByText("Page 2").hover();
-  await page.waitForTimeout(100);
-  await expect(page).toHaveScreenshot(`breadcrumb-FourItems-Page2-hover.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+test("FourItems: 3rd crumb hover should match screenshot", async ({
+  page,
+  isMobile,
+}) => {
+  if (!isMobile) {
+    await page.getByText("Page 2").hover();
+    await page.waitForTimeout(100);
+    await expect(page).toHaveScreenshot(
+      `breadcrumb-FourItems-Page2-hover.png`,
+      {
+        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+      },
+    );
+  }
 });
 
 test("TwoItems: should render and match screenshot", async ({ page }) => {
@@ -109,12 +137,15 @@ test("TwoItems: should render and match screenshot", async ({ page }) => {
 
 test("TwoItems: first crumb hover should match screenshot", async ({
   page,
+  isMobile,
 }) => {
-  await page.getByText("Home").hover();
-  await page.waitForTimeout(100);
-  await expect(page).toHaveScreenshot(`breadcrumb-TwoItems-Home-hover.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  if (!isMobile) {
+    await page.getByText("Home").hover();
+    await page.waitForTimeout(100);
+    await expect(page).toHaveScreenshot(`breadcrumb-TwoItems-Home-hover.png`, {
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    });
+  }
 });
 
 test("OneItem: should render and match screenshot", async ({ page }) => {
@@ -142,7 +173,7 @@ test("CustomDivider: should open collapsed crumbs and match screenshot", async (
   });
 });
 
-test("CustomDivider: click outsite should close collapsed crumbs", async ({
+test("CustomDivider: click outside should close collapsed crumbs", async ({
   page,
 }) => {
   await page.locator("li > button").click();
@@ -156,28 +187,34 @@ test("CustomDivider: click outsite should close collapsed crumbs", async ({
 
 test("CustomDivider: first crumb hover should match screenshot", async ({
   page,
+  isMobile,
 }) => {
-  await page.locator('a[aria-label="Home"]').hover();
-  await page.waitForTimeout(100);
-  await expect(page).toHaveScreenshot(
-    `breadcrumb-CustomDivider-Home-hover.png`,
-    {
-      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    },
-  );
+  if (!isMobile) {
+    await page.locator('a[aria-label="Home"]').hover();
+    await page.waitForTimeout(100);
+    await expect(page).toHaveScreenshot(
+      `breadcrumb-CustomDivider-Home-hover.png`,
+      {
+        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+      },
+    );
+  }
 });
 
 test("CustomDivider: 2nd last crumb hover should match screenshot", async ({
   page,
+  isMobile,
 }) => {
-  await page.getByText("Page 4").hover();
-  await page.waitForTimeout(100);
-  await expect(page).toHaveScreenshot(
-    `breadcrumb-CustomDivider-Page4-hover.png`,
-    {
-      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    },
-  );
+  if (!isMobile) {
+    await page.getByText("Page 4").hover();
+    await page.waitForTimeout(100);
+    await expect(page).toHaveScreenshot(
+      `breadcrumb-CustomDivider-Page4-hover.png`,
+      {
+        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+      },
+    );
+  }
 });
 
 // TODO: Add enter press test when component is updated to support it
