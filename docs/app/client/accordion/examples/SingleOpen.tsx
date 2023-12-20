@@ -52,4 +52,5 @@ export const SingleOpen = () => (
     </Accordion.Item>
   </Accordion>
 );
+
 export default SingleOpen;

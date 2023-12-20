@@ -104,4 +104,5 @@ export const Sizes = () => (
     </Accordion>
   </>
 );
+
 export default Sizes;

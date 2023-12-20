@@ -52,4 +52,5 @@ export const Default = () => (
     </Accordion.Item>
   </Accordion>
 );
+
 export default Default;

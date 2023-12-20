@@ -29,4 +29,5 @@ export const Customization = () => (
     </Accordion>
   </>
 );
+
 export default Customization;

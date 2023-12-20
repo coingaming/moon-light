@@ -31,4 +31,5 @@ export const Disabled = () => (
     </Accordion.Item>
   </Accordion>
 );
+
 export default Disabled;

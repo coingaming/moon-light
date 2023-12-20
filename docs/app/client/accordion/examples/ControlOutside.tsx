@@ -65,4 +65,5 @@ export const ControlOutside = () => {
     </div>
   );
 };
+
 export default ControlOutside;
