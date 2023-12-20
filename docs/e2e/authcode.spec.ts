@@ -209,7 +209,7 @@ test("Placeholder: component support for RTL", async ({ page }) => {
       throw new Error("RTLProvider error: html element was not found");
     }
   });
-  await page.waitForTimeout(100);
+  await page.waitForSelector("html[dir=rtl]");
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL.png`, {
     maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
