@@ -1,6 +1,10 @@
 import { defineConfig, devices } from "@playwright/test";
 import path from "path";
-import { PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO } from "./constants";
+import {
+  PLAYWRIGHT_MAX_DIFF_PIXEL,
+  PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  PLAYWRIGHT_YIQ_PIXELMATCH_COLOR,
+} from "./constants";
 
 // Use process.env.PORT by default and fallback to port 3000
 const PORT = process.env.PORT || 3000;
@@ -45,14 +49,14 @@ export default defineConfig({
   },
   expect: {
     toHaveScreenshot: {
-      maxDiffPixels: 4,
-      threshold: 0.1,
+      maxDiffPixels: PLAYWRIGHT_MAX_DIFF_PIXEL,
+      threshold: PLAYWRIGHT_YIQ_PIXELMATCH_COLOR,
     },
     toMatchSnapshot: {
       // An acceptable ratio of pixels that are different to the
       // total amount of pixels, between 0 and 1.
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-      threshold: 0.1,
+      threshold: PLAYWRIGHT_YIQ_PIXELMATCH_COLOR,
     },
   },
   projects: [

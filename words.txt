@@ -26,3 +26,4 @@ goku
 bulma
 sportsbet
 Kallavus
+pixelmatch
