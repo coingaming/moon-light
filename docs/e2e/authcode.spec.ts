@@ -11,10 +11,10 @@ test.beforeEach(async ({ page }, testInfo) => {
   await page.goto(`/client/authcode/${example}`);
   await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
 });
-test.afterEach(async ({ page }) => {
-  // Cleanup from route
-  await page.close();
-});
+// test.afterEach(async ({ page }) => {
+//   // Cleanup from route
+//   await page.close();
+// });
 
 test("Default: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}.png`, {
@@ -35,7 +35,7 @@ test("AllowedCharacters: should render and match screenshot", async ({
     `${COMPONENT_NAME}-AllowedCharacters.png`,
     {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    },
+    }
   );
 });
 
@@ -82,7 +82,7 @@ test("WithManualSubmit: should render and match screenshot", async ({
     `${COMPONENT_NAME}-WithManualSubmit.png`,
     {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    },
+    }
   );
 });
 
@@ -192,10 +192,41 @@ test("WithManualSubmit: should submit on the button click", async ({
 
 test("HintMessage: should have text hint", async ({ page }) => {
   await expect(await page.locator('p[role="alert"]').innerText()).toBe(
-    "Hint message",
+    "Hint message"
   );
 });
 
 test("CustomLength: should have custom length inputs", async ({ page }) => {
   await expect((await page.locator("div > input").all()).length).toBe(4);
+});
+
+test("Placeholder: component support for RTL", async ({ page }) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForTimeout(100);
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("Default: test hover effect", async ({ page, isMobile }) => {
+  // Don't test hover in mobile
+  if (isMobile) return;
+  const firstInput = await page.locator("input").first();
+  const posFirstInput = await firstInput.boundingBox();
+  await firstInput.hover({
+    position: {
+      x: posFirstInput?.x || 0,
+      y: posFirstInput?.y || 0,
+    },
+  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Hover.png`, {
+    maxDiffPixelRatio: 0, // reduce to 0
+  });
 });
