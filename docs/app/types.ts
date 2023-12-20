@@ -45,8 +45,12 @@ export type Examples = {
     "avatar": {
       "description": "string",
       "descriptions": {
+        "ActiveStatus": "string",
         "Customization": "string",
-        "StatusOrigin": "string"
+        "Default": "string",
+        "Sizes": "string",
+        "StatusOrigin": "string",
+        "Variants": "string"
       },
       "examples": {
         "ActiveStatus": "string",
@@ -55,6 +59,8 @@ export type Examples = {
         "Sizes": "string",
         "StatusOrigin": "string",
         "Variants": "string"
+      }
+    },
     "breadcrumb": {
       "description": "string",
       "descriptions": {
