@@ -11,7 +11,6 @@ import {
 } from "@heathmont/moon-icons-tw";
 
 export const HeaderContent = () => (
-  // cSpell:disable
   <Accordion>
     <Accordion.Item
       value="item-3"
@@ -32,6 +31,7 @@ export const HeaderContent = () => (
         </Accordion.Button>
       </Accordion.Header>
       <Accordion.Content>
+        {/* cSpell:disable */}
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -39,9 +39,9 @@ export const HeaderContent = () => (
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
+        {/* cSpell:enable */}
       </Accordion.Content>
     </Accordion.Item>
   </Accordion>
 );
-// cSpell:enable
 export default HeaderContent;

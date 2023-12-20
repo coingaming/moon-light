@@ -5,7 +5,6 @@ import Accordion from "@heathmont/moon-core-tw/lib/es/accordion/Accordion";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
 export const SingleOpen = () => (
-  // cSpell:disable
   <Accordion singleOpen>
     <Accordion.Item
       value="item-1"
@@ -18,6 +17,7 @@ export const SingleOpen = () => (
         </Accordion.Button>
       </Accordion.Header>
       <Accordion.Content>
+        {/* cSpell:disable */}
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -25,6 +25,7 @@ export const SingleOpen = () => (
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
+        {/* cSpell:enable */}
       </Accordion.Content>
     </Accordion.Item>
     <Accordion.Item
@@ -38,6 +39,7 @@ export const SingleOpen = () => (
         </Accordion.Button>
       </Accordion.Header>
       <Accordion.Content>
+        {/* cSpell:disable */}
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -45,9 +47,9 @@ export const SingleOpen = () => (
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
+        {/* cSpell:enable */}
       </Accordion.Content>
     </Accordion.Item>
   </Accordion>
 );
-// cSpell:enable
 export default SingleOpen;

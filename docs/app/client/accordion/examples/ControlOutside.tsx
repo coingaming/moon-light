@@ -12,7 +12,6 @@ export const ControlOutside = () => {
     values.length === 0 ? setValues(items) : setValues([]);
 
   return (
-    // cSpell:disable
     <div className="flex flex-col gap-4 w-full">
       <Button className="w-32" onClick={toggleAll}>
         Toggle All
@@ -29,6 +28,7 @@ export const ControlOutside = () => {
             </Accordion.Button>
           </Accordion.Header>
           <Accordion.Content>
+            {/* cSpell:disable */}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -36,6 +36,7 @@ export const ControlOutside = () => {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
+            {/* cSpell:enable */}
           </Accordion.Content>
         </Accordion.Item>
         <Accordion.Item
@@ -49,6 +50,7 @@ export const ControlOutside = () => {
             </Accordion.Button>
           </Accordion.Header>
           <Accordion.Content>
+            {/* cSpell:disable */}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -56,11 +58,11 @@ export const ControlOutside = () => {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
+            {/* cSpell:enable */}
           </Accordion.Content>
         </Accordion.Item>
       </Accordion>
     </div>
   );
 };
-// cSpell:enable
 export default ControlOutside;
