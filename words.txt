@@ -27,3 +27,5 @@ bulma
 sportsbet
 Kallavus
 pixelmatch
+viewports
+navigations
