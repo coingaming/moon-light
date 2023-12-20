@@ -42,6 +42,23 @@ export type Examples = {
         "WithManualSubmit": "string"
       }
     },
+    "breadcrumb": {
+      "description": "string",
+      "descriptions": {
+        "Collapsed": "string",
+        "CustomDivider": "string",
+        "FourItems": "string",
+        "OneItem": "string",
+        "TwoItems": "string"
+      },
+      "examples": {
+        "Collapsed": "string",
+        "CustomDivider": "string",
+        "FourItems": "string",
+        "OneItem": "string",
+        "TwoItems": "string"
+      }
+    },
     "button": {
       "description": "string",
       "descriptions": {
