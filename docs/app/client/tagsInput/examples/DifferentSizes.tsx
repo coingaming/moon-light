@@ -2,7 +2,7 @@
 
 import React from "react";
 export const DifferentSizes = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default DifferentSizes
+export default DifferentSizes;

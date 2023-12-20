@@ -2,7 +2,7 @@
 
 import React from "react";
 export const UppercaseLowercase = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default UppercaseLowercase
+export default UppercaseLowercase;
