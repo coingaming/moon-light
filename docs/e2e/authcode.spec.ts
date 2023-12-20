@@ -227,6 +227,7 @@ test("Default: test hover effect", async ({ page, isMobile }) => {
     },
   });
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Hover.png`, {
-    maxDiffPixelRatio: 0, // reduce to 0
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    threshold: 0, // for fix colors in playwright
   });
 });
