@@ -10,13 +10,13 @@ const TagsInputWithLogic = ({ size }: { size?: Size }) => {
     (value: string) => {
       setSelected([...selected, value]);
     },
-    [selected, setSelected]
+    [selected, setSelected],
   );
   const onClear = useCallback(
     (index: number) => {
       setSelected(selected.filter((item: string, id: number) => id !== index));
     },
-    [selected, setSelected]
+    [selected, setSelected],
   );
 
   return (

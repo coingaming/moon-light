@@ -10,14 +10,14 @@ const Example = () => {
     (value: string) => {
       setSelected([...selected, value]);
     },
-    [selected, setSelected]
+    [selected, setSelected],
   );
 
   const onClear = useCallback(
     (index: number) => {
       setSelected(selected.filter((item, id) => id !== index));
     },
-    [selected, setSelected]
+    [selected, setSelected],
   );
 
   return (
