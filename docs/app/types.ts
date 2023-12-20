@@ -55,6 +55,21 @@ export type Examples = {
         "Sizes": "string",
         "StatusOrigin": "string",
         "Variants": "string"
+    "breadcrumb": {
+      "description": "string",
+      "descriptions": {
+        "Collapsed": "string",
+        "CustomDivider": "string",
+        "FourItems": "string",
+        "OneItem": "string",
+        "TwoItems": "string"
+      },
+      "examples": {
+        "Collapsed": "string",
+        "CustomDivider": "string",
+        "FourItems": "string",
+        "OneItem": "string",
+        "TwoItems": "string"
       }
     },
     "button": {
