@@ -7,22 +7,18 @@ import dynamic from "next/dynamic";
 
 import { Loader } from "@heathmont/moon-base-tw";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
+import { avatarProps, avatarStatusProps } from "./props";
+import image from "./avatar.webp";
 import { PropsTable } from "@/components/propsTable";
 
-import props from "./props";
-import image from "./authcode.webp";
-
-const ordered = [
+const TITLE = "Avatar";
+const ordered: string[] = [
   "Default",
-  "WithManualSubmit",
-  "WithAutoSubmit",
-  "AllowedCharacters",
-  "CustomLength",
-  "ErrorState",
-  "HintMessage",
-  "Placeholder",
-  "Password",
-  "DifferentGaps",
+  "Variants",
+  "Sizes",
+  "ActiveStatus",
+  "StatusOrigin",
+  "Customization",
 ];
 
 export default async function AuthCodePage(request: {
@@ -30,7 +26,7 @@ export default async function AuthCodePage(request: {
 }) {
   const {
     client: {
-      authcode: { description, descriptions: exampleDescriptions, examples },
+      avatar: { description, descriptions: exampleDescriptions, examples },
     },
   } = await getExamples();
 
@@ -39,7 +35,7 @@ export default async function AuthCodePage(request: {
 
   if (isMockup) {
     const Component = dynamic(
-      () => import(`@/app/client/authcode/examples/${searchParam}`),
+      () => import(`@/app/client/avatar/examples/${searchParam}`),
       {
         loading: () => <Loader />,
         ssr: false,
@@ -55,19 +51,19 @@ export default async function AuthCodePage(request: {
   return (
     <MainLayout
       isMockup={isMockup}
-      componentName="authcode"
+      componentName="avatar"
       contentSidebar={ordered}
     >
-      <div className="flex flex-col gap-12 text-moon-14 pb-20">
+      <div className="flex flex-col gap-4 text-moon-14 pb-20">
         <PageHeadComponent
-          title={"AuthCode"}
+          title={TITLE}
           description={description}
           tags={["ARIA", "RTL"]}
           image={image}
         />
 
         <ExampleSectionData
-          componentName="authcode"
+          componentName="avatar"
           client={{
             description,
             descriptions: exampleDescriptions,
@@ -76,14 +72,24 @@ export default async function AuthCodePage(request: {
           data={ordered}
         />
         <PropsTable
-          title="AuthCode props"
+          title="Avatar props"
           description={
             <p>
               These are props specific to the{" "}
-              <span className="text-frieza">AuthCode</span> component:
+              <span className="text-frieza">Avatar</span> component:
             </p>
           }
-          data={props}
+          data={avatarProps}
+        />
+        <PropsTable
+          title="Avatar.Status props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">Avatar.Status</span> component:
+            </p>
+          }
+          data={avatarStatusProps}
         />
       </div>
     </MainLayout>

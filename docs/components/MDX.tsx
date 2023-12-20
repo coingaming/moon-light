@@ -17,6 +17,11 @@ const defaultComponents: ComponentProps<any> = {
       {props.children}
     </ul>
   ),
+  code: (props: HTMLProps<HTMLSpanElement>) => (
+    <code {...props} className="text-chichi bg-gohan">
+      {props.children}
+    </code>
+  ),
 };
 
 export function MDX({
