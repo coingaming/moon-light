@@ -13,6 +13,14 @@ const Props: PropsTableProp[] = [
     required: false,
     description: "Custom divider element",
   },
+  {
+    name: "collapseAfter",
+    type: ["number"],
+    required: false,
+    defaultState: 4,
+    description:
+      "Number of visible crumbs. Additional ones collapse for a streamlined view",
+  },
 ];
 
 export default Props;

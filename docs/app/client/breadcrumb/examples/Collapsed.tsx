@@ -2,14 +2,13 @@
 
 import React from "react";
 import { Breadcrumb } from "@heathmont/moon-core-tw";
-import Link from "next/link";
 
 const breadcrumbs = [
-  <Link href="">Home</Link>,
-  <Link href="">Page 1</Link>,
-  <Link href="">Page 2</Link>,
-  <Link href="">Page 3</Link>,
-  <Link href="">Page 4</Link>,
+  <a href="#">Home</a>,
+  <a href="#">Page 1</a>,
+  <a href="#">Page 2</a>,
+  <a href="#">Page 3</a>,
+  <a href="#">Page 4</a>,
   <span>Current page</span>,
 ];
 
