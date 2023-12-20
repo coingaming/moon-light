@@ -1,5 +1,4 @@
 import { test, expect } from "@playwright/test";
-import { PLAYWRIGHT_DEFAULT_TIMEOUT } from "@/constants";
 import {
   PlayWrightEndTouch,
   PlayWrightMoveTouch,
@@ -56,17 +55,6 @@ test("Default: click on panel should not close default bottomsheet", async ({
   await expect(bottomsheet).toBeVisible();
 });
 
-test("Default: enter press should open default bottomsheet", async ({
-  page,
-}) => {
-  const button = page.getByRole("button", { name: "Default BottomSheet" });
-  await button.focus();
-  await button.press("Enter");
-  await page.waitForTimeout(100);
-  const bottomsheet = page.locator('div[role="dialog"]');
-  await expect(bottomsheet).toBeVisible();
-});
-
 test("Sizes: should open small bottomsheet and match screenshot", async ({
   page,
 }) => {
@@ -79,6 +67,461 @@ test("Sizes: should open small bottomsheet and match screenshot", async ({
   });
 });
 
+test("Sizes: click outside panel should close small bottomsheet", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Default small BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.mouse.click(10, 10);
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("Sizes: click on optional close button should close small bottomsheet", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Default small BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByRole("button", { name: "Optional close" }).click();
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("Sizes: click on panel should not close small bottomsheet", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Default small BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByText("BottomSheet content").click();
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("Sizes: enter press should open small bottomsheet", async ({ page }) => {
+  const button = page.getByRole("button", {
+    name: "Default small BottomSheet",
+  });
+  await button.focus();
+  await button.press("Enter");
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("Sizes: should open medium bottomsheet and match screenshot", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Medium BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Medium.png`, {
+    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("Sizes: click outside panel should close medium bottomsheet", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Medium BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.mouse.click(10, 10);
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("Sizes: click on optional close button should close medium bottomsheet", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Medium BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByRole("button", { name: "Optional close" }).click();
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("Sizes: click on panel should not close medium bottomsheet", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Medium BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByText("BottomSheet content").click();
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("Sizes: enter press should open medium bottomsheet", async ({ page }) => {
+  const button = page.getByRole("button", {
+    name: "Medium BottomSheet",
+  });
+  await button.focus();
+  await button.press("Enter");
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("Sizes: should open fullscreen bottomsheet and match screenshot", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Fullscreen BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Fullscreen.png`, {
+    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("Sizes: click on optional close button should close fullscreen bottomsheet", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Fullscreen BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByRole("button", { name: "Optional close" }).click();
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("Sizes: click on panel should not close fullscreen bottomsheet", async ({
+  page,
+}) => {
+  await page.getByRole("button", { name: "Fullscreen BottomSheet" }).click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByText("BottomSheet content").click();
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("Sizes: enter press should open fullscreen bottomsheet", async ({
+  page,
+}) => {
+  const button = page.getByRole("button", {
+    name: "Fullscreen BottomSheet",
+  });
+  await button.focus();
+  await button.press("Enter");
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("WithDraghandle: should open bottomsheet with draghandle and match screenshot", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", { name: "BottomSheet with Draghandle" })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithDraghandle.png`, {
+    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("WithDraghandle: click outside panel should close bottomsheet with draghandle", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", { name: "BottomSheet with Draghandle" })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.mouse.click(10, 10);
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("WithDraghandle: click on panel should not close bottomsheet with draghandle", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", { name: "BottomSheet with Draghandle" })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByText("BottomSheet content").click();
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("WithDraghandle: enter press should open bottomsheet with draghandle", async ({
+  page,
+}) => {
+  const button = page.getByRole("button", {
+    name: "BottomSheet with Draghandle",
+  });
+  await button.focus();
+  await button.press("Enter");
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("WithTitle: should open bottomsheet with title and match screenshot", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", { name: "BottomSheet with Title", exact: true })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithTitle.png`, {
+    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("WithTitle: click outside panel should close bottomsheet with title", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", { name: "BottomSheet with Title", exact: true })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.mouse.click(10, 10);
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("WithTitle: click on panel should not close bottomsheet with title", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", { name: "BottomSheet with Title", exact: true })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByText("BottomSheet content").click();
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("WithTitle: enter press should open bottomsheet with title", async ({
+  page,
+}) => {
+  const button = page.getByRole("button", {
+    name: "BottomSheet with Title",
+    exact: true,
+  });
+  await button.focus();
+  await button.press("Enter");
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("WithTitle: should open bottomsheet with title and draghandle and match screenshot", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", {
+      name: "BottomSheet with Title and Draghandle",
+      exact: true,
+    })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await expect(page).toHaveScreenshot(
+    `${COMPONENT_NAME}-WithTitleAndDraghandle.png`,
+    {
+      maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+    }
+  );
+});
+
+test("WithTitle: click outside panel should close bottomsheet with title and draghandle", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", {
+      name: "BottomSheet with Title and Draghandle",
+      exact: true,
+    })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.mouse.click(10, 10);
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("WithTitle: click on panel should not close bottomsheet with title and draghandle", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", {
+      name: "BottomSheet with Title and Draghandle",
+      exact: true,
+    })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByText("BottomSheet content").click();
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("WithTitle: enter press should open bottomsheet with title and draghandle", async ({
+  page,
+}) => {
+  const button = page.getByRole("button", {
+    name: "BottomSheet with Title and Draghandle",
+    exact: true,
+  });
+  await button.focus();
+  await button.press("Enter");
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("Customization: should open customized bottomsheet and match screenshot", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", {
+      name: "Customized BottomSheet",
+      exact: true,
+    })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Customization.png`, {
+    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("Customization: click outside panel should close customized bottomsheet", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", {
+      name: "Customized BottomSheet",
+      exact: true,
+    })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.mouse.click(10, 10);
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("Customization: click on panel should not close customized bottomsheet", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", {
+      name: "Customized BottomSheet",
+      exact: true,
+    })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByText("BottomSheet content").click();
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("Customization: enter press should open customized bottomsheet", async ({
+  page,
+}) => {
+  const button = page.getByRole("button", {
+    name: "Customized BottomSheet",
+    exact: true,
+  });
+  await button.focus();
+  await button.press("Enter");
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("RootPortal: should open bottomsheet and match screenshot", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", {
+      name: "BottomSheet",
+      exact: true,
+    })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RootPortal.png`, {
+    maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("RootPortal: click outside panel should close bottomsheet", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", {
+      name: "BottomSheet",
+      exact: true,
+    })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.mouse.click(10, 10);
+  await expect(bottomsheet).not.toBeVisible();
+});
+
+test("RootPortal: click on panel should not close bottomsheet", async ({
+  page,
+}) => {
+  await page
+    .getByRole("button", {
+      name: "BottomSheet",
+      exact: true,
+    })
+    .click();
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+  await page.getByText("BottomSheet content").click();
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("RootPortal: enter press should open bottomsheet", async ({ page }) => {
+  const button = page.getByRole("button", {
+    name: "BottomSheet",
+    exact: true,
+  });
+  await button.focus();
+  await button.press("Enter");
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+});
+
+test("Default: enter press should open default bottomsheet", async ({
+  page,
+}) => {
+  const button = page.getByRole("button", { name: "Default BottomSheet" });
+  await button.focus();
+  await button.press("Enter");
+  await page.waitForTimeout(100);
+  const bottomsheet = page.locator('div[role="dialog"]');
+  await expect(bottomsheet).toBeVisible();
+});
+
 test("WithDraghandle: should not close default bottomsheet if drag less than half", async ({
   page,
   isMobile,
@@ -87,7 +530,7 @@ test("WithDraghandle: should not close default bottomsheet if drag less than hal
     return;
   }
   await page.locator("button.text-moon-14").click();
-  await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
+  await page.waitForTimeout(300);
 
   const state = await page
     .getByRole("dialog")
@@ -115,7 +558,7 @@ test("WithDraghandle: should not close default bottomsheet if drag less than hal
         //@ts-ignore
         window.PlayWrightEndTouch(s);
         res(0);
-      }, 300),
+      }, 300)
     );
   });
   // Wait
@@ -135,7 +578,7 @@ test("WithDraghandle: should close default bottomsheet if drag less than half", 
     return;
   }
   await page.locator("button.text-moon-14").click();
-  await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
+  await page.waitForTimeout(300);
 
   const state = await page
     .getByRole("dialog")
@@ -163,7 +606,7 @@ test("WithDraghandle: should close default bottomsheet if drag less than half", 
         //@ts-ignore
         window.PlayWrightEndTouch(s);
         res(0);
-      }, 300),
+      }, 300)
     );
   });
   // Wait
