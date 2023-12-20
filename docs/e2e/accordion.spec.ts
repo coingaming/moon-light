@@ -8,7 +8,6 @@ const COMPONENT_NAME = "accordion";
 
 test.beforeEach(async ({ page }, testInfo) => {
   const example = testInfo.title?.split(":")?.[0] ?? "Default";
-  const title = testInfo.title?.split(":")?.[1] || "";
   await page.goto(`/client/accordion/${example}`);
   await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
 });
