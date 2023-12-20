@@ -86,6 +86,21 @@ export type Examples = {
       "examples": {
         "Default": "string"
       }
+    },
+    "tagsInput": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "DifferentSizes": "string",
+        "States": "string",
+        "UppercaseLowercase": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "DifferentSizes": "string",
+        "States": "string",
+        "UppercaseLowercase": "string"
+      }
     }
   },
   "server": {

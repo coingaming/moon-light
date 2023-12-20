@@ -1,6 +1,6 @@
 import { Tag } from "@heathmont/moon-base-tw";
 
-export type TagTypes = "ARIA" | "RTL";
+export type TagTypes = "ARIA" | "RTL" | "IN PROGRESS";
 
 export interface TitleTagsProps {
   tags: TagTypes[];
