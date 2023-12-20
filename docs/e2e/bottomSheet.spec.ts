@@ -115,7 +115,7 @@ test("WithDraghandle: should not close default bottomsheet if drag less than hal
         //@ts-ignore
         window.PlayWrightEndTouch(s);
         res(0);
-      }, 300)
+      }, 300),
     );
   });
   // Wait
@@ -163,7 +163,7 @@ test("WithDraghandle: should close default bottomsheet if drag less than half", 
         //@ts-ignore
         window.PlayWrightEndTouch(s);
         res(0);
-      }, 300)
+      }, 300),
     );
   });
   // Wait
