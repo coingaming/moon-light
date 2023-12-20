@@ -12,7 +12,10 @@ import {
 
 export const HeaderContent = () => (
   <Accordion>
-    <Accordion.Item value="item-3">
+    <Accordion.Item
+      value="item-3"
+      className="border border-beerus rounded-moon-s-sm"
+    >
       <Accordion.Header>
         <Accordion.Button className="moon-open:[&_span_svg]:rotate-180">
           <span className="grow">Test accordion</span>
@@ -28,6 +31,7 @@ export const HeaderContent = () => (
         </Accordion.Button>
       </Accordion.Header>
       <Accordion.Content>
+        {/* cSpell:disable */}
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -35,6 +39,7 @@ export const HeaderContent = () => (
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
+        {/* cSpell:enable */}
       </Accordion.Content>
     </Accordion.Item>
   </Accordion>

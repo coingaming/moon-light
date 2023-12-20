@@ -17,7 +17,10 @@ export const ControlOutside = () => {
         Toggle All
       </Button>
       <Accordion value={values} onValueChange={setValues}>
-        <Accordion.Item value="item-1">
+        <Accordion.Item
+          value="item-1"
+          className="border border-beerus rounded-moon-s-sm"
+        >
           <Accordion.Header className="moon-open:[&_svg]:rotate-180">
             <Accordion.Button>
               <span>Default</span>
@@ -25,6 +28,7 @@ export const ControlOutside = () => {
             </Accordion.Button>
           </Accordion.Header>
           <Accordion.Content>
+            {/* cSpell:disable */}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -32,9 +36,13 @@ export const ControlOutside = () => {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
+            {/* cSpell:enable */}
           </Accordion.Content>
         </Accordion.Item>
-        <Accordion.Item value="item-2">
+        <Accordion.Item
+          value="item-2"
+          className="border border-beerus rounded-moon-s-sm"
+        >
           <Accordion.Header className="moon-open:[&_svg]:rotate-180">
             <Accordion.Button>
               <span>Test accordion</span>
@@ -42,6 +50,7 @@ export const ControlOutside = () => {
             </Accordion.Button>
           </Accordion.Header>
           <Accordion.Content>
+            {/* cSpell:disable */}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -49,6 +58,7 @@ export const ControlOutside = () => {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
+            {/* cSpell:enable */}
           </Accordion.Content>
         </Accordion.Item>
       </Accordion>
