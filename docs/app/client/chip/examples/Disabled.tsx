@@ -1,8 +1,14 @@
-"use client";
+import { Chip } from "@heathmont/moon-core-tw";
 
-import React from "react";
-export const Disabled = () => {
-  return <div />;
-};
+const Disabled = () => (
+  <>
+    <Chip variant="ghost" disabled>
+      Ghost variant
+    </Chip>
+    <Chip className="border border-beerus" disabled>
+      Default variant
+    </Chip>
+  </>
+);
 
 export default Disabled;
