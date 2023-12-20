@@ -11,10 +11,10 @@ test.beforeEach(async ({ page }, testInfo) => {
   await page.goto(`/client/authcode/${example}`);
   await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
 });
-// test.afterEach(async ({ page }) => {
-//   // Cleanup from route
-//   await page.close();
-// });
+test.afterEach(async ({ page }) => {
+  // Cleanup from route
+  await page.close();
+});
 
 test("Default: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`${COMPONENT_NAME}.png`, {
