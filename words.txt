@@ -27,3 +27,6 @@ bulma
 sportsbet
 goten
 Kallavus
+pixelmatch
+viewports
+navigations
