@@ -12,6 +12,7 @@ export const ControlOutside = () => {
     values.length === 0 ? setValues(items) : setValues([]);
 
   return (
+    // cSpell:disable
     <div className="flex flex-col gap-4 w-full">
       <Button className="w-32" onClick={toggleAll}>
         Toggle All
@@ -61,5 +62,5 @@ export const ControlOutside = () => {
     </div>
   );
 };
-
+// cSpell:enable
 export default ControlOutside;

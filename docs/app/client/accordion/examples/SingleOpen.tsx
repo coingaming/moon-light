@@ -5,6 +5,7 @@ import Accordion from "@heathmont/moon-core-tw/lib/es/accordion/Accordion";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
 export const SingleOpen = () => (
+  // cSpell:disable
   <Accordion singleOpen>
     <Accordion.Item
       value="item-1"
@@ -48,5 +49,5 @@ export const SingleOpen = () => (
     </Accordion.Item>
   </Accordion>
 );
-
+// cSpell:enable
 export default SingleOpen;

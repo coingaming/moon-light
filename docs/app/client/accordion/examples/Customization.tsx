@@ -5,6 +5,7 @@ import Accordion from "@heathmont/moon-core-tw/lib/es/accordion/Accordion";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
 export const Customization = () => (
+  // cSpell:disable
   <>
     <Accordion>
       <Accordion.Item value="item-1">
@@ -27,5 +28,5 @@ export const Customization = () => (
     </Accordion>
   </>
 );
-
+// cSpell:enable
 export default Customization;
