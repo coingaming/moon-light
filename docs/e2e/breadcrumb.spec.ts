@@ -75,9 +75,6 @@ test("Collapsed: 2nd last crumb hover should match screenshot", async ({
   }
 });
 
-// TODO: Add enter press test when component is updated to support it
-// TODO: Add collapsed item selection test when component is updated to support it
-
 test("FourItems: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`breadcrumb-FourItems.png`, {
     maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
@@ -216,6 +213,3 @@ test("CustomDivider: 2nd last crumb hover should match screenshot", async ({
     );
   }
 });
-
-// TODO: Add enter press test when component is updated to support it
-// TODO: Add collapsed item selection test when component is updated to support it
