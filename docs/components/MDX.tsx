@@ -38,7 +38,7 @@ const defaultComponents: ComponentProps<any> = {
   code: (props: HTMLProps<HTMLPreElement>) => (
     <code
       {...props}
-      className="p-2 bg-gohan rounded-moon-s-sm text-moon-14 text-chichi"
+      className="p-2 bg-gohan rounded-moon-s-sm text-moon-14 text-bulma"
     >
       {props.children}
     </code>

@@ -16,6 +16,7 @@ export const createTouchEvent = () => {
     });
   };
 };
+
 export const PlayWrightStartTouch = () => {
   // @ts-ignore
   window.PlayWrightStartTouch = (selector: string, position: Pos) => {
@@ -25,13 +26,13 @@ export const PlayWrightStartTouch = () => {
     }
     // @ts-ignore
     const t = window.createTouchEvent(0, 0);
-    const ev = new TouchEvent("touchstart", {
+    const event = new TouchEvent("touchstart", {
       touches: [t],
       changedTouches: [t],
       cancelable: true,
       bubbles: true,
     });
-    element.dispatchEvent(ev);
+    element.dispatchEvent(event);
   };
 };
 
@@ -52,13 +53,13 @@ export const PlayWrightMoveTouch = () => {
         return window.createTouchEvent(0, minorStep * index);
       });
     touches.forEach((t) => {
-      const ev = new TouchEvent("touchmove", {
+      const event = new TouchEvent("touchmove", {
         touches: [t],
         changedTouches: [t],
         cancelable: true,
         bubbles: true,
       });
-      element.dispatchEvent(ev);
+      element.dispatchEvent(event);
     });
   };
 };
@@ -72,12 +73,12 @@ export const PlayWrightEndTouch = () => {
     }
     // @ts-ignore
     const t = window.createTouchEvent(0, 0);
-    const ev = new TouchEvent("touchend", {
+    const event = new TouchEvent("touchend", {
       touches: [t],
       changedTouches: [t],
       cancelable: true,
       bubbles: true,
     });
-    element.dispatchEvent(ev);
+    element.dispatchEvent(event);
   };
 };
