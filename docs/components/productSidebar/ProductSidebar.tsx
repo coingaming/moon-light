@@ -44,7 +44,9 @@ export default async function ProductSidebar({ name, contents }: any) {
           </p>
           <ul role="list" className="flex flex-col gap-1">
             {contents.map((key: string) => {
-              const title = titles.find((title: titleType) => title[1] === key);
+              const title = titles.find(
+                (title: titleType) => title[1] === key,
+              )?.[0];
               return (
                 <li key={key}>
                   <SidebarItem href={`#${key}`}>{title || key}</SidebarItem>

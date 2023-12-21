@@ -7,7 +7,10 @@ import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 export const Sizes = () => (
   <>
     <Accordion itemSize="xl">
-      <Accordion.Item value="item-1">
+      <Accordion.Item
+        value="item-1"
+        className="border border-beerus rounded-moon-s-sm"
+      >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>X Large (xl)</span>
@@ -15,6 +18,7 @@ export const Sizes = () => (
           </Accordion.Button>
         </Accordion.Header>
         <Accordion.Content>
+          {/* cSpell:disable */}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -22,11 +26,15 @@ export const Sizes = () => (
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
+          {/* cSpell:enable */}
         </Accordion.Content>
       </Accordion.Item>
     </Accordion>
     <Accordion itemSize="lg">
-      <Accordion.Item value="item-1">
+      <Accordion.Item
+        value="item-1"
+        className="border border-beerus rounded-moon-s-sm"
+      >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>Large (lg)</span>
@@ -34,6 +42,7 @@ export const Sizes = () => (
           </Accordion.Button>
         </Accordion.Header>
         <Accordion.Content>
+          {/* cSpell:disable */}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -41,11 +50,15 @@ export const Sizes = () => (
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
+          {/* cSpell:enable */}
         </Accordion.Content>
       </Accordion.Item>
     </Accordion>
     <Accordion>
-      <Accordion.Item value="item-2">
+      <Accordion.Item
+        value="item-2"
+        className="border border-beerus rounded-moon-s-sm"
+      >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>Medium is default (md)</span>
@@ -53,6 +66,7 @@ export const Sizes = () => (
           </Accordion.Button>
         </Accordion.Header>
         <Accordion.Content>
+          {/* cSpell:disable */}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -60,11 +74,15 @@ export const Sizes = () => (
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
+          {/* cSpell:enable */}
         </Accordion.Content>
       </Accordion.Item>
     </Accordion>
     <Accordion itemSize="sm">
-      <Accordion.Item value="item-3">
+      <Accordion.Item
+        value="item-3"
+        className="border border-beerus rounded-moon-s-sm"
+      >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>Small (sm)</span>
@@ -72,6 +90,7 @@ export const Sizes = () => (
           </Accordion.Button>
         </Accordion.Header>
         <Accordion.Content>
+          {/* cSpell:disable */}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -79,6 +98,7 @@ export const Sizes = () => (
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
+          {/* cSpell:enable */}
         </Accordion.Content>
       </Accordion.Item>
     </Accordion>

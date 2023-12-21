@@ -42,6 +42,42 @@ export type Examples = {
         "WithManualSubmit": "string"
       }
     },
+    "avatar": {
+      "description": "string",
+      "descriptions": {
+        "ActiveStatus": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Sizes": "string",
+        "StatusOrigin": "string",
+        "Variants": "string"
+      },
+      "examples": {
+        "ActiveStatus": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Sizes": "string",
+        "StatusOrigin": "string",
+        "Variants": "string"
+      }
+    },
+    "breadcrumb": {
+      "description": "string",
+      "descriptions": {
+        "Collapsed": "string",
+        "CustomDivider": "string",
+        "FourItems": "string",
+        "OneItem": "string",
+        "TwoItems": "string"
+      },
+      "examples": {
+        "Collapsed": "string",
+        "CustomDivider": "string",
+        "FourItems": "string",
+        "OneItem": "string",
+        "TwoItems": "string"
+      }
+    },
     "button": {
       "description": "string",
       "descriptions": {

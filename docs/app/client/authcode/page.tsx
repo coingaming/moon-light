@@ -1,9 +1,11 @@
 import React from "react";
-import dynamic from "next/dynamic";
-import { Loader } from "@heathmont/moon-base-tw";
 import { getExamples } from "@/utils/getExamples";
 import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
 import { MainLayout } from "@/components/MainLayout";
+
+import dynamic from "next/dynamic";
+
+import { Loader } from "@heathmont/moon-base-tw";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
 import { PropsTable } from "@/components/propsTable";
 

@@ -3,7 +3,7 @@ import { PropsTableProp } from "@/types";
 const Props: PropsTableProp[] = [
   {
     name: "itemSize",
-    type: ["sm | md | lg | xl"],
+    type: ["sm", "md", "lg", "xl"],
     required: false,
     defaultState: "md",
     description: "Size of accordion item",

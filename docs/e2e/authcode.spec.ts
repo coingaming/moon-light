@@ -199,3 +199,35 @@ test("HintMessage: should have text hint", async ({ page }) => {
 test("CustomLength: should have custom length inputs", async ({ page }) => {
   await expect((await page.locator("div > input").all()).length).toBe(4);
 });
+
+test("Placeholder: component support for RTL", async ({ page }) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("Default: test hover effect", async ({ page, isMobile }) => {
+  // Don't test hover in mobile
+  if (isMobile) return;
+  const firstInput = await page.locator("input").first();
+  const posFirstInput = await firstInput.boundingBox();
+  await firstInput.hover({
+    position: {
+      x: posFirstInput?.x || 0,
+      y: posFirstInput?.y || 0,
+    },
+  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Hover.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    threshold: 0, // for fix colors in playwright
+  });
+});

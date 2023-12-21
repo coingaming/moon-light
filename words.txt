@@ -28,3 +28,8 @@ tradeart
 goku
 bulma
 sportsbet
+goten
+Kallavus
+pixelmatch
+viewports
+navigations
