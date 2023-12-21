@@ -5,16 +5,26 @@ import { getExamples } from "@/utils/getExamples";
 import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
 import { MainLayout } from "@/components/MainLayout";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
-import { PropsTable } from "@/components/propsTable";
 
-import props from "./props/props";
-import panelProps from "./props/panelProps";
-import draghandleProps from "./props/draghandleProps";
-import titleProps from "./props/titleProps";
-import backdropProps from "./props/backdropProps";
+import { PropsTable } from "@/components/propsTable";
+import {
+  bottomSheetProps,
+  panelProps,
+  titleProps,
+  draghandleProps,
+  backdropProps,
+} from "./props";
 import image from "./bottomsheet.webp";
 
 const TITLE = "BottomSheet";
+const ordered = [
+  "Default",
+  "Sizes",
+  "WithDraghandle",
+  "WithTitle",
+  "Customization",
+  "RootPortal",
+];
 
 export default async function BottomSheetPage(request: {
   searchParams: { raw: string };
@@ -24,14 +34,7 @@ export default async function BottomSheetPage(request: {
       bottomsheet: { description, descriptions: exampleDescriptions, examples },
     },
   } = await getExamples();
-  const ordered = [
-    "Default",
-    "Sizes",
-    "WithDraghandle",
-    "WithTitle",
-    "Customization",
-    "RootPortal",
-  ];
+
   const searchParam = request?.searchParams?.raw;
   const isMockup = !!searchParam && Object.keys(examples).includes(searchParam);
 
@@ -81,7 +84,7 @@ export default async function BottomSheetPage(request: {
               <span className="text-frieza">BottomSheet</span> component:
             </p>
           }
-          data={props}
+          data={bottomSheetProps}
         />
         <PropsTable
           title="BottomSheet.Panel props"

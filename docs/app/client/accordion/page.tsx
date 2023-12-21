@@ -7,8 +7,7 @@ import { MainLayout } from "@/components/MainLayout";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
 import { PropsTable } from "@/components/propsTable";
 
-import props from "./props/props";
-import itemProps from "./props/itemProps";
+import { accordionProps, itemProps } from "./props";
 import image from "./accordion.webp";
 
 const TITLE = "Accordion";
@@ -80,7 +79,7 @@ export default async function AccordionPage(request: {
               <span className="text-frieza">Accordion</span> component:
             </p>
           }
-          data={props}
+          data={accordionProps}
         />
         <PropsTable
           title="Accordion.Item props"

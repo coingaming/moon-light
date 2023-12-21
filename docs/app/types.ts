@@ -14,10 +14,6 @@ export type Examples = {
         "OpenByDefault": "string",
         "SingleOpen": "string",
         "Sizes": "string"
-      },
-      "props": {
-        "itemProps": "string",
-        "props": "string"
       }
     },
     "authcode": {
@@ -63,6 +59,20 @@ export type Examples = {
         "Sizes": "string",
         "StatusOrigin": "string",
         "Variants": "string"
+      }
+    },
+    "bottomsheet": {
+      "description": "string",
+      "descriptions": {
+        "RootPortal": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "RootPortal": "string",
+        "Sizes": "string",
+        "WithDraghandle": "string",
+        "WithTitle": "string"
       }
     },
     "breadcrumb": {
