@@ -25,6 +25,7 @@ test("Collapsed: should open collapsed crumbs and match screenshot", async ({
   page,
 }) => {
   await page.locator("li > button").click();
+  await page.mouse.move(0, 0);
   await page.waitForTimeout(100);
 
   const collapsed = await page.locator("li > ol");
@@ -51,7 +52,8 @@ test("Collapsed: first crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    await page.getByText("Home").hover();
+    const breadcrumbItem = page.locator("span >> text=Home");
+    await breadcrumbItem.hover();
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(`breadcrumb-Collapsed-Home-hover.png`, {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
@@ -64,7 +66,8 @@ test("Collapsed: 2nd last crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    await page.getByText("Page 4").hover();
+    const breadcrumbItem = page.locator("span >> text=Page 4");
+    await breadcrumbItem.hover();
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(
       `breadcrumb-Collapsed-Page4-hover.png`,
@@ -86,7 +89,8 @@ test("FourItems: first crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    await page.getByText("Home").hover();
+    const breadcrumbItem = page.locator("span >> text=Home");
+    await breadcrumbItem.hover();
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(`breadcrumb-FourItems-Home-hover.png`, {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
@@ -99,7 +103,8 @@ test("FourItems: 2nd crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    await page.getByText("Page 1").hover();
+    const breadcrumbItem = page.locator("span >> text=Page 1");
+    await breadcrumbItem.hover();
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(
       `breadcrumb-FourItems-Page1-hover.png`,
@@ -115,7 +120,8 @@ test("FourItems: 3rd crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    await page.getByText("Page 2").hover();
+    const breadcrumbItem = page.locator("span >> text=Page 2");
+    await breadcrumbItem.hover();
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(
       `breadcrumb-FourItems-Page2-hover.png`,
@@ -137,7 +143,8 @@ test("TwoItems: first crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    await page.getByText("Home").hover();
+    const breadcrumbItem = page.locator("span >> text=Home");
+    await breadcrumbItem.hover();
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(`breadcrumb-TwoItems-Home-hover.png`, {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
@@ -161,6 +168,7 @@ test("CustomDivider: should open collapsed crumbs and match screenshot", async (
   page,
 }) => {
   await page.locator("li > button").click();
+  await page.mouse.move(0, 0);
   await page.waitForTimeout(100);
 
   const collapsed = await page.locator("li > ol");
@@ -203,7 +211,8 @@ test("CustomDivider: 2nd last crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    await page.getByText("Page 4").hover();
+    const breadcrumbItem = page.locator("span >> text=Page 4");
+    await breadcrumbItem.hover();
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(
       `breadcrumb-CustomDivider-Page4-hover.png`,
@@ -212,4 +221,137 @@ test("CustomDivider: 2nd last crumb hover should match screenshot", async ({
       },
     );
   }
+});
+
+test("Collapsed: component support for RTL - should render and match screenshot", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`breadcrumb-rtl-Collapsed.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("Collapsed: component support for RTL - should open collapsed crumbs and match screenshot", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await page.locator("li > button").click();
+  await page.mouse.move(0, 0);
+  await page.waitForTimeout(100);
+
+  const collapsed = await page.locator("li > ol");
+  await expect(collapsed).toBeVisible();
+  await page.waitForTimeout(100);
+  await expect(page).toHaveScreenshot(`breadcrumb-rtl-Collapsed-open.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("FourItems:  component support for RTL - should render and match screenshot", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`breadcrumb-rtl-FourItems.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("TwoItems:  component support for RTL - should render and match screenshot", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`breadcrumb-rtl-TwoItems.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("OneItem:  component support for RTL - should render and match screenshot", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`breadcrumb-rtl-OneItem.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("CustomDivider: component support for RTL - should render and match screenshot", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`breadcrumb-rtl-CustomDivider.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("CustomDivider: component support for RTL - should open collapsed crumbs and match screenshot", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await page.locator("li > button").click();
+  await page.mouse.move(0, 0);
+  await page.waitForTimeout(100);
+
+  const collapsed = await page.locator("li > ol");
+  await expect(collapsed).toBeVisible();
+  await page.waitForTimeout(100);
+  await expect(page).toHaveScreenshot(`breadcrumb-rtl-CustomDivider-open.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
 });
