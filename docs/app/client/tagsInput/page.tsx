@@ -7,9 +7,10 @@ import dynamic from "next/dynamic";
 
 import { Loader } from "@heathmont/moon-base-tw";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
-import props from "./props";
+import { tagsInputProps, tagsInputSelectedPropsItems } from "./props";
 import image from "./tagsinput.webp";
 import { PropsTable } from "@/components/propsTable";
+import { Anatomy } from "@/components/Anatomy";
 
 const TITLE = "TagsInput";
 const ordered: string[] = [
@@ -24,7 +25,12 @@ export default async function AuthCodePage(request: {
 }) {
   const {
     client: {
-      tagsInput: { description, descriptions: exampleDescriptions, examples },
+      tagsInput: {
+        description,
+        descriptions: exampleDescriptions,
+        examples,
+        anatomy,
+      },
     },
   } = await getExamples();
 
@@ -56,10 +62,9 @@ export default async function AuthCodePage(request: {
         <PageHeadComponent
           title={TITLE}
           description={description}
-          tags={["ARIA", "RTL", "IN PROGRESS"]}
+          tags={["IN PROGRESS", "ARIA", "RTL"]}
           image={image}
         />
-
         <ExampleSectionData
           componentName="tagsInput"
           client={{
@@ -69,6 +74,7 @@ export default async function AuthCodePage(request: {
           }}
           data={ordered}
         />
+        <Anatomy anatomy={anatomy} />
         <PropsTable
           title="TagsInput props"
           description={
@@ -77,7 +83,17 @@ export default async function AuthCodePage(request: {
               <span className="text-frieza">TagsInput</span> component:
             </p>
           }
-          data={props}
+          data={tagsInputProps}
+        />
+        <PropsTable
+          title="TagsInput props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">TagsInput</span> component:
+            </p>
+          }
+          data={tagsInputSelectedPropsItems}
         />
       </div>
     </MainLayout>

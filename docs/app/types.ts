@@ -88,6 +88,7 @@ export type Examples = {
       }
     },
     "tagsInput": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "Default": "string",

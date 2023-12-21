@@ -1,3 +1,5 @@
 ---
-title: Default
+title: Different states
 ---
+
+`<TagsInput />` Component
