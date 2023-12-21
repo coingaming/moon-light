@@ -41,7 +41,7 @@ const Example = () => {
         <div className="flex flex-col w-full">
           <TagsInput
             selected={selected}
-            label="Error"
+            label={<span className="text-chichi">Error</span>}
             isError
             onEnter={onEnter}
             onClear={onClear}

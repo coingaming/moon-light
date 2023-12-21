@@ -10,14 +10,14 @@ const Example = () => {
     (value: string) => {
       setSelected([...selected, value]);
     },
-    [selected, setSelected],
+    [selected, setSelected]
   );
 
   const onClear = useCallback(
     (index: number) => {
       setSelected(selected.filter((item, id) => id !== index));
     },
-    [selected, setSelected],
+    [selected, setSelected]
   );
 
   return (
@@ -42,7 +42,7 @@ const Example = () => {
         <div className="flex flex-col w-full">
           <TagsInput
             selected={selected}
-            label="Capitalized"
+            label="Uppercase (default)"
             onEnter={onEnter}
             onClear={onClear}
           >
