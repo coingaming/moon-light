@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }, testInfo) => {
 });
 test.afterEach(async ({ page }) => {
   // Cleanup from route
-  // await page.close();
+  await page.close();
 });
 
 test.describe("Default Testing", () => {
