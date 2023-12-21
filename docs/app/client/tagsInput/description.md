@@ -2,4 +2,4 @@ TagsInput is an extension of the text input fields. This component allows users 
 <br />
 These selected text entries are being dispalyed as tags. Tags represent a set of interactive keywords that help organise and categorise objects.
 <br />
-Tags can be added by pressing the Enter key or removed by the mouse click from the input element.
+Tags can be added by pressing the <kbd class="inline-block whitespace-nowrap rounded px-1.5 font-medium tracking-wide text-moon-14 border border-beerus text-trunks ms-auto">Enter ⏎</kbd> key or removed by the mouse click from the input element.
