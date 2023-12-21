@@ -588,7 +588,7 @@ test("WithDraghandle: should close default bottomsheet if drag more than half", 
   await page.evaluate(PlayWrightMoveTouch);
   await page.evaluate(PlayWrightEndTouch);
 
-  await page.evaluate(async () => {
+  await page.evaluate(async function () {
     const s = ".after\\:bg-beerus";
     const size = document
       .querySelector("div[role=dialog] .bg-goku")
