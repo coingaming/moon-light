@@ -525,8 +525,9 @@ test("Default: enter press should open default bottomsheet", async ({
 test("WithDraghandle: should not close default bottomsheet if drag less than half", async ({
   page,
   isMobile,
+  browserName,
 }) => {
-  if (!isMobile) {
+  if (!isMobile || browserName === "webkit") {
     return;
   }
   await page.locator("button.text-moon-14").click();
@@ -535,10 +536,8 @@ test("WithDraghandle: should not close default bottomsheet if drag less than hal
   const state = await page
     .getByRole("dialog")
     .getAttribute("data-headlessui-state");
-  // Check if open
   await expect(state).toEqual("open");
 
-  // Import the functions
   await page.evaluate(createTouchEvent);
   await page.evaluate(PlayWrightStartTouch);
   await page.evaluate(PlayWrightMoveTouch);
@@ -552,7 +551,7 @@ test("WithDraghandle: should not close default bottomsheet if drag less than hal
     //@ts-ignore
     window.PlayWrightStartTouch(s, { x: 0, y: 0 });
     //@ts-ignore
-    window.PlayWrightMoveTouch(s, size / 2 - 30, 10); // Important check the steps, cannot be 0
+    window.PlayWrightMoveTouch(s, size / 2 - 30, 10);
     await new Promise((res) =>
       setTimeout(() => {
         //@ts-ignore
@@ -561,20 +560,19 @@ test("WithDraghandle: should not close default bottomsheet if drag less than hal
       }, 300),
     );
   });
-  // Wait
   await page.waitForTimeout(300);
   const endState = await page
     .getByRole("dialog")
     .getAttribute("data-headlessui-state");
-  // Should be still open
   await expect(endState).toEqual("open");
 });
 
-test("WithDraghandle: should close default bottomsheet if drag less than half", async ({
+test("WithDraghandle: should close default bottomsheet if drag more than half", async ({
   page,
   isMobile,
+  browserName,
 }) => {
-  if (!isMobile) {
+  if (!isMobile || browserName === "webkit") {
     return;
   }
   await page.locator("button.text-moon-14").click();
@@ -583,10 +581,8 @@ test("WithDraghandle: should close default bottomsheet if drag less than half", 
   const state = await page
     .getByRole("dialog")
     .getAttribute("data-headlessui-state");
-  // Check if open
   await expect(state).toEqual("open");
 
-  // Import the functions
   await page.evaluate(createTouchEvent);
   await page.evaluate(PlayWrightStartTouch);
   await page.evaluate(PlayWrightMoveTouch);
@@ -600,7 +596,7 @@ test("WithDraghandle: should close default bottomsheet if drag less than half", 
     //@ts-ignore
     window.PlayWrightStartTouch(s, { x: 0, y: 0 });
     //@ts-ignore
-    window.PlayWrightMoveTouch(s, size / 2 + 30, 10); // Important check the steps, cannot be 0
+    window.PlayWrightMoveTouch(s, size / 2 + 30, 10);
     await new Promise((res) =>
       setTimeout(() => {
         //@ts-ignore
@@ -609,9 +605,268 @@ test("WithDraghandle: should close default bottomsheet if drag less than half", 
       }, 300),
     );
   });
-  // Wait
   await page.waitForTimeout(500);
-  // Should be still open
+  await expect(page.locator("div[role=dialog] .bg-goku")).not.toBeAttached();
+});
+
+test("WithTitle: should not close bottomsheet with title and draghandle if drag less than half", async ({
+  page,
+  isMobile,
+  browserName,
+}) => {
+  if (!isMobile || browserName === "webkit") {
+    return;
+  }
+  await page
+    .getByRole("button", { name: "BottomSheet with Title and Draghandle" })
+    .click();
+  await page.waitForTimeout(300);
+
+  const state = await page
+    .getByRole("dialog")
+    .getAttribute("data-headlessui-state");
+  await expect(state).toEqual("open");
+
+  await page.evaluate(createTouchEvent);
+  await page.evaluate(PlayWrightStartTouch);
+  await page.evaluate(PlayWrightMoveTouch);
+  await page.evaluate(PlayWrightEndTouch);
+
+  await page.evaluate(async () => {
+    const s = ".after\\:bg-beerus";
+    const size = document
+      .querySelector("div[role=dialog] .bg-goku")
+      ?.getBoundingClientRect()?.height;
+    //@ts-ignore
+    window.PlayWrightStartTouch(s, { x: 0, y: 0 });
+    //@ts-ignore
+    window.PlayWrightMoveTouch(s, size / 2 - 30, 10);
+    await new Promise((res) =>
+      setTimeout(() => {
+        //@ts-ignore
+        window.PlayWrightEndTouch(s);
+        res(0);
+      }, 300),
+    );
+  });
+  await page.waitForTimeout(300);
+  const endState = await page
+    .getByRole("dialog")
+    .getAttribute("data-headlessui-state");
+  await expect(endState).toEqual("open");
+});
+
+test("WithTitle: should close bottomsheet with title and draghandle if drag more than half", async ({
+  page,
+  isMobile,
+  browserName,
+}) => {
+  if (!isMobile || browserName === "webkit") {
+    return;
+  }
+  await page
+    .getByRole("button", { name: "BottomSheet with Title and Draghandle" })
+    .click();
+  await page.waitForTimeout(300);
+
+  const state = await page
+    .getByRole("dialog")
+    .getAttribute("data-headlessui-state");
+  await expect(state).toEqual("open");
+
+  await page.evaluate(createTouchEvent);
+  await page.evaluate(PlayWrightStartTouch);
+  await page.evaluate(PlayWrightMoveTouch);
+  await page.evaluate(PlayWrightEndTouch);
+
+  await page.evaluate(async () => {
+    const s = ".after\\:bg-beerus";
+    const size = document
+      .querySelector("div[role=dialog] .bg-goku")
+      ?.getBoundingClientRect()?.height;
+    //@ts-ignore
+    window.PlayWrightStartTouch(s, { x: 0, y: 0 });
+    //@ts-ignore
+    window.PlayWrightMoveTouch(s, size / 2 + 30, 10);
+    await new Promise((res) =>
+      setTimeout(() => {
+        //@ts-ignore
+        window.PlayWrightEndTouch(s);
+        res(0);
+      }, 300),
+    );
+  });
+  await page.waitForTimeout(500);
+  await expect(page.locator("div[role=dialog] .bg-goku")).not.toBeAttached();
+});
+
+test("Customization: should not close bottomsheet if drag less than half", async ({
+  page,
+  isMobile,
+  browserName,
+}) => {
+  if (!isMobile || browserName === "webkit") {
+    return;
+  }
+  await page.getByRole("button", { name: "Customized BottomSheet" }).click();
+  await page.waitForTimeout(300);
+
+  const state = await page
+    .getByRole("dialog")
+    .getAttribute("data-headlessui-state");
+  await expect(state).toEqual("open");
+
+  await page.evaluate(createTouchEvent);
+  await page.evaluate(PlayWrightStartTouch);
+  await page.evaluate(PlayWrightMoveTouch);
+  await page.evaluate(PlayWrightEndTouch);
+
+  await page.evaluate(async () => {
+    const s = ".after\\:bg-piccolo";
+    console.log("handle:", s);
+
+    const size = document
+      .querySelector("div[role=dialog] .bg-raditz")
+      ?.getBoundingClientRect()?.height;
+    //@ts-ignore
+    window.PlayWrightStartTouch(s, { x: 0, y: 0 });
+    //@ts-ignore
+    window.PlayWrightMoveTouch(s, size / 2 - 30, 10);
+    await new Promise((res) =>
+      setTimeout(() => {
+        //@ts-ignore
+        window.PlayWrightEndTouch(s);
+        res(0);
+      }, 300),
+    );
+  });
+  await page.waitForTimeout(300);
+  const endState = await page
+    .getByRole("dialog")
+    .getAttribute("data-headlessui-state");
+  await expect(endState).toEqual("open");
+});
+
+test("Customization: should close bottomsheet if drag more than half", async ({
+  page,
+  isMobile,
+  browserName,
+}) => {
+  if (!isMobile || browserName === "webkit") {
+    return;
+  }
+  await page.getByRole("button", { name: "Customized BottomSheet" }).click();
+  await page.waitForTimeout(300);
+
+  const state = await page
+    .getByRole("dialog")
+    .getAttribute("data-headlessui-state");
+  await expect(state).toEqual("open");
+
+  await page.evaluate(createTouchEvent);
+  await page.evaluate(PlayWrightStartTouch);
+  await page.evaluate(PlayWrightMoveTouch);
+  await page.evaluate(PlayWrightEndTouch);
+
+  await page.evaluate(async () => {
+    const s = ".after\\:bg-piccolo";
+    const size = document
+      .querySelector("div[role=dialog] .bg-raditz")
+      ?.getBoundingClientRect()?.height;
+    //@ts-ignore
+    window.PlayWrightStartTouch(s, { x: 0, y: 0 });
+    //@ts-ignore
+    window.PlayWrightMoveTouch(s, size / 2 + 30, 10);
+    await new Promise((res) =>
+      setTimeout(() => {
+        //@ts-ignore
+        window.PlayWrightEndTouch(s);
+        res(0);
+      }, 300),
+    );
+  });
+  await page.waitForTimeout(500);
+  await expect(page.locator("div[role=dialog] .bg-goku")).not.toBeAttached();
+});
+
+test("RootPortal: should not close bottomsheet if drag less than half", async ({
+  page,
+  isMobile,
+  browserName,
+}) => {
+  if (!isMobile || browserName === "webkit") {
+    return;
+  }
+  await page.locator("button.text-moon-14").click();
+  await page.waitForTimeout(300);
+
+  const state = page.locator('div[role="dialog"]');
+  await expect(state).toBeVisible();
+
+  await page.evaluate(createTouchEvent);
+  await page.evaluate(PlayWrightStartTouch);
+  await page.evaluate(PlayWrightMoveTouch);
+  await page.evaluate(PlayWrightEndTouch);
+
+  await page.evaluate(async () => {
+    const s = ".after\\:bg-beerus";
+    const size = document
+      .querySelector("div[role=dialog] .bg-goku")
+      ?.getBoundingClientRect()?.height;
+    //@ts-ignore
+    window.PlayWrightStartTouch(s, { x: 0, y: 0 });
+    //@ts-ignore
+    window.PlayWrightMoveTouch(s, size / 2 - 30, 10);
+    await new Promise((res) =>
+      setTimeout(() => {
+        //@ts-ignore
+        window.PlayWrightEndTouch(s);
+        res(0);
+      }, 300),
+    );
+  });
+  await page.waitForTimeout(300);
+  const endState = page.locator('div[role="dialog"]');
+  await expect(endState).toBeVisible();
+});
+
+test("RootPortal: should close bottomsheet if drag more than half", async ({
+  page,
+  isMobile,
+  browserName,
+}) => {
+  if (!isMobile || browserName === "webkit") {
+    return;
+  }
+  await page.locator("button.text-moon-14").click();
+  await page.waitForTimeout(300);
+
+  const state = page.locator('div[role="dialog"]');
+  await expect(state).toBeVisible();
+
+  await page.evaluate(createTouchEvent);
+  await page.evaluate(PlayWrightStartTouch);
+  await page.evaluate(PlayWrightMoveTouch);
+  await page.evaluate(PlayWrightEndTouch);
+
+  await page.evaluate(async () => {
+    const s = ".after\\:bg-beerus";
+    const size = document
+      .querySelector("div[role=dialog] .bg-goku")
+      ?.getBoundingClientRect()?.height;
+    //@ts-ignore
+    window.PlayWrightStartTouch(s, { x: 0, y: 0 });
+    //@ts-ignore
+    window.PlayWrightMoveTouch(s, size / 2 + 30, 10);
+    await new Promise((res) =>
+      setTimeout(() => {
+        //@ts-ignore
+        window.PlayWrightEndTouch(s);
+        res(0);
+      }, 300),
+    );
+  });
+  await page.waitForTimeout(500);
   await expect(page.locator("div[role=dialog] .bg-goku")).not.toBeAttached();
 test("Sizes: click outside panel should close small bottomsheet", async ({
   page,

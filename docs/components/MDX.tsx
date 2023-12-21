@@ -3,7 +3,11 @@ import { ReactNode, ComponentProps, HTMLProps } from "react";
 
 const defaultComponents: ComponentProps<any> = {
   a: (props: HTMLProps<HTMLAnchorElement>) => (
-    <a {...props} className="transition-colors underline hover:text-piccolo">
+    <a
+      {...props}
+      className="transition-colors underline hover:text-piccolo"
+      target="_blank"
+    >
       {props.children}
     </a>
   ),
