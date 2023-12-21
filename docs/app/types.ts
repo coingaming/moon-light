@@ -64,7 +64,10 @@ export type Examples = {
     "bottomsheet": {
       "description": "string",
       "descriptions": {
-        "RootPortal": "string"
+        "Customization": "string",
+        "RootPortal": "string",
+        "Sizes": "string",
+        "WithDraghandle": "string"
       },
       "examples": {
         "Customization": "string",
