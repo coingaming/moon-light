@@ -25,7 +25,7 @@ const defaultComponents: ComponentProps<any> = {
     props: React.DetailedHTMLProps<
       React.OlHTMLAttributes<HTMLOListElement>,
       HTMLOListElement
-    >
+    >,
   ) => {
     const { type, ...rest } = props;
 
