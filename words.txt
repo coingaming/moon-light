@@ -5,6 +5,8 @@ heathmont
 authcode
 goku
 gohan
+nappa
+whis
 Frontmatter
 frontmatter
 bulma
