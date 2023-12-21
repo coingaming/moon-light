@@ -32,3 +32,5 @@ Kallavus
 pixelmatch
 viewports
 navigations
+tagsinput
+datetime

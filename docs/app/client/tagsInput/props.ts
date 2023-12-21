@@ -80,7 +80,7 @@ export const tagsInputSelectedPropsItems: PropsTableProp[] = [
     name: "index",
     type: ["number"],
     required: true,
-    description: "This data spcifies the key value of the item",
+    description: "This data specifies the key value of the item",
   },
   {
     name: "label",
