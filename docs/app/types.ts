@@ -86,6 +86,11 @@ export type Examples = {
       "examples": {
         "Default": "string"
       }
+    },
+    "tabs": {
+      "description": "string",
+      "descriptions": {},
+      "examples": {}
     }
   },
   "server": {
