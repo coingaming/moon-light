@@ -38,7 +38,6 @@ export const PlayWrightStartTouch = () => {
     if (!element) {
       throw Error("Selector not found");
     }
-    // @ts-ignore
     const t = window.createTouchEvent(0, 0);
     const event = new TouchEvent("touchstart", {
       touches: [t],
@@ -62,7 +61,6 @@ export const PlayWrightMoveTouch = () => {
     const touches = Array(steps)
       .fill(0)
       .map((t: any, index: number) => {
-        // @ts-ignore
         return window.createTouchEvent(0, minorStep * index);
       });
     touches.forEach((t) => {
