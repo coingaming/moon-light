@@ -22,12 +22,12 @@ export const getData = async (name: string): Promise<[string, string][]> => {
               componentData?.descriptions?.[exampleKey] as string,
               {
                 parseFrontmatter: true,
-              }
+              },
             )
           )?.frontmatter?.title;
         }
         return [title, key];
-      }
+      },
     ) || [];
 
   return (await Promise.all(titles)) as [string, string][];
@@ -45,7 +45,7 @@ export default async function ProductSidebar({ name, contents }: any) {
           <ul role="list" className="flex flex-col gap-1">
             {contents.map((key: string) => {
               const title = titles.find(
-                (title: titleType) => title[1] === key
+                (title: titleType) => title[1] === key,
               )?.[0];
               return (
                 <li key={key}>

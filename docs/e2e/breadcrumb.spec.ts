@@ -70,7 +70,7 @@ test("Collapsed: 2nd last crumb hover should match screenshot", async ({
       `breadcrumb-Collapsed-Page4-hover.png`,
       {
         maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-      }
+      },
     );
   }
 });
@@ -105,7 +105,7 @@ test("FourItems: 2nd crumb hover should match screenshot", async ({
       `breadcrumb-FourItems-Page1-hover.png`,
       {
         maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-      }
+      },
     );
   }
 });
@@ -121,7 +121,7 @@ test("FourItems: 3rd crumb hover should match screenshot", async ({
       `breadcrumb-FourItems-Page2-hover.png`,
       {
         maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-      }
+      },
     );
   }
 });
@@ -193,7 +193,7 @@ test("CustomDivider: first crumb hover should match screenshot", async ({
       `breadcrumb-CustomDivider-Home-hover.png`,
       {
         maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-      }
+      },
     );
   }
 });
@@ -209,7 +209,7 @@ test("CustomDivider: 2nd last crumb hover should match screenshot", async ({
       `breadcrumb-CustomDivider-Page4-hover.png`,
       {
         maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-      }
+      },
     );
   }
 });

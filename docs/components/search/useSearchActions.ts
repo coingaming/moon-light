@@ -21,7 +21,7 @@ export const useSearchActions = async (): Promise<Action[]> => {
 
   const mapActions = (
     examples: Examples["client"] | Examples["server"],
-    type: "client" | "server"
+    type: "client" | "server",
   ) => {
     for (const [componentName, value] of Object.entries(examples)) {
       const action = {

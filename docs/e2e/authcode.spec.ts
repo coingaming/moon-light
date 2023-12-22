@@ -35,7 +35,7 @@ test("AllowedCharacters: should render and match screenshot", async ({
     `${COMPONENT_NAME}-AllowedCharacters.png`,
     {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    }
+    },
   );
 });
 
@@ -82,7 +82,7 @@ test("WithManualSubmit: should render and match screenshot", async ({
     `${COMPONENT_NAME}-WithManualSubmit.png`,
     {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    }
+    },
   );
 });
 
@@ -193,7 +193,7 @@ test("WithManualSubmit: should submit on the button click", async ({
 
 test("HintMessage: should have text hint", async ({ page }) => {
   await expect(await page.locator('p[role="alert"]').innerText()).toBe(
-    "Hint message"
+    "Hint message",
   );
 });
 
