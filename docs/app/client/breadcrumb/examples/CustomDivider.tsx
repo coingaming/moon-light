@@ -8,10 +8,18 @@ const breadcrumbs = [
   <a href="#" aria-label="Home" key="Home">
     <GenericHome className="text-moon-24" />
   </a>,
-  <a href="#" key="Page 1">Page 1</a>,
-  <a href="#" key="Page 2">Page 2</a>,
-  <a href="#" key="Page 3">Page 3</a>,
-  <a href="#" key="Page 5">Page 4</a>,
+  <a href="#" key="Page 1">
+    Page 1
+  </a>,
+  <a href="#" key="Page 2">
+    Page 2
+  </a>,
+  <a href="#" key="Page 3">
+    Page 3
+  </a>,
+  <a href="#" key="Page 5">
+    Page 4
+  </a>,
   <span key="Current">Current page</span>,
 ];
 

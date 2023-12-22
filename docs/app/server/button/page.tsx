@@ -37,7 +37,7 @@ export default async function Button() {
         data={[
           {
             name: "animation",
-            type: ['progress' ,'success' , 'error' , 'pulse'],
+            type: ["progress", "success", "error", "pulse"],
             defaultState: "-",
             description: "Animation of button",
           },
@@ -91,7 +91,7 @@ export default async function Button() {
           },
           {
             name: "variant",
-            type: ["fill", "outline" , "ghost"],
+            type: ["fill", "outline", "ghost"],
             defaultState: "fill",
             description: "Visual/Logical variant of button",
           },
