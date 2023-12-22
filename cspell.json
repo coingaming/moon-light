@@ -17,6 +17,8 @@
     "node_modules",
     "pnpm-workspace.yaml",
     "docs/package.json",
-    ".config/aws-task-definition.json"
+    ".config/aws-task-definition.json",
+    ".gitignore",
+    ".vscode/extensions.json"
   ]
 }
