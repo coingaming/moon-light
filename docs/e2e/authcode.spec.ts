@@ -124,6 +124,7 @@ test("Default: should change focus when the user finish the input", async ({
 
 test("Password: should not print any character", async ({ page }) => {
   await page.getByLabel("Character 1").click();
+  await page.mouse.move(0, 0); // Remove the mouse from the input, to avoid hover state
   await page.getByLabel("Character 1").fill("1");
   await page.getByLabel("Character 2").fill("1");
   await page.getByLabel("Character 3").fill("1");

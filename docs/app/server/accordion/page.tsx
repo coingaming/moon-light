@@ -1,5 +1,4 @@
 import { PropsTable } from "@/components/propsTable";
-import { QuickNav } from "@/components/QuickNav";
 import { getExamples } from "@/utils/getExamples";
 import { MDX } from "@/components/MDX";
 import { ExampleSection } from "@/components/exampleSection/ExampleSection";
@@ -36,7 +35,7 @@ export default async function Accordion() {
         data={[
           {
             name: "itemSize",
-            type: ["sm | md | lg | xl"],
+            type: ["sm", "md", "lg", "xl"],
             defaultState: "md",
             description: "Size of accordion item",
           },
