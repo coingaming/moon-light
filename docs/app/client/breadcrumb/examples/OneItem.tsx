@@ -3,7 +3,7 @@
 import React from "react";
 import { Breadcrumb } from "@heathmont/moon-core-tw";
 
-const breadcrumbs = [<span>Current page</span>];
+const breadcrumbs = [<span key="current">Current page</span>];
 
 export const OneItem = () => {
   return <Breadcrumb breadcrumbs={breadcrumbs} />;

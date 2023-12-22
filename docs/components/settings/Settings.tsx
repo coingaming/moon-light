@@ -25,7 +25,7 @@ const Settings = () => {
   // Apply the current theme from localStorage when loaded
   useLayoutEffect(() => {
     apply();
-  }, []);
+  }, [apply]);
 
   return (
     <Popover
