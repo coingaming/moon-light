@@ -53,7 +53,7 @@ test("Sizes: should render and match screenshot", async ({ page }) => {
 });
 
 test("ActiveStatus: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Sizes.png`, {
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-ActiveStatus.png`, {
     maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
