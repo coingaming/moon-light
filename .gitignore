@@ -5,7 +5,6 @@
 .env
 
 # IDE
-.vscode
 .idea
 
 # Node
