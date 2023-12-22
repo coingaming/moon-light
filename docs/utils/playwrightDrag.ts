@@ -60,7 +60,7 @@ export const PlayWrightMoveTouch = () => {
     // Create the steps
     const touches = Array(steps)
       .fill(0)
-      .map((t: any, index: number) => {
+      .map((_: number, index: number) => {
         return window.createTouchEvent(0, minorStep * index);
       });
     touches.forEach((t) => {
