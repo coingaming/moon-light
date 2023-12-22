@@ -72,33 +72,29 @@ test("WithOnClick: should render and match screenshot", async ({ page }) => {
 
 test("WithOnClick: should callback onClick works", async ({ page }) => {
   const button = await page.locator("button");
-
-  expect(await page.locator("p").allInnerTexts()).toStrictEqual([
-    "Click counter: 0",
-  ]);
-
+  let wasClicked = false;
+  page.on("dialog", (dialog) => {
+    wasClicked = true;
+    dialog.accept();
+  });
   await button.click();
 
-  expect(await page.locator("p").allInnerTexts()).toStrictEqual([
-    "Click counter: 1",
-  ]);
+  await expect(wasClicked).toBe(true);
 });
 
 test("WithOnClick: should multiple callback onClick works", async ({
   page,
 }) => {
   const button = await page.locator("button");
-
-  expect(await page.locator("p").allInnerTexts()).toStrictEqual([
-    "Click counter: 0",
-  ]);
-
+  let counter = 0;
+  page.on("dialog", async (dialog) => {
+    counter += 1;
+    await dialog.accept();
+  });
   await button.click();
   await button.click();
   await button.click();
-  expect(await page.locator("p").allInnerTexts()).toStrictEqual([
-    "Click counter: 3",
-  ]);
+  expect(counter).toBe(3);
 });
 
 test("IsStroke: should stroke on the hover", async ({ page }) => {
