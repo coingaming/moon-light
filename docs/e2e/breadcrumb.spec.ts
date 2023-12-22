@@ -24,11 +24,11 @@ test("Collapsed: should render and match screenshot", async ({ page }) => {
 test("Collapsed: should open collapsed crumbs and match screenshot", async ({
   page,
 }) => {
-  await page.locator("li > button").click();
+  await page.getByLabel("Show more breadcrumbs").click();
   await page.mouse.move(0, 0);
   await page.waitForTimeout(100);
 
-  const collapsed = await page.locator("li > ol");
+  const collapsed = await page.getByText("Page 1Page 2Page");
   await expect(collapsed).toBeVisible();
   await expect(page).toHaveScreenshot(`breadcrumb-Collapsed-open.png`, {
     maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
@@ -41,10 +41,11 @@ test("Collapsed: click outside should close collapsed crumbs", async ({
   await page.locator("li > button").click();
   await page.waitForTimeout(100);
 
-  const collapsed = await page.locator("li > ol");
+  const collapsed = await page.getByText("Page 1Page 2Page");
   await expect(collapsed).toBeVisible();
   await page.mouse.click(10, 10);
-  await expect(collapsed).not.toBeVisible();
+  const collapsedAfter = await page.getByText("Page 1Page 2Page");
+  await expect(collapsedAfter).not.toBeVisible();
 });
 
 test("Collapsed: first crumb hover should match screenshot", async ({
@@ -52,8 +53,16 @@ test("Collapsed: first crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    const breadcrumbItem = page.locator("span >> text=Home");
-    await breadcrumbItem.hover();
+    const breadcrumbItem = page.locator("span").filter({ hasText: "Home" });
+    await breadcrumbItem.isVisible();
+    await breadcrumbItem.hover({ force: true });
+    // const position = await breadcrumbItem.boundingBox();
+    // await breadcrumbItem.hover({
+    //   position: {
+    //     x: (position?.x ?? 0) + 5 || 0,
+    //     y: (position?.y ?? 0) + 2 || 0,
+    //   },
+    // });
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(`breadcrumb-Collapsed-Home-hover.png`, {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
@@ -66,9 +75,19 @@ test("Collapsed: 2nd last crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    const breadcrumbItem = page.locator("span >> text=Page 4");
-    await breadcrumbItem.hover();
-    await page.waitForTimeout(100);
+    const breadcrumbItem = await page
+      .locator("span")
+      .filter({ hasText: "Page 4" });
+    await breadcrumbItem.isVisible();
+    await breadcrumbItem.hover({ force: true });
+    // const position = await breadcrumbItem.boundingBox();
+    // await breadcrumbItem.hover({
+    //   position: {
+    //     x: (position?.x ?? 0) + 5 || 0,
+    //     y: (position?.y ?? 0) + 2 || 0,
+    //   },
+    // });
+    await page.waitForTimeout(500);
     await expect(page).toHaveScreenshot(
       `breadcrumb-Collapsed-Page4-hover.png`,
       {
@@ -89,8 +108,14 @@ test("FourItems: first crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    const breadcrumbItem = page.locator("span >> text=Home");
-    await breadcrumbItem.hover();
+    const breadcrumbItem = page.locator("span").filter({ hasText: "Home" });
+    const position = await breadcrumbItem.boundingBox();
+    await breadcrumbItem.hover({
+      position: {
+        x: (position?.x ?? 0) + 5 || 0,
+        y: (position?.y ?? 0) + 2 || 0,
+      },
+    });
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(`breadcrumb-FourItems-Home-hover.png`, {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
@@ -103,8 +128,14 @@ test("FourItems: 2nd crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    const breadcrumbItem = page.locator("span >> text=Page 1");
-    await breadcrumbItem.hover();
+    const breadcrumbItem = page.locator("span").filter({ hasText: "Page 1" });
+    const position = await breadcrumbItem.boundingBox();
+    await breadcrumbItem.hover({
+      position: {
+        x: (position?.x ?? 0) + 5 || 0,
+        y: (position?.y ?? 0) + 2 || 0,
+      },
+    });
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(
       `breadcrumb-FourItems-Page1-hover.png`,
@@ -120,8 +151,14 @@ test("FourItems: 3rd crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    const breadcrumbItem = page.locator("span >> text=Page 2");
-    await breadcrumbItem.hover();
+    const breadcrumbItem = page.locator("span").filter({ hasText: "Page 2" });
+    const position = await breadcrumbItem.boundingBox();
+    await breadcrumbItem.hover({
+      position: {
+        x: (position?.x ?? 0) + 5 || 0,
+        y: (position?.y ?? 0) + 2 || 0,
+      },
+    });
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(
       `breadcrumb-FourItems-Page2-hover.png`,
@@ -143,8 +180,14 @@ test("TwoItems: first crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    const breadcrumbItem = page.locator("span >> text=Home");
-    await breadcrumbItem.hover();
+    const breadcrumbItem = page.locator("span").filter({ hasText: "Home" });
+    const position = await breadcrumbItem.boundingBox();
+    await breadcrumbItem.hover({
+      position: {
+        x: (position?.x ?? 0) + 5 || 0,
+        y: (position?.y ?? 0) + 2 || 0,
+      },
+    });
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(`breadcrumb-TwoItems-Home-hover.png`, {
       maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
@@ -167,11 +210,11 @@ test("CustomDivider: should render and match screenshot", async ({ page }) => {
 test("CustomDivider: should open collapsed crumbs and match screenshot", async ({
   page,
 }) => {
-  await page.locator("li > button").click();
+  await page.getByLabel("Show more breadcrumbs").click();
   await page.mouse.move(0, 0);
   await page.waitForTimeout(100);
 
-  const collapsed = await page.locator("li > ol");
+  const collapsed = await page.getByText("Page 1Page 2Page");
   await expect(collapsed).toBeVisible();
   await expect(page).toHaveScreenshot(`breadcrumb-CustomDivider-open.png`, {
     maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
@@ -184,10 +227,11 @@ test("CustomDivider: click outside should close collapsed crumbs", async ({
   await page.locator("li > button").click();
   await page.waitForTimeout(100);
 
-  const collapsed = await page.locator("li > ol");
+  const collapsed = await page.getByText("Page 1Page 2Page");
   await expect(collapsed).toBeVisible();
   await page.mouse.click(10, 10);
-  await expect(collapsed).not.toBeVisible();
+  const collapsedAfter = await page.getByText("Page 1Page 2Page");
+  await expect(collapsedAfter).not.toBeVisible();
 });
 
 test("CustomDivider: first crumb hover should match screenshot", async ({
@@ -195,11 +239,19 @@ test("CustomDivider: first crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    await page.locator('a[aria-label="Home"]').hover();
-    await page.waitForTimeout(100);
+    const breadcrumbItem = await page.getByLabel("Home", { exact: true });
+    const position = await breadcrumbItem.boundingBox();
+    await breadcrumbItem.hover({
+      position: {
+        x: position?.x || 0,
+        y: position?.y || 0,
+      },
+    });
+    await page.waitForTimeout(1000);
     await expect(page).toHaveScreenshot(
       `breadcrumb-CustomDivider-Home-hover.png`,
       {
+        animations: "disabled",
         maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
       },
     );
@@ -211,12 +263,19 @@ test("CustomDivider: 2nd last crumb hover should match screenshot", async ({
   isMobile,
 }) => {
   if (!isMobile) {
-    const breadcrumbItem = page.locator("span >> text=Page 4");
-    await breadcrumbItem.hover();
+    const breadcrumbItem = page.locator("span").filter({ hasText: "Page 4" });
+    const position = await breadcrumbItem.boundingBox();
+    await breadcrumbItem.hover({
+      position: {
+        x: position?.x || 0,
+        y: position?.y || 0,
+      },
+    });
     await page.waitForTimeout(100);
     await expect(page).toHaveScreenshot(
       `breadcrumb-CustomDivider-Page4-hover.png`,
       {
+        animations: "disabled",
         maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
       },
     );
