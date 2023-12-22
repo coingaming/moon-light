@@ -30,7 +30,7 @@ export const ErrorState = () => {
   // Trigger validation for this example
   useEffect(() => {
     trigger("authCode");
-  }, []);
+  }, [trigger]);
   return (
     <Form
       onSubmit={handleSubmit(onSubmit)}
