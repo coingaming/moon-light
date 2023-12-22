@@ -156,6 +156,24 @@ export type Examples = {
         "DifferentSizes": "string",
         "States": "string",
         "UppercaseLowercase": "string"
+    "checkbox": {
+      "descriptions": {
+        "Checked": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "PartiallySelected": "string",
+        "ReadOnly": "string",
+        "WithLabel": "string"
+      },
+      "examples": {
+        "Checked": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "PartiallySelected": "string",
+        "ReadOnly": "string",
+        "WithLabel": "string"
       }
     }
   },
