@@ -234,7 +234,6 @@ test.describe("CustomDivider Tests", () => {
       await expect(page).toHaveScreenshot(
         `breadcrumb-CustomDivider-Home-hover.png`,
         {
-          animations: "disabled",
           maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
         },
       );
@@ -252,7 +251,6 @@ test.describe("CustomDivider Tests", () => {
       await expect(page).toHaveScreenshot(
         `breadcrumb-CustomDivider-Page4-hover.png`,
         {
-          animations: "disabled",
           maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
         },
       );
