@@ -11,7 +11,7 @@ const ToggleCodeBtn = ({ expand, clickHandler }: Props) => {
     <div
       className={mergeClassnames(
         "absolute bottom-0 inset-x-0 h-32 flex items-end z-0 bg-gradient-to-b from-transparent to-gohan",
-        expand && "h-10",
+        expand && "h-10"
       )}
     >
       <Button

@@ -40,7 +40,7 @@ export async function withExamples(
     examples: Record<string, string>;
   },
   data: string[],
-  componentName: string,
+  componentName: string
 ) {
   const { descriptions, examples } = client;
 
@@ -52,7 +52,7 @@ export async function withExamples(
       () => import(`@/app/client/${componentName}/examples/${ex}`),
       {
         loading: () => <Loader />,
-      },
+      }
     );
     let title;
     if (descriptions?.[exampleDescriptionKey]) {

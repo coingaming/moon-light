@@ -17,7 +17,7 @@ const CodeCopy = ({ code }: { code: string }) => {
         setSnackbar(type);
       }
     },
-    [snackbar],
+    [snackbar]
   );
 
   const copyCode = () => {
