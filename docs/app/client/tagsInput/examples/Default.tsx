@@ -23,7 +23,7 @@ const Default = () => {
   return (
     <TagsInput selected={selected} onEnter={onEnter} onClear={onClear}>
       {selected.map((text, index) => (
-        <TagsInput.SelectedItem index={index} label={text} />
+        <TagsInput.SelectedItem key={index} index={index} label={text} />
       ))}
     </TagsInput>
   );

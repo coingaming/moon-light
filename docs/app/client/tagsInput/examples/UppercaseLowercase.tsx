@@ -35,6 +35,7 @@ const Example = () => {
                 isUppercase={false}
                 index={index}
                 label={text}
+                key={index}
               />
             ))}
           </TagsInput>
@@ -47,7 +48,7 @@ const Example = () => {
             onClear={onClear}
           >
             {selected.map((text, index) => (
-              <TagsInput.SelectedItem index={index} label={text} />
+              <TagsInput.SelectedItem key={index} index={index} label={text} />
             ))}
           </TagsInput>
         </div>

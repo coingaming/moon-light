@@ -33,7 +33,7 @@ const Example = () => {
             onClear={onClear}
           >
             {selected.map((text, index) => (
-              <TagsInput.SelectedItem index={index} label={text} />
+              <TagsInput.SelectedItem key={index} index={index} label={text} />
             ))}
           </TagsInput>
           <Hint disabled>Informative message holder</Hint>
@@ -47,7 +47,7 @@ const Example = () => {
             onClear={onClear}
           >
             {selected.map((text, index) => (
-              <TagsInput.SelectedItem index={index} label={text} />
+              <TagsInput.SelectedItem key={index} index={index} label={text} />
             ))}
           </TagsInput>
           <Hint error>

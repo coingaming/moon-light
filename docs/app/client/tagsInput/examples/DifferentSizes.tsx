@@ -27,7 +27,7 @@ const TagsInputWithLogic = ({ size }: { size?: Size }) => {
       size={size as Size}
     >
       {selected.map((text, index) => (
-        <TagsInput.SelectedItem index={index} label={text} />
+        <TagsInput.SelectedItem key={index} index={index} label={text} />
       ))}
     </TagsInput>
   );
