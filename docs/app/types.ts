@@ -103,6 +103,35 @@ export type Examples = {
       "examples": {
         "Default": "string"
       }
+    },
+    "chip": {
+      "description": "string",
+      "descriptions": {
+        "Active": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Icons": "string",
+        "IsStroke": "string",
+        "MaintainStateOnClick": "string",
+        "Sizes": "string",
+        "StrokeWithIcons": "string",
+        "Variants": "string",
+        "WithOnClick": "string"
+      },
+      "examples": {
+        "Active": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Icons": "string",
+        "IsStroke": "string",
+        "MaintainStateOnClick": "string",
+        "Sizes": "string",
+        "StrokeWithIcons": "string",
+        "Variants": "string",
+        "WithOnClick": "string"
+      }
     }
   },
   "server": {
