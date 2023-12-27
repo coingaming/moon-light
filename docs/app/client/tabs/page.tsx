@@ -17,6 +17,7 @@ import TabsProps, {
   TabsSegmentProps,
   TabsTabProps,
 } from "./props";
+import { Anatomy } from "@/components/Anatomy";
 
 const TITLE = "Tabs";
 const ordered: string[] = [
@@ -36,7 +37,12 @@ export default async function TabsPage(request: {
 }) {
   const {
     client: {
-      tabs: { description, descriptions: exampleDescriptions, examples },
+      tabs: {
+        description,
+        descriptions: exampleDescriptions,
+        examples,
+        anatomy,
+      },
     },
   } = await getExamples();
 
@@ -49,7 +55,7 @@ export default async function TabsPage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      },
+      }
     );
     return (
       <div className="p-4" id="playwright-test">
@@ -81,6 +87,7 @@ export default async function TabsPage(request: {
           }}
           data={ordered}
         />
+        <Anatomy anatomy={anatomy} />
         <PropsTable title="Tabs Props" data={TabsProps} />
         <PropsTable title="Tabs.List Props" data={TabsListProps} />
         <PropsTable title="Tabs.Segment Props" data={TabsSegmentProps} />
