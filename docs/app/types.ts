@@ -61,6 +61,23 @@ export type Examples = {
         "Variants": "string"
       }
     },
+    "bottomsheet": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "RootPortal": "string",
+        "Sizes": "string",
+        "WithDraghandle": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "RootPortal": "string",
+        "Sizes": "string",
+        "WithDraghandle": "string",
+        "WithTitle": "string"
+      }
+    },
     "breadcrumb": {
       "description": "string",
       "descriptions": {

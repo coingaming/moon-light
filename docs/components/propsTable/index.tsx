@@ -11,7 +11,7 @@ type TableProps = {
 export const PropsTable = ({ data, title, description }: TableProps) => {
   return (
     <section className="flex flex-col gap-6">
-      <HeaderSection title={title} description={description} className="pb-6" />
+      <HeaderSection title={title} description={description} />
       <hr className="h-px bg-beerus w-full" />
       {data
         .sort((x: PropsTableProp) => (x.required ? -1 : 1))

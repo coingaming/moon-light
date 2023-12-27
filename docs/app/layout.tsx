@@ -21,7 +21,9 @@ export default async function RootLayout({
     <html lang="en" dir="ltr" className="scroll-pt-20">
       <SearchProvider actions={actions}>
         <RtlProvider>
-          <body className="theme-moon-light bg-goku">{children}</body>
+          <body className="theme-moon-light bg-goku">
+            <div id="__next">{children}</div>
+          </body>
         </RtlProvider>
       </SearchProvider>
     </html>
