@@ -19,11 +19,11 @@ export const ${name} = () => {
 
 export default ${name}
 `;
-  const _e2e = `\ntest('${name}: should render and match screenshot', async ({ page }) => {
-    await expect(page).toHaveScreenshot(\`${component}-${name}.png\`, {
-        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO
-    })
-})
+  const _e2e = `\ntest.describe("${name} tests", () => {
+  test('${name}: should render and match screenshot', async ({ page }) => {
+      await expect(page).toHaveScreenshot(\`${component}-${name}.png\`)
+  });
+});
 `;
   return Object.assign(
     {},
