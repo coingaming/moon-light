@@ -13,7 +13,7 @@ const defaultComponents: ComponentProps<any> = {
     </span>
   ),
   ul: (props: HTMLProps<HTMLUListElement>) => (
-    <ul {...props} className="list-disc ps-8">
+    <ul {...props} className="list-disc ps-8 pt-2">
       {props.children}
     </ul>
   ),
