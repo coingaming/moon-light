@@ -49,7 +49,7 @@ export default async function TabsPage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      }
+      },
     );
     return (
       <div className="p-4" id="playwright-test">

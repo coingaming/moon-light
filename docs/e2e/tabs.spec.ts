@@ -45,8 +45,10 @@ test("Pill: should render and match screenshot", async ({ page }) => {
   await expect(page).toHaveScreenshot(`tabs-Pill.png`);
 });
 
-test('SelectedIndexSegment: should render and match screenshot', async ({ page }) => {
-    await expect(page).toHaveScreenshot(`tabs-SelectedIndexSegment.png`, {
-        maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO
-    })
-})
+test("SelectedIndexSegment: should render and match screenshot", async ({
+  page,
+}) => {
+  await expect(page).toHaveScreenshot(`tabs-SelectedIndexSegment.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
