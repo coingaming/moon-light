@@ -32,6 +32,7 @@ const IsActive = () => {
           onClick={() => onClick(item)}
           isActive={isActive.includes(item)}
           isStroke
+          key={item}
         >
           {item}
         </Chip>
