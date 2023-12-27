@@ -61,6 +61,23 @@ export type Examples = {
         "Variants": "string"
       }
     },
+    "bottomsheet": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "RootPortal": "string",
+        "Sizes": "string",
+        "WithDraghandle": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "RootPortal": "string",
+        "Sizes": "string",
+        "WithDraghandle": "string",
+        "WithTitle": "string"
+      }
+    },
     "breadcrumb": {
       "description": "string",
       "descriptions": {
@@ -85,6 +102,31 @@ export type Examples = {
       },
       "examples": {
         "Default": "string"
+      }
+    },
+    "chip": {
+      "description": "string",
+      "descriptions": {
+        "Active": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Icons": "string",
+        "IsStroke": "string",
+        "Sizes": "string",
+        "Variants": "string",
+        "WithOnClick": "string"
+      },
+      "examples": {
+        "Active": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Icons": "string",
+        "IsStroke": "string",
+        "Sizes": "string",
+        "Variants": "string",
+        "WithOnClick": "string"
       }
     },
     "tagsInput": {

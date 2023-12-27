@@ -34,3 +34,14 @@ viewports
 navigations
 tagsinput
 datetime
+headlessui
+raditz
+Draghandle
+goten
+jiren
+bottomsheet
+nappa
+whis
+krillin
+popo
+jiren
