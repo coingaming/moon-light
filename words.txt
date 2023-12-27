@@ -41,3 +41,5 @@ whis
 krillin
 popo
 jiren
+Corepack
+corepack
