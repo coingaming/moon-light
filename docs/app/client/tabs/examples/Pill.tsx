@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Tabs } from "@heathmont/moon-core-tw";
 
 const pillCls = "border border-beerus hover:bg-gohan";
