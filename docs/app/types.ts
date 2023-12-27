@@ -113,9 +113,7 @@ export type Examples = {
         "Disabled": "string",
         "Icons": "string",
         "IsStroke": "string",
-        "MaintainStateOnClick": "string",
         "Sizes": "string",
-        "StrokeWithIcons": "string",
         "Variants": "string",
         "WithOnClick": "string"
       },
@@ -126,11 +124,22 @@ export type Examples = {
         "Disabled": "string",
         "Icons": "string",
         "IsStroke": "string",
-        "MaintainStateOnClick": "string",
         "Sizes": "string",
-        "StrokeWithIcons": "string",
         "Variants": "string",
         "WithOnClick": "string"
+      }
+    },
+    "loader": {
+      "description": "string",
+      "descriptions": {
+        "Colors": "string",
+        "Default": "string",
+        "Sizes": "string"
+      },
+      "examples": {
+        "Colors": "string",
+        "Default": "string",
+        "Sizes": "string"
       }
     }
   },
