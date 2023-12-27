@@ -9,11 +9,29 @@ import { Loader } from "@heathmont/moon-base-tw";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
 import image from "./tabs.webp";
 import { PropsTable } from "@/components/propsTable";
+import TabsProps, {
+  TabsListProps,
+  TabsPanelProps,
+  TabsPanelsProps,
+  TabsPillProps,
+  TabsSegmentProps,
+  TabsTabProps,
+} from "./props";
 
 const TITLE = "Tabs";
-const ordered: string[] = ["Default"];
+const ordered: string[] = [
+  "Default",
+  "Pill",
+  "SelectedIndex",
+  "SelectedIndexSegment",
+  "SegmentControlView",
+  "TabsOnlyView",
+  "Sizes",
+  "WithHandler",
+  "WithCustomStyle",
+];
 
-export default async function AuthCodePage(request: {
+export default async function TabsPage(request: {
   searchParams: { raw: string };
 }) {
   const {
@@ -31,7 +49,7 @@ export default async function AuthCodePage(request: {
       {
         loading: () => <Loader />,
         ssr: false,
-      },
+      }
     );
     return (
       <div className="p-4" id="playwright-test">
@@ -63,6 +81,13 @@ export default async function AuthCodePage(request: {
           }}
           data={ordered}
         />
+        <PropsTable title="Tabs Props" data={TabsProps} />
+        <PropsTable title="Tabs.List Props" data={TabsListProps} />
+        <PropsTable title="Tabs.Segment Props" data={TabsSegmentProps} />
+        <PropsTable title="Tabs.Tab Props" data={TabsTabProps} />
+        <PropsTable title="Tabs.Pill Props" data={TabsPillProps} />
+        <PropsTable title="Tabs.Panels Props" data={TabsPanelsProps} />
+        <PropsTable title="Tabs.Panel Props" data={TabsPanelProps} />
       </div>
     </MainLayout>
   );

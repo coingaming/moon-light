@@ -1,15 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Tabs } from "@heathmont/moon-core-tw";
 
-const SelectedIndex = () => (
-  <>
-    <Tabs selectedIndex={0}>
+const pillCls = "border border-beerus";
+
+const PillDefault = () => {
+  return (
+    <Tabs>
       <Tabs.List>
-        <Tabs.Tab>Tab 1</Tabs.Tab>
-        <Tabs.Tab>Tab 2</Tabs.Tab>
-        <Tabs.Tab>Tab 3</Tabs.Tab>
+        <Tabs.Pill
+          className={({ selected }: { selected: boolean }) =>
+            selected ? "" : pillCls
+          }
+        >
+          Tab 1
+        </Tabs.Pill>
+        <Tabs.Pill
+          className={({ selected }: { selected: boolean }) =>
+            selected ? "" : pillCls
+          }
+        >
+          Tab 2
+        </Tabs.Pill>
+        <Tabs.Pill
+          className={({ selected }: { selected: boolean }) =>
+            selected ? "" : pillCls
+          }
+        >
+          Tab 3
+        </Tabs.Pill>
       </Tabs.List>
       <Tabs.Panels>
         <Tabs.Panel>
@@ -21,7 +41,7 @@ const SelectedIndex = () => (
         <Tabs.Panel>
           It has survived not only five centuries, but also the leap into
           electronic typesetting, remaining essentially unchanged. It was
-          popularised in the 1960s with the release of Letraset sheets
+          popularized in the 1960s with the release of Letraset sheets
           containing Lorem Ipsum passages, and more recently with desktop
           publishing software like Aldus PageMaker including versions of Lorem
           Ipsum.
@@ -33,18 +53,11 @@ const SelectedIndex = () => (
           Hampden-Sydney College in Virginia, looked up one of the more obscure
           Latin words, consectetur, from a Lorem Ipsum passage, and going
           through the cites of the word in classical literature, discovered the
-          undoubtable source.
+          undoubtedly source.
         </Tabs.Panel>
       </Tabs.Panels>
     </Tabs>
-    <Tabs selectedIndex={0}>
-      <Tabs.Segment size="sm">
-        <Tabs.Pill>Tab 1</Tabs.Pill>
-        <Tabs.Pill>Tab 2</Tabs.Pill>
-        <Tabs.Pill>Tab 3</Tabs.Pill>
-      </Tabs.Segment>
-    </Tabs>
-  </>
-);
+  );
+};
 
-export default SelectedIndex;
+export default PillDefault;

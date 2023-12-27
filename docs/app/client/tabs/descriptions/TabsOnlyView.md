@@ -1,3 +1,3 @@
 ---
-title: Default
+title: Tabs only view
 ---
