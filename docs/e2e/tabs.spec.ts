@@ -154,4 +154,40 @@ test.describe("SelectedIndexSegment tests", () => {
   }) => {
     await expect(page).toHaveScreenshot(`tabs-SelectedIndexSegment.png`);
   });
+
+  test("SelectedIndexSegment: should alert on click on the first tab", async ({
+    page,
+  }) => {
+    const firstBtn = [
+      await page.getByText("Tab 1").first(),
+      await page.getByText("Tab 2").first(),
+      await page.getByText("Tab 3").first(),
+    ];
+    let dialogMessage = "";
+    page.on("dialog", (dialog) => {
+      dialogMessage = dialog.message();
+      dialog.accept();
+    });
+    // first click should not trigger anything
+    await firstBtn[0].click();
+    await expect(dialogMessage).toBe("");
+    await firstBtn[1].click();
+    await expect(dialogMessage).toBe("Current Tab: 2");
+    await firstBtn[2].click();
+    await expect(dialogMessage).toBe("Current Tab: 3");
+  });
+
+  test("SelectedIndexSegment: should not alert on click on the disabled tab", async ({
+    page,
+  }) => {
+    const btn = await page.getByText("Tab 2")?.last();
+    let dialogMessage = "";
+    page.on("dialog", (dialog) => {
+      dialogMessage = dialog.message();
+      dialog.accept();
+    });
+    // first click should not trigger anything
+    await btn.click({ force: true }); // Force to skip the disable check
+    await expect(dialogMessage).toBe("");
+  });
 });
