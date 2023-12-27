@@ -10,7 +10,7 @@ test.beforeEach(async ({ page }, testInfo) => {
 });
 test.afterEach(async ({ page }) => {
   // Cleanup from route
-  await page.close();
+  // await page.close();
 });
 
 test.describe("Default tests", () => {
@@ -197,5 +197,22 @@ test.describe("SelectedIndexSegment tests", () => {
     // first click should not trigger anything
     await btn.click({ force: true }); // Force to skip the disable check
     await expect(dialogMessage).toBe("");
+  });
+});
+
+test.describe("RTL tests", () => {
+  test("Default: Should support RTL and match the screenshot", async ({
+    page,
+  }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(`tabs-Default-RTL.png`);
   });
 });
