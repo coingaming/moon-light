@@ -18,7 +18,7 @@ const Customization = () => {
         className={
           isActive
             ? "outline-none text-bulma hover:text-chichi shadow shadow-bulma hover:shadow-bulma"
-            : "border border-beerustext-chichi hover:bg-chichi-10 hover:shadow-none"
+            : "border border-beerus text-chichi hover:bg-chichi-10 hover:shadow-none"
         }
       >
         Custom Chip
