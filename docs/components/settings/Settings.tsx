@@ -25,6 +25,7 @@ const Settings = () => {
   // Apply the current theme from localStorage when loaded
   useLayoutEffect(() => {
     apply();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

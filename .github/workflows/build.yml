@@ -1,11 +1,11 @@
-name: Build docs
+name: Build
 on:
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
 jobs:
-  playwright:
+  build:
     name: "Build docs"
     runs-on: ubuntu-latest
     container:
@@ -24,7 +24,5 @@ jobs:
         run: pnpm i
       - name: Build packages
         run: pnpm run build
-      # - name: Run your tests
-      #   run: pnpm run doc test
-      #   env:
-      #     HOME: /root
+      - name: Build documentation
+        run: pnpm run doc build

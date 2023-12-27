@@ -193,7 +193,7 @@ test("Disabled: should be disabled", async ({ page }) => {
 });
 
 test("HeaderContent: should be visible in a short term", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Disabled.png`, {
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-HeaderContent.png`, {
     maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
   });
 });
@@ -550,4 +550,210 @@ test("ControlOutside: should close both accordions", async ({ page }) => {
 
   await expect(closedStateOfFirst).toEqual("closed");
   await expect(closedStateOfSecond).toEqual("closed");
+});
+
+test("Default: RTL support -  should be visible in a short term", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-Default.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("Default: RTL support - should open default accordion", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await page.getByRole("button", { name: "Default" }).click();
+  await page.waitForTimeout(100);
+
+  const state = await page
+    .getByRole("button", { name: "Default" })
+    .getAttribute("data-state");
+
+  await expect(state).toEqual("open");
+
+  await expect(page).toHaveScreenshot(
+    `${COMPONENT_NAME}-RTL-Default-Open.png`,
+    {
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    },
+  );
+});
+
+test("OpenByDefault: RTL support - should be visible in a short term", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(
+    `${COMPONENT_NAME}-RTL-OpenByDefault.png`,
+    {
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    },
+  );
+});
+
+test("SingleOpen: RTL support - should be visible in a short term", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-SingleOpen.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("Disabled: RTL support - should be visible in a short term", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-Disabled.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("HeaderContent: RTL support - should be visible in a short term", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(
+    `${COMPONENT_NAME}-RTL-HeaderContent.png`,
+    {
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    },
+  );
+});
+
+test("Sizes: RTL support - should be visible in a short term", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-Sizes.png`, {
+    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+  });
+});
+
+test("Customization: RTL support - should be visible in a short term", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(
+    `${COMPONENT_NAME}-RTL-Customization.png`,
+    {
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    },
+  );
+});
+
+test("Customization: RTLsupport - should open accordion", async ({ page }) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await page
+    .getByRole("button", { name: "Test accordion with background" })
+    .click();
+  await page.waitForTimeout(100);
+
+  const state = await page
+    .getByRole("button", { name: "Test accordion with background" })
+    .getAttribute("data-state");
+
+  await expect(state).toEqual("open");
+
+  await expect(page).toHaveScreenshot(
+    `${COMPONENT_NAME}-RTL-Customization-Open.png`,
+    {
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    },
+  );
+});
+
+test("ControlOutside: RTL support - should be visible in a short term", async ({
+  page,
+}) => {
+  await page.evaluate(() => {
+    const htmlElement = document?.querySelector("html");
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", "rtl");
+    } else {
+      throw new Error("RTLProvider error: html element was not found");
+    }
+  });
+  await page.waitForSelector("html[dir=rtl]");
+  await expect(page).toHaveScreenshot(
+    `${COMPONENT_NAME}-RTL-ControlOutside.png`,
+    {
+      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
+    },
+  );
 });
