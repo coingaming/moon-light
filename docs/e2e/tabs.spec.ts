@@ -34,16 +34,20 @@ test.describe("Default tests", () => {
     const content = await page.locator("div[role=tabpanel]");
 
     expect(
-      (await content.innerText()).startsWith("Lorem Ipsum is simply dummy text")
+      (await content.innerText()).startsWith(
+        "Lorem Ipsum is simply dummy text",
+      ),
     ).toBe(true);
     await tabBtn.click();
     expect(
-      (await content.innerText()).startsWith("Lorem Ipsum is simply dummy text")
+      (await content.innerText()).startsWith(
+        "Lorem Ipsum is simply dummy text",
+      ),
     ).toBe(false);
     expect(
       (await content.innerText()).startsWith(
-        "It has survived not only five centuries"
-      )
+        "It has survived not only five centuries",
+      ),
     ).toBe(true);
   });
 
@@ -71,16 +75,20 @@ test.describe("SelectedIndex tests", () => {
     const content = await page.locator("div[role=tabpanel]");
 
     expect(
-      (await content.innerText()).startsWith("Lorem Ipsum is simply dummy text")
+      (await content.innerText()).startsWith(
+        "Lorem Ipsum is simply dummy text",
+      ),
     ).toBe(true);
     await tabBtn.click();
     expect(
-      (await content.innerText()).startsWith("Lorem Ipsum is simply dummy text")
+      (await content.innerText()).startsWith(
+        "Lorem Ipsum is simply dummy text",
+      ),
     ).toBe(true);
     expect(
       (await content.innerText()).startsWith(
-        "It has survived not only five centuries"
-      )
+        "It has survived not only five centuries",
+      ),
     ).toBe(false);
   });
 });
