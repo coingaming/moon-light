@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Tabs } from "@heathmont/moon-core-tw";
 
-const pillCls = "border border-beerus";
+const pillCls = "border border-beerus hover:bg-gohan";
 
 const PillDefault = () => {
   return (

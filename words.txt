@@ -23,6 +23,7 @@ moonDesign
 navigations
 pixelmatch
 sportsbet
+tabpanel
 tradeart
 viewports
 webp
