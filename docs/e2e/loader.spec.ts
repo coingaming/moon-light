@@ -36,3 +36,22 @@ test.describe("Colors tests", () => {
     });
   });
 });
+
+test.describe("RTL tests", () => {
+  test("Default: should render and match screenshot in RTL", async ({
+    page,
+  }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(`loader-Default-RTL.png`, {
+      animations: "disabled",
+    });
+  });
+});

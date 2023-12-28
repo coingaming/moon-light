@@ -42,12 +42,12 @@ export default async function AuthCodePage(request: {
   return (
     <MainLayout
       isMockup={isMockup}
-      componentName="chip"
+      componentName="loader"
       contentSidebar={ordered}
     >
       <div className="flex flex-col gap-12 text-moon-14 pb-20">
         <PageHeadComponent
-          title={"Chip"}
+          title={"Loader"}
           description={description}
           tags={["ARIA", "RTL"]}
           image={image}
