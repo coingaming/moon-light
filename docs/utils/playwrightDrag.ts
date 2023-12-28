@@ -1,10 +1,19 @@
-interface Pos {
-  x: number;
-  y: number;
+declare global {
+  interface Window {
+    createTouchEvent: (x: number, y: number, offset?: number) => Touch;
+    PlayWrightStartTouch: (
+      selector: string,
+      position: {
+        x: number;
+        y: number;
+      },
+    ) => void;
+    PlayWrightMoveTouch: (selector: string, y: number, steps: number) => void;
+    PlayWrightEndTouch: (selector: string) => void;
+  }
 }
 
 export const createTouchEvent = () => {
-  // @ts-ignore
   window.createTouchEvent = (x: number, y: number, offset = -281) => {
     return new Touch({
       clientX: x,
@@ -18,13 +27,17 @@ export const createTouchEvent = () => {
 };
 
 export const PlayWrightStartTouch = () => {
-  // @ts-ignore
-  window.PlayWrightStartTouch = (selector: string, position: Pos) => {
+  window.PlayWrightStartTouch = (
+    selector: string,
+    position: {
+      x: number;
+      y: number;
+    },
+  ) => {
     const element = document.querySelector(selector);
     if (!element) {
       throw Error("Selector not found");
     }
-    // @ts-ignore
     const t = window.createTouchEvent(0, 0);
     const event = new TouchEvent("touchstart", {
       touches: [t],
@@ -37,7 +50,6 @@ export const PlayWrightStartTouch = () => {
 };
 
 export const PlayWrightMoveTouch = () => {
-  // @ts-ignore
   window.PlayWrightMoveTouch = (selector: string, y: number, steps: number) => {
     const element = document.querySelector(selector);
     if (!element) {
@@ -48,8 +60,7 @@ export const PlayWrightMoveTouch = () => {
     // Create the steps
     const touches = Array(steps)
       .fill(0)
-      .map((t: any, index: number) => {
-        // @ts-ignore
+      .map((_: number, index: number) => {
         return window.createTouchEvent(0, minorStep * index);
       });
     touches.forEach((t) => {
@@ -65,13 +76,11 @@ export const PlayWrightMoveTouch = () => {
 };
 
 export const PlayWrightEndTouch = () => {
-  // @ts-ignore
   window.PlayWrightEndTouch = (selector: string) => {
     const element = document.querySelector(selector);
     if (!element) {
       throw Error("Selector not found");
     }
-    // @ts-ignore
     const t = window.createTouchEvent(0, 0);
     const event = new TouchEvent("touchend", {
       touches: [t],
