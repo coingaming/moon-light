@@ -1,59 +1,88 @@
-import React, { use } from "react";
-import { getExamples } from "@/utils/getExamples";
-import { MDX } from "@/components/MDX";
-import { serialize } from "next-mdx-remote/serialize";
-import { ExampleSection } from "@/components/exampleSection/ExampleSection";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { MainLayout } from "@/components/MainLayout";
+import React from "react";
 import dynamic from "next/dynamic";
+import { Loader } from "@heathmont/moon-base-tw";
+import { getExamples } from "@/utils/getExamples";
+import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
+import { MainLayout } from "@/components/MainLayout";
+import { PageHeadComponent } from "@/components/PageHeadComponent";
+import { PropsTable } from "@/components/propsTable";
 
-const TITLE = "Button";
+import props from "./props";
+import image from "./button.webp";
 
-export default async function ButtonPage() {
+const ordered = [
+  "Default",
+  "ButtonAsLinkHTML",
+  "Variants",
+  "Sizes",
+  "Icons",
+  "FullWidth",
+  "Disabled",
+  "Animations",
+  "Multiline",
+];
+
+export default async function AuthCodePage(request: {
+  searchParams: { raw: string };
+}) {
   const {
     client: {
       button: { description, descriptions: exampleDescriptions, examples },
     },
   } = await getExamples();
-  // Titles
-  const titles: [keyof typeof examples, string][] = [["Default", "Default"]];
 
-  const e = Object.keys(examples).map(async (title: string) => {
-    const exampleKey = title as keyof typeof examples;
-    const Component = (
-      await import(`@/app/client/button/examples/${exampleKey}`)
-    )[exampleKey];
+  const searchParam = request?.searchParams?.raw;
+  const isMockup = !!searchParam && Object.keys(examples).includes(searchParam);
 
-    let data;
-    if (exampleDescriptions?.[exampleKey]) {
-      data = await serialize(exampleDescriptions?.[exampleKey], {
-        parseFrontmatter: true,
-      });
-    }
-    return (
-      <ExampleSection
-        key={exampleKey}
-        title={(data?.frontmatter?.title as string) || exampleKey}
-        description={
-          <MDX
-            markdown={exampleDescriptions?.[exampleKey]}
-            options={{
-              parseFrontmatter: true,
-            }}
-          />
-        }
-        component={<Component />}
-        code={examples?.[exampleKey]}
-      />
+  if (isMockup) {
+    const Component = dynamic(
+      () => import(`@/app/client/button/examples/${searchParam}`),
+      {
+        loading: () => <Loader />,
+        ssr: false,
+      },
     );
-  });
+    return (
+      <div className="p-4" id="playwright-test">
+        <Component />
+      </div>
+    );
+  }
 
   return (
-    <div className="flex flex-col gap-4 text-moon-14">
-      <h1 className="font-medium text-moon-32">{TITLE}</h1>
-      <MDX markdown={description} />
-      {e}
-      {/* TODO: Props table/s */}
-    </div>
+    <MainLayout
+      isMockup={isMockup}
+      componentName="button"
+      contentSidebar={ordered}
+    >
+      <div className="flex flex-col gap-12 text-moon-14 pb-20">
+        <PageHeadComponent
+          title={"Button"}
+          description={description}
+          tags={["ARIA", "RTL"]}
+          image={image}
+        />
+
+        <ExampleSectionData
+          componentName="button"
+          client={{
+            description,
+            descriptions: exampleDescriptions,
+            examples,
+          }}
+          data={ordered}
+        />
+        <PropsTable
+          title="Button props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">Button</span> component:
+            </p>
+          }
+          data={props}
+        />
+      </div>
+    </MainLayout>
   );
 }
