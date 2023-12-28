@@ -113,9 +113,7 @@ export type Examples = {
         "Disabled": "string",
         "Icons": "string",
         "IsStroke": "string",
-        "MaintainStateOnClick": "string",
         "Sizes": "string",
-        "StrokeWithIcons": "string",
         "Variants": "string",
         "WithOnClick": "string"
       },
@@ -126,11 +124,25 @@ export type Examples = {
         "Disabled": "string",
         "Icons": "string",
         "IsStroke": "string",
-        "MaintainStateOnClick": "string",
         "Sizes": "string",
-        "StrokeWithIcons": "string",
         "Variants": "string",
         "WithOnClick": "string"
+      }
+    },
+    "tagsInput": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "DifferentSizes": "string",
+        "States": "string",
+        "UppercaseLowercase": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "DifferentSizes": "string",
+        "States": "string",
+        "UppercaseLowercase": "string"
       }
     }
   },

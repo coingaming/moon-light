@@ -5,6 +5,8 @@ heathmont
 authcode
 goku
 gohan
+nappa
+whis
 Frontmatter
 frontmatter
 bulma
@@ -33,6 +35,8 @@ Kallavus
 pixelmatch
 viewports
 navigations
+tagsinput
+datetime
 headlessui
 raditz
 Draghandle
