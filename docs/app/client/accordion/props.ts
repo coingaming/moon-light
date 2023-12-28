@@ -1,6 +1,6 @@
 import { PropsTableProp } from "@/types";
 
-const Props: PropsTableProp[] = [
+export const accordionProps: PropsTableProp[] = [
   {
     name: "itemSize",
     type: ["sm", "md", "lg", "xl"],
@@ -35,5 +35,18 @@ const Props: PropsTableProp[] = [
       "Event handler called when the expanded state of an item changes and prop singleOpen in false state",
   },
 ];
-
-export default Props;
+export const itemProps: PropsTableProp[] = [
+  {
+    name: "value",
+    type: ["string"],
+    required: true,
+    description: "The accordion item value",
+  },
+  {
+    name: "disabled",
+    type: ["boolean"],
+    required: false,
+    defaultState: "false",
+    description: "Set disabled/non-disabled",
+  },
+];

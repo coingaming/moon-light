@@ -14,7 +14,7 @@ const PropsTableItem = ({ prop }: PropsTableItemProps) => {
     // Check using Regex if the prop is a object
     const isObject = /\{*\}/.test(item);
 
-    if (isArrowFunction || isObject) {
+    if (isArrowFunction || isObject || item.startsWith(`"`)) {
       return item;
     } else if (["number", "boolean", "string"].includes(item)) {
       return item;
