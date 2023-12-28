@@ -12,7 +12,7 @@ const getAllWords = async () => {
 
 const writeAllWords = async (words) => {
   try {
-    await fs.writeFile("../words.txt", words.join("\r\n") + "\r\n");
+    await fs.writeFile("../words.txt", words.join("\r\n") + "\r\n", "utf8");
     console.log("file words.txt written, alphabetical re-order");
   } catch (err) {
     console.log("error in the file write");
