@@ -8,7 +8,7 @@
       "portMappings": [
         {
           "name": "moon-design-3000-tcp",
-          "containerPort": 80,
+          "containerPort": 3000,
           "hostPort": 80,
           "protocol": "tcp",
           "appProtocol": "http"
@@ -65,8 +65,13 @@
     }
   ],
   "placementConstraints": [],
-  "compatibilities": ["EC2", "FARGATE"],
-  "requiresCompatibilities": ["FARGATE"],
+  "compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
   "cpu": "1024",
   "memory": "3072",
   "runtimePlatform": {
