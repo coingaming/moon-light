@@ -129,6 +129,19 @@ export type Examples = {
         "WithOnClick": "string"
       }
     },
+    "loader": {
+      "description": "string",
+      "descriptions": {
+        "Colors": "string",
+        "Default": "string",
+        "Sizes": "string"
+      },
+      "examples": {
+        "Colors": "string",
+        "Default": "string",
+        "Sizes": "string"
+      }
+    },
     "tagsInput": {
       "anatomy": "string",
       "description": "string",
