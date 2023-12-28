@@ -53,7 +53,9 @@ test.describe("Disabled tests", () => {
 
 test.describe("Animations tests", () => {
   test("Animations: should render and match screenshot", async ({ page }) => {
-    await expect(page).toHaveScreenshot(`button-Animations.png`);
+    await expect(page).toHaveScreenshot(`button-Animations.png`, {
+      animations: "disabled",
+    });
   });
 });
 
