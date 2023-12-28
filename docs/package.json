@@ -7,7 +7,7 @@
     "build:types": "node scripts/buildExamplesType.mjs",
     "build": "pnpm run build:types && next build",
     "lint": "next lint",
-    "start": "next start",
+    "start": "next start -p 80",
     "test": "playwright test"
   },
   "dependencies": {

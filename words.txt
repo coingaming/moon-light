@@ -15,6 +15,9 @@ authcode
 webp
 heathmont
 frieza
+libc
+compat
+corepack
 betadda
 bitcasino
 bombay
