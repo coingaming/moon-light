@@ -11,7 +11,7 @@ export default async function Sidebar() {
         <SearchButton />
       </div>
       <nav className="flex flex-col gap-6" aria-label="Sidebar">
-        <div className="flex flex-col gap-2">
+        {/* <div className="flex flex-col gap-2">
           <p className="ps-2 text-moon-10-caption font-medium uppercase text-trunks">
             Server components
           </p>
@@ -22,7 +22,7 @@ export default async function Sidebar() {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
         <div className="flex flex-col gap-2">
           <p className="ps-2 text-moon-10-caption font-medium uppercase text-trunks">
             Client components
