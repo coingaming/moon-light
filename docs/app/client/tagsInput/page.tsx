@@ -90,11 +90,12 @@ export default async function TagsInputPage(request: {
           data={tagsInputProps}
         />
         <PropsTable
-          title="TagsInput props"
+          title="TagsInput.SelectedItem props"
           description={
             <p>
               These are props specific to the{" "}
-              <span className="text-frieza">TagsInput</span> component:
+              <span className="text-frieza">TagsInput.SelectedItem</span>{" "}
+              component:
             </p>
           }
           data={tagsInputSelectedPropsItems}
