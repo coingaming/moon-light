@@ -12,15 +12,9 @@ import image from "./tagsinput.webp";
 import { PropsTable } from "@/components/propsTable";
 import { Anatomy } from "@/components/Anatomy";
 
-const TITLE = "TagsInput";
-const ordered: string[] = [
-  "Default",
-  "DifferentSizes",
-  "States",
-  "UppercaseLowercase",
-];
+const COMPONENT_NAME = "tagsInput";
 
-export default async function AuthCodePage(request: {
+export default async function TagsInputPage(request: {
   searchParams: { raw: string };
 }) {
   const {
@@ -33,20 +27,30 @@ export default async function AuthCodePage(request: {
       },
     },
   } = await getExamples();
+  const ordered: (keyof typeof exampleDescriptions)[] = [
+    "Default",
+    "DifferentSizes",
+    "States",
+    "UppercaseLowercase",
+  ];
 
   const searchParam = request?.searchParams?.raw;
   const isMockup = !!searchParam && Object.keys(examples).includes(searchParam);
 
   if (isMockup) {
     const Component = dynamic(
-      () => import(`@/app/client/tagsInput/examples/${searchParam}`),
+      () => import(`@/app/client/${COMPONENT_NAME}/examples/${searchParam}`),
       {
         loading: () => <Loader />,
         ssr: false,
       },
     );
     return (
-      <div className="p-4" id="playwright-test">
+      <div
+        className="p-4"
+        id="playwright-test"
+        data-testid={`test-root-${COMPONENT_NAME}`}
+      >
         <Component />
       </div>
     );
@@ -55,18 +59,18 @@ export default async function AuthCodePage(request: {
   return (
     <MainLayout
       isMockup={isMockup}
-      componentName="tagsInput"
+      componentName={COMPONENT_NAME}
       contentSidebar={ordered}
     >
       <div className="flex flex-col gap-4 text-moon-14 pb-20">
         <PageHeadComponent
-          title={TITLE}
+          title={"TagsInput"}
           description={description}
           tags={["IN PROGRESS", "ARIA", "RTL"]}
           image={image}
         />
         <ExampleSectionData
-          componentName="tagsInput"
+          componentName={COMPONENT_NAME}
           client={{
             description,
             descriptions: exampleDescriptions,
