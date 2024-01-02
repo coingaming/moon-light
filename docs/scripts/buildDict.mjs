@@ -6,7 +6,6 @@ const getAllWords = async () => {
     const out = fileContent
       ?.split(/\n|\r/gi)
       ?.filter((word) => word && word !== "");
-    console.log(out);
     return out;
   } catch (err) {
     console.log("file words.txt not found");
