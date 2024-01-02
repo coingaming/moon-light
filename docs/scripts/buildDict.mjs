@@ -1,10 +1,13 @@
 import { promises as fs } from "fs";
-import path from "path";
 
 const getAllWords = async () => {
   try {
     const fileContent = await fs.readFile("../words.txt", "utf8");
-    return fileContent?.split("\n");
+    const out = fileContent
+      ?.split(/\n|\r/gi)
+      ?.filter((word) => word && word !== "");
+    console.log(out);
+    return out;
   } catch (err) {
     console.log("file words.txt not found");
   }
@@ -12,7 +15,7 @@ const getAllWords = async () => {
 
 const writeAllWords = async (words) => {
   try {
-    await fs.writeFile("../words.txt", words.join("\r\n") + "\r\n", "utf8");
+    await fs.writeFile("../words.txt", words.join("\n") + "\n", "utf8");
     console.log("file words.txt written, alphabetical re-order");
   } catch (err) {
     console.log("error in the file write");
