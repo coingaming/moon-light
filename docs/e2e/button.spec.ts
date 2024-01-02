@@ -189,6 +189,30 @@ test.describe("Disabled tests", () => {
   test("Disabled: should render and match screenshot", async ({ page }) => {
     await expect(page).toHaveScreenshot(`button-Disabled.png`);
   });
+
+  test("Disabled: should not cause any animation on the click", async ({
+    page,
+  }) => {
+    const btn = await page.getByText("Disabled");
+    const btnPos = await btn.boundingBox();
+    await page.mouse.move((btnPos?.x || 0) + 10, (btnPos?.y || 0) + 5, {
+      steps: 10,
+    });
+    await page.mouse.down();
+    const scale = await btn.evaluate((el) => {
+      return {
+        x: parseFloat(
+          window.getComputedStyle(el).getPropertyValue("--tw-scale-x"),
+        ),
+        y: parseFloat(
+          window.getComputedStyle(el).getPropertyValue("--tw-scale-y"),
+        ),
+      };
+    });
+    await expect(scale.x).toBe(1);
+    await expect(scale.y).toBe(1);
+    await page.mouse.up();
+  });
 });
 
 test.describe("Animations tests", () => {
@@ -196,6 +220,118 @@ test.describe("Animations tests", () => {
     await expect(page).toHaveScreenshot(`button-Animations.png`, {
       animations: "disabled",
     });
+  });
+
+  test("Animations: (progress) click action should make animation", async ({
+    page,
+  }) => {
+    const btn = await page.getByTestId("progress");
+    const btnPos = await btn.boundingBox();
+    await page.mouse.move((btnPos?.x || 0) + 10, (btnPos?.y || 0) + 5, {
+      steps: 10,
+    });
+    const scale1 = await btn.evaluate((el) => {
+      return {
+        w: el.getBoundingClientRect().width,
+        h: el.getBoundingClientRect().height,
+      };
+    });
+    await page.mouse.down();
+    await page.waitForTimeout(200);
+    const scale2 = await btn.evaluate((el) => {
+      return {
+        w: el.getBoundingClientRect().width,
+        h: el.getBoundingClientRect().height,
+      };
+    });
+    await expect(scale1.w).not.toBe(scale2.w);
+    await expect(scale1.h).not.toBe(scale2.h);
+
+    await page.mouse.up();
+  });
+
+  test("Animations: (success) click action should make animation", async ({
+    page,
+  }) => {
+    const btn = await page.getByTestId("success");
+    const btnPos = await btn.boundingBox();
+    await page.mouse.move((btnPos?.x || 0) + 10, (btnPos?.y || 0) + 5, {
+      steps: 10,
+    });
+    const scale1 = await btn.evaluate((el) => {
+      return {
+        w: el.getBoundingClientRect().width,
+        h: el.getBoundingClientRect().height,
+      };
+    });
+    await page.mouse.down();
+    await page.waitForTimeout(200);
+    const scale2 = await btn.evaluate((el) => {
+      return {
+        w: el.getBoundingClientRect().width,
+        h: el.getBoundingClientRect().height,
+      };
+    });
+    await expect(scale1.w).not.toBe(scale2.w);
+    await expect(scale1.h).not.toBe(scale2.h);
+
+    await page.mouse.up();
+  });
+
+  test("Animations: (error) click action should make animation", async ({
+    page,
+  }) => {
+    const btn = await page.getByTestId("success");
+    const btnPos = await btn.boundingBox();
+    await page.mouse.move((btnPos?.x || 0) + 10, (btnPos?.y || 0) + 5, {
+      steps: 10,
+    });
+    const scale1 = await btn.evaluate((el) => {
+      return {
+        w: el.getBoundingClientRect().width,
+        h: el.getBoundingClientRect().height,
+      };
+    });
+    await page.mouse.down();
+    await page.waitForTimeout(200);
+    const scale2 = await btn.evaluate((el) => {
+      return {
+        w: el.getBoundingClientRect().width,
+        h: el.getBoundingClientRect().height,
+      };
+    });
+    await expect(scale1.w).not.toBe(scale2.w);
+    await expect(scale1.h).not.toBe(scale2.h);
+
+    await page.mouse.up();
+  });
+
+  test("Animations: (pulse) click action should make animation", async ({
+    page,
+  }) => {
+    const btn = await page.getByTestId("pulse");
+    const btnPos = await btn.boundingBox();
+    await page.mouse.move((btnPos?.x || 0) + 10, (btnPos?.y || 0) + 5, {
+      steps: 10,
+    });
+    const scale1 = await btn.evaluate((el) => {
+      return {
+        w: el.getBoundingClientRect().width,
+        h: el.getBoundingClientRect().height,
+      };
+    });
+    await page.mouse.down();
+    await page.waitForTimeout(200);
+    const scale2 = await btn.evaluate((el) => {
+      return {
+        w: el.getBoundingClientRect().width,
+        h: el.getBoundingClientRect().height,
+      };
+    });
+    await expect(scale1.w).not.toBe(scale2.w);
+    await expect(scale1.h).not.toBe(scale2.h);
+
+    await page.mouse.up();
   });
 });
 
