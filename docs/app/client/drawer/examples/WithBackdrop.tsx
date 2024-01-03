@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Button, Drawer } from "@heathmont/moon-core-tw";
 
-export const With = () => {
+export const WithBackdrop = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => setIsOpen(true);
   return (
