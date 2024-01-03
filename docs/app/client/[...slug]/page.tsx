@@ -1,87 +1,64 @@
 import React from "react";
 import { getExamples } from "@/utils/getExamples";
 
-import { LoaderProps } from "./loader/props";
-import image from "./loader.webp";
 import DocsPage from "@/components/DocsPage";
+import type { TagTypes } from "@/types";
+import { useGetExample } from "@/utils/useGetExample";
 import { serialize } from "next-mdx-remote/serialize";
-import { TagTypes } from "@/types";
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType,
-} from "next/types";
-
-export const getStaticPaths = (async () => {
-  const { client } = await getExamples();
-  const paths = Object.keys(client)
-    .map((c: string) => {
-      const examples = client?.[c as keyof typeof client]?.examples;
-      return [
-        {
-          params: {
-            slug: [c] as string[],
-          },
-        },
-        Object.keys(examples || {}).map((exampleName: string) => {
-          return {
-            params: {
-              slug: [c, exampleName] as string[],
-            },
-          };
-        }),
-      ].flat();
-    })
-    .flat() as { params: { slug: string[] } }[];
-  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
-    return {
-      paths: [],
-      fallback: "blocking",
-    };
-  }
-  return {
-    paths: paths,
-    fallback: true, // false or "blocking"
-  };
-}) satisfies GetStaticPaths;
+import { PropsTableJSON } from "@/types/propsTable";
 
 export async function generateStaticParams() {
-  return { test: "true" };
+  const { client: components } = await getExamples();
+
+  return Object.keys(components).map((name: string) => ({
+    slug: [name],
+  }));
 }
 
-export default async function Page({ params, ...rest }: any) {
-  const { client } = await getExamples();
-
-  console.log(client?.loader?.props);
+export default async function Page({
+  params,
+  ...rest
+}: {
+  params: { slug: string[] };
+}) {
+  const componentName = params?.slug?.[0] as string;
   const searchParamRaw = params?.slug?.[1];
-  const componentName = "loader" || (params?.slug?.[0] as keyof typeof client);
-  const data = componentName && client[componentName];
-  console.log(params, rest);
-  if (!Object.keys(client).includes(componentName) || !data) {
+  const data = (await useGetExample(componentName as string)) as any;
+  if (!data) {
     // TODO: Redirect 404
     return <h1>Element not found</h1>;
   }
-  // const info = (
-  //   await serialize(data.description, {
-  //     parseFrontmatter: true,
-  //   })
-  // )?.frontmatter;
-  const info: any = {};
-  console.log(info);
-  const isMockup =
-    !!searchParamRaw &&
-    Object.keys(client?.[componentName]?.examples).includes(searchParamRaw);
+  const info = (
+    await serialize(data.description, {
+      parseFrontmatter: true,
+    })
+  )?.frontmatter;
 
+  const isMockup =
+    !!searchParamRaw && Object.keys(data?.examples).includes(searchParamRaw);
+  const props = data?.props
+    ? JSON.parse(data.props)
+        .map((item: PropsTableJSON) => {
+          return item;
+        })
+        ?.reduce?.(
+          (obj: any, item: PropsTableJSON) =>
+            Object.assign(obj, { [item.name]: item.props }),
+          {},
+        )
+    : undefined;
+  console.log("data", props);
   return (
     <DocsPage
       {...data}
-      title={(info?.title as string) || componentName}
+      title={(info?.title as string) || (componentName as string)}
       description={data?.description}
       tags={(info?.tags as TagTypes[]) || []}
       isMockup={isMockup}
       searchParam={searchParamRaw}
       ordered={(info?.examples as (keyof typeof data.examples)[]) || []}
-      componentName={componentName}
+      componentName={componentName as string}
+      propsTable={props}
     />
   );
 }

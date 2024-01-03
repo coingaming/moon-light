@@ -1,17 +1,19 @@
-{
-  "name": "Loader",
-  "props": [
-    {
-      "name": "color",
-      "defaultState": "border-hit",
-      "description": "Color of the loader",
-      "type": ["string"]
-    },
-    {
-      "name": "size",
-      "defaultState": "md",
-      "description": "Size of the loader",
-      "type": ["2xl", "xs", "sm", "md", "lg"]
-    }
-  ]
-}
+[
+  {
+    "name": "Loader",
+    "props": [
+      {
+        "name": "color",
+        "defaultState": "border-hit",
+        "description": "Color of the loader",
+        "type": ["string"]
+      },
+      {
+        "name": "size",
+        "defaultState": "md",
+        "description": "Size of the loader",
+        "type": ["2xl", "xs", "sm", "md", "lg"]
+      }
+    ]
+  }
+]
