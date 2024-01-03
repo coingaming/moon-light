@@ -1,0 +1,24 @@
+[
+  {
+    "name": "CircularProgress",
+    "props": [
+      {
+        "name": "className",
+        "description": "Tailwind classes for custom styles",
+        "type": ["string"]
+      },
+      {
+        "name": "size",
+        "description": "Size of Progress",
+        "type": ["2xs", "xs", "sm", "md", "lg"],
+        "defaultState": "2xs"
+      },
+      {
+        "name": "value",
+        "defaultState": 0,
+        "description": "Value of Progress in %",
+        "type": ["number"]
+      }
+    ]
+  }
+]

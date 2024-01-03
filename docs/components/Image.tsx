@@ -8,6 +8,7 @@ import bottomsheet from "../app/client/bottomsheet/bottomsheet.webp";
 import avatar from "../app/client/avatar/avatar.webp";
 import authcode from "../app/client/authcode/authcode.webp";
 import accordion from "../app/client/accordion/accordion.webp";
+import circularprogress from "../app/client/circularprogress/circularprogress.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -18,6 +19,7 @@ const images: Record<string, StaticImageData> = {
   avatar,
   authcode,
   accordion,
+  circularprogress,
 };
 
 // Default image for components
