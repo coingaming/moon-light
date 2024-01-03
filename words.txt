@@ -39,3 +39,7 @@ tradeart
 viewports
 webp
 whis
+subcomponents
+subcomponent
+colour
+Colourful
