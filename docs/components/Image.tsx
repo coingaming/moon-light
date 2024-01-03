@@ -10,6 +10,7 @@ import authcode from "../app/client/authcode/authcode.webp";
 import accordion from "../app/client/accordion/accordion.webp";
 import popover from "../app/client/popover/popover.webp";
 import insetInput from "../app/client/insetInput/insetInput.webp";
+import carousel from "../app/client/carousel/carousel.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -22,6 +23,7 @@ const images: Record<string, StaticImageData> = {
   accordion,
   popover,
   insetInput,
+  carousel,
 };
 
 // Default image for components
