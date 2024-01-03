@@ -24,4 +24,4 @@ export const WithBackdrop = () => {
   );
 };
 
-export default With;
+export default WithBackdrop;
