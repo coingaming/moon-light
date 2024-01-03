@@ -340,3 +340,131 @@ test.describe("Multiline tests", () => {
     await expect(page).toHaveScreenshot(`button-Multiline.png`);
   });
 });
+
+test.describe("RTL Tests", () => {
+  test("Default: should render and match screenshot in RTL", async ({
+    page,
+  }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(`button-Default-RTL-Customization.png`);
+  });
+
+  test("ButtonAsLinkHTML: should render and match screenshot in RTL", async ({
+    page,
+  }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(
+      `button-ButtonAsLinkHTML-RTL-Customization.png`,
+    );
+  });
+
+  test("Variants: should render and match screenshot in RTL", async ({
+    page,
+  }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(
+      `button-Variants-RTL-Customization.png`,
+    );
+  });
+
+  test("Sizes: should render and match screenshot in RTL", async ({ page }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(`button-Sizes-RTL-Customization.png`);
+  });
+
+  test("Icons: should render and match screenshot in RTL", async ({ page }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(`button-Icons-RTL-Customization.png`);
+  });
+
+  test("FullWidth: should render and match screenshot in RTL", async ({
+    page,
+  }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(
+      `button-FullWidth-RTL-Customization.png`,
+    );
+  });
+
+  test("Animations: should render and match screenshot in RTL", async ({
+    page,
+  }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(
+      `button-Animations-RTL-Customization.png`,
+    );
+  });
+
+  test("Multiline: should render and match screenshot in RTL", async ({
+    page,
+  }) => {
+    await page.evaluate(() => {
+      const htmlElement = document?.querySelector("html");
+      if (htmlElement) {
+        htmlElement.setAttribute("dir", "rtl");
+      } else {
+        throw new Error("RTLProvider error: html element was not found");
+      }
+    });
+    await page.waitForSelector("html[dir=rtl]");
+    await expect(page).toHaveScreenshot(
+      `button-Multiline-RTL-Customization.png`,
+    );
+  });
+});
