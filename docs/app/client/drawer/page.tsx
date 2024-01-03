@@ -12,7 +12,7 @@ import image from "./drawer.webp";
 
 const ordered = ["Default", "Positions", "WithBackdrop", "WithClose"];
 
-export default async function AuthCodePage(request: {
+export default async function DrawerPage(request: {
   searchParams: { raw: string };
 }) {
   const {
