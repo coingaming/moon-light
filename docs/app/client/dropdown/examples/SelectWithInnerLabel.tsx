@@ -2,7 +2,7 @@
 
 import React from "react";
 export const SelectWithInnerLabel = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default SelectWithInnerLabel
+export default SelectWithInnerLabel;

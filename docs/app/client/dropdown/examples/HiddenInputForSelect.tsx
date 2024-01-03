@@ -2,7 +2,7 @@
 
 import React from "react";
 export const HiddenInputForSelect = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default HiddenInputForSelect
+export default HiddenInputForSelect;

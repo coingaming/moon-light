@@ -2,7 +2,7 @@
 
 import React from "react";
 export const DifferentStatesForSelectWithInnerLabel = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default DifferentStatesForSelectWithInnerLabel
+export default DifferentStatesForSelectWithInnerLabel;

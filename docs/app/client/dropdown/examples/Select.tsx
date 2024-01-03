@@ -2,7 +2,7 @@
 
 import React from "react";
 export const Select = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default Select
+export default Select;

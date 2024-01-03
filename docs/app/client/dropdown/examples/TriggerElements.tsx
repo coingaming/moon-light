@@ -2,7 +2,7 @@
 
 import React from "react";
 export const TriggerElements = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default TriggerElements
+export default TriggerElements;

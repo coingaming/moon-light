@@ -2,7 +2,7 @@
 
 import React from "react";
 export const DifferentStatesForSelect = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default DifferentStatesForSelect
+export default DifferentStatesForSelect;

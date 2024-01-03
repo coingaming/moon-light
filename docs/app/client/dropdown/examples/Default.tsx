@@ -2,7 +2,7 @@
 
 import React from "react";
 export const Default = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default Default
+export default Default;

@@ -2,7 +2,7 @@
 
 import React from "react";
 export const MultiSelectWithInnerLabel = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default MultiSelectWithInnerLabel
+export default MultiSelectWithInnerLabel;

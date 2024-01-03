@@ -2,7 +2,7 @@
 
 import React from "react";
 export const ExampleLayoutsForOptions = () => {
-    return <div />
-}
+  return <div />;
+};
 
-export default ExampleLayoutsForOptions
+export default ExampleLayoutsForOptions;
