@@ -65,10 +65,9 @@ test.describe("Default Testing", () => {
     await expect(await page.locator(".text-moon-10-caption")).toBeAttached();
     await expect(await page.locator(".text-moon-10-caption")).toBeVisible();
 
-    const closeBtn = await page.locator(".cursor-pointer");
-    const boundingBox = await closeBtn.boundingBox();
-    await page.mouse.click(boundingBox?.x || 0, boundingBox?.y || 0);
-    expect(await page.locator(".cursor-pointer")).not.toBeAttached();
+    const svgButton = page.locator("svg");
+    await svgButton.click();
+    expect((await svgButton.all()).length).toBe(0);
   });
 
   test("Default: tagsInput should create the tags after pressing enter twice", async ({
