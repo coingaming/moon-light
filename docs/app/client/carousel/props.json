@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Carousel",
+    "props": [
+      {
+        "name": "scrollTo",
+        "type": ["number"],
+        "description": "Index of item to scroll to"
+      },
+      {
+        "name": "step",
+        "type": ["number"],
+        "defaultState": 5,
+        "description": "Step of scroll"
+      },
+      {
+        "name": "selectedIndex",
+        "type": ["number"],
+        "description": "Index of selected item"
+      },
+      {
+        "name": "scrollLeftToStep",
+        "type": ["() => void"],
+        "description": "Render Props: Scrolls left"
+      },
+      {
+        "name": "scrollRightToStep",
+        "type": ["() => void"],
+        "description": "Render Props: Scrolls right"
+      },
+      {
+        "name": "canScrollLeft",
+        "type": ["boolean"],
+        "description": "Render Props: Whether can scroll left"
+      },
+      {
+        "name": "canScrollRight",
+        "type": ["boolean"],
+        "description": "Render Props: Whether can scroll right"
+      },
+      {
+        "name": "firstVisibleIndex",
+        "type": ["number"],
+        "description": "Render Props: Index of the first visible item"
+      },
+      {
+        "name": "lastVisibleIndex",
+        "type": ["number"],
+        "description": "Render Props: Index of the last visible item"
+      },
+      {
+        "name": "autoSlideDelay",
+        "type": ["number"],
+        "description": "Render Props: Interval of auto sliding in milliseconds. No auto sliding if undefined"
+      },
+      {
+        "name": "isRtl",
+        "type": ["boolean"],
+        "description": "Render Props: Set right to left (rtl) view"
+      }
+    ]
+  }
+]
