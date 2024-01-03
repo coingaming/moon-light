@@ -129,6 +129,7 @@ export type Examples = {
         "Animations": "string",
         "ButtonAsLinkHTML": "string",
         "Default": "string",
+        "DefaultWithClick": "string",
         "Disabled": "string",
         "FullWidth": "string",
         "Icons": "string",
@@ -138,6 +139,7 @@ export type Examples = {
       }
     },
     "checkbox": {
+      "description": "string",
       "descriptions": {
         "Checked": "string",
         "Customization": "string",

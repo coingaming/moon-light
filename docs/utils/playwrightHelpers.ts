@@ -17,12 +17,12 @@ export async function setDarkTheme(page: Page) {
   await page.evaluate(() => {
     const bodyElement = document?.querySelector("body");
     if (bodyElement) {
-      bodyElement.setAttribute("class", "theme-moon-dark");
+      bodyElement.classList.add("theme-moon-dark");
     } else {
       throw new Error("setDarkTheme error: body element was not found");
     }
   });
-  await page.waitForSelector("body[class=theme-moon-dark]");
+  await page.waitForSelector("body.theme-moon-dark");
 }
 
 export function setupTest(name: string) {
