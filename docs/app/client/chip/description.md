@@ -1,3 +1,20 @@
+---
+title: Chip
+tags: ["ARIA", "RTL"]
+examples:
+  [
+    "Default",
+    "Sizes",
+    "Variants",
+    "Active",
+    "Disabled",
+    "Icons",
+    "IsStroke",
+    "WithOnClick",
+    "Customization",
+  ]
+---
+
 Chip component is typically used to filter or trigger actions in clickable format.
 <br />
 For example, in a UI, you might use a `<Chip />` component for:

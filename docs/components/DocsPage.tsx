@@ -6,19 +6,20 @@ import { PageHeadComponent } from "./PageHeadComponent";
 import { ExampleSectionData } from "./exampleSection/ExampleSection";
 import { PropsTable } from "./propsTable";
 import type { PropsTableProp, TagTypes } from "@/types";
+import { Anatomy } from "./Anatomy";
 
 interface DocsPageProps {
   componentName: string;
   isMockup?: boolean;
   searchParam?: string;
-  image?: StaticImageData;
-  description: string;
+  description?: string;
   title: string;
   ordered: string[];
   tags: TagTypes[];
   examples: Record<string, string>;
   descriptions: Record<string, string>;
   propsTable?: Record<string, PropsTableProp[]>;
+  anatomy?: string;
 }
 
 const DocsPage = (props: DocsPageProps) => {
@@ -30,9 +31,10 @@ const DocsPage = (props: DocsPageProps) => {
     searchParam,
     componentName,
     isMockup,
-    image,
     examples,
     propsTable,
+    anatomy,
+    tags,
   } = props;
 
   if (isMockup) {
@@ -63,10 +65,10 @@ const DocsPage = (props: DocsPageProps) => {
         <PageHeadComponent
           title={title}
           description={description}
-          tags={["ARIA", "RTL"]}
-          image={image}
+          tags={tags}
+          name={componentName}
         />
-
+        {anatomy && <Anatomy anatomy={anatomy} />}
         <ExampleSectionData
           componentName={componentName}
           client={{

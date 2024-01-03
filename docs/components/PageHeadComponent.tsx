@@ -1,18 +1,20 @@
-import Image, { type StaticImageData } from "next/image";
+import ComponentImage from "./Image";
 import { MDX } from "./MDX";
-import TitleTags, { type TagTypes } from "./TitleTags";
+import TitleTags from "./TitleTags";
+import type { TagTypes } from "@/types";
 
 interface PageHeadComponentProps {
   title: string;
   description?: string;
   tags?: TagTypes[];
-  image?: StaticImageData;
+  name?: string;
 }
+
 export const PageHeadComponent = ({
   title,
   description,
   tags,
-  image,
+  name,
 }: PageHeadComponentProps) => (
   <div className="grid grid-cols-2 gap-4">
     <div>
@@ -21,6 +23,6 @@ export const PageHeadComponent = ({
       {description && <MDX markdown={description} />}
     </div>
 
-    {image && <Image src={image} width={500} alt={`${title} image`} />}
+    {name && <ComponentImage name={name} />}
   </div>
 );

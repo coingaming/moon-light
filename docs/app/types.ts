@@ -14,7 +14,8 @@ export type Examples = {
         "OpenByDefault": "string",
         "SingleOpen": "string",
         "Sizes": "string"
-      }
+      },
+      "props": "string"
     },
     "authcode": {
       "description": "string",
@@ -40,7 +41,8 @@ export type Examples = {
         "Placeholder": "string",
         "WithAutoSubmit": "string",
         "WithManualSubmit": "string"
-      }
+      },
+      "props": "string"
     },
     "avatar": {
       "description": "string",
@@ -59,7 +61,8 @@ export type Examples = {
         "Sizes": "string",
         "StatusOrigin": "string",
         "Variants": "string"
-      }
+      },
+      "props": "string"
     },
     "bottomsheet": {
       "description": "string",
@@ -76,7 +79,8 @@ export type Examples = {
         "Sizes": "string",
         "WithDraghandle": "string",
         "WithTitle": "string"
-      }
+      },
+      "props": "string"
     },
     "breadcrumb": {
       "description": "string",
@@ -93,16 +97,8 @@ export type Examples = {
         "FourItems": "string",
         "OneItem": "string",
         "TwoItems": "string"
-      }
-    },
-    "button": {
-      "description": "string",
-      "descriptions": {
-        "Default": "string"
       },
-      "examples": {
-        "Default": "string"
-      }
+      "props": "string"
     },
     "chip": {
       "description": "string",
@@ -127,7 +123,8 @@ export type Examples = {
         "Sizes": "string",
         "Variants": "string",
         "WithOnClick": "string"
-      }
+      },
+      "props": "string"
     },
     "loader": {
       "description": "string",
@@ -157,7 +154,8 @@ export type Examples = {
         "DifferentSizes": "string",
         "States": "string",
         "UppercaseLowercase": "string"
-      }
+      },
+      "props": "string"
     }
   },
   "server": {
