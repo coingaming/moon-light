@@ -9,6 +9,7 @@ import avatar from "../app/client/avatar/avatar.webp";
 import authcode from "../app/client/authcode/authcode.webp";
 import accordion from "../app/client/accordion/accordion.webp";
 import circularprogress from "../app/client/circularprogress/circularprogress.webp";
+import combobox from "../app/client/combobox/combobox.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -20,6 +21,7 @@ const images: Record<string, StaticImageData> = {
   authcode,
   accordion,
   circularprogress,
+  combobox,
 };
 
 // Default image for components

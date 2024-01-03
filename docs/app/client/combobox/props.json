@@ -1,0 +1,370 @@
+[
+  {
+    "name": "Combobox",
+    "props": [
+      {
+        "name": "value",
+        "description": "The selected value",
+        "required": true,
+        "type": ["unknown"]
+      },
+      {
+        "name": "onChange",
+        "description": "The function to call when a new option is selected",
+        "required": true,
+        "type": ["(value: unknown) => void"]
+      },
+      {
+        "name": "onQueryChange",
+        "description": "The function to call when the filter query is changing",
+        "required": true,
+        "type": ["(value: unknown) => void"]
+      },
+      {
+        "name": "onClear",
+        "description": "The function to call when the selected options at MultiSelect Combobox type are being cleared",
+        "type": ["(index?: number", "string) => void"]
+      },
+      {
+        "name": "isError",
+        "description": "Set valid/non-valid",
+        "type": ["boolean"]
+      },
+      {
+        "name": "disabled",
+        "description": "Set disabled/non-disabled",
+        "type": ["boolean"]
+      },
+      {
+        "name": "size",
+        "description": "Size",
+        "defaultState": "md",
+        "type": ["sm", "md", "lg", "xl", "string"]
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "position",
+        "description": "Set placement for combobox",
+        "defaultState": "bottom",
+        "type": [
+          "top-start",
+          "top-end",
+          "bottom-start",
+          "bottom-end",
+          "right-start",
+          "right-end",
+          "left-start| left-end",
+          "top",
+          "bottom",
+          "right| left"
+        ]
+      },
+      {
+        "name": "open",
+        "type": ["boolean"],
+        "description": "Render Props: Whether or not the Listbox is open"
+      },
+      {
+        "name": "multiple",
+        "type": ["boolean"],
+        "description": "Render Props: Whether multiple options can be selected or not"
+      },
+      {
+        "name": "nullable",
+        "type": ["boolean"],
+        "description": "Render Props: Whether the selected value can be cleared or not"
+      }
+    ]
+  },
+  {
+    "name": "Combobox.Trigger",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "onClose",
+        "type": ["(value: unknown) => void;"],
+        "description": "Called when the Combobox is dismissed"
+      }
+    ]
+  },
+  {
+    "name": "Combobox.Input/Combobox.InsetInput/Combobox.VisualSelectInput",
+    "props": [
+      {
+        "name": "onChange",
+        "type": ["(value: unknown) => void"],
+        "required": true,
+        "description": "The function to call when a new option is selected"
+      },
+      {
+        "name": "onQueryChange",
+        "type": ["(value: string) => void"],
+        "description": "The function to call when the query filter is changing",
+        "required": true
+      },
+      {
+        "name": "displayValue",
+        "type": ["(value: unknown) => string"],
+        "description": "The value of the selected option to display"
+      },
+      {
+        "name": "label",
+        "type": ["string"],
+        "description": "Inset label title (for InsetInput)"
+      },
+      {
+        "name": "placeholder",
+        "type": ["string"],
+        "description": "Placeholder"
+      },
+      {
+        "name": "type",
+        "type": ["text", "string", "number", "date", "time", "date-time-local"],
+        "description": "Type of the input field",
+        "defaultState": "text"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Combobox.Button",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "open",
+        "type": ["boolean"],
+        "description": "Render Props: Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Combobox.Options",
+    "props": [
+      {
+        "name": "menuWidth",
+        "type": ["string"],
+        "description": "Tailwind class for custom options container width"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Combobox.Option",
+    "props": [
+      {
+        "name": "value",
+        "type": ["unknown"],
+        "description": "The option value"
+      },
+      {
+        "name": "active",
+        "type": ["boolean"],
+        "description": "Render Props: Whether or not the option is the active/focused option"
+      },
+      {
+        "name": "selected",
+        "type": ["boolean"],
+        "description": "Render Props: Whether or not the option is the selected option"
+      }
+    ]
+  },
+  {
+    "name": "Combobox.Transition",
+    "props": [
+      {
+        "name": "onQueryChange",
+        "type": ["(value: string) => void"],
+        "required": true,
+        "description": "The same function that is set in the Combobox component"
+      }
+    ]
+  },
+  {
+    "name": "Combobox.Select/Combobox.InsetSelect",
+    "props": [
+      {
+        "name": "onChange",
+        "type": ["(value: unknown) => void"],
+        "required": "Yes",
+        "description": "The function to call when a new option is selected."
+      },
+      {
+        "name": "onQueryChange",
+        "type": ["(value: string) => void"],
+        "required": "Yes",
+        "description": "The function to call when the query filter is changing."
+      },
+      {
+        "name": "displayValue",
+        "type": ["(value: unknown) => string"],
+        "description": "The value of the selected option to display."
+      },
+      {
+        "name": "label",
+        "type": ["JSX.Element", "string"],
+        "description": "Label title / Inset label title"
+      },
+      {
+        "name": "placeholder",
+        "type": ["JSX.Element", "string"],
+        "description": "Placeholder"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for custom styles."
+      },
+      {
+        "name": "open",
+        "type": ["boolean"],
+        "description": "Render Props: Whether or not the Listbox is open."
+      },
+      {
+        "name": "onClose",
+        "type": ["(value: unknown) => void;"],
+        "description": "Render Props: Called when the Combobox is dismissed."
+      }
+    ]
+  },
+  {
+    "name": "Combobox.MultiSelect/Combobox.InsetMultiSelect/Combobox.VisualMultiSelect",
+    "props": [
+      {
+        "name": "onChange",
+        "type": ["(value: unknown) => void"],
+        "required": "Yes",
+        "description": "The function to call when a new option is selected."
+      },
+      {
+        "name": "onQueryChange",
+        "type": ["(value: string) => void"],
+        "required": "Yes",
+        "description": "The function to call when the query filter is changing."
+      },
+      {
+        "name": "displayValue",
+        "type": ["(value: unknown) => string"],
+        "description": "The value of the selected option to display."
+      },
+      {
+        "name": "label",
+        "type": ["JSX.Element", "string"],
+        "description": "Label title / Inset label title"
+      },
+      {
+        "name": "placeholder",
+        "type": ["JSX.Element", "string"],
+        "description": "Placeholder"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for custom styles."
+      },
+      {
+        "name": "counter",
+        "type": ["Number"],
+        "defaultState": 0,
+        "description": "Number of selected options"
+      },
+      {
+        "name": "open",
+        "type": ["boolean"],
+        "description": "Render Props: Whether or not the Listbox is open."
+      },
+      {
+        "name": "onClose",
+        "type": ["(value: unknown) => void;"],
+        "description": "Render Props: Called when the Combobox is dismissed."
+      }
+    ]
+  },
+  {
+    "name": "Combobox.VisualMultiSelect",
+    "props": [
+      {
+        "name": "forceUpdate",
+        "type": ["boolean"],
+        "description": "If you need to align the list of options properly on each select/deselect set the 'boolean' property."
+      }
+    ]
+  },
+  {
+    "name": "Combobox.Counter",
+    "props": [
+      {
+        "name": "counter",
+        "type": ["number"],
+        "required": "Yes",
+        "description": "Number of selected options"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for custom styles."
+      },
+      {
+        "name": "open",
+        "type": ["boolean"],
+        "description": "Render Props: Whether or not the Listbox is open."
+      }
+    ]
+  },
+  {
+    "name": "Combobox.SelectedItem",
+    "props": [
+      {
+        "name": "index",
+        "type": ["number", "string"],
+        "required": "Yes",
+        "description": "Index of the selected item"
+      },
+      {
+        "name": "label",
+        "type": ["number", "string"],
+        "required": "Yes",
+        "description": "Displayed label of the selected item"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for custom styles."
+      },
+      {
+        "name": "open",
+        "type": ["boolean"],
+        "description": "Render Props: Whether or not the Listbox is open."
+      }
+    ]
+  },
+  {
+    "name": "Combobox.Hint",
+    "props": [
+      {
+        "name": "className",
+        "type": ["boolean"],
+        "description": "Tailwind classes for custom styles."
+      }
+    ]
+  }
+]

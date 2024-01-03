@@ -126,6 +126,53 @@ export type Examples = {
       },
       "props": "string"
     },
+    "circularprogress": {
+      "description": "string",
+      "descriptions": {
+        "CustomColors": "string",
+        "Default": "string",
+        "DifferentSizes": "string",
+        "DifferentValues": "string"
+      },
+      "examples": {
+        "CustomColors": "string",
+        "Default": "string",
+        "DifferentSizes": "string",
+        "DifferentValues": "string"
+      },
+      "props": "string"
+    },
+    "combobox": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "AlignmentControlsOptions": "string",
+        "Default": "string",
+        "DifferentStatesForInnerLabel": "string",
+        "DifferentStatesForSelect": "string",
+        "MultiSelect": "string",
+        "MultiSelectInnerLabel": "string",
+        "MultiSelectVisual": "string",
+        "MultiSelectWithAll": "string",
+        "Select": "string",
+        "SelectInnerLabel": "string",
+        "VisualMultiSelect": "string"
+      },
+      "examples": {
+        "AlignmentControlsOptions": "string",
+        "Default": "string",
+        "DifferentStatesForInnerLabel": "string",
+        "DifferentStatesForSelect": "string",
+        "MultiSelect": "string",
+        "MultiSelectInnerLabel": "string",
+        "MultiSelectVisual": "string",
+        "MultiSelectWithAll": "string",
+        "Select": "string",
+        "SelectInnerLabel": "string",
+        "VisualMultiSelect": "string"
+      },
+      "props": "string"
+    },
     "loader": {
       "description": "string",
       "descriptions": {
