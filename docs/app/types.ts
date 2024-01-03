@@ -115,10 +115,46 @@ export type Examples = {
     "button": {
       "description": "string",
       "descriptions": {
-        "Default": "string"
+        "Animations": "string",
+        "ButtonAsLinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "FullWidth": "string",
+        "Icons": "string",
+        "Multiline": "string",
+        "Sizes": "string",
+        "Variants": "string"
       },
       "examples": {
-        "Default": "string"
+        "Animations": "string",
+        "ButtonAsLinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "FullWidth": "string",
+        "Icons": "string",
+        "Multiline": "string",
+        "Sizes": "string",
+        "Variants": "string"
+      }
+    },
+    "checkbox": {
+      "descriptions": {
+        "Checked": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "PartiallySelected": "string",
+        "ReadOnly": "string",
+        "WithLabel": "string"
+      },
+      "examples": {
+        "Checked": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "PartiallySelected": "string",
+        "ReadOnly": "string",
+        "WithLabel": "string"
       }
     },
     "chip": {
