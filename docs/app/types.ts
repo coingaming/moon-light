@@ -198,6 +198,34 @@ export type Examples = {
       },
       "props": "string"
     },
+    "dropdown": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "DifferentStatesForSelect": "string",
+        "DifferentStatesForSelectWithInnerLabel": "string",
+        "ExampleLayoutsForOptions": "string",
+        "HiddenInputForSelect": "string",
+        "MultiSelect": "string",
+        "MultiSelectWithInnerLabel": "string",
+        "Select": "string",
+        "SelectWithInnerLabel": "string",
+        "TriggerElements": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "DifferentStatesForSelect": "string",
+        "DifferentStatesForSelectWithInnerLabel": "string",
+        "ExampleLayoutsForOptions": "string",
+        "HiddenInputForSelect": "string",
+        "MultiSelect": "string",
+        "MultiSelectWithInnerLabel": "string",
+        "Select": "string",
+        "SelectWithInnerLabel": "string",
+        "TriggerElements": "string"
+      },
+      "props": "string"
+    },
     "form": {
       "anatomy": "string",
       "description": "string",

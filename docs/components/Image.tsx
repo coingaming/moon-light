@@ -12,6 +12,7 @@ import circularprogress from "../app/client/circularprogress/circularprogress.we
 import combobox from "../app/client/combobox/combobox.webp";
 import carousel from "../app/client/carousel/carousel.webp";
 import form from "../app/client/form/form.webp";
+import dropdown from "../app/client/dropdown/dropdown.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -26,6 +27,7 @@ const images: Record<string, StaticImageData> = {
   combobox,
   carousel,
   form,
+  dropdown,
 };
 
 // Default image for components
