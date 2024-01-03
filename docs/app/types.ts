@@ -198,6 +198,19 @@ export type Examples = {
       },
       "props": "string"
     },
+    "form": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "DefaultWithInsetInput": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "DefaultWithInsetInput": "string"
+      },
+      "props": "string"
+    },
     "loader": {
       "description": "string",
       "descriptions": {

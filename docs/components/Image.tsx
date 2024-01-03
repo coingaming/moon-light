@@ -11,6 +11,7 @@ import accordion from "../app/client/accordion/accordion.webp";
 import circularprogress from "../app/client/circularprogress/circularprogress.webp";
 import combobox from "../app/client/combobox/combobox.webp";
 import carousel from "../app/client/carousel/carousel.webp";
+import form from "../app/client/form/form.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -24,6 +25,7 @@ const images: Record<string, StaticImageData> = {
   circularprogress,
   combobox,
   carousel,
+  form,
 };
 
 // Default image for components

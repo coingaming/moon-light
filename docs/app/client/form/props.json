@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Form",
+    "props": [
+      {
+        "name": "size",
+        "type": ["sm", "md", "lg"],
+        "description": "Size"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Form.Item",
+    "props": [
+      {
+        "name": "disabled",
+        "type": ["boolean"],
+        "description": "Set disabled/non-disabled"
+      },
+      {
+        "name": "error",
+        "type": ["boolean"],
+        "description": "Set valid/non-valid"
+      },
+      {
+        "name": "size",
+        "type": ["sm", "md", "lg"],
+        "description": "Size"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  }
+]
