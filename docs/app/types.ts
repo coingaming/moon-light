@@ -140,7 +140,8 @@ export type Examples = {
         "Colors": "string",
         "Default": "string",
         "Sizes": "string"
-      }
+      },
+      "props": "string"
     },
     "tagsInput": {
       "anatomy": "string",
