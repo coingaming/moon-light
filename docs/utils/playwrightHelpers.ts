@@ -25,7 +25,7 @@ export async function setDarkTheme(page: Page) {
   await page.waitForSelector("body[class=theme-moon-dark]");
 }
 
-export async function setupTest(name: string) {
+export function setupTest(name: string) {
   test.beforeEach(async ({ page }, testInfo) => {
     const example = testInfo.title?.split(":")?.[0] ?? "Default";
     await page.goto(`/client/${name}/${example}`);
