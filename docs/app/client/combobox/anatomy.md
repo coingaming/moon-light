@@ -1,0 +1,13 @@
+---
+title: Anatomy
+---
+
+```
+<Combobox>
+  <Combobox.Trigger>...</Combobox.Trigger>
+  <Combobox.Options>
+    <Combobox.Option>...</Combobox.Option>
+  </Combobox.Options>
+  <Combobox.Hint>...</Combobox.Hint>
+</Combobox>
+```
