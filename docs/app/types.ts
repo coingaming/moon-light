@@ -490,6 +490,17 @@ export type Examples = {
       },
       "props": "string"
     },
+    "searchcmdk": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string"
+      },
+      "examples": {
+        "Default": "string"
+      },
+      "props": "string"
+    },
     "snackbar": {
       "anatomy": "string",
       "description": "string",

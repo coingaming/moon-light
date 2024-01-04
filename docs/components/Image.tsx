@@ -27,6 +27,7 @@ import progress from "../app/client/progress/progress.webp";
 import search from "../app/client/search/search.webp";
 import popover from "../app/client/popover/popover.webp";
 import table from "../app/client/table/table.webp";
+import searchcmdk from "../app/client/searchcmdk/searchcmdk.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -56,6 +57,7 @@ const images: Record<string, StaticImageData> = {
   search,
   popover,
   table,
+  searchcmdk,
 };
 
 // Default image for components

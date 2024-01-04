@@ -1,0 +1,157 @@
+[
+  {
+    "name": "SearchCmdk",
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": "Yes",
+        "defaultState": "-",
+        "description": "Whether the SearchCmdk is open or not."
+      },
+      {
+        "name": "onOpenChange",
+        "type": "(open: boolean) => void",
+        "required": "Yes",
+        "defaultState": "-",
+        "description": "The function to call when SearchCmdk is open or closed."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Label title"
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.InputWrapper",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Input",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Placeholder for input"
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Icon",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Separator",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Result",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.NoResults",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.ResultItem",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "onSelect",
+        "type": "(value: string) => void",
+        "required": "No",
+        "defaultState": "",
+        "description": "The function to call when ResultItem is selected."
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Kbd",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Overlay",
+    "props": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": "No",
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  }
+]
