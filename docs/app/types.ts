@@ -384,6 +384,22 @@ export type Examples = {
       },
       "props": "string"
     },
+    "nativeselect": {
+      "description": "string",
+      "descriptions": {
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string"
+      },
+      "examples": {
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string"
+      },
+      "props": "string"
+    },
     "snackbar": {
       "anatomy": "string",
       "description": "string",
