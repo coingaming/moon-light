@@ -23,6 +23,23 @@ export type Examples = {
         "Sizes": "string"
       }
     },
+    "alert": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "WithClose": "string",
+        "WithIcon": "string",
+        "WithTitle": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "WithClose": "string",
+        "WithIcon": "string",
+        "WithTitle": "string"
+      }
+    },
     "authcode": {
       "description": "string",
       "descriptions": {
