@@ -3,7 +3,14 @@ export type Examples = {
     "accordion": {
       "description": "string",
       "descriptions": {
-        "ControlOutside": "string"
+        "ControlOutside": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "HeaderContent": "string",
+        "OpenByDefault": "string",
+        "SingleOpen": "string",
+        "Sizes": "string"
       },
       "examples": {
         "ControlOutside": "string",
@@ -82,9 +89,11 @@ export type Examples = {
       "description": "string",
       "descriptions": {
         "Customization": "string",
+        "Default": "string",
         "RootPortal": "string",
         "Sizes": "string",
-        "WithDraghandle": "string"
+        "WithDraghandle": "string",
+        "WithTitle": "string"
       },
       "examples": {
         "Customization": "string",
