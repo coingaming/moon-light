@@ -1,7 +1,19 @@
 ---
 title: Dropdown
 tags: ["ARIA", "RTL"]
-examples: []
+examples:
+  [
+    "Default",
+    "TriggerElements",
+    "ExampleLayoutsForOptions",
+    "Select",
+    "DifferentStatesForSelect",
+    "HiddenInputForSelect",
+    "SelectWithInnerLabel",
+    "DifferentStatesForSelectWithInnerLabel",
+    "MultiSelect",
+    "MultiSelectWithInnerLabel",
+  ]
 ---
 
 Dropdowns is a custom select component that allows users to make single or multiple selections.

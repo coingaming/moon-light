@@ -1,3 +1,3 @@
 ---
-title: Default
+title: Hidden input for Select
 ---

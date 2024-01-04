@@ -199,6 +199,7 @@ export type Examples = {
       "props": "string"
     },
     "dropdown": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "Default": "string",

@@ -1,3 +1,3 @@
 ---
-title: Default
+title: Example layouts for options
 ---
