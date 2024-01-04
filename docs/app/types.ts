@@ -184,6 +184,21 @@ export type Examples = {
         "WithOnClick": "string"
       }
     },
+    "drawer": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "Positions": "string",
+        "WithBackdrop": "string",
+        "WithClose": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "Positions": "string",
+        "WithBackdrop": "string",
+        "WithClose": "string"
+      }
+    },
     "loader": {
       "description": "string",
       "descriptions": {
