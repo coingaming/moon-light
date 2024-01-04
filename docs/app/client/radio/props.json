@@ -1,0 +1,89 @@
+[
+  {
+    "name": "Radio",
+    "props": [
+      {
+        "name": "children",
+        "type": ["React.ReactNode"],
+
+        "description": "Children of Radio"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "defaultValue",
+        "type": ["string", "number"],
+
+        "description": "Default value of uncontrolled Radio"
+      },
+      {
+        "name": "disabled",
+        "type": ["boolean"],
+
+        "description": "Disabled state of Radio"
+      },
+      {
+        "name": "name",
+        "type": ["string", "number"],
+
+        "description": "Name of Radio when using inside a form"
+      },
+      {
+        "name": "setValue",
+        "type": ["any"],
+
+        "description": "Set value of Radio"
+      },
+      {
+        "name": "value",
+        "type": ["string", "number"],
+
+        "description": "Value of Radio"
+      }
+    ]
+  },
+  {
+    "name": "Radio.Option",
+    "props": [
+      {
+        "name": "children",
+        "type": ["React.ReactNode"],
+
+        "description": "Children of Radio.Option"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "disabled",
+        "type": ["boolean"],
+
+        "description": "Disabled state of Radio"
+      },
+      {
+        "name": "value",
+        "type": ["string", "number"],
+
+        "description": "Value of Radio"
+      }
+    ]
+  },
+  {
+    "name": "Radio.Indicator",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  }
+]

@@ -18,6 +18,7 @@ import group from "../app/client/group/group.webp";
 import input from "../app/client/input/input.webp";
 import loader from "../app/client/loader/loader.webp";
 import progress from "../app/client/progress/progress.webp";
+import radio from "../app/client/radio/radio.webp";
 import snackbar from "../app/client/snackbar/snackbar.webp";
 import switchImage from "../app/client/switch/switch.webp";
 import tabs from "../app/client/tabs/tabs.webp";
@@ -44,6 +45,7 @@ const images: Record<string, StaticImageData> = {
   input,
   loader,
   progress,
+  radio,
   snackbar,
   switch: switchImage,
   tabs,
