@@ -9,7 +9,7 @@ import { PropsTable } from "@/components/propsTable";
 import props from "./props";
 import image from "./group.webp";
 
-const ordered = ["Default", "Direction", "Size", "States"];
+const ordered = ["Default", "Direction", "Size", "States", "Options"];
 
 export default async function GroupPage(request: {
   searchParams: { raw: string };

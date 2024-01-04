@@ -16,6 +16,10 @@ const Example = () => (
       <Group.FirstInput placeholder="First input" />
       <Group.LastInput placeholder="Last input" />
     </Group>
+    <Group>
+      <Group.FirstInsetInput placeholder="First inset input" />
+      <Group.LastInsetInput placeholder="Last inset input" />
+    </Group>
   </div>
 );
 

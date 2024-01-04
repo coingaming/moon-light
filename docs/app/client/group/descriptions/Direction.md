@@ -2,4 +2,4 @@
 title: Direction
 ---
 
-A property `direction` is optional and is set to `vertical` by default. You can change the `direction` by setting its value to `"horizontal"`.
+The optional `direction` property has a default value of `vertical`. To change the `direction` to horizontal, set its value to `horizontal`.

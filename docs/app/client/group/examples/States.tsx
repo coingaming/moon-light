@@ -1,21 +1,48 @@
 "use client";
 
-import { Group } from "@heathmont/moon-core-tw";
+import { Group, Hint } from "@heathmont/moon-core-tw";
+import { GenericInfo } from "@heathmont/moon-icons-tw";
 
 const Example = () => (
-  <div className="flex flex-col 2xl:flex-row gap-6 justify-center items-center">
-    <Group>
-      <Group.FirstInput placeholder="First input" />
-      <Group.LastInput placeholder="Last input" />
-    </Group>
-    <Group>
-      <Group.FirstInput placeholder="First input" />
-      <Group.LastInput placeholder="Last input" />
-    </Group>
-    <Group>
-      <Group.FirstInput placeholder="First input" />
-      <Group.LastInput placeholder="Last input" />
-    </Group>
+  <div className="flex flex-col lg:flex-row justify-around items-start w-full gap-2">
+    <div>
+      <Group error>
+        <Group.FirstInput placeholder="First input" />
+        <Group.LastInput placeholder="Last input" />
+      </Group>
+      <Hint error>
+        <GenericInfo />
+        Informative message
+      </Hint>
+      <Hint error>
+        <GenericInfo />
+        Informative message
+      </Hint>
+    </div>
+    <div>
+      <Group>
+        <Group.FirstInput placeholder="First input" />
+        <Group.LastInput placeholder="Last input" />
+      </Group>
+      <Hint error>
+        <GenericInfo />
+        Informative message
+      </Hint>
+    </div>
+    <div>
+      <Group disabled>
+        <Group.FirstInput placeholder="First input" />
+        <Group.LastInput placeholder="Last input" />
+      </Group>
+      <Hint disabled>Informative message</Hint>
+    </div>
+    <div>
+      <Group readOnly>
+        <Group.FirstInput placeholder="First input" />
+        <Group.LastInput placeholder="Last input" />
+      </Group>
+      <Hint>Informative message</Hint>
+    </div>
   </div>
 );
 
