@@ -425,6 +425,28 @@ export type Examples = {
       },
       "props": "string"
     },
+    "switch": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "props": "string"
+    },
     "tagsInput": {
       "anatomy": "string",
       "description": "string",
