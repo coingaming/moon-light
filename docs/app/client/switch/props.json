@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Switch",
+    "props": [
+      {
+        "name": "checked",
+        "type": ["boolean"],
+
+        "defaultState": false,
+        "description": "Is switch checked/unchecked."
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "disabled",
+        "type": ["boolean"],
+
+        "defaultState": "_",
+        "description": "Set disabled/not disabled switch"
+      },
+      {
+        "name": "name",
+        "type": ["string"],
+
+        "description": "The name used when using this component inside a form."
+      },
+      {
+        "name": "offIcon",
+        "type": ["JSX.Element", "string"],
+
+        "description": "Set icon for unchecked state"
+      },
+      {
+        "name": "onChange",
+        "type": ["(data) => void"],
+
+        "description": "The function to call when the switch is toggled."
+      },
+      {
+        "name": "onIcon",
+        "type": ["JSX.Element", "string"],
+
+        "description": "Set icon for checked state"
+      },
+      {
+        "name": "size",
+        "type": ["2xs", "xs", "sm"],
+
+        "defaultState": "sm",
+        "description": "The option's value."
+      },
+      {
+        "name": "value",
+        "type": ["string"],
+
+        "description": "The value used when using this component inside a form, if it is checked."
+      }
+    ]
+  }
+]
