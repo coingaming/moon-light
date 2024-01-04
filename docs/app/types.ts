@@ -3,7 +3,14 @@ export type Examples = {
     "accordion": {
       "description": "string",
       "descriptions": {
-        "ControlOutside": "string"
+        "ControlOutside": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "HeaderContent": "string",
+        "OpenByDefault": "string",
+        "SingleOpen": "string",
+        "Sizes": "string"
       },
       "examples": {
         "ControlOutside": "string",
@@ -65,9 +72,11 @@ export type Examples = {
       "description": "string",
       "descriptions": {
         "Customization": "string",
+        "Default": "string",
         "RootPortal": "string",
         "Sizes": "string",
-        "WithDraghandle": "string"
+        "WithDraghandle": "string",
+        "WithTitle": "string"
       },
       "examples": {
         "Customization": "string",
@@ -167,13 +176,34 @@ export type Examples = {
         "WithOnClick": "string"
       }
     },
+    "drawer": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "Positions": "string",
+        "WithBackdrop": "string",
+        "WithClose": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "Positions": "string",
+        "WithBackdrop": "string",
+        "WithClose": "string"
+      }
+    },
     "group": {
       "description": "string",
       "descriptions": {
-        "Default": "string"
+        "Default": "string",
+        "Direction": "string",
+        "Size": "string",
+        "States": "string"
       },
       "examples": {
-        "Default": "string"
+        "Default": "string",
+        "Direction": "string",
+        "Size": "string",
+        "States": "string"
       }
     },
     "loader": {
