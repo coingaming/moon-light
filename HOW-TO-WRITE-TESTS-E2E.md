@@ -38,7 +38,7 @@ What to test, checklist:
 import { test, expect } from "@playwright/test";
 import { setupTest, setDarkTheme, setRtl } from "@/utils/playwrightHelpers";
 
-const COMPONENT_NAME = "alert";
+const COMPONENT_NAME = "popover";
 
 setupTest(COMPONENT_NAME);
 
@@ -65,7 +65,7 @@ test.describe("Popover in RTL", () => {
 
 ###### All tests fails.
 
-Check if dev server is working on the door `:3000`
+Check if dev server is working on the port `:3000`
 
 ###### Hover/click not working correctly
 
