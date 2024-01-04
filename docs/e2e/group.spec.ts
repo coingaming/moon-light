@@ -24,9 +24,41 @@ test.describe("Group in Light Theme", () => {
 });
 
 test.describe("Group functionality", () => {
-  test("WithClose: should callback onClick works", async ({ page }) => {
-    await page.getByRole("button").click();
-    await expect(page.getByText("Show Alert")).toBeVisible();
+  test("Default: should render and match screenshot by hover input", async ({
+    page,
+  }) => {
+    await page.getByPlaceholder("First input").hover();
+    await page.waitForTimeout(200);
+    await expect(page).toHaveScreenshot(`group-input-hover.png`);
+  });
+  test("Default: should render and match screenshot by hover select", async ({
+    page,
+  }) => {
+    await page.getByRole("combobox").hover();
+    await page.waitForTimeout(200);
+    await expect(page).toHaveScreenshot(`group-select-hover.png`);
+  });
+  test("Default: should render and match screenshot by focus on input", async ({
+    page,
+  }) => {
+    await page.getByPlaceholder("First input").focus();
+    await page.waitForTimeout(200);
+    await expect(page).toHaveScreenshot(`group-input-focus.png`);
+  });
+  test("Default: should render and match screenshot by focus on select", async ({
+    page,
+  }) => {
+    await page.getByRole("combobox").focus();
+    await page.waitForTimeout(200);
+    await expect(page).toHaveScreenshot(`group-select-focus.png`);
+  });
+  test("Default: should fill input and select", async ({ page }) => {
+    await page.getByPlaceholder("First input").fill("Test input");
+    await page.getByRole("combobox").selectOption("Option 1");
+    await expect(page.getByPlaceholder("First input")).toHaveValue(
+      "Test input",
+    );
+    await expect(page.getByRole("combobox")).toHaveValue("Option 1");
   });
 });
 

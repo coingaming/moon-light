@@ -43,3 +43,4 @@ whis
 insetinput
 nativeselect
 insetnativeselect
+combobox
