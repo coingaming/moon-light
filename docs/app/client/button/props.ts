@@ -1,0 +1,61 @@
+import { PropsTableProp } from "@/types";
+
+export const Props: PropsTableProp[] = [
+  {
+    name: "animation",
+    type: ["progress", "success", "error", "pulse", "boolean"],
+    description: "Animation of button",
+  },
+  {
+    name: "as",
+    type: ["a", "button"],
+    defaultState: "button",
+    description: "Rendered HTML element tag",
+  },
+  {
+    name: "children",
+    type: ["React.ReactNode"],
+    description: "Children content",
+  },
+  {
+    name: "className",
+    description: "Tailwind classes for customization",
+    type: ["string"],
+  },
+  {
+    name: "disabled",
+    type: ["boolean"],
+    defaultState: "false",
+    description: "Disabled button",
+  },
+  {
+    name: "fullWidth",
+    description: "Full width button",
+    type: ["boolean"],
+    defaultState: "false",
+  },
+  {
+    name: "iconLeft",
+    type: ["JSX.Element"],
+    description: "Left icon",
+  },
+  {
+    name: "iconRight",
+    type: ["JSX.Element"],
+    description: "Right icon",
+  },
+  {
+    name: "size",
+    type: ["xs", "sm", "md", "lg", "xl"],
+    description: "Size of button",
+    defaultState: "md",
+  },
+  {
+    name: "variant",
+    type: ["fill", "outline", "ghost"],
+    description: "Visual/Logical variant of the button",
+    defaultState: "fill",
+  },
+];
+
+export default Props;
