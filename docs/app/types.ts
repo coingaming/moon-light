@@ -400,6 +400,21 @@ export type Examples = {
       },
       "props": "string"
     },
+    "pagination": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "WithArrayOfPageHREFs": "string",
+        "WithButton": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "WithArrayOfPageHREFs": "string",
+        "WithButton": "string"
+      },
+      "props": "string"
+    },
     "snackbar": {
       "anatomy": "string",
       "description": "string",

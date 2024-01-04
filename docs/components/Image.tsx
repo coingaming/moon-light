@@ -21,6 +21,7 @@ import menuitem from "../app/client/menuitem/menuitem.webp";
 import snackbar from "../app/client/snackbar/snackbar.webp";
 import nativeselect from "../app/client/nativeselect/nativeselect.webp";
 import switchImage from "../app/client/switch/switch.webp";
+import pagination from "../app/client/pagination/pagination.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -44,6 +45,7 @@ const images: Record<string, StaticImageData> = {
   snackbar,
   nativeselect,
   switch: switchImage,
+  pagination,
 };
 
 // Default image for components
