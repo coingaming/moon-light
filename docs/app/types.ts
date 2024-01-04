@@ -301,6 +301,33 @@ export type Examples = {
       },
       "props": "string"
     },
+    "menuitem": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "AsLink": "string",
+        "Checkbox": "string",
+        "Default": "string",
+        "ExpandCollapse": "string",
+        "MultiLineItems": "string",
+        "MultiTitle": "string",
+        "Radio": "string",
+        "WithIcon": "string",
+        "WithMeta": "string"
+      },
+      "examples": {
+        "AsLink": "string",
+        "Checkbox": "string",
+        "Default": "string",
+        "ExpandCollapse": "string",
+        "MultiLineItems": "string",
+        "MultiTitle": "string",
+        "Radio": "string",
+        "WithIcon": "string",
+        "WithMeta": "string"
+      },
+      "props": "string"
+    },
     "progress": {
       "description": "string",
       "descriptions": {
