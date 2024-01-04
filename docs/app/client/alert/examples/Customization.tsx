@@ -8,7 +8,7 @@ const Example = () => (
     <Alert>
       <Alert.Message>
         <OtherFrame className="text-moon-24 text-roshi" />
-        Generic style with coloured icon
+        Generic style with colored icon
       </Alert.Message>
       <Alert.Close />
     </Alert>
@@ -22,7 +22,7 @@ const Example = () => (
     <Alert className="bg-roshi-10">
       <Alert.Message>
         <OtherFrame className="text-moon-24" />
-        Colourful style
+        Colorful style
       </Alert.Message>
       <Alert.Close />
     </Alert>
