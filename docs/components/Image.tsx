@@ -23,6 +23,7 @@ import nativeselect from "../app/client/nativeselect/nativeselect.webp";
 import switchImage from "../app/client/switch/switch.webp";
 import pagination from "../app/client/pagination/pagination.webp";
 import radio from "../app/client/radio/radio.webp";
+import progress from "../app/client/progress/progress.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -48,6 +49,7 @@ const images: Record<string, StaticImageData> = {
   switch: switchImage,
   pagination,
   radio,
+  progress,
 };
 
 // Default image for components

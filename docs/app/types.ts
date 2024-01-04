@@ -415,6 +415,26 @@ export type Examples = {
       },
       "props": "string"
     },
+    "progress": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "DifferentSizes": "string",
+        "DifferentValues": "string",
+        "ProgressWithLabels": "string",
+        "ProgressWithPin": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "DifferentSizes": "string",
+        "DifferentValues": "string",
+        "ProgressWithLabels": "string",
+        "ProgressWithPin": "string"
+      },
+      "props": "string"
+    },
     "radio": {
       "anatomy": "string",
       "description": "string",
