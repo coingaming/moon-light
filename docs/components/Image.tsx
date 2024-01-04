@@ -17,6 +17,7 @@ import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect
 import iconbutton from "../app/client/iconbutton/iconbutton.webp";
 import input from "../app/client/input/input.webp";
 import icons from "../app/client/icons/icons.webp";
+import menuitem from "../app/client/menuitem/menuitem.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -36,6 +37,7 @@ const images: Record<string, StaticImageData> = {
   iconbutton,
   input,
   icons,
+  menuitem,
 };
 
 // Default image for components
