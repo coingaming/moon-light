@@ -260,6 +260,26 @@ export type Examples = {
       },
       "props": "string"
     },
+    "input": {
+      "description": "string",
+      "descriptions": {
+        "ControllingAnInput": "string",
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string",
+        "TextInputTypes": "string"
+      },
+      "examples": {
+        "ControllingAnInput": "string",
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string",
+        "TextInputTypes": "string"
+      },
+      "props": "string"
+    },
     "insetnativeselect": {
       "description": "string",
       "descriptions": {
