@@ -13,6 +13,7 @@ import combobox from "../app/client/combobox/combobox.webp";
 import carousel from "../app/client/carousel/carousel.webp";
 import form from "../app/client/form/form.webp";
 import dropdown from "../app/client/dropdown/dropdown.webp";
+import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -28,6 +29,7 @@ const images: Record<string, StaticImageData> = {
   carousel,
   form,
   dropdown,
+  insetnativeselect,
 };
 
 // Default image for components
