@@ -240,6 +240,26 @@ export type Examples = {
       },
       "props": "string"
     },
+    "iconbutton": {
+      "description": "string",
+      "descriptions": {
+        "Animations": "string",
+        "ButtonAsALinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "Variants": "string"
+      },
+      "examples": {
+        "Animations": "string",
+        "ButtonAsALinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "Variants": "string"
+      },
+      "props": "string"
+    },
     "insetnativeselect": {
       "description": "string",
       "descriptions": {

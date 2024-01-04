@@ -14,6 +14,7 @@ import carousel from "../app/client/carousel/carousel.webp";
 import form from "../app/client/form/form.webp";
 import dropdown from "../app/client/dropdown/dropdown.webp";
 import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect.webp";
+import iconbutton from "../app/client/iconbutton/iconbutton.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -30,6 +31,7 @@ const images: Record<string, StaticImageData> = {
   form,
   dropdown,
   insetnativeselect,
+  iconbutton,
 };
 
 // Default image for components
