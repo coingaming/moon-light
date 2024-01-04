@@ -1,0 +1,116 @@
+"use client";
+
+import { Snackbar, Button } from "@heathmont/moon-core-tw";
+import { useState, useCallback } from "react";
+
+const Example = () => {
+  const [snackbar, setSnackbar] = useState("");
+
+  const openSnackbarHandler = useCallback(
+    (type: string) => {
+      if (snackbar) {
+        setSnackbar("");
+        setTimeout(() => {
+          setSnackbar(type);
+        }, 400);
+      } else {
+        setSnackbar(type);
+      }
+    },
+    [snackbar],
+  );
+
+  return (
+    <>
+      <div>
+        <Button
+          variant="outline"
+          onClick={() => openSnackbarHandler("border-radius")}
+        >
+          Border radius
+        </Button>
+        <Snackbar
+          isOpen={snackbar === "border-radius"}
+          onOpenChange={setSnackbar}
+          className="rounded-none"
+        >
+          <Snackbar.Message>Custom border radius</Snackbar.Message>
+        </Snackbar>
+      </div>
+      <div>
+        <Button
+          variant="outline"
+          onClick={() => openSnackbarHandler("background")}
+        >
+          Background
+        </Button>
+        <Snackbar
+          isOpen={snackbar === "background"}
+          onOpenChange={setSnackbar}
+          className="bg-roshi"
+        >
+          <Snackbar.Message>Custom background color</Snackbar.Message>
+        </Snackbar>
+      </div>
+      <div>
+        <Button variant="outline" onClick={() => openSnackbarHandler("width")}>
+          Width
+        </Button>
+        <Snackbar
+          isOpen={snackbar === "width"}
+          onOpenChange={setSnackbar}
+          className="w-72"
+        >
+          <Snackbar.Message>Custom width</Snackbar.Message>
+        </Snackbar>
+      </div>
+      <div>
+        <Button
+          variant="outline"
+          onClick={() => openSnackbarHandler("always-light")}
+        >
+          Always light
+        </Button>
+        <Snackbar
+          isOpen={snackbar === "always-light"}
+          onOpenChange={setSnackbar}
+          className="theme-moon-light"
+        >
+          <Snackbar.Message>Applying light theme</Snackbar.Message>
+        </Snackbar>
+      </div>
+      <div>
+        <Button
+          variant="outline"
+          onClick={() => openSnackbarHandler("always-dark")}
+        >
+          Always dark
+        </Button>
+        <Snackbar
+          isOpen={snackbar === "always-dark"}
+          onOpenChange={setSnackbar}
+          className="theme-moon-dark"
+        >
+          <Snackbar.Message>Applying dark theme</Snackbar.Message>
+        </Snackbar>
+      </div>
+      <div>
+        <Button variant="outline" onClick={() => openSnackbarHandler("fonts")}>
+          Fonts
+        </Button>
+        <Snackbar isOpen={snackbar === "fonts"} onOpenChange={setSnackbar}>
+          <Snackbar.Content>
+            <Snackbar.Message className="text-moon-24 text-chichi">
+              Custom fonts.
+            </Snackbar.Message>
+            <Snackbar.Message className="text-moon-12 font-medium">
+              Even more custom fonts.
+            </Snackbar.Message>
+          </Snackbar.Content>
+        </Snackbar>
+      </div>
+    </>
+  );
+};
+
+export default Example;

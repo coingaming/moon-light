@@ -18,6 +18,7 @@ import iconbutton from "../app/client/iconbutton/iconbutton.webp";
 import input from "../app/client/input/input.webp";
 import icons from "../app/client/icons/icons.webp";
 import menuitem from "../app/client/menuitem/menuitem.webp";
+import snackbar from "../app/client/snackbar/snackbar.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -38,6 +39,7 @@ const images: Record<string, StaticImageData> = {
   input,
   icons,
   menuitem,
+  snackbar,
 };
 
 // Default image for components
