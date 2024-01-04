@@ -20,6 +20,7 @@ import switchImage from "../app/client/switch/switch.webp";
 import tabs from "../app/client/tabs/tabs.webp";
 import tag from "../app/client/tag/tag.webp";
 import tagsInput from "../app/client/tagsInput/tagsinput.webp";
+import nativeselect from "../app/client/nativeselect/nativeselect.webp";
 
 const images: Record<string, StaticImageData> = {
   accordion,
@@ -42,6 +43,7 @@ const images: Record<string, StaticImageData> = {
   tabs,
   tag,
   tagsInput,
+  nativeselect,
 } as const;
 
 interface Props {
