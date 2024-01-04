@@ -6,14 +6,16 @@ import { OtherFrame } from "@heathmont/moon-icons-tw";
 
 const Example = () => {
   return (
-    <Popover>
-      <Popover.Trigger>
-        <Button>Toggle Popover</Button>
-      </Popover.Trigger>
-      <Popover.Panel className="p-2 flex flex-col gap-1">
-        <Content />
-      </Popover.Panel>
-    </Popover>
+    <div className="flex align-middle justify-start w-full m-4">
+      <Popover>
+        <Popover.Trigger>
+          <Button>Toggle Popover</Button>
+        </Popover.Trigger>
+        <Popover.Panel className="p-2 flex flex-col gap-1">
+          <Content />
+        </Popover.Panel>
+      </Popover>
+    </div>
   );
 };
 
