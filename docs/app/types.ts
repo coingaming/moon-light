@@ -112,6 +112,7 @@ export type Examples = {
         "Animations": "string",
         "ButtonAsLinkHTML": "string",
         "Default": "string",
+        "DefaultWithClick": "string",
         "Disabled": "string",
         "FullWidth": "string",
         "Icons": "string",
@@ -121,6 +122,7 @@ export type Examples = {
       }
     },
     "checkbox": {
+      "description": "string",
       "descriptions": {
         "Checked": "string",
         "Customization": "string",
@@ -163,6 +165,15 @@ export type Examples = {
         "Sizes": "string",
         "Variants": "string",
         "WithOnClick": "string"
+      }
+    },
+    "group": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string"
+      },
+      "examples": {
+        "Default": "string"
       }
     },
     "loader": {

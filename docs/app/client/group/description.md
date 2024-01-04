@@ -1,0 +1,1 @@
+Combine different types of inputs into groups to save vertical space on your designs and also simplify form filling.
