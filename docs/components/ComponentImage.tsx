@@ -14,6 +14,7 @@ import circularProgress from "../app/client/circularProgress/circularProgress.we
 import drawer from "../app/client/drawer/drawer.webp";
 import dropdown from "../app/client/dropdown/dropdown.webp";
 import group from "../app/client/group/group.webp";
+import input from "../app/client/input/input.webp";
 import loader from "../app/client/loader/loader.webp";
 import progress from "../app/client/progress/progress.webp";
 import switchImage from "../app/client/switch/switch.webp";
@@ -36,6 +37,7 @@ const images: Record<string, StaticImageData> = {
   drawer,
   dropdown,
   group,
+  input,
   loader,
   progress,
   switch: switchImage,
