@@ -25,6 +25,7 @@ import pagination from "../app/client/pagination/pagination.webp";
 import radio from "../app/client/radio/radio.webp";
 import progress from "../app/client/progress/progress.webp";
 import search from "../app/client/search/search.webp";
+import popover from "../app/client/popover/popover.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -52,6 +53,7 @@ const images: Record<string, StaticImageData> = {
   radio,
   progress,
   search,
+  popover,
 };
 
 // Default image for components
