@@ -9,6 +9,7 @@ import avatar from "../app/client/avatar/avatar.webp";
 import authcode from "../app/client/authcode/authcode.webp";
 import accordion from "../app/client/accordion/accordion.webp";
 import popover from "../app/client/popover/popover.webp";
+import iconbutton from "../app/client/iconbutton/iconbutton.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -20,6 +21,7 @@ const images: Record<string, StaticImageData> = {
   authcode,
   accordion,
   popover,
+  iconbutton,
 };
 
 // Default image for components

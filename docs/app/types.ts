@@ -287,6 +287,26 @@ export type Examples = {
       },
       "props": "string"
     },
+    "iconbutton": {
+      "description": "string",
+      "descriptions": {
+        "Animations": "string",
+        "ButtonAsALinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "Variants": "string"
+      },
+      "examples": {
+        "Animations": "string",
+        "ButtonAsALinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "Variants": "string"
+      },
+      "props": "string"
+    },
     "loader": {
       "description": "string",
       "descriptions": {
@@ -344,28 +364,6 @@ export type Examples = {
       },
       "props": "string"
     },
-    "switch": {
-      "description": "string",
-      "descriptions": {
-        "Customization": "string",
-        "Default": "string",
-        "Disabled": "string",
-        "Sizes": "string",
-        "UsingTooltip": "string",
-        "WithHTMLForms": "string",
-        "WithIcons": "string"
-      },
-      "examples": {
-        "Customization": "string",
-        "Default": "string",
-        "Disabled": "string",
-        "Sizes": "string",
-        "UsingTooltip": "string",
-        "WithHTMLForms": "string",
-        "WithIcons": "string"
-      },
-      "props": "string"
-    },
     "snackbar": {
       "anatomy": "string",
       "description": "string",
@@ -386,6 +384,28 @@ export type Examples = {
         "Positions": "string",
         "SemanticTypes": "string",
         "SnackbarQueue": "string"
+      },
+      "props": "string"
+    },
+    "switch": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
       },
       "props": "string"
     },
