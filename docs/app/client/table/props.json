@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Table",
+    "props": [
+      {
+        "name": "getOnRowClickHandler",
+        "type": ["(row) => (row) => void", "() => void"],
+
+        "description": "Callback on clicked row"
+      },
+      {
+        "name": "getOnRowSelect",
+        "type": ["(rows) => void", "() => void"],
+
+        "description": "Callback on selected row"
+      },
+      {
+        "name": "height",
+        "type": ["string", "number"],
+
+        "description": "Height of the table"
+      },
+      {
+        "name": "isCellBorder",
+        "type": ["boolean"],
+
+        "defaultState": false,
+        "description": "Divider between cells"
+      },
+      {
+        "name": "keepState",
+        "type": ["{ expandedRows: {[key: string]: boolean; }[] }"],
+
+        "description": "A list of previously expanded rows to restore the state of the table after the page reloading"
+      },
+      {
+        "name": "maxHeight",
+        "type": ["string", "number"],
+
+        "description": "Max height of the table"
+      },
+      {
+        "name": "maxWidth",
+        "type": ["string", "number"],
+
+        "description": "Max width of the table"
+      },
+      {
+        "name": "rowGap",
+        "type": ["gap-0", "gap-1", "gap-2", "gap-3", "gap-4"],
+
+        "defaultState": "gap-1",
+        "description": "Gap between table body rows. TW class"
+      },
+      {
+        "name": "rowSize",
+        "type": ["xs", "sm", "md", "lg", "xl", "2xl"],
+
+        "defaultState": "md",
+        "description": "Size of table rows"
+      },
+      {
+        "name": "selectable",
+        "type": ["boolean"],
+
+        "description": "Allow rows to be selected"
+      },
+      {
+        "name": "textClip",
+        "type": ["clip", "break"],
+
+        "description": "Sets the type of clipping of long data inside a table cell"
+      },
+      {
+        "name": "width",
+        "type": ["string", "number"],
+
+        "description": "Width of the table"
+      },
+      {
+        "name": "withFooter",
+        "type": ["boolean"],
+
+        "description": "Display table footer"
+      },
+      {
+        "name": "updateMyData",
+        "type": ["() => void;"],
+
+        "description": "When cell renderer calls updateMyData"
+      }
+    ]
+  }
+]
