@@ -24,6 +24,7 @@ import switchImage from "../app/client/switch/switch.webp";
 import pagination from "../app/client/pagination/pagination.webp";
 import radio from "../app/client/radio/radio.webp";
 import progress from "../app/client/progress/progress.webp";
+import search from "../app/client/search/search.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -50,6 +51,7 @@ const images: Record<string, StaticImageData> = {
   pagination,
   radio,
   progress,
+  search,
 };
 
 // Default image for components

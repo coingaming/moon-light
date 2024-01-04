@@ -1,0 +1,178 @@
+[
+  {
+    "name": "Search",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "isOpen",
+        "type": ["boolean"],
+        "required": true,
+        "defaultState": "_",
+        "description": "Open state"
+      },
+      {
+        "name": "onChangeOpen",
+        "type": ["(isOpen: boolean) => void"],
+        "required": true,
+        "defaultState": "_",
+        "description": "Function for setting open state"
+      },
+      {
+        "name": "onChangeSearch",
+        "type": ["(search: string) => void"],
+        "required": true,
+
+        "description": "Function for setting search value"
+      },
+      {
+        "name": "onChangeSelected",
+        "type": ["(value: number) => void"],
+
+        "defaultState": "_",
+        "description": "Function for setting selected item index"
+      },
+      {
+        "name": "search",
+        "type": ["string"],
+        "required": true,
+        "defaultState": "_",
+        "description": "Search query data"
+      }
+    ]
+  },
+  {
+    "name": "Search.Input",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Search.Input.Icon",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Search.Input.Input",
+    "props": [
+      {
+        "name": "autoFocus",
+        "type": ["boolean"],
+
+        "defaultState": false,
+        "description": "Specifies that an search should automatically get focus when the page loads"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "placeholder",
+        "type": ["string"],
+
+        "defaultState": "Search",
+        "description": "Search field placeholder"
+      }
+    ]
+  },
+  {
+    "name": "Search.Input.ButtonClear",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Search.Transition",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Search.NoResults",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      },
+      {
+        "name": "label",
+        "type": ["string", "React.ReactNode"],
+        "required": true,
+        "defaultState": "Search for",
+        "description": "Label for no results"
+      }
+    ]
+  },
+  {
+    "name": "Search.Result",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Search.ResultItem",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Search.ResultHeading",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "defaultState": "",
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  }
+]

@@ -454,6 +454,19 @@ export type Examples = {
       },
       "props": "string"
     },
+    "search": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "NoTransition": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "NoTransition": "string"
+      },
+      "props": "string"
+    },
     "snackbar": {
       "anatomy": "string",
       "description": "string",
