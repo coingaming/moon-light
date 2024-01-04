@@ -58,7 +58,7 @@ test.describe("Group functionality", () => {
     await expect(page.getByPlaceholder("First input")).toHaveValue(
       "Test input",
     );
-    await expect(page.getByRole("combobox")).toHaveValue("Option 1");
+    await expect(page.getByRole("combobox")).toHaveValue("1");
   });
 });
 
