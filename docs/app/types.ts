@@ -415,6 +415,25 @@ export type Examples = {
       },
       "props": "string"
     },
+    "radio": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "AsFormItem": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Uncontrolled": "string"
+      },
+      "examples": {
+        "AsFormItem": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Uncontrolled": "string"
+      },
+      "props": "string"
+    },
     "snackbar": {
       "anatomy": "string",
       "description": "string",
