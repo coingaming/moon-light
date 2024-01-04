@@ -3,7 +3,14 @@ export type Examples = {
     "accordion": {
       "description": "string",
       "descriptions": {
-        "ControlOutside": "string"
+        "ControlOutside": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "HeaderContent": "string",
+        "OpenByDefault": "string",
+        "SingleOpen": "string",
+        "Sizes": "string"
       },
       "examples": {
         "ControlOutside": "string",
@@ -14,6 +21,23 @@ export type Examples = {
         "OpenByDefault": "string",
         "SingleOpen": "string",
         "Sizes": "string"
+      }
+    },
+    "alert": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "WithClose": "string",
+        "WithIcon": "string",
+        "WithTitle": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "WithClose": "string",
+        "WithIcon": "string",
+        "WithTitle": "string"
       }
     },
     "authcode": {
@@ -65,9 +89,11 @@ export type Examples = {
       "description": "string",
       "descriptions": {
         "Customization": "string",
+        "Default": "string",
         "RootPortal": "string",
         "Sizes": "string",
-        "WithDraghandle": "string"
+        "WithDraghandle": "string",
+        "WithTitle": "string"
       },
       "examples": {
         "Customization": "string",
@@ -112,6 +138,7 @@ export type Examples = {
         "Animations": "string",
         "ButtonAsLinkHTML": "string",
         "Default": "string",
+        "DefaultWithClick": "string",
         "Disabled": "string",
         "FullWidth": "string",
         "Icons": "string",
@@ -121,6 +148,7 @@ export type Examples = {
       }
     },
     "checkbox": {
+      "description": "string",
       "descriptions": {
         "Checked": "string",
         "Customization": "string",

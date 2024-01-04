@@ -34,8 +34,6 @@ pixelmatch
 popo
 raditz
 sportsbet
-subcomponent
-subcomponents
 tagsinput
 testid
 tradeart
