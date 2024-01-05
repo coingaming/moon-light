@@ -3,29 +3,27 @@
 import React from "react";
 import { Tabs } from "@heathmont/moon-core-tw";
 
-const pillCls = "border border-beerus hover:bg-gohan";
-
 const PillDefault = () => {
   return (
     <Tabs>
       <Tabs.List>
         <Tabs.Pill
           className={({ selected }: { selected: boolean }) =>
-            selected ? "" : pillCls
+            selected ? "" : "border border-beerus hover:bg-gohan"
           }
         >
           Tab 1
         </Tabs.Pill>
         <Tabs.Pill
           className={({ selected }: { selected: boolean }) =>
-            selected ? "" : pillCls
+            selected ? "" : "border border-beerus hover:bg-gohan"
           }
         >
           Tab 2
         </Tabs.Pill>
         <Tabs.Pill
           className={({ selected }: { selected: boolean }) =>
-            selected ? "" : pillCls
+            selected ? "" : "border border-beerus hover:bg-gohan"
           }
         >
           Tab 3

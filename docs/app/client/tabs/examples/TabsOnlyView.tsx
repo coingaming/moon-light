@@ -15,9 +15,15 @@ const TabsOnlyView = () => (
 
     <Tabs>
       <Tabs.List>
-        <Tabs.Pill>Tab 1</Tabs.Pill>
-        <Tabs.Pill>Tab 2</Tabs.Pill>
-        <Tabs.Pill>Tab 3</Tabs.Pill>
+        <Tabs.Pill className="border border-beerus hover:bg-gohan">
+          Tab 1
+        </Tabs.Pill>
+        <Tabs.Pill className="border border-beerus hover:bg-gohan">
+          Tab 2
+        </Tabs.Pill>
+        <Tabs.Pill className="border border-beerus hover:bg-gohan">
+          Tab 3
+        </Tabs.Pill>
       </Tabs.List>
     </Tabs>
   </div>

@@ -7,7 +7,8 @@ const sharedPillClassName = "border border-beerus";
 
 const Sizes = () => (
   <div className="flex flex-col gap-4">
-    <div className="flex justify-between w-full gap-10">
+    <p>Tab:</p>
+    <div className="flex flex-col justify-between w-full gap-10">
       <Tabs>
         <Tabs.List size="sm">
           <Tabs.Tab>Tab 1 (sm)</Tabs.Tab>
@@ -23,8 +24,8 @@ const Sizes = () => (
         </Tabs.List>
       </Tabs>
     </div>
-
-    <div className="flex justify-between w-full gap-10">
+    <p className="mt-10">Pill:</p>
+    <div className="flex flex-col justify-between w-full gap-10">
       <Tabs>
         <Tabs.List size="sm">
           <Tabs.Pill className={sharedPillClassName}>Tab 1 (sm)</Tabs.Pill>
