@@ -22,6 +22,7 @@ goku
 goten
 headlessui
 heathmont
+heles
 hub88
 jiren
 Kallavus
@@ -29,6 +30,7 @@ krillin
 lab
 Letraset
 libc
+listbox
 livecasino
 moonDesign
 nappa

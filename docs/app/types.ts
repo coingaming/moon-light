@@ -229,6 +229,33 @@ export type Examples = {
       },
       "props": "string"
     },
+    "dropdown": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "HiddenInput": "string",
+        "InsetMultiSelect": "string",
+        "InsetSelect": "string",
+        "InsetSelectStates": "string",
+        "MultiSelect": "string",
+        "OptionsVariants": "string",
+        "Select": "string",
+        "SelectStates": "string",
+        "TriggerElements": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "HiddenInput": "string",
+        "InsetMultiSelect": "string",
+        "InsetSelect": "string",
+        "InsetSelectStates": "string",
+        "MultiSelect": "string",
+        "OptionsVariants": "string",
+        "Select": "string",
+        "SelectStates": "string",
+        "TriggerElements": "string"
+      }
+    },
     "loader": {
       "description": "string",
       "descriptions": {
