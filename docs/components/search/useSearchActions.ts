@@ -32,6 +32,8 @@ export const useSearchActions = async (): Promise<Action[]> => {
       };
       actions.push(action);
 
+      if (!value.examples) return;
+
       for (const [exampleName, _v] of Object.entries(value.examples)) {
         const action: Action = {
           id: `${type}#${componentName}#${exampleName}`,
