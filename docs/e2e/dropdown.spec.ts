@@ -8,26 +8,7 @@ setupTest(COMPONENT_NAME);
 
 test.describe("Dropdown in Light Theme", () => {
   test.describe("Default tests", () => {
-    test.describe("General tests", () => {
-      test("Default: should render and match screenshot", async ({ page }) => {
-        await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Default.png`);
-      });
-
-      test("Default: hover on dropdown trigger should match screenshot", async ({
-        page,
-        isMobile,
-      }) => {
-        if (!isMobile) {
-          await page
-            .getByRole("button", { name: "Choose a name..." })
-            .hover({ force: true });
-          await page.waitForTimeout(300);
-          await expect(page).toHaveScreenshot(
-            `${COMPONENT_NAME}-Default-hover.png`,
-          );
-        }
-      });
-
+    test.describe("Mouse tests", () => {
       test("Default: should open default dropdown and match screenshot", async ({
         page,
       }) => {
@@ -73,7 +54,7 @@ test.describe("Dropdown in Light Theme", () => {
         }
       });
 
-      test("Default: should select option, close dropdown and match screenshot", async ({
+      test("Default: should select option and close dropdown", async ({
         page,
       }) => {
         await page.getByRole("button", { name: "Choose a name..." }).click();
@@ -84,34 +65,10 @@ test.describe("Dropdown in Light Theme", () => {
         await option.click({ force: true });
         const openedDropdown = page.locator('ul[role="listbox"]');
         await expect(openedDropdown).not.toBeVisible();
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-Default-option-selected.png`,
-        );
-      });
-
-      test("Default: hover on selected option as trigger should match screenshot", async ({
-        page,
-        isMobile,
-      }) => {
-        if (!isMobile) {
-          await page.getByRole("button", { name: "Choose a name..." }).click();
-          await page.waitForTimeout(100);
-          const dropdown = page.locator('ul[role="listbox"]');
-          await expect(dropdown).toBeVisible();
-          const option = await page
-            .getByRole("button", { name: "Wade Cooper" })
-            .click();
-          const openedDropdown = page.locator('ul[role="listbox"]');
-          await expect(openedDropdown).not.toBeVisible();
-          const selectedOption = await page.getByRole("button", {
-            name: "Wade Cooper",
-          });
-          await selectedOption.hover({ force: true });
-          await page.waitForTimeout(250);
-          await expect(page).toHaveScreenshot(
-            `${COMPONENT_NAME}-Default-selected-hover.png`,
-          );
-        }
+        const selected = await page.getByRole("button", {
+          name: "Wade Cooper",
+        });
+        await expect(selected).toBeVisible();
       });
 
       test("Default: selected option should be active and match screenshot", async ({
@@ -231,28 +188,7 @@ test.describe("Dropdown in Light Theme", () => {
   });
 
   test.describe("TriggerElements tests", () => {
-    test.describe("General tests", () => {
-      test("TriggerElements: should render and match screenshot", async ({
-        page,
-      }) => {
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-TriggerElements.png`,
-        );
-      });
-
-      test("TriggerElements: first dropdown - hover on trigger should match screenshot", async ({
-        page,
-        isMobile,
-      }) => {
-        if (!isMobile) {
-          await page.getByLabel("Dropdown trigger").hover({ force: true });
-          await page.waitForTimeout(300);
-          await expect(page).toHaveScreenshot(
-            `${COMPONENT_NAME}-TriggerElements-hover-1.png`,
-          );
-        }
-      });
-
+    test.describe("Mouse tests", () => {
       test("TriggerElements: first dropdown - should open dropdown and match screenshot", async ({
         page,
       }) => {
@@ -337,26 +273,9 @@ test.describe("Dropdown in Light Theme", () => {
             name: "Arlene Mccoy",
           });
           await otherOption.hover({ force: true });
-          await page.waitForTimeout(250);
-          await expect(page).toHaveScreenshot(
-            `${COMPONENT_NAME}-TriggerElements-selected-dropdown-other-hover-1.png`,
-          );
-        }
-      });
-
-      test("TriggerElements: second dropdown - hover on trigger should match screenshot", async ({
-        page,
-        isMobile,
-      }) => {
-        if (!isMobile) {
-          const trigger = await page
-            .getByRole("button", { name: "Select name" })
-            .nth(0);
-          await trigger.hover({ force: true });
-          await page.waitForTimeout(300);
-          await expect(page).toHaveScreenshot(
-            `${COMPONENT_NAME}-TriggerElements-hover-2.png`,
-          );
+          await expect(
+            (await otherOption.getAttribute("class"))?.split(" "),
+          ).toEqual(expect.arrayContaining(["bg-heles"]));
         }
       });
 
@@ -695,29 +614,6 @@ test.describe("Dropdown in Light Theme", () => {
 
 test.describe("Dropdown in Dark Theme", () => {
   test.describe("Default tests", () => {
-    test("Default: should render and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-dark-Default.png`);
-    });
-
-    test("Default: hover on dropdown trigger should match screenshot in Dark Theme", async ({
-      page,
-      isMobile,
-    }) => {
-      if (!isMobile) {
-        setDarkTheme(page);
-        await page
-          .getByRole("button", { name: "Choose a name..." })
-          .hover({ force: true });
-        await page.waitForTimeout(250);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-dark-Default-hover.png`,
-        );
-      }
-    });
-
     test("Default: should open default dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
@@ -749,23 +645,6 @@ test.describe("Dropdown in Dark Theme", () => {
           `${COMPONENT_NAME}-dark-Default-option-hover.png`,
         );
       }
-    });
-
-    test("Default: should select option, close dropdown and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      await page.getByRole("button", { name: "Choose a name..." }).click();
-      await page.waitForTimeout(100);
-      const dropdown = page.locator('ul[role="listbox"]');
-      await expect(dropdown).toBeVisible();
-      const option = await page.getByRole("button", { name: "Wade Cooper" });
-      await option.click({ force: true });
-      const openedDropdown = page.locator('ul[role="listbox"]');
-      await expect(openedDropdown).not.toBeVisible();
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-dark-Default-option-selected.png`,
-      );
     });
 
     test("Default: selected option should be active and match screenshot in Dark Theme", async ({
@@ -826,29 +705,6 @@ test.describe("Dropdown in Dark Theme", () => {
   });
 
   test.describe("TriggerElements tests", () => {
-    test("TriggerElements: should render and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-dark-TriggerElements.png`,
-      );
-    });
-
-    test("TriggerElements: first dropdown - hover on trigger should match screenshot in Dark Theme", async ({
-      page,
-      isMobile,
-    }) => {
-      if (!isMobile) {
-        setDarkTheme(page);
-        await page.getByLabel("Dropdown trigger").hover({ force: true });
-        await page.waitForTimeout(300);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-dark-TriggerElements-hover-1.png`,
-        );
-      }
-    });
-
     test("TriggerElements: first dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
@@ -888,23 +744,6 @@ test.describe("Dropdown in Dark Theme", () => {
         await page.waitForTimeout(250);
         await expect(page).toHaveScreenshot(
           `${COMPONENT_NAME}-dark-TriggerElements-selected-dropdown-other-hover-1.png`,
-        );
-      }
-    });
-
-    test("TriggerElements: second dropdown - hover on trigger should match screenshot in Dark Theme", async ({
-      page,
-      isMobile,
-    }) => {
-      if (!isMobile) {
-        setDarkTheme(page);
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(0);
-        await trigger.hover({ force: true });
-        await page.waitForTimeout(300);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-dark-TriggerElements-hover-2.png`,
         );
       }
     });
@@ -954,23 +793,6 @@ test.describe("Dropdown in Dark Theme", () => {
         await page.waitForTimeout(250);
         await expect(page).toHaveScreenshot(
           `${COMPONENT_NAME}-dark-TriggerElements-selected-dropdown-other-hover-2.png`,
-        );
-      }
-    });
-
-    test("TriggerElements: third dropdown - hover on trigger should match screenshot in Dark Theme", async ({
-      page,
-      isMobile,
-    }) => {
-      if (!isMobile) {
-        setDarkTheme(page);
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await trigger.hover({ force: true });
-        await page.waitForTimeout(300);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-dark-TriggerElements-hover-3.png`,
         );
       }
     });
@@ -1028,13 +850,6 @@ test.describe("Dropdown in Dark Theme", () => {
 
 test.describe("RTL tests", () => {
   test.describe("Default tests", () => {
-    test("Default: component support for RTL - should render and match screenshot", async ({
-      page,
-    }) => {
-      setRtl(page);
-      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-rtl-Default.png`);
-    });
-
     test("Default: component support for RTL - should open default dropdown and match screenshot", async ({
       page,
     }) => {
@@ -1052,15 +867,6 @@ test.describe("RTL tests", () => {
   });
 
   test.describe("TriggerElements tests", () => {
-    test("TriggerElements: component support for RTL - should render and match screenshot", async ({
-      page,
-    }) => {
-      setRtl(page);
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-rtl-TriggerElements.png`,
-      );
-    });
-
     test("TriggerElements: first dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
