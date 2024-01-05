@@ -6,22 +6,25 @@ import { OtherFrame } from "@heathmont/moon-icons-tw";
 
 const Example = () => {
   return (
-    <div className="flex align-middle justify-start w-full m-4">
-      <Popover>
-        <Popover.Trigger>
+    <Popover data-testid="popover">
+      <div className="flex">
+        <Popover.Trigger data-testid="popover-trigger">
           <Button>Toggle Popover</Button>
         </Popover.Trigger>
-        <Popover.Panel className="p-2 flex flex-col gap-1">
-          <Content />
-        </Popover.Panel>
-      </Popover>
-    </div>
+      </div>
+      <Popover.Panel
+        className="p-2 flex flex-col gap-1"
+        data-testid="popover-panel"
+      >
+        <Content />
+      </Popover.Panel>
+    </Popover>
   );
 };
 
 const Content: React.FC = () => (
   <>
-    <MenuItem>
+    <MenuItem data-testid="first-item">
       <span className="flex w-11 h-11 bg-gohan items-center justify-center rounded-lg">
         <OtherFrame className="text-bulma text-moon-24" />
       </span>
@@ -30,7 +33,7 @@ const Content: React.FC = () => (
         text={<span>Best tournaments with streamers</span>}
       />
     </MenuItem>
-    <MenuItem>
+    <MenuItem data-testid="second-item">
       <span className="flex w-11 h-11 bg-gohan items-center justify-center">
         <OtherFrame className="text-bulma text-moon-24" />
       </span>
@@ -39,7 +42,7 @@ const Content: React.FC = () => (
         text={<span> Your favourite games</span>}
       />
     </MenuItem>
-    <MenuItem>
+    <MenuItem data-testid="third-item">
       <span className="flex w-11 h-11 bg-gohan items-center justify-center">
         <OtherFrame className="text-bulma text-moon-24" />
       </span>

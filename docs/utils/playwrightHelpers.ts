@@ -33,6 +33,6 @@ export function setupTest(name: string) {
   });
   test.afterEach(async ({ page }) => {
     // Cleanup from route
-    await page.close();
+    // await page.close();
   });
 }
