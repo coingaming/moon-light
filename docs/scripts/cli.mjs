@@ -2,69 +2,7 @@ import { Command } from "commander";
 import { promises as fs } from "fs";
 import path from "path";
 
-// pnpm run doc moon-cli generate example
 const program = new Command();
-
-export function generateFilesContent(component, name, title) {
-  const _documentation = `---
-title: ${title || name}
----
-`;
-  const _example = `"use client";
-
-import React from "react";
-export const ${name} = () => {
-    return <div />
-}
-
-export default ${name}
-`;
-  const _e2e = `\ntest.describe("${name} tests", () => {
-  test('${name}: should render and match screenshot', async ({ page }) => {
-      await expect(page).toHaveScreenshot(\`${component}-${name}.png\`)
-  });
-});
-`;
-  return Object.assign(
-    {},
-    {
-      documentation: {
-        content: _documentation,
-        path: path.join(
-          `docs/app/client/${component}/descriptions`,
-          `${name}.md`,
-        ),
-      },
-      example: {
-        content: _example,
-        path: path.join(`docs/app/client/${component}/examples`, `${name}.tsx`),
-      },
-      e2e: {
-        content: _e2e,
-        path: path.join(`docs/e2e/`, `${component}.spec.ts`), // CARE THIS JUST ADD THE END OF THE FILE
-      },
-    },
-  );
-}
-
-export async function writeToFile({ contentToWrite, path }) {
-  if (!contentToWrite) {
-    throw new Error("Content for writeToFile function must be provided.");
-  }
-  if (!path) {
-    throw new Error("Path for writeToFile function must be provided.");
-  }
-
-  try {
-    await fs.writeFile(path, contentToWrite, "utf8");
-    console.log(`${path} file has been written successfully.`);
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error("Error writing to file:", err.message);
-      throw err;
-    }
-  }
-}
 
 program
   .name("moon-cli")
@@ -79,7 +17,7 @@ program
   .option("--name <name>", "The name of the example")
   .option("--title <title>", "The title of the example (optional)")
   .action(async (arg, options) => {
-    console.log("Experimental Moon.io CLI");
+    banner();
     let valid = true;
     if (!["example"].includes(arg)) {
       valid = false;
@@ -151,4 +89,158 @@ program
     }
   });
 
+program
+  .command("pa11y")
+  .description("Test pa11y")
+  .argument("<component>", "Name of the component to test")
+  .action(async (arg, options) => {
+    banner();
+    console.log(arg);
+  });
+
 program.parse();
+
+function banner() {
+  console.log("Experimental Moon.io CLI");
+}
+
+function generateFilesContent(component, name, title) {
+  const _documentation = `---
+title: ${title || name}
+---
+`;
+  const _example = `"use client";
+
+import React from "react";
+export const ${name} = () => {
+    return <div />
+}
+
+export default ${name}
+`;
+  const _e2e = `\ntest.describe("${name} tests", () => {
+  test('${name}: should render and match screenshot', async ({ page }) => {
+      await expect(page).toHaveScreenshot(\`${component}-${name}.png\`)
+  });
+});
+`;
+  return Object.assign(
+    {},
+    {
+      documentation: {
+        content: _documentation,
+        path: path.join(
+          `docs/app/client/${component}/descriptions`,
+          `${name}.md`,
+        ),
+      },
+      example: {
+        content: _example,
+        path: path.join(`docs/app/client/${component}/examples`, `${name}.tsx`),
+      },
+      e2e: {
+        content: _e2e,
+        path: path.join(`docs/e2e/`, `${component}.spec.ts`), // CARE THIS JUST ADD THE END OF THE FILE
+      },
+    },
+  );
+}
+
+async function writeToFile({ contentToWrite, path }) {
+  if (!contentToWrite) {
+    throw new Error("Content for writeToFile function must be provided.");
+  }
+  if (!path) {
+    throw new Error("Path for writeToFile function must be provided.");
+  }
+
+  try {
+    await fs.writeFile(path, contentToWrite, "utf8");
+    console.log(`${path} file has been written successfully.`);
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error("Error writing to file:", err.message);
+      throw err;
+    }
+  }
+}
+
+async function getAllUrls() {
+  const componentsPath = "./app/client/";
+  const componentsNames = await fs.readdir(componentsPath);
+  let components = {};
+  for (let i in componentsNames) {
+    const n = componentsNames[i];
+    const exampleDir = path.join("./app/client/", n, "examples/");
+    const examples = await fs.readdir(exampleDir);
+    components[n] = examples.map((item) => item.replace(".tsx", ""));
+  }
+  console.log(components);
+  let ret = [];
+  Object.keys(components).forEach((n) => {
+    if (Array.isArray(components[n])) {
+      components[n].forEach((example) => {
+        ret.push(`http://localhost:3000/client/${n}/${example}`);
+      });
+    }
+  });
+  return ret;
+}
+
+async function runTest(componentName) {
+  try {
+    const urls = await getAllUrls();
+    // const urls = [`http://localhost:3000/client/tagsInput/Default`];
+    const options = {
+      log: {
+        debug: console.log,
+        error: console.error,
+        info: console.log,
+      },
+    };
+    let issues = [];
+    for (let i in urls) {
+      const item = urls[i];
+      const result = await pa11y(item, options);
+      if (Array.isArray(result.issues) && result.issues.length > 0) {
+        const names = result.pageUrl.split("/");
+        const exm = names[names.length - 1];
+        const m = exm.split("?raw="); // todo: to change
+        issues.push({
+          example: m[m.length - 1],
+          component: m[0],
+          issues: result.issues,
+        });
+      }
+    }
+    for (let i in issues) {
+      const element = issues[i];
+      if (element.issues?.length > 0) {
+        console.log(
+          `[!] Component ${element.component}, example: ${element.example}, found ${element.issues.length} issues`,
+        );
+        element.issues.forEach(({ message, selector, code }) => {
+          console.log(`\tError: ${code}`);
+          console.log(`\tSelector: ${selector}`);
+          console.log(`\tMessage: ${message}`);
+        });
+      } else {
+        console.log(
+          `[!] Component ${element.component}, example: ${element.example}, OK!`,
+        );
+      }
+    }
+  } catch (error) {
+    console.log("Error", error.message);
+  }
+}
+
+function groupArr(data, n) {
+  var group = [];
+  for (var i = 0, j = 0; i < data.length; i++) {
+    if (i >= n && i % n === 0) j++;
+    group[j] = group[j] || [];
+    group[j].push(data[i]);
+  }
+  return group;
+}

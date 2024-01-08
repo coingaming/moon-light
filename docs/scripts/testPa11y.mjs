@@ -1,6 +1,14 @@
+import { Command } from "commander";
 import pa11y from "pa11y";
 import { promises as fs } from "fs";
 import path from "path";
+
+const program = new Command();
+
+program
+  .name("moon-cli")
+  .description("CLI to some moon.io utils")
+  .version("0.0.1");
 
 runTest();
 // getAllUrls();
