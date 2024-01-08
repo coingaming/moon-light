@@ -26,8 +26,13 @@ const images: Record<string, StaticImageData> = {
   checkbox,
 };
 
+interface Props {
+  name?: string;
+}
+
 // Default image for components
-export default function ComponentImage({ name }: { name: string }) {
+export default function ComponentImage({ name }: Props) {
+  if (!name) return null;
   if (images?.[name]) {
     return (
       <Image src={images?.[name]} width={500} alt={`${name} main image`} />

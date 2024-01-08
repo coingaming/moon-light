@@ -6,6 +6,7 @@ import { ExampleSectionData } from "./exampleSection/ExampleSection";
 import { PropsTable } from "./propsTable";
 import type { PropsTableProp, TagTypes } from "@/types";
 import { Anatomy } from "./Anatomy";
+import type { StaticImageData } from "next/image";
 
 interface DocsPageProps {
   componentName: string;
@@ -19,6 +20,7 @@ interface DocsPageProps {
   descriptions: Record<string, string>;
   propsTable?: Record<string, PropsTableProp[]>;
   anatomy?: string;
+  image?: StaticImageData;
 }
 
 const DocsPage = (props: DocsPageProps) => {
@@ -34,6 +36,7 @@ const DocsPage = (props: DocsPageProps) => {
     propsTable,
     anatomy,
     tags,
+    image,
   } = props;
 
   if (isMockup) {
@@ -66,6 +69,7 @@ const DocsPage = (props: DocsPageProps) => {
           description={description}
           tags={tags}
           name={componentName}
+          image={image}
         />
         {anatomy && <Anatomy anatomy={anatomy} />}
         <ExampleSectionData
