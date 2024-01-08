@@ -30,11 +30,13 @@ livecasino
 moonDesign
 nappa
 navigations
+networkidle
 pixelmatch
 popo
 raditz
 sportsbet
 tagsinput
+testid
 tradeart
 viewports
 webp
