@@ -30,6 +30,7 @@ livecasino
 moonDesign
 nappa
 navigations
+networkidle
 pixelmatch
 popo
 raditz
