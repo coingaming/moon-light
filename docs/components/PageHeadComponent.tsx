@@ -1,4 +1,4 @@
-import ComponentImage from "./Image";
+import ComponentImage from "./ComponentImage";
 import { MDX } from "./MDX";
 import TitleTags from "./TitleTags";
 import type { TagTypes } from "@/types";

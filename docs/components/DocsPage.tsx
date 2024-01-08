@@ -1,6 +1,5 @@
 import { Loader } from "@heathmont/moon-core-tw";
 import dynamic from "next/dynamic";
-import type { StaticImageData } from "next/image";
 import { MainLayout } from "./MainLayout";
 import { PageHeadComponent } from "./PageHeadComponent";
 import { ExampleSectionData } from "./exampleSection/ExampleSection";

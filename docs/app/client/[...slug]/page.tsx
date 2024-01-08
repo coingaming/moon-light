@@ -6,7 +6,6 @@ import type { GenericExampleTypePartial, TagTypes } from "@/types";
 import { useGetExample } from "@/utils/useGetExample";
 import { serialize } from "next-mdx-remote/serialize";
 import { PropsTableJSON } from "@/types/propsTable";
-import type { Examples } from "@/app/types";
 
 export async function generateStaticParams() {
   const { client } = await getExamples();
