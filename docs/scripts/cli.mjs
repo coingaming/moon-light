@@ -1,13 +1,15 @@
 import { Command } from "commander";
 import { promises as fs } from "fs";
 import path from "path";
+import pa11y from "pa11y";
+import { Table } from "console-table-printer";
 
 const program = new Command();
 
 program
   .name("moon-cli")
   .description("CLI to some moon.io utils")
-  .version("0.0.1");
+  .version("0.0.2");
 
 program
   .command("generate")
@@ -95,7 +97,7 @@ program
   .argument("<component>", "Name of the component to test")
   .action(async (arg, options) => {
     banner();
-    console.log(arg);
+    await runTest(arg);
   });
 
 program.parse();
@@ -165,70 +167,108 @@ async function writeToFile({ contentToWrite, path }) {
   }
 }
 
-async function getAllUrls() {
+async function getAllUrls(name) {
   const componentsPath = "./app/client/";
-  const componentsNames = await fs.readdir(componentsPath);
   let components = {};
-  for (let i in componentsNames) {
-    const n = componentsNames[i];
-    const exampleDir = path.join("./app/client/", n, "examples/");
-    const examples = await fs.readdir(exampleDir);
-    components[n] = examples.map((item) => item.replace(".tsx", ""));
-  }
-  console.log(components);
-  let ret = [];
-  Object.keys(components).forEach((n) => {
-    if (Array.isArray(components[n])) {
-      components[n].forEach((example) => {
-        ret.push(`http://localhost:3000/client/${n}/${example}`);
-      });
-    }
-  });
-  return ret;
+  console.log("checking", name);
+  const exampleDir = path.join(componentsPath, name, "examples/");
+  const examples = await fs.readdir(exampleDir);
+  const examplesFilenames = examples.map((item) => item.replace(".tsx", ""));
+
+  return (
+    examplesFilenames?.map?.((example) => {
+      return `http://localhost:3000/client/${name}/${example}`;
+    }) || []
+  );
 }
 
 async function runTest(componentName) {
   try {
-    const urls = await getAllUrls();
-    // const urls = [`http://localhost:3000/client/tagsInput/Default`];
+    const urls = await getAllUrls(componentName);
+    if (!urls || urls.length === 0) {
+      return;
+    }
     const options = {
       log: {
-        debug: console.log,
-        error: console.error,
-        info: console.log,
+        debug: (e) => {},
+        error: (e) => {},
+        info: (e) => {},
       },
     };
     let issues = [];
     for (let i in urls) {
       const item = urls[i];
       const result = await pa11y(item, options);
-      if (Array.isArray(result.issues) && result.issues.length > 0) {
-        const names = result.pageUrl.split("/");
-        const exm = names[names.length - 1];
-        const m = exm.split("?raw="); // todo: to change
+      const names = item?.split?.("/");
+      const componentN = names?.[names?.length - 2];
+      const exampleN = names?.[names?.length - 1];
+
+      if (Array.isArray(result?.issues) && result?.issues?.length > 0) {
         issues.push({
-          example: m[m.length - 1],
-          component: m[0],
+          example: exampleN,
+          component: componentN,
           issues: result.issues,
         });
+        console.log(
+          `Component ${componentN} / ${exampleN}: Issues found ${
+            result.issues?.length || 0
+          }`,
+        );
+      } else {
+        console.log(`Component ${componentN} / ${exampleN}: No issues found`);
       }
     }
+
+    console.log(`-----------------------------------`);
+
+    const p = new Table({
+      columns: [
+        {
+          name: "Index",
+          alignment: "left",
+        },
+        {
+          name: "Example",
+          alignment: "left",
+        },
+        {
+          name: "selector",
+          maxLen: 40,
+          alignment: "left",
+          color: "yellow",
+        },
+        {
+          name: "message",
+          maxLen: 100,
+          color: "red",
+          alignment: "left",
+        },
+      ],
+    });
+    let countIssues = 0;
     for (let i in issues) {
       const element = issues[i];
       if (element.issues?.length > 0) {
-        console.log(
-          `[!] Component ${element.component}, example: ${element.example}, found ${element.issues.length} issues`,
-        );
         element.issues.forEach(({ message, selector, code }) => {
-          console.log(`\tError: ${code}`);
-          console.log(`\tSelector: ${selector}`);
-          console.log(`\tMessage: ${message}`);
+          countIssues += 1;
+          p.addRow({
+            Index: componentName,
+            Example: element.example,
+            selector,
+            message,
+          });
+          p.addRow({
+            Index: "",
+            Example: "",
+            selector: "",
+            message: "",
+          });
         });
-      } else {
-        console.log(
-          `[!] Component ${element.component}, example: ${element.example}, OK!`,
-        );
       }
+    }
+
+    if (countIssues > 0) {
+      p.printTable();
     }
   } catch (error) {
     console.log("Error", error.message);
