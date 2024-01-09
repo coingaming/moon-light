@@ -16,7 +16,7 @@ export const props: PropsTableProp[] = [
     name: "value",
     type: ["number"],
     defaultState: "0",
-    description: "Value of Progress in %",
+    description: "Value of Progress in percent",
   },
 ];
 

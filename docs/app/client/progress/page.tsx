@@ -6,10 +6,17 @@ import { MainLayout } from "@/components/MainLayout";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
 import { PropsTable } from "@/components/propsTable";
 
-import { props } from "./props";
+import { pinProps, props } from "./props";
 import image from "./progress.webp";
 
-const ordered = ["Default", "Size", "Value"];
+const ordered = [
+  "Default",
+  "Size",
+  "Value",
+  "Pin",
+  "WithLabels",
+  "Customization",
+];
 
 export default async function ProgressPage(request: {
   searchParams: { raw: string };
@@ -70,6 +77,16 @@ export default async function ProgressPage(request: {
             </p>
           }
           data={props}
+        />
+        <PropsTable
+          title="Progress.Pin props"
+          description={
+            <p>
+              These are props specific to the{" "}
+              <span className="text-frieza">Progress.Pin</span> component:
+            </p>
+          }
+          data={pinProps}
         />
       </div>
     </MainLayout>
