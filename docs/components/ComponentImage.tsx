@@ -24,7 +24,7 @@ const images: Record<string, StaticImageData> = {
   alert,
   drawer,
   checkbox,
-};
+} as const;
 
 interface Props {
   name?: string;

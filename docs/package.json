@@ -10,7 +10,7 @@
     "lint": "next lint",
     "start": "next start -p 80",
     "test": "playwright test",
-    "clean:next": "rm -r .next"
+    "clean:next": "rimraf .next"
   },
   "dependencies": {
     "@heathmont/moon-base-tw": "^10.11.1",
