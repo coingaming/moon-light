@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Checkbox",
+    "props": [
+      {
+        "name": "bgColor",
+        "type": ["string"],
+        "defaultState": "bg-piccolo",
+        "description": "Checked state of checkbox"
+      },
+      {
+        "name": "label",
+        "type": ["JSX.Element | string"],
+        "description": "Describes checkbox's purpose"
+      },
+      {
+        "name": "indeterminate",
+        "type": ["boolean"],
+        "description": "Set checkbox as indeterminate and does not modify the checked state"
+      }
+    ]
+  }
+]

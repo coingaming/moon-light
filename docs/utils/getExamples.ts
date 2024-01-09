@@ -49,7 +49,9 @@ export async function processFiles(
     const filePath = path.join(dirPath, file);
     const stats = await fs.stat(filePath);
 
-    if (stats.isDirectory()) {
+    if (file?.startsWith("[...")) {
+      // Do nothing, to skip the directory | file relatives to next routing
+    } else if (stats.isDirectory()) {
       const _hasSubfolders = await hasSubfolders(filePath);
       if (_hasSubfolders) {
         result[file] = await processFiles(filePath, processCallback);
@@ -60,9 +62,7 @@ export async function processFiles(
           result[file] = await processCallback(filePath);
         }
       }
-    }
-
-    if (stats.isFile()) {
+    } else if (stats.isFile()) {
       const extname = path.extname(filePath).toLowerCase();
       const fileName = path.basename(filePath);
       const fileNameWithoutExtension = path.parse(fileName).name;
@@ -70,6 +70,10 @@ export async function processFiles(
       if (extname === ".md") {
         const content = await readFromFile(filePath);
         result[fileNameWithoutExtension] = content;
+      }
+      if (extname === ".json") {
+        const content = await readFromFile(filePath);
+        result[fileNameWithoutExtension] = content || "";
       }
     }
   }
