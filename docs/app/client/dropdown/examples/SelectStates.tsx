@@ -35,7 +35,11 @@ export const SelectStates = () => {
               {people.map((person, index) => (
                 <Dropdown.Option value={person} key={index}>
                   {({ selected, active }) => (
-                    <MenuItem isActive={active} isSelected={selected}>
+                    <MenuItem
+                      isActive={active}
+                      isSelected={selected}
+                      data-testid={`test-${index}`}
+                    >
                       {person.name}
                     </MenuItem>
                   )}

@@ -42,7 +42,11 @@ export const MultiSelect = () => {
               {peoples.map((person, index) => (
                 <Dropdown.Option value={person} key={index}>
                   {({ selected, active }) => (
-                    <MenuItem isActive={active} isSelected={selected}>
+                    <MenuItem
+                      isActive={active}
+                      isSelected={selected}
+                      data-testid={`test-${index}`}
+                    >
                       <MenuItem.Title>{person.name}</MenuItem.Title>
                       <MenuItem.Checkbox isSelected={selected} />
                     </MenuItem>
@@ -74,7 +78,11 @@ export const MultiSelect = () => {
               {peoples.map((person, index) => (
                 <Dropdown.Option value={person} key={index}>
                   {({ selected, active }) => (
-                    <MenuItem isActive={active} isSelected={selected}>
+                    <MenuItem
+                      isActive={active}
+                      isSelected={selected}
+                      data-testid={`test-${index}`}
+                    >
                       <MenuItem.Title>{person.name}</MenuItem.Title>
                       <MenuItem.Checkbox isSelected={selected} />
                     </MenuItem>
@@ -106,7 +114,11 @@ export const MultiSelect = () => {
               {peoples.map((person, index) => (
                 <Dropdown.Option value={person} key={index}>
                   {({ selected, active }) => (
-                    <MenuItem isActive={active} isSelected={selected}>
+                    <MenuItem
+                      isActive={active}
+                      isSelected={selected}
+                      data-testid={`test-${index}`}
+                    >
                       <MenuItem.Title>{person.name}</MenuItem.Title>
                       <MenuItem.Checkbox isSelected={selected} />
                     </MenuItem>

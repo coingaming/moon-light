@@ -80,7 +80,11 @@ export const OptionsVariants = () => {
           {languages.map((opt, index) => (
             <Dropdown.Option value={opt} key={index}>
               {({ selected, active }) => (
-                <MenuItem isActive={active} isSelected={selected}>
+                <MenuItem
+                  isActive={active}
+                  isSelected={selected}
+                  data-testid={`test-${index}`}
+                >
                   <MenuItem.Title>{opt.name}</MenuItem.Title>
                   <MenuItem.Radio />
                 </MenuItem>
