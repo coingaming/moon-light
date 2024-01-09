@@ -4,12 +4,12 @@ export const props: PropsTableProp[] = [
   {
     name: "orientation",
     description: "Two ways you can stack your input groups",
-    type: ["vertical | horizontal"],
+    type: ["vertical", "horizontal"],
     defaultState: "vertical",
   },
   {
     name: "size",
-    type: ["sm | md | lg"],
+    type: ["sm", "md", "lg"],
     defaultState: "md",
     description: "Group size",
   },
