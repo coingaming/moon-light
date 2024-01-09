@@ -3207,7 +3207,7 @@ test.describe("RTL tests", () => {
       await page.mouse.move(0, 0);
       await expect(dropdown).toBeVisible();
       await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-rtl-SeMultiSelectlect-medium-open.png`,
+        `${COMPONENT_NAME}-rtl-MultiSelect-medium-open.png`,
       );
     });
 
