@@ -10,7 +10,7 @@
     "lint": "next lint",
     "start": "next start -p 80",
     "test": "playwright test",
-    "test:accessibility": "node scripts/testPa11y.mjs"
+    "test:accessibility": "node scripts/cli.mjs pa11y"
   },
   "dependencies": {
     "@heathmont/moon-base-tw": "^10.11.1",
