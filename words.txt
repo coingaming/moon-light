@@ -1,3 +1,4 @@
+Aldus
 authcode
 beerus
 betadda
@@ -5,6 +6,7 @@ bitcasino
 bombay
 bottomsheet
 bulma
+Clintock
 compat
 corepack
 Corepack
@@ -13,8 +15,8 @@ datetime
 dodoria
 Draghandle
 frieza
-Frontmatter
 frontmatter
+Frontmatter
 gohan
 goku
 goten
@@ -25,6 +27,7 @@ jiren
 Kallavus
 krillin
 lab
+Letraset
 libc
 livecasino
 moonDesign
@@ -35,6 +38,7 @@ pixelmatch
 popo
 raditz
 sportsbet
+tabpanel
 tagsinput
 testid
 tradeart

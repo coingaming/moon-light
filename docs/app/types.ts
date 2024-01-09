@@ -228,6 +228,32 @@ export type Examples = {
       },
       "props": "string"
     },
+    "tabs": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "Pill": "string",
+        "SegmentControlView": "string",
+        "SelectedIndex": "string",
+        "SelectedIndexSegment": "string",
+        "Sizes": "string",
+        "TabsOnlyView": "string",
+        "WithCustomStyle": "string",
+        "WithHandler": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "Pill": "string",
+        "SegmentControlView": "string",
+        "SelectedIndex": "string",
+        "SelectedIndexSegment": "string",
+        "Sizes": "string",
+        "TabsOnlyView": "string",
+        "WithCustomStyle": "string",
+        "WithHandler": "string"
+      }
+    },
     "tagsInput": {
       "anatomy": "string",
       "description": "string",

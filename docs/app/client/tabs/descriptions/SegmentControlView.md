@@ -1,0 +1,3 @@
+---
+title: Segment control view
+---
