@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Drawer",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "required": false,
+        "description": "Tailwind classes for custom styles"
+      },
+      {
+        "name": "open",
+        "type": ["boolean"],
+        "required": true,
+        "defaultState": "false",
+        "description": "Whether or not the Drawer is opened"
+      },
+      {
+        "name": "setOpen",
+        "type": ["(value: boolean) => void"],
+        "required": true,
+        "description": "Sets open state of the Drawer"
+      }
+    ]
+  },
+  {
+    "name": "Drawer.Panel",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for custom styles"
+      },
+      {
+        "name": "position",
+        "type": ["top", "bottom", "start", "end"],
+        "defaultState": "end",
+        "description": "The Drawer positions on screen"
+      }
+    ]
+  }
+]

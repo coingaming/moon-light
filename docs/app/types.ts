@@ -39,7 +39,8 @@ export type Examples = {
         "WithClose": "string",
         "WithIcon": "string",
         "WithTitle": "string"
-      }
+      },
+      "props": "string"
     },
     "authcode": {
       "description": "string",
@@ -130,7 +131,6 @@ export type Examples = {
       "descriptions": {
         "Animations": "string",
         "ButtonAsLinkHTML": "string",
-        "Default": "string",
         "Disabled": "string",
         "FullWidth": "string",
         "Icons": "string",
@@ -141,7 +141,6 @@ export type Examples = {
       "examples": {
         "Animations": "string",
         "ButtonAsLinkHTML": "string",
-        "Default": "string",
         "DefaultWithClick": "string",
         "Disabled": "string",
         "FullWidth": "string",
@@ -170,7 +169,8 @@ export type Examples = {
         "PartiallySelected": "string",
         "ReadOnly": "string",
         "WithLabel": "string"
-      }
+      },
+      "props": "string"
     },
     "chip": {
       "description": "string",
@@ -211,7 +211,8 @@ export type Examples = {
         "Positions": "string",
         "WithBackdrop": "string",
         "WithClose": "string"
-      }
+      },
+      "props": "string"
     },
     "loader": {
       "description": "string",
@@ -249,6 +250,32 @@ export type Examples = {
         "WithCloseButton": "string"
       },
       "props": "string"
+    },
+    "tabs": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "Pill": "string",
+        "SegmentControlView": "string",
+        "SelectedIndex": "string",
+        "SelectedIndexSegment": "string",
+        "Sizes": "string",
+        "TabsOnlyView": "string",
+        "WithCustomStyle": "string",
+        "WithHandler": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "Pill": "string",
+        "SegmentControlView": "string",
+        "SelectedIndex": "string",
+        "SelectedIndexSegment": "string",
+        "Sizes": "string",
+        "TabsOnlyView": "string",
+        "WithCustomStyle": "string",
+        "WithHandler": "string"
+      }
     },
     "tagsInput": {
       "anatomy": "string",

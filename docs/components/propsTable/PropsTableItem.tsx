@@ -29,35 +29,38 @@ const PropsTableItem = ({ prop }: PropsTableItemProps) => {
         <span className="w-36 overflow-hidden whitespace-nowrap text-ellipsis font-semibold">
           Prop
         </span>
-        <Tag
-          className="text-moon-16"
-          isUppercase={false}
-          color="text-frieza"
-          bgColor="bg-frieza-10"
-        >
-          {name}
-        </Tag>
+        <div className="w-full flex">
+          <Tag
+            className="text-moon-16"
+            isUppercase={false}
+            color="text-frieza"
+            bgColor="bg-frieza-10"
+          >
+            {name}
+          </Tag>
+        </div>
       </div>
       <div className="flex w-full items-center gap-6 text-moon-16 ">
         <span className="w-36 font-semibold overflow-hidden whitespace-nowrap text-ellipsis">
           Default
         </span>
-        <p>{defaultState || "-"}</p>
+        <p className="w-full">{defaultState || "-"}</p>
       </div>
       <div className="flex w-full items-center gap-6 text-moon-16 ">
         <span className="w-36 font-semibold overflow-hidden whitespace-nowrap text-ellipsis">
           Required
         </span>
-        <p>{required ? "Yes" : "No"}</p>
+        <p className="w-full">{required ? "Yes" : "No"}</p>
       </div>
       <div className="flex flex-col md:flex-row w-full md:items-center gap-6 text-moon-16 ">
         <span className="w-36 font-semibold overflow-hidden whitespace-nowrap text-ellipsis">
           Description
         </span>
-        <p>{description}</p>
+        <p className="w-full">{description}</p>
       </div>
-      <div className="md:ps-36">
-        <p className="text-moon-16 text-frieza md:ps-6">
+      <div className="flex flex-col md:flex-row gap-x-6">
+        <div className="w-36" />
+        <p className="text-moon-16 text-frieza w-full">
           {type?.map(renderType).join(" | ")}
         </p>
       </div>

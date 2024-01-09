@@ -1,18 +1,18 @@
 import React from "react";
 import { getExamples } from "@/utils/getExamples";
-
+import { notFound } from "next/navigation";
 import DocsPage from "@/components/DocsPage";
-import type { GenericExampleTypePartial, TagTypes } from "@/types";
 import { useGetExample } from "@/utils/useGetExample";
-import { serialize } from "next-mdx-remote/serialize";
-import { PropsTableJSON } from "@/types/propsTable";
-import type { Examples } from "@/app/types";
+import useProps from "@/hooks/useProps";
+import useComponentInfo from "@/hooks/useComponentInfo";
+import sortExamples from "@/utils/sortExamples";
+
+import type { TagTypes } from "@/types";
 
 export async function generateStaticParams() {
   const { client } = await getExamples();
-  const components = client as Record<any, GenericExampleTypePartial>;
 
-  return Object.keys(components).map((name: string) => {
+  return Object.keys(client).map((name: string) => {
     return {
       slug: [name],
     };
@@ -25,38 +25,23 @@ export default async function Page({
 }: {
   params: { slug: string[] };
 }) {
-  const componentName = params?.slug?.[0] as string;
+  const componentName = params?.slug?.[0];
   const searchParamRaw = params?.slug?.[1];
-  const data = (await useGetExample(
-    componentName as string,
-  )) as GenericExampleTypePartial;
-  if (!data) {
-    // TODO: Redirect 404
-    return <h1>Element not found</h1>;
-  }
-  const info = data.description
-    ? (
-        await serialize(data.description, {
-          parseFrontmatter: true,
-        })
-      )?.frontmatter
-    : {};
+
+  const data = await useGetExample(componentName);
+
+  const props = useProps(data?.props);
+  const info = await useComponentInfo(data?.description);
+
   const isMockup =
     !!searchParamRaw &&
     data?.examples &&
     Object.keys(data?.examples).includes(searchParamRaw);
 
-  const props = data?.props
-    ? JSON.parse(data.props)
-        .map((item: PropsTableJSON) => {
-          return item;
-        })
-        ?.reduce?.(
-          (obj: any, item: PropsTableJSON) =>
-            Object.assign(obj, { [item.name]: item.props }),
-          {},
-        )
-    : undefined;
+  if (!data) {
+    return notFound();
+  }
+
   return (
     <DocsPage
       {...data}
@@ -66,7 +51,10 @@ export default async function Page({
       tags={(info?.tags as TagTypes[]) || []}
       isMockup={isMockup}
       searchParam={searchParamRaw}
-      ordered={(info?.examples as (keyof typeof data.examples)[]) || []}
+      ordered={
+        (info?.examples as (keyof typeof data.examples)[]) ||
+        sortExamples(Object.keys(data?.examples || {}))
+      }
       componentName={componentName as string}
       propsTable={props}
     />
