@@ -2,18 +2,17 @@ import React from "react";
 import { getExamples } from "@/utils/getExamples";
 import { notFound } from "next/navigation";
 import DocsPage from "@/components/DocsPage";
-import type { GenericExampleTypePartial, TagTypes } from "@/types";
 import { useGetExample } from "@/utils/useGetExample";
-import { serialize } from "next-mdx-remote/serialize";
-import { PropsTableJSON } from "@/types/propsTable";
 import useProps from "@/hooks/useProps";
 import useComponentInfo from "@/hooks/useComponentInfo";
+import sortExamples from "@/utils/sortExamples";
+
+import type { TagTypes } from "@/types";
 
 export async function generateStaticParams() {
   const { client } = await getExamples();
-  const components = client as Record<any, GenericExampleTypePartial>;
 
-  return Object.keys(components).map((name: string) => {
+  return Object.keys(client).map((name: string) => {
     return {
       slug: [name],
     };
@@ -52,7 +51,10 @@ export default async function Page({
       tags={(info?.tags as TagTypes[]) || []}
       isMockup={isMockup}
       searchParam={searchParamRaw}
-      ordered={(info?.examples as (keyof typeof data.examples)[]) || []}
+      ordered={
+        (info?.examples as (keyof typeof data.examples)[]) ||
+        sortExamples(Object.keys(data?.examples || {}))
+      }
       componentName={componentName as string}
       propsTable={props}
     />

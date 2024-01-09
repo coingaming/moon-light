@@ -5,11 +5,16 @@ export default function useProps(
 ): Record<string, PropsTableProp[]> | undefined {
   if (!data) return undefined;
   try {
-    return JSON.parse(data)
+    const propsData = JSON.parse(data);
+
+    if (!Array.isArray(propsData)) {
+      return undefined;
+    }
+    return propsData
       .map((item: PropsTableJSON) => {
         return item;
       })
-      ?.reduce?.(
+      .reduce(
         (obj: any, item: PropsTableJSON) =>
           Object.assign(obj, { [item.name]: item.props }),
         {},
