@@ -1,3 +1,9 @@
+---
+title: TagsInput
+tags: ["IN PROGRESS", "ARIA", "RTL"]
+examples: ["Default", "DifferentSizes", "States", "UppercaseLowercase"]
+---
+
 TagsInput is an extension of the text input fields. This component allows users to both enter text and capture input results and display them as well.
 <br />
 These selected text entries are being displayed as tags. Tags represent a set of interactive keywords that help organize and categorize objects.

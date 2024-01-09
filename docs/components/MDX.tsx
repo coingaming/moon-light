@@ -54,6 +54,9 @@ export function MDX({
       {...rest}
       source={markdown}
       components={rest.components || defaultComponents}
+      options={{
+        parseFrontmatter: true,
+      }}
     />
   );
 }
