@@ -58,7 +58,7 @@ export async function processFiles(
       const _hasSubfolders = await hasSubfolders(filePath);
       if (_hasSubfolders) {
         result[file] = await processFiles(filePath, processCallback);
-      } else {
+      } else if (!file.startsWith("[...")) {
         result[file] = await processCallback(filePath);
       }
     }
@@ -68,6 +68,9 @@ export async function processFiles(
       const fileNameWithoutExtension = path.parse(fileName).name;
 
       if (extname === ".md") {
+        result[fileNameWithoutExtension] = "string";
+      }
+      if (extname === ".json") {
         result[fileNameWithoutExtension] = "string";
       }
     }

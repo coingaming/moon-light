@@ -15,3 +15,8 @@ export interface PropsTableProp {
   /* The field required can be used only for required prop */
   required?: boolean;
 }
+
+export interface PropsTableJSON {
+  name: string;
+  props: PropsTableProp[];
+}

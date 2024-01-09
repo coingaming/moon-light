@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Alert",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Alert.Title",
+    "props": [
+      {
+        "name": "children",
+        "description": "Children content",
+        "type": ["React.ReactNode"]
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Alert.Message",
+    "props": [
+      {
+        "name": "children",
+        "description": "Children content",
+        "type": ["React.ReactNode"]
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for customization"
+      }
+    ]
+  }
+]
