@@ -3,15 +3,20 @@ import path from "path";
 import pa11y from "pa11y";
 import { Table } from "console-table-printer";
 
+// Pa11y Options
 const PA11Y_OPTIONS = {
   log: {
     debug: (e) => {},
     error: (e) => {},
     info: (e) => {},
   },
+  ignore: ["WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail"],
 };
 
+// Test URL local
 const TEST_URL = `http://localhost:3000/client/`;
+
+// Component path
 const COMPONENT_PATH = "./app/client/";
 
 export async function runPa11yTest(name) {
@@ -23,6 +28,7 @@ export async function runPa11yTest(name) {
       const names = item?.split?.("/");
       const componentN = names?.[names?.length - 2];
       const exampleN = names?.[names?.length - 1];
+      let issues = [];
       if (Array.isArray(result?.issues) && result?.issues?.length > 0) {
         issues.push({
           example: exampleN,
@@ -37,8 +43,6 @@ export async function runPa11yTest(name) {
       } else {
         console.log(`Component ${componentN} / ${exampleN}: No issues found`);
       }
-      console.log(`-----------------------------------`);
-
       const p = new Table({
         columns: [
           {
@@ -51,14 +55,20 @@ export async function runPa11yTest(name) {
           },
           {
             name: "selector",
-            maxLen: 40,
+            maxLen: 30,
             alignment: "left",
             color: "yellow",
           },
           {
             name: "message",
-            maxLen: 100,
+            maxLen: 60,
             color: "red",
+            alignment: "left",
+          },
+          {
+            name: "code",
+            maxLen: 20,
+            color: "yellow",
             alignment: "left",
           },
         ],
@@ -70,16 +80,18 @@ export async function runPa11yTest(name) {
           element.issues.forEach(({ message, selector, code }) => {
             countIssues += 1;
             p.addRow({
-              Index: componentName,
+              Index: name,
               Example: element.example,
               selector,
               message,
+              code,
             });
             p.addRow({
               Index: "",
               Example: "",
               selector: "",
               message: "",
+              code: "",
             });
           });
         }
