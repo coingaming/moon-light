@@ -232,6 +232,7 @@ export type Examples = {
     "dropdown": {
       "description": "string",
       "descriptions": {
+        "CustomMenuWidth": "string",
         "Default": "string",
         "HiddenInput": "string",
         "InsetMultiSelect": "string",
@@ -244,6 +245,7 @@ export type Examples = {
         "TriggerElements": "string"
       },
       "examples": {
+        "CustomMenuWidth": "string",
         "Default": "string",
         "HiddenInput": "string",
         "InsetMultiSelect": "string",
@@ -254,6 +256,13 @@ export type Examples = {
         "Select": "string",
         "SelectStates": "string",
         "TriggerElements": "string"
+      },
+      "examplesAnatomy": {
+        "Default": "string",
+        "InsetMultiSelect": "string",
+        "InsetSelect": "string",
+        "MultiSelect": "string",
+        "Select": "string"
       }
     },
     "loader": {

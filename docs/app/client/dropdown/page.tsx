@@ -36,7 +36,12 @@ export default async function DropdownPage(request: {
 }) {
   const {
     client: {
-      dropdown: { description, descriptions: exampleDescriptions, examples },
+      dropdown: {
+        description,
+        descriptions: exampleDescriptions,
+        examples,
+        examplesAnatomy,
+      },
     },
   } = await getExamples();
 
@@ -78,6 +83,7 @@ export default async function DropdownPage(request: {
             description,
             descriptions: exampleDescriptions,
             examples,
+            examplesAnatomy,
           }}
           data={ordered}
         />

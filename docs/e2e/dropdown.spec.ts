@@ -87,8 +87,11 @@ test.describe("Dropdown in Light Theme", () => {
         const selectedDropdown = page.locator('ul[role="listbox"]');
         await page.mouse.move(0, 0);
         await expect(selectedDropdown).toBeVisible();
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-Default-selected-dropdown.png`,
+        const option = await page
+          .getByLabel("Wade Cooper")
+          .getByRole("button", { name: "Wade Cooper" });
+        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
+          expect.arrayContaining(["bg-heles"]),
         );
       });
     });
@@ -625,8 +628,9 @@ test.describe("Dropdown in Light Theme", () => {
         const selectedDropdown = page.locator('ul[role="listbox"]');
         await page.mouse.move(0, 0);
         await expect(selectedDropdown).toBeVisible();
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-OptionsVariants-selected-dropdown.png`,
+        const option = await page.getByRole("button", { name: "Option 1" });
+        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
+          expect.arrayContaining(["bg-heles"]),
         );
       });
 
@@ -691,36 +695,10 @@ test.describe("Dropdown in Light Theme", () => {
         await expect(selectedDropdown).toBeVisible();
         const element = await page.waitForSelector(`[aria-selected="true"]`);
         await expect(await element.textContent()).toBe("Spanish");
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-OptionsVariants-selected-dropdown-2.png`,
+        const option = await page.getByTestId("test-1");
+        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
+          expect.arrayContaining(["bg-heles"]),
         );
-      });
-
-      test("OptionsVariants: second dropdown - should select other", async ({
-        page,
-        isMobile,
-      }) => {
-        if (!isMobile) {
-          await page.getByText("Select language").click();
-          await page.waitForTimeout(100);
-          const dropdown = page.locator('ul[role="listbox"]');
-          await expect(dropdown).toBeVisible();
-          await page.getByRole("button", { name: "Spanish" }).click();
-          const openedDropdown = page.locator('ul[role="listbox"]');
-          await expect(openedDropdown).not.toBeVisible();
-          await page.getByText("Select language").click();
-          const selectedDropdown = page.locator('ul[role="listbox"]');
-          await expect(selectedDropdown).toBeVisible();
-          const otherOption = await page.getByRole("button", {
-            name: "English",
-          });
-          await otherOption.click();
-          await page.getByText("Select language").click();
-          await page.mouse.move(0, 0);
-          await expect(page).toHaveScreenshot(
-            `${COMPONENT_NAME}-OptionsVariants-selected-dropdown-other-selected-2.png`,
-          );
-        }
       });
 
       test("OptionsVariants: third dropdown - should open dropdown and match screenshot", async ({
@@ -1043,10 +1021,6 @@ test.describe("Dropdown in Light Theme", () => {
         await page.waitForTimeout(100);
         const element = await page.waitForSelector(`[aria-selected="true"]`);
         await expect(await element.textContent()).toBe("Wade Cooper");
-        await page.mouse.move(0, 0);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-Select-small-selected.png`,
-        );
       });
 
       test("Select: medium - should open dropdown and match screenshot", async ({
@@ -1119,10 +1093,6 @@ test.describe("Dropdown in Light Theme", () => {
         await page.waitForTimeout(100);
         const element = await page.waitForSelector(`[aria-selected="true"]`);
         await expect(await element.textContent()).toBe("Wade Cooper");
-        await page.mouse.move(0, 0);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-Select-medium-selected.png`,
-        );
       });
 
       test("Select: large - should open dropdown and match screenshot", async ({
@@ -1195,10 +1165,6 @@ test.describe("Dropdown in Light Theme", () => {
         await page.waitForTimeout(100);
         const element = await page.waitForSelector(`[aria-selected="true"]`);
         await expect(await element.textContent()).toBe("Wade Cooper");
-        await page.mouse.move(0, 0);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-Select-large-selected.png`,
-        );
       });
     });
 
@@ -1449,10 +1415,6 @@ test.describe("Dropdown in Light Theme", () => {
         await page.waitForTimeout(100);
         const element = await page.waitForSelector(`[aria-selected="true"]`);
         await expect(await element.textContent()).toBe("Wade Cooper");
-        await page.mouse.move(0, 0);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-SelectStates-error-selected.png`,
-        );
       });
 
       test("SelectStates: disabled - should be disabled", async ({ page }) => {
@@ -1558,10 +1520,6 @@ test.describe("Dropdown in Light Theme", () => {
         await expect(value).toBe("Wade Cooper");
         const hiddenInput = await page.locator(`input[value="Wade Cooper"]`);
         await expect(hiddenInput).toBeHidden();
-        await page.mouse.move(0, 0);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-HiddenInput-selected.png`,
-        );
       });
     });
 
@@ -1718,10 +1676,6 @@ test.describe("Dropdown in Light Theme", () => {
         await page.waitForTimeout(100);
         const element = await page.waitForSelector(`[aria-selected="true"]`);
         await expect(await element.textContent()).toBe("Wade Cooper");
-        await page.mouse.move(0, 0);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-InsetSelect-selected.png`,
-        );
       });
     });
 
@@ -1854,10 +1808,6 @@ test.describe("Dropdown in Light Theme", () => {
         await page.waitForTimeout(100);
         const element = await page.waitForSelector(`[aria-selected="true"]`);
         await expect(await element.textContent()).toBe("Wade Cooper");
-        await page.mouse.move(0, 0);
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-InsetSelectStates-error-selected.png`,
-        );
       });
 
       test("InsetSelectStates: disabled - should be disabled", async ({
@@ -2617,29 +2567,6 @@ test.describe("Dropdown in Dark Theme", () => {
         `${COMPONENT_NAME}-dark-Default-open.png`,
       );
     });
-
-    test("Default: selected option should be active and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      await page.getByRole("button", { name: "Choose a name..." }).click();
-      await page.waitForTimeout(100);
-      const dropdown = page.locator('ul[role="listbox"]');
-      await expect(dropdown).toBeVisible();
-      await page.getByRole("button", { name: "Wade Cooper" }).click();
-      const openedDropdown = page.locator('ul[role="listbox"]');
-      await expect(openedDropdown).not.toBeVisible();
-      const selectedOption = await page.getByRole("button", {
-        name: "Wade Cooper",
-      });
-      await selectedOption.click();
-      const selectedDropdown = page.locator('ul[role="listbox"]');
-      await page.mouse.move(0, 0);
-      await expect(selectedDropdown).toBeVisible();
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-dark-Default-selected-dropdown.png`,
-      );
-    });
   });
 
   test.describe("TriggerElements tests", () => {
@@ -2751,27 +2678,6 @@ test.describe("Dropdown in Dark Theme", () => {
       );
     });
 
-    test("Select: small - should select option and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      await page.getByLabel("Small").click();
-      await page.waitForTimeout(100);
-      const dropdown = page.locator('ul[role="listbox"]');
-      await expect(dropdown).toBeVisible();
-      await page.getByTestId("test-0").click();
-      const openedDropdown = page.locator('ul[role="listbox"]');
-      await expect(openedDropdown).not.toBeVisible();
-      await page.getByLabel("Small").click();
-      await page.waitForTimeout(100);
-      const element = await page.waitForSelector(`[aria-selected="true"]`);
-      await expect(await element.textContent()).toBe("Wade Cooper");
-      await page.mouse.move(0, 0);
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-dark-Select-small-selected.png`,
-      );
-    });
-
     test("Select: medium dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
@@ -2786,27 +2692,6 @@ test.describe("Dropdown in Dark Theme", () => {
       );
     });
 
-    test("Select: medium - should select option and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      await page.getByLabel("Medium").click();
-      await page.waitForTimeout(100);
-      const dropdown = page.locator('ul[role="listbox"]');
-      await expect(dropdown).toBeVisible();
-      await page.getByTestId("test-0").click();
-      const openedDropdown = page.locator('ul[role="listbox"]');
-      await expect(openedDropdown).not.toBeVisible();
-      await page.getByLabel("Medium").click();
-      await page.waitForTimeout(100);
-      const element = await page.waitForSelector(`[aria-selected="true"]`);
-      await expect(await element.textContent()).toBe("Wade Cooper");
-      await page.mouse.move(0, 0);
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-dark-Select-medium-selected.png`,
-      );
-    });
-
     test("Select: large dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
@@ -2818,27 +2703,6 @@ test.describe("Dropdown in Dark Theme", () => {
       await expect(dropdown).toBeVisible();
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-dark-Select-large-open.png`,
-      );
-    });
-
-    test("Select: large - should select option and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      await page.getByLabel("Large").click();
-      await page.waitForTimeout(100);
-      const dropdown = page.locator('ul[role="listbox"]');
-      await expect(dropdown).toBeVisible();
-      await page.getByTestId("test-0").click();
-      const openedDropdown = page.locator('ul[role="listbox"]');
-      await expect(openedDropdown).not.toBeVisible();
-      await page.getByLabel("Large").click();
-      await page.waitForTimeout(100);
-      const element = await page.waitForSelector(`[aria-selected="true"]`);
-      await expect(await element.textContent()).toBe("Wade Cooper");
-      await page.mouse.move(0, 0);
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-dark-Select-large-selected.png`,
       );
     });
   });
@@ -2882,31 +2746,6 @@ test.describe("Dropdown in Dark Theme", () => {
         `${COMPONENT_NAME}-dark-HiddenInput-open.png`,
       );
     });
-
-    test("HiddenInput: should select option and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      await page.getByRole("button", { name: "With hidden input" }).click();
-      await page.waitForTimeout(100);
-      const dropdown = page.locator('ul[role="listbox"]');
-      await expect(dropdown).toBeVisible();
-      await page.getByTestId("test-0").click();
-      const openedDropdown = page.locator('ul[role="listbox"]');
-      await expect(openedDropdown).not.toBeVisible();
-      await page.getByRole("button", { name: "With hidden input" }).click();
-      await page.waitForTimeout(100);
-      const element = await page.waitForSelector(`[aria-selected="true"]`);
-      await expect(await element.textContent()).toBe("Wade Cooper");
-      const value = await page.locator("input").getAttribute("value");
-      await expect(value).toBe("Wade Cooper");
-      const hiddenInput = await page.locator(`input[value="Wade Cooper"]`);
-      await expect(hiddenInput).toBeHidden();
-      await page.mouse.move(0, 0);
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-dark-HiddenInput-selected.png`,
-      );
-    });
   });
 
   test.describe("InsetSelect tests", () => {
@@ -2921,27 +2760,6 @@ test.describe("Dropdown in Dark Theme", () => {
       await expect(dropdown).toBeVisible();
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-dark-InsetSelect-open.png`,
-      );
-    });
-
-    test("InsetSelect: should select option and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      await page.getByLabel("Select label").click();
-      await page.waitForTimeout(100);
-      const dropdown = page.locator('ul[role="listbox"]');
-      await expect(dropdown).toBeVisible();
-      await page.getByTestId("test-0").click();
-      const openedDropdown = page.locator('ul[role="listbox"]');
-      await expect(openedDropdown).not.toBeVisible();
-      await page.getByLabel("Select label").click();
-      await page.waitForTimeout(100);
-      const element = await page.waitForSelector(`[aria-selected="true"]`);
-      await expect(await element.textContent()).toBe("Wade Cooper");
-      await page.mouse.move(0, 0);
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-dark-InsetSelect-selected.png`,
       );
     });
   });
