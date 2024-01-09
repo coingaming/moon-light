@@ -1,4 +1,3 @@
-import { PLAYWRIGHT_DEFAULT_TIMEOUT } from "@/constants";
 import { test, Page } from "@playwright/test";
 
 export async function setRtl(page: Page) {
@@ -28,8 +27,9 @@ export async function setDarkTheme(page: Page) {
 export function setupTest(name: string) {
   test.beforeEach(async ({ page }, testInfo) => {
     const example = testInfo.title?.split(":")?.[0] ?? "Default";
-    await page.goto(`/client/${name}/${example}`);
-    await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
+    await page.goto(`/client/${name}/${example}`, {
+      waitUntil: "networkidle",
+    });
   });
   test.afterEach(async ({ page }) => {
     // Cleanup from route
