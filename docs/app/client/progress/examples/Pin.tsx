@@ -2,10 +2,10 @@
 
 import { Progress } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const Pin = () => (
   <Progress value={75}>
     <Progress.Pin />
   </Progress>
 );
 
-export default Example;
+export default Pin;

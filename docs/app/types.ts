@@ -231,14 +231,20 @@ export type Examples = {
     "progress": {
       "description": "string",
       "descriptions": {
+        "Customization": "string",
         "Default": "string",
+        "Pin": "string",
         "Size": "string",
-        "Value": "string"
+        "Value": "string",
+        "WithLabels": "string"
       },
       "examples": {
+        "Customization": "string",
         "Default": "string",
+        "Pin": "string",
         "Size": "string",
-        "Value": "string"
+        "Value": "string",
+        "WithLabels": "string"
       }
     },
     "tabs": {

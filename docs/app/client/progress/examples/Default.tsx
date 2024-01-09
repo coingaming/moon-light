@@ -2,6 +2,6 @@
 
 import { Progress } from "@heathmont/moon-core-tw";
 
-const Example = () => <Progress />;
+const Default = () => <Progress />;
 
-export default Example;
+export default Default;

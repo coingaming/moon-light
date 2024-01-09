@@ -8,7 +8,7 @@ export const props: PropsTableProp[] = [
   },
   {
     name: "size",
-    type: ["6xs | 5xs | 4xs | 3xs | 2xs"],
+    type: ["6xs", "5xs", "4xs", "3xs", "2xs"],
     defaultState: "2xs",
     description: "Size of Progress",
   },
@@ -16,7 +16,7 @@ export const props: PropsTableProp[] = [
     name: "value",
     type: ["number"],
     defaultState: "0",
-    description: "Value of Progress in percent",
+    description: "Value of Progress in percent (%)",
   },
 ];
 

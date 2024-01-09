@@ -2,7 +2,7 @@
 
 import { Progress } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const Size = () => (
   <>
     <Progress size="6xs" value={75} />
     <Progress size="5xs" value={75} />
@@ -12,4 +12,4 @@ const Example = () => (
   </>
 );
 
-export default Example;
+export default Size;

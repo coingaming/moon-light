@@ -2,7 +2,7 @@
 
 import { Progress } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const Value = () => (
   <>
     <Progress value={33} />
     <Progress value={66} />
@@ -10,4 +10,4 @@ const Example = () => (
   </>
 );
 
-export default Example;
+export default Value;

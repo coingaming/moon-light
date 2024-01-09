@@ -2,7 +2,7 @@
 
 import { Progress } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const WithLabels = () => (
   <div className="flex flex-col w-full gap-1 text-moon-10-caption font-medium uppercase">
     <div className="flex gap-1 justify-between">
       <span>0%</span>
@@ -13,4 +13,4 @@ const Example = () => (
   </div>
 );
 
-export default Example;
+export default WithLabels;
