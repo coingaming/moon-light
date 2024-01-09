@@ -2,7 +2,7 @@
 
 import { Group } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const Options = () => (
   <div className="flex flex-col 2xl:flex-row gap-6 justify-center items-center">
     <div className="flex flex-col gap-6 justify-center items-justify">
       <Group orientation="horizontal">
@@ -79,4 +79,4 @@ const Example = () => (
   </div>
 );
 
-export default Example;
+export default Options;

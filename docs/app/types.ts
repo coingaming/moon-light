@@ -219,12 +219,14 @@ export type Examples = {
       "descriptions": {
         "Default": "string",
         "Direction": "string",
+        "Options": "string",
         "Size": "string",
         "States": "string"
       },
       "examples": {
         "Default": "string",
         "Direction": "string",
+        "Options": "string",
         "Size": "string",
         "States": "string"
       }

@@ -3,7 +3,7 @@
 import { Alert } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
-const Example = () => (
+const Customization = () => (
   <>
     <Alert>
       <Alert.Message>
@@ -29,4 +29,4 @@ const Example = () => (
   </>
 );
 
-export default Example;
+export default Customization;

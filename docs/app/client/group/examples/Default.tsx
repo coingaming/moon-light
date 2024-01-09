@@ -2,7 +2,7 @@
 
 import { Group } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const Default = () => (
   <Group>
     <Group.FirstInput placeholder="First input" />
     <Group.LastSelect>
@@ -14,4 +14,4 @@ const Example = () => (
   </Group>
 );
 
-export default Example;
+export default Default;

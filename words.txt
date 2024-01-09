@@ -7,6 +7,7 @@ bombay
 bottomsheet
 bulma
 Clintock
+combobox
 compat
 corepack
 Corepack
@@ -23,6 +24,8 @@ goten
 headlessui
 heathmont
 hub88
+insetinput
+insetnativeselect
 jiren
 Kallavus
 krillin
@@ -32,6 +35,7 @@ libc
 livecasino
 moonDesign
 nappa
+nativeselect
 navigations
 networkidle
 pixelmatch
@@ -45,7 +49,3 @@ tradeart
 viewports
 webp
 whis
-insetinput
-nativeselect
-insetnativeselect
-combobox
