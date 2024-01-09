@@ -1,6 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
 
+const TYPES_GENERATION = ["example"];
+
 function generateFilesContent(component, name, title) {
   const _documentation = `---
 title: ${title || name}
@@ -63,51 +65,49 @@ async function writeToFile({ contentToWrite, path }) {
 }
 
 export async function generateFiles(arg, options) {
-  let valid = true;
-  if (!["example"].includes(arg)) {
-    valid = false;
+  if (!TYPES_GENERATION.includes(arg)) {
     console.log("You should select a valid type for the generation");
+    return;
   }
   if (
-    !(typeof options.component === "string") ||
-    !(typeof options.name === "string")
+    typeof options.component !== "string" ||
+    typeof options.name !== "string"
   ) {
-    valid = false;
-    program.help();
     console.log("[!] name and component is mandatory");
+    return;
   }
 
-  if (valid) {
+  try {
+    fs.stat(`docs/app/client/${options.component}`);
+  } catch (err) {
+    console.log(`[!!] Component ${options.component} not exists`);
+    return;
+  }
+
+  const filesContent = generateFilesContent(
+    options.component,
+    options.name,
+    options.title,
+  );
+  if (typeof options.title === "string" && options.title?.length > 0) {
+    /**
+     * Documentation
+     */
     try {
-      fs.stat(`docs/app/client/${options.component}`);
+      await fs.access(filesContent.documentation.path, fs.constants.F_OK);
+      console.log(
+        `[!!] File ${filesContent.documentation.path} already exists`,
+      );
     } catch (err) {
-      valid = false;
-      console.log(`[!!] Component ${options.component} not exists`);
+      console.log(`[!] Creating ${filesContent.documentation.path}...`);
+      await writeToFile({
+        contentToWrite: filesContent.documentation.content,
+        path: filesContent.documentation.path,
+      });
     }
-  }
-
-  if (valid) {
-    const filesContent = generateFilesContent(
-      options.component,
-      options.name,
-      options.title,
-    );
-    if (typeof options.title === "string" && options.title?.length > 0) {
-      // Documentation
-      try {
-        await fs.access(filesContent.documentation.path, fs.constants.F_OK);
-        console.log(
-          `[!!] File ${filesContent.documentation.path} already exists`,
-        );
-      } catch (err) {
-        console.log(`[!] Creating ${filesContent.documentation.path}...`);
-        await writeToFile({
-          contentToWrite: filesContent.documentation.content,
-          path: filesContent.documentation.path,
-        });
-      }
-    }
-    // Component
+    /**
+     * Example
+     */
     try {
       await fs.access(filesContent.example.path, fs.constants.F_OK);
       console.log(`[!!] File ${filesContent.example.path} already exists`);
@@ -119,7 +119,9 @@ export async function generateFiles(arg, options) {
       });
     }
 
-    // e2e
+    /**
+     * E2E
+     */
     try {
       await fs.access(filesContent.e2e.path, fs.constants.F_OK);
       console.log(`[!!] Adding to ${filesContent.e2e.path} e2e test`);
