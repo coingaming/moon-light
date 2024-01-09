@@ -1,6 +1,5 @@
 import { Tag } from "@heathmont/moon-base-tw";
-
-export type TagTypes = "ARIA" | "RTL" | "IN PROGRESS";
+import type { TagTypes } from "@/types";
 
 export interface TitleTagsProps {
   tags: TagTypes[];
@@ -22,7 +21,7 @@ const textColors: Record<TagTypes, string> = {
 export function TitleTags({ tags = [], className = "" }: TitleTagsProps) {
   return (
     <div className={`flex gap-2 ${className}`}>
-      {tags.map((tag: TagTypes) => (
+      {tags?.map?.((tag: TagTypes) => (
         <Tag
           key={tag}
           size="2xs"

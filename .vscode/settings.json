@@ -6,5 +6,6 @@
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true
   },
-  "prettier.printWidth": 2
+  "prettier.printWidth": 2,
+  "eslint.packageManager": "pnpm"
 }
