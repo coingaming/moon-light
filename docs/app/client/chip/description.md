@@ -1,18 +1,6 @@
 ---
 title: Chip
 tags: ["ARIA", "RTL"]
-examples:
-  [
-    "Default",
-    "Sizes",
-    "Variants",
-    "Active",
-    "Disabled",
-    "Icons",
-    "IsStroke",
-    "WithOnClick",
-    "Customization",
-  ]
 ---
 
 Chip component is typically used to filter or trigger actions in clickable format.

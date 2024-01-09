@@ -1,8 +1,21 @@
+const DEFAULT_ORDER = ["Default", "Sizes", "Disabled"];
+
 export default function sortExamples(arr: string[]): string[] {
-  return arr.sort((a: string, b: string) => {
-    if (["Default", "Sizes", "Disabled"].includes(a)) {
-      return -1;
-    }
-    return a > b ? -1 : 1;
+  let firsts: string[] = [];
+  DEFAULT_ORDER.forEach((name: string) => {
+    if (arr.includes(name)) firsts.push(name);
   });
+  let _arrCopy = [
+    ...arr.filter((item: string) => {
+      if (DEFAULT_ORDER.includes(item) || item === "Customization") {
+        return false;
+      }
+      return true;
+    }),
+  ];
+  return [
+    ...firsts,
+    ..._arrCopy.sort((a: string, b: string) => a.localeCompare(b)),
+    ...(arr.includes("Customization") ? ["Customization"] : []),
+  ];
 }
