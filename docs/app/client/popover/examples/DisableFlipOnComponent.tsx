@@ -34,7 +34,7 @@ const Content: React.FC = () => (
       </span>
       <MenuItem.MultiTitle
         title="Promotions"
-        text={<span> Your favourite games</span>}
+        text={<span> Your favorite games</span>}
       />
     </MenuItem>
     <MenuItem>
@@ -43,7 +43,7 @@ const Content: React.FC = () => (
       </span>
       <MenuItem.MultiTitle
         title="Providers"
-        text={<span> Your favourite games</span>}
+        text={<span> Your favorite games</span>}
       />
     </MenuItem>
   </>

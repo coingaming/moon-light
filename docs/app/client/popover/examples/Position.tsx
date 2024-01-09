@@ -38,10 +38,12 @@ const Example = () => {
 
 const Content: React.FC = () => (
   <p className="p-4 text-moon-14">
+    {/* cSpell:disable */}
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
     consequat.
+    {/* cSpell:enable */}
   </p>
 );
 export default Example;
