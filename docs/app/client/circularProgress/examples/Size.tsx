@@ -2,7 +2,7 @@
 
 import { CircularProgress } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const Size = () => (
   <>
     <CircularProgress size="2xs" value={75} />
     <CircularProgress size="xs" value={75} />
@@ -12,4 +12,4 @@ const Example = () => (
   </>
 );
 
-export default Example;
+export default Size;

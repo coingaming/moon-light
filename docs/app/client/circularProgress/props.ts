@@ -8,7 +8,7 @@ export const props: PropsTableProp[] = [
   },
   {
     name: "size",
-    type: ["2xs | xs | sm | md | lg"],
+    type: ["2xs", "xs", "sm", "md", "lg"],
     defaultState: "2xs",
     description: "Size of CircularProgress",
   },
@@ -16,6 +16,6 @@ export const props: PropsTableProp[] = [
     name: "value",
     type: ["number"],
     defaultState: "0",
-    description: "Value of CircularProgress in %",
+    description: "Value of CircularProgress in percent (%)",
   },
 ];

@@ -2,6 +2,6 @@
 
 import { CircularProgress } from "@heathmont/moon-core-tw";
 
-const Example = () => <CircularProgress />;
+const Default = () => <CircularProgress />;
 
-export default Example;
+export default Default;
