@@ -263,7 +263,8 @@ export type Examples = {
         "InsetSelect": "string",
         "MultiSelect": "string",
         "Select": "string"
-      }
+      },
+      "props": "string"
     },
     "loader": {
       "description": "string",

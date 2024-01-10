@@ -6,7 +6,7 @@ on:
     branches: [main, master]
 jobs:
   build:
-    name: "Build docs"
+    name: "Build & Lighthouse"
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.40.0-jammy
@@ -26,3 +26,9 @@ jobs:
         run: pnpm run build
       - name: Build documentation
         run: pnpm run doc build
+      - name: Lighthouse score
+        run: lhci collect
+      - name: Lighthouse score upload
+        run: lhci upload
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

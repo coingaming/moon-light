@@ -29,6 +29,7 @@ Kallavus
 krillin
 lab
 Letraset
+lhci
 libc
 listbox
 livecasino
@@ -38,6 +39,7 @@ navigations
 networkidle
 pixelmatch
 popo
+preinstall
 progressbar
 raditz
 sportsbet
