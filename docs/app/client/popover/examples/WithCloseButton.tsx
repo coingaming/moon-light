@@ -11,7 +11,7 @@ type RenderProps = {
 const Example = () => {
   return (
     <Popover>
-      <Popover.Trigger>
+      <Popover.Trigger data-testid="popover-trigger">
         <Button>Toggle Popover</Button>
       </Popover.Trigger>
       <Popover.Panel className="p-2 flex flex-col gap-1">
@@ -60,7 +60,9 @@ const Content: React.FC<RenderProps> = ({ open, close }) => {
           text={<span> Your favorite games</span>}
         />
       </MenuItem>
-      <Button onClick={close}>Close</Button>
+      <Button onClick={close} data-testid="popover-close-btn">
+        Close
+      </Button>
     </>
   );
 };

@@ -8,7 +8,7 @@ const Example = () => {
   return (
     <div className="flex align-middle justify-around items-center w-full gap-2">
       <Popover>
-        <Popover.Trigger>
+        <Popover.Trigger data-testid="popover-trigger">
           <Button>Button</Button>
         </Popover.Trigger>
         <Popover.Panel className="p-2 flex flex-col gap-1">
@@ -17,10 +17,11 @@ const Example = () => {
       </Popover>
 
       <Popover position="bottom-end">
-        <Popover.Trigger>
+        <Popover.Trigger data-testid="popover-trigger-arrow">
           <Chip
             iconOnly={<ControlsChevronDown className="text-moon-24" />}
             aria-label="Trigger"
+            data-testid="popover-trigger-arrow-inner"
           />
         </Popover.Trigger>
         <Popover.Panel className="p-2 flex flex-col gap-1">
@@ -29,8 +30,11 @@ const Example = () => {
       </Popover>
 
       <Popover position="bottom-start">
-        <Popover.Trigger>
-          <span className="text-moon-14 text-trunks cursor-pointer hover:text-piccolo">
+        <Popover.Trigger data-testid="popover-trigger-text">
+          <span
+            className="text-moon-14 text-trunks cursor-pointer hover:text-piccolo"
+            data-testid="popover-trigger-text-inner"
+          >
             Open popover
           </span>
         </Popover.Trigger>
@@ -43,7 +47,7 @@ const Example = () => {
 };
 
 const Content: React.FC = () => (
-  <div>
+  <div data-testid="popover-content">
     <MenuItem>Tournaments</MenuItem>
     <MenuItem>Promotions</MenuItem>
     <MenuItem>Providers</MenuItem>

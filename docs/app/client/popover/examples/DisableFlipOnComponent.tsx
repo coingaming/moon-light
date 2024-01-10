@@ -7,7 +7,7 @@ import { OtherFrame } from "@heathmont/moon-icons-tw";
 const Example = () => {
   return (
     <Popover autoPositionDisable={true}>
-      <Popover.Trigger>
+      <Popover.Trigger data-testid="popover-trigger">
         <Button>Toggle Popover</Button>
       </Popover.Trigger>
       <Popover.Panel className="p-2 flex flex-col gap-1">

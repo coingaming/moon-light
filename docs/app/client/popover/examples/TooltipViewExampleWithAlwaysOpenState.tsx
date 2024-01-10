@@ -6,7 +6,7 @@ import { Popover, Chip } from "@heathmont/moon-core-tw";
 const Example = () => {
   return (
     <Popover position="top">
-      <Popover.Trigger>
+      <Popover.Trigger data-testid="popover-trigger">
         <Chip>Trigger</Chip>
       </Popover.Trigger>
       <Popover.Panel

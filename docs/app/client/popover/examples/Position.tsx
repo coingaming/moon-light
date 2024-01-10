@@ -7,7 +7,7 @@ const Example = () => {
   return (
     <div className="flex align-middle justify-around items-center w-full gap-2">
       <Popover position="top">
-        <Popover.Trigger>
+        <Popover.Trigger data-testid="popover-trigger">
           <Button>Top</Button>
         </Popover.Trigger>
         <Popover.Panel>
@@ -16,7 +16,7 @@ const Example = () => {
       </Popover>
 
       <Popover position="right">
-        <Popover.Trigger>
+        <Popover.Trigger data-testid="popover-right-trigger">
           <Button>Right</Button>
         </Popover.Trigger>
         <Popover.Panel>
@@ -25,7 +25,7 @@ const Example = () => {
       </Popover>
 
       <Popover position="left">
-        <Popover.Trigger>
+        <Popover.Trigger data-testid="popover-left-trigger">
           <Button>Left</Button>
         </Popover.Trigger>
         <Popover.Panel>
