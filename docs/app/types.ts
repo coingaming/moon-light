@@ -198,6 +198,21 @@ export type Examples = {
       },
       "props": "string"
     },
+    "circularProgress": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "Size": "string",
+        "Value": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "Size": "string",
+        "Value": "string"
+      }
+    },
     "drawer": {
       "description": "string",
       "descriptions": {
