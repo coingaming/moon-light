@@ -25,7 +25,7 @@ export const ExampleSection = async ({
 }: Props) => (
   <div className="flex flex-col gap-4 relative">
     <HeaderSection title={title} description={description} href={href} />
-    <div className="bg-gohan rounded-moon-i-sm overflow-hidden mt-2">
+    <div className="bg-gohan rounded-moon-i-sm mt-2">
       <ComponentPreview component={component} />
       <CodePreview code={code} />
     </div>

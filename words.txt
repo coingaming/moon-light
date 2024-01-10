@@ -40,12 +40,14 @@ navigations
 networkidle
 pixelmatch
 popo
+progressbar
 raditz
 sportsbet
 tabpanel
 tagsinput
 testid
 tradeart
+valuenow
 viewports
 webp
 whis
