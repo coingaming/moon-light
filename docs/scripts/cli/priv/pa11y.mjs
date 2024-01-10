@@ -13,7 +13,7 @@ const PA11Y_OPTIONS = {
   ignore: [
     /**
       G18: Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text.
-      Ignoring this because the relevant issue has been deemed non-critical ...
+      Ignoring this, as contrast depends on colors and is an aspect we shouldn't take in account in our examination, is a responsibility of design
     */
     "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
   ],
