@@ -30,7 +30,6 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@lhci/cli": "^0.13.0",
     "@playwright/test": "^1.40.0",
     "@types/node": "^20",
     "@types/react": "^18",
