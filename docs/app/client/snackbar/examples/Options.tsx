@@ -26,11 +26,11 @@ const Example = () => {
       <div>
         <Button
           variant="outline"
-          onClick={() => openSnackbarHandler("mutliline")}
+          onClick={() => openSnackbarHandler("multiline")}
         >
           Multi Line
         </Button>
-        <Snackbar isOpen={snackbar === "mutliline"} onOpenChange={setSnackbar}>
+        <Snackbar isOpen={snackbar === "multiline"} onOpenChange={setSnackbar}>
           <Snackbar.Content>
             <Snackbar.Message>Snackbar message.</Snackbar.Message>
             <Snackbar.Message>
