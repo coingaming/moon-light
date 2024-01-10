@@ -11,6 +11,7 @@ import accordion from "../app/client/accordion/accordion.webp";
 import alert from "../app/client/alert/alert.webp";
 import drawer from "../app/client/drawer/drawer.webp";
 import checkbox from "../app/client/checkbox/checkbox.webp";
+import tooltip from "../app/client/tooltip/tooltip.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -24,6 +25,7 @@ const images: Record<string, StaticImageData> = {
   alert,
   drawer,
   checkbox,
+  tooltip,
 } as const;
 
 interface Props {
