@@ -265,6 +265,7 @@ export type Examples = {
         "WithCloseButton": "string"
       },
       "props": "string"
+    },
     "progress": {
       "description": "string",
       "descriptions": {
