@@ -35,4 +35,5 @@ export function setupTest(name: string) {
     // Cleanup from route
     // await page.close();
   });
+  test.describe.configure({ mode: "parallel" });
 }
