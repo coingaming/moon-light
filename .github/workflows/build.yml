@@ -27,7 +27,7 @@ jobs:
       - name: Build documentation
         run: pnpm run doc build
       - name: Start documentation
-        run: pnpm run doc start
+        run: pnpm run doc start &
       - name: Lighthouse score
         run: pnpm exec lhci collect --url http://localhost:80
       - name: Lighthouse score upload
