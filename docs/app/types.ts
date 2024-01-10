@@ -243,6 +243,25 @@ export type Examples = {
       },
       "props": "string"
     },
+    "progress": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "Pin": "string",
+        "Size": "string",
+        "Value": "string",
+        "WithLabels": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "Pin": "string",
+        "Size": "string",
+        "Value": "string",
+        "WithLabels": "string"
+      }
+    },
     "tabs": {
       "anatomy": "string",
       "description": "string",
