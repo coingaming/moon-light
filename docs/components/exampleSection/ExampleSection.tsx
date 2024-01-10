@@ -7,6 +7,7 @@ import CodePreview from "./codePreview/CodePreview";
 import ComponentPreview from "./ComponentPreview";
 import HeaderSection from "../HeaderSection";
 import { MDX } from "../MDX";
+import { Anatomy } from "../Anatomy";
 
 type Props = {
   title: string;
@@ -38,6 +39,7 @@ export async function withExamples(
     description?: string;
     descriptions: Record<string, string>;
     examples: Record<string, string>;
+    examplesAnatomy?: Record<string, string>;
   },
   data: string[],
   componentName: string,
@@ -69,12 +71,20 @@ export async function withExamples(
         title={(title as string | undefined) || formatTitle(ex)}
         component={<Component />}
         description={
-          <MDX
-            markdown={descriptions?.[exampleDescriptionKey]}
-            options={{
-              parseFrontmatter: true,
-            }}
-          />
+          <>
+            <MDX
+              markdown={descriptions?.[exampleDescriptionKey]}
+              options={{
+                parseFrontmatter: true,
+              }}
+            />
+            {client?.examplesAnatomy?.[exampleKey] && (
+              <Anatomy
+                className="pt-4"
+                anatomy={client?.examplesAnatomy?.[exampleDescriptionKey]}
+              />
+            )}
+          </>
         }
         code={examples?.[exampleKey]}
       />
@@ -87,6 +97,7 @@ interface ExampleSectionDataProps {
     description?: string;
     descriptions: Record<string, string>;
     examples: Record<string, string>;
+    examplesAnatomy?: Record<string, string>;
   };
   data: string[];
   componentName: string;
