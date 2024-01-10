@@ -20,7 +20,7 @@ export const Select = () => {
   const [option2, setOption2] = useState<People | null>(null);
   const [option3, setOption3] = useState<People | null>(null);
   return (
-    <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
+    <div className="flex flex-col lg:flex-row justify-around items-start w-full gap-2">
       <Dropdown value={option} onChange={setOption} size="sm">
         {({ open }) => (
           <>
