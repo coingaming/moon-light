@@ -27,8 +27,8 @@ jobs:
       - name: Build documentation
         run: pnpm run doc build
       - name: Lighthouse score
-        run: lhci collect
+        run: pnpm exec lhci collect
       - name: Lighthouse score upload
-        run: lhci upload
+        run: pnpm exec lhci upload
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
