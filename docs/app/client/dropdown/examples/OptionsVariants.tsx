@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Dropdown, MenuItem, Chip } from "@heathmont/moon-core-tw";
+import { Dropdown, MenuItem, Button } from "@heathmont/moon-core-tw";
 import {
   OtherWater,
   OtherLightning,
@@ -56,7 +56,14 @@ export const OptionsVariants = () => {
     <div className="flex flex-col lg:flex-row align-middle justify-around items-center w-full gap-2">
       <Dropdown value={option} onChange={setOption}>
         <Dropdown.Trigger>
-          <Chip className="border border-beerus">Sort by</Chip>
+          <Button
+            as="span"
+            role="button"
+            className="border border-beerus"
+            variant="ghost"
+          >
+            Sort by
+          </Button>
         </Dropdown.Trigger>
         <Dropdown.Options>
           {options.map((opt, index) => (
@@ -74,7 +81,14 @@ export const OptionsVariants = () => {
 
       <Dropdown value={language} onChange={setLanguage}>
         <Dropdown.Trigger>
-          <Chip className="border border-beerus">Select language</Chip>
+          <Button
+            as="span"
+            role="button"
+            className="border border-beerus"
+            variant="ghost"
+          >
+            Select language
+          </Button>
         </Dropdown.Trigger>
         <Dropdown.Options>
           {languages.map((opt, index) => (
@@ -96,7 +110,14 @@ export const OptionsVariants = () => {
 
       <Dropdown value={selectedCountry} onChange={setSelectedCountry} multiple>
         <Dropdown.Trigger>
-          <Chip className="border border-beerus">Select countries</Chip>
+          <Button
+            as="span"
+            role="button"
+            className="border border-beerus"
+            variant="ghost"
+          >
+            Select countries
+          </Button>
         </Dropdown.Trigger>
         <Dropdown.Options>
           {countries.map((country, index) => (

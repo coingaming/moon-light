@@ -4,6 +4,7 @@ import { getExamples } from "./getExamples";
 import { GenericExampleTypePartial } from "@/types";
 
 export const preload = (name: string) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   void useGetExample(name);
 };
 

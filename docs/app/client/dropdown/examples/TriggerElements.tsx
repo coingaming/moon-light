@@ -1,11 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Dropdown, MenuItem, Chip, Button } from "@heathmont/moon-core-tw";
-import {
-  ControlsChevronDown,
-  ControlsChevronDownSmall,
-} from "@heathmont/moon-icons-tw";
+import { Dropdown, MenuItem, Button } from "@heathmont/moon-core-tw";
+import { ControlsChevronDown } from "@heathmont/moon-icons-tw";
 
 const people = [
   { name: "Wade Cooper" },
@@ -46,7 +43,9 @@ export const TriggerElements = () => {
       {/** ***** Button ***** */}
       <Dropdown value={option2} onChange={setOption2}>
         <Dropdown.Trigger>
-          <Button>Select name</Button>
+          <Button as="span" role="button">
+            Select name
+          </Button>
         </Dropdown.Trigger>
         <Dropdown.Options>
           {people.map((person, index) => (
@@ -59,39 +58,6 @@ export const TriggerElements = () => {
             </Dropdown.Option>
           ))}
         </Dropdown.Options>
-      </Dropdown>
-
-      {/** ***** Chip ***** */}
-      <Dropdown value={option3} onChange={setOption3}>
-        {({ open }) => (
-          <>
-            <Dropdown.Trigger>
-              <Chip
-                className="border border-beerus"
-                iconRight={
-                  <ControlsChevronDownSmall
-                    className={`text-moon-24 text-trunks ${
-                      open && "rotate-180"
-                    }`}
-                  />
-                }
-              >
-                Select name
-              </Chip>
-            </Dropdown.Trigger>
-            <Dropdown.Options>
-              {people.map((person, index) => (
-                <Dropdown.Option value={person} key={index}>
-                  {({ selected, active }) => (
-                    <MenuItem isActive={active} isSelected={selected}>
-                      {person.name}
-                    </MenuItem>
-                  )}
-                </Dropdown.Option>
-              ))}
-            </Dropdown.Options>
-          </>
-        )}
       </Dropdown>
     </div>
   );
