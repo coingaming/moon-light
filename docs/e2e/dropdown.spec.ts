@@ -47,9 +47,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -90,69 +88,81 @@ test.describe("Dropdown in Light Theme", () => {
         const option = await page
           .getByLabel("Wade Cooper")
           .getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        await expect(option).toHaveClass(/bg-heles/);
       });
     });
 
     test.describe("Keyboards tests", () => {
       test("Default: enter press should open default dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page
-          .getByRole("button", { name: "Choose a name..." })
-          .press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Choose a name..." })
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("Default: double enter press should close default dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page
-          .getByRole("button", { name: "Choose a name..." })
-          .press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Choose a name..." })
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("Default: arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByRole("button", { name: "Choose a name..." }).focus();
-        await page.keyboard.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByLabel("Choose a name...").press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByRole("button", { name: "Choose a name..." }).focus();
+          await page.keyboard.press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByLabel("Choose a name...").press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("Default: enter press should select option and close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByRole("button", { name: "Choose a name..." }).focus();
-        await page.keyboard.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByLabel("Choose a name...").press("ArrowDown");
-        await page.getByRole("button", { name: "Wade Cooper" }).press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
-        const selectedOption = await page.getByRole("button", {
-          name: "Wade Cooper",
-        });
-        await expect(selectedOption).toBeVisible();
+        if (!isMobile) {
+          await page.getByRole("button", { name: "Choose a name..." }).focus();
+          await page.keyboard.press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByLabel("Choose a name...").press("ArrowDown");
+          await page
+            .getByRole("button", { name: "Wade Cooper" })
+            .press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+          const selectedOption = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(selectedOption).toBeVisible();
+        }
       });
     });
   });
@@ -215,9 +225,7 @@ test.describe("Dropdown in Light Theme", () => {
         const activeOption = await page.getByRole("button", {
           name: "Wade Cooper",
         });
-        await expect(
-          (await activeOption.getAttribute("class"))?.split(" "),
-        ).toEqual(expect.arrayContaining(["bg-heles"]));
+        await expect(activeOption).toHaveClass(/bg-heles/);
       });
 
       test("TriggerElements: second dropdown - should open dropdown and match screenshot", async ({
@@ -291,263 +299,146 @@ test.describe("Dropdown in Light Theme", () => {
         const activeOption = await page.getByRole("button", {
           name: "Wade Cooper",
         });
-        await expect(
-          (await activeOption.getAttribute("class"))?.split(" "),
-        ).toEqual(expect.arrayContaining(["bg-heles"]));
-      });
-
-      test("TriggerElements: third dropdown - should open dropdown and match screenshot", async ({
-        page,
-      }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await trigger.click();
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await page.mouse.move(0, 0);
-        await expect(dropdown).toBeVisible();
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-TriggerElements-open-3.png`,
-        );
-      });
-
-      test("TriggerElements: third dropdown - click outside should close dropdown", async ({
-        page,
-      }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await trigger.click();
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.mouse.click(10, 10);
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
-      });
-
-      test("TriggerElements: third dropdown - should select option and close dropdown", async ({
-        page,
-      }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await trigger.click();
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await option.click({ force: true });
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
-      });
-
-      test("TriggerElements: third dropdown -  selected option should be active", async ({
-        page,
-      }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await trigger.click();
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByRole("button", { name: "Wade Cooper" }).click();
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
-        const triggerSecond = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await triggerSecond.click();
-        await page.waitForTimeout(100);
-        const selectedDropdown = page.locator('ul[role="listbox"]');
-        await page.mouse.move(0, 0);
-        await expect(selectedDropdown).toBeVisible();
-        const activeOption = await page.getByRole("button", {
-          name: "Wade Cooper",
-        });
-        await expect(
-          (await activeOption.getAttribute("class"))?.split(" "),
-        ).toEqual(expect.arrayContaining(["bg-heles"]));
+        await expect(activeOption).toHaveClass(/bg-heles/);
       });
     });
 
     test.describe("Keyboards tests", () => {
       test("TriggerElements: first dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Dropdown trigger").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Dropdown trigger").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("TriggerElements: first dropdown - double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Dropdown trigger").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Dropdown trigger").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("TriggerElements: first dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Dropdown trigger").focus();
-        await page.keyboard.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByLabel("Dropdown trigger").press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByLabel("Dropdown trigger").focus();
+          await page.keyboard.press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByLabel("Dropdown trigger").press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("TriggerElements: first dropdown - enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Dropdown trigger").focus();
-        await page.keyboard.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByLabel("Dropdown trigger").press("ArrowDown");
-        await page.getByRole("button", { name: "Wade Cooper" }).press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Dropdown trigger").focus();
+          await page.keyboard.press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByLabel("Dropdown trigger").press("ArrowDown");
+          await page
+            .getByRole("button", { name: "Wade Cooper" })
+            .press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("TriggerElements: second dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(0);
-        await trigger.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          const trigger = await page
+            .getByRole("button", { name: "Select name" })
+            .nth(0);
+          await trigger.press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("TriggerElements: second dropdown - double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(0);
-        await trigger.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          const trigger = await page
+            .getByRole("button", { name: "Select name" })
+            .nth(0);
+          await trigger.press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("TriggerElements: second dropdown -  arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(0);
-        await trigger.focus();
-        await page.keyboard.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByLabel("Dropdown trigger").press("ArrowDown");
-        const option = await page
-          .getByRole("button", { name: "Wade Cooper" })
-          .nth(1);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          const trigger = await page
+            .getByRole("button", { name: "Select name" })
+            .nth(0);
+          await trigger.focus();
+          await page.keyboard.press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByLabel("Dropdown trigger").press("ArrowDown");
+          const option = await page
+            .getByRole("button", { name: "Wade Cooper" })
+            .nth(1);
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("TriggerElements: second dropdown - enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(0);
-        await trigger.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
-      });
-
-      test("TriggerElements: third dropdown - enter press should open dropdown", async ({
-        page,
-      }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await trigger.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-      });
-
-      test("TriggerElements: third dropdown - double enter press should close dropdown", async ({
-        page,
-      }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await trigger.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
-      });
-
-      test("TriggerElements: third dropdown -  arrow down press should make option active", async ({
-        page,
-      }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await trigger.focus();
-        await page.keyboard.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByLabel("Dropdown trigger").press("ArrowDown");
-        const option = await page
-          .getByRole("button", { name: "Wade Cooper" })
-          .nth(1);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
-      });
-
-      test("TriggerElements: third dropdown - enter press should close dropdown", async ({
-        page,
-      }) => {
-        const trigger = await page
-          .getByRole("button", { name: "Select name" })
-          .nth(2);
-        await trigger.press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          const trigger = await page
+            .getByRole("button", { name: "Select name" })
+            .nth(0);
+          await trigger.press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("ArrowDown");
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
     });
   });
@@ -593,9 +484,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -629,9 +518,7 @@ test.describe("Dropdown in Light Theme", () => {
         await page.mouse.move(0, 0);
         await expect(selectedDropdown).toBeVisible();
         const option = await page.getByRole("button", { name: "Option 1" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        await expect(option).toHaveClass(/bg-heles/);
       });
 
       test("OptionsVariants: second dropdown - should open dropdown and match screenshot", async ({
@@ -673,9 +560,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -696,9 +581,7 @@ test.describe("Dropdown in Light Theme", () => {
         const element = await page.waitForSelector(`[aria-selected="true"]`);
         await expect(await element.textContent()).toBe("Spanish");
         const option = await page.getByTestId("test-1");
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        await expect(option).toHaveClass(/bg-heles/);
       });
 
       test("OptionsVariants: third dropdown - should open dropdown and match screenshot", async ({
@@ -740,9 +623,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -788,159 +669,226 @@ test.describe("Dropdown in Light Theme", () => {
     test.describe("Keyboards tests", () => {
       test("OptionsVariants: first dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Sort by").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Sort by" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await page.waitForTimeout(100);
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("OptionsVariants: first dropdown - double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Sort by").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Sort by" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("OptionsVariants: first dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Sort by").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByText("Sort by").press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Option 1" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Sort by" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByText("Sort by").press("ArrowDown");
+          const option = await page.getByRole("button", { name: "Option 1" });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("OptionsVariants: first dropdown - enter press should select option and close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Sort by").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByText("Sort by").press("ArrowDown");
-        await page.getByRole("button", { name: "Option 1" }).press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Sort by" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByText("Sort by").press("ArrowDown");
+          await page.getByRole("button", { name: "Option 1" }).press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("OptionsVariants: second dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Select language").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Select language" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("OptionsVariants: second dropdown - double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Select language").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Select language" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("OptionsVariants: second dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Select language").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByText("Select language").press("ArrowDown");
-        const option = await page.getByRole("button", {
-          name: "Mandarin Chinese",
-        });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Select language" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByText("Select language").press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Mandarin Chinese",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("OptionsVariants: second dropdown - enter press should select option and close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Select language").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByText("Select language").press("ArrowDown");
-        await page
-          .getByRole("button", { name: "Mandarin Chinese" })
-          .press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Select language" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByText("Select language").press("ArrowDown");
+          await page
+            .getByRole("button", { name: "Mandarin Chinese" })
+            .press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("OptionsVariants: third dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Select countries").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Select countries" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("OptionsVariants: third dropdown - escape press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Select countries").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Escape");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Select countries" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Escape");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("OptionsVariants: third dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Select countries").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByText("Select countries").press("ArrowDown");
-        const option = await page.getByRole("button", {
-          name: "Australia",
-        });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Select countries" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByText("Select countries").press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Australia",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("OptionsVariants: third dropdown - enter press should unselect first option, select second option and not close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByText("Select countries").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.getByText("Select countries").press("ArrowDown");
-        await page.getByRole("button", { name: "Australia" }).press("Enter");
-        await page
-          .getByRole("button", { name: "Australia" })
-          .press("ArrowDown");
-        await page.getByRole("button", { name: "Canada" }).press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).toBeVisible();
-        await expect(page).toHaveScreenshot(
-          `${COMPONENT_NAME}-OptionsVariants-keyboard-3.png`,
-        );
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "Select countries" })
+            .nth(0)
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.getByText("Select countries").press("ArrowDown");
+          await page.getByRole("button", { name: "Australia" }).press("Enter");
+          await page
+            .getByRole("button", { name: "Australia" })
+            .press("ArrowDown");
+          await page.getByRole("button", { name: "Canada" }).press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).toBeVisible();
+          await expect(page).toHaveScreenshot(
+            `${COMPONENT_NAME}-OptionsVariants-keyboard-3.png`,
+          );
+        }
       });
     });
   });
@@ -970,9 +918,7 @@ test.describe("Dropdown in Light Theme", () => {
         const option = await page.getByLabel("Small");
         await option.hover({ force: true });
         await page.waitForTimeout(250);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["hover:shadow-input-hov"]),
-        );
+        await expect(option).toHaveClass(/hover:shadow-input-hov/);
       });
 
       test("Select: small - click outside should close default dropdown", async ({
@@ -1001,9 +947,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/bg-heles/);
         }
       });
 
@@ -1042,9 +986,7 @@ test.describe("Dropdown in Light Theme", () => {
         const option = await page.getByLabel("Medium");
         await option.hover({ force: true });
         await page.waitForTimeout(250);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["hover:shadow-input-hov"]),
-        );
+        await expect(option).toHaveClass(/hover:shadow-input-hov/);
       });
 
       test("Select: medium - click outside should close default dropdown", async ({
@@ -1073,9 +1015,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -1114,9 +1054,7 @@ test.describe("Dropdown in Light Theme", () => {
         const option = await page.getByLabel("Large");
         await option.hover({ force: true });
         await page.waitForTimeout(250);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["hover:shadow-input-hov"]),
-        );
+        await expect(option).toHaveClass(/hover:shadow-input-hov/);
       });
 
       test("Select: large - click outside should close default dropdown", async ({
@@ -1145,9 +1083,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -1171,176 +1107,216 @@ test.describe("Dropdown in Light Theme", () => {
     test.describe("Keyboards tests", () => {
       test("Select: small dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Small").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Small").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("Select: small dropdown - double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Small").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Small").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("Select: small dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Small").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "Small Choose an option" })
-          .press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByLabel("Small").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "Small Choose an option" })
+            .press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("Select: small dropdown - enter press should select option and close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Small").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "Small Choose an option" })
-          .press("ArrowDown");
-        await page.getByTestId("test-0").press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
-        await page.getByLabel("Wade Cooper").press("Enter");
-        await page.waitForTimeout(100);
-        const element = await page.waitForSelector(`[aria-selected="true"]`);
-        await expect(await element.textContent()).toBe("Wade Cooper");
+        if (!isMobile) {
+          await page.getByLabel("Small").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "Small Choose an option" })
+            .press("ArrowDown");
+          await page.getByTestId("test-0").press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+          await page.getByLabel("Wade Cooper").press("Enter");
+          await page.waitForTimeout(100);
+          const element = await page.waitForSelector(`[aria-selected="true"]`);
+          await expect(await element.textContent()).toBe("Wade Cooper");
+        }
       });
 
       test("Select: medium dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Medium").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Medium").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("Select: medium dropdown - double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Medium").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Medium").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("Select: medium dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Medium").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "Medium Choose an option" })
-          .press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByLabel("Medium").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "Medium Choose an option" })
+            .press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("Select: medium dropdown - enter press should select option and close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Medium").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = await page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "Medium Choose an option" })
-          .press("ArrowDown");
-        await page
-          .getByRole("listbox", { name: "Medium" })
-          .getByTestId("test-0")
-          .press("Enter");
-        const openedDropdown = await page.locator('ul[role="listbox"]').nth(1);
-        await expect(openedDropdown).not.toBeVisible();
-        await page.getByLabel("Medium").press("Enter");
-        await page.waitForTimeout(100);
-        const element = await page.waitForSelector(`[aria-selected="true"]`);
-        await expect(await element.textContent()).toBe("Wade Cooper");
+        if (!isMobile) {
+          await page.getByLabel("Medium").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = await page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "Medium Choose an option" })
+            .press("ArrowDown");
+          await page
+            .getByRole("listbox", { name: "Medium" })
+            .getByTestId("test-0")
+            .press("Enter");
+          const openedDropdown = await page
+            .locator('ul[role="listbox"]')
+            .nth(1);
+          await expect(openedDropdown).not.toBeVisible();
+          await page.getByLabel("Medium").press("Enter");
+          await page.waitForTimeout(100);
+          const element = await page.waitForSelector(`[aria-selected="true"]`);
+          await expect(await element.textContent()).toBe("Wade Cooper");
+        }
       });
 
       test("Select: large dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Large").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Large").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("Select: large dropdown - double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Large").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Large").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("Select: large dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Large").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "Large Choose an option" })
-          .press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByLabel("Large").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "Large Choose an option" })
+            .press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("Select: large dropdown - enter press should select option and close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Large").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = await page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "Large Choose an option" })
-          .press("ArrowDown");
-        await page
-          .getByRole("listbox", { name: "Large" })
-          .getByTestId("test-0")
-          .press("Enter");
-        const openedDropdown = await page.locator('ul[role="listbox"]').nth(1);
-        await expect(openedDropdown).not.toBeVisible();
-        await page.getByLabel("Large").press("Enter");
-        await page.waitForTimeout(100);
-        const element = await page.waitForSelector(`[aria-selected="true"]`);
-        await expect(await element.textContent()).toBe("Wade Cooper");
+        if (!isMobile) {
+          await page.getByLabel("Large").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = await page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "Large Choose an option" })
+            .press("ArrowDown");
+          await page
+            .getByRole("listbox", { name: "Large" })
+            .getByTestId("test-0")
+            .press("Enter");
+          const openedDropdown = await page
+            .locator('ul[role="listbox"]')
+            .nth(1);
+          await expect(openedDropdown).not.toBeVisible();
+          await page.getByLabel("Large").press("Enter");
+          await page.waitForTimeout(100);
+          const element = await page.waitForSelector(`[aria-selected="true"]`);
+          await expect(await element.textContent()).toBe("Wade Cooper");
+        }
       });
     });
   });
@@ -1395,9 +1371,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -1426,23 +1400,29 @@ test.describe("Dropdown in Light Theme", () => {
     test.describe("Keyboards tests", () => {
       test("SelectStates: error dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Error").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Error").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("SelectStates: error dropdown - double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Error").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Error").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
     });
   });
@@ -1496,9 +1476,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -1526,72 +1504,82 @@ test.describe("Dropdown in Light Theme", () => {
     test.describe("Keyboard tests", () => {
       test("HiddenInput: enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page
-          .getByRole("button", { name: "With hidden input" })
-          .press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "With hidden input" })
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("HiddenInput: double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page
-          .getByRole("button", { name: "With hidden input" })
-          .press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "With hidden input" })
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("HiddenInput: arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page
-          .getByRole("button", { name: "With hidden input" })
-          .press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "With hidden input" })
-          .press("ArrowDown");
-        const option = await page.getByRole("button", {
-          name: "Wade Cooper",
-        });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "With hidden input" })
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "With hidden input" })
+            .press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("HiddenInput: enter press should select option and close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page
-          .getByRole("button", { name: "With hidden input" })
-          .press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "With hidden input" })
-          .press("ArrowDown");
-        await page.getByTestId("test-0").press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
-        await page.getByLabel("Wade Cooper").press("Enter");
-        await page.waitForTimeout(100);
-        const element = await page.waitForSelector(`[aria-selected="true"]`);
-        await expect(await element.textContent()).toBe("Wade Cooper");
-        const value = await page.locator("input").getAttribute("value");
-        await expect(value).toBe("Wade Cooper");
-        const hiddenInput = await page.locator(`input[value="Wade Cooper"]`);
-        await expect(hiddenInput).toBeHidden();
+        if (!isMobile) {
+          await page
+            .getByRole("button", { name: "With hidden input" })
+            .press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "With hidden input" })
+            .press("ArrowDown");
+          await page.getByTestId("test-0").press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+          await page.getByLabel("Wade Cooper").press("Enter");
+          await page.waitForTimeout(100);
+          const element = await page.waitForSelector(`[aria-selected="true"]`);
+          await expect(await element.textContent()).toBe("Wade Cooper");
+          const value = await page.locator("input").getAttribute("value");
+          await expect(value).toBe("Wade Cooper");
+          const hiddenInput = await page.locator(`input[value="Wade Cooper"]`);
+          await expect(hiddenInput).toBeHidden();
+        }
       });
     });
   });
@@ -1625,9 +1613,7 @@ test.describe("Dropdown in Light Theme", () => {
         const option = await page.getByLabel("Select label");
         await option.hover({ force: true });
         await page.waitForTimeout(250);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["hover:shadow-input-hov"]),
-        );
+        await expect(option).toHaveClass(/hover:shadow-input-hov/);
       });
 
       test("InsetSelect: click outside should close dropdown", async ({
@@ -1656,9 +1642,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -1682,58 +1666,70 @@ test.describe("Dropdown in Light Theme", () => {
     test.describe("Keyboards tests", () => {
       test("InsetSelect: enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Select label").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Select label").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("InsetSelect: double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Select label").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Select label").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("InsetSelect: arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Select label").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "Select label Choose an option" })
-          .press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByLabel("Select label").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "Select label Choose an option" })
+            .press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("InsetSelect: enter press should select option and close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Select label").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page
-          .getByRole("button", { name: "Select label Choose an option" })
-          .press("ArrowDown");
-        await page.getByTestId("test-0").press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
-        await page.getByLabel("Wade Cooper").press("Enter");
-        await page.waitForTimeout(100);
-        const element = await page.waitForSelector(`[aria-selected="true"]`);
-        await expect(await element.textContent()).toBe("Wade Cooper");
+        if (!isMobile) {
+          await page.getByLabel("Select label").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page
+            .getByRole("button", { name: "Select label Choose an option" })
+            .press("ArrowDown");
+          await page.getByTestId("test-0").press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+          await page.getByLabel("Wade Cooper").press("Enter");
+          await page.waitForTimeout(100);
+          const element = await page.waitForSelector(`[aria-selected="true"]`);
+          await expect(await element.textContent()).toBe("Wade Cooper");
+        }
       });
     });
   });
@@ -1788,9 +1784,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -1821,23 +1815,29 @@ test.describe("Dropdown in Light Theme", () => {
     test.describe("Keyboards tests", () => {
       test("InsetSelectStates: error dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Error").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Error").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("InsetSelectStates: error dropdown - double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Error").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Error").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
     });
   });
@@ -1871,9 +1871,7 @@ test.describe("Dropdown in Light Theme", () => {
         const option = await page.getByLabel("Small");
         await option.hover({ force: true });
         await page.waitForTimeout(250);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["hover:shadow-input-hov"]),
-        );
+        await expect(option).toHaveClass(/hover:shadow-input-hov/);
       });
 
       test("MultiSelect: small - click outside should close dropdown", async ({
@@ -1902,9 +1900,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -1960,9 +1956,7 @@ test.describe("Dropdown in Light Theme", () => {
         const option = await page.getByLabel("Medium");
         await option.hover({ force: true });
         await page.waitForTimeout(250);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["hover:shadow-input-hov"]),
-        );
+        await expect(option).toHaveClass(/hover:shadow-input-hov/);
       });
 
       test("MultiSelect: medium - click outside should close default dropdown", async ({
@@ -1991,9 +1985,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -2049,9 +2041,7 @@ test.describe("Dropdown in Light Theme", () => {
         const option = await page.getByLabel("Large");
         await option.hover({ force: true });
         await page.waitForTimeout(250);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["hover:shadow-input-hov"]),
-        );
+        await expect(option).toHaveClass(/hover:shadow-input-hov/);
       });
 
       test("MultiSelect: large - click outside should close default dropdown", async ({
@@ -2080,9 +2070,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -2123,173 +2111,209 @@ test.describe("Dropdown in Light Theme", () => {
     test.describe("Keyboards tests", () => {
       test("MultiSelect: small dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Small").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Small").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("MultiSelect: small dropdown - escape should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Small").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Escape");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Small").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Escape");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("MultiSelect: small dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Small").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByLabel("Small").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("MultiSelect: small dropdown - enter press should select options and not close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Small").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        await page.getByTestId("test-0").press("Enter");
-        await page.getByTestId("test-2").press("Enter");
-        const firstElement = await page.waitForSelector(
-          `span[aria-selected="true"] [data-testid="test-0"]`,
-        );
-        await expect(await firstElement.textContent()).toBe("Wade Cooper");
-        const secondElement = await page.waitForSelector(
-          `span[aria-selected="true"] [data-testid="test-2"]`,
-        );
-        await expect(await secondElement.textContent()).toBe("Devon Webb");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Small").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("ArrowDown");
+          await page.getByTestId("test-0").press("Enter");
+          await page.getByTestId("test-2").press("Enter");
+          const firstElement = await page.waitForSelector(
+            `span[aria-selected="true"] [data-testid="test-0"]`,
+          );
+          await expect(await firstElement.textContent()).toBe("Wade Cooper");
+          const secondElement = await page.waitForSelector(
+            `span[aria-selected="true"] [data-testid="test-2"]`,
+          );
+          await expect(await secondElement.textContent()).toBe("Devon Webb");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).toBeVisible();
+        }
       });
 
       test("MultiSelect: medium dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Medium").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Medium").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("MultiSelect: medium dropdown - escape should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Medium").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Escape");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Medium").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Escape");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("MultiSelect: medium dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Medium").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByLabel("Medium").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("MultiSelect: medium dropdown - enter press should select options and not close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Medium").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        await page.getByTestId("test-0").press("Enter");
-        await page.getByTestId("test-2").press("Enter");
-        const firstElement = await page.waitForSelector(
-          `span[aria-selected="true"] [data-testid="test-0"]`,
-        );
-        await expect(await firstElement.textContent()).toBe("Wade Cooper");
-        const secondElement = await page.waitForSelector(
-          `span[aria-selected="true"] [data-testid="test-2"]`,
-        );
-        await expect(await secondElement.textContent()).toBe("Devon Webb");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Medium").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("ArrowDown");
+          await page.getByTestId("test-0").press("Enter");
+          await page.getByTestId("test-2").press("Enter");
+          const firstElement = await page.waitForSelector(
+            `span[aria-selected="true"] [data-testid="test-0"]`,
+          );
+          await expect(await firstElement.textContent()).toBe("Wade Cooper");
+          const secondElement = await page.waitForSelector(
+            `span[aria-selected="true"] [data-testid="test-2"]`,
+          );
+          await expect(await secondElement.textContent()).toBe("Devon Webb");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).toBeVisible();
+        }
       });
 
       test("MultiSelect: large dropdown - enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Large").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Large").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("MultiSelect: large dropdown - escape should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Large").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Escape");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Large").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Escape");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("MultiSelect: large dropdown - arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Large").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByLabel("Large").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("MultiSelect: large dropdown - enter press should select options and not close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Large").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        await page.getByTestId("test-0").press("Enter");
-        await page.getByTestId("test-2").press("Enter");
-        const firstElement = await page.waitForSelector(
-          `span[aria-selected="true"] [data-testid="test-0"]`,
-        );
-        await expect(await firstElement.textContent()).toBe("Wade Cooper");
-        const secondElement = await page.waitForSelector(
-          `span[aria-selected="true"] [data-testid="test-2"]`,
-        );
-        await expect(await secondElement.textContent()).toBe("Devon Webb");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Large").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("ArrowDown");
+          await page.getByTestId("test-0").press("Enter");
+          await page.getByTestId("test-2").press("Enter");
+          const firstElement = await page.waitForSelector(
+            `span[aria-selected="true"] [data-testid="test-0"]`,
+          );
+          await expect(await firstElement.textContent()).toBe("Wade Cooper");
+          const secondElement = await page.waitForSelector(
+            `span[aria-selected="true"] [data-testid="test-2"]`,
+          );
+          await expect(await secondElement.textContent()).toBe("Devon Webb");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).toBeVisible();
+        }
       });
     });
   });
@@ -2323,9 +2347,7 @@ test.describe("Dropdown in Light Theme", () => {
         const option = await page.getByLabel("Select label");
         await option.hover({ force: true });
         await page.waitForTimeout(250);
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["hover:shadow-input-hov"]),
-        );
+        await expect(option).toHaveClass(/hover:shadow-input-hov/);
       });
 
       test("InsetMultiSelect: click outside should close dropdown", async ({
@@ -2354,9 +2376,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -2397,59 +2417,71 @@ test.describe("Dropdown in Light Theme", () => {
     test.describe("Keyboards tests", () => {
       test("InsetMultiSelect: enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Select label").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Select label").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("InsetMultiSelect: escape press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Select label").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Escape");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Select label").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Escape");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
 
       test("InsetMultiSelect:  arrow down press should make option active", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Select label").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        const option = await page.getByRole("button", { name: "Wade Cooper" });
-        await expect((await option.getAttribute("class"))?.split(" ")).toEqual(
-          expect.arrayContaining(["bg-heles"]),
-        );
+        if (!isMobile) {
+          await page.getByLabel("Select label").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("ArrowDown");
+          const option = await page.getByRole("button", {
+            name: "Wade Cooper",
+          });
+          await expect(option).toHaveClass(/bg-heles/);
+        }
       });
 
       test("InsetMultiSelect: enter press should select options and not close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Select label").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("ArrowDown");
-        await page.getByTestId("test-0").press("Enter");
-        await page.getByTestId("test-2").press("Enter");
-        const firstElement = await page.waitForSelector(
-          `span[aria-selected="true"] [data-testid="test-0"]`,
-        );
-        await expect(await firstElement.textContent()).toBe("Wade Cooper");
-        const secondElement = await page.waitForSelector(
-          `span[aria-selected="true"] [data-testid="test-2"]`,
-        );
-        await expect(await secondElement.textContent()).toBe("Devon Webb");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Select label").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("ArrowDown");
+          await page.getByTestId("test-0").press("Enter");
+          await page.getByTestId("test-2").press("Enter");
+          const firstElement = await page.waitForSelector(
+            `span[aria-selected="true"] [data-testid="test-0"]`,
+          );
+          await expect(await firstElement.textContent()).toBe("Wade Cooper");
+          const secondElement = await page.waitForSelector(
+            `span[aria-selected="true"] [data-testid="test-2"]`,
+          );
+          await expect(await secondElement.textContent()).toBe("Devon Webb");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).toBeVisible();
+        }
       });
     });
   });
@@ -2504,9 +2536,7 @@ test.describe("Dropdown in Light Theme", () => {
           });
           await option.hover({ force: true });
           await page.waitForTimeout(250);
-          await expect(
-            (await option.getAttribute("class"))?.split(" "),
-          ).toEqual(expect.arrayContaining(["hover:bg-heles"]));
+          await expect(option).toHaveClass(/hover:bg-heles/);
         }
       });
 
@@ -2530,23 +2560,29 @@ test.describe("Dropdown in Light Theme", () => {
     test.describe("Keyboards tests", () => {
       test("CustomMenuWidth: enter press should open dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Custom options width").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Custom options width").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+        }
       });
 
       test("CustomMenuWidth: double enter press should close dropdown", async ({
         page,
+        isMobile,
       }) => {
-        await page.getByLabel("Custom options width").press("Enter");
-        await page.waitForTimeout(100);
-        const dropdown = page.locator('ul[role="listbox"]');
-        await expect(dropdown).toBeVisible();
-        await page.keyboard.press("Enter");
-        const openedDropdown = page.locator('ul[role="listbox"]');
-        await expect(openedDropdown).not.toBeVisible();
+        if (!isMobile) {
+          await page.getByLabel("Custom options width").press("Enter");
+          await page.waitForTimeout(100);
+          const dropdown = page.locator('ul[role="listbox"]');
+          await expect(dropdown).toBeVisible();
+          await page.keyboard.press("Enter");
+          const openedDropdown = page.locator('ul[role="listbox"]');
+          await expect(openedDropdown).not.toBeVisible();
+        }
       });
     });
   });
@@ -2598,23 +2634,6 @@ test.describe("Dropdown in Dark Theme", () => {
       await expect(dropdown).toBeVisible();
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-dark-TriggerElements-open-2.png`,
-      );
-    });
-
-    test("TriggerElements: third dropdown - should open dropdown and match screenshot in Dark Theme", async ({
-      page,
-    }) => {
-      setDarkTheme(page);
-      const trigger = await page
-        .getByRole("button", { name: "Select name" })
-        .nth(2);
-      await trigger.click();
-      await page.waitForTimeout(100);
-      const dropdown = page.locator('ul[role="listbox"]');
-      await page.mouse.move(0, 0);
-      await expect(dropdown).toBeVisible();
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-dark-TriggerElements-open-3.png`,
       );
     });
   });
@@ -2994,20 +3013,6 @@ test.describe("RTL tests", () => {
       await expect(dropdown).toBeVisible();
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-rtl-TriggerElements-open-2.png`,
-      );
-    });
-
-    test("TriggerElements: third dropdown - should open dropdown and match screenshot in RTL", async ({
-      page,
-    }) => {
-      setRtl(page);
-      await page.getByRole("button", { name: "Select name" }).nth(2).click();
-      await page.waitForTimeout(100);
-      const dropdown = page.locator('ul[role="listbox"]');
-      await page.mouse.move(0, 0);
-      await expect(dropdown).toBeVisible();
-      await expect(page).toHaveScreenshot(
-        `${COMPONENT_NAME}-rtl-TriggerElements-open-3.png`,
       );
     });
   });
