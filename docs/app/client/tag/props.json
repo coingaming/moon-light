@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Tag",
+    "props": [
+      {
+        "name": "children",
+        "type": ["React.ReactNode"],
+        "description": "Children content"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization"
+      },
+      {
+        "name": "iconLeft",
+        "type": ["React.ReactElement"],
+        "description": "Left icon"
+      },
+      {
+        "name": "iconRight",
+        "type": ["React.ReactElement"],
+        "description": "Right icon"
+      },
+      {
+        "name": "isUppercase",
+        "type": ["boolean"],
+        "defaultState": "true",
+        "description": "Letter case"
+      },
+      {
+        "name": "size",
+        "type": ["2xs", "xs"],
+        "defaultState": "xs",
+        "description": "Size of Tag"
+      }
+    ]
+  }
+]

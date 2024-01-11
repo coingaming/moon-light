@@ -347,6 +347,24 @@ export type Examples = {
         "WithHandler": "string"
       }
     },
+    "tag": {
+      "description": "string",
+      "descriptions": {
+        "Casing": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Size": "string",
+        "WithIcons": "string"
+      },
+      "examples": {
+        "Casing": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Size": "string",
+        "WithIcons": "string"
+      },
+      "props": "string"
+    },
     "tagsInput": {
       "anatomy": "string",
       "description": "string",
