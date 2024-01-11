@@ -6,6 +6,27 @@ const COMPONENT_NAME = "alert";
 
 setupTest(COMPONENT_NAME);
 
+test.describe("Themes", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto(`/`, {
+      waitUntil: "networkidle",
+    });
+  });
+
+  test("Check Moon Theme colors in light theme", async ({ page }) => {
+    for await (const iterator of Object.keys(MOON_THEME_COLORS)) {
+      const color = await getMoonColor(page, iterator);
+      expect(color).toBe(
+        MOON_THEME_COLORS[iterator].replace(
+          /(\d+)\s(\d+)\s(\d+)\s\/\s(\d+\.\d+)/,
+          "rgba($1, $2, $3, $4)",
+        ),
+      );
+    }
+  });
+});
+
+// TODO: To remove
 async function getMoonColor(page: Page, color: string) {
   let colorFromBrowser = await page.evaluate((color: string) => {
     return window
@@ -27,23 +48,3 @@ async function getMoonColor(page: Page, color: string) {
   }
   return colorFromBrowser;
 }
-
-test.describe("Themes", () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto(`/`, {
-      waitUntil: "networkidle",
-    });
-  });
-
-  test("Check colors in light theme", async ({ page }) => {
-    for await (const iterator of Object.keys(MOON_THEME_COLORS)) {
-      const color = await getMoonColor(page, iterator);
-      expect(color).toBe(
-        MOON_THEME_COLORS[iterator].replace(
-          /(\d+)\s(\d+)\s(\d+)\s\/\s(\d+\.\d+)/,
-          "rgba($1, $2, $3, $4)",
-        ),
-      );
-    }
-  });
-});
