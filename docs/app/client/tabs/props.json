@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Tabs",
+    "props": [
+      {
+        "name": "onChange",
+        "type": ["(index: number) => void"],
+        "description": "A function called whenever the active tab changes."
+      },
+      {
+        "name": "selectedIndex",
+        "type": ["number"],
+        "description": "The selected index if you want to use the Tabs component as a controlled component."
+      }
+    ]
+  },
+  {
+    "name": "Tabs.List",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for styling"
+      },
+      {
+        "name": "size",
+        "type": ["sm", "md"],
+        "defaultState": "md",
+        "description": "Size of tabs"
+      }
+    ]
+  },
+  {
+    "name": "Tabs.Segment",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for styling"
+      },
+      {
+        "name": "size",
+        "type": ["sm", "md"],
+        "defaultState": "md",
+        "description": "Size of tabs"
+      }
+    ]
+  },
+  {
+    "name": "Tabs.Tab",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for styling"
+      },
+      {
+        "name": "disabled",
+        "type": ["boolean"],
+        "defaultState": "false",
+        "description": "Whether or not the Tab is currently disabled"
+      }
+    ]
+  },
+  {
+    "name": "Tabs.Pill",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for styling"
+      },
+      {
+        "name": "disabled",
+        "type": ["boolean"],
+        "defaultState": "false",
+        "description": "Whether or not the Tab is currently disabled"
+      }
+    ]
+  },
+  {
+    "name": "Tabs.Panels",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for styling"
+      }
+    ]
+  },
+  {
+    "name": "Tabs.Panel",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Tailwind classes for styling"
+      }
+    ]
+  }
+]
