@@ -6,7 +6,7 @@ const Customization = () => (
   <>
     <Tooltip>
       <Tooltip.Trigger>
-        <Chip>Trigger</Chip>
+        <Chip className="border border-beerus">Custom background color</Chip>
       </Tooltip.Trigger>
       <Tooltip.Content className="bg-chichi-10">
         Custom background color
@@ -15,7 +15,7 @@ const Customization = () => (
     </Tooltip>
     <Tooltip>
       <Tooltip.Trigger>
-        <Chip>Trigger</Chip>
+        <Chip className="border border-beerus">Custom fonts</Chip>
       </Tooltip.Trigger>
       <Tooltip.Content className="text-moon-18 text-krillin font-medium">
         Custom fonts
@@ -24,13 +24,13 @@ const Customization = () => (
     </Tooltip>
     <Tooltip>
       <Tooltip.Trigger>
-        <Chip>Trigger</Chip>
+        <Chip className="border border-beerus">Without arrow</Chip>
       </Tooltip.Trigger>
       <Tooltip.Content>Without arrow</Tooltip.Content>
     </Tooltip>
     <Tooltip>
       <Tooltip.Trigger>
-        <Chip>Trigger</Chip>
+        <Chip className="border border-beerus">Without shadow</Chip>
       </Tooltip.Trigger>
       <Tooltip.Content className="shadow-none drop-shadow-none">
         Without shadow

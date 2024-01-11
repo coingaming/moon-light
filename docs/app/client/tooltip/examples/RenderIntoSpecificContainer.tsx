@@ -12,7 +12,7 @@ const Example = () => {
   }, []);
   return (
     <>
-      <div id="box" />
+      <div id="box" data-testid="box-container" />
       <Tooltip>
         <Tooltip.Trigger>
           <Chip>Trigger</Chip>

@@ -16,7 +16,7 @@ const ArrowPositions = () => (
       </Tooltip>
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">top-start (default)</Chip>
+          <Chip className="border border-beerus">top-center (default)</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content>
           Top-center is default position
