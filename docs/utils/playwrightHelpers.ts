@@ -37,3 +37,19 @@ export function setupTest(name: string) {
   });
   test.describe.configure({ mode: "parallel" });
 }
+
+export async function getMoonColor(page: Page, color: string) {
+  let ret = await page.evaluate((color: string) => {
+    return window
+      .getComputedStyle(document.body)
+      .getPropertyValue(`--${color}`);
+  }, color);
+
+  if (ret.includes("/")) {
+    ret = ret.replace(
+      /(\d+)\s(\d+)\s(\d+)\s\/\s(\d+\.\d+)/,
+      "rgba($1, $2, $3, $4)",
+    );
+  }
+  return ret;
+}
