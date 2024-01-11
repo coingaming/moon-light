@@ -5,8 +5,11 @@ const COMPONENT_NAME = "tooltip";
 
 setupTest(COMPONENT_NAME);
 
-test.describe("Alert in Light Theme", () => {
+test.describe("Tooltip in Light Theme", () => {
   test.describe("Default tests", () => {
+    test.beforeEach(async ({ page }) => {
+      await page.getByText("Trigger").hover();
+    });
     test("Default: should render and match screenshot", async ({ page }) => {
       await expect(page).toHaveScreenshot(`tooltip-Default.png`);
     });
@@ -38,7 +41,7 @@ test.describe("Alert in Light Theme", () => {
     });
   });
 });
-test.describe("Alert in Dark Theme", () => {
+test.describe("Tooltip in Dark Theme", () => {
   test.beforeEach(({ page }) => setDarkTheme(page));
 
   test.describe("Default tests", () => {
@@ -75,7 +78,7 @@ test.describe("Alert in Dark Theme", () => {
     });
   });
 });
-test.describe("Alert in RTL", () => {
+test.describe("Tooltip in RTL", () => {
   test.beforeEach(({ page }) => setRtl(page));
 
   test.describe("Default tests", () => {
