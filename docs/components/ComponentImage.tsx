@@ -12,6 +12,7 @@ import alert from "../app/client/alert/alert.webp";
 import drawer from "../app/client/drawer/drawer.webp";
 import checkbox from "../app/client/checkbox/checkbox.webp";
 import dropdown from "../app/client/dropdown/dropdown.webp";
+import switchImage from "../app/client/switch/switch.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -26,6 +27,7 @@ const images: Record<string, StaticImageData> = {
   drawer,
   checkbox,
   dropdown,
+  switch: switchImage,
 } as const;
 
 interface Props {

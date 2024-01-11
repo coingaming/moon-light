@@ -13,7 +13,7 @@
         "name": "className",
         "type": ["string"],
 
-        "description": "Tailwind classes for customization"
+        "description": "CSS classes for customization"
       },
       {
         "name": "disabled",

@@ -263,7 +263,8 @@ export type Examples = {
         "InsetSelect": "string",
         "MultiSelect": "string",
         "Select": "string"
-      }
+      },
+      "props": "string"
     },
     "loader": {
       "description": "string",
@@ -298,6 +299,28 @@ export type Examples = {
         "WithLabels": "string"
       }
     },
+    "switch": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "props": "string"
+    },
     "tabs": {
       "anatomy": "string",
       "description": "string",
@@ -323,28 +346,6 @@ export type Examples = {
         "WithCustomStyle": "string",
         "WithHandler": "string"
       }
-    },
-    "switch": {
-      "description": "string",
-      "descriptions": {
-        "Customization": "string",
-        "Default": "string",
-        "Disabled": "string",
-        "Sizes": "string",
-        "UsingTooltip": "string",
-        "WithHTMLForms": "string",
-        "WithIcons": "string"
-      },
-      "examples": {
-        "Customization": "string",
-        "Default": "string",
-        "Disabled": "string",
-        "Sizes": "string",
-        "UsingTooltip": "string",
-        "WithHTMLForms": "string",
-        "WithIcons": "string"
-      },
-      "props": "string"
     },
     "tagsInput": {
       "anatomy": "string",
