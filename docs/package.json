@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build:types": "node scripts/buildExamplesType.mjs",
     "build:dict": "node scripts/buildDict.mjs",
-    "build": "pnpm run build:types && next build",
+    "build": "pnpm run build:types && pnpm run build:dict && next build",
     "lint": "next lint",
     "start": "next start -p 80",
     "test": "playwright test",
+    "test:pa11y": "node scripts/cli/index.mjs pa11y",
     "clean:next": "rimraf .next"
   },
   "dependencies": {
@@ -40,6 +41,9 @@
     "eslint-plugin-prettier": "^5.1.2",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "commander": "^11.1.0",
+    "pa11y": "^6.2.3",
+    "console-table-printer": "^2.12.0"
   }
 }

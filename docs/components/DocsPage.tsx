@@ -19,6 +19,7 @@ interface DocsPageProps {
   examples: Record<string, string>;
   descriptions: Record<string, string>;
   propsTable?: Record<string, PropsTableProp[]>;
+  examplesAnatomy?: Record<string, string>;
   anatomy?: string;
   image?: StaticImageData;
 }
@@ -37,6 +38,7 @@ const DocsPage = (props: DocsPageProps) => {
     anatomy,
     tags,
     image,
+    examplesAnatomy,
   } = props;
 
   if (isMockup) {
@@ -78,6 +80,7 @@ const DocsPage = (props: DocsPageProps) => {
             description,
             descriptions,
             examples,
+            examplesAnatomy,
           }}
           data={ordered}
         />

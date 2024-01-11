@@ -28,10 +28,8 @@ export const Anatomy = async ({ anatomy, className }: Props) => {
   const description = frontmatter?.description as string | undefined;
 
   return (
-    <div>
-      <h2 className={mergeClassnames("text-moon-20 font-medium", className)}>
-        {title || "Anatomy"}
-      </h2>
+    <div className={className}>
+      {title && <h2 className={"text-moon-20 font-medium"}>{title}</h2>}
       {description && <MDX markdown={description} />}
       {content && (
         <CodePreviewWrapper

@@ -128,6 +128,7 @@ export type Examples = {
       "props": "string"
     },
     "button": {
+      "description": "string",
       "descriptions": {
         "Animations": "string",
         "ButtonAsLinkHTML": "string",
@@ -148,7 +149,8 @@ export type Examples = {
         "Multiline": "string",
         "Sizes": "string",
         "Variants": "string"
-      }
+      },
+      "props": "string"
     },
     "checkbox": {
       "description": "string",
@@ -211,7 +213,8 @@ export type Examples = {
         "Default": "string",
         "Size": "string",
         "Value": "string"
-      }
+      },
+      "props": "string"
     },
     "drawer": {
       "description": "string",
@@ -226,6 +229,61 @@ export type Examples = {
         "Positions": "string",
         "WithBackdrop": "string",
         "WithClose": "string"
+      },
+      "props": "string"
+    },
+    "dropdown": {
+      "description": "string",
+      "descriptions": {
+        "CustomMenuWidth": "string",
+        "Default": "string",
+        "HiddenInput": "string",
+        "InsetMultiSelect": "string",
+        "InsetSelect": "string",
+        "InsetSelectStates": "string",
+        "MultiSelect": "string",
+        "OptionsVariants": "string",
+        "Select": "string",
+        "SelectStates": "string",
+        "TriggerElements": "string"
+      },
+      "examples": {
+        "CustomMenuWidth": "string",
+        "Default": "string",
+        "HiddenInput": "string",
+        "InsetMultiSelect": "string",
+        "InsetSelect": "string",
+        "InsetSelectStates": "string",
+        "MultiSelect": "string",
+        "OptionsVariants": "string",
+        "Select": "string",
+        "SelectStates": "string",
+        "TriggerElements": "string"
+      },
+      "examplesAnatomy": {
+        "Default": "string",
+        "InsetMultiSelect": "string",
+        "InsetSelect": "string",
+        "MultiSelect": "string",
+        "Select": "string"
+      },
+      "props": "string"
+    },
+    "group": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "Direction": "string",
+        "Options": "string",
+        "Size": "string",
+        "States": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "Direction": "string",
+        "Options": "string",
+        "Size": "string",
+        "States": "string"
       },
       "props": "string"
     },
@@ -260,7 +318,30 @@ export type Examples = {
         "Size": "string",
         "Value": "string",
         "WithLabels": "string"
-      }
+      },
+      "props": "string"
+    },
+    "switch": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "props": "string"
     },
     "tabs": {
       "anatomy": "string",
@@ -286,7 +367,26 @@ export type Examples = {
         "TabsOnlyView": "string",
         "WithCustomStyle": "string",
         "WithHandler": "string"
-      }
+      },
+      "props": "string"
+    },
+    "tag": {
+      "description": "string",
+      "descriptions": {
+        "Casing": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Size": "string",
+        "WithIcons": "string"
+      },
+      "examples": {
+        "Casing": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Size": "string",
+        "WithIcons": "string"
+      },
+      "props": "string"
     },
     "tagsInput": {
       "anatomy": "string",
