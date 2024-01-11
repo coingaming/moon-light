@@ -14,6 +14,7 @@ import bottomsheet from "../app/client/bottomsheet/bottomsheet.webp";
 import tagsInput from "../app/client/tagsInput/tagsinput.webp";
 import accordion from "../app/client/accordion/accordion.webp";
 import tag from "../app/client/tag/tag.webp";
+import switchImage from "../app/client/switch/switch.webp";
 
 const images: Record<string, StaticImageData> = {
   avatar,
@@ -30,6 +31,7 @@ const images: Record<string, StaticImageData> = {
   bottomsheet,
   tag,
   tagsInput,
+  switch: switchImage,
 } as const;
 
 interface Props {
