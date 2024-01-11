@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Alert, Button } from "@heathmont/moon-core-tw";
 
-const Example = () => {
+const WithClose = () => {
   const [isVisible, setIsVisible] = useState(true);
   const handleClick = () => setIsVisible(!isVisible);
   if (isVisible)
@@ -20,4 +20,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default WithClose;

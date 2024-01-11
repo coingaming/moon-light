@@ -128,6 +128,7 @@ export type Examples = {
       "props": "string"
     },
     "button": {
+      "description": "string",
       "descriptions": {
         "Animations": "string",
         "ButtonAsLinkHTML": "string",
@@ -148,7 +149,8 @@ export type Examples = {
         "Multiline": "string",
         "Sizes": "string",
         "Variants": "string"
-      }
+      },
+      "props": "string"
     },
     "checkbox": {
       "description": "string",
@@ -211,7 +213,8 @@ export type Examples = {
         "Default": "string",
         "Size": "string",
         "Value": "string"
-      }
+      },
+      "props": "string"
     },
     "drawer": {
       "description": "string",
@@ -266,6 +269,24 @@ export type Examples = {
       },
       "props": "string"
     },
+    "group": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "Direction": "string",
+        "Options": "string",
+        "Size": "string",
+        "States": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "Direction": "string",
+        "Options": "string",
+        "Size": "string",
+        "States": "string"
+      },
+      "props": "string"
+    },
     "loader": {
       "description": "string",
       "descriptions": {
@@ -297,7 +318,8 @@ export type Examples = {
         "Size": "string",
         "Value": "string",
         "WithLabels": "string"
-      }
+      },
+      "props": "string"
     },
     "switch": {
       "description": "string",
@@ -345,7 +367,8 @@ export type Examples = {
         "TabsOnlyView": "string",
         "WithCustomStyle": "string",
         "WithHandler": "string"
-      }
+      },
+      "props": "string"
     },
     "tag": {
       "description": "string",

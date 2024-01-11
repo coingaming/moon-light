@@ -2,6 +2,6 @@
 
 import { Alert } from "@heathmont/moon-core-tw";
 
-const Example = () => <Alert>Default alert</Alert>;
+const Default = () => <Alert>Default alert</Alert>;
 
-export default Example;
+export default Default;

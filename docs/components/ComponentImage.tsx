@@ -1,37 +1,47 @@
 import Image, { type StaticImageData } from "next/image";
 
-import avatar from "../app/client/avatar/avatar.webp";
-import authcode from "../app/client/authcode/authcode.webp";
+import accordion from "../app/client/accordion/accordion.webp";
 import alert from "../app/client/alert/alert.webp";
+import authcode from "../app/client/authcode/authcode.webp";
+import avatar from "../app/client/avatar/avatar.webp";
+import bottomsheet from "../app/client/bottomsheet/bottomsheet.webp";
+import breadcrumb from "../app/client/breadcrumb/breadcrumb.webp";
+import breadcrumbs from "../app/client/breadcrumb/breadcrumb.webp";
 import button from "../app/client/button/button.webp";
 import checkbox from "../app/client/checkbox/checkbox.webp";
 import chip from "../app/client/chip/chip.webp";
+import circularProgress from "../app/client/circularProgress/circularProgress.webp";
 import drawer from "../app/client/drawer/drawer.webp";
 import dropdown from "../app/client/dropdown/dropdown.webp";
-import breadcrumb from "../app/client/breadcrumb/breadcrumb.webp";
+import group from "../app/client/group/group.webp";
 import loader from "../app/client/loader/loader.webp";
-import bottomsheet from "../app/client/bottomsheet/bottomsheet.webp";
-import tagsInput from "../app/client/tagsInput/tagsinput.webp";
-import accordion from "../app/client/accordion/accordion.webp";
-import tag from "../app/client/tag/tag.webp";
+import progress from "../app/client/progress/progress.webp";
 import switchImage from "../app/client/switch/switch.webp";
+import tabs from "../app/client/tabs/tabs.webp";
+import tag from "../app/client/tag/tag.webp";
+import tagsInput from "../app/client/tagsInput/tagsinput.webp";
 
 const images: Record<string, StaticImageData> = {
-  avatar,
+  accordion,
+  alert,
   authcode,
+  avatar,
+  bottomsheet,
+  breadcrumb,
+  breadcrumbs,
   button,
   checkbox,
   chip,
+  circularProgress,
   drawer,
   dropdown,
-  accordion,
-  alert,
-  breadcrumb,
+  group,
   loader,
-  bottomsheet,
+  progress,
+  switch: switchImage,
+  tabs,
   tag,
   tagsInput,
-  switch: switchImage,
 } as const;
 
 interface Props {

@@ -37,25 +37,31 @@ test.describe("Alert in RTL", () => {
     page,
   }) => {
     setRtl(page);
-    await expect(page).toHaveScreenshot(`alert-DefaultRTL.png`);
+    await expect(page).toHaveScreenshot(`alert-Default-RTL.png`);
   });
   test("WithTitle: should render and match screenshot in RTL", async ({
     page,
   }) => {
     setRtl(page);
-    await expect(page).toHaveScreenshot(`alert-WithTitleRTL.png`);
+    await expect(page).toHaveScreenshot(`alert-WithTitle-RTL.png`);
   });
   test("WithIcon: should render and match screenshot in RTL", async ({
     page,
   }) => {
     setRtl(page);
-    await expect(page).toHaveScreenshot(`alert-WithIconRTL.png`);
+    await expect(page).toHaveScreenshot(`alert-WithIcon-RTL.png`);
   });
   test("WithClose: should render and match screenshot in RTL", async ({
     page,
   }) => {
     setRtl(page);
-    await expect(page).toHaveScreenshot(`alert-WithCloseRTL.png`);
+    await expect(page).toHaveScreenshot(`alert-WithClose-RTL.png`);
+  });
+  test("Customization: should render and match screenshot in RTL", async ({
+    page,
+  }) => {
+    setRtl(page);
+    await expect(page).toHaveScreenshot(`alert-Customization-RTL.png`);
   });
 });
 
@@ -64,24 +70,30 @@ test.describe("Alert in Dark Theme", () => {
     page,
   }) => {
     setDarkTheme(page);
-    await expect(page).toHaveScreenshot(`alert-DefaultDark.png`);
+    await expect(page).toHaveScreenshot(`alert-Default-Dark.png`);
   });
   test("WithTitle: should render and match screenshot in Dark Theme", async ({
     page,
   }) => {
     setDarkTheme(page);
-    await expect(page).toHaveScreenshot(`alert-WithTitleDark.png`);
+    await expect(page).toHaveScreenshot(`alert-WithTitle-Dark.png`);
   });
   test("WithIcon: should render and match screenshot in Dark Theme", async ({
     page,
   }) => {
     setDarkTheme(page);
-    await expect(page).toHaveScreenshot(`alert-WithIconDark.png`);
+    await expect(page).toHaveScreenshot(`alert-WithIcon-Dark.png`);
   });
   test("WithClose: should render and match screenshot in Dark Theme", async ({
     page,
   }) => {
     setDarkTheme(page);
-    await expect(page).toHaveScreenshot(`alert-WithCloseDark.png`);
+    await expect(page).toHaveScreenshot(`alert-WithClose-Dark.png`);
+  });
+  test("Customization: should render and match screenshot in Dark Theme", async ({
+    page,
+  }) => {
+    setDarkTheme(page);
+    await expect(page).toHaveScreenshot(`alert-Customization-Dark.png`);
   });
 });

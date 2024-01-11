@@ -2,11 +2,11 @@
 
 import { Alert } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const WithTitle = () => (
   <Alert>
     <Alert.Title>Alert title</Alert.Title>
     <Alert.Message>Alert message</Alert.Message>
   </Alert>
 );
 
-export default Example;
+export default WithTitle;

@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build:types": "node scripts/buildExamplesType.mjs",
     "build:dict": "node scripts/buildDict.mjs",
-    "build": "pnpm run build:types && next build",
+    "build": "pnpm run build:types && pnpm run build:dict && next build",
     "lint": "next lint",
     "start": "next start -p 80",
     "test": "playwright test",
