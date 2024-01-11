@@ -321,6 +321,28 @@ export type Examples = {
       },
       "props": "string"
     },
+    "switch": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "props": "string"
+    },
     "tabs": {
       "anatomy": "string",
       "description": "string",
@@ -345,6 +367,24 @@ export type Examples = {
         "TabsOnlyView": "string",
         "WithCustomStyle": "string",
         "WithHandler": "string"
+      },
+      "props": "string"
+    },
+    "tag": {
+      "description": "string",
+      "descriptions": {
+        "Casing": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Size": "string",
+        "WithIcons": "string"
+      },
+      "examples": {
+        "Casing": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Size": "string",
+        "WithIcons": "string"
       },
       "props": "string"
     },
