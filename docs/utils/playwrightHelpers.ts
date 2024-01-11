@@ -1,4 +1,5 @@
-import { test, Page } from "@playwright/test";
+import { test } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
 export async function setRtl(page: Page) {
   await page.evaluate(() => {
@@ -38,18 +39,25 @@ export function setupTest(name: string) {
   test.describe.configure({ mode: "parallel" });
 }
 
+// Usage: expect(bgColor).toBe(await getMoonColor(page, "chichi-10"));
 export async function getMoonColor(page: Page, color: string) {
-  let ret = await page.evaluate((color: string) => {
+  let colorFromBrowser = await page.evaluate((color: string) => {
     return window
       .getComputedStyle(document.body)
       .getPropertyValue(`--${color}`);
   }, color);
-
-  if (ret.includes("/")) {
-    ret = ret.replace(
+  if (!colorFromBrowser) {
+    const msg = `getMoonColor: ${color} was not found`;
+    test.info().errors.push({
+      message: msg,
+    });
+    test.fail(true, msg);
+  }
+  if (colorFromBrowser.match(/(\d+)\s(\d+)\s(\d+)\s\/\s(\d+\.\d+)/)) {
+    colorFromBrowser = colorFromBrowser.replace(
       /(\d+)\s(\d+)\s(\d+)\s\/\s(\d+\.\d+)/,
       "rgba($1, $2, $3, $4)",
     );
   }
-  return ret;
+  return colorFromBrowser;
 }
