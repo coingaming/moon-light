@@ -130,13 +130,20 @@ test.describe("Tooltip in Light Theme", () => {
   });
 
   test.describe("Customization tests", () => {
-    test.beforeEach(async ({ page }) => {
+    test("Customization: should render and match screenshot", async ({
+      page,
+    }) => {
+      // Top Start
       await page.getByText("Custom background color").hover();
       await page.waitForTimeout(100);
+      await expect(page).toHaveScreenshot(`tooltip-Customization.png`);
     });
+
     test("Customization: should render and have custom background color", async ({
       page,
     }) => {
+      await page.getByText("Custom background color").hover();
+      await page.waitForTimeout(100);
       const tooltip = await page.locator("[data-side]");
       await expect(tooltip).toHaveClass(/bg-chichi-10/);
       const tooltipElement = await tooltip.elementHandle();
@@ -145,6 +152,28 @@ test.describe("Tooltip in Light Theme", () => {
         return window.getComputedStyle(element).backgroundColor;
       }, tooltipElement);
       expect(bgColor).toBe(await getMoonColor(page, "chichi-10"));
+    });
+
+    test("Customization: should render and have custom font", async ({
+      page,
+    }) => {
+      await page.getByText("Custom fonts").hover();
+      await page.waitForTimeout(100);
+      const tooltip = await page.locator("[data-side]");
+      // Font size
+      await expect(tooltip).toHaveClass(/text-moon-18/);
+      const tooltipElement = await tooltip.elementHandle();
+      const fontSize = await page.evaluate((element) => {
+        // @ts-ignore
+        return window.getComputedStyle(element).fontSize;
+      }, tooltipElement);
+      await expect(tooltip).toHaveClass(/font-medium/);
+      const fontWeight = await page.evaluate((element) => {
+        // @ts-ignore
+        return window.getComputedStyle(element).fontWeight;
+      }, tooltipElement);
+      expect(fontSize).toBe("18px");
+      expect(fontWeight).toBe("500");
     });
   });
 
@@ -183,6 +212,8 @@ test.describe("Tooltip in Dark Theme", () => {
     test("Default: should render and match screenshot in dark theme", async ({
       page,
     }) => {
+      await page.getByText("Trigger").hover();
+      await page.waitForTimeout(100);
       await expect(page).toHaveScreenshot(`tooltip-Dark-Default.png`);
     });
   });
@@ -207,6 +238,8 @@ test.describe("Tooltip in Dark Theme", () => {
     test("Customization: should render and match screenshot in dark theme", async ({
       page,
     }) => {
+      await page.getByText("Custom background color").hover();
+      await page.waitForTimeout(100);
       await expect(page).toHaveScreenshot(`tooltip-Dark-Customization.png`);
     });
   });
@@ -237,6 +270,8 @@ test.describe("Tooltip in RTL", () => {
     test("Default: should render and match screenshot in RTL", async ({
       page,
     }) => {
+      await page.getByText("Trigger").hover();
+      await page.waitForTimeout(100);
       await expect(page).toHaveScreenshot(`tooltip-RTL-Default.png`);
     });
   });
@@ -245,6 +280,8 @@ test.describe("Tooltip in RTL", () => {
     test("ArrowPositions: should render and match screenshot in RTL", async ({
       page,
     }) => {
+      await page.getByText("top-start").hover();
+      await page.waitForTimeout(100);
       await expect(page).toHaveScreenshot(`tooltip-RTL-ArrowPositions.png`);
     });
   });
@@ -253,6 +290,8 @@ test.describe("Tooltip in RTL", () => {
     test("Customization: should render and match screenshot in RTL", async ({
       page,
     }) => {
+      await page.getByText("Custom background color").hover();
+      await page.waitForTimeout(100);
       await expect(page).toHaveScreenshot(`tooltip-RTL-Customization.png`);
     });
   });
@@ -261,6 +300,8 @@ test.describe("Tooltip in RTL", () => {
     test("RenderIntoSpecificContainer: should render and match screenshot in RTL", async ({
       page,
     }) => {
+      await page.getByText("Trigger").hover();
+      await page.waitForTimeout(100);
       await expect(page).toHaveScreenshot(
         `tooltip-RTL-RenderIntoSpecificContainer.png`,
       );
