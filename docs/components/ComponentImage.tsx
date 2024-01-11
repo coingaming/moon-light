@@ -7,6 +7,7 @@ import button from "../app/client/button/button.webp";
 import checkbox from "../app/client/checkbox/checkbox.webp";
 import chip from "../app/client/chip/chip.webp";
 import drawer from "../app/client/drawer/drawer.webp";
+import dropdown from "../app/client/dropdown/dropdown.webp";
 import breadcrumb from "../app/client/breadcrumb/breadcrumb.webp";
 import loader from "../app/client/loader/loader.webp";
 import bottomsheet from "../app/client/bottomsheet/bottomsheet.webp";
@@ -21,6 +22,7 @@ const images: Record<string, StaticImageData> = {
   checkbox,
   chip,
   drawer,
+  dropdown,
   accordion,
   alert,
   breadcrumb,

@@ -229,6 +229,43 @@ export type Examples = {
       },
       "props": "string"
     },
+    "dropdown": {
+      "description": "string",
+      "descriptions": {
+        "CustomMenuWidth": "string",
+        "Default": "string",
+        "HiddenInput": "string",
+        "InsetMultiSelect": "string",
+        "InsetSelect": "string",
+        "InsetSelectStates": "string",
+        "MultiSelect": "string",
+        "OptionsVariants": "string",
+        "Select": "string",
+        "SelectStates": "string",
+        "TriggerElements": "string"
+      },
+      "examples": {
+        "CustomMenuWidth": "string",
+        "Default": "string",
+        "HiddenInput": "string",
+        "InsetMultiSelect": "string",
+        "InsetSelect": "string",
+        "InsetSelectStates": "string",
+        "MultiSelect": "string",
+        "OptionsVariants": "string",
+        "Select": "string",
+        "SelectStates": "string",
+        "TriggerElements": "string"
+      },
+      "examplesAnatomy": {
+        "Default": "string",
+        "InsetMultiSelect": "string",
+        "InsetSelect": "string",
+        "MultiSelect": "string",
+        "Select": "string"
+      },
+      "props": "string"
+    },
     "loader": {
       "description": "string",
       "descriptions": {
