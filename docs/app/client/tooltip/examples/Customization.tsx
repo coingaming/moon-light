@@ -8,9 +8,9 @@ const Customization = () => (
       <Tooltip.Trigger>
         <Chip className="border border-beerus">Custom background color</Chip>
       </Tooltip.Trigger>
-      <Tooltip.Content className="bg-chichi-10">
+      <Tooltip.Content className="bg-chichi text-goku">
         Custom background color
-        <Tooltip.Arrow className="bg-chichi-10" />
+        <Tooltip.Arrow className="bg-chichi text-goku" />
       </Tooltip.Content>
     </Tooltip>
     <Tooltip>

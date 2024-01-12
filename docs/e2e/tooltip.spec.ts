@@ -145,13 +145,13 @@ test.describe("Tooltip in Light Theme", () => {
       await page.getByText("Custom background color").hover();
       await page.waitForTimeout(100);
       const tooltip = await page.locator("[data-side]");
-      await expect(tooltip).toHaveClass(/bg-chichi-10/);
+      await expect(tooltip).toHaveClass(/bg-chichi/);
       const tooltipElement = await tooltip.elementHandle();
       const bgColor = await page.evaluate((element) => {
         // @ts-ignore
         return window.getComputedStyle(element).backgroundColor;
       }, tooltipElement);
-      expect(bgColor).toBe(await getMoonColor(page, "chichi-10"));
+      expect(bgColor).toBe(await getMoonColor(page, "chichi"));
     });
 
     test("Customization: should render and have custom font", async ({
