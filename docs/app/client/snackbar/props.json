@@ -31,7 +31,7 @@
       {
         "name": "position",
         "type": [
-          "top-left | top-center | top-right | bottom-left | bottom-center | bottom-right"
+          "top-left", "top-center", "top-right", ....
         ],
 
         "defaultState": "top-right",
