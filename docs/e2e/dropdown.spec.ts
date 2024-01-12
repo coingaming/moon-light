@@ -2593,7 +2593,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("Default: should open default dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByRole("button", { name: "Choose a name..." }).click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2609,7 +2609,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("TriggerElements: first dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Dropdown trigger").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2623,7 +2623,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("TriggerElements: second dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       const trigger = await page
         .getByRole("button", { name: "Select name" })
         .nth(0);
@@ -2642,7 +2642,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("OptionsVariants: first dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByText("Sort by").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2656,7 +2656,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("OptionsVariants: second dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByText("Select language").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2670,7 +2670,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("OptionsVariants: third dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByText("Select countries").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2686,7 +2686,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("Select: small dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Small").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2700,7 +2700,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("Select: medium dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("medium").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2714,7 +2714,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("Select: large dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Large").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2730,7 +2730,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("SelectStates: should render and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-dark-SelectStates.png`,
       );
@@ -2739,7 +2739,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("SelectStates: error - should open dropdown and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Error").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2755,7 +2755,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("HiddenInput: should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByRole("button", { name: "With hidden input" }).click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2771,7 +2771,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("InsetSelect: should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Select label").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2787,7 +2787,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("InsetSelectStates: should render and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-dark-InsetSelectStates.png`,
       );
@@ -2796,7 +2796,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("InsetSelectStates: error - should open dropdown and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Error").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2812,7 +2812,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("MultiSelect: small dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Small").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2826,7 +2826,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("MultiSelect: small - should select option and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Small").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2845,7 +2845,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("MultiSelect: medium dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("medium").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2859,7 +2859,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("MultiSelect: medium - should select option and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Medium").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2878,7 +2878,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("MultiSelect: large dropdown - should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Large").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2892,7 +2892,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("MultiSelect: large - should select option and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Large").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2913,7 +2913,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("InsetMultiSelect: should open dropdown and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Select label").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2927,7 +2927,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("InsetMultiSelect: should select option and match screenshot in Dark Theme", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Select label").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2948,7 +2948,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("CustomMenuWidth: should render and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-dark-CustomMenuWidth.png`,
       );
@@ -2957,7 +2957,7 @@ test.describe("Dropdown in Dark Theme", () => {
     test("CustomMenuWidth: should open dropdown and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Custom options width").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2975,7 +2975,7 @@ test.describe("RTL tests", () => {
     test("Default: component support for RTL - should open default dropdown and match screenshot", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByRole("button", { name: "Choose a name..." }).click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -2991,7 +2991,7 @@ test.describe("RTL tests", () => {
     test("TriggerElements: first dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Dropdown trigger").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3005,7 +3005,7 @@ test.describe("RTL tests", () => {
     test("TriggerElements: second dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByRole("button", { name: "Select name" }).nth(0).click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3021,7 +3021,7 @@ test.describe("RTL tests", () => {
     test("OptionsVariants: first dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByText("Sort by").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3035,7 +3035,7 @@ test.describe("RTL tests", () => {
     test("OptionsVariants: second dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByText("Select language").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3049,7 +3049,7 @@ test.describe("RTL tests", () => {
     test("OptionsVariants: third dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByText("Select countries").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3065,7 +3065,7 @@ test.describe("RTL tests", () => {
     test("Select: small dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Small").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3079,7 +3079,7 @@ test.describe("RTL tests", () => {
     test("Select: medium dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Medium").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3093,7 +3093,7 @@ test.describe("RTL tests", () => {
     test("Select: large dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Large").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3109,7 +3109,7 @@ test.describe("RTL tests", () => {
     test("SelectStates: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-rtl-SelectStates.png`,
       );
@@ -3118,7 +3118,7 @@ test.describe("RTL tests", () => {
     test("SelectStates: error dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Error").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3134,7 +3134,7 @@ test.describe("RTL tests", () => {
     test("HiddenInput: component support for RTL - should open dropdown and match screenshot", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByRole("button", { name: "With hidden input" }).click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3150,7 +3150,7 @@ test.describe("RTL tests", () => {
     test("InsetSelect: should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Select label").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3166,7 +3166,7 @@ test.describe("RTL tests", () => {
     test("InsetSelectStates: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-rtl-InsetSelectStates.png`,
       );
@@ -3175,7 +3175,7 @@ test.describe("RTL tests", () => {
     test("InsetSelectStates: error dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Error").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3191,7 +3191,7 @@ test.describe("RTL tests", () => {
     test("MultiSelect: small dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Small").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3205,7 +3205,7 @@ test.describe("RTL tests", () => {
     test("MultiSelect: medium dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Medium").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3219,7 +3219,7 @@ test.describe("RTL tests", () => {
     test("MultiSelect: large dropdown - should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Large").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3235,7 +3235,7 @@ test.describe("RTL tests", () => {
     test("InsetMultiSelect: should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Select label").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
@@ -3251,7 +3251,7 @@ test.describe("RTL tests", () => {
     test("CustomMenuWidth: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await expect(page).toHaveScreenshot(
         `${COMPONENT_NAME}-rtl-CustomMenuWidth.png`,
       );
@@ -3260,7 +3260,7 @@ test.describe("RTL tests", () => {
     test("CustomMenuWidth: should open dropdown and match screenshot in RTL", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Custom options width").click();
       await page.waitForTimeout(100);
       const dropdown = page.locator('ul[role="listbox"]');
