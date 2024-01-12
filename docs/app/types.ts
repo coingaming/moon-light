@@ -404,6 +404,22 @@ export type Examples = {
         "UppercaseLowercase": "string"
       },
       "props": "string"
+    },
+    "textarea": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "States": "string",
+        "WithButton": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "States": "string",
+        "WithButton": "string"
+      },
+      "props": "string"
     }
   },
   "server": {
