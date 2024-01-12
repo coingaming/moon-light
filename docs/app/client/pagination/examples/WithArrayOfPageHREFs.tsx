@@ -20,7 +20,7 @@ const hrefsArray = [
   "#?10",
 ];
 
-const WithArrayOfPagesHREF = () => {
+const WithArrayOfPageHREFs = () => {
   const [page, setPage] = useState<number>(0);
   const handlePageChange = (page: number) => {
     setPage(page);
@@ -61,4 +61,4 @@ const WithArrayOfPagesHREF = () => {
   );
 };
 
-export default WithArrayOfPagesHREF;
+export default WithArrayOfPageHREFs;
