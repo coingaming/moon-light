@@ -3,7 +3,7 @@
 import React from "react";
 import { Popover, Chip } from "@heathmont/moon-core-tw";
 
-const Example = () => {
+const TooltipViewAlwaysOpen = () => {
   return (
     <Popover position="top">
       <Popover.Trigger data-testid="popover-trigger">
@@ -20,4 +20,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default TooltipViewAlwaysOpen;

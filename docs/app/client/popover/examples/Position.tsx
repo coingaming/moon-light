@@ -3,7 +3,7 @@
 import React from "react";
 import { Popover, Button } from "@heathmont/moon-core-tw";
 
-const Example = () => {
+const Position = () => {
   return (
     <div className="flex align-middle justify-around items-center w-full gap-2">
       <Popover position="top">
@@ -46,4 +46,4 @@ const Content: React.FC = () => (
     {/* cSpell:enable */}
   </p>
 );
-export default Example;
+export default Position;

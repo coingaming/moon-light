@@ -4,7 +4,7 @@ import React from "react";
 import { Popover, Button, MenuItem } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
-const Example = () => {
+const DisableFlipOnComponent = () => {
   return (
     <Popover autoPositionDisable={true}>
       <Popover.Trigger data-testid="popover-trigger">
@@ -49,4 +49,4 @@ const Content: React.FC = () => (
   </>
 );
 
-export default Example;
+export default DisableFlipOnComponent;

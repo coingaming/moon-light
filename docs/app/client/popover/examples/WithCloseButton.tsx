@@ -8,7 +8,7 @@ type RenderProps = {
   open?: boolean;
   close?: () => void;
 };
-const Example = () => {
+const WithCloseButton = () => {
   return (
     <Popover>
       <Popover.Trigger data-testid="popover-trigger">
@@ -67,4 +67,4 @@ const Content: React.FC<RenderProps> = ({ open, close }) => {
   );
 };
 
-export default Example;
+export default WithCloseButton;

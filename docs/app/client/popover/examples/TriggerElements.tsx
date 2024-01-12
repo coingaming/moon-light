@@ -4,7 +4,7 @@ import React from "react";
 import { Popover, Button, Chip, MenuItem } from "@heathmont/moon-core-tw";
 import { ControlsChevronDown } from "@heathmont/moon-icons-tw";
 
-const Example = () => {
+const TriggerElements = () => {
   return (
     <div className="flex align-middle justify-around items-center w-full gap-2">
       <Popover>
@@ -53,4 +53,4 @@ const Content: React.FC = () => (
     <MenuItem>Providers</MenuItem>
   </div>
 );
-export default Example;
+export default TriggerElements;

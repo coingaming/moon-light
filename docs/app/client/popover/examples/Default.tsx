@@ -4,7 +4,7 @@ import React from "react";
 import { Popover, Button, MenuItem } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
-const Example = () => {
+const Default = () => {
   return (
     <Popover data-testid="popover">
       <div className="flex">
@@ -54,4 +54,4 @@ const Content: React.FC = () => (
   </>
 );
 
-export default Example;
+export default Default;
