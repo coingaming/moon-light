@@ -4,7 +4,7 @@ import { Snackbar, Button } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 import { useCallback, useState } from "react";
 
-const Example = () => {
+const Options = () => {
   const [snackbar, setSnackbar] = useState("");
 
   const openSnackbarHandler = useCallback(
