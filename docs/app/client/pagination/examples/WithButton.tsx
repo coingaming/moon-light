@@ -7,7 +7,7 @@ import {
   ControlsChevronRightSmall,
 } from "@heathmont/moon-icons-tw";
 
-const Example = () => {
+const WithButton = () => {
   const [page, setPage] = useState<number>(0);
   const handlePageChange = (page: number) => {
     setPage(page);
@@ -47,4 +47,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default WithButton;

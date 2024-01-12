@@ -1,3 +1,3 @@
 ---
-title: With array of page hrefs
+title: With array of pages href
 ---

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Pagination } from "@heathmont/moon-core-tw";
 
-const Example = () => {
+const Default = () => {
   const [page, setPage] = useState<number>(0);
   const handlePageChange = (page: number) => {
     setPage(page);
@@ -23,4 +23,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default Default;
