@@ -2,7 +2,7 @@
 
 import { Radio } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const Uncontrolled = () => (
   <Radio defaultValue="option2">
     <Radio.Option value="option1">
       <Radio.Indicator />
@@ -15,4 +15,4 @@ const Example = () => (
   </Radio>
 );
 
-export default Example;
+export default Uncontrolled;

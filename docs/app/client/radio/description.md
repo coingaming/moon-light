@@ -1,7 +1,7 @@
 ---
 title: Radio
 tags: ["ARIA", "RTL"]
-examples: ["Default", "Disabled", "AsFormItem", "Uncontrolled", "Customization"]
+examples: ["Default", "Uncontrolled", "Disabled", "AsFormItem", "Customization"]
 ---
 
 Radio buttons are used to represent a group of choices whereby users can only select one option.

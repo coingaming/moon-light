@@ -3,7 +3,7 @@
 import { Radio } from "@heathmont/moon-core-tw";
 import { useState } from "react";
 
-const Example = () => {
+const Default = () => {
   const [value, setValue] = useState("");
   return (
     <Radio value={value} onChange={setValue}>
@@ -17,4 +17,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default Default;
