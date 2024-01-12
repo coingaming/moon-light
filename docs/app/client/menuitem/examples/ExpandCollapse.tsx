@@ -29,7 +29,7 @@ const ExpandCollapse = () => {
           How to contribute?
         </MenuItem>
         <MenuItem as="a" href="/">
-          Colours palette
+          Colors palette
         </MenuItem>
         <MenuItem as="a" href="/">
           Tokens
