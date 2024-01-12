@@ -31,7 +31,12 @@
       {
         "name": "position",
         "type": [
-          "top-left", "top-center", "top-right", ....
+          "top-left",
+          "top-center",
+          "top-right",
+          "bottom-left",
+          "bottom-center",
+          "bottom-right"
         ],
 
         "defaultState": "top-right",

@@ -32,4 +32,4 @@ const Default = () => {
   );
 };
 
-export default Example;
+export default Default;

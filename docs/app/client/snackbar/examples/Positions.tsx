@@ -3,7 +3,7 @@
 import { Snackbar, Button } from "@heathmont/moon-core-tw";
 import { useCallback, useState } from "react";
 
-const Example = () => {
+const Positions = () => {
   const [snackbar, setSnackbar] = useState("");
 
   const openSnackbarHandler = useCallback(
@@ -124,4 +124,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default Positions;

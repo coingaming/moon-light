@@ -113,4 +113,4 @@ const Customization = () => {
   );
 };
 
-export default Example;
+export default Customization;

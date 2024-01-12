@@ -56,4 +56,4 @@ const AutoClose = () => {
   );
 };
 
-export default Example;
+export default AutoClose;

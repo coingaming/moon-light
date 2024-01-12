@@ -4,7 +4,7 @@ import { Snackbar, Button } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 import { useCallback, useState } from "react";
 
-const Example = () => {
+const SemanticTypes = () => {
   const [snackbar, setSnackbar] = useState("");
 
   const openSnackbarHandler = useCallback(
@@ -78,4 +78,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default SemanticTypes;

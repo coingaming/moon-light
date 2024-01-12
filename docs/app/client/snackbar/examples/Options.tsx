@@ -126,4 +126,4 @@ const Options = () => {
   );
 };
 
-export default Example;
+export default Options;
