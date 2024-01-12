@@ -2,6 +2,6 @@
 
 import { MenuItem } from "@heathmont/moon-core-tw";
 
-const Example = () => <MenuItem>Menu item text</MenuItem>;
+const Default = () => <MenuItem className="w-56">Menu item text</MenuItem>;
 
-export default Example;
+export default Default;

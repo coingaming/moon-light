@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import { MenuItem } from "@heathmont/moon-core-tw";
 
-const Example = () => {
+const Radio = () => {
   const [activeOpt1, setActiveOpt1] = useState(false);
   const [activeOpt2, setActiveOpt2] = useState(false);
   return (
@@ -28,4 +28,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default Radio;

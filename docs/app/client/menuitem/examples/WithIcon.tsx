@@ -3,7 +3,7 @@
 import { MenuItem } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
-const Example = () => (
+const WithIcon = () => (
   <>
     <MenuItem className="w-56">
       <OtherFrame className="text-moon-24" />
@@ -16,4 +16,4 @@ const Example = () => (
   </>
 );
 
-export default Example;
+export default WithIcon;

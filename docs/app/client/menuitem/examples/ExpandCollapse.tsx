@@ -4,7 +4,7 @@ import { MenuItem } from "@heathmont/moon-core-tw";
 import { ControlsChevronDown } from "@heathmont/moon-icons-tw";
 import { useCallback, useState } from "react";
 
-const Example = () => {
+const ExpandCollapse = () => {
   const [activeOpt, setActiveOpt] = useState(true);
   const [isOpen, setIsOpen] = useState(true);
 
@@ -46,7 +46,7 @@ const Example = () => {
         </MenuItem>
 
         {activeOpt && (
-          <div className="ps-6">
+          <div className="ps-6" data-testid="expandable-1">
             <MenuItem as="a" href="/">
               <MenuItem.Title> Accordion</MenuItem.Title>
             </MenuItem>
@@ -75,7 +75,11 @@ const Example = () => {
             <p className="text-moon-14 font-medium">Bitcasino</p>
           </MenuItem.Title>
         </MenuItem>
-        <MenuItem className="ps-6" onClick={toggleClick}>
+        <MenuItem
+          className="ps-6"
+          onClick={toggleClick}
+          data-testid="right-trigger"
+        >
           <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
             <p className="font-medium text-moon-10">CX</p>
           </span>
@@ -84,7 +88,7 @@ const Example = () => {
         </MenuItem>
 
         {isOpen && (
-          <div className="ps-10">
+          <div className="ps-10" data-testid="expandable-2">
             <MenuItem>
               <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
                 <p className="font-medium text-moon-10">S</p>
@@ -167,4 +171,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default ExpandCollapse;

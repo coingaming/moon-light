@@ -2,14 +2,11 @@
 
 import { MenuItem } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
-import { useState } from "react";
 
-const Example = () => {
-  const [activeOpt, setActiveOpt] = useState(true);
-
+const MultiLineItems = () => {
   return (
     <div className="w-94 bg-gohan flex flex-col gap-3 rounded-moon-s-lg p-6">
-      <MenuItem isActive={activeOpt}>
+      <MenuItem isActive>
         <span className="bg-piccolo/10 rounded-moon-i-sm w-10 h-10 flex justify-center items-center">
           <OtherFrame className="text-moon-24 text-piccolo" />
         </span>
@@ -50,4 +47,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default MultiLineItems;

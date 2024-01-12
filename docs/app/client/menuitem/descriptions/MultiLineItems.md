@@ -1,3 +1,3 @@
 ---
-title: Multi Line Items
+title: Example with multiple multi-line items
 ---

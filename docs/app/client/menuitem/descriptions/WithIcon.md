@@ -1,3 +1,3 @@
 ---
-title: With icon
+title: MenuItem with an icon
 ---

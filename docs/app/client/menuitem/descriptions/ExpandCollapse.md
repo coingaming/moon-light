@@ -1,3 +1,3 @@
 ---
-title: Expand collapse
+title: Expand or collapse
 ---

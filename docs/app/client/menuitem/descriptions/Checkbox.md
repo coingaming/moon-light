@@ -1,3 +1,3 @@
 ---
-title: Checkbox
+title: MenuItem with Checkbox
 ---

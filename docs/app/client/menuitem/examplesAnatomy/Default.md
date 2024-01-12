@@ -1,8 +1,3 @@
----
-title: Anatomy
----
-
 ```
-
 <MenuItem>...</MenuItem>
 ```

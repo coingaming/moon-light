@@ -1,3 +1,3 @@
 ---
-title: Radio
+title: MenuItem with an Radio input
 ---
