@@ -1,5 +1,9 @@
-import { test, expect, Page } from "@playwright/test";
-import { setupTest, setDarkTheme, setRtl } from "@/utils/playwrightHelpers";
+import { test, expect } from "@playwright/test";
+import {
+  setupTest,
+  getMoonColor,
+  setLightTheme,
+} from "@/utils/playwrightHelpers";
 import { MOON_THEME_COLORS } from "@/constants";
 
 const COMPONENT_NAME = "alert";
@@ -14,6 +18,7 @@ test.describe("Themes", () => {
   });
 
   test("Check Moon Theme colors in light theme", async ({ page }) => {
+    await setLightTheme(page);
     for await (const iterator of Object.keys(MOON_THEME_COLORS)) {
       const color = await getMoonColor(page, iterator);
       expect(color).toBe(
@@ -25,26 +30,3 @@ test.describe("Themes", () => {
     }
   });
 });
-
-// TODO: To remove
-async function getMoonColor(page: Page, color: string) {
-  let colorFromBrowser = await page.evaluate((color: string) => {
-    return window
-      .getComputedStyle(document.body)
-      .getPropertyValue(`--${color}`);
-  }, color);
-  if (!colorFromBrowser) {
-    const msg = `getMoonColor: ${color} was not found`;
-    test.info().errors.push({
-      message: msg,
-    });
-    test.fail(true, msg);
-  }
-  if (colorFromBrowser.match(/(\d+)\s(\d+)\s(\d+)\s\/\s(\d+\.\d+)/)) {
-    colorFromBrowser = colorFromBrowser.replace(
-      /(\d+)\s(\d+)\s(\d+)\s\/\s(\d+\.\d+)/,
-      "rgba($1, $2, $3, $4)",
-    );
-  }
-  return colorFromBrowser;
-}

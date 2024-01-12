@@ -7,6 +7,7 @@ export async function setRtl(page: Page) {
     if (htmlElement) {
       htmlElement.setAttribute("dir", "rtl");
     } else {
+      test.fail(true, "setRtl error: html element was not found");
       throw new Error("setRtl error: html element was not found");
     }
   });
@@ -19,10 +20,28 @@ export async function setDarkTheme(page: Page) {
     if (bodyElement) {
       bodyElement.classList.add("theme-moon-dark");
     } else {
+      test.fail(true, "setDarkTheme error: body element was not found");
       throw new Error("setDarkTheme error: body element was not found");
     }
   });
   await page.waitForSelector("body.theme-moon-dark");
+}
+
+export async function setLightTheme(page: Page) {
+  await page.evaluate(() => {
+    const bodyElement = document?.querySelector("body");
+    if (bodyElement) {
+      if (!bodyElement.classList.contains("theme-moon-light")) {
+        // Case the theme is dark
+        bodyElement.classList.remove("theme-moon-dark");
+        bodyElement.classList.add("theme-moon-light");
+      }
+    } else {
+      test.fail(true, "setLightTheme error: body element was not found");
+      throw new Error("setLightTheme error: body element was not found");
+    }
+  });
+  await page.waitForSelector("body.theme-moon-light");
 }
 
 export function setupTest(name: string) {
