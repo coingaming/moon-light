@@ -3,8 +3,8 @@
 import { Input, Label, Hint } from "@heathmont/moon-core-tw";
 import { GenericInfo } from "@heathmont/moon-icons-tw";
 
-const Example = () => (
-  <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
+const DifferentStates = () => (
+  <div className="flex flex-col lg:flex-row justify-around items-start w-full gap-2">
     <div className="w-full">
       <Label htmlFor="disabled-state" disabled>
         Label
@@ -34,4 +34,4 @@ const Example = () => (
   </div>
 );
 
-export default Example;
+export default DifferentStates;

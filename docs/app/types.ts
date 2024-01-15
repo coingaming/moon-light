@@ -287,6 +287,28 @@ export type Examples = {
       },
       "props": "string"
     },
+    "input": {
+      "description": "string",
+      "descriptions": {
+        "ControllingAnInput": "string",
+        "Customization": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string",
+        "TextInputTypes": "string",
+        "WithLabelAndHint": "string"
+      },
+      "examples": {
+        "ControllingAnInput": "string",
+        "Customization": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string",
+        "TextInputTypes": "string",
+        "WithLabelAndHint": "string"
+      },
+      "props": "string"
+    },
     "loader": {
       "description": "string",
       "descriptions": {

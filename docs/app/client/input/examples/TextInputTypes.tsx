@@ -2,7 +2,7 @@
 
 import { Input, Label } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const TextInputTypes = () => (
   <>
     <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
       <div className="w-full">
@@ -49,4 +49,4 @@ const Example = () => (
   </>
 );
 
-export default Example;
+export default TextInputTypes;

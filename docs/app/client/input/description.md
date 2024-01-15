@@ -4,11 +4,12 @@ tags: ["ARIA", "RTL"]
 examples:
   [
     "Default",
+    "WithLabelAndHint",
     "Sizes",
     "DifferentStates",
-    "CustomStyles",
     "TextInputTypes",
     "ControllingAnInput",
+    "Customization",
   ]
 ---
 
