@@ -301,6 +301,29 @@ export type Examples = {
       },
       "props": "string"
     },
+    "popover": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "DisableFlipOnComponent": "string",
+        "Position": "string",
+        "TooltipViewExample": "string",
+        "TooltipViewExampleWithAlwaysOpenState": "string",
+        "TriggerElements": "string",
+        "WithCloseButton": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "DisableFlipOnComponent": "string",
+        "Position": "string",
+        "TooltipViewExample": "string",
+        "TooltipViewExampleWithAlwaysOpenState": "string",
+        "TriggerElements": "string",
+        "WithCloseButton": "string"
+      },
+      "props": "string"
+    },
     "progress": {
       "description": "string",
       "descriptions": {
