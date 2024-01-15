@@ -1,0 +1,140 @@
+[
+  {
+    "name": "Snackbar",
+    "props": [
+      {
+        "name": "autoClose",
+        "type": ["number"],
+
+        "defaultState": 5000,
+        "description": "Duration the snackbar takes in ms."
+      },
+      {
+        "name": "children",
+        "type": ["React.ReactNode"],
+
+        "description": "Children content"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "CSS classes for customization"
+      },
+      {
+        "name": "isOpen",
+        "type": ["boolean"],
+        "required": "Yes",
+        "defaultState": false,
+        "description": "Toggles visibility of Snackbar"
+      },
+      {
+        "name": "position",
+        "type": [
+          "top-left",
+          "top-center",
+          "top-right",
+          "bottom-left",
+          "bottom-center",
+          "bottom-right"
+        ],
+
+        "defaultState": "top-right",
+        "description": "Position of snackbar"
+      },
+      {
+        "name": "onOpenChange",
+        "type": ["() => void"],
+        "required": "Yes",
+
+        "description": "Event handler called when the open state of the dialog changes"
+      }
+    ]
+  },
+  {
+    "name": "Snackbar.Content",
+    "props": [
+      {
+        "name": "children",
+        "type": ["React.ReactNode"],
+
+        "description": "Children content"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "CSS classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Snackbar.Header",
+    "props": [
+      {
+        "name": "children",
+        "type": ["React.ReactNode"],
+
+        "description": "Children content"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "CSS classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Snackbar.Message",
+    "props": [
+      {
+        "name": "children",
+        "type": ["React.ReactNode"],
+
+        "description": "Children content"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "CSS classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Snackbar.Icon",
+    "props": [
+      {
+        "name": "children",
+        "type": ["React.ReactNode"],
+
+        "description": "Children content"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "CSS classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Snackbar.Close",
+    "props": [
+      {
+        "name": "ariaLabel",
+        "type": ["string"],
+
+        "defaultState": "Close",
+        "description": "Aria-label for close button"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "CSS classes for customization"
+      }
+    ]
+  }
+]
