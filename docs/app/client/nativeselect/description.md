@@ -4,6 +4,6 @@ tags: ["ARIA", "RTL"]
 examples: ["Default", "Sizes", "DifferentStates", "CustomStyles"]
 ---
 
-A form input used for selecting a value: when collapsed it shows the currently selected option and when expanded, it shows a scrollable list of predefined options for the user to choose from.
+A form input designed for value selection: in its collapsed state, it reveals the presently chosen option, and upon expansion, it presents a scrollable list of predetermined choices for the user's selection.
 <br/>
-When collapsed it shows the currently selected option and when expanded, it shows a scrollable list of predefined options for the user to choose from. Moon.io supports two types of selects, one whichs opens browser's native styling option list and (Dropdown)[https://moon.io/components/dropdown].
+In a collapsed state, it reveals the currently selected option, and upon expansion, it displays a scrollable list of predefined choices for the user's selection. Moon.io supports two types of selects: one that opens the browser's native styling option list and a [Dropdown](https://moon.io/components/dropdown).

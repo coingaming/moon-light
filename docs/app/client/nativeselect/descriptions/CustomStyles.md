@@ -1,3 +1,3 @@
 ---
-title: Custom styles
+title: Customization
 ---
