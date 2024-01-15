@@ -1,15 +1,6 @@
 ---
 title: IconButton
 tags: ["ARIA", "RTL"]
-examples:
-  [
-    "Default",
-    "ButtonAsALinkHTML",
-    "Variants",
-    "Sizes",
-    "Disabled",
-    "Animations",
-  ]
 ---
 
 Buttons allow users to take actions, and make choices, with a single tap.
