@@ -366,6 +366,29 @@ export type Examples = {
       },
       "props": "string"
     },
+    "snackbar": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "AutoClose": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Options": "string",
+        "Positions": "string",
+        "SemanticTypes": "string",
+        "SnackbarQueue": "string"
+      },
+      "examples": {
+        "AutoClose": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Options": "string",
+        "Positions": "string",
+        "SemanticTypes": "string",
+        "SnackbarQueue": "string"
+      },
+      "props": "string"
+    },
     "tabs": {
       "anatomy": "string",
       "description": "string",
