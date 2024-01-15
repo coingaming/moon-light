@@ -6,7 +6,12 @@ import { GenericInfo } from "@heathmont/moon-icons-tw";
 const Example = () => (
   <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
     <div className="w-full">
-      <InsetNativeSelect label="Disabled" id="dis-1" disabled>
+      <InsetNativeSelect
+        label="Disabled"
+        id="dis-1"
+        data-testid="dis-1"
+        disabled
+      >
         <option value="Italy">Italy</option>
         <option value="Spain">Spain</option>
         <option value="China">China</option>
@@ -15,7 +20,7 @@ const Example = () => (
       <Hint disabled>Informative message holder</Hint>
     </div>
     <div className="w-full">
-      <InsetNativeSelect label="Error" id="err-1" error>
+      <InsetNativeSelect label="Error" id="err-1" data-testid="err-1" error>
         <option value="Italy">Italy</option>
         <option value="Spain">Spain</option>
         <option value="China">China</option>
@@ -27,7 +32,12 @@ const Example = () => (
       </Hint>
     </div>
     <div className="w-full">
-      <InsetNativeSelect label="Read only" id="ro-1" readOnly>
+      <InsetNativeSelect
+        label="Read only"
+        id="ro-1"
+        data-testid="ro-1"
+        readOnly
+      >
         <option value="Italy">Italy</option>
         <option value="Spain">Spain</option>
         <option value="China">China</option>

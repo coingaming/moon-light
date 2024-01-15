@@ -5,19 +5,19 @@
       {
         "name": "error",
         "type": ["boolean"],
-        "defaultState": false,
+        "defaultState": "false",
         "description": "Sets error state for select"
       },
       {
         "name": "disabled",
         "type": ["boolean"],
-        "defaultState": false,
+        "defaultState": "false",
         "description": "Set disabled/non-disabled"
       },
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for customization"
+        "description": "CSS classes for customization"
       }
     ]
   }
