@@ -45,6 +45,7 @@ pixelmatch
 popo
 progressbar
 raditz
+snackbars
 sportsbet
 tabpanel
 tagsinput

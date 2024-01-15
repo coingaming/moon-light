@@ -53,7 +53,7 @@ export function setupTest(name: string) {
   });
   test.afterEach(async ({ page }) => {
     // Cleanup from route
-    await page.close();
+    // await page.close();
   });
   test.describe.configure({ mode: "parallel" });
 }
@@ -72,10 +72,16 @@ export async function getMoonColor(page: Page, color: string) {
     });
     test.fail(true, msg);
   }
+
   if (colorFromBrowser.match(/(\d+)\s(\d+)\s(\d+)\s\/\s(\d+\.\d+)/)) {
     colorFromBrowser = colorFromBrowser.replace(
       /(\d+)\s(\d+)\s(\d+)\s\/\s(\d+\.\d+)/,
       "rgba($1, $2, $3, $4)",
+    );
+  } else if (colorFromBrowser.match(/(\d+)\s(\d+)\s(\d+)/)) {
+    colorFromBrowser = colorFromBrowser.replace(
+      /(\d+)\s(\d+)\s(\d+)/,
+      "rgb($1, $2, $3)",
     );
   }
   return colorFromBrowser;
