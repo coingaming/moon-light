@@ -44,6 +44,12 @@
         "description": "Set disabled/non-disabled"
       },
       {
+        "name": "readOnly",
+        "type": ["boolean"],
+        "defaultState": false,
+        "description": "Sets readonly state for input"
+      },
+      {
         "name": "dir",
         "type": ["ltr", "rtl", "auto"],
         "description": "RTL/LTR direction of label"
