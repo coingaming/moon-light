@@ -9,6 +9,27 @@ import avatar from "../app/client/avatar/avatar.webp";
 import authcode from "../app/client/authcode/authcode.webp";
 import accordion from "../app/client/accordion/accordion.webp";
 import popover from "../app/client/popover/popover.webp";
+import circularprogress from "../app/client/circularprogress/circularprogress.webp";
+import combobox from "../app/client/combobox/combobox.webp";
+import carousel from "../app/client/carousel/carousel.webp";
+import form from "../app/client/form/form.webp";
+import dropdown from "../app/client/dropdown/dropdown.webp";
+import insetinput from "../app/client/insetInput/insetinput.webp";
+import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect.webp";
+import iconbutton from "../app/client/iconbutton/iconbutton.webp";
+import input from "../app/client/input/input.webp";
+import icons from "../app/client/icons/icons.webp";
+import menuitem from "../app/client/menuitem/menuitem.webp";
+import snackbar from "../app/client/snackbar/snackbar.webp";
+import nativeselect from "../app/client/nativeselect/nativeselect.webp";
+import switchImage from "../app/client/switch/switch.webp";
+import pagination from "../app/client/pagination/pagination.webp";
+import radio from "../app/client/radio/radio.webp";
+import progress from "../app/client/progress/progress.webp";
+import search from "../app/client/search/search.webp";
+import popover from "../app/client/popover/popover.webp";
+import table from "../app/client/table/table.webp";
+import searchcmdk from "../app/client/searchcmdk/searchcmdk.webp";
 
 const images: Record<string, StaticImageData> = {
   tagsInput,
@@ -20,6 +41,27 @@ const images: Record<string, StaticImageData> = {
   authcode,
   accordion,
   popover,
+  circularprogress,
+  combobox,
+  carousel,
+  form,
+  dropdown,
+  insetinput,
+  insetnativeselect,
+  iconbutton,
+  input,
+  icons,
+  menuitem,
+  snackbar,
+  nativeselect,
+  switch: switchImage,
+  pagination,
+  radio,
+  progress,
+  search,
+  popover,
+  table,
+  searchcmdk,
 };
 
 // Default image for components

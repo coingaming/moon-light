@@ -309,6 +309,22 @@ export type Examples = {
       },
       "props": "string"
     },
+    "insetInput": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "TextInputTypes": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "TextInputTypes": "string"
+      },
+      "props": "string"
+    },
     "loader": {
       "description": "string",
       "descriptions": {
