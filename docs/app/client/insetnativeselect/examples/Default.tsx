@@ -2,7 +2,7 @@
 
 import { InsetNativeSelect } from "@heathmont/moon-core-tw";
 
-const Example = () => (
+const Default = () => (
   <InsetNativeSelect label="Country / Region" data-testid="select">
     <option value="Italy">Italy</option>
     <option value="Spain">Spain</option>
@@ -11,4 +11,4 @@ const Example = () => (
   </InsetNativeSelect>
 );
 
-export default Example;
+export default Default;
