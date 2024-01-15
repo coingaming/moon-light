@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Popover",
+    "props": [
+      {
+        "name": "position",
+        "type": [
+          "top-start",
+          "top-end",
+          "bottom-start",
+          "bottom-end",
+          "right-start",
+          "right-end",
+          "left-start| left-end",
+          "top",
+          "bottom",
+          "right| left"
+        ],
+
+        "defaultState": "bottom",
+        "description": "Set placement for popover"
+      },
+      {
+        "name": "autoPositionDisable",
+        "type": ["boolean"],
+
+        "defaultState": false,
+        "description": "Disable flip on component"
+      },
+      {
+        "name": "open",
+        "type": ["boolean"],
+
+        "description": "Render Props: Whether or not the popover is open."
+      }
+    ]
+  },
+  {
+    "name": "Popover.Panel",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "Tailwind classes for custom styles."
+      },
+      {
+        "name": "isStatic",
+        "type": ["boolean"],
+
+        "description": "Whether the component should be always open and ignore the internally managed open/closed state."
+      },
+      {
+        "name": "open",
+        "type": ["boolean"],
+
+        "description": "Render Props: Whether or not the popover is open."
+      },
+      {
+        "name": "close",
+        "type": ["() => void"],
+        "description": "Render Props: Closes the popover."
+      }
+    ]
+  }
+]

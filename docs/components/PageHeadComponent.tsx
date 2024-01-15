@@ -25,7 +25,6 @@ export const PageHeadComponent = ({
       {tags && <TitleTags className="mb-4" tags={tags} />}
       {description && <MDX markdown={description} />}
     </div>
-
     {image ? <Image src={image} alt={title} /> : <ComponentImage name={name} />}
   </div>
 );
