@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build:types": "node scripts/buildExamplesType.mjs",
+    "build:types": "node scripts/buildExamplesType.mjs && prettier --write ./components.constants.mjs",
     "build:dict": "node scripts/buildDict.mjs",
     "build": "pnpm run build:types && pnpm run build:dict && next build",
     "lint": "next lint",

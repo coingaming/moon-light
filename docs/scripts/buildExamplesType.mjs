@@ -105,6 +105,18 @@ export const buildExamplesType = async () => {
     path: "./app/types.ts",
   });
 
+  const clientComponents = Object.keys(components.client);
+
+  await writeToFile({
+    contentToWrite: `const COMPONENTS = [${clientComponents?.map(
+      (i) => `"${i}"`,
+    )}];
+
+export default COMPONENTS;
+`,
+    path: "./components.constants.mjs",
+  });
+
   return components;
 };
 

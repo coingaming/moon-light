@@ -1,0 +1,25 @@
+const COMPONENTS = [
+  "accordion",
+  "alert",
+  "authcode",
+  "avatar",
+  "bottomsheet",
+  "breadcrumb",
+  "button",
+  "checkbox",
+  "chip",
+  "circularProgress",
+  "drawer",
+  "dropdown",
+  "group",
+  "loader",
+  "popover",
+  "progress",
+  "snackbar",
+  "switch",
+  "tabs",
+  "tag",
+  "tagsInput",
+];
+
+export default COMPONENTS;
