@@ -16,6 +16,7 @@ import dropdown from "../app/client/dropdown/dropdown.webp";
 import group from "../app/client/group/group.webp";
 import loader from "../app/client/loader/loader.webp";
 import progress from "../app/client/progress/progress.webp";
+import snackbar from "../app/client/snackbar/snackbar.webp";
 import switchImage from "../app/client/switch/switch.webp";
 import tabs from "../app/client/tabs/tabs.webp";
 import tag from "../app/client/tag/tag.webp";
@@ -39,6 +40,7 @@ const images: Record<string, StaticImageData> = {
   group,
   loader,
   progress,
+  snackbar,
   switch: switchImage,
   tabs,
   tag,
