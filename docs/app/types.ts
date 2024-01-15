@@ -310,6 +310,7 @@ export type Examples = {
       "props": "string"
     },
     "insetInput": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "Customization": "string",
