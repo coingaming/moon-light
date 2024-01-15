@@ -6,6 +6,7 @@ bitcasino
 bombay
 bottomsheet
 bulma
+circularprogress
 Clintock
 combobox
 compat
