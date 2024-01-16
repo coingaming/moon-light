@@ -16,6 +16,7 @@ import drawer from "../app/client/drawer/drawer.webp";
 import dropdown from "../app/client/dropdown/dropdown.webp";
 import group from "../app/client/group/group.webp";
 import input from "../app/client/input/input.webp";
+import insetInput from "../app/client/insetInput/insetinput.webp";
 import loader from "../app/client/loader/loader.webp";
 import progress from "../app/client/progress/progress.webp";
 import radio from "../app/client/radio/radio.webp";
@@ -43,6 +44,7 @@ const images: Record<string, StaticImageData> = {
   dropdown,
   group,
   input,
+  insetInput,
   loader,
   progress,
   radio,
