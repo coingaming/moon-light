@@ -9,6 +9,7 @@ import breadcrumb from "../app/client/breadcrumb/breadcrumb.webp";
 import breadcrumbs from "../app/client/breadcrumb/breadcrumb.webp";
 import button from "../app/client/button/button.webp";
 import checkbox from "../app/client/checkbox/checkbox.webp";
+import tooltip from "../app/client/tooltip/tooltip.webp";
 import chip from "../app/client/chip/chip.webp";
 import circularProgress from "../app/client/circularProgress/circularProgress.webp";
 import drawer from "../app/client/drawer/drawer.webp";
@@ -32,6 +33,7 @@ const images: Record<string, StaticImageData> = {
   breadcrumbs,
   button,
   checkbox,
+  tooltip,
   chip,
   circularProgress,
   drawer,
