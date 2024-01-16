@@ -115,13 +115,9 @@ test("Active: should keep active state if selected always true", async ({
   page,
 }) => {
   const button = await page.getByText("Poker", { exact: true });
-  await expect((await button.getAttribute("class"))?.split(" ")).toEqual(
-    expect.arrayContaining(["bg-jiren"]),
-  );
+  await expect(button).toHaveClass(/bg-jiren/);
   await button.click();
-  await expect((await button.getAttribute("class"))?.split(" ")).toEqual(
-    expect.arrayContaining(["bg-jiren"]),
-  );
+  await expect(button).toHaveClass(/bg-jiren/);
 });
 
 test("Active: should set active state if clicked", async ({ page }) => {
@@ -130,9 +126,7 @@ test("Active: should set active state if clicked", async ({ page }) => {
     expect.arrayContaining(["bg-jiren"]),
   );
   await button.click();
-  await expect((await button.getAttribute("class"))?.split(" ")).toEqual(
-    expect.arrayContaining(["bg-jiren"]),
-  );
+  await expect(button).toHaveClass(/bg-jiren/);
 });
 
 test("Active: should set active state if clicked, and remove if clicked twice", async ({
@@ -143,9 +137,8 @@ test("Active: should set active state if clicked, and remove if clicked twice", 
     expect.arrayContaining(["bg-jiren"]),
   );
   await button.click();
-  await expect((await button.getAttribute("class"))?.split(" ")).toEqual(
-    expect.arrayContaining(["bg-jiren"]),
-  );
+  await expect(button).toHaveClass(/bg-jiren/);
+
   await button.click();
   await expect((await button.getAttribute("class"))?.split(" ")).not.toEqual(
     expect.arrayContaining(["bg-jiren"]),

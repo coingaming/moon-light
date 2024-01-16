@@ -287,6 +287,45 @@ export type Examples = {
       },
       "props": "string"
     },
+    "input": {
+      "description": "string",
+      "descriptions": {
+        "ControllingAnInput": "string",
+        "Customization": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string",
+        "TextInputTypes": "string",
+        "WithLabelAndHint": "string"
+      },
+      "examples": {
+        "ControllingAnInput": "string",
+        "Customization": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string",
+        "TextInputTypes": "string",
+        "WithLabelAndHint": "string"
+      },
+      "props": "string"
+    },
+    "insetInput": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "TextInputTypes": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "TextInputTypes": "string"
+      },
+      "props": "string"
+    },
     "loader": {
       "description": "string",
       "descriptions": {
@@ -298,6 +337,38 @@ export type Examples = {
         "Colors": "string",
         "Default": "string",
         "Sizes": "string"
+      },
+      "props": "string"
+    },
+    "menuitem": {
+      "description": "string",
+      "descriptions": {
+        "AsLink": "string",
+        "Checkbox": "string",
+        "Default": "string",
+        "ExpandCollapse": "string",
+        "MultiLineItems": "string",
+        "MultiTitle": "string",
+        "Radio": "string",
+        "WithIcon": "string",
+        "WithMeta": "string"
+      },
+      "examples": {
+        "AsLink": "string",
+        "Checkbox": "string",
+        "Default": "string",
+        "ExpandCollapse": "string",
+        "MultiLineItems": "string",
+        "MultiTitle": "string",
+        "Radio": "string",
+        "WithIcon": "string",
+        "WithMeta": "string"
+      },
+      "examplesAnatomy": {
+        "Checkbox": "string",
+        "MultiTitle": "string",
+        "Radio": "string",
+        "WithIcon": "string"
       },
       "props": "string"
     },
@@ -341,6 +412,25 @@ export type Examples = {
         "Size": "string",
         "Value": "string",
         "WithLabels": "string"
+      },
+      "props": "string"
+    },
+    "radio": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "AsFormItem": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Uncontrolled": "string"
+      },
+      "examples": {
+        "AsFormItem": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Uncontrolled": "string"
       },
       "props": "string"
     },
@@ -448,6 +538,23 @@ export type Examples = {
         "DifferentSizes": "string",
         "States": "string",
         "UppercaseLowercase": "string"
+      },
+      "props": "string"
+    },
+    "tooltip": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "ArrowPositions": "string",
+        "Customization": "string",
+        "Default": "string",
+        "RenderIntoSpecificContainer": "string"
+      },
+      "examples": {
+        "ArrowPositions": "string",
+        "Customization": "string",
+        "Default": "string",
+        "RenderIntoSpecificContainer": "string"
       },
       "props": "string"
     }

@@ -1,5 +1,5 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
-import { ReactNode, ComponentProps, HTMLProps } from "react";
+import { ComponentProps, HTMLProps } from "react";
 
 const defaultComponents: ComponentProps<any> = {
   a: (props: HTMLProps<HTMLAnchorElement>) => (

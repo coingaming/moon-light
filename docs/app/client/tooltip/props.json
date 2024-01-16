@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Tooltip.Trigger",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Any CSS classes to apply."
+      }
+    ]
+  },
+  {
+    "name": "Tooltip.Content",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "Any CSS classes to apply."
+      },
+      {
+        "name": "position",
+        "type": [
+          "top-start",
+          "top-center",
+          "top-end",
+          "bottom-start",
+          "bottom-center",
+          "bottom-end",
+          "right",
+          "left"
+        ],
+        "defaultState": "top-center",
+        "description": "Position of Tooltip."
+      },
+      {
+        "name": "container",
+        "type": ["HTMLElement", "null"],
+        "defaultState": "document.body",
+        "description": "Specify a container element to portal the content into."
+      }
+    ]
+  }
+]
