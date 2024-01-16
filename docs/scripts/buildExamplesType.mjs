@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { serialize } from "next-mdx-remote/serialize";
 
 export async function writeToFile({ contentToWrite, path }) {
   if (!contentToWrite) {
@@ -40,7 +41,17 @@ export async function hasSubfolders(_path) {
   }
 }
 
-// type FilesTypes = Record<string, string>;
+export async function readFromFile(pathToFile) {
+  try {
+    const data = await fs.readFile(pathToFile, "utf8");
+    return data;
+  } catch (err) {
+    if (err instanceof Error) {
+      console.error(`Error reading from file ${pathToFile}:`, err.message);
+      throw err;
+    }
+  }
+}
 
 export async function processFiles(
   dirPath,
@@ -82,7 +93,7 @@ export async function processFiles(
 export const getTemplate = (content, template = "example") => {
   switch (template) {
     case "component":
-      return `const COMPONENTS = [${content}];
+      return `const COMPONENTS = {${content}};
 
 export default COMPONENTS;
 `;
@@ -116,11 +127,30 @@ export const buildExamplesType = async () => {
 
   const clientComponents = Object.keys(components.client);
 
+  let componentsInTheBuild = [];
+  for await (const component of clientComponents) {
+    const data = await readFromFile(
+      path.join("./app/client", component, "description.md"),
+    );
+    const mdxSource = await serialize(data, { parseFrontmatter: true });
+    componentsInTheBuild.push(
+      `"${component}": {
+        title: "${mdxSource?.frontmatter?.title}",
+        tags: ${
+          mdxSource?.frontmatter?.tags
+            ? JSON.stringify(mdxSource?.frontmatter?.tags)
+            : undefined
+        },
+        examples: ${
+          mdxSource?.frontmatter?.examples
+            ? JSON.stringify(mdxSource?.frontmatter?.examples)
+            : undefined
+        },
+      }`,
+    );
+  }
   await writeToFile({
-    contentToWrite: getTemplate(
-      clientComponents?.map((i) => `"${i}"`),
-      "component",
-    ),
+    contentToWrite: getTemplate(componentsInTheBuild, "component"),
     path: "./components.constants.mjs",
   });
 

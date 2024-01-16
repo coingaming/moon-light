@@ -10,7 +10,7 @@ import type { TagTypes } from "@/types";
 
 // Generate segments for both [componentName]
 export async function generateStaticParams() {
-  return COMPONENTS.map((name: string) => {
+  return Object.keys(COMPONENTS).map((name: string) => {
     return {
       slug: [name],
     };
@@ -27,9 +27,9 @@ export default async function Page({
   const searchParamRaw = params?.slug?.[1];
 
   const data = await useGetExample(componentName);
+  const info = await useComponentInfo(componentName);
 
   const props = useProps(data?.props);
-  const info = await useComponentInfo(data?.description);
 
   const isMockup =
     !!searchParamRaw &&
