@@ -301,6 +301,39 @@ export type Examples = {
       },
       "props": "string"
     },
+    "menuitem": {
+      "description": "string",
+      "descriptions": {
+        "AsLink": "string",
+        "Checkbox": "string",
+        "Default": "string",
+        "ExpandCollapse": "string",
+        "MultiLineItems": "string",
+        "MultiTitle": "string",
+        "Radio": "string",
+        "WithIcon": "string",
+        "WithMeta": "string"
+      },
+      "examples": {
+        "AsLink": "string",
+        "Checkbox": "string",
+        "Default": "string",
+        "ExpandCollapse": "string",
+        "MultiLineItems": "string",
+        "MultiTitle": "string",
+        "Radio": "string",
+        "WithIcon": "string",
+        "WithMeta": "string"
+      },
+      "examplesAnatomy": {
+        "Checkbox": "string",
+        "Default": "string",
+        "MultiTitle": "string",
+        "Radio": "string",
+        "WithIcon": "string"
+      },
+      "props": "string"
+    },
     "popover": {
       "anatomy": "string",
       "description": "string",
@@ -344,28 +377,6 @@ export type Examples = {
       },
       "props": "string"
     },
-    "switch": {
-      "description": "string",
-      "descriptions": {
-        "Customization": "string",
-        "Default": "string",
-        "Disabled": "string",
-        "Sizes": "string",
-        "UsingTooltip": "string",
-        "WithHTMLForms": "string",
-        "WithIcons": "string"
-      },
-      "examples": {
-        "Customization": "string",
-        "Default": "string",
-        "Disabled": "string",
-        "Sizes": "string",
-        "UsingTooltip": "string",
-        "WithHTMLForms": "string",
-        "WithIcons": "string"
-      },
-      "props": "string"
-    },
     "snackbar": {
       "anatomy": "string",
       "description": "string",
@@ -386,6 +397,28 @@ export type Examples = {
         "Positions": "string",
         "SemanticTypes": "string",
         "SnackbarQueue": "string"
+      },
+      "props": "string"
+    },
+    "switch": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "UsingTooltip": "string",
+        "WithHTMLForms": "string",
+        "WithIcons": "string"
       },
       "props": "string"
     },

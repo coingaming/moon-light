@@ -1,0 +1,7 @@
+```
+<MenuItem>
+  ...
+  <MenuItem.MultiTitle ... />
+  ...
+</MenuItem>
+```
