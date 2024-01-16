@@ -349,7 +349,6 @@ export type Examples = {
       },
       "examplesAnatomy": {
         "Checkbox": "string",
-        "Default": "string",
         "MultiTitle": "string",
         "Radio": "string",
         "WithIcon": "string"
@@ -396,6 +395,25 @@ export type Examples = {
         "Size": "string",
         "Value": "string",
         "WithLabels": "string"
+      },
+      "props": "string"
+    },
+    "radio": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "AsFormItem": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Uncontrolled": "string"
+      },
+      "examples": {
+        "AsFormItem": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Uncontrolled": "string"
       },
       "props": "string"
     },
@@ -503,6 +521,23 @@ export type Examples = {
         "DifferentSizes": "string",
         "States": "string",
         "UppercaseLowercase": "string"
+      },
+      "props": "string"
+    },
+    "tooltip": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "ArrowPositions": "string",
+        "Customization": "string",
+        "Default": "string",
+        "RenderIntoSpecificContainer": "string"
+      },
+      "examples": {
+        "ArrowPositions": "string",
+        "Customization": "string",
+        "Default": "string",
+        "RenderIntoSpecificContainer": "string"
       },
       "props": "string"
     }
