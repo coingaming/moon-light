@@ -710,14 +710,14 @@ test.describe("Switch in Light Theme", () => {
 test.describe("Switch in Dark Theme", () => {
   test.describe("Default tests", () => {
     test("Default: should render and match screenshot", async ({ page }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       const element = await page.getByLabel("Default Switch");
       await expect(element).toHaveAttribute("aria-checked", "true");
       await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-dark-Default.png`);
     });
 
     test("Default: should switch and match screenshot", async ({ page }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Default Switch").click();
       const element = await page.getByLabel("Default Switch");
       await expect(element).toHaveAttribute("aria-checked", "false");
@@ -729,7 +729,7 @@ test.describe("Switch in Dark Theme", () => {
 
   test.describe("Sizes tests", () => {
     test("Sizes: should render and match screenshot", async ({ page }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       const xxs = await page.getByLabel("Switch with 2xs size");
       await expect(xxs).toHaveAttribute("aria-checked", "true");
       const xs = await page.getByLabel("Switch with xs size");
@@ -757,7 +757,7 @@ test.describe("Switch in Dark Theme", () => {
     test("Disabled: should render, be disabled and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       const checked = await page.getByLabel("Disabled Switch").nth(0);
       await expect(checked).toBeDisabled();
       await expect(checked).toHaveAttribute("aria-checked", "true");
@@ -772,7 +772,7 @@ test.describe("Switch in Dark Theme", () => {
 
   test.describe("WithIcons tests", () => {
     test("WithIcons: should render and match screenshot", async ({ page }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       const xxs = await page.getByLabel("Switch with icons").nth(0);
       await expect(xxs).toHaveAttribute("aria-checked", "true");
       const xs = await page.getByLabel("Switch with icons").nth(1);
@@ -785,7 +785,7 @@ test.describe("Switch in Dark Theme", () => {
     });
 
     test("WithIcons: should switch and match screenshot", async ({ page }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Switch with icons").nth(0).click();
       const xxs = await page.getByLabel("Switch with icons").nth(0);
       await expect(xxs).toHaveAttribute("aria-checked", "false");
@@ -803,7 +803,7 @@ test.describe("Switch in Dark Theme", () => {
     test("Customization: should render and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       const first = await page.getByLabel("Switch with custom styles").nth(0);
       await expect(first).toHaveAttribute("aria-checked", "true");
       const second = await page.getByLabel("Switch with custom styles").nth(1);
@@ -816,7 +816,7 @@ test.describe("Switch in Dark Theme", () => {
     test("Customization: should switch and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Switch with custom styles").nth(0).click();
       const first = await page.getByLabel("Switch with custom styles").nth(0);
       await expect(first).toHaveAttribute("aria-checked", "false");
@@ -832,7 +832,7 @@ test.describe("Switch in Dark Theme", () => {
     test("UsingTooltip: should render and match screenshot on hover", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       const element = await page.getByLabel("Switch with Tooltip");
       await expect(element).toHaveAttribute("aria-checked", "true");
       await element.hover();
@@ -845,7 +845,7 @@ test.describe("Switch in Dark Theme", () => {
     test("UsingTooltip: should switch and match screenshot", async ({
       page,
     }) => {
-      setDarkTheme(page);
+      await setDarkTheme(page);
       await page.getByLabel("Switch with Tooltip").click();
       const element = await page.getByLabel("Switch with Tooltip");
       await expect(element).toHaveAttribute("aria-checked", "false");
@@ -861,14 +861,14 @@ test.describe("Switch in Dark Theme", () => {
 test.describe("RTL tests", () => {
   test.describe("Default tests", () => {
     test("Default: should render and match screenshot", async ({ page }) => {
-      setRtl(page);
+      await setRtl(page);
       const element = await page.getByLabel("Default Switch");
       await expect(element).toHaveAttribute("aria-checked", "true");
       await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-rtl-Default.png`);
     });
 
     test("Default: should switch and match screenshot", async ({ page }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Default Switch").click();
       const element = await page.getByLabel("Default Switch");
       await expect(element).toHaveAttribute("aria-checked", "false");
@@ -880,7 +880,7 @@ test.describe("RTL tests", () => {
 
   test.describe("WithIcons tests", () => {
     test("WithIcons: should render and match screenshot", async ({ page }) => {
-      setRtl(page);
+      await setRtl(page);
       const xxs = await page.getByLabel("Switch with icons").nth(0);
       await expect(xxs).toHaveAttribute("aria-checked", "true");
       const xs = await page.getByLabel("Switch with icons").nth(1);
@@ -893,7 +893,7 @@ test.describe("RTL tests", () => {
     });
 
     test("WithIcons: should switch and match screenshot", async ({ page }) => {
-      setRtl(page);
+      await setRtl(page);
       await page.getByLabel("Switch with icons").nth(0).click();
       const xxs = await page.getByLabel("Switch with icons").nth(0);
       await expect(xxs).toHaveAttribute("aria-checked", "false");
@@ -911,7 +911,7 @@ test.describe("RTL tests", () => {
     test("UsingTooltip: should render and match screenshot on hover", async ({
       page,
     }) => {
-      setRtl(page);
+      await setRtl(page);
       const element = await page.getByLabel("Switch with Tooltip");
       await expect(element).toHaveAttribute("aria-checked", "true");
       await element.hover();
