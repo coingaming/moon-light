@@ -12,14 +12,19 @@ const COMPONENTS = [
   "drawer",
   "dropdown",
   "group",
+  "input",
+  "insetInput",
   "loader",
+  "menuitem",
   "popover",
   "progress",
+  "radio",
   "snackbar",
   "switch",
   "tabs",
   "tag",
   "tagsInput",
+  "tooltip",
 ];
 
 export default COMPONENTS;
