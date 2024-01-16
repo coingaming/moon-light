@@ -4,7 +4,7 @@ import accordion from "../app/client/accordion/accordion.webp";
 import alert from "../app/client/alert/alert.webp";
 import authcode from "../app/client/authcode/authcode.webp";
 import avatar from "../app/client/avatar/avatar.webp";
-import bottomsheet from "../app/client/bottomsheet/bottomsheet.webp";
+import bottomSheet from "../app/client/bottomsheet/bottomsheet.webp";
 import breadcrumb from "../app/client/breadcrumb/breadcrumb.webp";
 import breadcrumbs from "../app/client/breadcrumb/breadcrumb.webp";
 import button from "../app/client/button/button.webp";
@@ -26,14 +26,14 @@ import tabs from "../app/client/tabs/tabs.webp";
 import tag from "../app/client/tag/tag.webp";
 import tagsInput from "../app/client/tagsInput/tagsinput.webp";
 import textarea from "../app/client/textarea/textarea.webp";
-import menuitem from "../app/client/menuitem/menuitem.webp";
+import menuItem from "../app/client/menuitem/menuitem.webp";
 
 const images: Record<string, StaticImageData> = {
   accordion,
   alert,
   authcode,
   avatar,
-  bottomsheet,
+  bottomSheet,
   breadcrumb,
   breadcrumbs,
   button,
@@ -55,7 +55,7 @@ const images: Record<string, StaticImageData> = {
   tag,
   tagsInput,
   textarea,
-  menuitem,
+  menuItem,
 } as const;
 
 interface Props {
