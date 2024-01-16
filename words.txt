@@ -26,6 +26,7 @@ goten
 headlessui
 heathmont
 heles
+hrefs
 hub88
 insetinput
 insetnativeselect
@@ -52,6 +53,7 @@ tabpanel
 tagsinput
 testid
 tradeart
+truncable
 valuenow
 viewports
 webp
