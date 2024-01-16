@@ -79,9 +79,18 @@ export async function processFiles(
   return result;
 }
 
-export const getTemplate = (content) => {
-  return `export type Examples = ${content};
+export const getTemplate = (content, template = "example") => {
+  switch (template) {
+    case "component":
+      return `const COMPONENTS = [${content}];
+
+export default COMPONENTS;
 `;
+    case "example":
+    default:
+      return `export type Examples = ${content};
+`;
+  }
 };
 
 const getFilesTypes = async (dirPath) => {
@@ -108,12 +117,10 @@ export const buildExamplesType = async () => {
   const clientComponents = Object.keys(components.client);
 
   await writeToFile({
-    contentToWrite: `const COMPONENTS = [${clientComponents?.map(
-      (i) => `"${i}"`,
-    )}];
-
-export default COMPONENTS;
-`,
+    contentToWrite: getTemplate(
+      clientComponents?.map((i) => `"${i}"`),
+      "component",
+    ),
     path: "./components.constants.mjs",
   });
 
