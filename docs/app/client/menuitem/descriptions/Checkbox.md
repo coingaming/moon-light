@@ -1,0 +1,3 @@
+---
+title: MenuItem with Checkbox
+---
