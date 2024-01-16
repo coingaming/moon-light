@@ -3,14 +3,14 @@
 import { IconButton } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
-const Example = () => (
+const Sizes = () => (
   <>
-    <IconButton size="xs" icon={<OtherFrame />} />
-    <IconButton size="sm" icon={<OtherFrame />} />
-    <IconButton icon={<OtherFrame />} />
-    <IconButton size="lg" icon={<OtherFrame />} />
-    <IconButton size="xl" icon={<OtherFrame />} />
+    <IconButton data-testid="button-xs" size="xs" icon={<OtherFrame />} />
+    <IconButton data-testid="button-sm" size="sm" icon={<OtherFrame />} />
+    <IconButton data-testid="button-md" icon={<OtherFrame />} />
+    <IconButton data-testid="button-lg" size="lg" icon={<OtherFrame />} />
+    <IconButton data-testid="button-xl" size="xl" icon={<OtherFrame />} />
   </>
 );
 
-export default Example;
+export default Sizes;

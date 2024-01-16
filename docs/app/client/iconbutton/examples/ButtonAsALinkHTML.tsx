@@ -3,8 +3,8 @@
 import { IconButton } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
-const Example = () => (
-  <IconButton as="a" href="/components/button" icon={<OtherFrame />} />
+const ButtonAsALinkHTML = () => (
+  <IconButton as="a" href="#click" icon={<OtherFrame />} data-testid="button" />
 );
 
-export default Example;
+export default ButtonAsALinkHTML;
