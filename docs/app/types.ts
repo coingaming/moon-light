@@ -326,6 +326,20 @@ export type Examples = {
       },
       "props": "string"
     },
+    "insetnativeselect": {
+      "description": "string",
+      "descriptions": {
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string"
+      },
+      "examples": {
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string"
+      },
+      "props": "string"
+    },
     "loader": {
       "description": "string",
       "descriptions": {
