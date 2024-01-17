@@ -20,6 +20,7 @@ import insetInput from "../app/client/insetInput/insetinput.webp";
 import loader from "../app/client/loader/loader.webp";
 import progress from "../app/client/progress/progress.webp";
 import radio from "../app/client/radio/radio.webp";
+import search from "../app/client/search/search.webp";
 import snackbar from "../app/client/snackbar/snackbar.webp";
 import switchImage from "../app/client/switch/switch.webp";
 import tabs from "../app/client/tabs/tabs.webp";
@@ -49,6 +50,7 @@ const images: Record<string, StaticImageData> = {
   loader,
   progress,
   radio,
+  search,
   snackbar,
   switch: switchImage,
   tabs,
