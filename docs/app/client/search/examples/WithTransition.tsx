@@ -20,7 +20,7 @@ interface Items {
   id: string;
 }
 
-const Default = () => {
+const WithTransition = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [search, setSearch] = useState("");
 
@@ -137,4 +137,4 @@ const Default = () => {
   );
 };
 
-export default Default;
+export default WithTransition;
