@@ -28,6 +28,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
     await search.focus();
     await expect(search).toBeFocused();
     await expect(resultHeading).toBeVisible();
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Focus.png`);
     // Test Search result item by hover
     await resultItem.hover();
     await expect(resultItem).toHaveCSS(

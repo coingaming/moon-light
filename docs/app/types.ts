@@ -467,11 +467,11 @@ export type Examples = {
       "description": "string",
       "descriptions": {
         "Default": "string",
-        "WithoutTransition": "string"
+        "WithTransition": "string"
       },
       "examples": {
         "Default": "string",
-        "WithoutTransition": "string"
+        "WithTransition": "string"
       },
       "props": "string"
     },
