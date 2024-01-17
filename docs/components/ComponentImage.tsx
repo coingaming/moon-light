@@ -29,6 +29,7 @@ import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect
 import pagination from "../app/client/pagination/pagination.webp";
 import textarea from "../app/client/textarea/textarea.webp";
 import menuitem from "../app/client/menuitem/menuitem.webp";
+import carousel from "../app/client/carousel/carousel.webp";
 
 const images: Record<string, StaticImageData> = {
   accordion,
@@ -60,6 +61,7 @@ const images: Record<string, StaticImageData> = {
   pagination,
   textarea,
   menuitem,
+  carousel,
 } as const;
 
 interface Props {
