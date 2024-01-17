@@ -3,6 +3,15 @@
 import { IconButton } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
-const Example = () => <IconButton disabled icon={<OtherFrame />} />;
+const Disabled = () => (
+  <IconButton
+    disabled
+    icon={<OtherFrame />}
+    data-testid="button"
+    onClick={() => {
+      alert("No one will see me");
+    }}
+  />
+);
 
-export default Example;
+export default Disabled;
