@@ -1,0 +1,113 @@
+[
+  {
+    "name": "Pagination",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "Tailwind classes for custom styles."
+      },
+      {
+        "name": "currentPage",
+        "type": ["number"],
+        "required": "Yes",
+
+        "description": "The value of current page"
+      },
+      {
+        "name": "hrefsArray",
+        "type": ["string[]"],
+
+        "description": "Array of hrefs for each page."
+      },
+      {
+        "name": "setCurrentPage",
+        "type": ["(page: number) => void"],
+        "required": "Yes",
+
+        "description": "Callback function once a page is updated."
+      },
+      {
+        "name": "totalPages",
+        "type": ["number"],
+        "required": "Yes",
+
+        "description": "The number pages."
+      }
+    ]
+  },
+  {
+    "name": "Pagination.PrevButton",
+    "props": [
+      {
+        "name": "as",
+        "type": ["string"],
+
+        "defaultState": "button",
+        "description": "Rendered HTML element."
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "Tailwind classes for custom styles."
+      },
+      {
+        "name": "disabled",
+        "type": ["boolean"],
+
+        "description": "Render Props: Disabled state for the prev button when were reached the first page."
+      }
+    ]
+  },
+  {
+    "name": "Pagination.NextButton",
+    "props": [
+      {
+        "name": "as",
+        "type": ["string"],
+
+        "defaultState": "button",
+        "description": "Rendered HTML element."
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "Tailwind classes for custom styles."
+      },
+      {
+        "name": "disabled",
+        "type": ["boolean"],
+
+        "description": "Render Props: Disabled state for the prev button when were reached the first page."
+      }
+    ]
+  },
+  {
+    "name": "Pagination.Pages",
+    "props": [
+      {
+        "name": "as",
+        "type": ["string"],
+
+        "defaultState": "a",
+        "description": "Rendered HTML element."
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+
+        "description": "Tailwind classes for custom styles."
+      },
+      {
+        "name": "truncableText",
+        "type": ["JSX.Element", "string"],
+
+        "defaultState": "...",
+        "description": "Text to render if a one or more pages are truncated."
+      }
+    ]
+  }
+]
