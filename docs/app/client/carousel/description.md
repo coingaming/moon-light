@@ -16,6 +16,7 @@ examples:
 
 Is an effective way of displaying multiple images or content in a single space.
 <br/>
-It not only helps in saving screen space, but also encourages visitors to focus on important website content and improves the overall visual appeal effectively.
+Not only does it conserve screen real estate, but it also guides visitors to concentrate on crucial website content, enhancing overall visual appeal significantly.
 <br/>
-To support Arabic languages this component requires setting up `isRtl` prop directly.
+
+**To support Arabic languages this component requires setting up `isRtl` prop directly.**
