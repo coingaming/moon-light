@@ -219,32 +219,37 @@ export type Examples = {
       "props": "string"
     },
     "combobox": {
-      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "AlignmentControlsOptions": "string",
         "Default": "string",
-        "DifferentStatesForInnerLabel": "string",
-        "DifferentStatesForSelect": "string",
         "MultiSelect": "string",
-        "MultiSelectInnerLabel": "string",
-        "MultiSelectVisual": "string",
+        "MultiSelectInsetInput": "string",
         "MultiSelectWithAll": "string",
         "Select": "string",
-        "SelectInnerLabel": "string",
+        "SelectInsetInput": "string",
+        "SelectInsetInputStates": "string",
+        "SelectStates": "string",
         "VisualMultiSelect": "string"
       },
       "examples": {
         "AlignmentControlsOptions": "string",
         "Default": "string",
-        "DifferentStatesForInnerLabel": "string",
-        "DifferentStatesForSelect": "string",
         "MultiSelect": "string",
-        "MultiSelectInnerLabel": "string",
-        "MultiSelectVisual": "string",
+        "MultiSelectInsetInput": "string",
         "MultiSelectWithAll": "string",
         "Select": "string",
-        "SelectInnerLabel": "string",
+        "SelectInsetInput": "string",
+        "SelectInsetInputStates": "string",
+        "SelectStates": "string",
+        "VisualMultiSelect": "string"
+      },
+      "examplesAnatomy": {
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
         "VisualMultiSelect": "string"
       },
       "props": "string"

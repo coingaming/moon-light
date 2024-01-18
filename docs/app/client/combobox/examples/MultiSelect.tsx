@@ -41,7 +41,7 @@ const Example = () => {
   const filteredPeople2 = filter(query2, people);
 
   return (
-    <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-end w-full gap-4">
+    <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start w-full gap-4">
       <Combobox
         value={selected0}
         onChange={setSelected0}
@@ -73,7 +73,11 @@ const Example = () => {
                   filteredPeople0.map((person, index) => (
                     <Combobox.Option value={person} key={index}>
                       {({ selected, active }) => (
-                        <MenuItem isActive={active} isSelected={selected}>
+                        <MenuItem
+                          isActive={active}
+                          isSelected={selected}
+                          data-testid={`test-${index}`}
+                        >
                           <MenuItem.Title>{person.label}</MenuItem.Title>
                           <MenuItem.Checkbox isSelected={selected} />
                         </MenuItem>
@@ -118,7 +122,11 @@ const Example = () => {
                   filteredPeople1.map((person, index) => (
                     <Combobox.Option value={person} key={index}>
                       {({ selected, active }) => (
-                        <MenuItem isActive={active} isSelected={selected}>
+                        <MenuItem
+                          isActive={active}
+                          isSelected={selected}
+                          data-testid={`test-${index}`}
+                        >
                           <MenuItem.Title>{person.label}</MenuItem.Title>
                           <MenuItem.Checkbox isSelected={selected} />
                         </MenuItem>
@@ -164,7 +172,11 @@ const Example = () => {
                   filteredPeople2.map((person, index) => (
                     <Combobox.Option value={person} key={index}>
                       {({ selected, active }) => (
-                        <MenuItem isActive={active} isSelected={selected}>
+                        <MenuItem
+                          isActive={active}
+                          isSelected={selected}
+                          data-testid={`test-${index}`}
+                        >
                           <MenuItem.Title>{person.label}</MenuItem.Title>
                           <MenuItem.Checkbox isSelected={selected} />
                         </MenuItem>

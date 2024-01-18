@@ -5,18 +5,17 @@ examples:
   [
     "Default",
     "Select",
-    "DifferentStatesForSelect",
-    "Select",
-    "SelectInnerLabel",
-    "DifferentStatesForInnerLabel",
+    "SelectStates",
+    "SelectInsetInput",
+    "SelectInsetInputStates",
     "MultiSelect",
     "MultiSelectWithAll",
-    "MultiSelectInnerLabel",
+    "MultiSelectInsetInput",
     "VisualMultiSelect",
     "AlignmentControlsOptions",
   ]
 ---
 
 An input that behaves similarly to a select, with the addition of a free text input to filter options.
-<br/><br/>
-Based on (Headless UI)[https://headlessui.com/].
+<br/>
+Based on [Headless U](https://headlessui.com/).

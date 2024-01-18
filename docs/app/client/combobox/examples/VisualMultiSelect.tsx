@@ -51,7 +51,7 @@ const Example = () => {
   );
 
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-center items-center w-full gap-4">
+    <div className="flex flex-col lg:flex-row lg:justify-center items-start w-full gap-4">
       <Combobox
         value={selected1}
         onChange={setSelected1}

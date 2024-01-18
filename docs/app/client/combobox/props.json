@@ -44,7 +44,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for customization"
+        "description": "CSS classes for customization"
       },
       {
         "name": "position",
@@ -57,10 +57,12 @@
           "bottom-end",
           "right-start",
           "right-end",
-          "left-start| left-end",
+          "left-start",
+          "left-end",
           "top",
           "bottom",
-          "right| left"
+          "right",
+          "left"
         ]
       },
       {
@@ -86,7 +88,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for customization"
+        "description": "CSS classes for customization"
       },
       {
         "name": "onClose",
@@ -134,7 +136,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for customization"
+        "description": "CSS classes for customization"
       }
     ]
   },
@@ -144,12 +146,12 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for customization"
+        "description": "CSS classes for customization"
       },
       {
         "name": "open",
         "type": ["boolean"],
-        "description": "Render Props: Tailwind classes for customization"
+        "description": "Render Props: CSS classes for customization"
       }
     ]
   },
@@ -159,12 +161,12 @@
       {
         "name": "menuWidth",
         "type": ["string"],
-        "description": "Tailwind class for custom options container width"
+        "description": "CSS class for custom options container width"
       },
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for customization"
+        "description": "CSS classes for customization"
       }
     ]
   },
@@ -232,7 +234,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "open",
@@ -279,7 +281,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "counter",
@@ -321,7 +323,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "open",
@@ -348,7 +350,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "open",
@@ -363,7 +365,7 @@
       {
         "name": "className",
         "type": ["boolean"],
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       }
     ]
   }
