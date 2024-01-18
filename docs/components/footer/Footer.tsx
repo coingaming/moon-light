@@ -1,7 +1,7 @@
 import Version from "./Version";
 
 const Footer = () => (
-  <footer className="theme-moon-dark relative lg:fixed -mx-5 lg:mx-0 mt-16 lg:mt-0 lg:z-40 lg:bottom-0 inset-x-0 flex lg:flex-row gap-x-8 gap-y-6 flex-wrap items-center text-moon-14 text-bulma bg-goku justify-center md:justify-between">
+  <footer className="theme-moon-dark relative lg:fixed -mx-5 lg:mx-0 mt-16 lg:mt-0 lg:z-10 lg:bottom-0 inset-x-0 flex lg:flex-row gap-x-8 gap-y-6 flex-wrap items-center text-moon-14 text-bulma bg-goku justify-center md:justify-between">
     <div className="w-full py-5 px-5 lg:ps-8 lg:pe-5 xl:pe-20 2xl:px-32 flex justify-center items-center">
       <div className="flex 2xl:max-w-screen-xl gap-x-4 gap-y-6 flex-col lg:flex-row w-full justify-between items-center">
         <Version />

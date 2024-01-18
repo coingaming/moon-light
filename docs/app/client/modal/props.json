@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Modal",
+    "props": [
+      {
+        "name": "open",
+        "type": ["boolean"],
+        "required": "yes",
+        "description": "Whether the Modal is open or not"
+      },
+      {
+        "name": "onClose",
+        "type": ["() => void"],
+        "required": "yes",
+        "description": "Called when the Modal is dismissed."
+      }
+    ]
+  },
+  {
+    "name": "Modal.Panel",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization of Panel."
+      }
+    ]
+  },
+  {
+    "name": "Modal.Backdrop",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization of Backdrop."
+      }
+    ]
+  }
+]
