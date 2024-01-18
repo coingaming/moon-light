@@ -9,7 +9,7 @@ import {
 const Default = () => {
   const items = Array.from({ length: 25 }, (index) => index);
   return (
-    <Carousel scrollTo={5}>
+    <Carousel scrollTo={5} data-testid="carousel">
       <Carousel.LeftArrow data-testid="left-arrow">
         <ControlsChevronLeftSmall />
       </Carousel.LeftArrow>
