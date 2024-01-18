@@ -6,12 +6,6 @@ import {
   setLightTheme,
   getMoonColor,
 } from "@/utils/playwrightHelpers";
-import {
-  PlayWrightEndTouch,
-  PlayWrightMoveTouch,
-  PlayWrightStartTouch,
-  createTouchEvent,
-} from "@/utils/playwrightDrag";
 
 const COMPONENT_NAME = "carousel";
 
@@ -40,7 +34,7 @@ test.describe("Carousel in Light Theme", () => {
     test("Default: should be disabled by default go back more than 0", async ({
       page,
     }) => {
-      const leftArrow = await page.getByTestId("left-arrow");
+      const leftArrow = page.getByTestId("left-arrow");
       await leftArrow.click({ force: true });
       await leftArrow.click({ force: true });
       await page.waitForTimeout(500);
@@ -49,12 +43,12 @@ test.describe("Carousel in Light Theme", () => {
       const cursor = await leftArrow.evaluate((node) => {
         return getComputedStyle(node).cursor;
       });
-      await expect(cursor).toBe("not-allowed");
+      expect(cursor).toBe("not-allowed");
     });
     test("Default: should be disabled by default go back more than 24", async ({
       page,
     }) => {
-      const rightArrow = await page.getByTestId("right-arrow");
+      const rightArrow = page.getByTestId("right-arrow");
       for await (const _ of Array(10)) {
         await rightArrow.click({ force: true });
         await page.waitForTimeout(500);
@@ -65,7 +59,7 @@ test.describe("Carousel in Light Theme", () => {
       });
 
       await expect(page.getByTestId(`carousel-24`)).toBeInViewport();
-      await expect(cursor).toBe("not-allowed");
+      expect(cursor).toBe("not-allowed");
     });
   });
   /* AutoSlide tests */
@@ -129,14 +123,14 @@ test.describe("Carousel in Light Theme", () => {
     });
     test("Indicators: should have 5 indicators", async ({ page }) => {
       const indicators = await page.locator(".w-2").count();
-      await expect(indicators).toBe(5);
+      expect(indicators).toBe(5);
     });
     test("Indicators: should have 5 indicators, and second should be `piccolo` color", async ({
       page,
     }) => {
       await page.waitForTimeout(500);
       const indicators = await page.locator(".w-2").all();
-      await expect(indicators.length).toBe(5);
+      expect(indicators.length).toBe(5);
 
       const firstIndicator = await indicators[1].evaluate((node) => {
         return getComputedStyle(node).backgroundColor;
@@ -225,22 +219,22 @@ test.describe("Carousel in Light Theme", () => {
       const cursor = await page.getByTestId(`scroll-left`).evaluate((node) => {
         return getComputedStyle(node).cursor;
       });
-      await expect(cursor).toBe("not-allowed");
+      expect(cursor).toBe("not-allowed");
     });
     test("VisibleIndices: should have 4 visible indices", async ({ page }) => {
       const text = await page.getByTestId(`visible-indices-0`).textContent();
-      await expect(text).toBe("Visible indices:0-3");
+      expect(text).toBe("Visible indices:0-3");
     });
     test("VisibleIndices: next button should update visible indices", async ({
       page,
     }) => {
       const text = await page.getByTestId(`visible-indices-0`).textContent();
-      await expect(text).toBe("Visible indices:0-3");
+      expect(text).toBe("Visible indices:0-3");
       await page.getByTestId(`scroll-right`).click();
       await page.waitForTimeout(500);
       expect(page.getByTestId(`carousel-4`)).toBeInViewport();
       const text2 = await page.getByTestId(`visible-indices-4`).textContent();
-      await expect(text2).toBe("Visible indices:4-7");
+      expect(text2).toBe("Visible indices:4-7");
     });
   });
 });
@@ -268,7 +262,7 @@ test.describe("Carousel in Dark Theme", () => {
     test("Default: should be disabled by default go back more than 0", async ({
       page,
     }) => {
-      const leftArrow = await page.getByTestId("left-arrow");
+      const leftArrow = page.getByTestId("left-arrow");
       await leftArrow.click({ force: true });
       await leftArrow.click({ force: true });
       await page.waitForTimeout(500);
@@ -277,12 +271,12 @@ test.describe("Carousel in Dark Theme", () => {
       const cursor = await leftArrow.evaluate((node) => {
         return getComputedStyle(node).cursor;
       });
-      await expect(cursor).toBe("not-allowed");
+      expect(cursor).toBe("not-allowed");
     });
     test("Default: should be disabled by default go back more than 24", async ({
       page,
     }) => {
-      const rightArrow = await page.getByTestId("right-arrow");
+      const rightArrow = page.getByTestId("right-arrow");
       for await (const _ of Array(10)) {
         await rightArrow.click({ force: true });
         await page.waitForTimeout(500);
@@ -293,7 +287,7 @@ test.describe("Carousel in Dark Theme", () => {
       });
 
       await expect(page.getByTestId(`carousel-24`)).toBeInViewport();
-      await expect(cursor).toBe("not-allowed");
+      expect(cursor).toBe("not-allowed");
     });
   });
   /* AutoSlide tests */
@@ -357,31 +351,31 @@ test.describe("Carousel in Dark Theme", () => {
     });
     test("Indicators: should have 5 indicators", async ({ page }) => {
       const indicators = await page.locator(".w-2").count();
-      await expect(indicators).toBe(5);
+      expect(indicators).toBe(5);
     });
     test("Indicators: should have 5 indicators, and second should be `piccolo` color", async ({
       page,
     }) => {
       await page.waitForTimeout(500);
       const indicators = await page.locator(".w-2").all();
-      await expect(indicators.length).toBe(5);
+      expect(indicators.length).toBe(5);
 
       const firstIndicator = await indicators[1].evaluate((node) => {
         return getComputedStyle(node).backgroundColor;
       });
-      await expect(firstIndicator).toBe(await getMoonColor(page, "piccolo"));
+      expect(firstIndicator).toBe(await getMoonColor(page, "piccolo"));
     });
     test("Indicators: should have 5 indicators, and first should be `beerus` color", async ({
       page,
     }) => {
       await page.waitForTimeout(500);
       const indicators = await page.locator(".w-2").all();
-      await expect(indicators.length).toBe(5);
+      expect(indicators.length).toBe(5);
 
       const firstIndicator = await indicators[0].evaluate((node) => {
         return getComputedStyle(node).backgroundColor;
       });
-      await expect(firstIndicator).toBe(await getMoonColor(page, "beerus"));
+      expect(firstIndicator).toBe(await getMoonColor(page, "beerus"));
     });
   });
   /* SelectIndex tests */
@@ -453,22 +447,22 @@ test.describe("Carousel in Dark Theme", () => {
       const cursor = await page.getByTestId(`scroll-left`).evaluate((node) => {
         return getComputedStyle(node).cursor;
       });
-      await expect(cursor).toBe("not-allowed");
+      expect(cursor).toBe("not-allowed");
     });
     test("VisibleIndices: should have 4 visible indices", async ({ page }) => {
       const text = await page.getByTestId(`visible-indices-0`).textContent();
-      await expect(text).toBe("Visible indices:0-3");
+      expect(text).toBe("Visible indices:0-3");
     });
     test("VisibleIndices: next button should update visible indices", async ({
       page,
     }) => {
       const text = await page.getByTestId(`visible-indices-0`).textContent();
-      await expect(text).toBe("Visible indices:0-3");
+      expect(text).toBe("Visible indices:0-3");
       await page.getByTestId(`scroll-right`).click();
       await page.waitForTimeout(500);
       expect(page.getByTestId(`carousel-4`)).toBeInViewport();
       const text2 = await page.getByTestId(`visible-indices-4`).textContent();
-      await expect(text2).toBe("Visible indices:4-7");
+      expect(text2).toBe("Visible indices:4-7");
     });
   });
 });
@@ -482,7 +476,7 @@ test.describe("Carousel in RTL", () => {
     });
     test("RTLSupport: should have RTL direction", async ({ page }) => {
       const direction = await page.getByTestId("carousel").getAttribute("dir");
-      await expect(direction).toBe("rtl");
+      expect(direction).toBe("rtl");
     });
     test("RTLSupport: should callback onSlideChange works", async ({
       page,
