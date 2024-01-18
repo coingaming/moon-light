@@ -10,17 +10,21 @@ const Example = () => {
   const items = Array.from({ length: 5 }, (index) => index);
   return (
     <Carousel step={1} selectedIndex={1} className="w-[320px]">
-      <Carousel.LeftArrow>
+      <Carousel.LeftArrow data-testid="scroll-left">
         <ControlsChevronLeftSmall />
       </Carousel.LeftArrow>
       <Carousel.Reel>
         {items.map((_, index) => (
-          <Carousel.Item key={index} className="w-80 h-48">
+          <Carousel.Item
+            key={index}
+            className="w-80 h-48 border border-beerus"
+            data-testid={`carousel-${index}`}
+          >
             {index}
           </Carousel.Item>
         ))}
       </Carousel.Reel>
-      <Carousel.RightArrow>
+      <Carousel.RightArrow data-testid="scroll-right">
         <ControlsChevronRightSmall />
       </Carousel.RightArrow>
       <Carousel.Indicators />

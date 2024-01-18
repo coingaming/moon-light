@@ -1,6 +1,6 @@
 "use client";
 
-import { Carousel } from "@heathmont/moon-core-tw";
+import { Button, Carousel } from "@heathmont/moon-core-tw";
 
 type RenderProps = {
   scrollLeftToStep?: () => void;
@@ -20,19 +20,33 @@ const Example = () => {
         canScrollRight,
       }: RenderProps) => (
         <>
-          <button onClick={scrollLeftToStep} disabled={!canScrollLeft}>
+          <Button
+            onClick={scrollLeftToStep}
+            disabled={!canScrollLeft}
+            className="my-4"
+            data-testid="scroll-left"
+          >
             Scroll to left
-          </button>
+          </Button>
           <Carousel.Reel>
             {items.map((_, index) => (
-              <Carousel.Item key={index} className="w-80 h-48">
+              <Carousel.Item
+                key={index}
+                className="w-80 h-48 border border-beerus"
+                data-testid={`carousel-${index}`}
+              >
                 {index}
               </Carousel.Item>
             ))}
           </Carousel.Reel>
-          <button onClick={scrollRightToStep} disabled={!canScrollRight}>
+          <Button
+            onClick={scrollRightToStep}
+            disabled={!canScrollRight}
+            className="my-4"
+            data-testid="scroll-right"
+          >
             Scroll to Right
-          </button>
+          </Button>
         </>
       )}
     </Carousel>
