@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Popover, Button, MenuItem } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 

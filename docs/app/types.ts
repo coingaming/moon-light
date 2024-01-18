@@ -463,6 +463,16 @@ export type Examples = {
       },
       "props": "string"
     },
+    "searchCmdk": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string"
+      },
+      "examples": {
+        "Default": "string"
+      },
+      "props": "string"
+    },
     "snackbar": {
       "anatomy": "string",
       "description": "string",
