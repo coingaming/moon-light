@@ -1,6 +1,7 @@
 export type Examples = {
   "client": {
     "accordion": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "ControlOutside": "string",
@@ -89,7 +90,8 @@ export type Examples = {
       },
       "props": "string"
     },
-    "bottomsheet": {
+    "bottomSheet": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "Customization": "string",
@@ -217,6 +219,7 @@ export type Examples = {
       "props": "string"
     },
     "drawer": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "Default": "string",
@@ -374,7 +377,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "menuitem": {
+    "menuItem": {
       "description": "string",
       "descriptions": {
         "AsLink": "string",

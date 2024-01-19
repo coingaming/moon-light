@@ -33,6 +33,11 @@
         "type": ["(value: string[]) => void"],
         "required": false,
         "description": "Event handler called when the expanded state of an item changes and prop singleOpen in false state"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization"
       }
     ]
   },
@@ -51,6 +56,41 @@
         "required": false,
         "defaultState": "false",
         "description": "Set disabled/non-disabled"
+      },
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Accordion.Header",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Accordion.Content",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization"
+      }
+    ]
+  },
+  {
+    "name": "Accordion.Button",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization"
       }
     ]
   }
