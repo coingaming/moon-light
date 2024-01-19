@@ -287,6 +287,26 @@ export type Examples = {
       },
       "props": "string"
     },
+    "iconbutton": {
+      "description": "string",
+      "descriptions": {
+        "Animations": "string",
+        "ButtonAsALinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "Variants": "string"
+      },
+      "examples": {
+        "Animations": "string",
+        "ButtonAsALinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "Variants": "string"
+      },
+      "props": "string"
+    },
     "input": {
       "description": "string",
       "descriptions": {
@@ -383,6 +403,22 @@ export type Examples = {
         "MultiTitle": "string",
         "Radio": "string",
         "WithIcon": "string"
+      },
+      "props": "string"
+    },
+    "nativeselect": {
+      "description": "string",
+      "descriptions": {
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string"
+      },
+      "examples": {
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string"
       },
       "props": "string"
     },

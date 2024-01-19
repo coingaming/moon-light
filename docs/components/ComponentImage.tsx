@@ -4,7 +4,7 @@ import accordion from "../app/client/accordion/accordion.webp";
 import alert from "../app/client/alert/alert.webp";
 import authcode from "../app/client/authcode/authcode.webp";
 import avatar from "../app/client/avatar/avatar.webp";
-import bottomsheet from "../app/client/bottomsheet/bottomsheet.webp";
+import bottomSheet from "../app/client/bottomSheet/bottomsheet.webp";
 import breadcrumb from "../app/client/breadcrumb/breadcrumb.webp";
 import breadcrumbs from "../app/client/breadcrumb/breadcrumb.webp";
 import button from "../app/client/button/button.webp";
@@ -26,17 +26,19 @@ import switchImage from "../app/client/switch/switch.webp";
 import tabs from "../app/client/tabs/tabs.webp";
 import tag from "../app/client/tag/tag.webp";
 import tagsInput from "../app/client/tagsInput/tagsinput.webp";
+import iconbutton from "../app/client/iconbutton/iconbutton.webp";
+import nativeselect from "../app/client/nativeselect/nativeselect.webp";
 import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect.webp";
 import pagination from "../app/client/pagination/pagination.webp";
 import textarea from "../app/client/textarea/textarea.webp";
-import menuitem from "../app/client/menuitem/menuitem.webp";
+import menuItem from "../app/client/menuItem/menuitem.webp";
 
 const images: Record<string, StaticImageData> = {
   accordion,
   alert,
   authcode,
   avatar,
-  bottomsheet,
+  bottomSheet,
   breadcrumb,
   breadcrumbs,
   button,
@@ -58,10 +60,12 @@ const images: Record<string, StaticImageData> = {
   tabs,
   tag,
   tagsInput,
+  iconbutton,
+  nativeselect,
   insetnativeselect,
   pagination,
   textarea,
-  menuitem,
+  menuItem,
 } as const;
 
 interface Props {
