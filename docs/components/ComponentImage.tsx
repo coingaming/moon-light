@@ -25,6 +25,7 @@ import switchImage from "../app/client/switch/switch.webp";
 import tabs from "../app/client/tabs/tabs.webp";
 import tag from "../app/client/tag/tag.webp";
 import tagsInput from "../app/client/tagsInput/tagsinput.webp";
+import nativeselect from "../app/client/nativeselect/nativeselect.webp";
 import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect.webp";
 import pagination from "../app/client/pagination/pagination.webp";
 import textarea from "../app/client/textarea/textarea.webp";
@@ -56,6 +57,7 @@ const images: Record<string, StaticImageData> = {
   tabs,
   tag,
   tagsInput,
+  nativeselect,
   insetnativeselect,
   pagination,
   textarea,
