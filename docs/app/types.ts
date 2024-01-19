@@ -89,7 +89,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "bottomsheet": {
+    "bottomSheet": {
       "description": "string",
       "descriptions": {
         "Customization": "string",
@@ -374,7 +374,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "menuitem": {
+    "menuItem": {
       "description": "string",
       "descriptions": {
         "AsLink": "string",

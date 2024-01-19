@@ -52,7 +52,7 @@ const COMPONENTS = {
       "Customization",
     ],
   },
-  bottomsheet: {
+  bottomSheet: {
     title: "BottomSheet",
     tags: ["IN PROGRESS", "ARIA", "RTL"],
     examples: [
@@ -140,6 +140,11 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Direction", "Options", "Size", "States"],
   },
+  iconbutton: {
+    title: "IconButton",
+    tags: ["ARIA", "RTL"],
+    examples: undefined,
+  },
   input: {
     title: "Input",
     tags: ["ARIA", "RTL"],
@@ -158,12 +163,17 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: ["Default", "DifferentStates", "TextInputTypes", "Customization"],
   },
+  insetnativeselect: {
+    title: "InsetNativeSelect",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "DifferentStates", "CustomStyles"],
+  },
   loader: {
     title: "Loader",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Sizes", "Colors"],
   },
-  menuitem: {
+  menuItem: {
     title: "MenuItem",
     tags: ["ARIA", "RTL"],
     examples: [
@@ -177,6 +187,16 @@ const COMPONENTS = {
       "MultiLineItems",
       "ExpandCollapse",
     ],
+  },
+  nativeselect: {
+    title: "NativeSelect",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "Sizes", "DifferentStates", "CustomStyles"],
+  },
+  pagination: {
+    title: "Pagination",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "WithButton", "WithArrayOfPageHREFs"],
   },
   popover: {
     title: "Popover",
@@ -194,7 +214,14 @@ const COMPONENTS = {
   progress: {
     title: "Progress",
     tags: ["ARIA", "RTL"],
-    examples: ["Default", "Size", "Value", "Customization"],
+    examples: [
+      "Default",
+      "Size",
+      "Value",
+      "Pin",
+      "WithLabels",
+      "Customization",
+    ],
   },
   radio: {
     title: "Radio",
@@ -206,6 +233,11 @@ const COMPONENTS = {
       "AsFormItem",
       "Customization",
     ],
+  },
+  searchCmdk: {
+    title: "SearchCmdk",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default"],
   },
   snackbar: {
     title: "Snackbar",
@@ -257,6 +289,11 @@ const COMPONENTS = {
     title: "TagsInput",
     tags: ["IN PROGRESS", "ARIA", "RTL"],
     examples: ["Default", "DifferentSizes", "States", "UppercaseLowercase"],
+  },
+  textarea: {
+    title: "Textarea",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "States", "WithButton", "Customization"],
   },
   tooltip: {
     title: "Tooltip",
