@@ -9,22 +9,22 @@ const CellScroller = ({
   className?: string;
 }) => {
   const handleKbDown = useCallback(
-    (evt: React.KeyboardEvent<HTMLDivElement>) => {
+    (event: React.KeyboardEvent<HTMLDivElement>) => {
       const kbDeltas = { x: 0, y: 0 };
       const scrollRange =
-        evt.currentTarget.scrollWidth - evt.currentTarget.offsetWidth;
+        event.currentTarget.scrollWidth - event.currentTarget.offsetWidth;
       const kbDelta =
-        evt.currentTarget.offsetWidth < 132
-          ? evt.currentTarget.offsetWidth
+        event.currentTarget.offsetWidth < 132
+          ? event.currentTarget.offsetWidth
           : 132;
       if (
         scrollRange > 0 &&
-        (evt.code === "ArrowLeft" || evt.code === "ArrowRight")
+        (event.code === "ArrowLeft" || event.code === "ArrowRight")
       ) {
-        evt.preventDefault();
-        evt.stopPropagation();
-        evt.currentTarget.focus();
-        switch (evt.code) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.currentTarget.focus();
+        switch (event.code) {
           case "ArrowLeft":
             kbDeltas.x = -kbDelta;
             break;
@@ -33,7 +33,7 @@ const CellScroller = ({
             break;
         }
 
-        evt.currentTarget.scrollBy(kbDeltas.x, kbDeltas.y);
+        event.currentTarget.scrollBy(kbDeltas.x, kbDeltas.y);
       }
     },
     [],

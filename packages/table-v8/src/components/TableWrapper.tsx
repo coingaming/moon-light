@@ -21,13 +21,13 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
 
     const handleWheel = useCallback(
       (e: globalThis.WheelEvent) => {
-        const evt = e as unknown as WheelEvent<HTMLDivElement>;
-        if ((evt.target as HTMLElement).closest("thead") !== null) return;
-        evt.preventDefault();
+        const event = e as unknown as WheelEvent<HTMLDivElement>;
+        if ((event.target as HTMLElement).closest("thead") !== null) return;
+        event.preventDefault();
         if (!isLocked) {
           setIsLocked(true);
           setTimeout(resetLockState, 45);
-          evt.currentTarget.scrollBy(0, evt.deltaY);
+          event.currentTarget.scrollBy(0, event.deltaY);
         }
       },
       [isLocked, setIsLocked],
@@ -49,17 +49,17 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
     };
 
     const handleKbDown = useCallback(
-      (evt: React.KeyboardEvent<HTMLDivElement>) => {
+      (event: React.KeyboardEvent<HTMLDivElement>) => {
         if (isFocused) {
           const kbDeltas = { x: 0, y: 0 };
           if (
-            evt.code === "ArrowUp" ||
-            evt.code === "ArrowDown" ||
-            evt.code === "ArrowLeft" ||
-            evt.code === "ArrowRight"
+            event.code === "ArrowUp" ||
+            event.code === "ArrowDown" ||
+            event.code === "ArrowLeft" ||
+            event.code === "ArrowRight"
           ) {
-            evt.preventDefault();
-            switch (evt.code) {
+            event.preventDefault();
+            switch (event.code) {
               case "ArrowUp":
                 kbDeltas.y = -kbDelta;
                 break;
@@ -71,7 +71,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
                 break;
               case "ArrowRight":
                 kbDeltas.x = calcMaxScrollByX(
-                  evt.currentTarget,
+                  event.currentTarget,
                   kbDelta,
                   container?.width,
                 );
@@ -81,7 +81,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
             if (!isLocked) {
               setIsLocked(true);
               setTimeout(resetLockState, 82);
-              evt.currentTarget.scrollBy(kbDeltas.x, kbDeltas.y);
+              event.currentTarget.scrollBy(kbDeltas.x, kbDeltas.y);
             }
           }
         }
@@ -95,8 +95,8 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       element?.addEventListener("wheel", handleWheel, { passive: false });
     }, []);
 
-    const getBackLostFocus = useCallback((evt: React.MouseEvent) => {
-      const target = evt.target as HTMLElement;
+    const getBackLostFocus = useCallback((event: React.MouseEvent) => {
+      const target = event.target as HTMLElement;
       const tagName = target.tagName.toUpperCase();
       const type = (target as HTMLInputElement).type?.toLowerCase();
       if (
@@ -104,7 +104,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         tagName === "BUTTON" ||
         (tagName === "INPUT" && type === "checkbox")
       ) {
-        (evt.currentTarget as HTMLDivElement).focus();
+        (event.currentTarget as HTMLDivElement).focus();
       }
     }, []);
 
