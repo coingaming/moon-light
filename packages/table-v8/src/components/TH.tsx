@@ -8,23 +8,25 @@ import getFontSize from "../private/utils/getFontSize";
 import getPadding from "../private/utils/getPadding";
 
 const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
-  let shift = 0;
-  if (stickySide === "left") {
-    for (let i = 0; i < +header.index; i++) {
-      shift += +(header.headerGroup.headers[i].column.columnDef.size || 0);
+  const { headers } = header.headerGroup;
+  const headerIndex = +header.index; //parse once for optimization
+
+  const calculateShift = (start: number, end: number, isIncrementing: boolean) => {
+    let shift = 0;
+    for (let i = start; isIncrementing ? i < end : i > end; isIncrementing ? i++ : i--) {
+      const size = headers[i].column.columnDef.size || 0;
+      shift += +size;
     }
     return shift;
   }
 
-  if (stickySide === "right") {
-    for (
-      let i = header.headerGroup.headers.length - 1;
-      i > +header.index;
-      i--
-    ) {
-      shift += +(header.headerGroup.headers[i].column.columnDef.size || 0);
-    }
-    return shift;
+  switch (stickySide) {
+    case 'left':
+      return calculateShift(0, headerIndex, true);
+    case 'right':
+      return calculateShift(headers.length - 1, headerIndex, false);
+    default: //default case if stickySide is not 'left' or 'right' to prevent silent failure
+      return 0;
   }
 };
 
@@ -79,7 +81,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           "z-[1]",
           backgroundColor && backgroundColor,
           stickySide &&
-            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full",
+          "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full",
         )}
         ref={ref}
       >

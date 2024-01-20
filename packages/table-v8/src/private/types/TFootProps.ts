@@ -5,7 +5,7 @@ import RowSizes from "./RowSizes";
 type TFootProps = {
   table: Table<{}>;
   backgroundColor?: string;
-  rowGap?: string | undefined;
+  rowGap?: string;
   rowSize?: RowSizes;
   isSticky?: boolean;
   columnMap?: ColumnData[][];

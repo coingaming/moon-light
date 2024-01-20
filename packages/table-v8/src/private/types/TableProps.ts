@@ -13,27 +13,27 @@ type TableProps<D extends object = {}> = {
   columns: ColumnDef<D, any>[];
   data: D[];
   defaultColumn?: Partial<ColumnDef<{}, unknown>> | undefined;
-  state?: Partial<TableState> | undefined;
+  state?: Partial<TableState>;
   withFooter?: boolean;
-  width?: string | number | undefined;
-  height?: string | number | undefined;
-  maxWidth?: string | number | undefined;
-  maxHeight?: string | number | undefined;
+  width?: string | number;
+  height?: string | number;
+  maxWidth?: string | number;
+  maxHeight?: string | number;
   headerBackgroundColor?: string;
   bodyBackgroundColor?: string;
   defaultRowBackgroundColor?: string;
   evenRowBackgroundColor?: string;
-  rowGap?: string | undefined;
+  rowGap?: string;
   rowSize?: RowSizes;
   isSticky?: boolean;
   isSelectable?: boolean;
   textClip?: ClipProps;
   layout?: TableLayouts;
   getSubRows?:
-    | ((originalRow: any, index: number) => any[] | undefined)
-    | undefined;
-  onExpandedChange?: OnChangeFn<ExpandedState> | undefined;
-  onRowSelectionChange?: OnChangeFn<RowSelectionState> | undefined;
+  | ((originalRow: unknown, index: number) => unknown[])
+  | undefined;
+  onExpandedChange?: OnChangeFn<ExpandedState>;
+  onRowSelectionChange?: OnChangeFn<RowSelectionState>;
 };
 
 export default TableProps;

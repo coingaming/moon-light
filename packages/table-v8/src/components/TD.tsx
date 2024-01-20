@@ -13,19 +13,20 @@ const getStickyShift = (
   index: number,
   stickySide?: string,
 ) => {
-  let shift = 0;
-  if (stickySide === "left") {
-    for (let i = 0; i < index; i++) {
+  const calculateShift = (start: number, end: number, step: number) => {
+    let shift = 0;
+    for (let i = start; i !== end; i += step) {
       shift += +(cells[i].column.columnDef.size || 0);
     }
     return shift;
   }
 
-  if (stickySide === "right") {
-    for (let i = cells.length - 1; i > +index; i--) {
-      shift += +(cells[i].column.columnDef.size || 0);
-    }
-    return shift;
+  if (stickySide === 'left') {
+    return calculateShift(0, index, 1);
+  }
+
+  if (stickySide === 'right') {
+    return calculateShift(cells.length - 1, +index, -1);
   }
 };
 
@@ -90,9 +91,9 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
           isLastColumn && "rounded-e-lg after:rounded-e-lg",
           stickySide && "sticky before:-z-[1] after:-z-[1]",
           stickySide &&
-            "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
+          "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
           stickySide &&
-            "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
+          "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
         )}
         ref={ref}
       >

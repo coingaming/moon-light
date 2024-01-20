@@ -8,36 +8,33 @@ const CellScroller = ({
   data?: React.JSX.Element | React.JSX.Element[] | string | string[];
   className?: string;
 }) => {
-  const handleKbDown = useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>) => {
-      const kbDeltas = { x: 0, y: 0 };
-      const scrollRange =
-        event.currentTarget.scrollWidth - event.currentTarget.offsetWidth;
-      const kbDelta =
-        event.currentTarget.offsetWidth < 132
-          ? event.currentTarget.offsetWidth
-          : 132;
-      if (
-        scrollRange > 0 &&
-        (event.code === "ArrowLeft" || event.code === "ArrowRight")
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        event.currentTarget.focus();
-        switch (event.code) {
-          case "ArrowLeft":
-            kbDeltas.x = -kbDelta;
-            break;
-          case "ArrowRight":
-            kbDeltas.x = kbDelta;
-            break;
-        }
+  const handleKbDown = useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
+    const scrollRange = event.currentTarget.scrollWidth - event.currentTarget.offsetWidth;
 
-        event.currentTarget.scrollBy(kbDeltas.x, kbDeltas.y);
-      }
-    },
-    [],
-  );
+    if (scrollRange <= 0 || !["ArrowLeft", "ArrowRight"].includes(event.code)) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const kbDelta = event.currentTarget.offsetWidth < 132
+      ? event.currentTarget.offsetWidth
+      : 132;
+
+    let xScroll = 0;
+
+    switch (event.code) {
+      case "ArrowLeft":
+        xScroll = -kbDelta;
+        break;
+      case "ArrowRight":
+        xScroll = kbDelta;
+        break;
+    }
+
+    event.currentTarget.scrollBy(xScroll, 0);
+  }, []);
 
   return (
     <div

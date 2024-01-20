@@ -50,61 +50,53 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
 
     const handleKbDown = useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
-        if (isFocused) {
-          const kbDeltas = { x: 0, y: 0 };
-          if (
-            event.code === "ArrowUp" ||
-            event.code === "ArrowDown" ||
-            event.code === "ArrowLeft" ||
-            event.code === "ArrowRight"
-          ) {
-            event.preventDefault();
-            switch (event.code) {
-              case "ArrowUp":
-                kbDeltas.y = -kbDelta;
-                break;
-              case "ArrowDown":
-                kbDeltas.y = kbDelta;
-                break;
-              case "ArrowLeft":
-                kbDeltas.x = -kbDelta;
-                break;
-              case "ArrowRight":
-                kbDeltas.x = calcMaxScrollByX(
-                  event.currentTarget,
-                  kbDelta,
-                  container?.width,
-                );
-                break;
-            }
+        if (!isFocused || isLocked) {
+          return;
+        }
 
-            if (!isLocked) {
-              setIsLocked(true);
-              setTimeout(resetLockState, 82);
-              event.currentTarget.scrollBy(kbDeltas.x, kbDeltas.y);
-            }
-          }
+        const kbDeltas = { x: 0, y: 0 };
+
+        const navigationKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+        if (navigationKeys.includes(event.code)) {
+          event.preventDefault();
+
+          const movementDirections = {
+            "ArrowUp": () => kbDeltas.y = -kbDelta,
+            "ArrowDown": () => kbDeltas.y = kbDelta,
+            "ArrowLeft": () => kbDeltas.x = -kbDelta,
+            "ArrowRight": () => kbDeltas.x = calcMaxScrollByX(event.currentTarget, kbDelta, container?.width),
+          };
+
+          movementDirections[event.code]();
+
+          setIsLocked(true);
+          setTimeout(resetLockState, 82);
+          event.currentTarget.scrollBy(kbDeltas.x, kbDeltas.y);
         }
       },
       [isFocused, isLocked, setIsLocked],
     );
 
     useEffect(() => {
-      const element = (tableWrapperRef as MutableRefObject<HTMLDivElement>)
-        ?.current;
-      element?.addEventListener("wheel", handleWheel, { passive: false });
+      const element = tableWrapperRef?.current;
+      if (element) {
+        element.addEventListener("wheel", handleWheel, { passive: false });
+      }
+
+      return () => {
+        element?.removeEventListener("wheel", handleWheel);
+      };
     }, []);
 
-    const getBackLostFocus = useCallback((event: React.MouseEvent) => {
+    const getBackLostFocus = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
       const target = event.target as HTMLElement;
-      const tagName = target.tagName.toUpperCase();
-      const type = (target as HTMLInputElement).type?.toLowerCase();
-      if (
-        tagName === "SVG" ||
-        tagName === "BUTTON" ||
-        (tagName === "INPUT" && type === "checkbox")
-      ) {
-        (event.currentTarget as HTMLDivElement).focus();
+      const isSpecialElement =
+        target.tagName.toUpperCase() === 'SVG' ||
+        target.tagName.toUpperCase() === 'BUTTON' ||
+        (target.tagName.toUpperCase() === 'INPUT' && (target as HTMLInputElement).type?.toLowerCase() === 'checkbox');
+
+      if (isSpecialElement) {
+        event.currentTarget.focus();
       }
     }, []);
 

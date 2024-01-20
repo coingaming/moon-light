@@ -10,7 +10,7 @@ type TableWrapperProps = {
   className?: string;
   children?: React.ReactNode;
   container?: ContainerData;
-  tableWrapperRef?: React.ForwardedRef<HTMLDivElement>;
+  tableWrapperRef?: React.RefObject<HTMLDivElement>;
 };
 
 export default TableWrapperProps;
