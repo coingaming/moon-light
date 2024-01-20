@@ -79,7 +79,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           "z-[1]",
           backgroundColor && backgroundColor,
           stickySide &&
-          "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full",
+            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full",
         )}
         ref={ref}
       >
