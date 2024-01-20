@@ -29,9 +29,7 @@ type TableProps<D extends object = {}> = {
   isSelectable?: boolean;
   textClip?: ClipProps;
   layout?: TableLayouts;
-  getSubRows?:
-  | ((originalRow: unknown, index: number) => unknown[])
-  | undefined;
+  getSubRows?: ((originalRow: unknown, index: number) => unknown[]) | undefined;
   onExpandedChange?: OnChangeFn<ExpandedState>;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;
 };

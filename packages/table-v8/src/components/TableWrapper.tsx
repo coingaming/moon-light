@@ -56,15 +56,25 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
 
         const kbDeltas = { x: 0, y: 0 };
 
-        const navigationKeys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+        const navigationKeys = [
+          "ArrowUp",
+          "ArrowDown",
+          "ArrowLeft",
+          "ArrowRight",
+        ];
         if (navigationKeys.includes(event.code)) {
           event.preventDefault();
 
           const movementDirections = {
-            "ArrowUp": () => kbDeltas.y = -kbDelta,
-            "ArrowDown": () => kbDeltas.y = kbDelta,
-            "ArrowLeft": () => kbDeltas.x = -kbDelta,
-            "ArrowRight": () => kbDeltas.x = calcMaxScrollByX(event.currentTarget, kbDelta, container?.width),
+            ArrowUp: () => (kbDeltas.y = -kbDelta),
+            ArrowDown: () => (kbDeltas.y = kbDelta),
+            ArrowLeft: () => (kbDeltas.x = -kbDelta),
+            ArrowRight: () =>
+              (kbDeltas.x = calcMaxScrollByX(
+                event.currentTarget,
+                kbDelta,
+                container?.width,
+              )),
           };
 
           movementDirections[event.code]();
@@ -88,17 +98,21 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       };
     }, []);
 
-    const getBackLostFocus = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
-      const target = event.target as HTMLElement;
-      const isSpecialElement =
-        target.tagName.toUpperCase() === 'SVG' ||
-        target.tagName.toUpperCase() === 'BUTTON' ||
-        (target.tagName.toUpperCase() === 'INPUT' && (target as HTMLInputElement).type?.toLowerCase() === 'checkbox');
+    const getBackLostFocus = useCallback(
+      (event: React.MouseEvent<HTMLDivElement>) => {
+        const target = event.target as HTMLElement;
+        const isSpecialElement =
+          target.tagName.toUpperCase() === "SVG" ||
+          target.tagName.toUpperCase() === "BUTTON" ||
+          (target.tagName.toUpperCase() === "INPUT" &&
+            (target as HTMLInputElement).type?.toLowerCase() === "checkbox");
 
-      if (isSpecialElement) {
-        event.currentTarget.focus();
-      }
-    }, []);
+        if (isSpecialElement) {
+          event.currentTarget.focus();
+        }
+      },
+      [],
+    );
 
     return (
       <div

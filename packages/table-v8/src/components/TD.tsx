@@ -19,13 +19,13 @@ const getStickyShift = (
       shift += +(cells[i].column.columnDef.size || 0);
     }
     return shift;
-  }
+  };
 
-  if (stickySide === 'left') {
+  if (stickySide === "left") {
     return calculateShift(0, index, 1);
   }
 
-  if (stickySide === 'right') {
+  if (stickySide === "right") {
     return calculateShift(cells.length - 1, +index, -1);
   }
 };
@@ -91,9 +91,9 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
           isLastColumn && "rounded-e-lg after:rounded-e-lg",
           stickySide && "sticky before:-z-[1] after:-z-[1]",
           stickySide &&
-          "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
+            "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
           stickySide &&
-          "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
+            "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
         )}
         ref={ref}
       >
