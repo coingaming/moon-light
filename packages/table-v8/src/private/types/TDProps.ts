@@ -26,6 +26,6 @@ type TDProps = {
   columnData?: ColumnData;
   /* role?: string; */
   textClip?: ClipProps;
-}
+};
 
 export default TDProps;

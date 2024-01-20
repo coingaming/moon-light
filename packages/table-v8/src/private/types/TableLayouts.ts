@@ -1,3 +1,3 @@
-type TableLayouts = 'auto' | 'fixed' | 'stretched-auto';
+type TableLayouts = "auto" | "fixed" | "stretched-auto";
 
 export default TableLayouts;

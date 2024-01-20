@@ -1,5 +1,5 @@
 type ClipProps = {
-  textClip?: 'clip' | 'break';
+  textClip?: "clip" | "break";
 };
 
 export default ClipProps;

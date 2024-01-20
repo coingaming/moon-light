@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { mergeClassnames } from '@heathmont/moon-core-tw';
+import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { flexRender, Header } from "@tanstack/react-table";
 import styled from "styled-components";
 import StickyColumn from "../private/types/StickyColumn";
@@ -7,22 +7,26 @@ import THProps from "../private/types/THProps";
 import getFontSize from "../private/utils/getFontSize";
 import getPadding from "../private/utils/getPadding";
 
-const getStickyShift = (header: Header<{}, unknown>, stickySide: string,) => {
+const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
   let shift = 0;
-  if (stickySide === 'left') {
+  if (stickySide === "left") {
     for (let i = 0; i < +header.index; i++) {
       shift += +(header.headerGroup.headers[i].column.columnDef.size || 0);
     }
     return shift;
   }
 
-  if (stickySide === 'right') {
-    for (let i = header.headerGroup.headers.length - 1; i > +header.index; i--) {
+  if (stickySide === "right") {
+    for (
+      let i = header.headerGroup.headers.length - 1;
+      i > +header.index;
+      i--
+    ) {
       shift += +(header.headerGroup.headers[i].column.columnDef.size || 0);
     }
     return shift;
   }
-}
+};
 
 const TH = forwardRef<HTMLTableCellElement, THProps>(
   (
@@ -34,17 +38,19 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       rowGap,
       isCellBorder,
       columnData,
-      onClick
+      onClick,
     },
-    ref
+    ref,
   ) => {
-    const stickyColumn: StickyColumn = header.column.parent ? header.column.parent?.columnDef : header.column.columnDef;
+    const stickyColumn: StickyColumn = header.column.parent
+      ? header.column.parent?.columnDef
+      : header.column.columnDef;
     const stickySide = stickyColumn.sticky;
 
     const stickyShift = stickySide
-      ? stickySide === 'left'
-        ? `left: ${columnData ? columnData?.left : getStickyShift(header, 'left')}px;`
-        : `right: ${columnData ? columnData?.right : getStickyShift(header, 'right')}px;`
+      ? stickySide === "left"
+        ? `left: ${columnData ? columnData?.left : getStickyShift(header, "left")}px;`
+        : `right: ${columnData ? columnData?.right : getStickyShift(header, "right")}px;`
       : undefined;
 
     const stickyBefore = `
@@ -55,8 +61,12 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
 
     const HeadCell = styled.th`
       width: ${header.column.columnDef.size}px;
-      min-width: ${stickySide ? header.column.columnDef.size : header.column.columnDef.minSize}px;
-      max-width: ${stickySide ? header.column.columnDef.size : header.column.columnDef.maxSize}px;
+      min-width: ${stickySide
+        ? header.column.columnDef.size
+        : header.column.columnDef.minSize}px;
+      max-width: ${stickySide
+        ? header.column.columnDef.size
+        : header.column.columnDef.maxSize}px;
       ${stickyShift && stickyShift}
       ${stickySide && stickyBefore}
     `;
@@ -66,31 +76,30 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
         key={header.id}
         colSpan={header.colSpan}
         className={mergeClassnames(
-          'z-[1]',
+          "z-[1]",
           backgroundColor && backgroundColor,
-          stickySide && 'sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full'
+          stickySide &&
+            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full",
         )}
         ref={ref}
       >
         {header.isPlaceholder ? null : (
           <div
             className={mergeClassnames(
-              'relative text-start font-meduim',
+              "relative text-start font-meduim",
               getFontSize(rowSize),
-              getPadding(rowSize)
+              getPadding(rowSize),
             )}
           >
-            {flexRender(
-              header.column.columnDef.header,
-              header.getContext()
-            )}
+            {flexRender(header.column.columnDef.header, header.getContext())}
             {header.column.getCanFilter() ? (
               <>{/* It`s possible to place a filter here */}</>
             ) : null}
           </div>
         )}
       </HeadCell>
-  )}
+    );
+  },
 );
 
 export default TH;

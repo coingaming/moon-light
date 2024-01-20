@@ -3,7 +3,7 @@ import { mergeClassnames } from "@heathmont/moon-core-tw";
 import {
   getCoreRowModel,
   getExpandedRowModel,
-  useReactTable
+  useReactTable,
 } from "@tanstack/react-table";
 import TableWrapper from "./TableWrapper";
 import TBody from "./TBody";
@@ -23,16 +23,16 @@ const Table = ({
   maxHeight,
   state,
   withFooter = false,
-  headerBackgroundColor = 'bg-gohan',
-  bodyBackgroundColor = 'bg-gohan',
-  defaultRowBackgroundColor = 'bg-goku',
-  evenRowBackgroundColor = 'bg-goku',
-  rowGap = '2px',
-  rowSize = 'md',
+  headerBackgroundColor = "bg-gohan",
+  bodyBackgroundColor = "bg-gohan",
+  defaultRowBackgroundColor = "bg-goku",
+  evenRowBackgroundColor = "bg-goku",
+  rowGap = "2px",
+  rowSize = "md",
   isSelectable = false,
   isSticky = true,
   textClip,
-  layout = 'fixed',
+  layout = "fixed",
   getSubRows,
   onExpandedChange,
   onRowSelectionChange,
@@ -55,11 +55,15 @@ const Table = ({
   const [columnMap, setColumnMap] = useState<ColumnData[][]>();
 
   useEffect(() => {
-    setColumnMap(buildColumnMap(tableWrapperRef.current?.childNodes[0] as HTMLTableElement));
+    setColumnMap(
+      buildColumnMap(
+        tableWrapperRef.current?.childNodes[0] as HTMLTableElement,
+      ),
+    );
   }, [tableWrapperRef.current, buildColumnMap]);
 
   const renderTableComponent = () => {
-    const tableLayout = layout === 'fixed' ? 'fixed' : 'auto';
+    const tableLayout = layout === "fixed" ? "fixed" : "auto";
     return (
       <TableWrapper
         style={{
@@ -69,8 +73,8 @@ const Table = ({
           maxHeight,
         }}
         className={mergeClassnames(
-          'scroll-smooth',
-          isSticky && 'overflow-hidden'
+          "scroll-smooth",
+          isSticky && "overflow-hidden",
         )}
         container={{ width, height }}
         tableWrapperRef={tableWrapperRef}
@@ -81,8 +85,8 @@ const Table = ({
             borderSpacing: `0 ${rowGap}`,
           }}
           className={mergeClassnames(
-            'border-separate',
-            layout !== 'auto' && 'w-full'
+            "border-separate",
+            layout !== "auto" && "w-full",
           )}
         >
           <THead
@@ -104,7 +108,7 @@ const Table = ({
             columnMap={columnMap}
             textClip={textClip}
           />
-          {withFooter &&
+          {withFooter && (
             <TFoot
               table={table}
               backgroundColor={headerBackgroundColor}
@@ -113,10 +117,11 @@ const Table = ({
               isSticky={isSticky}
               columnMap={columnMap}
             />
-          }
+          )}
         </table>
       </TableWrapper>
-  )};
+    );
+  };
 
   return renderTableComponent();
 };
