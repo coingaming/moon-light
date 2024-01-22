@@ -89,7 +89,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "bottomsheet": {
+    "bottomSheet": {
       "description": "string",
       "descriptions": {
         "Customization": "string",
@@ -269,6 +269,20 @@ export type Examples = {
       },
       "props": "string"
     },
+    "form": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "Size": "string",
+        "WithInsetItems": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "Size": "string",
+        "WithInsetItems": "string"
+      },
+      "props": "string"
+    },
     "group": {
       "description": "string",
       "descriptions": {
@@ -374,7 +388,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "menuitem": {
+    "menuItem": {
       "description": "string",
       "descriptions": {
         "AsLink": "string",
