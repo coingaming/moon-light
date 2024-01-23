@@ -1,17 +1,9 @@
 import React from "react";
-import * as MoonIcons from "@heathmont/moon-icons-tw";
-import type { PropsTableProp, TagTypes } from "@/types";
-import type { StaticImageData } from "next/image";
 import IconsBlock from "@/components/IconsBlock";
-import IconWrapper from "./iconWrapper";
 import useGroupedIcons from "@/hooks/useGroupedIcons";
+import IconWrapper from "./IconWrapper";
 
-interface IconsProps {
-  wrapperProps?: any;
-  groupName?: string;
-}
-
-const Icons = async ({ wrapperProps, groupName }: IconsProps) => {
+const Icons = async () => {
   const groupedIcons = useGroupedIcons();
   return (
     <>
@@ -19,7 +11,7 @@ const Icons = async ({ wrapperProps, groupName }: IconsProps) => {
         <IconsBlock title={groupName} key={groupName}>
           {icons.map(({ iconName, IconComponent }) =>
             React.isValidElement(<IconComponent />) ? (
-              <IconWrapper {...wrapperProps} name={iconName} key={iconName}>
+              <IconWrapper name={iconName} key={iconName}>
                 <IconComponent />
               </IconWrapper>
             ) : null,

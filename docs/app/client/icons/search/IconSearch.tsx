@@ -1,14 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import {
-  Chip,
-  Search,
-  searchFilterItems,
-  searchGetItemIndex,
-} from "@heathmont/moon-core-tw";
-import { OtherFrame } from "@heathmont/moon-icons-tw";
+import { Chip, Search } from "@heathmont/moon-core-tw";
 import useGroupedIcons from "@/hooks/useGroupedIcons";
+import * as Icons from "@heathmont/moon-icons-tw";
 
 const IconSearch = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -25,6 +20,12 @@ const IconSearch = () => {
       );
     });
   }, [search, groupedIcons]);
+
+  const renderIcon = (iconName: string) => {
+    const IconComponent = Icons[iconName as keyof typeof Icons];
+    if (IconComponent) return <IconComponent />;
+    return null;
+  };
 
   return (
     <div className="w-full">
@@ -62,7 +63,7 @@ const IconSearch = () => {
                         variant="ghost"
                         className="flex flex-col min-w-16 w-16 content-start h-16 text-moon-24"
                       >
-                        {<OtherFrame />}
+                        {renderIcon(iconItem.iconName)}
                       </Chip>
                       <p className="text-moon-10 text-trunks text-center truncate ...">
                         {iconItem.iconName}
