@@ -8,23 +8,17 @@ import * as Icons from "@heathmont/moon-icons-tw";
 const IconSearch = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [search, setSearch] = useState("");
-  const groupedIcons = useGroupedIcons();
+  const iconNames = Object.keys(Icons);
 
   const filteredIcons = useMemo(() => {
-    return Object.keys(groupedIcons).filter((group) => {
-      return groupedIcons[group].some(
-        (iconItem) =>
-          iconItem.iconName
-            ?.toLowerCase()
-            .includes(search?.toLowerCase() || ""),
-      );
-    });
-  }, [search, groupedIcons]);
+    return iconNames.filter((iconName) =>
+      iconName.toLowerCase().includes(search.toLowerCase()),
+    );
+  }, [search, iconNames]);
 
   const renderIcon = (iconName: string) => {
     const IconComponent = Icons[iconName as keyof typeof Icons];
-    if (IconComponent) return <IconComponent />;
-    return null;
+    return IconComponent ? <IconComponent /> : null;
   };
 
   return (
@@ -51,26 +45,24 @@ const IconSearch = () => {
           <Search.Result className="relative shadow-none">
             {filteredIcons.length ? (
               <div className="flex flex-row flex-wrap gap-4 p-4">
-                {filteredIcons.map((group) => {
-                  return groupedIcons[group].map((iconItem: any) => (
-                    <Search.ResultItem
-                      key={iconItem.id}
-                      index={iconItem.id}
-                      closeOnSelect={true}
-                      className="w-16 h-16"
+                {filteredIcons.map((iconName, index) => (
+                  <Search.ResultItem
+                    key={iconName}
+                    index={index}
+                    closeOnSelect={true}
+                    className="w-16 h-16"
+                  >
+                    <Chip
+                      variant="ghost"
+                      className="flex flex-col min-w-16 w-16 content-start h-16 text-moon-24"
                     >
-                      <Chip
-                        variant="ghost"
-                        className="flex flex-col min-w-16 w-16 content-start h-16 text-moon-24"
-                      >
-                        {renderIcon(iconItem.iconName)}
-                      </Chip>
-                      <p className="text-moon-10 text-trunks text-center truncate ...">
-                        {iconItem.iconName}
-                      </p>
-                    </Search.ResultItem>
-                  ));
-                })}
+                      {renderIcon(iconName)}
+                    </Chip>
+                    <p className="text-moon-10 text-trunks text-center truncate ...">
+                      {iconName}
+                    </p>
+                  </Search.ResultItem>
+                ))}
               </div>
             ) : (
               <Search.NoResults />
