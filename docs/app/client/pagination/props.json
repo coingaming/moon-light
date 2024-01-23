@@ -6,7 +6,7 @@
         "name": "className",
         "type": ["string"],
 
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "currentPage",
@@ -51,7 +51,7 @@
         "name": "className",
         "type": ["string"],
 
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "disabled",
@@ -75,7 +75,7 @@
         "name": "className",
         "type": ["string"],
 
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "disabled",
@@ -99,7 +99,7 @@
         "name": "className",
         "type": ["string"],
 
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "truncableText",

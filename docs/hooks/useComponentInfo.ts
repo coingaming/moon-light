@@ -1,19 +1,8 @@
+import COMPONENTS from "@/components.constants.mjs";
 import { serialize } from "next-mdx-remote/serialize";
 
-export default async function useComponentInfo(
-  description?: string,
-): Promise<Record<string, unknown>> {
-  try {
-    const ret = description
-      ? (
-          await serialize(description, {
-            parseFrontmatter: true,
-          })
-        )?.frontmatter
-      : {};
-    return ret;
-  } catch (err) {
-    console.log(err);
-    return {};
-  }
+export default function useComponentInfo(
+  name: string,
+): Record<string, unknown> | undefined {
+  return COMPONENTS?.[name as keyof typeof COMPONENTS];
 }

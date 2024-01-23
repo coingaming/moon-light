@@ -57,7 +57,7 @@ export default async function Button() {
             name: "className",
             type: ["string"],
             defaultState: "-",
-            description: "Tailwind classes for customization",
+            description: "CSS classes for customization",
           },
           {
             name: "disabled",
