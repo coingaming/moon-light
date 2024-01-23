@@ -48,26 +48,32 @@ const IconSearch = () => {
 
         <Search.Transition className="border-t border-beerus">
           <Search.Result className="relative shadow-none">
-            {filteredIcons.map((group) => {
-              return groupedIcons[group].map((iconItem: any) => (
-                <Search.ResultItem
-                  key={iconItem.id}
-                  // index={searchGetItemIndex(filteredIcons, iconItem.id)}
-                  closeOnSelect={true}
-                  className="w-16 h-16"
-                >
-                  <Chip
-                    variant="ghost"
-                    className="flex flex-col min-w-16 w-16 content-start h-16 text-moon-24"
-                  >
-                    {<OtherFrame />}
-                  </Chip>
-                  <p className="text-moon-10 text-trunks text-center truncate ...">
-                    {iconItem.iconName}
-                  </p>
-                </Search.ResultItem>
-              ));
-            })}
+            {filteredIcons.length ? (
+              <div className="flex flex-row flex-wrap gap-4 p-4">
+                {filteredIcons.map((group) => {
+                  return groupedIcons[group].map((iconItem: any) => (
+                    <Search.ResultItem
+                      key={iconItem.id}
+                      index={iconItem.id}
+                      closeOnSelect={true}
+                      className="w-16 h-16"
+                    >
+                      <Chip
+                        variant="ghost"
+                        className="flex flex-col min-w-16 w-16 content-start h-16 text-moon-24"
+                      >
+                        {<OtherFrame />}
+                      </Chip>
+                      <p className="text-moon-10 text-trunks text-center truncate ...">
+                        {iconItem.iconName}
+                      </p>
+                    </Search.ResultItem>
+                  ));
+                })}
+              </div>
+            ) : (
+              <Search.NoResults />
+            )}
           </Search.Result>
         </Search.Transition>
       </Search>
