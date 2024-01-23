@@ -180,6 +180,11 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: undefined,
   },
+  icons: {
+    title: "Icons",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "Customization"],
+  },
   input: {
     title: "Input",
     tags: ["ARIA", "RTL"],

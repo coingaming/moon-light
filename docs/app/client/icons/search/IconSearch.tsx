@@ -1,0 +1,78 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import {
+  Chip,
+  Search,
+  searchFilterItems,
+  searchGetItemIndex,
+} from "@heathmont/moon-core-tw";
+import { OtherFrame } from "@heathmont/moon-icons-tw";
+import useGroupedIcons from "@/hooks/useGroupedIcons";
+
+const IconSearch = () => {
+  const [open, setOpen] = useState<boolean>(false);
+  const [search, setSearch] = useState("");
+  const groupedIcons = useGroupedIcons();
+
+  const filteredIcons = useMemo(() => {
+    return Object.keys(groupedIcons).filter((group) => {
+      return groupedIcons[group].some(
+        (iconItem) =>
+          iconItem.iconName
+            ?.toLowerCase()
+            .includes(search?.toLowerCase() || ""),
+      );
+    });
+  }, [search, groupedIcons]);
+
+  return (
+    <div className="w-full">
+      <Search
+        className="rounded-moon-s-sm"
+        onChangeSearch={setSearch}
+        onChangeOpen={setOpen}
+        search={search}
+        isOpen={open}
+      >
+        <Search.Input>
+          <Search.Input.Icon />
+          <Search.Input.Input
+            placeholder="Search icons"
+            className="placeholder:text-trunks"
+          />
+          <Search.Input.ButtonClear className="relative translate-x-0 translate-y-0 flex end-2">
+            Clear
+          </Search.Input.ButtonClear>
+        </Search.Input>
+
+        <Search.Transition className="border-t border-beerus">
+          <Search.Result className="relative shadow-none">
+            {filteredIcons.map((group) => {
+              return groupedIcons[group].map((iconItem: any) => (
+                <Search.ResultItem
+                  key={iconItem.id}
+                  // index={searchGetItemIndex(filteredIcons, iconItem.id)}
+                  closeOnSelect={true}
+                  className="w-16 h-16"
+                >
+                  <Chip
+                    variant="ghost"
+                    className="flex flex-col min-w-16 w-16 content-start h-16 text-moon-24"
+                  >
+                    {<OtherFrame />}
+                  </Chip>
+                  <p className="text-moon-10 text-trunks text-center truncate ...">
+                    {iconItem.iconName}
+                  </p>
+                </Search.ResultItem>
+              ));
+            })}
+          </Search.Result>
+        </Search.Transition>
+      </Search>
+    </div>
+  );
+};
+
+export default IconSearch;
