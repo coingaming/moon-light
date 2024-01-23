@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   MenuItem,
   Search,
@@ -24,57 +24,61 @@ const WithTransition = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [search, setSearch] = useState("");
 
-  const filteredItems = searchFilterItems(
-    [
-      {
-        heading: "Results",
-        id: "results",
-        items: [
+  const filteredItems = useMemo(
+    () =>
+      searchFilterItems(
+        [
           {
-            id: "home",
-            children: "Home",
-            href: "#home",
+            heading: "Results",
+            id: "results",
+            items: [
+              {
+                id: "home",
+                children: "Home",
+                href: "#home",
+              },
+              {
+                id: "settings",
+                children: "Settings",
+                href: "#settings",
+              },
+              {
+                id: "projects",
+                children: "Projects",
+                closeOnSelect: false,
+                onClick: () => {
+                  alert("projects");
+                },
+              },
+            ],
           },
           {
-            id: "settings",
-            children: "Settings",
-            href: "#settings",
-          },
-          {
-            id: "projects",
-            children: "Projects",
-            closeOnSelect: false,
-            onClick: () => {
-              alert("projects");
-            },
+            heading: "Other",
+            id: "other",
+            items: [
+              {
+                id: "developer-settings",
+                children: "Developer settings",
+                href: "#developer-settings",
+              },
+              {
+                id: "privacy-policy",
+                children: "Privacy policy",
+                href: "#privacy-policy",
+              },
+              {
+                id: "log-out",
+                children: "Log out",
+                onClick: () => {
+                  alert("Logging out...");
+                },
+              },
+            ],
           },
         ],
-      },
-      {
-        heading: "Other",
-        id: "other",
-        items: [
-          {
-            id: "developer-settings",
-            children: "Developer settings",
-            href: "#developer-settings",
-          },
-          {
-            id: "privacy-policy",
-            children: "Privacy policy",
-            href: "#privacy-policy",
-          },
-          {
-            id: "log-out",
-            children: "Log out",
-            onClick: () => {
-              alert("Logging out...");
-            },
-          },
-        ],
-      },
-    ],
-    search,
+        search,
+      ),
+    [search],
   );
 
   return (
