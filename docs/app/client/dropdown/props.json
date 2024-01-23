@@ -37,7 +37,7 @@
         "name": "className",
         "type": ["string"],
         "required": false,
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "position",
@@ -80,13 +80,13 @@
         "name": "menuWidth",
         "type": ["string"],
         "required": false,
-        "description": "Tailwind class for custom options container width."
+        "description": "CSS class for custom options container width."
       },
       {
         "name": "className",
         "type": ["string"],
         "required": false,
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       }
     ]
   },
@@ -132,7 +132,7 @@
         "name": "className",
         "type": ["string"],
         "required": false,
-        "description": "Tailwind classes for custom styles (only for button)."
+        "description": "CSS classes for custom styles (only for button)."
       }
     ]
   },
@@ -155,7 +155,7 @@
         "name": "className",
         "type": ["string"],
         "required": false,
-        "description": "Tailwind classes for custom styles (only for button)."
+        "description": "CSS classes for custom styles (only for button)."
       },
       {
         "name": "counter",
@@ -179,7 +179,7 @@
         "name": "className",
         "type": ["string"],
         "required": false,
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "value",

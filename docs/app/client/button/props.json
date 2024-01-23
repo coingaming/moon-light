@@ -20,7 +20,7 @@
       },
       {
         "name": "className",
-        "description": "Tailwind classes for customization",
+        "description": "CSS classes for customization",
         "type": ["string"]
       },
       {

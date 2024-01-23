@@ -42,7 +42,7 @@
         "name": "className",
         "type": ["string"],
 
-        "description": "Tailwind classes for custom styles."
+        "description": "CSS classes for custom styles."
       },
       {
         "name": "isStatic",

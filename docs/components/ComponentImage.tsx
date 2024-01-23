@@ -9,9 +9,11 @@ import breadcrumb from "../app/client/breadcrumb/breadcrumb.webp";
 import breadcrumbs from "../app/client/breadcrumb/breadcrumb.webp";
 import button from "../app/client/button/button.webp";
 import checkbox from "../app/client/checkbox/checkbox.webp";
+import form from "../app/client/form/form.webp";
 import tooltip from "../app/client/tooltip/tooltip.webp";
 import chip from "../app/client/chip/chip.webp";
 import circularProgress from "../app/client/circularProgress/circularProgress.webp";
+import combobox from "../app/client/combobox/combobox.webp";
 import drawer from "../app/client/drawer/drawer.webp";
 import dropdown from "../app/client/dropdown/dropdown.webp";
 import group from "../app/client/group/group.webp";
@@ -32,6 +34,7 @@ import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect
 import pagination from "../app/client/pagination/pagination.webp";
 import textarea from "../app/client/textarea/textarea.webp";
 import menuItem from "../app/client/menuItem/menuitem.webp";
+import modal from "../app/client/modal/modal.webp";
 
 const images: Record<string, StaticImageData> = {
   accordion,
@@ -43,15 +46,18 @@ const images: Record<string, StaticImageData> = {
   breadcrumbs,
   button,
   checkbox,
+  form,
   tooltip,
   chip,
   circularProgress,
+  combobox,
   drawer,
   dropdown,
   group,
   input,
   insetInput,
   loader,
+  modal,
   progress,
   radio,
   searchCmdk,

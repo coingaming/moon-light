@@ -3,7 +3,7 @@ import Logo from "./Logo";
 
 export const Header = ({ children }: { children: React.ReactNode }) => {
   return (
-    <header className="sticky top-0 z-20">
+    <header className="sticky top-0 z-10">
       <div className=" h-[4.5rem] flex flex-row text-bulma bg-goku border-b border-beerus">
         <div className="h-full w-72 border-e border-beerus flex items-center ps-6">
           <Link href="/" aria-label="Home page">
