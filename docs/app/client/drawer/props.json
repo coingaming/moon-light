@@ -6,7 +6,7 @@
         "name": "className",
         "type": ["string"],
         "required": false,
-        "description": "Tailwind classes for custom styles"
+        "description": "CSS classes for custom styles"
       },
       {
         "name": "open",
@@ -29,13 +29,23 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for custom styles"
+        "description": "CSS classes for custom styles"
       },
       {
         "name": "position",
         "type": ["top", "bottom", "start", "end"],
         "defaultState": "end",
         "description": "The Drawer positions on screen"
+      }
+    ]
+  },
+  {
+    "name": "Drawer.Backdrop",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for custom styles"
       }
     ]
   }

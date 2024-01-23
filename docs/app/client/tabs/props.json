@@ -20,7 +20,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for styling"
+        "description": "CSS classes for styling"
       },
       {
         "name": "size",
@@ -36,7 +36,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for styling"
+        "description": "CSS classes for styling"
       },
       {
         "name": "size",
@@ -52,7 +52,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for styling"
+        "description": "CSS classes for styling"
       },
       {
         "name": "disabled",
@@ -68,7 +68,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for styling"
+        "description": "CSS classes for styling"
       },
       {
         "name": "disabled",
@@ -84,7 +84,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for styling"
+        "description": "CSS classes for styling"
       }
     ]
   },
@@ -94,7 +94,7 @@
       {
         "name": "className",
         "type": ["string"],
-        "description": "Tailwind classes for styling"
+        "description": "CSS classes for styling"
       }
     ]
   }

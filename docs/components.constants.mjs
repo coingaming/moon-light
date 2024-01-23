@@ -113,6 +113,22 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Size", "Value", "Customization"],
   },
+  combobox: {
+    title: "Combobox",
+    tags: ["ARIA", "RTL"],
+    examples: [
+      "Default",
+      "Select",
+      "SelectStates",
+      "SelectInsetInput",
+      "SelectInsetInputStates",
+      "MultiSelect",
+      "MultiSelectWithAll",
+      "MultiSelectInsetInput",
+      "VisualMultiSelect",
+      "AlignmentControlsOptions",
+    ],
+  },
   drawer: {
     title: "Drawer",
     tags: ["ARIA", "RTL"],
@@ -192,6 +208,11 @@ const COMPONENTS = {
       "MultiLineItems",
       "ExpandCollapse",
     ],
+  },
+  modal: {
+    title: "Modal",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "WithBigContent", "WithStyledContent", "WithSelect"],
   },
   nativeselect: {
     title: "NativeSelect",
