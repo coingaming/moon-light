@@ -12,6 +12,7 @@ import checkbox from "../app/client/checkbox/checkbox.webp";
 import tooltip from "../app/client/tooltip/tooltip.webp";
 import chip from "../app/client/chip/chip.webp";
 import circularProgress from "../app/client/circularProgress/circularProgress.webp";
+import combobox from "../app/client/combobox/combobox.webp";
 import drawer from "../app/client/drawer/drawer.webp";
 import dropdown from "../app/client/dropdown/dropdown.webp";
 import group from "../app/client/group/group.webp";
@@ -46,6 +47,7 @@ const images: Record<string, StaticImageData> = {
   tooltip,
   chip,
   circularProgress,
+  combobox,
   drawer,
   dropdown,
   group,

@@ -218,6 +218,42 @@ export type Examples = {
       },
       "props": "string"
     },
+    "combobox": {
+      "description": "string",
+      "descriptions": {
+        "AlignmentControlsOptions": "string",
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "MultiSelectWithAll": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
+        "SelectInsetInputStates": "string",
+        "SelectStates": "string",
+        "VisualMultiSelect": "string"
+      },
+      "examples": {
+        "AlignmentControlsOptions": "string",
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "MultiSelectWithAll": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
+        "SelectInsetInputStates": "string",
+        "SelectStates": "string",
+        "VisualMultiSelect": "string"
+      },
+      "examplesAnatomy": {
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
+        "VisualMultiSelect": "string"
+      },
+      "props": "string"
+    },
     "drawer": {
       "anatomy": "string",
       "description": "string",
