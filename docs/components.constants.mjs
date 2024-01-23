@@ -151,6 +151,11 @@ const COMPONENTS = {
       "CustomMenuWidth",
     ],
   },
+  form: {
+    title: "Form",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "Size", "WithInsetItems"],
+  },
   group: {
     title: "Group",
     tags: ["ARIA", "RTL"],
