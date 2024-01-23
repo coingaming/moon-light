@@ -98,7 +98,7 @@
     ]
   },
   {
-    "name": "Combobox.Input/Combobox.InsetInput/Combobox.VisualSelectInput",
+    "name": "Combobox.Input / Combobox.InsetInput / Combobox.VisualSelectInput",
     "props": [
       {
         "name": "onChange",
@@ -202,7 +202,7 @@
     ]
   },
   {
-    "name": "Combobox.Select/Combobox.InsetSelect",
+    "name": "Combobox.Select / Combobox.InsetSelect",
     "props": [
       {
         "name": "onChange",
@@ -249,7 +249,7 @@
     ]
   },
   {
-    "name": "Combobox.MultiSelect/Combobox.InsetMultiSelect/Combobox.VisualMultiSelect",
+    "name": "Combobox.MultiSelect / Combobox.InsetMultiSelect / Combobox.VisualMultiSelect",
     "props": [
       {
         "name": "onChange",
