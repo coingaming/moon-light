@@ -409,6 +409,23 @@ export type Examples = {
       },
       "props": "string"
     },
+    "modal": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "WithBigContent": "string",
+        "WithSelect": "string",
+        "WithStyledContent": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "WithBigContent": "string",
+        "WithSelect": "string",
+        "WithStyledContent": "string"
+      },
+      "props": "string"
+    },
     "nativeselect": {
       "description": "string",
       "descriptions": {

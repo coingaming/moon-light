@@ -188,6 +188,11 @@ const COMPONENTS = {
       "ExpandCollapse",
     ],
   },
+  modal: {
+    title: "Modal",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "WithBigContent", "WithStyledContent", "WithSelect"],
+  },
   nativeselect: {
     title: "NativeSelect",
     tags: ["ARIA", "RTL"],

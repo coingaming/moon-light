@@ -31,6 +31,7 @@ import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect
 import pagination from "../app/client/pagination/pagination.webp";
 import textarea from "../app/client/textarea/textarea.webp";
 import menuItem from "../app/client/menuItem/menuitem.webp";
+import modal from "../app/client/modal/modal.webp";
 
 const images: Record<string, StaticImageData> = {
   accordion,
@@ -51,6 +52,7 @@ const images: Record<string, StaticImageData> = {
   input,
   insetInput,
   loader,
+  modal,
   progress,
   radio,
   snackbar,
