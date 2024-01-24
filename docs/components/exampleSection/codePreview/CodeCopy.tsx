@@ -4,8 +4,14 @@ import Snackbar from "@heathmont/moon-core-tw/lib/es/snackbar/Snackbar";
 import { FilesCopy, GenericCheckAlternative } from "@heathmont/moon-icons-tw";
 
 const CodeCopy = ({ code }: { code: string }) => {
+  if (!window.isSecureContext) {
+    return null;
+  }
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [snackbar, setSnackbar] = useState("");
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const openSnackbarHandler = useCallback(
     (type: string) => {
       if (snackbar) {
@@ -21,8 +27,8 @@ const CodeCopy = ({ code }: { code: string }) => {
   );
 
   const copyCode = () => {
-    if (navigator?.clipboard) {
-      navigator.clipboard.writeText(code ? code : "");
+    if (code && window.isSecureContext && navigator?.clipboard) {
+      navigator.clipboard.writeText(code);
       openSnackbarHandler("top-right");
     }
   };
