@@ -51,7 +51,7 @@ const DocsPage = (props: DocsPageProps) => {
     );
     return (
       <div
-        className="p-4"
+        className="p-4 text-bulma"
         id="playwright-test"
         data-testid={`playwright-test-${componentName}`}
       >

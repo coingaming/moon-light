@@ -4,11 +4,7 @@ import React from "react";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
 export const Default = () => {
-  return (
-    <div className="text-bulma">
-      <OtherFrame />
-    </div>
-  );
+  return <OtherFrame />;
 };
 
 export default Default;
