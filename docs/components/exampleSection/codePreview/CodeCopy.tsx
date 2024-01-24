@@ -2,16 +2,17 @@ import { useState, useCallback } from "react";
 import IconButton from "@heathmont/moon-core-tw/lib/es/iconButton/IconButton";
 import Snackbar from "@heathmont/moon-core-tw/lib/es/snackbar/Snackbar";
 import { FilesCopy, GenericCheckAlternative } from "@heathmont/moon-icons-tw";
+import { mergeClassnames } from "@heathmont/moon-base-tw";
 
-const CodeCopy = ({ code }: { code: string }) => {
-  if (!window.isSecureContext) {
-    return null;
-  }
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const CodeCopy = ({
+  code,
+  className,
+}: {
+  code: string;
+  className?: string;
+}) => {
   const [snackbar, setSnackbar] = useState("");
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const openSnackbarHandler = useCallback(
     (type: string) => {
       if (snackbar) {
@@ -27,18 +28,30 @@ const CodeCopy = ({ code }: { code: string }) => {
   );
 
   const copyCode = () => {
-    if (code && window.isSecureContext && navigator?.clipboard) {
-      navigator.clipboard.writeText(code);
-      openSnackbarHandler("top-right");
+    try {
+      if (!code) {
+        console.info("Attempted to copy, but the code is empty.");
+        return;
+      }
+
+      if (navigator?.clipboard) {
+        navigator.clipboard.writeText(code);
+        openSnackbarHandler("top-right");
+      }
+    } catch (error) {
+      console.error("Error occurred while copying code: ", error);
     }
   };
+
   return (
     <div>
       <span className="absolute top-2 right-2 cursor-pointer z-1">
         <IconButton
           onClick={copyCode}
           variant="ghost"
-          icon={<FilesCopy className="text-bulma" />}
+          icon={
+            <FilesCopy className={mergeClassnames("text-bulma", className)} />
+          }
         />
       </span>
       <Snackbar
