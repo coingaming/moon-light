@@ -2,15 +2,8 @@ import { useState, useCallback } from "react";
 import IconButton from "@heathmont/moon-core-tw/lib/es/iconButton/IconButton";
 import Snackbar from "@heathmont/moon-core-tw/lib/es/snackbar/Snackbar";
 import { FilesCopy, GenericCheckAlternative } from "@heathmont/moon-icons-tw";
-import { mergeClassnames } from "@heathmont/moon-base-tw";
 
-const CodeCopy = ({
-  code,
-  className,
-}: {
-  code: string;
-  className?: string;
-}) => {
+const CodeCopy = ({ code }: { code: string }) => {
   const [snackbar, setSnackbar] = useState("");
 
   const openSnackbarHandler = useCallback(
@@ -49,9 +42,7 @@ const CodeCopy = ({
         <IconButton
           onClick={copyCode}
           variant="ghost"
-          icon={
-            <FilesCopy className={mergeClassnames("text-bulma", className)} />
-          }
+          icon={<FilesCopy className="text-bulma" />}
         />
       </span>
       <Snackbar
