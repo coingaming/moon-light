@@ -24,13 +24,13 @@ export const ExampleSection = async ({
   code,
   href,
 }: Props) => (
-  <div className="flex flex-col gap-4 relative">
+  <section className="flex flex-col gap-4 relative">
     <HeaderSection title={title} description={description} href={href} />
     <div className="bg-gohan rounded-moon-i-sm mt-2">
       <ComponentPreview component={component} />
       <CodePreview code={code} />
     </div>
-  </div>
+  </section>
 );
 
 export async function withExamples(

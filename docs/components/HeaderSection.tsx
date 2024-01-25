@@ -8,7 +8,7 @@ type Props = {
   href?: string;
 };
 const HeaderSection = ({ title, description, className, href }: Props) => (
-  <>
+  <div className="flex flex-col gap-4 max-w-3xl">
     <h2
       id={href || title}
       className={mergeClassnames("text-moon-20 font-medium", className)}
@@ -24,7 +24,7 @@ const HeaderSection = ({ title, description, className, href }: Props) => (
     {description && (
       <div className="text-moon-16 text-bulma">{description}</div>
     )}
-  </>
+  </div>
 );
 
 export default HeaderSection;

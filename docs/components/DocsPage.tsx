@@ -65,42 +65,40 @@ const DocsPage = (props: DocsPageProps) => {
       componentName={componentName}
       contentSidebar={ordered}
     >
-      <div className="flex flex-col gap-12 text-moon-14 pb-20">
-        <PageHeadComponent
-          title={title}
-          description={description}
-          tags={tags}
-          name={componentName}
-          image={image}
-        />
-        {anatomy && <Anatomy anatomy={anatomy} />}
-        <ExampleSectionData
-          componentName={componentName}
-          client={{
-            description,
-            descriptions,
-            examples,
-            examplesAnatomy,
-          }}
-          data={ordered}
-        />
-        {Object.keys(propsTable || {}).map((name: string) => {
-          if (!propsTable?.[name]) return null;
-          return (
-            <PropsTable
-              key={name}
-              title={name}
-              description={
-                <p>
-                  These are props specific to the{" "}
-                  <span className="text-frieza">{name}</span> component:
-                </p>
-              }
-              data={propsTable[name]}
-            />
-          );
-        })}
-      </div>
+      <PageHeadComponent
+        title={title}
+        description={description}
+        tags={tags}
+        name={componentName}
+        image={image}
+      />
+      {anatomy && <Anatomy anatomy={anatomy} />}
+      <ExampleSectionData
+        componentName={componentName}
+        client={{
+          description,
+          descriptions,
+          examples,
+          examplesAnatomy,
+        }}
+        data={ordered}
+      />
+      {Object.keys(propsTable || {}).map((name: string) => {
+        if (!propsTable?.[name]) return null;
+        return (
+          <PropsTable
+            key={name}
+            title={name}
+            description={
+              <p>
+                These are props specific to the{" "}
+                <span className="text-frieza">{name}</span> component:
+              </p>
+            }
+            data={propsTable[name]}
+          />
+        );
+      })}
     </MainLayout>
   );
 };

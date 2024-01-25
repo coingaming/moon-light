@@ -26,6 +26,7 @@ import search from "../app/client/search/search.webp";
 import snackbar from "../app/client/snackbar/snackbar.webp";
 import switchImage from "../app/client/switch/switch.webp";
 import tabs from "../app/client/tabs/tabs.webp";
+import table from "../app/client/table/table.webp";
 import tag from "../app/client/tag/tag.webp";
 import tagsInput from "../app/client/tagsInput/tagsinput.webp";
 import iconbutton from "../app/client/iconbutton/iconbutton.webp";
@@ -64,6 +65,7 @@ const images: Record<string, StaticImageData> = {
   snackbar,
   switch: switchImage,
   tabs,
+  table,
   tag,
   tagsInput,
   iconbutton,

@@ -19,12 +19,12 @@ export const PageHeadComponent = ({
   name,
   image,
 }: PageHeadComponentProps) => (
-  <div className="grid grid-cols-2 gap-4">
-    <div>
+  <section className="flex gap-4">
+    <div className="w-full max-w-3xl">
       <h1 className="font-medium text-moon-32 pb-2">{title}</h1>
       {tags && <TitleTags className="mb-4" tags={tags} />}
       {description && <MDX markdown={description} />}
     </div>
     {image ? <Image src={image} alt={title} /> : <ComponentImage name={name} />}
-  </div>
+  </section>
 );

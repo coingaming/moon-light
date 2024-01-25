@@ -4,7 +4,7 @@ import COMPONENTS from "@/components.constants.mjs";
 
 export default async function Sidebar() {
   return (
-    <aside className="fixed z-10 top-[4.5rem] h-screen flex flex-shrink-0 flex-col w-72 flex-grow gap-6 pt-6 pb-28 lg:pb-20 px-5 lg:px-8 bg-goku overflow-y-scroll border-e border-beerus">
+    <aside className="fixed z-10 top-[4.5rem] h-screen flex flex-col w-72 gap-6 p-3 pb-52 bg-goku overflow-y-scroll border-e border-beerus">
       <div>
         <SearchButton />
       </div>
