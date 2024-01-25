@@ -1,0 +1,3 @@
+---
+title: With selectable rows
+---

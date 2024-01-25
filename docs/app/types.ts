@@ -614,6 +614,28 @@ export type Examples = {
       },
       "props": "string"
     },
+    "table": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "RowGap": "string",
+        "RowSize": "string",
+        "WithCellBorders": "string",
+        "WithClickableRows": "string",
+        "WithSelectableRows": "string",
+        "WithSelectableRowsAndCheckboxes": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "RowGap": "string",
+        "RowSize": "string",
+        "WithCellBorders": "string",
+        "WithClickableRows": "string",
+        "WithSelectableRows": "string",
+        "WithSelectableRowsAndCheckboxes": "string"
+      },
+      "props": "string"
+    },
     "tabs": {
       "anatomy": "string",
       "description": "string",

@@ -286,6 +286,19 @@ const COMPONENTS = {
       "UsingTooltip",
     ],
   },
+  table: {
+    title: "Table",
+    tags: ["ARIA", "RTL"],
+    examples: [
+      "Default",
+      "WithCellBorders",
+      "RowGap",
+      "RowSize",
+      "WithClickableRows",
+      "WithSelectableRows",
+      "WithSelectableRowsAndCheckboxes",
+    ],
+  },
   tabs: {
     title: "Tabs",
     tags: ["ARIA", "RTL"],
