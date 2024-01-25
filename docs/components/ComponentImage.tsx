@@ -23,6 +23,7 @@ import loader from "../app/client/loader/loader.webp";
 import progress from "../app/client/progress/progress.webp";
 import radio from "../app/client/radio/radio.webp";
 import searchCmdk from "../app/client/searchCmdk/searchCmdk.webp";
+import search from "../app/client/search/search.webp";
 import snackbar from "../app/client/snackbar/snackbar.webp";
 import switchImage from "../app/client/switch/switch.webp";
 import tabs from "../app/client/tabs/tabs.webp";
@@ -61,6 +62,7 @@ const images: Record<string, StaticImageData> = {
   progress,
   radio,
   searchCmdk,
+  search,
   snackbar,
   switch: switchImage,
   tabs,

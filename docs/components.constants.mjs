@@ -260,6 +260,11 @@ const COMPONENTS = {
       "Customization",
     ],
   },
+  search: {
+    title: "Search",
+    tags: ["IN PROGRESS", "ARIA", "RTL"],
+    examples: ["Default", "WithTransition"],
+  },
   searchCmdk: {
     title: "SearchCmdk",
     tags: ["ARIA", "RTL"],

@@ -569,6 +569,18 @@ export type Examples = {
       },
       "props": "string"
     },
+    "search": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "WithTransition": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "WithTransition": "string"
+      },
+      "props": "string"
+    },
     "searchCmdk": {
       "description": "string",
       "descriptions": {
