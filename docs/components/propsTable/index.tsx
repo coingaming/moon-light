@@ -3,9 +3,8 @@
 import HeaderSection from "../HeaderSection";
 import { PropsTableProp, PropsTablePropTypes } from "@/types";
 import { Table } from "@heathmont/moon-table-tw";
-import { Chip, Tag } from "@heathmont/moon-core-tw";
+import { Chip, Popover, Tag } from "@heathmont/moon-core-tw";
 import React from "react";
-import { Tooltip } from "@heathmont/moon-core-tw";
 import { GenericInfo } from "@heathmont/moon-icons-tw";
 
 type TableProps = {
@@ -29,36 +28,60 @@ const renderType = (item: PropsTablePropTypes) => {
   }
 };
 
+const Name = (prop: PropsTableProp) => (
+  <div className="flex flex-row">
+    <Tag
+      className="w-fit bg-jiren text-frieza gap-1 text-moon-14"
+      isUppercase={false}
+    >
+      {prop.name} {prop.required && <span className="text-moon-16">*</span>}
+    </Tag>
+    <Popover position="top" className="items-center flex">
+      <Popover.Trigger>
+        <Chip
+          className="rounded-full p-0 h-fit hover:bg-heles self-center"
+          variant="ghost"
+        >
+          <GenericInfo className="text-moon-14" />
+        </Chip>
+      </Popover.Trigger>
+      <Popover.Panel className="w-auto min-w-[12rem] overflow-y-visible p-3 rounded-moon-s-xs text-moon-12 text-bulma bg-goku">
+        {prop.description}
+      </Popover.Panel>
+    </Popover>
+  </div>
+);
+
+const Type = (prop: PropsTableProp) => {
+  const isLongType = prop.type.reduce((acc, type) => acc + type.length, 0) > 25;
+  const isDefaultType = prop.type.map(renderType).join(" | ");
+
+  return (
+    <span className="text-trunks">
+      {isLongType ? (
+        <Popover position="top" className="items-center flex">
+          <Popover.Trigger>
+            <div className="flex flex-row items-center">
+              enum
+              <GenericInfo className="text-moon-14 hover:bg-heles hover:text-piccolo text-bulma rounded-full" />
+            </div>
+          </Popover.Trigger>
+          <Popover.Panel className="w-auto min-w-[12rem] overflow-y-visible p-3 rounded-moon-s-xs text-moon-12 text-bulma bg-goku">
+            {isDefaultType}
+          </Popover.Panel>
+        </Popover>
+      ) : (
+        isDefaultType
+      )}
+    </span>
+  );
+};
+
 const makeData = (data: PropsTableProp[]) => {
   return data.map((prop) => {
     return {
-      name: (
-        <div className="flex flex-row">
-          <Tag className="w-fit bg-jiren text-frieza gap-1" isUppercase={false}>
-            {prop.name}{" "}
-            {prop.required ? <span className="text-moon-16">*</span> : ""}
-          </Tag>
-          <Tooltip>
-            <Tooltip.Trigger>
-              <Chip
-                className="rounded-full p-0 h-fit hover:bg-heles self-center"
-                variant="ghost"
-              >
-                <GenericInfo className="text-moon-14" />
-              </Chip>
-            </Tooltip.Trigger>
-            <Tooltip.Content>
-              {prop.description}
-              <Tooltip.Arrow />
-            </Tooltip.Content>
-          </Tooltip>
-        </div>
-      ),
-      type: (
-        <span className="text-trunks">
-          {prop.type.map(renderType).join(" | ")}
-        </span>
-      ),
+      name: <Name {...prop} />,
+      type: <Type {...prop} />,
       default: <span className="text-bulma">{prop.defaultState || "-"}</span>,
     };
   });
