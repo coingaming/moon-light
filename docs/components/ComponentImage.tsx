@@ -73,7 +73,7 @@ const images: Record<string, StaticImageData> = {
   pagination,
   textarea,
   menuitem,
-  carousel
+  carousel,
 } as const;
 
 interface Props {
