@@ -1,0 +1,9 @@
+```
+<Combobox>
+  <Combobox.InsetSelect>...</Combobox.InsetSelect>
+  <Combobox.Options>
+    <Combobox.Option>...</Combobox.Option>
+  </Combobox.Options>
+  <Combobox.Hint>...</Combobox.Hint>
+</Combobox>
+```

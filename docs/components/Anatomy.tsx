@@ -32,12 +32,9 @@ export const Anatomy = async ({ anatomy, className }: Props) => {
       {title && <h2 className={"text-moon-20 font-medium"}>{title}</h2>}
       {description && <MDX markdown={description} />}
       {content && (
-        <CodePreviewWrapper
-          expandedByDefault
-          className="border-t-1 rounded-t-moon-s-sm mt-2"
-        >
+        <pre className="flex w-full p-4 rounded-moon-s-sm overflow-x-auto text-moon-14 text-bulma border border-beerus">
           {content}
-        </CodePreviewWrapper>
+        </pre>
       )}
     </div>
   );

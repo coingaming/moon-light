@@ -1,18 +1,16 @@
-import React from "react";
-import { getExamples } from "@/utils/getExamples";
 import { notFound } from "next/navigation";
+
 import DocsPage from "@/components/DocsPage";
 import { useGetExample } from "@/utils/useGetExample";
 import useProps from "@/hooks/useProps";
 import useComponentInfo from "@/hooks/useComponentInfo";
 import sortExamples from "@/utils/sortExamples";
-
+import COMPONENTS from "../../../components.constants.mjs";
 import type { TagTypes } from "@/types";
 
+// Generate segments for both [componentName]
 export async function generateStaticParams() {
-  const { client } = await getExamples();
-
-  return Object.keys(client).map((name: string) => {
+  return Object.keys(COMPONENTS).map((name: string) => {
     return {
       slug: [name],
     };
@@ -29,9 +27,9 @@ export default async function Page({
   const searchParamRaw = params?.slug?.[1];
 
   const data = await useGetExample(componentName);
+  const info = await useComponentInfo(componentName);
 
   const props = useProps(data?.props);
-  const info = await useComponentInfo(data?.description);
 
   const isMockup =
     !!searchParamRaw &&

@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Form",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization"
+      },
+      {
+        "name": "size",
+        "type": ["sm", "md", "lg"],
+        "defaultState": "md",
+        "description": "Size of Form items"
+      }
+    ]
+  },
+  {
+    "name": "Form.Item",
+    "props": [
+      {
+        "name": "className",
+        "type": ["string"],
+        "description": "CSS classes for customization"
+      },
+      {
+        "name": "disabled",
+        "type": ["boolean"],
+        "description": "Set disabled/non-disabled"
+      },
+      {
+        "name": "error",
+        "type": ["boolean"],
+        "description": "Set valid/non-valid"
+      },
+      {
+        "name": "size",
+        "type": ["sm", "md", "lg"],
+        "description": "Size of Form items"
+      }
+    ]
+  }
+]

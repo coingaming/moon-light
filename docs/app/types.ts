@@ -1,6 +1,7 @@
 export type Examples = {
   "client": {
     "accordion": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "ControlOutside": "string",
@@ -89,7 +90,8 @@ export type Examples = {
       },
       "props": "string"
     },
-    "bottomsheet": {
+    "bottomSheet": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "Customization": "string",
@@ -241,7 +243,44 @@ export type Examples = {
       },
       "props": "string"
     },
+    "combobox": {
+      "description": "string",
+      "descriptions": {
+        "AlignmentControlsOptions": "string",
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "MultiSelectWithAll": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
+        "SelectInsetInputStates": "string",
+        "SelectStates": "string",
+        "VisualMultiSelect": "string"
+      },
+      "examples": {
+        "AlignmentControlsOptions": "string",
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "MultiSelectWithAll": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
+        "SelectInsetInputStates": "string",
+        "SelectStates": "string",
+        "VisualMultiSelect": "string"
+      },
+      "examplesAnatomy": {
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
+        "VisualMultiSelect": "string"
+      },
+      "props": "string"
+    },
     "drawer": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "Default": "string",
@@ -294,6 +333,20 @@ export type Examples = {
       },
       "props": "string"
     },
+    "form": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "Size": "string",
+        "WithInsetItems": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "Size": "string",
+        "WithInsetItems": "string"
+      },
+      "props": "string"
+    },
     "group": {
       "description": "string",
       "descriptions": {
@@ -309,6 +362,26 @@ export type Examples = {
         "Options": "string",
         "Size": "string",
         "States": "string"
+      },
+      "props": "string"
+    },
+    "iconbutton": {
+      "description": "string",
+      "descriptions": {
+        "Animations": "string",
+        "ButtonAsALinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "Variants": "string"
+      },
+      "examples": {
+        "Animations": "string",
+        "ButtonAsALinkHTML": "string",
+        "Default": "string",
+        "Disabled": "string",
+        "Sizes": "string",
+        "Variants": "string"
       },
       "props": "string"
     },
@@ -379,7 +452,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "menuitem": {
+    "menuItem": {
       "description": "string",
       "descriptions": {
         "AsLink": "string",
@@ -408,6 +481,39 @@ export type Examples = {
         "MultiTitle": "string",
         "Radio": "string",
         "WithIcon": "string"
+      },
+      "props": "string"
+    },
+    "modal": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "WithBigContent": "string",
+        "WithSelect": "string",
+        "WithStyledContent": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "WithBigContent": "string",
+        "WithSelect": "string",
+        "WithStyledContent": "string"
+      },
+      "props": "string"
+    },
+    "nativeselect": {
+      "description": "string",
+      "descriptions": {
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string"
+      },
+      "examples": {
+        "CustomStyles": "string",
+        "Default": "string",
+        "DifferentStates": "string",
+        "Sizes": "string"
       },
       "props": "string"
     },
@@ -485,6 +591,18 @@ export type Examples = {
         "Default": "string",
         "Disabled": "string",
         "Uncontrolled": "string"
+      },
+      "props": "string"
+    },
+    "search": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "WithTransition": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "WithTransition": "string"
       },
       "props": "string"
     },
