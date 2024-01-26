@@ -90,6 +90,20 @@ const COMPONENTS = {
       "Variants",
     ],
   },
+  carousel: {
+    title: "Carousel",
+    tags: ["ARIA"],
+    examples: [
+      "Default",
+      "CustomizedArrows",
+      "Indicators",
+      "Spaces",
+      "VisibleIndices",
+      "SelectIndex",
+      "AutoSlide",
+      "RTLSupport",
+    ],
+  },
   checkbox: {
     title: "Checkbox",
     tags: ["ARIA", "RTL"],

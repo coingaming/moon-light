@@ -19,6 +19,7 @@ export async function setDarkTheme(page: Page) {
     const bodyElement = document?.querySelector("body");
     if (bodyElement) {
       bodyElement.classList.add("theme-moon-dark");
+      bodyElement.classList.add("text-bulma");
     } else {
       test.fail(true, "setDarkTheme error: body element was not found");
       throw new Error("setDarkTheme error: body element was not found");
