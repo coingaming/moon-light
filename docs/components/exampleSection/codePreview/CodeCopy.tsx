@@ -21,11 +21,21 @@ const CodeCopy = ({ code }: { code: string }) => {
   );
 
   const copyCode = () => {
-    if (navigator?.clipboard) {
-      navigator.clipboard.writeText(code ? code : "");
-      openSnackbarHandler("top-right");
+    try {
+      if (!code) {
+        console.info("Attempted to copy, but the code is empty.");
+        return;
+      }
+
+      if (navigator?.clipboard) {
+        navigator.clipboard.writeText(code);
+        openSnackbarHandler("top-right");
+      }
+    } catch (error) {
+      console.error("Error occurred while copying code: ", error);
     }
   };
+
   return (
     <div>
       <span className="absolute top-2 right-2 cursor-pointer z-1">
