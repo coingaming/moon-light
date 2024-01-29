@@ -26,8 +26,10 @@ export const MainLayout = ({
       <Header>
         <Breadcrumbs />
       </Header>
-      <Sidebar />
-      <main className="min-h-screen ms-80 me-0 lg:me-72 bg-goku text-bulma flex-1 flex flex-col rounded-ss-3xl px-5 xl:px-20 2xl:px-32 pt-12">
+      <aside className="hidden fixed h-screen lg:flex lg:flex-shrink-0 flex-col">
+        <Sidebar />
+      </aside>
+      <main className="min-h-screen lg:mx-72 bg-goku text-bulma flex-1 flex flex-col rounded-ss-3xl px-5 xl:px-20 2xl:px-32 lg:pt-12 pt-6">
         {children}
       </main>
       <Footer />
