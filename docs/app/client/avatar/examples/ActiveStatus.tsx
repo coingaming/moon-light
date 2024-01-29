@@ -1,5 +1,3 @@
-"use client";
-
 import { Avatar } from "@heathmont/moon-core-tw";
 import { GenericUser } from "@heathmont/moon-icons-tw";
 import image from "../avatar_example.jpeg";

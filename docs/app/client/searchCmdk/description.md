@@ -4,4 +4,4 @@ tags: ["ARIA", "RTL"]
 examples: ["Default"]
 ---
 
-Command menu search can be used as an accessible combobox. You render items, it filters and sorts them automatically.
+Command menu search can be used as an accessible combobox. You can render items, and it will automatically filter and sort them.
