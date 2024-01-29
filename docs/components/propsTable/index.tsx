@@ -91,6 +91,7 @@ const columns = [
   {
     Header: <span className="text-trunks font-normal">Name</span>,
     accessor: "name",
+    width: 100,
   },
   {
     Header: <span className="text-trunks font-normal">Type</span>,
@@ -99,20 +100,13 @@ const columns = [
   {
     Header: <span className="text-trunks font-normal">Default</span>,
     accessor: "default",
+    width: 100,
   },
 ];
 
 export const PropsTable = ({ data, title, description }: TableProps) => {
   const tableData = React.useMemo(() => makeData(data), [data]);
   const hasRequiredProps = data.some((prop) => prop.required);
-
-  const defaultColumn = React.useMemo(
-    () => ({
-      minWidth: 30,
-      width: 12,
-    }),
-    [],
-  );
 
   return (
     <div>
@@ -121,9 +115,7 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
         <div className="border border-beerus rounded-lg overflow-hidden bg-beerus">
           <Table
             columns={columns}
-            defaultColumn={defaultColumn}
             data={tableData}
-            isCellBorder
             rowSize="lg"
             rowGap="gap-px"
           />
