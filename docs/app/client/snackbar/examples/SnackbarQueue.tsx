@@ -75,7 +75,7 @@ const SnackbarQueue = () => {
     (notification: NotificationType) => {
       options.enqueue(notification);
     },
-    [list],
+    [options],
   );
   const isOpen = options?.length > 0 && !isAnimated;
   return (

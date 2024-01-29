@@ -34,7 +34,8 @@ import nativeselect from "../app/client/nativeselect/nativeselect.webp";
 import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect.webp";
 import pagination from "../app/client/pagination/pagination.webp";
 import textarea from "../app/client/textarea/textarea.webp";
-import menuItem from "../app/client/menuItem/menuitem.webp";
+import menuitem from "../app/client/menuItem/menuitem.webp";
+import carousel from "../app/client/carousel/carousel.webp";
 import modal from "../app/client/modal/modal.webp";
 
 const images: Record<string, StaticImageData> = {
@@ -73,7 +74,8 @@ const images: Record<string, StaticImageData> = {
   insetnativeselect,
   pagination,
   textarea,
-  menuItem,
+  menuitem,
+  carousel,
 } as const;
 
 interface Props {

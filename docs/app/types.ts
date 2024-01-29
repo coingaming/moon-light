@@ -154,6 +154,31 @@ export type Examples = {
       },
       "props": "string"
     },
+    "carousel": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "AutoSlide": "string",
+        "CustomizedArrows": "string",
+        "Default": "string",
+        "Indicators": "string",
+        "RTLSupport": "string",
+        "SelectIndex": "string",
+        "Spaces": "string",
+        "VisibleIndices": "string"
+      },
+      "examples": {
+        "AutoSlide": "string",
+        "CustomizedArrows": "string",
+        "Default": "string",
+        "Indicators": "string",
+        "RTLSupport": "string",
+        "SelectIndex": "string",
+        "Spaces": "string",
+        "VisibleIndices": "string"
+      },
+      "props": "string"
+    },
     "checkbox": {
       "description": "string",
       "descriptions": {
