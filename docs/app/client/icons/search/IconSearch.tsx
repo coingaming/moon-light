@@ -1,14 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Chip, Search } from "@heathmont/moon-core-tw";
-import useGroupedIcons from "@/hooks/useGroupedIcons";
+import { useCallback, useMemo, useState } from "react";
+import { Chip, Search, Snackbar } from "@heathmont/moon-core-tw";
 import * as Icons from "@heathmont/moon-icons-tw";
 
 const IconSearch = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const iconNames = Object.keys(Icons);
+  const [snackbar, setSnackbar] = useState("");
+  const [lastClickedIcon, setLastClickedIcon] = useState("");
+
+  const iconNames = useMemo(() => Object.keys(Icons), []);
 
   const filteredIcons = useMemo(() => {
     return iconNames.filter((iconName) =>
@@ -16,15 +18,43 @@ const IconSearch = () => {
     );
   }, [search, iconNames]);
 
+  const openSnackbarHandler = useCallback(
+    (type: string) => {
+      if (snackbar) {
+        setSnackbar("");
+        setTimeout(() => {
+          setSnackbar(type);
+        }, 400);
+      } else {
+        setSnackbar(type);
+      }
+    },
+    [snackbar],
+  );
+
+  const copyCode = useCallback(
+    (iconName: string) => {
+      return () => {
+        if (navigator?.clipboard) {
+          navigator.clipboard.writeText(
+            `import { ${iconName} } from '@heathmont/moon-icons-tw';`,
+          );
+          setLastClickedIcon(iconName);
+          openSnackbarHandler("top-right");
+        }
+      };
+    },
+    [openSnackbarHandler],
+  );
+
   const renderIcon = (iconName: string) => {
     const IconComponent = Icons[iconName as keyof typeof Icons];
-    return IconComponent ? <IconComponent /> : null;
+    return IconComponent ? <IconComponent className="text-moon-24" /> : null;
   };
 
   return (
     <div className="w-full">
       <Search
-        className="rounded-moon-s-sm"
         onChangeSearch={setSearch}
         onChangeOpen={setOpen}
         search={search}
@@ -41,9 +71,9 @@ const IconSearch = () => {
           </Search.Input.ButtonClear>
         </Search.Input>
 
-        <Search.Transition className="border-t border-beerus">
-          <Search.Result className="relative shadow-none">
-            {filteredIcons.length ? (
+        <Search.Transition>
+          <Search.Result>
+            {search && filteredIcons.length ? (
               <div className="flex flex-row flex-wrap gap-4 p-4">
                 {filteredIcons.map((iconName, index) => (
                   <Search.ResultItem
@@ -55,6 +85,7 @@ const IconSearch = () => {
                     <Chip
                       variant="ghost"
                       className="flex flex-col min-w-16 w-16 content-start h-16 text-moon-24"
+                      onClick={copyCode(iconName)}
                     >
                       {renderIcon(iconName)}
                     </Chip>
@@ -70,6 +101,12 @@ const IconSearch = () => {
           </Search.Result>
         </Search.Transition>
       </Search>
+      <Snackbar isOpen={snackbar === "top-right"} onOpenChange={setSnackbar}>
+        <Snackbar.Message className="flex gap-2">
+          Icon copied for import
+          {renderIcon(lastClickedIcon)}
+        </Snackbar.Message>
+      </Snackbar>
     </div>
   );
 };

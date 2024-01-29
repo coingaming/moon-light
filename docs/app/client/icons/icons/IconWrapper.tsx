@@ -1,9 +1,9 @@
 "use client";
 
-import CodeCopy from "@/components/exampleSection/codePreview/CodeCopy";
-import { Chip, Modal } from "@heathmont/moon-core-tw";
+import { Chip, Snackbar } from "@heathmont/moon-core-tw";
 import React from "react";
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import * as Icons from "@heathmont/moon-icons-tw";
 
 type IconProps = {
   name: string;
@@ -11,16 +11,43 @@ type IconProps = {
 };
 
 const IconWrapper = ({ children, name }: IconProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const closeModal = () => setIsOpen(false);
-  const openModal = () => setIsOpen(true);
+  const [snackbar, setSnackbar] = useState("");
+
+  const openSnackbarHandler = useCallback(
+    (type: string) => {
+      if (snackbar) {
+        setSnackbar("");
+        setTimeout(() => {
+          setSnackbar(type);
+        }, 400);
+      } else {
+        setSnackbar(type);
+      }
+    },
+    [snackbar],
+  );
+
+  const copyCode = () => {
+    if (navigator?.clipboard) {
+      navigator.clipboard.writeText(
+        name ? `import { ${name} } from '@heathmont/moon-icons-tw';` : "",
+      );
+      openSnackbarHandler("top-right");
+    }
+  };
+
+  const renderIcon = (name: string) => {
+    const IconComponent = Icons[name as keyof typeof Icons];
+    return IconComponent ? <IconComponent className="text-moon-24" /> : null;
+  };
+
   return (
     <>
       <div className="flex flex-col min-w-16 w-16 content-start">
         <Chip
           variant="ghost"
           aria-label={name}
-          onClick={openModal}
+          onClick={copyCode}
           iconOnly={children}
           className="text-moon-24 h-16"
         />
@@ -28,18 +55,12 @@ const IconWrapper = ({ children, name }: IconProps) => {
           {name}
         </p>
       </div>
-      <Modal open={isOpen} onClose={closeModal}>
-        <Modal.Backdrop />
-        <Modal.Panel className="bg-bulma text-gohan ps-8 pe-12 py-4 w-auto max-w-full">
-          <pre className="text-gohan">{`import { ${name} } from '@heathmont/moon-icons-tw';`}</pre>
-          {name && (
-            <CodeCopy
-              code={`import { ${name} } from '@heathmont/moon-icons-tw';`}
-              className="text-roshi"
-            />
-          )}
-        </Modal.Panel>
-      </Modal>
+      <Snackbar isOpen={snackbar === "top-right"} onOpenChange={setSnackbar}>
+        <Snackbar.Message className="flex gap-2">
+          Icon copied for import
+          {renderIcon(name)}
+        </Snackbar.Message>
+      </Snackbar>
     </>
   );
 };
