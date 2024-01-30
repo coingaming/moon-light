@@ -3,6 +3,11 @@
     "name": "Table",
     "props": [
       {
+        "name": "expandedByDefault",
+        "type": ["boolean"],
+        "description": "Expands all rows by default"
+      },
+      {
         "name": "getOnRowClickHandler",
         "type": ["(row) => (row) => void", "() => void"],
         "description": "Callback on clicked row"
@@ -22,6 +27,11 @@
         "type": ["boolean"],
         "defaultState": "false",
         "description": "Divider between cells"
+      },
+      {
+        "name": "isSorting",
+        "type": ["boolean"],
+        "description": "Add support for sorting"
       },
       {
         "name": "keepState",
@@ -61,6 +71,16 @@
         "description": "Sets the type of clipping of long data inside a table cell"
       },
       {
+        "name": "updateMyData",
+        "type": ["() => void"],
+        "description": "When cell renderer calls updateMyData"
+      },
+      {
+        "name": "useCheckbox",
+        "type": ["boolean"],
+        "description": "Displays checkboxes in the first column"
+      },
+      {
         "name": "width",
         "type": ["string", "number"],
         "description": "Width of the table"
@@ -69,16 +89,6 @@
         "name": "withFooter",
         "type": ["boolean"],
         "description": "Display table footer"
-      },
-      {
-        "name": "useCheckbox",
-        "type": ["() => void"],
-        "description": "When cell renderer calls updateMyData"
-      },
-      {
-        "name": "useCheckbox",
-        "type": ["boolean"],
-        "description": "Displays checkboxes in the first column"
       }
     ]
   }

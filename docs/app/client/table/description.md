@@ -10,6 +10,9 @@ examples:
     "WithClickableRows",
     "WithSelectableRows",
     "WithSelectableRowsAndCheckboxes",
+    "Customization",
+    "WithExpandableRows",
+    "WithSorting",
   ]
 ---
 

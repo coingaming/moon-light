@@ -316,6 +316,9 @@ const COMPONENTS = {
       "WithClickableRows",
       "WithSelectableRows",
       "WithSelectableRowsAndCheckboxes",
+      "Customization",
+      "WithExpandableRows",
+      "WithSorting",
     ],
   },
   tabs: {

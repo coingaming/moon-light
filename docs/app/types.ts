@@ -654,22 +654,28 @@ export type Examples = {
     "table": {
       "description": "string",
       "descriptions": {
+        "Customization": "string",
         "Default": "string",
         "RowGap": "string",
         "RowSize": "string",
         "WithCellBorders": "string",
         "WithClickableRows": "string",
+        "WithExpandableRows": "string",
         "WithSelectableRows": "string",
-        "WithSelectableRowsAndCheckboxes": "string"
+        "WithSelectableRowsAndCheckboxes": "string",
+        "WithSorting": "string"
       },
       "examples": {
+        "Customization": "string",
         "Default": "string",
         "RowGap": "string",
         "RowSize": "string",
         "WithCellBorders": "string",
         "WithClickableRows": "string",
+        "WithExpandableRows": "string",
         "WithSelectableRows": "string",
-        "WithSelectableRowsAndCheckboxes": "string"
+        "WithSelectableRowsAndCheckboxes": "string",
+        "WithSorting": "string"
       },
       "props": "string"
     },
