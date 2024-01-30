@@ -1,4 +1,5 @@
 import SearchButton from "../search/SearchButton";
+import navigation from "./Navigation";
 import SidebarItem from "./SidebarItem";
 import COMPONENTS from "@/components.constants.mjs";
 
@@ -10,6 +11,19 @@ export default async function Sidebar() {
       </div>
       <nav className="flex flex-col gap-6" aria-label="Sidebar">
         <div className="flex flex-col gap-2">
+          <p className="ps-2 text-moon-10-caption font-medium uppercase text-trunks">
+            Overview
+          </p>
+          <ul role="list" className="flex flex-col gap-1">
+            {navigation.map((item) => (
+              <li key={item.name}>
+                <SidebarItem href={item.href}>
+                  {item.icon}
+                  {item.name}
+                </SidebarItem>
+              </li>
+            ))}
+          </ul>
           <p className="ps-2 text-moon-10-caption font-medium uppercase text-trunks">
             Client components
           </p>

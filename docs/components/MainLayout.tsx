@@ -6,12 +6,20 @@ import Settings from "@/components/settings/Settings";
 import ProductSidebar from "./productSidebar/ProductSidebar";
 import { Header } from "./header/Header";
 import Breadcrumbs from "./breadcrumbs/Breadcrumbs";
+import OverviewSidebar from "./overviewSidebar/OverviewSidebar";
+
+interface Title {
+  subtitle: string;
+  id: string;
+}
 
 interface MainLayoutProps {
   children: ReactNode;
   isMockup?: boolean;
   componentName?: string;
   contentSidebar?: string[];
+  subtitles?: Title[];
+  title?: string;
 }
 
 export const MainLayout = ({
@@ -19,6 +27,7 @@ export const MainLayout = ({
   isMockup = false,
   componentName,
   contentSidebar,
+  subtitles,
 }: MainLayoutProps) => {
   return isMockup ? (
     children
@@ -34,6 +43,7 @@ export const MainLayout = ({
       {componentName && contentSidebar && (
         <ProductSidebar name={componentName} contents={contentSidebar} />
       )}
+      {subtitles && <OverviewSidebar subtitles={subtitles} />}
       <Settings />
       <Footer />
     </>
