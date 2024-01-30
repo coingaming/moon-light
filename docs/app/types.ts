@@ -747,13 +747,6 @@ export type Examples = {
       "props": "string"
     }
   },
-  "figma": {
-    "Video": "string",
-    "page": "string"
-  },
-  "releases": {
-    "page": "string"
-  },
   "server": {
     "accordion": {
       "description": "string",

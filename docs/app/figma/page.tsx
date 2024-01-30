@@ -2,7 +2,7 @@ import OverviewPage from "@/components/OverviewPage";
 import Video from "./Video";
 import { PageSection } from "@/components/pageSection/PageSection";
 
-export const FigmaPage = () => {
+export default async function FigmaPage() {
   return (
     <OverviewPage
       title="Figma"
@@ -22,6 +22,4 @@ export const FigmaPage = () => {
       </PageSection>
     </OverviewPage>
   );
-};
-
-export default FigmaPage;
+}

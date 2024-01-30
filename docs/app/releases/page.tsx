@@ -1,7 +1,7 @@
 import OverviewPage from "@/components/OverviewPage";
 import { ReleaseSection } from "@/components/releaseSection/ReleaseSection";
 
-export const ReleasesPage = () => {
+export default async function ReleasesPage() {
   return (
     <OverviewPage
       className="gap-12"
@@ -32,6 +32,4 @@ export const ReleasesPage = () => {
       ></ReleaseSection>
     </OverviewPage>
   );
-};
-
-export default ReleasesPage;
+}
