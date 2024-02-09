@@ -57,10 +57,18 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         const kbDeltas = { x: 0, y: 0 };
 
         const navigationKeys = new Map();
-        navigationKeys.set("ArrowUp", () => kbDeltas.y = -kbDelta);
-        navigationKeys.set("ArrowDown", () => kbDeltas.y = kbDelta);
-        navigationKeys.set("ArrowLeft", () => kbDeltas.x = -kbDelta);
-        navigationKeys.set("ArrowRight", () => kbDeltas.x = calcMaxScrollByX(event.currentTarget, kbDelta, container?.width));
+        navigationKeys.set("ArrowUp", () => (kbDeltas.y = -kbDelta));
+        navigationKeys.set("ArrowDown", () => (kbDeltas.y = kbDelta));
+        navigationKeys.set("ArrowLeft", () => (kbDeltas.x = -kbDelta));
+        navigationKeys.set(
+          "ArrowRight",
+          () =>
+            (kbDeltas.x = calcMaxScrollByX(
+              event.currentTarget,
+              kbDelta,
+              container?.width,
+            )),
+        );
 
         if (navigationKeys.has(event.code)) {
           event.preventDefault();
@@ -88,17 +96,21 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       };
     }, []);
 
-    const getBackLostFocus = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
-      const target = event.target as HTMLElement;
-      const isSpecialElement =
-        target.tagName.toUpperCase() === 'SVG' ||
-        target.tagName.toUpperCase() === 'BUTTON' ||
-        (target.tagName.toUpperCase() === 'INPUT' && (target as HTMLInputElement).type?.toLowerCase() === 'checkbox');
+    const getBackLostFocus = useCallback(
+      (event: React.MouseEvent<HTMLDivElement>) => {
+        const target = event.target as HTMLElement;
+        const isSpecialElement =
+          target.tagName.toUpperCase() === "SVG" ||
+          target.tagName.toUpperCase() === "BUTTON" ||
+          (target.tagName.toUpperCase() === "INPUT" &&
+            (target as HTMLInputElement).type?.toLowerCase() === "checkbox");
 
-      if (isSpecialElement) {
-        event.currentTarget.focus();
-      }
-    }, []);
+        if (isSpecialElement) {
+          event.currentTarget.focus();
+        }
+      },
+      [],
+    );
 
     return (
       <div

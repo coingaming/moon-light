@@ -13,8 +13,8 @@ const TFoot = ({
   const bottom = isSticky && rowGap ? rowGap : undefined;
   const styles = {
     bottom: bottom,
-    '--beforeShift': bottom,
-    '--footerBGColor': `rgba(var(--${backgroundColor}, var(--gohan)))`,
+    "--beforeShift": bottom,
+    "--footerBGColor": `rgba(var(--${backgroundColor}, var(--gohan)))`,
   } as const;
 
   const cmLength = columnMap?.length || 0;
@@ -22,7 +22,9 @@ const TFoot = ({
   return isSticky ? (
     <tfoot
       style={styles}
-      className={"sticky z-[1] before:absolute before:w-full before:h-full before:-bottom-[var(--beforeShift)] before:bg-[color:var(--footerBGColor)]"}
+      className={
+        "sticky z-[1] before:absolute before:w-full before:h-full before:-bottom-[var(--beforeShift)] before:bg-[color:var(--footerBGColor)]"
+      }
     >
       {table.getFooterGroups().map((footerGroup, indexFG) => (
         <tr key={footerGroup.id}>

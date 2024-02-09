@@ -16,7 +16,7 @@ const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
       shift += +(headers[i].column.columnDef.size || 0);
     }
     return shift;
-  }
+  };
 
   switch (stickySide) {
     case "left":
@@ -46,17 +46,25 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
     const stickySide = stickyColumn.sticky;
 
     const styles = new Map([
-      ['width', `${header.column.columnDef.size}px`],
-      ['minWidth', `${stickySide ? columnDefinition.size : columnDefinition.minSize}px`],
-      ['maxWidth', `${stickySide ? columnDefinition.size : columnDefinition.maxSize}px`],
-      ['--footerBGColor', `rgba(var(--${backgroundColor}, var(--gohan)))`],
+      ["width", `${header.column.columnDef.size}px`],
+      [
+        "minWidth",
+        `${stickySide ? columnDefinition.size : columnDefinition.minSize}px`,
+      ],
+      [
+        "maxWidth",
+        `${stickySide ? columnDefinition.size : columnDefinition.maxSize}px`,
+      ],
+      ["--footerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
     ]);
 
     if (stickySide) {
-      styles.set(stickySide, stickySide === "left"
-        ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
-        : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`
-      )
+      styles.set(
+        stickySide,
+        stickySide === "left"
+          ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
+          : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
+      );
     }
 
     return (
@@ -68,7 +76,7 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
           "z-[1]",
           backgroundColor && "bg-[color:var(--footerBGColor)]",
           stickySide &&
-          "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--footerBGColor)]",
+            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--footerBGColor)]",
         )}
         ref={ref}
       >

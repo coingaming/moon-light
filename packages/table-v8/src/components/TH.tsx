@@ -10,19 +10,27 @@ const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
   const { headers } = header.headerGroup;
   const headerIndex = +header.index;
 
-  const calculateShift = (start: number, end: number, isIncrementing: boolean) => {
+  const calculateShift = (
+    start: number,
+    end: number,
+    isIncrementing: boolean,
+  ) => {
     let shift = 0;
-    for (let i = start; isIncrementing ? i < end : i > end; isIncrementing ? i++ : i--) {
+    for (
+      let i = start;
+      isIncrementing ? i < end : i > end;
+      isIncrementing ? i++ : i--
+    ) {
       const size = headers[i].column.columnDef.size || 0;
       shift += +size;
     }
     return shift;
-  }
+  };
 
   switch (stickySide) {
-    case 'left':
+    case "left":
       return calculateShift(0, headerIndex, true);
-    case 'right':
+    case "right":
       return calculateShift(headers.length - 1, headerIndex, false);
     default:
       return 0;
@@ -49,17 +57,25 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
     const stickySide = stickyColumn.sticky;
 
     const styles = new Map([
-      ['width', `${header.column.columnDef.size}px`],
-      ['minWidth', `${stickySide ? header.column.columnDef.size : header.column.columnDef.minSize}px`],
-      ['maxWidth', `${stickySide ? header.column.columnDef.size : header.column.columnDef.maxSize}px`],
-      ['--headerBGColor', `rgba(var(--${backgroundColor}, var(--gohan)))`],
+      ["width", `${header.column.columnDef.size}px`],
+      [
+        "minWidth",
+        `${stickySide ? header.column.columnDef.size : header.column.columnDef.minSize}px`,
+      ],
+      [
+        "maxWidth",
+        `${stickySide ? header.column.columnDef.size : header.column.columnDef.maxSize}px`,
+      ],
+      ["--headerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
     ]);
 
     if (stickySide) {
-      styles.set(stickySide, stickySide === "left"
-        ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
-        : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`
-      )
+      styles.set(
+        stickySide,
+        stickySide === "left"
+          ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
+          : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
+      );
     }
 
     return (
@@ -71,7 +87,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           "z-[1]",
           backgroundColor && "bg-[color:var(--headerBGColor)]",
           stickySide &&
-          "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
+            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
         )}
         ref={ref}
       >
