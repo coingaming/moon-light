@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Popover, Chip } from "@heathmont/moon-core-tw";
 
 const TooltipViewAlwaysOpen = () => {

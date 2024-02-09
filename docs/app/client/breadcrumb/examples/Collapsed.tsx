@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Breadcrumb } from "@heathmont/moon-core-tw";
 
 const breadcrumbs = [
@@ -22,8 +21,6 @@ const breadcrumbs = [
   <span key="Current">Current page</span>,
 ];
 
-export const Collapsed = () => {
-  return <Breadcrumb breadcrumbs={breadcrumbs} />;
-};
+export const Collapsed = () => <Breadcrumb breadcrumbs={breadcrumbs} />;
 
 export default Collapsed;

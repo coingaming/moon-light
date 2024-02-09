@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Breadcrumb } from "@heathmont/moon-core-tw";
 import { GenericHome, ControlsChevronRight } from "@heathmont/moon-icons-tw";
 
@@ -23,13 +22,11 @@ const breadcrumbs = [
   <span key="Current">Current page</span>,
 ];
 
-export const CustomDivider = () => {
-  return (
-    <Breadcrumb
-      breadcrumbs={breadcrumbs}
-      divider={<ControlsChevronRight className="text-moon-16 rtl:rotate-180" />}
-    />
-  );
-};
+export const CustomDivider = () => (
+  <Breadcrumb
+    breadcrumbs={breadcrumbs}
+    divider={<ControlsChevronRight className="text-moon-16 rtl:rotate-180" />}
+  />
+);
 
 export default CustomDivider;

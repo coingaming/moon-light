@@ -1,3 +1,5 @@
+"use client";
+
 import { Loader } from "@heathmont/moon-core-tw";
 
 const Sizes = () => (

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Pagination, IconButton } from "@heathmont/moon-core-tw";
 import {
   ControlsChevronLeftSmall,
