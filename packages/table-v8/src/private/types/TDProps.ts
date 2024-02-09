@@ -8,23 +8,15 @@ type TDProps = {
   index: number;
   cells: Cell<{}, unknown>[];
   selectable?: boolean;
-  /* isExpanded?: boolean; */
-  /* isLastRow?: boolean; */
-  /* hasParent?: boolean; */
-  /* isSelected?: boolean; */
-  backgroundColor?: string;
+  className?: string;
   fontColor?: string;
   stickySide?: string;
   isFirstColumn?: boolean;
   isLastColumn?: boolean;
-  /* isHovered?: boolean; */
-  bodyBackgroundColor?: string;
   onClick?: () => void;
   rowSize?: RowSizes;
-  isRowSelected?: boolean;
   isCellBorder?: boolean;
   columnData?: ColumnData;
-  /* role?: string; */
   textClip?: ClipProps;
 };
 

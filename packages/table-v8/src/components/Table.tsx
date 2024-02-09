@@ -23,10 +23,12 @@ const Table = ({
   maxHeight,
   state,
   withFooter = false,
-  headerBackgroundColor = "bg-gohan",
-  bodyBackgroundColor = "bg-gohan",
-  defaultRowBackgroundColor = "bg-goku",
-  evenRowBackgroundColor = "bg-goku",
+  headerBackgroundColor = "gohan",
+  bodyBackgroundColor = "gohan",
+  defaultRowBackgroundColor = "goku",
+  evenRowBackgroundColor = "goku",
+  rowSelectColor = "heles",
+  rowHoverColor,
   rowGap = "2px",
   rowSize = "md",
   isSelectable = false,
@@ -102,9 +104,11 @@ const Table = ({
             rowGap={rowGap}
             rowSize={rowSize}
             isSelectable={isSelectable}
+            rowSelectColor={rowSelectColor}
             backgroundColor={bodyBackgroundColor}
             defaultRowBackgroundColor={defaultRowBackgroundColor}
             evenRowBackgroundColor={evenRowBackgroundColor}
+            rowHoverColor={rowHoverColor}
             columnMap={columnMap}
             textClip={textClip}
           />

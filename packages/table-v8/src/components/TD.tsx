@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { flexRender, Cell } from "@tanstack/react-table";
-import styled from "styled-components";
 import ClipProps from "../private/types/ClipProps";
 import StickyColumn from "../private/types/StickyColumn";
 import TDProps from "../private/types/TDProps";
@@ -19,13 +18,13 @@ const getStickyShift = (
       shift += +(cells[i].column.columnDef.size || 0);
     }
     return shift;
-  };
-
-  if (stickySide === "left") {
-    return calculateShift(0, index, 1);
   }
 
-  if (stickySide === "right") {
+  if (stickySide === 'left') {
+    return calculateShift(0, +index, 1);
+  }
+
+  if (stickySide === 'right') {
     return calculateShift(cells.length - 1, +index, -1);
   }
 };
@@ -37,11 +36,9 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       index,
       cells,
       rowSize,
-      backgroundColor,
-      bodyBackgroundColor,
+      className,
       isFirstColumn,
       isLastColumn,
-      isRowSelected = false,
       columnData,
       textClip,
     },
@@ -52,48 +49,35 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       : cell.column.columnDef;
     const stickySide = stickyColumn.sticky;
 
-    const stickyShift = stickySide
-      ? stickySide === "left"
-        ? `left: ${columnData ? columnData?.left : getStickyShift(cells, index, "left")}px;`
-        : `right: ${columnData ? columnData?.right : getStickyShift(cells, index, "right")}px;`
-      : undefined;
+    const styles = new Map([
+      ['width', `${cell.column.columnDef.size}px`],
+      ['minWidth', `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.minSize}px`],
+      ['maxWidth', `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.maxSize}px`],
+    ]);
 
-    const stickyPad = `
-    &::before {
-      background-color: rgb(var(--${bodyBackgroundColor?.replace(/^.+-(\w+)$/g, "$1")}));
-    };
-    &::after {
-      background-color: rgb(var(--${backgroundColor?.replace(/^.+-(\w+)$/g, "$1")}));
-    };
-  `;
-
-    const BodyCell = styled.td`
-      width: ${cell.column.columnDef.size}px;
-      min-width: ${stickySide
-        ? cell.column.columnDef.size
-        : cell.column.columnDef.minSize}px;
-      max-width: ${stickySide
-        ? cell.column.columnDef.size
-        : cell.column.columnDef.maxSize}px;
-      ${stickyShift && stickyShift}
-      ${stickySide && stickyPad}
-    `;
+    if (stickySide) {
+      styles.set(stickySide, stickySide === "left"
+        ? `${columnData ? columnData?.left : getStickyShift(cells, index, "left")}px`
+        : `${columnData ? columnData?.right : getStickyShift(cells, index, "right")}px`
+      )
+    }
 
     return (
-      <BodyCell
+      <td
         key={cell.id}
+        style={Object.fromEntries(styles)}
         className={mergeClassnames(
           "box-border text-start",
           getFontSize(rowSize),
           getPadding(rowSize),
-          isRowSelected ? "bg-heles" : backgroundColor,
           isFirstColumn && "rounded-s-lg after:rounded-s-lg",
           isLastColumn && "rounded-e-lg after:rounded-e-lg",
           stickySide && "sticky before:-z-[1] after:-z-[1]",
           stickySide &&
-            "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
+          "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
           stickySide &&
-            "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
+          "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
+          className,
         )}
         ref={ref}
       >
@@ -109,7 +93,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
         ) : (
           flexRender(cell.column.columnDef.cell, cell.getContext())
         )}
-      </BodyCell>
+      </td>
     );
   },
 );

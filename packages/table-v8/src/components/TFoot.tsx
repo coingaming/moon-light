@@ -1,6 +1,4 @@
 import React from "react";
-import { mergeClassnames } from "@heathmont/moon-core-tw";
-import styled from "styled-components";
 import TF from "./TF";
 import TFootProps from "../private/types/TFootProps";
 
@@ -13,24 +11,18 @@ const TFoot = ({
   columnMap,
 }: TFootProps) => {
   const bottom = isSticky && rowGap ? rowGap : undefined;
-  const Foot = styled.tfoot`
-    bottom: ${bottom};
-    &::before {
-      bottom: -${bottom};
-      background-color: rgb(
-        var(--${backgroundColor?.replace(/^.+-(\w+)$/g, "$1")})
-      );
-    }
-  `;
+  const styles = {
+    bottom: bottom,
+    '--beforeShift': bottom,
+    '--footerBGColor': `rgba(var(--${backgroundColor}, var(--gohan)))`,
+  } as const;
 
   const cmLength = columnMap?.length || 0;
 
   return isSticky ? (
-    <Foot
-      className={mergeClassnames(
-        "sticky z-[1]",
-        "before:absolute before:w-full before:h-full",
-      )}
+    <tfoot
+      style={styles}
+      className={"sticky z-[1] before:absolute before:w-full before:h-full before:-bottom-[var(--beforeShift)] before:bg-[color:var(--footerBGColor)]"}
     >
       {table.getFooterGroups().map((footerGroup, indexFG) => (
         <tr key={footerGroup.id}>
@@ -46,7 +38,7 @@ const TFoot = ({
           ))}
         </tr>
       ))}
-    </Foot>
+    </tfoot>
   ) : (
     <tfoot>
       {table.getFooterGroups().map((footerGroup) => (

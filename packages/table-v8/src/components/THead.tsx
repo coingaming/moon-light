@@ -1,6 +1,4 @@
 import React from "react";
-import { mergeClassnames } from "@heathmont/moon-core-tw";
-import styled from "styled-components";
 import TH from "./TH";
 import THeadProps from "../private/types/THeadProps";
 
@@ -13,21 +11,16 @@ const THead = ({
   columnMap,
 }: THeadProps) => {
   const top = isSticky && rowGap ? rowGap : undefined;
-  const Head = styled.thead`
-    top: ${top};
-    &::before {
-      top: -${top};
-      background-color: rgb(
-        var(--${backgroundColor?.replace(/^.+-(\w+)$/g, "$1")})
-      );
-    }
-  `;
+  const styles = {
+    top: top,
+    '--beforeShift': top,
+    '--headerBGColor': `rgba(var(--${backgroundColor}, var(--gohan)))`,
+  } as const;
 
   return isSticky ? (
-    <Head
-      className={mergeClassnames(
-        "sticky z-[1] before:absolute before:w-full before:h-full",
-      )}
+    <thead
+      style={styles}
+      className={"sticky z-[1] before:absolute before:w-full before:bottom-0 before:-top-[var(--beforeShift)] before:bg-[color:var(--headerBGColor)]"}
     >
       {table.getHeaderGroups().map((headerGroup, indexHG) => (
         <tr key={headerGroup.id}>
@@ -43,7 +36,7 @@ const THead = ({
           ))}
         </tr>
       ))}
-    </Head>
+    </thead>
   ) : (
     <thead>
       {table.getHeaderGroups().map((headerGroup) => (

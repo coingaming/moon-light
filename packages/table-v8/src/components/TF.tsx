@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { Header, flexRender } from "@tanstack/react-table";
-import styled from "styled-components";
 import StickyColumn from "../private/types/StickyColumn";
 import THProps from "../private/types/THProps";
 import getFontSize from "../private/utils/getFontSize";
@@ -17,7 +16,7 @@ const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
       shift += +(headers[i].column.columnDef.size || 0);
     }
     return shift;
-  };
+  }
 
   switch (stickySide) {
     case "left":
@@ -46,39 +45,30 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
       : columnDefinition;
     const stickySide = stickyColumn.sticky;
 
-    const stickyShift = stickySide
-      ? stickySide === "left"
-        ? `left: ${columnData ? columnData?.left : getStickyShift(header, "left")}px;`
-        : `right: ${columnData ? columnData?.right : getStickyShift(header, "right")}px;`
-      : undefined;
+    const styles = new Map([
+      ['width', `${header.column.columnDef.size}px`],
+      ['minWidth', `${stickySide ? columnDefinition.size : columnDefinition.minSize}px`],
+      ['maxWidth', `${stickySide ? columnDefinition.size : columnDefinition.maxSize}px`],
+      ['--footerBGColor', `rgba(var(--${backgroundColor}, var(--gohan)))`],
+    ]);
 
-    const stickyBefore = `
-      &::before {
-        background-color: rgb(var(--${backgroundColor?.replace(/^.+-(\w+)$/g, "$1")}));
-      };
-    `;
-
-    const FootCell = styled.th`
-      width: ${header.column.columnDef.size}px;
-      min-width: ${stickySide
-        ? columnDefinition.size
-        : columnDefinition.minSize}px;
-      max-width: ${stickySide
-        ? columnDefinition.size
-        : columnDefinition.maxSize}px;
-      ${stickyShift && stickyShift}
-      ${stickySide && stickyBefore}
-    `;
+    if (stickySide) {
+      styles.set(stickySide, stickySide === "left"
+        ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
+        : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`
+      )
+    }
 
     return (
-      <FootCell
+      <th
         key={header.id}
+        style={Object.fromEntries(styles)}
         colSpan={header.colSpan}
         className={mergeClassnames(
           "z-[1]",
-          backgroundColor && backgroundColor,
+          backgroundColor && "bg-[color:var(--footerBGColor)]",
           stickySide &&
-            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full",
+          "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--footerBGColor)]",
         )}
         ref={ref}
       >
@@ -93,7 +83,7 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
             {flexRender(header.column.columnDef.footer, header.getContext())}
           </div>
         )}
-      </FootCell>
+      </th>
     );
   },
 );

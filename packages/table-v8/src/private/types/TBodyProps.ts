@@ -11,6 +11,8 @@ type TBodyProps = {
   backgroundColor?: string;
   defaultRowBackgroundColor?: string;
   evenRowBackgroundColor?: string;
+  rowSelectColor?: string;
+  rowHoverColor?: string;
   columnMap?: ColumnData[][];
   textClip?: ClipProps;
 };
