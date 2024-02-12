@@ -12,9 +12,7 @@
   "author": "Yolo Group",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm run build:js:es && pnpm run build:js:commonjs",
-    "build:js:commonjs": "tsc --project tsconfig.cjs.json",
-    "build:js:es": "tsc --project tsconfig.esm.json"
+    "build": "tsc --project tsconfig.esm.json"
   },
   "dependencies": {
     "@heathmont/moon-core-tw": "^10.11.1",
