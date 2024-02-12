@@ -6,14 +6,14 @@ import SearchButton from "../search/SearchButton";
 import ThemeSwitcher from "../settings/ThemeSwitcher";
 import { ControlsCloseSmall, GenericMenu } from "@heathmont/moon-icons-tw";
 import { Chip } from "@heathmont/moon-core-tw";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Sidebar from "../sidebar/Sidebar";
 
 export const Header = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setIsOpen((isOpen) => !isOpen);
-  };
+  }, [setIsOpen, isOpen]);
 
   return (
     <>
@@ -24,7 +24,7 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
               <Logo />
             </Link>
           </div>
-          <div className="p-6 h-full flex grow items-center hidden lg:block">
+          <div className="p-6 h-full hidden grow items-center lg:block">
             {children}
           </div>
           <div className="flex flex-row gap-4 lg:pe-5 pe-4">
