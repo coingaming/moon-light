@@ -679,6 +679,9 @@ export type Examples = {
       },
       "props": "string"
     },
+    "table": {
+      "Default": "string"
+    },
     "tabs": {
       "anatomy": "string",
       "description": "string",
