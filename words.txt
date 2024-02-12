@@ -8,6 +8,7 @@ bottomsheet
 bulma
 circularprogress
 Clintock
+cmdk
 combobox
 compat
 corepack
@@ -44,6 +45,7 @@ nappa
 nativeselect
 navigations
 networkidle
+nodownload
 pixelmatch
 popo
 progressbar

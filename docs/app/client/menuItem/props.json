@@ -28,7 +28,7 @@
         "type": ["string"],
         "required": true,
 
-        "description": "Tailwind classes for customization of wrapper."
+        "description": "CSS classes for customization of wrapper."
       }
     ]
   }

@@ -1,6 +1,7 @@
 export type Examples = {
   "client": {
     "accordion": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "ControlOutside": "string",
@@ -89,7 +90,8 @@ export type Examples = {
       },
       "props": "string"
     },
-    "bottomsheet": {
+    "bottomSheet": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "Customization": "string",
@@ -149,6 +151,31 @@ export type Examples = {
         "Multiline": "string",
         "Sizes": "string",
         "Variants": "string"
+      },
+      "props": "string"
+    },
+    "carousel": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "AutoSlide": "string",
+        "CustomizedArrows": "string",
+        "Default": "string",
+        "Indicators": "string",
+        "RTLSupport": "string",
+        "SelectIndex": "string",
+        "Spaces": "string",
+        "VisibleIndices": "string"
+      },
+      "examples": {
+        "AutoSlide": "string",
+        "CustomizedArrows": "string",
+        "Default": "string",
+        "Indicators": "string",
+        "RTLSupport": "string",
+        "SelectIndex": "string",
+        "Spaces": "string",
+        "VisibleIndices": "string"
       },
       "props": "string"
     },
@@ -216,7 +243,44 @@ export type Examples = {
       },
       "props": "string"
     },
+    "combobox": {
+      "description": "string",
+      "descriptions": {
+        "AlignmentControlsOptions": "string",
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "MultiSelectWithAll": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
+        "SelectInsetInputStates": "string",
+        "SelectStates": "string",
+        "VisualMultiSelect": "string"
+      },
+      "examples": {
+        "AlignmentControlsOptions": "string",
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "MultiSelectWithAll": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
+        "SelectInsetInputStates": "string",
+        "SelectStates": "string",
+        "VisualMultiSelect": "string"
+      },
+      "examplesAnatomy": {
+        "Default": "string",
+        "MultiSelect": "string",
+        "MultiSelectInsetInput": "string",
+        "Select": "string",
+        "SelectInsetInput": "string",
+        "VisualMultiSelect": "string"
+      },
+      "props": "string"
+    },
     "drawer": {
+      "anatomy": "string",
       "description": "string",
       "descriptions": {
         "Default": "string",
@@ -269,6 +333,20 @@ export type Examples = {
       },
       "props": "string"
     },
+    "form": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "Size": "string",
+        "WithInsetItems": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "Size": "string",
+        "WithInsetItems": "string"
+      },
+      "props": "string"
+    },
     "group": {
       "description": "string",
       "descriptions": {
@@ -306,6 +384,24 @@ export type Examples = {
         "Variants": "string"
       },
       "props": "string"
+    },
+    "icons": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string"
+      },
+      "icons": {
+        "IconWrapper": "string",
+        "Icons": "string"
+      },
+      "search": {
+        "IconSearch": "string"
+      }
     },
     "input": {
       "description": "string",
@@ -374,7 +470,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "menuitem": {
+    "menuItem": {
       "description": "string",
       "descriptions": {
         "AsLink": "string",
@@ -403,6 +499,23 @@ export type Examples = {
         "MultiTitle": "string",
         "Radio": "string",
         "WithIcon": "string"
+      },
+      "props": "string"
+    },
+    "modal": {
+      "anatomy": "string",
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "WithBigContent": "string",
+        "WithSelect": "string",
+        "WithStyledContent": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "WithBigContent": "string",
+        "WithSelect": "string",
+        "WithStyledContent": "string"
       },
       "props": "string"
     },
@@ -496,6 +609,28 @@ export type Examples = {
         "Default": "string",
         "Disabled": "string",
         "Uncontrolled": "string"
+      },
+      "props": "string"
+    },
+    "search": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string",
+        "WithTransition": "string"
+      },
+      "examples": {
+        "Default": "string",
+        "WithTransition": "string"
+      },
+      "props": "string"
+    },
+    "searchCmdk": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string"
+      },
+      "examples": {
+        "Default": "string"
       },
       "props": "string"
     },
@@ -639,6 +774,13 @@ export type Examples = {
       },
       "props": "string"
     }
+  },
+  "figma": {
+    "Video": "string",
+    "page": "string"
+  },
+  "releases": {
+    "page": "string"
   },
   "server": {
     "accordion": {

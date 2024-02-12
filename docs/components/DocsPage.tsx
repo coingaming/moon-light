@@ -51,7 +51,7 @@ const DocsPage = (props: DocsPageProps) => {
     );
     return (
       <div
-        className="p-4"
+        className="p-4 text-bulma"
         id="playwright-test"
         data-testid={`playwright-test-${componentName}`}
       >
@@ -71,7 +71,6 @@ const DocsPage = (props: DocsPageProps) => {
           description={description}
           tags={tags}
           name={componentName}
-          image={image}
         />
         {anatomy && <Anatomy anatomy={anatomy} />}
         <ExampleSectionData

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Popover, Button } from "@heathmont/moon-core-tw";
 
 const Position = () => {

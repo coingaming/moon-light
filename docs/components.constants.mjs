@@ -52,7 +52,7 @@ const COMPONENTS = {
       "Customization",
     ],
   },
-  bottomsheet: {
+  bottomSheet: {
     title: "BottomSheet",
     tags: ["IN PROGRESS", "ARIA", "RTL"],
     examples: [
@@ -90,6 +90,20 @@ const COMPONENTS = {
       "Variants",
     ],
   },
+  carousel: {
+    title: "Carousel",
+    tags: ["ARIA"],
+    examples: [
+      "Default",
+      "CustomizedArrows",
+      "Indicators",
+      "Spaces",
+      "VisibleIndices",
+      "SelectIndex",
+      "AutoSlide",
+      "RTLSupport",
+    ],
+  },
   checkbox: {
     title: "Checkbox",
     tags: ["ARIA", "RTL"],
@@ -113,6 +127,22 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Size", "Value", "Customization"],
   },
+  combobox: {
+    title: "Combobox",
+    tags: ["ARIA", "RTL"],
+    examples: [
+      "Default",
+      "Select",
+      "SelectStates",
+      "SelectInsetInput",
+      "SelectInsetInputStates",
+      "MultiSelect",
+      "MultiSelectWithAll",
+      "MultiSelectInsetInput",
+      "VisualMultiSelect",
+      "AlignmentControlsOptions",
+    ],
+  },
   drawer: {
     title: "Drawer",
     tags: ["ARIA", "RTL"],
@@ -135,10 +165,25 @@ const COMPONENTS = {
       "CustomMenuWidth",
     ],
   },
+  form: {
+    title: "Form",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "Size", "WithInsetItems"],
+  },
   group: {
     title: "Group",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Direction", "Options", "Size", "States"],
+  },
+  iconbutton: {
+    title: "IconButton",
+    tags: ["ARIA", "RTL"],
+    examples: undefined,
+  },
+  icons: {
+    title: "Icons",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "Customization"],
   },
   input: {
     title: "Input",
@@ -158,12 +203,17 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: ["Default", "DifferentStates", "TextInputTypes", "Customization"],
   },
+  insetnativeselect: {
+    title: "InsetNativeSelect",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "DifferentStates", "CustomStyles"],
+  },
   loader: {
     title: "Loader",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Sizes", "Colors"],
   },
-  menuitem: {
+  menuItem: {
     title: "MenuItem",
     tags: ["ARIA", "RTL"],
     examples: [
@@ -177,6 +227,21 @@ const COMPONENTS = {
       "MultiLineItems",
       "ExpandCollapse",
     ],
+  },
+  modal: {
+    title: "Modal",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "WithBigContent", "WithStyledContent", "WithSelect"],
+  },
+  nativeselect: {
+    title: "NativeSelect",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "Sizes", "DifferentStates", "CustomStyles"],
+  },
+  pagination: {
+    title: "Pagination",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "WithButton", "WithArrayOfPageHREFs"],
   },
   popover: {
     title: "Popover",
@@ -194,7 +259,14 @@ const COMPONENTS = {
   progress: {
     title: "Progress",
     tags: ["ARIA", "RTL"],
-    examples: ["Default", "Size", "Value", "Customization"],
+    examples: [
+      "Default",
+      "Size",
+      "Value",
+      "Pin",
+      "WithLabels",
+      "Customization",
+    ],
   },
   radio: {
     title: "Radio",
@@ -206,6 +278,16 @@ const COMPONENTS = {
       "AsFormItem",
       "Customization",
     ],
+  },
+  search: {
+    title: "Search",
+    tags: ["IN PROGRESS", "ARIA", "RTL"],
+    examples: ["Default", "WithTransition"],
+  },
+  searchCmdk: {
+    title: "SearchCmdk",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default"],
   },
   snackbar: {
     title: "Snackbar",
@@ -257,6 +339,11 @@ const COMPONENTS = {
     title: "TagsInput",
     tags: ["IN PROGRESS", "ARIA", "RTL"],
     examples: ["Default", "DifferentSizes", "States", "UppercaseLowercase"],
+  },
+  textarea: {
+    title: "Textarea",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "States", "WithButton", "Customization"],
   },
   tooltip: {
     title: "Tooltip",

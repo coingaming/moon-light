@@ -9,9 +9,11 @@ import breadcrumb from "../app/client/breadcrumb/breadcrumb.webp";
 import breadcrumbs from "../app/client/breadcrumb/breadcrumb.webp";
 import button from "../app/client/button/button.webp";
 import checkbox from "../app/client/checkbox/checkbox.webp";
+import form from "../app/client/form/form.webp";
 import tooltip from "../app/client/tooltip/tooltip.webp";
 import chip from "../app/client/chip/chip.webp";
 import circularProgress from "../app/client/circularProgress/circularProgress.webp";
+import combobox from "../app/client/combobox/combobox.webp";
 import drawer from "../app/client/drawer/drawer.webp";
 import dropdown from "../app/client/dropdown/dropdown.webp";
 import group from "../app/client/group/group.webp";
@@ -20,6 +22,8 @@ import insetInput from "../app/client/insetInput/insetinput.webp";
 import loader from "../app/client/loader/loader.webp";
 import progress from "../app/client/progress/progress.webp";
 import radio from "../app/client/radio/radio.webp";
+import searchCmdk from "../app/client/searchCmdk/searchCmdk.webp";
+import search from "../app/client/search/search.webp";
 import snackbar from "../app/client/snackbar/snackbar.webp";
 import switchImage from "../app/client/switch/switch.webp";
 import tabs from "../app/client/tabs/tabs.webp";
@@ -30,7 +34,10 @@ import nativeselect from "../app/client/nativeselect/nativeselect.webp";
 import insetnativeselect from "../app/client/insetnativeselect/insetnativeselect.webp";
 import pagination from "../app/client/pagination/pagination.webp";
 import textarea from "../app/client/textarea/textarea.webp";
-import menuItem from "../app/client/menuItem/menuitem.webp";
+import menuitem from "../app/client/menuItem/menuitem.webp";
+import carousel from "../app/client/carousel/carousel.webp";
+import modal from "../app/client/modal/modal.webp";
+import icons from "../app/client/icons/icons.webp";
 
 const images: Record<string, StaticImageData> = {
   accordion,
@@ -42,17 +49,23 @@ const images: Record<string, StaticImageData> = {
   breadcrumbs,
   button,
   checkbox,
+  form,
   tooltip,
   chip,
   circularProgress,
+  combobox,
   drawer,
   dropdown,
   group,
+  icons,
   input,
   insetInput,
   loader,
+  modal,
   progress,
   radio,
+  searchCmdk,
+  search,
   snackbar,
   switch: switchImage,
   tabs,
@@ -63,7 +76,8 @@ const images: Record<string, StaticImageData> = {
   insetnativeselect,
   pagination,
   textarea,
-  menuItem,
+  menuitem,
+  carousel,
 } as const;
 
 interface Props {

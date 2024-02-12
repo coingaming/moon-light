@@ -39,6 +39,9 @@ importers:
       '@heathmont/moon-icons-tw':
         specifier: ^9.28.6
         version: 9.28.6(react-dom@18.2.0)(react@18.2.0)
+      '@heathmont/moon-table-tw':
+        specifier: ^10.12.1
+        version: 10.12.1(@types/react-dom@18.2.15)(@types/react@18.2.37)
       '@heathmont/moon-themes-tw':
         specifier: ^10.11.1
         version: 10.11.2
@@ -283,6 +286,29 @@ packages:
       - '@types/react-dom'
     dev: false
 
+  /@heathmont/moon-core-tw@10.12.1(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Bw2iXS+odEmmUp5icDyzeZuKB3SF6bFSDIpM5VBd1T5ZeoxYHea3o5Geii/pLd6HxleMiz/wbdWcwQ4gstUdOQ==}
+    peerDependencies:
+      react: '>= 18.2.0'
+      react-dom: '>= 18.2.0'
+    dependencies:
+      '@headlessui/react': 1.7.16(react-dom@18.2.0)(react@18.2.0)
+      '@popperjs/core': 2.11.8
+      '@radix-ui/react-accordion': 1.1.2(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-toast': 1.1.4(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-tooltip': 1.0.6(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-popper: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0)
+      scroll-into-view-if-needed: 2.2.31
+      smooth-scroll-into-view-if-needed: 1.1.33
+      tailwind-merge: 1.14.0
+      tailwindcss-radix: 2.8.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+    dev: false
+
   /@heathmont/moon-icons-tw@9.28.6(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-cDA7WO4Z07Sfm0Mv+/fBFRBGIMJonGrutcaYRLr6zl6OSfiUOxlsMjRSSivYOb/45WxUjpnbGxTA1AZGhXBFRA==}
     peerDependencies:
@@ -291,6 +317,21 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@heathmont/moon-table-tw@10.12.1(@types/react-dom@18.2.15)(@types/react@18.2.37):
+    resolution: {integrity: sha512-0npEChIaLVZiXAIIalEDEtOZ5gh21l++9xYocj4fpY/TWpo6KSMIaaIpsB7qH5aPydhDIc3JN6aSGziyD0GO2A==}
+    dependencies:
+      '@heathmont/moon-core-tw': 10.12.1(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-table: 7.8.0(react@18.2.0)
+      react-table-hoc-fixed-columns: 2.3.4(react-dom@18.2.0)(react@18.2.0)
+      react-table-sticky: 1.1.3
+      react-window: 1.8.9(react-dom@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
     dev: false
 
   /@heathmont/moon-themes-tw@10.11.2:
@@ -1941,6 +1982,10 @@ packages:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
     dev: true
 
+  /classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+    dev: false
+
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
     dev: false
@@ -3542,6 +3587,10 @@ packages:
       '@types/mdast': 3.0.15
     dev: false
 
+  /memoize-one@5.2.1:
+    resolution: {integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==}
+    dev: false
+
   /merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
@@ -4465,6 +4514,43 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /react-table-hoc-fixed-columns@2.3.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-qXsQBzj9BK0BCKaOJXP8oo2JZgDKwVbbPfa3lnTeIDCHgwd2dJbA0CLNITl3cz53l5AC9WFbBlEz9waZPZBryw==}
+    peerDependencies:
+      react: ^15.3.0 || ^16.2.0 || ^17.0.0
+      react-dom: ^15.3.0 || ^16.2.0 || ^17.0.0
+    dependencies:
+      classnames: 2.5.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      uniqid: 5.4.0
+    dev: false
+
+  /react-table-sticky@1.1.3:
+    resolution: {integrity: sha512-9hyjbveY1aDyo9wkyMOsmKIpQdFUaw2yG6/f8c5SPE4pOTuKm7L2zLnDa+AxpG+3315USulViaO4XSOkX1KdVA==}
+    dev: false
+
+  /react-table@7.8.0(react@18.2.0):
+    resolution: {integrity: sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==}
+    peerDependencies:
+      react: ^16.8.3 || ^17.0.0-0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
+  /react-window@1.8.9(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-+Eqx/fj1Aa5WnhRfj9dJg4VYATGwIUP2ItwItiJ6zboKWA6EX3lYDAXfGF2hyNqplEprhbtjbipiADEcwQ823Q==}
+    engines: {node: '>8.0.0'}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.23.4
+      memoize-one: 5.2.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
@@ -5142,6 +5228,10 @@ packages:
       is-plain-obj: 4.1.0
       trough: 2.1.0
       vfile: 5.3.7
+    dev: false
+
+  /uniqid@5.4.0:
+    resolution: {integrity: sha512-38JRbJ4Fj94VmnC7G/J/5n5SC7Ab46OM5iNtSstB/ko3l1b5g7ALt4qzHFgGciFkyiRNtDXtLNb+VsxtMSE77A==}
     dev: false
 
   /unist-util-generated@2.0.1:

@@ -1,13 +1,13 @@
 "use client";
 
-import React from "react";
 import Accordion from "@heathmont/moon-core-tw/lib/es/accordion/Accordion";
 import Button from "@heathmont/moon-core-tw/lib/es/button/Button";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
+import { useState } from "react";
 
 export const ControlOutside = () => {
   const items = ["item-1", "item-2"];
-  const [values, setValues] = React.useState(["item-1"]);
+  const [values, setValues] = useState(["item-1"]);
   const toggleAll = () =>
     values.length === 0 ? setValues(items) : setValues([]);
 

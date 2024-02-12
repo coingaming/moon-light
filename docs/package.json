@@ -7,7 +7,7 @@
     "build:types": "node scripts/buildExamplesType.mjs",
     "build:dict": "node scripts/buildDict.mjs",
     "build:components": "pnpm run build:types && pnpm run lint:components",
-    "build": "pnpm run build:types && pnpm run lint:components && pnpm run build:dict && next build",
+    "build": "pnpm run build:types && pnpm run lint:components && pnpm run build:components && pnpm run build:dict && next build",
     "lint": "next lint",
     "lint:components": "prettier --write ./components.constants.mjs",
     "start": "next start -p 80",
@@ -20,6 +20,7 @@
     "@heathmont/moon-cmdk-tw": "^10.11.1",
     "@heathmont/moon-core-tw": "^10.11.1",
     "@heathmont/moon-icons-tw": "^9.28.6",
+    "@heathmont/moon-table-tw": "^10.12.1",
     "@heathmont/moon-themes-tw": "^10.11.1",
     "@hookform/resolvers": "^3.3.2",
     "commander": "^11.1.0",
@@ -37,15 +38,15 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "commander": "^11.1.0",
+    "console-table-printer": "^2.12.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2",
+    "pa11y": "^6.2.3",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5",
-    "commander": "^11.1.0",
-    "pa11y": "^6.2.3",
-    "console-table-printer": "^2.12.0"
+    "typescript": "^5"
   }
 }
