@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { AuthCode } from "@heathmont/moon-core-tw";
 
 export const AllowedCharacters = () => {

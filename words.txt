@@ -9,6 +9,7 @@ bottomsheet
 bulma
 circularprogress
 Clintock
+cmdk
 combobox
 compat
 corepack

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Popover, Button, Chip, MenuItem } from "@heathmont/moon-core-tw";
 import { ControlsChevronDown } from "@heathmont/moon-icons-tw";
 
