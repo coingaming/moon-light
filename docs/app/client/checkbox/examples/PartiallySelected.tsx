@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Checkbox } from "@heathmont/moon-core-tw";
 import { useState } from "react";
 

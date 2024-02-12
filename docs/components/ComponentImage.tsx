@@ -22,6 +22,7 @@ import insetInput from "../app/client/insetInput/insetinput.webp";
 import loader from "../app/client/loader/loader.webp";
 import progress from "../app/client/progress/progress.webp";
 import radio from "../app/client/radio/radio.webp";
+import searchCmdk from "../app/client/searchCmdk/searchCmdk.webp";
 import search from "../app/client/search/search.webp";
 import snackbar from "../app/client/snackbar/snackbar.webp";
 import switchImage from "../app/client/switch/switch.webp";
@@ -36,6 +37,7 @@ import textarea from "../app/client/textarea/textarea.webp";
 import menuitem from "../app/client/menuItem/menuitem.webp";
 import carousel from "../app/client/carousel/carousel.webp";
 import modal from "../app/client/modal/modal.webp";
+import icons from "../app/client/icons/icons.webp";
 
 const images: Record<string, StaticImageData> = {
   accordion,
@@ -55,12 +57,14 @@ const images: Record<string, StaticImageData> = {
   drawer,
   dropdown,
   group,
+  icons,
   input,
   insetInput,
   loader,
   modal,
   progress,
   radio,
+  searchCmdk,
   search,
   snackbar,
   switch: switchImage,

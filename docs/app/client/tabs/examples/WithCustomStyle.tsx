@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { Tabs } from "@heathmont/moon-core-tw";
 
 const tabs = ["Tab 1", "Tab 2", "Tab 3"];

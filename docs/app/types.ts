@@ -385,6 +385,24 @@ export type Examples = {
       },
       "props": "string"
     },
+    "icons": {
+      "description": "string",
+      "descriptions": {
+        "Customization": "string",
+        "Default": "string"
+      },
+      "examples": {
+        "Customization": "string",
+        "Default": "string"
+      },
+      "icons": {
+        "IconWrapper": "string",
+        "Icons": "string"
+      },
+      "search": {
+        "IconSearch": "string"
+      }
+    },
     "input": {
       "description": "string",
       "descriptions": {
@@ -603,6 +621,16 @@ export type Examples = {
       "examples": {
         "Default": "string",
         "WithTransition": "string"
+      },
+      "props": "string"
+    },
+    "searchCmdk": {
+      "description": "string",
+      "descriptions": {
+        "Default": "string"
+      },
+      "examples": {
+        "Default": "string"
       },
       "props": "string"
     },

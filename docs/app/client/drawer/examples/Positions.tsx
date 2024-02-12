@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Drawer } from "@heathmont/moon-core-tw";
 
 export const Positions = () => {
