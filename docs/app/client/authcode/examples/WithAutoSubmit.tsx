@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { AuthCode, Form } from "@heathmont/moon-core-tw";
 import { Controller, useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

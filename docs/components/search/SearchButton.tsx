@@ -13,7 +13,7 @@ const SearchButton = () => {
       }}
     >
       <SearchCmdk.TriggerIcon />
-      <span className="text-moon-14">Search...</span>
+      <span className="text-moon-14 w-[14rem] text-start">Search...</span>
       <SearchCmdk.TriggerKbd>⌘K</SearchCmdk.TriggerKbd>
     </SearchCmdk.Trigger>
   );

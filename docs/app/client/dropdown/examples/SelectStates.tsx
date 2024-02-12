@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Dropdown, MenuItem } from "@heathmont/moon-core-tw";
 import { GenericInfo } from "@heathmont/moon-icons-tw";
 

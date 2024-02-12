@@ -1,0 +1,129 @@
+[
+  {
+    "name": "SearchCmdk",
+    "props": [
+      {
+        "name": "open",
+        "type": ["boolean"],
+        "required": true,
+        "description": "Whether the SearchCmdk is open or not"
+      },
+      {
+        "name": "onOpenChange",
+        "type": ["(open: boolean) => void"],
+        "required": true,
+        "description": "The function to call when SearchCmdk is open or closed"
+      },
+      {
+        "name": "label",
+        "description": "Label title",
+        "type": ["string"]
+      },
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.InputWrapper",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Input",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      },
+      {
+        "name": "placeholder",
+        "description": "Placeholder for Input",
+        "type": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Icon",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Separator",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Result",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.NoResults",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.ResultItem",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      },
+      {
+        "name": "onSelect",
+        "description": "The function to call when ResultItem is selected",
+        "type": ["(value: string) => void"]
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Kbd",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      }
+    ]
+  },
+  {
+    "name": "SearchCmdk.Overlay",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      }
+    ]
+  }
+]

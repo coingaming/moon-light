@@ -71,7 +71,6 @@ const DocsPage = (props: DocsPageProps) => {
           description={description}
           tags={tags}
           name={componentName}
-          image={image}
         />
         {anatomy && <Anatomy anatomy={anatomy} />}
         <ExampleSectionData

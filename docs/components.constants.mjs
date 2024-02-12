@@ -284,6 +284,11 @@ const COMPONENTS = {
     tags: ["IN PROGRESS", "ARIA", "RTL"],
     examples: ["Default", "WithTransition"],
   },
+  searchCmdk: {
+    title: "SearchCmdk",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default"],
+  },
   snackbar: {
     title: "Snackbar",
     tags: ["ARIA", "RTL"],
