@@ -6,7 +6,7 @@ import Popover from "@heathmont/moon-core-tw/lib/es/popover/Popover";
 import MenuItem from "@heathmont/moon-core-tw/lib/es/menuItem/MenuItem";
 
 import {
-  MediaTuner,
+  GenericSettings,
   OtherMoon,
   OtherSun,
   TextLeftAlign,
@@ -30,13 +30,13 @@ const Settings = () => {
 
   return (
     <Popover
-      className="fixed z-50 bottom-4 lg:bottom-20 end-4"
+      // className="fixed z-50 bottom-4 lg:bottom-20 end-4"
       position={isRTLEnabled ? "top-end" : "top-start"}
     >
       <Popover.Trigger>
         <IconButton
-          icon={<MediaTuner />}
-          className="shadow-moon-md rounded-full"
+          icon={<GenericSettings />}
+          className="rounded-full border border-beerus bg-transparent text-bulma"
           aria-label="Toggle site settings"
         />
       </Popover.Trigger>

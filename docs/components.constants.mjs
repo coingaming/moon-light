@@ -180,6 +180,11 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: undefined,
   },
+  icons: {
+    title: "Icons",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default", "Customization"],
+  },
   input: {
     title: "Input",
     tags: ["ARIA", "RTL"],
@@ -278,6 +283,11 @@ const COMPONENTS = {
     title: "Search",
     tags: ["IN PROGRESS", "ARIA", "RTL"],
     examples: ["Default", "WithTransition"],
+  },
+  searchCmdk: {
+    title: "SearchCmdk",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default"],
   },
   snackbar: {
     title: "Snackbar",

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Dropdown, MenuItem, Button } from "@heathmont/moon-core-tw";
 import {
   OtherWater,

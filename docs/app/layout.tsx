@@ -19,13 +19,13 @@ export default async function RootLayout({
   const actions = await useSearchActions();
   return (
     <html lang="en" dir="ltr" className="scroll-pt-20">
-      <SearchProvider actions={actions}>
-        <RtlProvider>
-          <body className="theme-moon-light bg-goku">
+      <RtlProvider>
+        <body className="theme-moon-light bg-goku">
+          <SearchProvider actions={actions}>
             <div id="__next">{children}</div>
-          </body>
-        </RtlProvider>
-      </SearchProvider>
+          </SearchProvider>
+        </body>
+      </RtlProvider>
     </html>
   );
 }
