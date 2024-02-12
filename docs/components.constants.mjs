@@ -315,6 +315,11 @@ const COMPONENTS = {
       "UsingTooltip",
     ],
   },
+  table: {
+    title: "undefined",
+    tags: undefined,
+    examples: undefined,
+  },
   tabs: {
     title: "Tabs",
     tags: ["ARIA", "RTL"],
