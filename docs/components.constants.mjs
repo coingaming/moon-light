@@ -316,9 +316,9 @@ const COMPONENTS = {
     ],
   },
   table: {
-    title: "undefined",
-    tags: undefined,
-    examples: undefined,
+    title: "Table",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default"],
   },
   tabs: {
     title: "Tabs",

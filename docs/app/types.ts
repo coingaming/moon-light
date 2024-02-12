@@ -680,8 +680,14 @@ export type Examples = {
       "props": "string"
     },
     "table": {
-      "Default": "string",
-      "description": "string"
+      "description": "string",
+      "descriptions": {
+        "Default": "string"
+      },
+      "examples": {
+        "Default": "string"
+      },
+      "props": "string"
     },
     "tabs": {
       "anatomy": "string",
