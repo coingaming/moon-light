@@ -13,7 +13,7 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = useCallback(() => {
     setIsOpen((isOpen) => !isOpen);
-  }, [setIsOpen, isOpen]);
+  }, [setIsOpen]);
 
   return (
     <>
