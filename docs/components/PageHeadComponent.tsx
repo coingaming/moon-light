@@ -15,9 +15,11 @@ export const PageHeadComponent = ({
   tags,
   name,
 }: PageHeadComponentProps) => (
-  <div>
-    <h1 className="font-medium text-moon-32 pb-2">{title}</h1>
-    {tags && <TitleTags className="mb-4" tags={tags} />}
+  <div className="flex flex-col gap-4 lg:gap-6">
+    <div className="flex flex-col gap-2">
+      <h1 className="font-medium text-moon-32">{title}</h1>
+      {tags && <TitleTags className="mb-4" tags={tags} />}
+    </div>
     {description && <MDX markdown={description} />}
   </div>
 );

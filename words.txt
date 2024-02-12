@@ -45,6 +45,7 @@ nappa
 nativeselect
 navigations
 networkidle
+nodownload
 pixelmatch
 popo
 progressbar
