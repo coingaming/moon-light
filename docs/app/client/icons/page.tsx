@@ -1,12 +1,10 @@
 import React from "react";
-import type { PropsTableProp, TagTypes } from "@/types";
-import type { StaticImageData } from "next/image";
+import type { TagTypes } from "@/types";
 import { MainLayout } from "@/components/MainLayout";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
 import IconSearch from "./search/IconSearch";
 import { useGetExample } from "@/utils/useGetExample";
 import useComponentInfo from "@/hooks/useComponentInfo";
-import image from "./icons.webp";
 import { ExampleSectionData } from "@/components/exampleSection/ExampleSection";
 import useGroupedIcons from "@/hooks/useGroupedIcons";
 import Icons from "./icons/Icons";
@@ -30,7 +28,6 @@ const IconsPage = async () => {
           description={data?.description}
           tags={(info?.tags as TagTypes[]) || []}
           name={"icons"}
-          image={image}
         />
         <IconSearch />
         <ExampleSectionData
