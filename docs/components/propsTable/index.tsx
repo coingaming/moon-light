@@ -117,7 +117,6 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
             columns={columns}
             data={tableData}
             rowSize="lg"
-            // TODO as gap-px to the Table
             rowGap="gap-0"
           />
         </div>
