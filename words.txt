@@ -1,6 +1,5 @@
 Aldus
 authcode
-cmdk
 beerus
 betadda
 bitcasino

@@ -37,6 +37,7 @@ import textarea from "../app/client/textarea/textarea.webp";
 import menuitem from "../app/client/menuItem/menuitem.webp";
 import carousel from "../app/client/carousel/carousel.webp";
 import modal from "../app/client/modal/modal.webp";
+import icons from "../app/client/icons/icons.webp";
 
 const images: Record<string, StaticImageData> = {
   accordion,
@@ -56,6 +57,7 @@ const images: Record<string, StaticImageData> = {
   drawer,
   dropdown,
   group,
+  icons,
   input,
   insetInput,
   loader,
