@@ -683,11 +683,13 @@ export type Examples = {
       "description": "string",
       "descriptions": {
         "Default": "string",
-        "ExpandableWithPreset": "string"
+        "ExpandableWithPreset": "string",
+        "SelectableWithPreset": "string"
       },
       "examples": {
         "Default": "string",
-        "ExpandableWithPreset": "string"
+        "ExpandableWithPreset": "string",
+        "SelectableWithPreset": "string"
       },
       "props": "string"
     },

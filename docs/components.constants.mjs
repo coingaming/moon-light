@@ -318,7 +318,7 @@ const COMPONENTS = {
   table: {
     title: "Table",
     tags: ["ARIA", "RTL"],
-    examples: ["Default", "ExpandableWithPreset"],
+    examples: ["Default", "ExpandableWithPreset", "SelectableWithPreset"],
   },
   tabs: {
     title: "Tabs",
