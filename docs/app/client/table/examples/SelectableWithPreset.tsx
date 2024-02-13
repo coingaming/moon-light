@@ -7,15 +7,15 @@ import { ColumnDef, RowSelectionState } from "@tanstack/react-table";
 import React from "react";
 
 type DataTypeHelper = {
-  firstName: string,
-  lastName: string,
-  age: string,
-  visits: string,
-  progress: string,
-  status: number,
-  activity: number,
-  actions: () => void,
-}
+  firstName: string;
+  lastName: string;
+  age: string;
+  visits: string;
+  progress: string;
+  status: number;
+  activity: number;
+  actions: () => void;
+};
 
 const tooltip = () => (
   <Tooltip>
@@ -36,10 +36,10 @@ const tooltip = () => (
 );
 
 const makeData = (length: number) => {
-  return Array.from('_'.repeat(length)).map((_, index) => {
+  return Array.from("_".repeat(length)).map((_, index) => {
     return {
-      firstName: 'Test',
-      lastName: 'Test',
+      firstName: "Test",
+      lastName: "Test",
       age: <span>{Math.floor(index * 30)}</span>,
       visits: <span>{Math.floor(index * 100)}</span>,
       progress: <span>{Math.floor(index * 100)}</span>,
@@ -55,76 +55,80 @@ const preset: RowSelectionState = {
   3: true,
   4: true,
   11: true,
-  16: true
+  16: true,
 };
 
 const Example = () => {
-  const [rowSelection, setRowSelection] = React.useState<RowSelectionState>(preset);
+  const [rowSelection, setRowSelection] =
+    React.useState<RowSelectionState>(preset);
   const [data, setData] = React.useState(() => makeData(20));
 
-  const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(() => [
-    {
-      id: 'select',
-      header: ({ table }) => (
-        <div className="px-1">
-          <Checkbox
-            {...{
-              checked: table.getIsAllRowsSelected(),
-              indeterminate: table.getIsSomeRowsSelected(),
-              onChange: table.getToggleAllRowsSelectedHandler(),
-            }}
-          />
-        </div>
-      ),
-      cell: ({ row }) => (
-        <div className="px-1">
-          <Checkbox
-            {...{
-              checked: row.getIsSelected(),
-              disabled: !row.getCanSelect(),
-              onChange: row.getToggleSelectedHandler(),
-            }}
-          />
-        </div>
-      ),
-    },
-    {
-      header: () => 'First Name',
-      accessorKey: 'firstName',
-    },
-    {
-      header: () => 'Last Name',
-      accessorKey: 'lastName',
-    },
-    {
-      header: () => 'Age',
-      accessorKey: 'age',
-      cell: props => (props.getValue()),
-    },
-    {
-      header: () => 'Visits',
-      accessorKey: 'visits',
-      cell: props => (props.getValue()),
-    },
-    {
-      header: () => 'Progress',
-      accessorKey: 'progress',
-      cell: props => (props.getValue()),
-    },
-    {
-      header: () => 'Activity',
-      accessorKey: 'activity',
-    },
-    {
-      header: () => 'Status',
-      accessorKey: 'status',
-    },
-    {
-      header: () => 'Actions',
-      accessorKey: 'actions',
-      cell: props => (props.getValue()),
-    }
-  ], []);
+  const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
+    () => [
+      {
+        id: "select",
+        header: ({ table }) => (
+          <div className="px-1">
+            <Checkbox
+              {...{
+                checked: table.getIsAllRowsSelected(),
+                indeterminate: table.getIsSomeRowsSelected(),
+                onChange: table.getToggleAllRowsSelectedHandler(),
+              }}
+            />
+          </div>
+        ),
+        cell: ({ row }) => (
+          <div className="px-1">
+            <Checkbox
+              {...{
+                checked: row.getIsSelected(),
+                disabled: !row.getCanSelect(),
+                onChange: row.getToggleSelectedHandler(),
+              }}
+            />
+          </div>
+        ),
+      },
+      {
+        header: () => "First Name",
+        accessorKey: "firstName",
+      },
+      {
+        header: () => "Last Name",
+        accessorKey: "lastName",
+      },
+      {
+        header: () => "Age",
+        accessorKey: "age",
+        cell: (props) => props.getValue(),
+      },
+      {
+        header: () => "Visits",
+        accessorKey: "visits",
+        cell: (props) => props.getValue(),
+      },
+      {
+        header: () => "Progress",
+        accessorKey: "progress",
+        cell: (props) => props.getValue(),
+      },
+      {
+        header: () => "Activity",
+        accessorKey: "activity",
+      },
+      {
+        header: () => "Status",
+        accessorKey: "status",
+      },
+      {
+        header: () => "Actions",
+        accessorKey: "actions",
+        cell: (props) => props.getValue(),
+      },
+    ],
+    [],
+  );
 
   return (
     <Table
@@ -138,6 +142,6 @@ const Example = () => {
       isSelectable={true}
     />
   );
-}
+};
 
 export default Example;
