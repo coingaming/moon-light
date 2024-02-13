@@ -12,7 +12,7 @@ import React from "react";
 type DataTypeHelper = {
   location: string;
   deals: React.JSX.Element | string;
-  daterange: React.JSX.Element | string;
+  range: React.JSX.Element | string;
   amount: number;
   currency: React.JSX.Element;
   actions: React.JSX.Element;
@@ -63,9 +63,9 @@ const Example = () => {
         sticky: "right",
         columns: [
           {
-            id: "daterange",
+            id: "range",
             header: () => "Date range",
-            accessorKey: "daterange",
+            accessorKey: "range",
             cell: (props) => props.getValue(),
             size: "190",
           },
@@ -121,7 +121,7 @@ const Example = () => {
       {
         location: "Lithuania",
         deals: "",
-        daterange: (
+        range: (
           <Chip
             size="sm"
             className="bg-transparent"
@@ -139,7 +139,7 @@ const Example = () => {
       {
         location: "AMD",
         deals: "",
-        daterange: (
+        range: (
           <Chip
             size="sm"
             className="bg-transparent"
@@ -167,7 +167,7 @@ const Example = () => {
             ])}
           ></CellScroller>
         ),
-        daterange: (
+        range: (
           <Chip
             size="sm"
             className="bg-transparent"
@@ -189,7 +189,7 @@ const Example = () => {
             data={rearrangeData([{ "5.0": { start: "2", end: "3" } }])}
           ></CellScroller>
         ),
-        daterange: (
+        range: (
           <Chip
             size="sm"
             className="bg-transparent"
@@ -211,7 +211,7 @@ const Example = () => {
             data={rearrangeData([{ "0.0": { start: "0" } }])}
           ></CellScroller>
         ),
-        daterange: (
+        range: (
           <Chip
             size="sm"
             className="bg-transparent"
@@ -233,7 +233,7 @@ const Example = () => {
             data={rearrangeData([{ "6.0": { start: "3", end: "4" } }])}
           ></CellScroller>
         ),
-        daterange: (
+        range: (
           <Chip
             size="sm"
             className="bg-transparent"
@@ -258,7 +258,7 @@ const Example = () => {
             ])}
           ></CellScroller>
         ),
-        daterange: (
+        range: (
           <Chip
             size="sm"
             className="bg-transparent"
