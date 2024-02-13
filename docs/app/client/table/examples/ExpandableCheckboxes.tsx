@@ -349,7 +349,7 @@ const Example = () => {
         ],
       },
     ],
-    [rowSelection]
+    [rowSelection],
   );
 
   const getSubRows = useCallback(
