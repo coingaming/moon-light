@@ -1,7 +1,7 @@
 ---
 title: Table
 tags: ["ARIA", "RTL"]
-examples: ["Default", "ExpandableWithPreset", "SelectableWithPreset"]
+examples: ["Default", "ExpandableWithPreset", "SelectableWithPreset", "ExpandableCheckboxes"]
 ---
 
 A component for displaying large amounts of data in rows and columns.
