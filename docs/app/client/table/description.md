@@ -1,10 +1,7 @@
 ---
 title: Table
 tags: ["ARIA", "RTL"]
-examples: [
-  "Default",
-  "ExpandableWithPreset",
-]
+examples: ["Default", "ExpandableWithPreset"]
 ---
 
 A component for displaying large amounts of data in rows and columns.

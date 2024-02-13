@@ -1,30 +1,34 @@
 "use client";
 
-import React, { useCallback } from 'react'
+import React, { useCallback } from "react";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import DataHelper from '@heathmont/moon-table-v8-tw/lib/es/private/types/DataHelper';
-import { ExpandedState, ColumnDef } from '@tanstack/react-table';
-import { ArrowsRefreshRound, ControlsChevronDown, ControlsChevronRight } from '@heathmont/moon-icons-tw';
-import { Chip, Tooltip } from '@heathmont/moon-core-tw';
+import DataHelper from "@heathmont/moon-table-v8-tw/lib/es/private/types/DataHelper";
+import { ExpandedState, ColumnDef } from "@tanstack/react-table";
+import {
+  ArrowsRefreshRound,
+  ControlsChevronDown,
+  ControlsChevronRight,
+} from "@heathmont/moon-icons-tw";
+import { Chip, Tooltip } from "@heathmont/moon-core-tw";
 
 interface Person extends DataHelper {
-  firstName: string
-  lastName: string
-  age: number
-  visits: number
-  progress: number
-  status: 'relationship' | 'complicated' | 'single'
-  actions: React.JSX.Element,
-  subRows?: Person[]
+  firstName: string;
+  lastName: string;
+  age: number;
+  visits: number;
+  progress: number;
+  status: "relationship" | "complicated" | "single";
+  actions: React.JSX.Element;
+  subRows?: Person[];
 }
 
 const range = (len: number) => {
-  const arr = []
+  const arr = [];
   for (let i = 0; i < len; i++) {
-    arr.push(i)
+    arr.push(i);
   }
-  return arr
-}
+  return arr;
+};
 
 const tooltip = () => (
   <Tooltip>
@@ -37,10 +41,7 @@ const tooltip = () => (
         }}
       />
     </Tooltip.Trigger>
-    <Tooltip.Content
-      position="top-start"
-      className="z-1"
-    >
+    <Tooltip.Content position="top-start" className="z-1">
       Reload page
       <Tooltip.Arrow />
     </Tooltip.Content>
@@ -49,39 +50,39 @@ const tooltip = () => (
 
 const newPerson = (): Person => {
   return {
-    firstName: 'FirstName',
-    lastName: 'LastName',
+    firstName: "FirstName",
+    lastName: "LastName",
     age: 40,
     visits: 1000,
     progress: 100,
-    status: 'complicated',
+    status: "complicated",
     actions: tooltip(),
-  }
-}
+  };
+};
 
 function makeData(...lens: number[]) {
   const makeDataLevel = (depth = 0): Person[] => {
-    const len = lens[depth]!
+    const len = lens[depth]!;
     return range(len).map((d): Person => {
       return {
         ...newPerson(),
         subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
-      }
-    })
-  }
+      };
+    });
+  };
 
-  return makeDataLevel()
+  return makeDataLevel();
 }
 
 const Example = () => {
   const columns = React.useMemo<ColumnDef<{}, Person>[]>(
     () => [
       {
-        header: 'Name',
-        footer: props => 'Name',
+        header: "Name",
+        footer: (props) => "Name",
         columns: [
           {
-            accessorKey: 'firstName',
+            accessorKey: "firstName",
             header: ({ table }) => (
               <>
                 <button
@@ -89,8 +90,12 @@ const Example = () => {
                     onClick: table.getToggleAllRowsExpandedHandler(),
                   }}
                 >
-                  {table.getIsAllRowsExpanded() ? <ControlsChevronDown /> : <ControlsChevronRight />}
-                </button>{' '}
+                  {table.getIsAllRowsExpanded() ? (
+                    <ControlsChevronDown />
+                  ) : (
+                    <ControlsChevronRight />
+                  )}
+                </button>{" "}
                 First Name
               </>
             ),
@@ -99,17 +104,21 @@ const Example = () => {
                 style={{
                   paddingLeft: `${row.depth * 2}rem`,
                 }}
-                className='flex gap-x-1'
+                className="flex gap-x-1"
               >
                 <>
                   {row.getCanExpand() ? (
                     <button
                       {...{
                         onClick: row.getToggleExpandedHandler(),
-                        style: { cursor: 'pointer' },
+                        style: { cursor: "pointer" },
                       }}
                     >
-                      {row.getIsExpanded() ? <ControlsChevronDown /> : <ControlsChevronRight />}
+                      {row.getIsExpanded() ? (
+                        <ControlsChevronDown />
+                      ) : (
+                        <ControlsChevronRight />
+                      )}
                     </button>
                   ) : null}
                   {getValue()}
@@ -119,65 +128,68 @@ const Example = () => {
           },
           {
             accessorFn: (row: Person) => row.lastName,
-            id: 'lastName',
-            cell: info => info.getValue(),
+            id: "lastName",
+            cell: (info) => info.getValue(),
             header: () => <span>Last Name</span>,
           },
         ],
       },
       {
-        header: 'Info',
-        footer: props => 'Info',
+        header: "Info",
+        footer: (props) => "Info",
         columns: [
           {
-            accessorKey: 'age',
-            header: () => 'Age',
+            accessorKey: "age",
+            header: () => "Age",
           },
           {
-            header: 'More Info',
+            header: "More Info",
             columns: [
               {
-                accessorKey: 'visits',
+                accessorKey: "visits",
                 header: () => <span>Visits</span>,
               },
               {
-                accessorKey: 'status',
-                header: 'Status',
+                accessorKey: "status",
+                header: "Status",
               },
               {
-                accessorKey: 'progress',
-                header: 'Profile Progress',
+                accessorKey: "progress",
+                header: "Profile Progress",
               },
             ],
           },
         ],
       },
       {
-        id: 'actions',
-        header: () => 'Actions',
-        footer: props => 'Actions',
+        id: "actions",
+        header: () => "Actions",
+        footer: (props) => "Actions",
         columns: [
           {
-            header: () => 'Actions',
-            accessorKey: 'actions',
-            cell: props => (props.getValue()),
-          }
+            header: () => "Actions",
+            accessorKey: "actions",
+            cell: (props) => props.getValue(),
+          },
         ],
-      }
+      },
     ],
-    []
+    [],
   );
 
   const preset: ExpandedState = {
-    '0': true,
-    '0.2': true,
-    '0.2.1': true
+    "0": true,
+    "0.2": true,
+    "0.2.1": true,
   };
 
   const [expanded, setExpanded] = React.useState<ExpandedState>(preset);
   const [data, setData] = React.useState(() => makeData(10, 5, 3));
 
-  const getSubRows = useCallback(({ subRows }: DataHelper) => subRows as DataHelper[], []);
+  const getSubRows = useCallback(
+    ({ subRows }: DataHelper) => subRows as DataHelper[],
+    [],
+  );
 
   return (
     <Table
@@ -185,13 +197,13 @@ const Example = () => {
       data={data}
       width={800}
       height={600}
-      layout='stretched-auto'
+      layout="stretched-auto"
       state={{ expanded }}
       getSubRows={getSubRows}
       onExpandedChange={setExpanded}
       withFooter={true}
     />
-  )
+  );
 };
 
 export default Example;
