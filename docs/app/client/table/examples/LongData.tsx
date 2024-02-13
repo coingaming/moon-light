@@ -105,7 +105,7 @@ const Example = () => {
         uuid: "84837d8ac654aa4689efa4649-84837d8ac654aa4689efa4649756454a5646545546d54f6546f546",
         user: "aleksandr@heathmonitoring.com",
         processTime: "2023-09-19T14:31:46.105Z",
-        client: "Bender (old) Coingaming",
+        client: "Bender (old) Coin Gaming",
         gameNameAndProvider: "Pragmatic Play",
         amount: 22.97,
         currency: (
