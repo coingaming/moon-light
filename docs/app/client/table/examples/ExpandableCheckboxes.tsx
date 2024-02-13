@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import {
@@ -348,7 +349,7 @@ const Example = () => {
         ],
       },
     ],
-    [rowSelection],
+    [rowSelection]
   );
 
   const getSubRows = useCallback(
