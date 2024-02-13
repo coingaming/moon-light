@@ -323,6 +323,7 @@ const COMPONENTS = {
       "ExpandableWithPreset",
       "SelectableWithPreset",
       "ExpandableCheckboxes",
+      "LongData",
     ],
   },
   tabs: {

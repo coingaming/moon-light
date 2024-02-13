@@ -685,12 +685,14 @@ export type Examples = {
         "Default": "string",
         "ExpandableCheckboxes": "string",
         "ExpandableWithPreset": "string",
+        "LongData": "string",
         "SelectableWithPreset": "string"
       },
       "examples": {
         "Default": "string",
         "ExpandableCheckboxes": "string",
         "ExpandableWithPreset": "string",
+        "LongData": "string",
         "SelectableWithPreset": "string"
       },
       "props": "string"
