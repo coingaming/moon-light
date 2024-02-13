@@ -8,6 +8,7 @@ examples:
     "SelectableWithPreset",
     "ExpandableCheckboxes",
     "LongData",
+    "ExtraLongData",
   ]
 ---
 
