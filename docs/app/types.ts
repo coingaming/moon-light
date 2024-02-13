@@ -682,10 +682,12 @@ export type Examples = {
     "table": {
       "description": "string",
       "descriptions": {
-        "Default": "string"
+        "Default": "string",
+        "ExpandableWithPreset": "string"
       },
       "examples": {
-        "Default": "string"
+        "Default": "string",
+        "ExpandableWithPreset": "string"
       },
       "props": "string"
     },
