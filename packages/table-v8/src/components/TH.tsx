@@ -59,7 +59,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       ? typeof header.column.columnDef.header === "function"
         ? header.column.columnDef.header(header.getContext())
         : header.column.columnDef.header
-      : undefined;    
+      : undefined;
 
     const styles = new Map([
       ["width", `${header.column.columnDef.size}px`],
