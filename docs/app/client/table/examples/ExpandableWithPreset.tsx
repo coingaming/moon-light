@@ -192,17 +192,19 @@ const Example = () => {
   );
 
   return (
-    <Table
-      columns={columns}
-      data={data}
-      width={800}
-      height={600}
-      layout="stretched-auto"
-      state={{ expanded }}
-      getSubRows={getSubRows}
-      onExpandedChange={setExpanded}
-      withFooter={true}
-    />
+    <div className="bg-gohan px-1 pb-0.5 rounded-lg">
+      <Table
+        columns={columns}
+        data={data}
+        width={800}
+        height={600}
+        layout="stretched-auto"
+        state={{ expanded }}
+        getSubRows={getSubRows}
+        onExpandedChange={setExpanded}
+        withFooter={true}
+      />
+    </div>
   );
 };
 

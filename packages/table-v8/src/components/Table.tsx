@@ -66,6 +66,12 @@ const Table = ({
 
   const renderTableComponent = () => {
     const tableLayout = layout === "fixed" ? "fixed" : "auto";
+    const styles = {
+      tableLayout,
+      borderSpacing: `0 ${rowGap}`,
+      "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
+    } as const;
+
     return (
       <TableWrapper
         style={{
@@ -82,12 +88,9 @@ const Table = ({
         tableWrapperRef={tableWrapperRef}
       >
         <table
-          style={{
-            tableLayout,
-            borderSpacing: `0 ${rowGap}`,
-          }}
+          style={styles}
           className={mergeClassnames(
-            "border-separate",
+            "border-separate bg-[color:var(--tableBGColor)]",
             layout !== "auto" && "w-full",
           )}
         >

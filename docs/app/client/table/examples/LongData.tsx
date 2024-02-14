@@ -65,6 +65,12 @@ const Example = () => {
             accessorKey: "amount",
             footer: () => "Amount",
           },
+          {
+            header: () => "Currency",
+            footer: () => "Currency",
+            accessorKey: "currency",
+            cell: (props) => props.getValue(),
+          },
         ],
       },
       {
@@ -73,13 +79,6 @@ const Example = () => {
         footer: () => "Status",
         sticky: "right",
         columns: [
-          {
-            header: () => "Currency",
-            footer: () => "Currency",
-            accessorKey: "currency",
-            cell: (props) => props.getValue(),
-            size: "90",
-          },
           {
             header: () => "Status",
             footer: () => "Status",
@@ -124,16 +123,18 @@ const Example = () => {
   const textClip = "clip" as ClipProps;
 
   return (
-    <Table
-      columns={columns}
-      data={data}
-      defaultColumn={defaultColumn}
-      width={800}
-      height={500}
-      textClip={textClip}
-      layout="auto"
-      withFooter={true}
-    />
+    <div className="bg-gohan px-1 pb-0.5 rounded-lg">
+      <Table
+        columns={columns}
+        data={data}
+        defaultColumn={defaultColumn}
+        width={800}
+        height={500}
+        textClip={textClip}
+        layout="auto"
+        withFooter={true}
+      />
+    </div>
   );
 };
 

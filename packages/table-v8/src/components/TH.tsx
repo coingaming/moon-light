@@ -55,6 +55,11 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       ? header.column.parent?.columnDef
       : header.column.columnDef;
     const stickySide = stickyColumn.sticky;
+    const headerValue = header.column.columnDef.header
+      ? typeof header.column.columnDef.header === "function"
+        ? header.column.columnDef.header(header.getContext())
+        : header.column.columnDef.header
+      : undefined;    
 
     const styles = new Map([
       ["width", `${header.column.columnDef.size}px`],
@@ -96,7 +101,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
             className={mergeClassnames(
               "relative text-start font-medium",
               getFontSize(rowSize),
-              getPadding(rowSize),
+              headerValue && getPadding(rowSize),
             )}
           >
             {flexRender(header.column.columnDef.header, header.getContext())}

@@ -358,18 +358,20 @@ const Example = () => {
   );
 
   return (
-    <Table
-      columns={columns}
-      data={data}
-      width={800}
-      height={400}
-      layout="stretched-auto"
-      state={{ expanded, rowSelection }}
-      getSubRows={getSubRows}
-      onExpandedChange={setExpanded}
-      onRowSelectionChange={setRowSelection}
-      isSelectable={true}
-    />
+    <div className="bg-gohan px-1 pb-1 rounded-lg">
+      <Table
+        columns={columns}
+        data={data}
+        width={800}
+        height={400}
+        layout="stretched-auto"
+        state={{ expanded, rowSelection }}
+        getSubRows={getSubRows}
+        onExpandedChange={setExpanded}
+        onRowSelectionChange={setRowSelection}
+        isSelectable={true}
+      />
+    </div>
   );
 };
 

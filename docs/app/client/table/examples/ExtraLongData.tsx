@@ -284,14 +284,16 @@ const Example = () => {
   };
 
   return (
-    <Table
-      columns={columns}
-      data={data}
-      defaultColumn={defaultColumn}
-      width={800}
-      height={400}
-      layout="auto"
-    />
+    <div className="bg-gohan px-1 pb-1 rounded-lg">
+      <Table
+        columns={columns}
+        data={data}
+        defaultColumn={defaultColumn}
+        width={800}
+        height={400}
+        layout="auto"
+      />
+    </div>
   );
 };
 
