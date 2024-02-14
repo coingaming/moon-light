@@ -5,12 +5,7 @@ import CodePreviewWrapper from "./exampleSection/codePreview/wrapper/CodePreview
 import { compileMDX } from "next-mdx-remote/rsc";
 import { HTMLProps } from "react";
 
-interface Props {
-  anatomy?: string;
-  className?: string;
-}
-
-export const Anatomy = async ({ anatomy, className }: Props) => {
+export const Anatomy = async ({ anatomy }: { anatomy?: string }) => {
   if (!anatomy || typeof anatomy !== "string") {
     return null;
   }
@@ -28,8 +23,8 @@ export const Anatomy = async ({ anatomy, className }: Props) => {
   const description = frontmatter?.description as string | undefined;
 
   return (
-    <div className={className}>
-      {title && <h2 className={"text-moon-20 font-medium"}>{title}</h2>}
+    <div className="flex flex-col gap-4">
+      {title && <h2 className={"text-moon-24 font-medium"}>{title}</h2>}
       {description && <MDX markdown={description} />}
       {content && (
         <pre className="flex w-full p-4 rounded-moon-s-sm overflow-x-auto text-moon-14 text-bulma border border-beerus">

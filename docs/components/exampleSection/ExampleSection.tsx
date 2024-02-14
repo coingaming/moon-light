@@ -80,7 +80,6 @@ export async function withExamples(
             />
             {client?.examplesAnatomy?.[exampleKey] && (
               <Anatomy
-                className="pt-4"
                 anatomy={client?.examplesAnatomy?.[exampleDescriptionKey]}
               />
             )}
