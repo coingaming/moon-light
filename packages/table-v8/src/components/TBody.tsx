@@ -18,7 +18,10 @@ const TBody = ({
   rowHoverColor,
   textClip,
 }: TBodyProps) => {
-  const isRowElementClicked = (event: unknown) => ['TD', 'DIV'].includes(((event as MouseEvent).target as HTMLElement).tagName);
+  const isRowElementClicked = (event: unknown) =>
+    ["TD", "DIV"].includes(
+      ((event as MouseEvent).target as HTMLElement).tagName,
+    );
 
   const oddRowBGColor = defaultRowBackgroundColor && defaultRowBackgroundColor;
   const evenRowBGColor = evenRowBackgroundColor
@@ -46,11 +49,13 @@ const TBody = ({
             ? row.getIsAllSubRowsSelected()
             : row.getIsSelected());
 
-        const useRowSelection = isSelectable && !preventSelectionByRowClick 
-          ? (event: unknown) => isRowElementClicked(event) 
-            ? row.getToggleSelectedHandler()(event) 
-            : () => {}
-          : undefined;
+        const useRowSelection =
+          isSelectable && !preventSelectionByRowClick
+            ? (event: unknown) =>
+                isRowElementClicked(event)
+                  ? row.getToggleSelectedHandler()(event)
+                  : () => {}
+            : undefined;
 
         return (
           <tr
