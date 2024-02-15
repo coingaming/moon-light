@@ -322,6 +322,7 @@ const COMPONENTS = {
       "Default",
       "ExpandableWithPreset",
       "SelectableWithPreset",
+      "CheckboxesWithPreset",
       "ExpandableCheckboxes",
       "LongData",
       "ExtraLongData",

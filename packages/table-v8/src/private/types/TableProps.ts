@@ -32,6 +32,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   isSelectable?: boolean;
   textClip?: ClipProps;
   layout?: TableLayouts;
+  preventSelectionByRowClick?: boolean;
   getSubRows?: (originalRow: D, index: number) => D[] | undefined;
   onExpandedChange?: OnChangeFn<ExpandedState>;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;

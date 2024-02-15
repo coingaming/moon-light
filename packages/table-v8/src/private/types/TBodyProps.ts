@@ -11,6 +11,7 @@ type TBodyProps = {
   backgroundColor?: string;
   defaultRowBackgroundColor?: string;
   evenRowBackgroundColor?: string;
+  preventSelectionByRowClick?: boolean;
   rowSelectColor?: string;
   rowHoverColor?: string;
   columnMap?: ColumnData[][];

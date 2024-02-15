@@ -66,6 +66,31 @@ const Example = () => {
   const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
       {
+        id: "select",
+        header: ({ table }) => (
+          <div className="w-8 px-1">
+            <Checkbox
+              {...{
+                checked: table.getIsAllRowsSelected(),
+                indeterminate: table.getIsSomeRowsSelected(),
+                onChange: table.getToggleAllRowsSelectedHandler(),
+              }}
+            />
+          </div>
+        ),
+        cell: ({ row }) => (
+          <div className="w-8 px-1">
+            <Checkbox
+              {...{
+                checked: row.getIsSelected(),
+                disabled: !row.getCanSelect(),
+                onChange: row.getToggleSelectedHandler(),
+              }}
+            />
+          </div>
+        ),
+      },
+      {
         header: () => "First Name",
         accessorKey: "firstName",
       },
@@ -115,7 +140,7 @@ const Example = () => {
         layout="stretched-auto"
         state={{ rowSelection }}
         onRowSelectionChange={setRowSelection}
-        rowHoverColor="krillin-10"
+        preventSelectionByRowClick={true}
         isSelectable={true}
       />
     </div>

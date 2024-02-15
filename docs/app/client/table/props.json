@@ -106,6 +106,13 @@
         "type": ["OnChangeFn<RowSelectionState>"]
       },
       {
+        "name": "preventSelectionByRowClick",
+        "description": "If the value is true, prevents toggling the selection state of a row by clicking on it.",
+        "defaultState": "false",
+        "required": false,
+        "type": ["boolean"]
+      },
+      {
         "name": "rowGap",
         "description": "Gap between table body rows.",
         "defaultState": "2px",

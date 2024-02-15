@@ -2,11 +2,13 @@ import React from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import TD from "./TD";
 import TBodyProps from "../private/types/TBodyProps";
+import { MouseEventHandler } from "react";
 
 const TBody = ({
   table,
   rowGap = "0",
   rowSize,
+  preventSelectionByRowClick,
   isSelectable = false,
   columnMap,
   backgroundColor,
@@ -16,6 +18,8 @@ const TBody = ({
   rowHoverColor,
   textClip,
 }: TBodyProps) => {
+  const isRowElementClicked = (event: unknown) => ['TD', 'DIV'].includes(((event as MouseEvent).target as HTMLElement).tagName);
+
   const oddRowBGColor = defaultRowBackgroundColor && defaultRowBackgroundColor;
   const evenRowBGColor = evenRowBackgroundColor
     ? evenRowBackgroundColor
@@ -42,6 +46,12 @@ const TBody = ({
             ? row.getIsAllSubRowsSelected()
             : row.getIsSelected());
 
+        const useRowSelection = isSelectable && !preventSelectionByRowClick 
+          ? (event: unknown) => isRowElementClicked(event) 
+            ? row.getToggleSelectedHandler()(event) 
+            : () => {}
+          : undefined;
+
         return (
           <tr
             key={row.id}
@@ -51,6 +61,7 @@ const TBody = ({
               "border-r-transparent border-b-transparent border-l-transparent",
               "group/rows",
             )}
+            onClick={useRowSelection}
           >
             {cells.map((cell, cellIndex) => (
               <TD
@@ -60,6 +71,7 @@ const TBody = ({
                 rowSize={rowSize}
                 className={mergeClassnames(
                   "group/rows before:bg-[color:var(--bodyBGColor)]",
+                  !!useRowSelection && "cursor-pointer",
                   isRowSelected &&
                     "group/rows bg-[color:var(--rowSelectColor)] group/rows after:bg-[color:var(--rowSelectColor)]",
                   !isRowSelected &&

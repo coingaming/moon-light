@@ -35,6 +35,7 @@ const Table = ({
   isSticky = true,
   textClip,
   layout = "fixed",
+  preventSelectionByRowClick = false,
   getSubRows,
   onExpandedChange,
   onRowSelectionChange,
@@ -107,6 +108,7 @@ const Table = ({
             rowGap={rowGap}
             rowSize={rowSize}
             isSelectable={isSelectable}
+            preventSelectionByRowClick={preventSelectionByRowClick}
             rowSelectColor={rowSelectColor}
             backgroundColor={bodyBackgroundColor}
             defaultRowBackgroundColor={defaultRowBackgroundColor}

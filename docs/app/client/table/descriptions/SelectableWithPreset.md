@@ -1,5 +1,5 @@
 ---
-title: Selectable table
+title: Selectable rows
 ---
 
 This example demonstrates the capabilities of a table with pre-set selectable rows.

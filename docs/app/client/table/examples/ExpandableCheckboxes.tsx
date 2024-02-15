@@ -369,6 +369,7 @@ const Example = () => {
         getSubRows={getSubRows}
         onExpandedChange={setExpanded}
         onRowSelectionChange={setRowSelection}
+        preventSelectionByRowClick={true}
         isSelectable={true}
       />
     </div>

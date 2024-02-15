@@ -1,5 +1,5 @@
 ---
-title: Expandable/Selectable table
+title: Expandable/Selectable rows
 ---
 
 This example is a combination of expandable and selectable tables with pre-set parameters.
