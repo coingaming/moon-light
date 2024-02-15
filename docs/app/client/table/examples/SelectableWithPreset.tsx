@@ -68,7 +68,7 @@ const Example = () => {
       {
         id: "select",
         header: ({ table }) => (
-          <div className="px-1">
+          <div className="w-8 px-1">
             <Checkbox
               {...{
                 checked: table.getIsAllRowsSelected(),
@@ -79,7 +79,7 @@ const Example = () => {
           </div>
         ),
         cell: ({ row }) => (
-          <div className="px-1">
+          <div className="w-8 px-1">
             <Checkbox
               {...{
                 checked: row.getIsSelected(),
