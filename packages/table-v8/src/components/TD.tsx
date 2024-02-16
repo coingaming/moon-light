@@ -36,6 +36,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       index,
       cells,
       rowSize,
+      noGap,
       className,
       isFirstColumn,
       isLastColumn,
@@ -78,8 +79,8 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
           "box-border text-start",
           getFontSize(rowSize),
           getPadding(rowSize),
-          isFirstColumn && "rounded-s-lg after:rounded-s-lg",
-          isLastColumn && "rounded-e-lg after:rounded-e-lg",
+          isFirstColumn && !noGap && "rounded-s-lg after:rounded-s-lg",
+          isLastColumn && !noGap && "rounded-e-lg after:rounded-e-lg",
           stickySide && "sticky before:-z-[1] after:-z-[1]",
           stickySide &&
             "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",

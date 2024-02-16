@@ -15,6 +15,7 @@ type TDProps = {
   isLastColumn?: boolean;
   onClick?: () => void;
   rowSize?: RowSizes;
+  noGap: boolean;
   isCellBorder?: boolean;
   columnData?: ColumnData;
   textClip?: ClipProps;
