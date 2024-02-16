@@ -5,6 +5,7 @@ examples:
   [
     "Default",
     "RowGaps",
+    "RowSizes",
     "ExpandableWithPreset",
     "SelectableWithPreset",
     "CheckboxesWithPreset",

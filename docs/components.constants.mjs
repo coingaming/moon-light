@@ -321,6 +321,7 @@ const COMPONENTS = {
     examples: [
       "Default",
       "RowGaps",
+      "RowSizes",
       "ExpandableWithPreset",
       "SelectableWithPreset",
       "CheckboxesWithPreset",

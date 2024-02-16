@@ -689,6 +689,7 @@ export type Examples = {
         "ExtraLongData": "string",
         "LongData": "string",
         "RowGaps": "string",
+        "RowSizes": "string",
         "SelectableWithPreset": "string"
       },
       "examples": {
@@ -699,6 +700,7 @@ export type Examples = {
         "ExtraLongData": "string",
         "LongData": "string",
         "RowGaps": "string",
+        "RowSizes": "string",
         "SelectableWithPreset": "string"
       },
       "props": "string"
