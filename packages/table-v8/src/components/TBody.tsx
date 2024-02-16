@@ -43,7 +43,7 @@ const TBody = ({
         const cells = row.getVisibleCells();
         const lastIndex = cells.length - 1;
         const isEvenRow = rowIndex % 2 === 0;
-        const noGap = (rowGap === "" || !!rowGap.match(/^[0]+[\D]*/));
+        const noGap = rowGap === "" || !!rowGap.match(/^[0]+[\D]*/);
         const isRowSelected =
           isSelectable &&
           (row.getCanExpand()
