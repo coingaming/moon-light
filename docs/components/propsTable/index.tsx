@@ -93,7 +93,6 @@ const makeData = (data: PropsTableProp[]) => {
   });
 };
 
-
 export const PropsTable = ({ data, title, description }: TableProps) => {
   const tableData = React.useMemo(() => makeData(data), [data]);
   const hasRequiredProps = data.some((prop) => prop.required);
@@ -103,39 +102,33 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
       {
         id: "name",
         header: () => <span className="text-trunks font-normal">Name</span>,
-        cell: props => props.getValue(),
+        cell: (props) => props.getValue(),
         accessorKey: "name",
         size: 100,
       },
       {
         id: "type",
         header: () => <span className="text-trunks font-normal">Type</span>,
-        cell: props => props.getValue(),
+        cell: (props) => props.getValue(),
         accessorKey: "type",
       },
       {
         id: "default",
         header: () => <span className="text-trunks font-normal">Default</span>,
-        cell: props => props.getValue(),
+        cell: (props) => props.getValue(),
         accessorKey: "default",
         size: 100,
       },
     ],
-    []
+    [],
   );
-
 
   return (
     <div>
       <section className="flex flex-col gap-6">
         <HeaderSection title={title} description={description} />
         <div className="border border-beerus rounded-lg overflow-hidden bg-beerus">
-          <Table
-            columns={columns}
-            data={tableData}
-            rowSize="lg"
-            rowGap="0"
-          />
+          <Table columns={columns} data={tableData} rowSize="lg" rowGap="0" />
         </div>
       </section>
       {hasRequiredProps && (
