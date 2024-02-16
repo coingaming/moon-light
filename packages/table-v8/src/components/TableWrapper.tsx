@@ -12,12 +12,13 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
   ({ style, className, children, container, tableWrapperRef }) => {
     const kbDelta = 132;
     const [isFocused, setIsFocused] = useState(false);
+    /*
     const [isListenKbRepeatLocked, setIsListenKbRepeatLocked] = useState(false);
 
     const resetLockKbListenRepeatState = useCallback(() => {
       setIsListenKbRepeatLocked(false);
     }, [setIsListenKbRepeatLocked]);
-
+    */
     const endOfYScroll = (target: HTMLDivElement, shift: number) => {
       return target.scrollHeight > target.offsetHeight
         ? (target.scrollTop === 0 && shift < 0) ||
@@ -35,14 +36,16 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         if (scrollOverHeader || scrollOverFooter) return;
         if (endOfYScroll(event.currentTarget, event.deltaY)) return;
         event.preventDefault();
+        /*
         if (isListenKbRepeatLocked) {
           return;
         }
+        
         setIsListenKbRepeatLocked(true);
-        setTimeout(resetLockKbListenRepeatState, 45);
+        setTimeout(resetLockKbListenRepeatState, 45); */
         event.currentTarget.scrollBy(0, event.deltaY);
       },
-      [isListenKbRepeatLocked, setIsListenKbRepeatLocked],
+    [/* isListenKbRepeatLocked, setIsListenKbRepeatLocked */],
     );
 
     const calcMaxScrollByX = (
@@ -84,17 +87,18 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
 
         if (navigationKeys.has(event.code)) {
           event.preventDefault();
+          /*
           if (isListenKbRepeatLocked) {
             return;
           }
-
+          
           setIsListenKbRepeatLocked(true);
-          setTimeout(resetLockKbListenRepeatState, 82);
+          setTimeout(resetLockKbListenRepeatState, 82); */
           navigationKeys.get(event.code)();
           event.currentTarget.scrollBy(kbDeltas.x, kbDeltas.y);
         }
       },
-      [isFocused, isListenKbRepeatLocked, setIsListenKbRepeatLocked],
+      [isFocused /*, isListenKbRepeatLocked, setIsListenKbRepeatLocked */],
     );
 
     useEffect(() => {
