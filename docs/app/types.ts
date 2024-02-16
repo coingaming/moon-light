@@ -688,6 +688,7 @@ export type Examples = {
         "ExpandableWithPreset": "string",
         "ExtraLongData": "string",
         "LongData": "string",
+        "RowGaps": "string",
         "SelectableWithPreset": "string"
       },
       "examples": {
@@ -697,6 +698,7 @@ export type Examples = {
         "ExpandableWithPreset": "string",
         "ExtraLongData": "string",
         "LongData": "string",
+        "RowGaps": "string",
         "SelectableWithPreset": "string"
       },
       "props": "string"

@@ -320,6 +320,7 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
+      "RowGaps",
       "ExpandableWithPreset",
       "SelectableWithPreset",
       "CheckboxesWithPreset",
