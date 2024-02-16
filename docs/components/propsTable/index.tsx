@@ -2,10 +2,11 @@
 
 import HeaderSection from "../HeaderSection";
 import { PropsTableProp, PropsTablePropTypes } from "@/types";
-import { Table } from "@heathmont/moon-table-tw";
+import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
 import { Chip, Popover, Tag } from "@heathmont/moon-core-tw";
 import React from "react";
 import { GenericInfo } from "@heathmont/moon-icons-tw";
+import { ColumnDef } from "@tanstack/react-table";
 
 type TableProps = {
   data: PropsTableProp[];
@@ -77,6 +78,11 @@ const Type = (prop: PropsTableProp) => {
   );
 };
 
+type DefaultHelper = {
+  name: React.JSX.Element;
+  type: React.JSX.Element;
+  default: React.JSX.Element;
+};
 const makeData = (data: PropsTableProp[]) => {
   return data.map((prop) => {
     return {
@@ -87,26 +93,37 @@ const makeData = (data: PropsTableProp[]) => {
   });
 };
 
-const columns = [
-  {
-    Header: <span className="text-trunks font-normal">Name</span>,
-    accessor: "name",
-    width: 100,
-  },
-  {
-    Header: <span className="text-trunks font-normal">Type</span>,
-    accessor: "type",
-  },
-  {
-    Header: <span className="text-trunks font-normal">Default</span>,
-    accessor: "default",
-    width: 100,
-  },
-];
 
 export const PropsTable = ({ data, title, description }: TableProps) => {
   const tableData = React.useMemo(() => makeData(data), [data]);
   const hasRequiredProps = data.some((prop) => prop.required);
+
+  const columns = React.useMemo<ColumnDef<{}, DefaultHelper>[]>(
+    () => [
+      {
+        id: "name",
+        header: () => <span className="text-trunks font-normal">Name</span>,
+        cell: props => props.getValue(),
+        accessorKey: "name",
+        size: 100,
+      },
+      {
+        id: "type",
+        header: () => <span className="text-trunks font-normal">Type</span>,
+        cell: props => props.getValue(),
+        accessorKey: "type",
+      },
+      {
+        id: "default",
+        header: () => <span className="text-trunks font-normal">Default</span>,
+        cell: props => props.getValue(),
+        accessorKey: "default",
+        size: 100,
+      },
+    ],
+    []
+  );
+
 
   return (
     <div>
@@ -117,7 +134,7 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
             columns={columns}
             data={tableData}
             rowSize="lg"
-            rowGap="gap-0"
+            rowGap="0"
           />
         </div>
       </section>
