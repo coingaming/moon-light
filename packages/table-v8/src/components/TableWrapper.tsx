@@ -10,7 +10,7 @@ import TableWrapperProps from "../private/types/TableWrapperProps";
 
 const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
   ({ style, className, children, container, tableWrapperRef }) => {
-    const kbDelta = 132;
+    const kbDelta = 15;
     const [isFocused, setIsFocused] = useState(false);
     /*
     const [isListenKbRepeatLocked, setIsListenKbRepeatLocked] = useState(false);
@@ -43,7 +43,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         
         setIsListenKbRepeatLocked(true);
         setTimeout(resetLockKbListenRepeatState, 45); */
-        event.currentTarget.scrollBy(0, event.deltaY);
+        event.currentTarget.scrollBy(0, event.deltaY / 5);
       },
       [
         /* isListenKbRepeatLocked, setIsListenKbRepeatLocked */
