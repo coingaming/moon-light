@@ -45,7 +45,9 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         setTimeout(resetLockKbListenRepeatState, 45); */
         event.currentTarget.scrollBy(0, event.deltaY);
       },
-    [/* isListenKbRepeatLocked, setIsListenKbRepeatLocked */],
+      [
+        /* isListenKbRepeatLocked, setIsListenKbRepeatLocked */
+      ],
     );
 
     const calcMaxScrollByX = (
