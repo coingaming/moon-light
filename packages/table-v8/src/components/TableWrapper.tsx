@@ -18,14 +18,13 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       setIsListenKbRepeatLocked(false);
     }, [setIsListenKbRepeatLocked]);
 
-    const endOfYScroll = (
-      target: HTMLDivElement,
-      shift: number,
-    ) => {
-      return (target.scrollHeight > target.offsetHeight)
-        ? (target.scrollTop === 0 && shift < 0) || (target.scrollHeight - target.scrollTop === target.offsetHeight && shift > 0)
+    const endOfYScroll = (target: HTMLDivElement, shift: number) => {
+      return target.scrollHeight > target.offsetHeight
+        ? (target.scrollTop === 0 && shift < 0) ||
+            (target.scrollHeight - target.scrollTop === target.offsetHeight &&
+              shift > 0)
         : true;
-    }
+    };
 
     const handleWheel = useCallback(
       (e: globalThis.WheelEvent) => {
