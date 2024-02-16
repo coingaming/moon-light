@@ -11,7 +11,7 @@ const HeaderSection = ({ title, description, className, href }: Props) => (
   <>
     <h2
       id={href || title}
-      className={mergeClassnames("text-moon-20 font-medium", className)}
+      className={mergeClassnames("text-moon-24 font-medium", className)}
     >
       <a
         href={`#${href || title}`}
@@ -22,7 +22,7 @@ const HeaderSection = ({ title, description, className, href }: Props) => (
       </a>
     </h2>
     {description && (
-      <div className="text-moon-16 text-bulma">{description}</div>
+      <div className="max-w-3xl text-moon-16 text-bulma">{description}</div>
     )}
   </>
 );

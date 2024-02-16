@@ -13,7 +13,7 @@ const IconsBlock = ({ title, children, className, href }: Props) => (
   <>
     <h2
       id={href || title}
-      className={mergeClassnames("text-moon-20 font-medium", className)}
+      className={mergeClassnames("text-moon-24 font-medium", className)}
     >
       <a
         href={`#${href || title}`}

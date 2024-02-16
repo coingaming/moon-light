@@ -17,5 +17,5 @@ examples:
 ---
 
 An input that behaves similarly to a select, with the addition of a free text input to filter options.
-<br/>
+
 Based on [Headless U](https://headlessui.com/).

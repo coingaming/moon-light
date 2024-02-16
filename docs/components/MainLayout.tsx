@@ -38,7 +38,7 @@ export const MainLayout = ({
       <aside className="hidden fixed h-screen lg:flex lg:flex-shrink-0 flex-col">
         <Sidebar />
       </aside>
-      <main className="min-h-screen lg:mx-72 bg-goku text-bulma flex-1 flex flex-col rounded-ss-3xl px-5 xl:px-20 2xl:px-32 lg:pt-12 pt-6">
+      <main className="box-content min-h-screen max-w-6xl lg:mx-72 bg-goku text-bulma flex-1 flex flex-col p-5 lg:p-8">
         {children}
       </main>
       <Footer />

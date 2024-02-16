@@ -9,9 +9,7 @@ export default async function Home() {
     <MainLayout>
       <div className="flex flex-col gap-4">
         <h1 className="text-moon-48 font-medium">Moon Design System</h1>
-
         <SearchButton />
-
         <div>
           <h2 className="text-moon-32 font-medium">Client components</h2>
           <ul role="list" className="">
