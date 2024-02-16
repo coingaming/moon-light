@@ -76,22 +76,22 @@ const Example = () => {
 
   return (
     <>
-      <div className="w-full max-w-screen-lg bg-gohan px-1 rounded-lg">
+      <div className="w-full max-w-screen-lg border border-beerus rounded-lg">
         <Table columns={columns} data={data} rowSize="xs" />
       </div>
-      <div className="w-full max-w-screen-lg bg-gohan px-1 pb-0.5 rounded-lg">
+      <div className="w-full max-w-screen-lg border border-beerus rounded-lg">
         <Table columns={columns} data={data} rowSize="sm" />
       </div>
-      <div className="w-full max-w-screen-lg bg-gohan px-1 pb-1 rounded-lg">
+      <div className="w-full max-w-screen-lg border border-beerus rounded-lg">
         <Table columns={columns} data={data} />
       </div>
-      <div className="w-full max-w-screen-lg bg-gohan px-1 pb-1 rounded-lg">
+      <div className="w-full max-w-screen-lg border border-beerus rounded-lg">
         <Table columns={columns} data={data} rowSize="lg" />
       </div>
-      <div className="w-full max-w-screen-lg bg-gohan px-1 pb-1 rounded-lg">
+      <div className="w-full max-w-screen-lg border border-beerus rounded-lg">
         <Table columns={columns} data={data} rowSize="xl" />
       </div>
-      <div className="w-full max-w-screen-lg bg-gohan px-1 pb-1 rounded-lg">
+      <div className="w-full max-w-screen-lg border border-beerus rounded-lg">
         <Table columns={columns} data={data} rowSize="2xl" />
       </div>
     </>

@@ -15,6 +15,4 @@ examples:
   ]
 ---
 
-A component for displaying large amounts of data in rows and columns.
-<br/>
-Based on [TanStack Table v8](https://github.com/TanStack/table).
+A component for displaying large amounts of data in rows and columns. Based on [TanStack Table v8](https://github.com/TanStack/table).

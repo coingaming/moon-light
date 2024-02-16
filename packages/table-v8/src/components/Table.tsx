@@ -82,7 +82,7 @@ const Table = ({
           maxHeight,
         }}
         className={mergeClassnames(
-          "scroll-smooth",
+          "scroll-smooth rounded-lg",
           isSticky && "overflow-hidden",
         )}
         container={{ width, height }}

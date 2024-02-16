@@ -106,7 +106,7 @@ const Example = () => {
   );
 
   return (
-    <div className="bg-gohan px-1 pb-1 rounded-lg">
+    <div className="border border-beerus rounded-lg">
       <Table
         columns={columns}
         data={data}
