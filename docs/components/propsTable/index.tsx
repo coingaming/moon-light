@@ -128,7 +128,13 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
       <section className="flex flex-col gap-6">
         <HeaderSection title={title} description={description} />
         <div className="border border-beerus rounded-lg overflow-hidden bg-beerus">
-          <Table columns={columns} data={tableData} layout="stretched-auto" rowSize="lg" rowGap="0" />
+          <Table
+            columns={columns}
+            data={tableData}
+            layout="stretched-auto"
+            rowSize="lg"
+            rowGap="0"
+          />
         </div>
       </section>
       {hasRequiredProps && (

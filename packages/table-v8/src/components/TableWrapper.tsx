@@ -52,10 +52,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       ],
     );
 
-    const calcMaxScrollByX = (
-      target: HTMLDivElement,
-      shift: number,
-    ) => {
+    const calcMaxScrollByX = (target: HTMLDivElement, shift: number) => {
       const scrollRange =
         container && containerWidth ? target.scrollWidth - +containerWidth : 0;
       const dX = target.scrollLeft + shift;
@@ -68,7 +65,9 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
     };
 
     const updateContainerWidth = useCallback(() => {
-      setContainerWidth((tableWrapperRef?.current?.parentNode as HTMLDivElement).offsetWidth);
+      setContainerWidth(
+        (tableWrapperRef?.current?.parentNode as HTMLDivElement).offsetWidth,
+      );
     }, []);
 
     const handleKbDown = useCallback(
@@ -85,11 +84,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         navigationKeys.set("ArrowLeft", () => (kbDeltas.x = -kbDelta));
         navigationKeys.set(
           "ArrowRight",
-          () =>
-            (kbDeltas.x = calcMaxScrollByX(
-              event.currentTarget,
-              kbDelta,
-            )),
+          () => (kbDeltas.x = calcMaxScrollByX(event.currentTarget, kbDelta)),
         );
 
         if (navigationKeys.has(event.code)) {

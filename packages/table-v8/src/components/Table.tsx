@@ -83,11 +83,11 @@ const Table = ({
           maxWidth: `${width}px`,
           maxHeight,
         }}
-        className={mergeClassnames(
-          "rounded-lg",
-          isSticky && "overflow-hidden",
-        )}
-        container={{ width: outerWrapperRef?.offsetWidth, height: outerWrapperRef?.offsetHeight }}
+        className={mergeClassnames("rounded-lg", isSticky && "overflow-hidden")}
+        container={{
+          width: outerWrapperRef?.offsetWidth,
+          height: outerWrapperRef?.offsetHeight,
+        }}
         tableWrapperRef={tableWrapperRef}
       >
         <table

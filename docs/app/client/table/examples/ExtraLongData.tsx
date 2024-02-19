@@ -61,7 +61,7 @@ const Example = () => {
             accessorKey: "range",
             cell: (props) => props.getValue(),
             size: 190,
-            minSize: 190
+            minSize: 190,
           },
         ],
       },
