@@ -35,7 +35,7 @@ export const MainLayout = ({
       <Header>
         <Breadcrumbs />
       </Header>
-      <aside className="hidden fixed h-screen lg:flex lg:flex-shrink-0 flex-col">
+      <aside className="hidden fixed lg:flex lg:flex-shrink-0 flex-col h-[calc(100vh-72px)]">
         <Sidebar />
       </aside>
       <main className="box-content min-h-screen max-w-6xl lg:mx-72 bg-goku text-bulma flex-1 flex flex-col p-5 lg:p-8">
