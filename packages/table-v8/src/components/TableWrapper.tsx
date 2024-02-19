@@ -12,6 +12,8 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
   ({ style, className, children, container, tableWrapperRef }) => {
     const kbDelta = 15;
     const [isFocused, setIsFocused] = useState(false);
+    const [containerWidth, setContainerWidth] = useState(container?.width);
+
     /*
     const [isListenKbRepeatLocked, setIsListenKbRepeatLocked] = useState(false);
 
@@ -53,17 +55,21 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
     const calcMaxScrollByX = (
       target: HTMLDivElement,
       shift: number,
-      containerWidth?: number | string,
     ) => {
       const scrollRange =
         container && containerWidth ? target.scrollWidth - +containerWidth : 0;
       const dX = target.scrollLeft + shift;
+
       return dX < 0
         ? -target.scrollLeft
         : dX >= scrollRange
           ? scrollRange - target.scrollLeft - 1
           : shift;
     };
+
+    const updateContainerWidth = useCallback(() => {
+      setContainerWidth((tableWrapperRef?.current?.parentNode as HTMLDivElement).offsetWidth);
+    }, []);
 
     const handleKbDown = useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -83,7 +89,6 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
             (kbDeltas.x = calcMaxScrollByX(
               event.currentTarget,
               kbDelta,
-              container?.width,
             )),
         );
 
@@ -113,6 +118,15 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         element?.removeEventListener("wheel", handleWheel);
       };
     }, []);
+
+    useEffect(() => {
+      updateContainerWidth();
+      window.addEventListener("resize", updateContainerWidth);
+
+      return () => {
+        window.removeEventListener("resize", updateContainerWidth);
+      };
+    }, [tableWrapperRef?.current]);
 
     const getBackLostFocus = useCallback(
       (event: React.MouseEvent<HTMLDivElement>) => {

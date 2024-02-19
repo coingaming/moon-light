@@ -23,7 +23,7 @@ const TFoot = ({
     <tfoot
       style={styles}
       className={
-        "sticky z-[1] before:absolute before:w-full before:h-full before:-bottom-[var(--beforeShift)] before:bg-[color:var(--footerBGColor)]"
+        "sticky z-[2] before:absolute before:w-full before:h-full before:-bottom-[var(--beforeShift)] before:bg-[color:var(--footerBGColor)]"
       }
     >
       {table.getFooterGroups().map((footerGroup, indexFG) => (

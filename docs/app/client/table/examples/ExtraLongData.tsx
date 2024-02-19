@@ -55,26 +55,30 @@ const Example = () => {
             accessorKey: "currency",
             cell: (props) => props.getValue(),
           },
+          {
+            id: "range",
+            header: () => "Date range",
+            accessorKey: "range",
+            cell: (props) => props.getValue(),
+            size: 190,
+            minSize: 190
+          },
         ],
       },
       {
         id: "rightSticky",
         header: () => "",
         sticky: "right",
+        size: 70,
+        maxSize: 70,
         columns: [
-          {
-            id: "range",
-            header: () => "Date range",
-            accessorKey: "range",
-            cell: (props) => props.getValue(),
-            size: "190",
-          },
           {
             id: "actions",
             header: () => "Actions",
             accessorKey: "actions",
             cell: (props) => props.getValue(),
-            size: "90",
+            size: 70,
+            maxSize: 70,
           },
         ],
       },
@@ -90,7 +94,7 @@ const Example = () => {
           iconOnly={<Other3DotsHorizontal className="text-moon-24 max-h-6" />}
         />
       </Tooltip.Trigger>
-      <Tooltip.Content position="top-start" className="z-1">
+      <Tooltip.Content position="top-start" className="z-[2]">
         Any activity
         <Tooltip.Arrow />
       </Tooltip.Content>
@@ -284,7 +288,7 @@ const Example = () => {
   };
 
   return (
-    <div className="border border-beerus rounded-lg">
+    <div className="border border-beerus rounded-lg overflow-hidden">
       <Table
         columns={columns}
         data={data}

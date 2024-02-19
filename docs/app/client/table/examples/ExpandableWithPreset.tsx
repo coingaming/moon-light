@@ -41,7 +41,7 @@ const tooltip = () => (
         }}
       />
     </Tooltip.Trigger>
-    <Tooltip.Content position="top-start" className="z-1">
+    <Tooltip.Content position="top-start" className="z-[2]">
       Reload page
       <Tooltip.Arrow />
     </Tooltip.Content>
@@ -192,7 +192,7 @@ const Example = () => {
   );
 
   return (
-    <div className="border border-beerus rounded-lg">
+    <div className="border border-beerus rounded-lg overflow-hidden">
       <Table
         columns={columns}
         data={data}

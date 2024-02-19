@@ -21,7 +21,7 @@ const THead = ({
     <thead
       style={styles}
       className={
-        "sticky z-[1] before:absolute before:w-full before:bottom-0 before:-top-[var(--beforeShift)] before:bg-[color:var(--headerBGColor)]"
+        "sticky z-[2] before:absolute before:w-full before:bottom-0 before:-top-[var(--beforeShift)] before:bg-[color:var(--headerBGColor)]"
       }
     >
       {table.getHeaderGroups().map((headerGroup, indexHG) => (

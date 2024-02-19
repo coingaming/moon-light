@@ -81,7 +81,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
           getPadding(rowSize),
           isFirstColumn && !noGap && "rounded-s-lg after:rounded-s-lg",
           isLastColumn && !noGap && "rounded-e-lg after:rounded-e-lg",
-          stickySide && "sticky before:-z-[1] after:-z-[1]",
+          stickySide && "sticky z-[1] before:-z-[1] after:-z-[1]",
           stickySide &&
             "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
           stickySide &&

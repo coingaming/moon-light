@@ -30,13 +30,13 @@ const Example = () => {
             header: () => "Transaction UUID",
             footer: () => "Transaction UUID",
             accessorKey: "uuid",
-            size: "150",
+            size: 50,
           },
           {
             header: () => "User & Supplier user",
             footer: () => "User & Supplier user",
             accessorKey: "user",
-            size: "150",
+            size: 50,
           },
         ],
       },
@@ -78,13 +78,16 @@ const Example = () => {
         header: () => "Status",
         footer: () => "Status",
         sticky: "right",
+        size: 90,
+        maxSize: 90,
         columns: [
           {
             header: () => "Status",
             footer: () => "Status",
             accessorKey: "status",
             cell: (props) => props.getValue(),
-            size: "90",
+            size: 90,
+            maxSize: 90,
           },
         ],
       },
@@ -123,7 +126,7 @@ const Example = () => {
   const textClip = "clip" as ClipProps;
 
   return (
-    <div className="border border-beerus rounded-lg">
+    <div className="border border-beerus rounded-lg overflow-hidden">
       <Table
         columns={columns}
         data={data}

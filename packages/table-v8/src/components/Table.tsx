@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Ref, useEffect, useRef, useState } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import {
   getCoreRowModel,
@@ -34,7 +34,7 @@ const Table = ({
   isSelectable = false,
   isSticky = true,
   textClip,
-  layout = "fixed",
+  layout = "auto",
   preventSelectionByRowClick = false,
   getSubRows,
   onExpandedChange,
@@ -55,9 +55,11 @@ const Table = ({
   });
 
   const tableWrapperRef = useRef<HTMLDivElement>(null);
+  const [outerWrapperRef, setOuterWrapperRef] = useState<HTMLDivElement>();
   const [columnMap, setColumnMap] = useState<ColumnData[][]>();
 
   useEffect(() => {
+    setOuterWrapperRef(tableWrapperRef.current?.parentNode as HTMLDivElement);
     setColumnMap(
       buildColumnMap(
         tableWrapperRef.current?.childNodes[0] as HTMLTableElement,
@@ -76,16 +78,16 @@ const Table = ({
     return (
       <TableWrapper
         style={{
-          width,
+          /* width, */
           height,
-          maxWidth,
+          maxWidth: `${width}px`,
           maxHeight,
         }}
         className={mergeClassnames(
-          "scroll-auto rounded-lg",
+          "rounded-lg",
           isSticky && "overflow-hidden",
         )}
-        container={{ width, height }}
+        container={{ width: outerWrapperRef?.offsetWidth, height: outerWrapperRef?.offsetHeight }}
         tableWrapperRef={tableWrapperRef}
       >
         <table

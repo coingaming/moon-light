@@ -75,7 +75,7 @@ const Example = () => {
   const data = React.useMemo(() => makeData(5), []);
 
   return (
-    <div className="w-full max-w-screen-lg border border-beerus rounded-lg">
+    <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
       <Table columns={columns} data={data} />
     </div>
   );
