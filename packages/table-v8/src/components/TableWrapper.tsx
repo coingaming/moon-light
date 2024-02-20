@@ -6,6 +6,7 @@ import React, {
   WheelEvent,
 } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
+import { hangTouchHandler, dropTouchHandler, endOfYScroll } from "../private/utils/touchHandler";
 import TableWrapperProps from "../private/types/TableWrapperProps";
 
 const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
@@ -21,13 +22,6 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       setIsListenKbRepeatLocked(false);
     }, [setIsListenKbRepeatLocked]);
     */
-    const endOfYScroll = (target: HTMLDivElement, shift: number) => {
-      return target.scrollHeight > target.offsetHeight
-        ? (target.scrollTop === 0 && shift < 0) ||
-            (target.scrollHeight - target.scrollTop === target.offsetHeight &&
-              shift > 0)
-        : true;
-    };
 
     const handleWheel = useCallback(
       (e: globalThis.WheelEvent) => {
@@ -110,11 +104,13 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         updateContainerWidth();
         element.addEventListener("wheel", handleWheel, { passive: false });
         window.addEventListener("resize", updateContainerWidth);
+        hangTouchHandler(element);
       }
 
       return () => {
         element?.removeEventListener("wheel", handleWheel);
         window.removeEventListener("resize", updateContainerWidth);
+        dropTouchHandler();
       };
     }, []);
 
