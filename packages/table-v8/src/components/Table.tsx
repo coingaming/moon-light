@@ -55,11 +55,9 @@ const Table = ({
   });
 
   const tableWrapperRef = useRef<HTMLDivElement>(null);
-  const [outerWrapperRef, setOuterWrapperRef] = useState<HTMLDivElement>();
   const [columnMap, setColumnMap] = useState<ColumnData[][]>();
 
   useEffect(() => {
-    setOuterWrapperRef(tableWrapperRef.current?.parentNode as HTMLDivElement);
     setColumnMap(
       buildColumnMap(
         tableWrapperRef.current?.childNodes[0] as HTMLTableElement,
@@ -69,7 +67,13 @@ const Table = ({
 
   const renderTableComponent = () => {
     const tableLayout = layout === "fixed" ? "fixed" : "auto";
-    const styles = {
+    const wrapperStyles = new Map([
+      ["maxWidth", width ? `${width}px` : undefined],
+      ["height", height ? `${height}px` : undefined],
+    ]);
+    
+    const tableStyles = {
+      width,
       tableLayout,
       borderSpacing: `0 ${rowGap}`,
       "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
@@ -77,21 +81,12 @@ const Table = ({
 
     return (
       <TableWrapper
-        style={{
-          /* width, */
-          height,
-          maxWidth: `${width}px`,
-          maxHeight,
-        }}
+        style={Object.fromEntries(wrapperStyles)}
         className={mergeClassnames("rounded-lg", isSticky && "overflow-hidden")}
-        container={{
-          width: outerWrapperRef?.offsetWidth,
-          height: outerWrapperRef?.offsetHeight,
-        }}
         tableWrapperRef={tableWrapperRef}
       >
         <table
-          style={styles}
+          style={tableStyles}
           className={mergeClassnames(
             "border-separate bg-[color:var(--tableBGColor)]",
             layout !== "auto" && "w-full",

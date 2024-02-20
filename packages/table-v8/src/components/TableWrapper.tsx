@@ -9,10 +9,10 @@ import { mergeClassnames } from "@heathmont/moon-core-tw";
 import TableWrapperProps from "../private/types/TableWrapperProps";
 
 const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
-  ({ style, className, children, container, tableWrapperRef }) => {
+  ({ style, className, children, tableWrapperRef }) => {
     const kbDelta = 15;
     const [isFocused, setIsFocused] = useState(false);
-    const [containerWidth, setContainerWidth] = useState(container?.width);
+    const [containerWidth, setContainerWidth] = useState(0);
 
     /*
     const [isListenKbRepeatLocked, setIsListenKbRepeatLocked] = useState(false);
@@ -53,8 +53,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
     );
 
     const calcMaxScrollByX = (target: HTMLDivElement, shift: number) => {
-      const scrollRange =
-        container && containerWidth ? target.scrollWidth - +containerWidth : 0;
+      const scrollRange = containerWidth ? target.scrollWidth - +containerWidth : 0;
       const dX = target.scrollLeft + shift;
 
       return dX < 0
@@ -106,22 +105,16 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
     useEffect(() => {
       const element = tableWrapperRef?.current;
       if (element) {
+        updateContainerWidth();
         element.addEventListener("wheel", handleWheel, { passive: false });
+        window.addEventListener("resize", updateContainerWidth);
       }
 
       return () => {
         element?.removeEventListener("wheel", handleWheel);
-      };
-    }, []);
-
-    useEffect(() => {
-      updateContainerWidth();
-      window.addEventListener("resize", updateContainerWidth);
-
-      return () => {
         window.removeEventListener("resize", updateContainerWidth);
       };
-    }, [tableWrapperRef?.current]);
+    }, []);
 
     const getBackLostFocus = useCallback(
       (event: React.MouseEvent<HTMLDivElement>) => {
