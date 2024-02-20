@@ -6,7 +6,11 @@ import React, {
   WheelEvent,
 } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
-import { hangTouchHandler, dropTouchHandler, endOfYScroll } from "../private/utils/touchHandler";
+import {
+  hangTouchHandler,
+  dropTouchHandler,
+  endOfYScroll,
+} from "../private/utils/touchHandler";
 import TableWrapperProps from "../private/types/TableWrapperProps";
 
 const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
