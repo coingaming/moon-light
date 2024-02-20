@@ -71,7 +71,7 @@ const Table = ({
       ["maxWidth", width ? `${width}px` : undefined],
       ["height", height ? `${height}px` : undefined],
     ]);
-    
+
     const tableStyles = {
       width,
       tableLayout,

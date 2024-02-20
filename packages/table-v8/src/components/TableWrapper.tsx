@@ -53,7 +53,9 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
     );
 
     const calcMaxScrollByX = (target: HTMLDivElement, shift: number) => {
-      const scrollRange = containerWidth ? target.scrollWidth - +containerWidth : 0;
+      const scrollRange = containerWidth
+        ? target.scrollWidth - +containerWidth
+        : 0;
       const dX = target.scrollLeft + shift;
 
       return dX < 0
