@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
 import { ColumnDef, Header, SortingState } from "@tanstack/react-table";
@@ -130,68 +130,70 @@ const headerCell = (header: Header<{}, DataTypeHelper>, cellLabel: string) => {
     <div
       {...{
         className: header.column.getCanSort()
-          ? 'cursor-pointer select-none'
-          : '',
+          ? "cursor-pointer select-none"
+          : "",
         onClick: header.column.getToggleSortingHandler(),
       }}
     >
       {cellLabel}
       {{
-        asc: ' 🔼',
-        desc: ' 🔽',
+        asc: " 🔼",
+        desc: " 🔽",
       }[header.column.getIsSorted() as string] ?? null}
     </div>
   );
-}
+};
 
-const preset: SortingState = [{
-  id: 'last_name',
-  desc: false
-}];
+const preset: SortingState = [
+  {
+    id: "last_name",
+    desc: false,
+  },
+];
 
 const Example = () => {
   const [data, setData] = React.useState(() => makeData());
-  const [sorting, setSorting] = React.useState<SortingState>(preset)
+  const [sorting, setSorting] = React.useState<SortingState>(preset);
 
   const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
       {
         id: "first_name",
-        header: ({ header }) => headerCell(header, 'First Name'),
-        accessorKey: 'firstName',
+        header: ({ header }) => headerCell(header, "First Name"),
+        accessorKey: "firstName",
       },
       {
         id: "last_name",
-        header: ({ header }) => headerCell(header, 'Last Name'),
-        accessorKey: 'lastName',
+        header: ({ header }) => headerCell(header, "Last Name"),
+        accessorKey: "lastName",
       },
       {
         id: "age",
-        header: ({ header }) => headerCell(header, 'Age'),
-        accessorKey: 'age',
+        header: ({ header }) => headerCell(header, "Age"),
+        accessorKey: "age",
       },
       {
         id: "visits",
-        header: ({ header }) => headerCell(header, 'Visits'),
-        accessorKey: 'visits',
+        header: ({ header }) => headerCell(header, "Visits"),
+        accessorKey: "visits",
       },
       {
         id: "progress",
-        header: ({ header }) => headerCell(header, 'Progress'),
-        accessorKey: 'progress',
+        header: ({ header }) => headerCell(header, "Progress"),
+        accessorKey: "progress",
       },
       {
         id: "status",
-        header: ({ header }) => headerCell(header, 'Status'),
-        accessorKey: 'status',
+        header: ({ header }) => headerCell(header, "Status"),
+        accessorKey: "status",
       },
       {
         id: "activity",
-        header: ({ header }) => headerCell(header, 'Activity'),
-        accessorKey: 'activity',
+        header: ({ header }) => headerCell(header, "Activity"),
+        accessorKey: "activity",
       },
-    ], 
-    []
+    ],
+    [],
   );
 
   return (
@@ -200,11 +202,11 @@ const Example = () => {
         columns={columns}
         data={data}
         width={800}
-        state={{sorting}}
+        state={{ sorting }}
         onSortingChange={setSorting}
       />
     </div>
   );
-}
+};
 
 export default Example;
