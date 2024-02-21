@@ -1,3 +1,5 @@
+import { inCellScrollRange } from "../../components/CellScroller";
+
 type Coordinates = {
   x: number;
   y: number;
@@ -23,7 +25,7 @@ const doSwipe = (dX: number, dY: number) => {
 export const endOfYScroll = (tgt: HTMLDivElement, shift: number) => {
   return tgt.scrollHeight > tgt.offsetHeight
     ? (tgt.scrollTop === 0 && shift < 0) ||
-        (tgt.scrollHeight - tgt.scrollTop <= tgt.offsetHeight && shift > 0)
+        (tgt.scrollHeight - tgt.scrollTop - 2 <= tgt.offsetHeight && shift > 0)
     : true;
 };
 
@@ -52,9 +54,15 @@ const detectTablePart = (tableTarget: HTMLTableElement) => {
   xOnlyMove = tableTarget.closest("tbody") === null;
 };
 
+const detectCellScroller = (tableTarget: HTMLTableElement) => {
+  const cellScroller = tableTarget.closest('.cell-scroller');
+  return (cellScroller !== null && inCellScrollRange(cellScroller as HTMLDivElement));
+}
+
 const touchStart = (event: TouchEvent) => {
   if (!targetElement) return;
   const tableTarget = event.target as HTMLTableElement;
+  if (detectCellScroller(tableTarget)) return;
   const divElement = tableTarget.closest("table")?.closest("div");
   isSwipe = targetElement.has(divElement);
   if (!isSwipe) return;

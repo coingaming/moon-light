@@ -1,6 +1,11 @@
 import React, { useCallback } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 
+export const inCellScrollRange = (element: HTMLDivElement) => {
+  const scrollRange = element.scrollWidth - element.offsetWidth;
+  return scrollRange > 0;
+}
+
 const CellScroller = ({
   data,
   className,
@@ -10,10 +15,8 @@ const CellScroller = ({
 }) => {
   const handleKbDown = useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
-      const scrollRange =
-        event.currentTarget.scrollWidth - event.currentTarget.offsetWidth;
       if (
-        scrollRange <= 0 ||
+        !inCellScrollRange(event.currentTarget) ||
         !["ArrowLeft", "ArrowRight"].includes(event.code)
       ) {
         return;
@@ -41,6 +44,7 @@ const CellScroller = ({
       className={mergeClassnames(
         "px-3 py-2 text-moon-14 flex items-center overflow-x-auto outline-none",
         className,
+        "cell-scroller"
       )}
       onKeyDown={(e) => {
         handleKbDown(e);
