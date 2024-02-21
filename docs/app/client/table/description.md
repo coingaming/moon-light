@@ -10,6 +10,7 @@ examples:
     "SelectableWithPreset",
     "CheckboxesWithPreset",
     "ExpandableCheckboxes",
+    "WithSorting",
     "LongData",
     "ExtraLongData",
   ]

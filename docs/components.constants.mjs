@@ -326,6 +326,7 @@ const COMPONENTS = {
       "SelectableWithPreset",
       "CheckboxesWithPreset",
       "ExpandableCheckboxes",
+      "WithSorting",
       "LongData",
       "ExtraLongData",
     ],

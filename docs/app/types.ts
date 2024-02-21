@@ -690,7 +690,8 @@ export type Examples = {
         "LongData": "string",
         "RowGaps": "string",
         "RowSizes": "string",
-        "SelectableWithPreset": "string"
+        "SelectableWithPreset": "string",
+        "WithSorting": "string"
       },
       "examples": {
         "CheckboxesWithPreset": "string",
@@ -701,7 +702,8 @@ export type Examples = {
         "LongData": "string",
         "RowGaps": "string",
         "RowSizes": "string",
-        "SelectableWithPreset": "string"
+        "SelectableWithPreset": "string",
+        "WithSorting": "string"
       },
       "props": "string"
     },

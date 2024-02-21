@@ -3,6 +3,7 @@ import { mergeClassnames } from "@heathmont/moon-core-tw";
 import {
   getCoreRowModel,
   getExpandedRowModel,
+  getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import TableWrapper from "./TableWrapper";
@@ -39,6 +40,7 @@ const Table = ({
   getSubRows,
   onExpandedChange,
   onRowSelectionChange,
+  onSortingChange,
 }: TableProps) => {
   const table = useReactTable({
     columns,
@@ -48,9 +50,11 @@ const Table = ({
     enableRowSelection: true,
     onExpandedChange: onExpandedChange,
     onRowSelectionChange: onRowSelectionChange,
+    onSortingChange: onSortingChange,
     getSubRows: getSubRows,
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
+    getSortedRowModel: getSortedRowModel(),
     /* debugTable: true, */
   });
 

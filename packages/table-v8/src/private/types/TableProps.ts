@@ -3,6 +3,7 @@ import {
   ExpandedState,
   OnChangeFn,
   RowSelectionState,
+  SortingState,
   TableState,
 } from "@tanstack/react-table";
 import ClipProps from "./ClipProps";
@@ -36,6 +37,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   getSubRows?: (originalRow: D, index: number) => D[] | undefined;
   onExpandedChange?: OnChangeFn<ExpandedState>;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;
+  onSortingChange?: OnChangeFn<SortingState>;
 };
 
 export default TableProps;
