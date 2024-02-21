@@ -102,21 +102,21 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       [isFocused /*, isListenKbRepeatLocked, setIsListenKbRepeatLocked */],
     );
 
-    useEffect(() => {
-      const element = tableWrapperRef?.current;
-      if (element) {
-        updateContainerWidth();
-        // element.addEventListener("wheel", handleWheel, { passive: false });
-        window.addEventListener("resize", updateContainerWidth);
-        hangTouchHandler(element);
-      }
+    // useEffect(() => {
+    //   const element = tableWrapperRef?.current;
+    //   if (element) {
+    //     updateContainerWidth();
+    //     // element.addEventListener("wheel", handleWheel, { passive: false });
+    //     window.addEventListener("resize", updateContainerWidth);
+    //     // hangTouchHandler(element);
+    //   }
 
-      return () => {
-        // element?.removeEventListener("wheel", handleWheel);
-        window.removeEventListener("resize", updateContainerWidth);
-        dropTouchHandler();
-      };
-    }, []);
+    //   return () => {
+    //     // element?.removeEventListener("wheel", handleWheel);
+    //     window.removeEventListener("resize", updateContainerWidth);
+    //     // dropTouchHandler();
+    //   };
+    // }, []);
 
     const getBackLostFocus = useCallback(
       (event: React.MouseEvent<HTMLDivElement>) => {
