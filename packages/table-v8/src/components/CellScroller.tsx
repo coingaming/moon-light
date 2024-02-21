@@ -4,7 +4,7 @@ import { mergeClassnames } from "@heathmont/moon-core-tw";
 export const inCellScrollRange = (element: HTMLDivElement) => {
   const scrollRange = element.scrollWidth - element.offsetWidth;
   return scrollRange > 0;
-}
+};
 
 const CellScroller = ({
   data,
@@ -44,7 +44,7 @@ const CellScroller = ({
       className={mergeClassnames(
         "px-3 py-2 text-moon-14 flex items-center overflow-x-auto outline-none",
         className,
-        "cell-scroller"
+        "cell-scroller",
       )}
       onKeyDown={(e) => {
         handleKbDown(e);

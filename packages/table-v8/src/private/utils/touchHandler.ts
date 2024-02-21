@@ -55,9 +55,11 @@ const detectTablePart = (tableTarget: HTMLTableElement) => {
 };
 
 const detectCellScroller = (tableTarget: HTMLTableElement) => {
-  const cellScroller = tableTarget.closest('.cell-scroller');
-  return (cellScroller !== null && inCellScrollRange(cellScroller as HTMLDivElement));
-}
+  const cellScroller = tableTarget.closest(".cell-scroller");
+  return (
+    cellScroller !== null && inCellScrollRange(cellScroller as HTMLDivElement)
+  );
+};
 
 const touchStart = (event: TouchEvent) => {
   if (!targetElement) return;
