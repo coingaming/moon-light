@@ -95,13 +95,19 @@ const Example = () => {
     [],
   );
 
-  const currency = React.useMemo(() => (
-    <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-  ), []);
+  const currency = React.useMemo(
+    () => (
+      <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
+    ),
+    [],
+  );
 
-  const success = React.useMemo(() => (
-    <Tag className="bg-roshi-10 text-lg text-roshi max-w-fit">SUCCESS</Tag>
-  ), []);
+  const success = React.useMemo(
+    () => (
+      <Tag className="bg-roshi-10 text-lg text-roshi max-w-fit">SUCCESS</Tag>
+    ),
+    [],
+  );
 
   const defaultColumn = {
     minSize: 10,
@@ -109,20 +115,23 @@ const Example = () => {
     maxSize: Number.MAX_SAFE_INTEGER,
   };
 
-  const makeData = useCallback((length: number) => {
-    return Array.from("_".repeat(length)).map((_, index) => {
-      return {
-        uuid: "84837d8ac654aa4689efa4649-84837d8ac654aa4689efa4649756454a5646545546d54f6546f546",
-        user: "aleksandr@heathmonitoring.com",
-        processTime: "2023-09-19T14:31:46.105Z",
-        client: "Bender (old) Coin Gaming",
-        gameNameAndProvider: "Pragmatic Play",
-        amount: 22.97,
-        currency: currency,
-        status: success,
-      };
-    });
-  }, [currency, success]);
+  const makeData = useCallback(
+    (length: number) => {
+      return Array.from("_".repeat(length)).map((_, index) => {
+        return {
+          uuid: "84837d8ac654aa4689efa4649-84837d8ac654aa4689efa4649756454a5646545546d54f6546f546",
+          user: "aleksandr@heathmonitoring.com",
+          processTime: "2023-09-19T14:31:46.105Z",
+          client: "Bender (old) Coin Gaming",
+          gameNameAndProvider: "Pragmatic Play",
+          amount: 22.97,
+          currency: currency,
+          status: success,
+        };
+      });
+    },
+    [currency, success],
+  );
 
   const data = React.useMemo(() => makeData(40), [makeData]);
   const textClip = "clip" as ClipProps;

@@ -15,7 +15,6 @@ type DefaultHelper = {
 };
 
 const Example = () => {
-
   const makeData = useCallback((length: number) => {
     return Array.from("_".repeat(length)).map((_, index) => {
       return {

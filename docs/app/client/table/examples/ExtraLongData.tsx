@@ -86,43 +86,50 @@ const Example = () => {
     [],
   );
 
-  const currency = React.useMemo(() => (
-    <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-  ), []);
+  const currency = React.useMemo(
+    () => (
+      <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
+    ),
+    [],
+  );
 
-  const tooltip = React.useMemo(() => (
-    <Tooltip>
-      <Tooltip.Trigger className="max-h-6">
-        <Chip
-          variant="default"
-          iconOnly={<Other3DotsHorizontal className="text-moon-24 max-h-6" />}
-        />
-      </Tooltip.Trigger>
-      <Tooltip.Content position="top-start" className="z-[2]">
-        Any activity
-        <Tooltip.Arrow />
-      </Tooltip.Content>
-    </Tooltip>
-  ), []);
+  const tooltip = React.useMemo(
+    () => (
+      <Tooltip>
+        <Tooltip.Trigger className="max-h-6">
+          <Chip
+            variant="default"
+            iconOnly={<Other3DotsHorizontal className="text-moon-24 max-h-6" />}
+          />
+        </Tooltip.Trigger>
+        <Tooltip.Content position="top-start" className="z-[2]">
+          Any activity
+          <Tooltip.Arrow />
+        </Tooltip.Content>
+      </Tooltip>
+    ),
+    [],
+  );
 
-  const rearrangeData = React.useCallback((
-    data: { [key: string]: { start?: string; end?: string } }[],
-  ) => {
-    const deals = data.map((value, index, src) => {
-      const [key, range] = Object.entries(value)[0];
-      return (
-        <>
-          <span className="mr-[5px]">{key}</span>
-          <span>({range.start ? range.start : ""}</span>
-          <span>-</span>
-          <span>{range.end ? range.end : ""})</span>
-          {index < src.length - 1 && <span className="mx-2">|</span>}
-        </>
-      );
-    });
+  const rearrangeData = React.useCallback(
+    (data: { [key: string]: { start?: string; end?: string } }[]) => {
+      const deals = data.map((value, index, src) => {
+        const [key, range] = Object.entries(value)[0];
+        return (
+          <>
+            <span className="mr-[5px]">{key}</span>
+            <span>({range.start ? range.start : ""}</span>
+            <span>-</span>
+            <span>{range.end ? range.end : ""})</span>
+            {index < src.length - 1 && <span className="mx-2">|</span>}
+          </>
+        );
+      });
 
-    return deals;
-  }, []);
+      return deals;
+    },
+    [],
+  );
 
   const data = React.useMemo(
     () => [

@@ -1,8 +1,4 @@
-import React, {
-  forwardRef,
-  useCallback,
-  useState,
-} from "react";
+import React, { forwardRef, useCallback, useState } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import TableWrapperProps from "../private/types/TableWrapperProps";
 
@@ -10,9 +6,11 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
   ({ style, className, children, tableWrapperRef }) => {
     const kbDelta = 15;
     const [isFocused, setIsFocused] = useState(false);
-    
+
     const calcMaxScrollByX = (target: HTMLDivElement, shift: number) => {
-      const containerWidth = (tableWrapperRef?.current?.parentNode as HTMLDivElement).offsetWidth;
+      const containerWidth = (
+        tableWrapperRef?.current?.parentNode as HTMLDivElement
+      ).offsetWidth;
       const scrollRange = containerWidth
         ? target.scrollWidth - +containerWidth
         : 0;

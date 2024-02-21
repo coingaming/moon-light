@@ -31,23 +31,26 @@ const Example = () => {
     return arr;
   }, []);
 
-  const tooltip = React.useMemo(() => (
-    <Tooltip>
-      <Tooltip.Trigger className="max-h-6">
-        <Chip
-          variant="ghost"
-          iconOnly={<ArrowsRefreshRound className="text-moon-24 max-h-6" />}
-          onClick={() => {
-            window.location.reload();
-          }}
-        />
-      </Tooltip.Trigger>
-      <Tooltip.Content position="top-start" className="z-[2]">
-        Reload page
-        <Tooltip.Arrow />
-      </Tooltip.Content>
-    </Tooltip>
-  ), []);
+  const tooltip = React.useMemo(
+    () => (
+      <Tooltip>
+        <Tooltip.Trigger className="max-h-6">
+          <Chip
+            variant="ghost"
+            iconOnly={<ArrowsRefreshRound className="text-moon-24 max-h-6" />}
+            onClick={() => {
+              window.location.reload();
+            }}
+          />
+        </Tooltip.Trigger>
+        <Tooltip.Content position="top-start" className="z-[2]">
+          Reload page
+          <Tooltip.Arrow />
+        </Tooltip.Content>
+      </Tooltip>
+    ),
+    [],
+  );
 
   const newPerson = React.useMemo((): Person => {
     return {
@@ -61,19 +64,22 @@ const Example = () => {
     };
   }, [tooltip]);
 
-  const makeData = useCallback((...lens: number[]) => {
-    const makeDataLevel = (depth = 0): Person[] => {
-      const len = lens[depth]!;
-      return range(len).map((d): Person => {
-        return {
-          ...newPerson,
-          subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
-        };
-      });
-    };
-  
-    return makeDataLevel();
-  }, [newPerson, range]);
+  const makeData = useCallback(
+    (...lens: number[]) => {
+      const makeDataLevel = (depth = 0): Person[] => {
+        const len = lens[depth]!;
+        return range(len).map((d): Person => {
+          return {
+            ...newPerson,
+            subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
+          };
+        });
+      };
+
+      return makeDataLevel();
+    },
+    [newPerson, range],
+  );
 
   const columns = React.useMemo<ColumnDef<{}, Person>[]>(
     () => [
@@ -85,9 +91,7 @@ const Example = () => {
             accessorKey: "firstName",
             header: ({ table }) => (
               <>
-                <button
-                  onClick={table.getToggleAllRowsExpandedHandler()}
-                >
+                <button onClick={table.getToggleAllRowsExpandedHandler()}>
                   {table.getIsAllRowsExpanded() ? (
                     <ControlsChevronDown />
                   ) : (
