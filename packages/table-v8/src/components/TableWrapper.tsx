@@ -43,7 +43,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         
         setIsListenKbRepeatLocked(true);
         setTimeout(resetLockKbListenRepeatState, 45); */
-        event.currentTarget.scrollBy(0, event.deltaY / 5);
+        event.currentTarget.scrollBy(event.deltaX / 5, event.deltaY / 5);
       },
       [
         /* isListenKbRepeatLocked, setIsListenKbRepeatLocked */
