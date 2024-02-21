@@ -27,28 +27,28 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
     }, [setIsListenKbRepeatLocked]);
     */
 
-    const handleWheel = useCallback(
-      (e: globalThis.WheelEvent) => {
-        const event = e as unknown as WheelEvent<HTMLDivElement>;
-        const target = event.target as HTMLElement;
-        const scrollOverHeader = target.closest("thead") !== null;
-        const scrollOverFooter = target.closest("tfoot") !== null;
-        if (scrollOverHeader || scrollOverFooter) return;
-        if (endOfYScroll(event.currentTarget, event.deltaY)) return;
-        event.preventDefault();
-        /*
-        if (isListenKbRepeatLocked) {
-          return;
-        }
-        
-        setIsListenKbRepeatLocked(true);
-        setTimeout(resetLockKbListenRepeatState, 45); */
-        event.currentTarget.scrollBy(event.deltaX / 5, event.deltaY / 5);
-      },
-      [
-        /* isListenKbRepeatLocked, setIsListenKbRepeatLocked */
-      ],
-    );
+    // const handleWheel = useCallback(
+    //   (e: globalThis.WheelEvent) => {
+    //     const event = e as unknown as WheelEvent<HTMLDivElement>;
+    //     const target = event.target as HTMLElement;
+    //     const scrollOverHeader = target.closest("thead") !== null;
+    //     const scrollOverFooter = target.closest("tfoot") !== null;
+    //     if (scrollOverHeader || scrollOverFooter) return;
+    //     if (endOfYScroll(event.currentTarget, event.deltaY)) return;
+    //     event.preventDefault();
+    //     /*
+    //     if (isListenKbRepeatLocked) {
+    //       return;
+    //     }
+
+    //     setIsListenKbRepeatLocked(true);
+    //     setTimeout(resetLockKbListenRepeatState, 45); */
+    //     event.currentTarget.scrollBy(event.deltaX / 5, event.deltaY / 5);
+    //   },
+    //   [
+    //     /* isListenKbRepeatLocked, setIsListenKbRepeatLocked */
+    //   ],
+    // );
 
     const calcMaxScrollByX = (target: HTMLDivElement, shift: number) => {
       const scrollRange = containerWidth
@@ -92,7 +92,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
           if (isListenKbRepeatLocked) {
             return;
           }
-          
+
           setIsListenKbRepeatLocked(true);
           setTimeout(resetLockKbListenRepeatState, 82); */
           navigationKeys.get(event.code)();
@@ -106,13 +106,13 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       const element = tableWrapperRef?.current;
       if (element) {
         updateContainerWidth();
-        element.addEventListener("wheel", handleWheel, { passive: false });
+        // element.addEventListener("wheel", handleWheel, { passive: false });
         window.addEventListener("resize", updateContainerWidth);
         hangTouchHandler(element);
       }
 
       return () => {
-        element?.removeEventListener("wheel", handleWheel);
+        // element?.removeEventListener("wheel", handleWheel);
         window.removeEventListener("resize", updateContainerWidth);
         dropTouchHandler();
       };

@@ -20,8 +20,8 @@ const Table = ({
   defaultColumn,
   width,
   height,
-  maxWidth,
-  maxHeight,
+  // maxWidth,
+  // maxHeight,
   state,
   withFooter = false,
   headerBackgroundColor = "gohan",
@@ -86,7 +86,7 @@ const Table = ({
     return (
       <TableWrapper
         style={Object.fromEntries(wrapperStyles)}
-        className={mergeClassnames("rounded-lg", isSticky && "overflow-hidden")}
+        className={mergeClassnames("rounded-lg", isSticky && "overflow-scroll")}
         tableWrapperRef={tableWrapperRef}
       >
         <table
