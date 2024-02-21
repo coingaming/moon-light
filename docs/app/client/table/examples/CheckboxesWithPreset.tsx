@@ -4,7 +4,7 @@ import { Checkbox, Chip, Tooltip } from "@heathmont/moon-core-tw";
 import { ArrowsRefreshRound } from "@heathmont/moon-icons-tw";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
 import { ColumnDef, RowSelectionState } from "@tanstack/react-table";
-import React from "react";
+import React, { useCallback } from "react";
 
 type DataTypeHelper = {
   firstName: string;
@@ -17,39 +17,6 @@ type DataTypeHelper = {
   actions: () => void;
 };
 
-const tooltip = () => (
-  <Tooltip>
-    <Tooltip.Trigger className="max-h-6">
-      <Chip
-        variant="ghost"
-        iconOnly={<ArrowsRefreshRound className="text-moon-24 max-h-6" />}
-        onClick={() => {
-          window.location.reload();
-        }}
-      />
-    </Tooltip.Trigger>
-    <Tooltip.Content position="top-start" className="z-[2]">
-      Reload page
-      <Tooltip.Arrow />
-    </Tooltip.Content>
-  </Tooltip>
-);
-
-const makeData = (length: number) => {
-  return Array.from("_".repeat(length)).map((_, index) => {
-    return {
-      firstName: "Test",
-      lastName: "Test",
-      age: <span>{Math.floor(index * 30)}</span>,
-      visits: <span>{Math.floor(index * 100)}</span>,
-      progress: <span>{Math.floor(index * 100)}</span>,
-      status: Math.floor(index * 100),
-      activity: Math.floor(index * 100),
-      actions: tooltip(),
-    };
-  });
-};
-
 const preset: RowSelectionState = {
   1: true,
   3: true,
@@ -59,9 +26,43 @@ const preset: RowSelectionState = {
 };
 
 const Example = () => {
+  const tooltip = React.useMemo(() => (
+    <Tooltip>
+      <Tooltip.Trigger className="max-h-6">
+        <Chip
+          variant="ghost"
+          iconOnly={<ArrowsRefreshRound className="text-moon-24 max-h-6" />}
+          onClick={() => {
+            window.location.reload();
+          }}
+        />
+      </Tooltip.Trigger>
+      <Tooltip.Content position="top-start" className="z-[2]">
+        Reload page
+        <Tooltip.Arrow />
+      </Tooltip.Content>
+    </Tooltip>
+  ), []);
+
+  const makeData = useCallback((length: number) => {
+    return Array.from("_".repeat(length)).map((_, index) => {
+      return {
+        firstName: "Test",
+        lastName: "Test",
+        age: <span>{Math.floor(index * 30)}</span>,
+        visits: <span>{Math.floor(index * 100)}</span>,
+        progress: <span>{Math.floor(index * 100)}</span>,
+        status: Math.floor(index * 100),
+        activity: Math.floor(index * 100),
+        actions: tooltip,
+      };
+    });
+  }, [tooltip]);
+  
+
   const [rowSelection, setRowSelection] =
     React.useState<RowSelectionState>(preset);
-  const [data, setData] = React.useState(() => makeData(20));
+  const [data, setData] = React.useState(makeData(20));
 
   const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
@@ -70,22 +71,18 @@ const Example = () => {
         header: ({ table }) => (
           <div className="w-8 px-1">
             <Checkbox
-              {...{
-                checked: table.getIsAllRowsSelected(),
-                indeterminate: table.getIsSomeRowsSelected(),
-                onChange: table.getToggleAllRowsSelectedHandler(),
-              }}
+              checked={table.getIsAllRowsSelected()}
+              indeterminate={table.getIsSomeRowsSelected()}
+              onChange={table.getToggleAllRowsSelectedHandler()}
             />
           </div>
         ),
         cell: ({ row }) => (
           <div className="w-8 px-1">
             <Checkbox
-              {...{
-                checked: row.getIsSelected(),
-                disabled: !row.getCanSelect(),
-                onChange: row.getToggleSelectedHandler(),
-              }}
+              checked={row.getIsSelected()}
+              disabled={!row.getCanSelect()}
+              onChange={row.getToggleSelectedHandler()}
             />
           </div>
         ),

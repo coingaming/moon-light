@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
 import { ColumnDef } from "@tanstack/react-table";
 
@@ -14,21 +14,21 @@ type DefaultHelper = {
   activity: number;
 };
 
-const makeData = (length: number) => {
-  return Array.from("_".repeat(length)).map((_, index) => {
-    return {
-      firstName: "Test",
-      lastName: "Test",
-      age: <span>{Math.floor(index * 30)}</span>,
-      visits: <span>{Math.floor(index * 100)}</span>,
-      progress: <span>{Math.floor(index * 100)}</span>,
-      status: Math.floor(index * 100),
-      activity: Math.floor(index * 100),
-    };
-  });
-};
-
 const Example = () => {
+  const makeData = useCallback((length: number) => {
+    return Array.from("_".repeat(length)).map((_, index) => {
+      return {
+        firstName: "Test",
+        lastName: "Test",
+        age: <span>{Math.floor(index * 30)}</span>,
+        visits: <span>{Math.floor(index * 100)}</span>,
+        progress: <span>{Math.floor(index * 100)}</span>,
+        status: Math.floor(index * 100),
+        activity: Math.floor(index * 100),
+      };
+    });
+  }, []);
+
   const columns = React.useMemo<ColumnDef<{}, DefaultHelper>[]>(
     () => [
       {
@@ -72,7 +72,7 @@ const Example = () => {
     ],
     [],
   );
-  const data = React.useMemo(() => makeData(2), []);
+  const data = React.useMemo(() => makeData(2), [makeData]);
 
   return (
     <>

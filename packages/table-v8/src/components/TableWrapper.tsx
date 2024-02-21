@@ -1,56 +1,18 @@
 import React, {
   forwardRef,
   useCallback,
-  useEffect,
   useState,
-  WheelEvent,
 } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
-import {
-  hangTouchHandler,
-  dropTouchHandler,
-  endOfYScroll,
-} from "../private/utils/touchHandler";
 import TableWrapperProps from "../private/types/TableWrapperProps";
 
 const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
   ({ style, className, children, tableWrapperRef }) => {
     const kbDelta = 15;
     const [isFocused, setIsFocused] = useState(false);
-    const [containerWidth, setContainerWidth] = useState(0);
-
-    /*
-    const [isListenKbRepeatLocked, setIsListenKbRepeatLocked] = useState(false);
-
-    const resetLockKbListenRepeatState = useCallback(() => {
-      setIsListenKbRepeatLocked(false);
-    }, [setIsListenKbRepeatLocked]);
-    */
-
-    // const handleWheel = useCallback(
-    //   (e: globalThis.WheelEvent) => {
-    //     const event = e as unknown as WheelEvent<HTMLDivElement>;
-    //     const target = event.target as HTMLElement;
-    //     const scrollOverHeader = target.closest("thead") !== null;
-    //     const scrollOverFooter = target.closest("tfoot") !== null;
-    //     if (scrollOverHeader || scrollOverFooter) return;
-    //     if (endOfYScroll(event.currentTarget, event.deltaY)) return;
-    //     event.preventDefault();
-    //     /*
-    //     if (isListenKbRepeatLocked) {
-    //       return;
-    //     }
-
-    //     setIsListenKbRepeatLocked(true);
-    //     setTimeout(resetLockKbListenRepeatState, 45); */
-    //     event.currentTarget.scrollBy(event.deltaX / 5, event.deltaY / 5);
-    //   },
-    //   [
-    //     /* isListenKbRepeatLocked, setIsListenKbRepeatLocked */
-    //   ],
-    // );
-
+    
     const calcMaxScrollByX = (target: HTMLDivElement, shift: number) => {
+      const containerWidth = (tableWrapperRef?.current?.parentNode as HTMLDivElement).offsetWidth;
       const scrollRange = containerWidth
         ? target.scrollWidth - +containerWidth
         : 0;
@@ -62,12 +24,6 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
           ? scrollRange - target.scrollLeft - 1
           : shift;
     };
-
-    const updateContainerWidth = useCallback(() => {
-      setContainerWidth(
-        (tableWrapperRef?.current?.parentNode as HTMLDivElement).offsetWidth,
-      );
-    }, []);
 
     const handleKbDown = useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -88,35 +44,12 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
 
         if (navigationKeys.has(event.code)) {
           event.preventDefault();
-          /*
-          if (isListenKbRepeatLocked) {
-            return;
-          }
-
-          setIsListenKbRepeatLocked(true);
-          setTimeout(resetLockKbListenRepeatState, 82); */
           navigationKeys.get(event.code)();
           event.currentTarget.scrollBy(kbDeltas.x, kbDeltas.y);
         }
       },
-      [isFocused /*, isListenKbRepeatLocked, setIsListenKbRepeatLocked */],
+      [isFocused],
     );
-
-    // useEffect(() => {
-    //   const element = tableWrapperRef?.current;
-    //   if (element) {
-    //     updateContainerWidth();
-    //     // element.addEventListener("wheel", handleWheel, { passive: false });
-    //     window.addEventListener("resize", updateContainerWidth);
-    //     // hangTouchHandler(element);
-    //   }
-
-    //   return () => {
-    //     // element?.removeEventListener("wheel", handleWheel);
-    //     window.removeEventListener("resize", updateContainerWidth);
-    //     // dropTouchHandler();
-    //   };
-    // }, []);
 
     const getBackLostFocus = useCallback(
       (event: React.MouseEvent<HTMLDivElement>) => {

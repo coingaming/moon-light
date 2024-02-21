@@ -1,4 +1,4 @@
-import React, { Ref, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import {
   getCoreRowModel,
@@ -20,8 +20,6 @@ const Table = ({
   defaultColumn,
   width,
   height,
-  // maxWidth,
-  // maxHeight,
   state,
   withFooter = false,
   headerBackgroundColor = "gohan",
@@ -86,7 +84,7 @@ const Table = ({
     return (
       <TableWrapper
         style={Object.fromEntries(wrapperStyles)}
-        className={mergeClassnames("rounded-lg", isSticky && "overflow-scroll")}
+        className={mergeClassnames("rounded-lg", isSticky && "overflow-auto")}
         tableWrapperRef={tableWrapperRef}
       >
         <table

@@ -86,7 +86,11 @@ const Example = () => {
     [],
   );
 
-  const tooltip = () => (
+  const currency = React.useMemo(() => (
+    <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
+  ), []);
+
+  const tooltip = React.useMemo(() => (
     <Tooltip>
       <Tooltip.Trigger className="max-h-6">
         <Chip
@@ -99,9 +103,9 @@ const Example = () => {
         <Tooltip.Arrow />
       </Tooltip.Content>
     </Tooltip>
-  );
+  ), []);
 
-  const rearrangeData = (
+  const rearrangeData = React.useCallback((
     data: { [key: string]: { start?: string; end?: string } }[],
   ) => {
     const deals = data.map((value, index, src) => {
@@ -118,7 +122,7 @@ const Example = () => {
     });
 
     return deals;
-  };
+  }, []);
 
   const data = React.useMemo(
     () => [
@@ -135,10 +139,8 @@ const Example = () => {
           </Chip>
         ),
         amount: 22.97,
-        currency: (
-          <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-        ),
-        actions: tooltip(),
+        currency: currency,
+        actions: tooltip,
       },
       {
         location: "AMD",
@@ -153,10 +155,8 @@ const Example = () => {
           </Chip>
         ),
         amount: 22.97,
-        currency: (
-          <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-        ),
-        actions: tooltip(),
+        currency: currency,
+        actions: tooltip,
       },
       {
         location: "Europe",
@@ -181,10 +181,8 @@ const Example = () => {
           </Chip>
         ),
         amount: 22.97,
-        currency: (
-          <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-        ),
-        actions: tooltip(),
+        currency: currency,
+        actions: tooltip,
       },
       {
         location: "Europe",
@@ -203,10 +201,8 @@ const Example = () => {
           </Chip>
         ),
         amount: 22.97,
-        currency: (
-          <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-        ),
-        actions: tooltip(),
+        currency: currency,
+        actions: tooltip,
       },
       {
         location: "Europe",
@@ -225,10 +221,8 @@ const Example = () => {
           </Chip>
         ),
         amount: 22.97,
-        currency: (
-          <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-        ),
-        actions: tooltip(),
+        currency: currency,
+        actions: tooltip,
       },
       {
         location: "Asia",
@@ -247,10 +241,8 @@ const Example = () => {
           </Chip>
         ),
         amount: 22.97,
-        currency: (
-          <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-        ),
-        actions: tooltip(),
+        currency: currency,
+        actions: tooltip,
       },
       {
         location: "Asia",
@@ -272,13 +264,11 @@ const Example = () => {
           </Chip>
         ),
         amount: 22.97,
-        currency: (
-          <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-        ),
-        actions: tooltip(),
+        currency: currency,
+        actions: tooltip,
       },
     ],
-    [],
+    [rearrangeData, currency, tooltip],
   );
 
   const defaultColumn = {

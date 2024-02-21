@@ -4,7 +4,7 @@ import { Tag } from "@heathmont/moon-core-tw";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
 import ClipProps from "@heathmont/moon-table-v8-tw/lib/es/private/types/ClipProps";
 import { ColumnDef } from "@tanstack/react-table";
-import React from "react";
+import React, { useCallback } from "react";
 
 type DataTypeHelper = {
   uuid: string;
@@ -95,13 +95,21 @@ const Example = () => {
     [],
   );
 
+  const currency = React.useMemo(() => (
+    <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
+  ), []);
+
+  const success = React.useMemo(() => (
+    <Tag className="bg-roshi-10 text-lg text-roshi max-w-fit">SUCCESS</Tag>
+  ), []);
+
   const defaultColumn = {
     minSize: 10,
     size: 150,
     maxSize: Number.MAX_SAFE_INTEGER,
   };
 
-  const makeData = (length: number) => {
+  const makeData = useCallback((length: number) => {
     return Array.from("_".repeat(length)).map((_, index) => {
       return {
         uuid: "84837d8ac654aa4689efa4649-84837d8ac654aa4689efa4649756454a5646545546d54f6546f546",
@@ -110,19 +118,13 @@ const Example = () => {
         client: "Bender (old) Coin Gaming",
         gameNameAndProvider: "Pragmatic Play",
         amount: 22.97,
-        currency: (
-          <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
-        ),
-        status: (
-          <Tag className="bg-roshi-10 text-lg text-roshi max-w-fit">
-            SUCCESS
-          </Tag>
-        ),
+        currency: currency,
+        status: success,
       };
     });
-  };
+  }, [currency, success]);
 
-  const data = React.useMemo(() => makeData(40), []);
+  const data = React.useMemo(() => makeData(40), [makeData]);
   const textClip = "clip" as ClipProps;
 
   return (
