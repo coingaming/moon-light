@@ -53,9 +53,9 @@ const TBody = ({
         const useRowSelection =
           isSelectable && !preventSelectionByRowClick
             ? (event: unknown) =>
-              isRowElementClicked(event)
-                ? row.getToggleSelectedHandler()(event)
-                : () => { }
+                isRowElementClicked(event)
+                  ? row.getToggleSelectedHandler()(event)
+                  : () => {}
             : undefined;
 
         return (
@@ -80,15 +80,15 @@ const TBody = ({
                   "group/rows before:bg-[color:var(--bodyBGColor)]",
                   !!useRowSelection && "cursor-pointer",
                   isRowSelected &&
-                  "group/rows bg-[color:var(--rowSelectColor)] group/rows after:bg-[color:var(--rowSelectColor)]",
+                    "group/rows bg-[color:var(--rowSelectColor)] group/rows after:bg-[color:var(--rowSelectColor)]",
                   !isRowSelected &&
-                  isEvenRow &&
-                  "group/rows bg-[color:var(--rowEvenColor)] group/rows after:bg-[color:var(--rowEvenColor)]",
+                    isEvenRow &&
+                    "group/rows bg-[color:var(--rowEvenColor)] group/rows after:bg-[color:var(--rowEvenColor)]",
                   !isRowSelected &&
-                  !isEvenRow &&
-                  "group/rows bg-[color:var(--rowOddColor)] group/rows after:bg-[color:var(--rowOddColor)]",
+                    !isEvenRow &&
+                    "group/rows bg-[color:var(--rowOddColor)] group/rows after:bg-[color:var(--rowOddColor)]",
                   rowHoverColor &&
-                  "group-hover/rows:bg-[color:var(--rowHoverColor)] group-hover/rows:after:bg-[color:var(--rowHoverColor)]",
+                    "group-hover/rows:bg-[color:var(--rowHoverColor)] group-hover/rows:after:bg-[color:var(--rowHoverColor)]",
                 )}
                 isFirstColumn={cellIndex === 0}
                 isLastColumn={cellIndex === lastIndex}
