@@ -43,8 +43,8 @@ const Table = ({
   onSortingChange,
 }: TableProps) => {
   const [columnResizeMode, setColumnResizeMode] =
-    React.useState<ColumnResizeMode>('onChange')
-/*
+    React.useState<ColumnResizeMode>("onChange");
+  /*
   const [columnResizeDirection, setColumnResizeDirection] =
     React.useState<ColumnResizeDirection>('ltr')
 */
@@ -69,7 +69,7 @@ const Table = ({
 
   const tableWrapperRef = useRef<HTMLDivElement>(null);
   const [columnMap, setColumnMap] = useState<ColumnData[][]>();
-  
+
   useEffect(() => {
     setColumnMap(
       buildColumnMap(

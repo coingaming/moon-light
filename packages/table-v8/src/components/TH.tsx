@@ -114,14 +114,16 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
             ) : null}
           </div>
         )}
-        {isResizable && (<div
-          className={mergeClassnames(
-            "resizer absolute z-50 w-1 h-full top-0 right-0 bg-transparent hover:bg-beerus cursor-col-resize ltr",
-            header.column.getIsResizing() ? "isResizing bg-beerus" : "",
-          )}
-          onMouseDown={header.getResizeHandler()}
-          onTouchStart={header.getResizeHandler()}
-        />)}
+        {isResizable && (
+          <div
+            className={mergeClassnames(
+              "resizer absolute z-50 w-1 h-full top-0 right-0 bg-transparent hover:bg-beerus cursor-col-resize ltr",
+              header.column.getIsResizing() ? "isResizing bg-beerus" : "",
+            )}
+            onMouseDown={header.getResizeHandler()}
+            onTouchStart={header.getResizeHandler()}
+          />
+        )}
       </th>
     );
   },
