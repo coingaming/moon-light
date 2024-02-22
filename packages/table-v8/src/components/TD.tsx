@@ -51,7 +51,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
     const stickySide = stickyColumn.sticky;
 
     const styles = new Map([
-      ["width", `${cell.column.columnDef.size}px`],
+      ["width", `${cell.column.getSize()/*.columnDef.size*/}px`],
       [
         "minWidth",
         `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.minSize}px`,

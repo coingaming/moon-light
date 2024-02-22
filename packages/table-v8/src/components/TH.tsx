@@ -42,15 +42,19 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
     {
       backgroundColor,
       header,
+      table,
       isLastColumn,
       rowSize,
       rowGap,
+      isResizable,
       isCellBorder,
       columnData,
       onClick,
     },
     ref,
   ) => {
+    const columnSizingInfo = table && table.getState().columnSizingInfo;
+
     const stickyColumn: StickyColumn = header.column.parent
       ? header.column.parent?.columnDef
       : header.column.columnDef;
@@ -62,7 +66,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       : undefined;
 
     const styles = new Map([
-      ["width", `${header.column.columnDef.size}px`],
+      ["width", `${header.getSize()}px`], //`header.column.columnDef.size`];
       [
         "minWidth",
         `${stickySide ? header.column.columnDef.size : header.column.columnDef.minSize}px`,
@@ -89,7 +93,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
         style={Object.fromEntries(styles)}
         colSpan={header.colSpan}
         className={mergeClassnames(
-          "z-[1]",
+          "relative z-[1]",
           backgroundColor && "bg-[color:var(--headerBGColor)]",
           stickySide &&
             "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
@@ -110,6 +114,14 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
             ) : null}
           </div>
         )}
+        {isResizable && (<div
+          className={mergeClassnames(
+            "resizer absolute z-50 w-1 h-full top-0 right-0 bg-transparent hover:bg-beerus cursor-col-resize ltr",
+            header.column.getIsResizing() ? "isResizing bg-beerus" : "",
+          )}
+          onMouseDown={header.getResizeHandler()}
+          onTouchStart={header.getResizeHandler()}
+        />)}
       </th>
     );
   },

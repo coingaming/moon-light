@@ -7,6 +7,7 @@ type THeadProps = {
   backgroundColor?: string;
   rowGap?: string;
   rowSize?: RowSizes;
+  isResizable?: boolean;
   isSticky?: boolean;
   columnMap?: ColumnData[][];
 };

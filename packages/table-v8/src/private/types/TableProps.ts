@@ -27,6 +27,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   rowHoverColor?: string;
   rowGap?: string;
   rowSize?: RowSizes;
+  isResizable?: boolean;
   isSticky?: boolean;
   isSelectable?: boolean;
   textClip?: ClipProps;

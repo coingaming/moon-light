@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import {
+  ColumnResizeMode,
   getCoreRowModel,
   getExpandedRowModel,
   getSortedRowModel,
@@ -30,6 +31,7 @@ const Table = ({
   rowHoverColor,
   rowGap = "2px",
   rowSize = "md",
+  isResizable = true,
   isSelectable = false,
   isSticky = true,
   textClip,
@@ -40,11 +42,20 @@ const Table = ({
   onRowSelectionChange,
   onSortingChange,
 }: TableProps) => {
+  const [columnResizeMode, setColumnResizeMode] =
+    React.useState<ColumnResizeMode>('onChange')
+/*
+  const [columnResizeDirection, setColumnResizeDirection] =
+    React.useState<ColumnResizeDirection>('ltr')
+*/
+
   const table = useReactTable({
     columns,
+    columnResizeMode,
     data,
     defaultColumn,
     state,
+    enableColumnResizing: isResizable,
     enableRowSelection: true,
     onExpandedChange: onExpandedChange,
     onRowSelectionChange: onRowSelectionChange,
@@ -58,7 +69,7 @@ const Table = ({
 
   const tableWrapperRef = useRef<HTMLDivElement>(null);
   const [columnMap, setColumnMap] = useState<ColumnData[][]>();
-
+  
   useEffect(() => {
     setColumnMap(
       buildColumnMap(
@@ -99,6 +110,7 @@ const Table = ({
             backgroundColor={headerBackgroundColor}
             rowSize={rowSize}
             rowGap={rowGap}
+            isResizable={isResizable}
             isSticky={isSticky}
             columnMap={columnMap}
           />

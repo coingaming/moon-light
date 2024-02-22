@@ -7,6 +7,7 @@ const THead = ({
   backgroundColor,
   rowGap,
   rowSize,
+  isResizable,
   isSticky,
   columnMap,
 }: THeadProps) => {
@@ -28,10 +29,12 @@ const THead = ({
         <tr key={headerGroup.id}>
           {headerGroup.headers.map((header, index) => (
             <TH
+              table={table}
               header={header}
               backgroundColor={backgroundColor}
               rowSize={rowSize}
               rowGap={rowGap}
+              isResizable={isResizable}
               isLastColumn={index === headerGroup.headers.length - 1}
               columnData={columnMap && columnMap[indexHG][index]}
             />
@@ -45,6 +48,7 @@ const THead = ({
         <tr key={headerGroup.id}>
           {headerGroup.headers.map((header) => (
             <TH
+              table={table}
               header={header}
               backgroundColor={backgroundColor}
               rowSize={rowSize}
