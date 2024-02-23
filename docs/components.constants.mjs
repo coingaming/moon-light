@@ -315,6 +315,22 @@ const COMPONENTS = {
       "UsingTooltip",
     ],
   },
+  table: {
+    title: "Table",
+    tags: ["ARIA", "RTL"],
+    examples: [
+      "Default",
+      "RowGaps",
+      "RowSizes",
+      "ExpandableWithPreset",
+      "SelectableWithPreset",
+      "CheckboxesWithPreset",
+      "ExpandableCheckboxes",
+      "WithSorting",
+      "LongData",
+      "ExtraLongData",
+    ],
+  },
   tabs: {
     title: "Tabs",
     tags: ["ARIA", "RTL"],

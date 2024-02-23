@@ -1,0 +1,169 @@
+[
+  {
+    "name": "Table",
+    "props": [
+      {
+        "name": "bodyBackgroundColor",
+        "description": "The background color of the table body (the color of the gap between the rows of the table).",
+        "defaultState": "gohan",
+        "required": false,
+        "type": ["string"]
+      },
+      {
+        "name": "columns",
+        "description": "A set of column parameters that customize the table.",
+        "required": true,
+        "type": ["ColumnDef<TData, any>[]"]
+      },
+      {
+        "name": "data",
+        "description": "The data set of the table.",
+        "required": true,
+        "type": ["TData[]"]
+      },
+      {
+        "name": "defaultColumn",
+        "description": "A set of parameters for columns that do not have their own properties set.",
+        "required": false,
+        "type": ["Partial<ColumnDef<TData, any>>"]
+      },
+      {
+        "name": "defaultRowBackgroundColor",
+        "description": "Default row background color.",
+        "defaultState": "goku",
+        "required": false,
+        "type": ["string"]
+      },
+      {
+        "name": "evenRowBackgroundColor",
+        "description": "Even row background color.",
+        "defaultState": "goku",
+        "required": false,
+        "type": ["string"]
+      },
+      {
+        "name": "getSubRows",
+        "description": "This is used to access the sub rows for any given row.",
+        "required": false,
+        "type": ["(originalRow: TData, index: number) => TData[] | undefined"]
+      },
+      {
+        "name": "headerBackgroundColor",
+        "description": "The background color of the both table header and footer.",
+        "defaultState": "gohan",
+        "required": false,
+        "type": ["string"]
+      },
+      {
+        "name": "height",
+        "description": "A table height.",
+        "required": false,
+        "type": ["string | number"]
+      },
+      {
+        "name": "isSelectable",
+        "description": "Allows rows to be selected.",
+        "defaultState": "false",
+        "required": false,
+        "type": ["boolean"]
+      },
+      {
+        "name": "isSticky",
+        "description": "Allows the use of sticky elements.",
+        "defaultState": "true",
+        "required": false,
+        "type": ["boolean"]
+      },
+      {
+        "name": "layout",
+        "description": "Sets the layout of the table.",
+        "defaultState": "fixed",
+        "required": false,
+        "type": ["auto | fixed | stretched-auto"]
+      },
+      {
+        "name": "maxHeight",
+        "description": "Maximum table height.",
+        "required": false,
+        "type": ["string | number"]
+      },
+      {
+        "name": "maxWidth",
+        "description": "Maximum table width.",
+        "required": false,
+        "type": ["string | number"]
+      },
+      {
+        "name": "onExpandedChange",
+        "description": "This function is called when the expanded table state changes.",
+        "required": false,
+        "type": ["OnChangeFn<ExpandedState>"]
+      },
+      {
+        "name": "onRowSelectionChange",
+        "description": "This function will be called when state.rowSelection changes.",
+        "required": false,
+        "type": ["OnChangeFn<RowSelectionState>"]
+      },
+      {
+        "name": "preventSelectionByRowClick",
+        "description": "If the value is true, prevents toggling the selection state of a row by clicking on it.",
+        "defaultState": "false",
+        "required": false,
+        "type": ["boolean"]
+      },
+      {
+        "name": "rowGap",
+        "description": "Gap between table body rows.",
+        "defaultState": "2px",
+        "required": false,
+        "type": ["string"]
+      },
+      {
+        "name": "rowHoverColor",
+        "description": "The background color of the row under the mouse cursor.",
+        "required": false,
+        "type": ["string"]
+      },
+      {
+        "name": "rowSelectColor",
+        "description": "The background color of the selected row.",
+        "defaultState": "heles",
+        "required": false,
+        "type": ["string"]
+      },
+      {
+        "name": "rowSize",
+        "description": "Size of the table rows.",
+        "defaultState": "md",
+        "required": false,
+        "type": ["xs | sm | md | lg | xl | 2xl"]
+      },
+      {
+        "name": "state",
+        "description": "Preset state of the table.",
+        "required": false,
+        "type": ["Partial<TableState>"]
+      },
+      {
+        "name": "textClip",
+        "description": "Sets the type of clipping of long data inside a table cell",
+        "required": false,
+        "type": ["clip | break"]
+      },
+      {
+        "name": "width",
+        "description": "A table width",
+        "required": false,
+        "type": ["string | number"]
+      },
+      {
+        "name": "withFooter",
+        "description": "Whether use a footer",
+        "defaultState": "false",
+        "required": false,
+        "type": ["boolean"]
+      }
+    ]
+  }
+]

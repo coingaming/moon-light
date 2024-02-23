@@ -679,6 +679,34 @@ export type Examples = {
       },
       "props": "string"
     },
+    "table": {
+      "description": "string",
+      "descriptions": {
+        "CheckboxesWithPreset": "string",
+        "Default": "string",
+        "ExpandableCheckboxes": "string",
+        "ExpandableWithPreset": "string",
+        "ExtraLongData": "string",
+        "LongData": "string",
+        "RowGaps": "string",
+        "RowSizes": "string",
+        "SelectableWithPreset": "string",
+        "WithSorting": "string"
+      },
+      "examples": {
+        "CheckboxesWithPreset": "string",
+        "Default": "string",
+        "ExpandableCheckboxes": "string",
+        "ExpandableWithPreset": "string",
+        "ExtraLongData": "string",
+        "LongData": "string",
+        "RowGaps": "string",
+        "RowSizes": "string",
+        "SelectableWithPreset": "string",
+        "WithSorting": "string"
+      },
+      "props": "string"
+    },
     "tabs": {
       "anatomy": "string",
       "description": "string",

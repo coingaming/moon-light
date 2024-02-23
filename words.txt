@@ -51,6 +51,7 @@ pixelmatch
 popo
 progressbar
 raditz
+Scroller
 snackbars
 sportsbet
 tabpanel
