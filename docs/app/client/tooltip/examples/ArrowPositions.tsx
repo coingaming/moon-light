@@ -4,7 +4,7 @@ import { Tooltip, Chip } from "@heathmont/moon-core-tw";
 
 const ArrowPositions = () => (
   <>
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 w-full">
+    <div className="grid grid-cols-2 xl:grid-cols-4 gap-2 w-full">
       <Tooltip>
         <Tooltip.Trigger>
           <Chip className="border border-beerus">top-start</Chip>

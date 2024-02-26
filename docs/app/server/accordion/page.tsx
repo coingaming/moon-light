@@ -26,7 +26,7 @@ export default async function Accordion() {
   });
 
   return (
-    <div className="w-full max-w-3xl flex flex-col gap-12 text-moon-14 px-6 md:px-0">
+    <div className="w-full max-w-3xl flex flex-col gap-12 text-moon-14 px-6 lg:px-0">
       <h1 className="font-medium text-moon-32">Accordion</h1>
       <MDX markdown={server.accordion.description} />
       {examples}

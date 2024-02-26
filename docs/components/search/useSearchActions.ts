@@ -46,7 +46,7 @@ export const useSearchActions = async (): Promise<Action[]> => {
     }
   };
 
-  mapActions(examples.server, "server");
+  // mapActions(examples.server, "server"); TO DO: remove comment once server components are live
   mapActions(examples.client, "client");
 
   return actions;
