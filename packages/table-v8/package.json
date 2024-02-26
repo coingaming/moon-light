@@ -1,7 +1,7 @@
 {
-  "name": "@heathmont/moon-table-v8-tw",
+  "name": "@heathmont/moon-table-test-v8-tw",
   "sideEffects": false,
-  "version": "10.12.2",
+  "version": "10.12.3",
   "files": [
     "lib"
   ],
@@ -20,5 +20,9 @@
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  }
 }
