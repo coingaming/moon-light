@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer className="flex flex-col gap-4 pt-8 pb-12 items-center text-moon-14 text-bulma">
+  <footer className="flex flex-col gap-4 pt-8 pb-6 lg:pb-12 items-center text-moon-14 text-bulma">
     <p>
       With the help of{" "}
       <a

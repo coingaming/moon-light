@@ -1,19 +1,7 @@
 import { mergeClassnames } from "@heathmont/moon-core-tw";
-import { MainLayout } from "./MainLayout";
-import { PageHeadComponent } from "./PageHeadComponent";
-
-interface Title {
-  subtitle: string;
-  id: string;
-}
-
-interface OverviewPageProps {
-  description?: any;
-  title: string;
-  subtitles?: Title[];
-  children?: React.ReactNode;
-  className?: string;
-}
+import MainLayout from "../mainLayout/MainLayout";
+import { PageHeadComponent } from "../PageHeadComponent";
+import type OverviewPageProps from "./types/OverviewPageProps";
 
 const OverviewPage = (props: OverviewPageProps) => {
   const { title, description, subtitles, children, className } = props;

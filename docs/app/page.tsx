@@ -1,4 +1,4 @@
-import { MainLayout } from "@/components/MainLayout";
+import MainLayout from "@/components/mainLayout/MainLayout";
 import PageTitle from "@/components/mainPage/PageTitle";
 import Vision from "@/components/mainPage/Vision";
 

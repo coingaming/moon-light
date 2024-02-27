@@ -1,4 +1,4 @@
-import OverviewPage from "@/components/OverviewPage";
+import OverviewPage from "@/components/overviewPage/OverviewPage";
 import Video from "./Video";
 import { PageSection } from "@/components/pageSection/PageSection";
 
@@ -17,7 +17,7 @@ export default async function FigmaPage() {
           rel="noreferrer"
           className="underline text-piccolo"
         >
-          https://www.figma.com/community/file/1002945721703152933
+          Figma community
         </a>
       </PageSection>
     </OverviewPage>
