@@ -85,3 +85,5 @@ brcrumb
 Headlesss
 Tagst
 Visiblity
+npmjs
+Propgress
