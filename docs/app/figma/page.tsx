@@ -1,4 +1,4 @@
-import OverviewPage from "@/components/OverviewPage";
+import OverviewPage from "@/components/overviewPage/OverviewPage";
 import Video from "./Video";
 import { PageSection } from "@/components/pageSection/PageSection";
 

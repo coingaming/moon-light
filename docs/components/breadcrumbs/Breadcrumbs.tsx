@@ -24,7 +24,11 @@ const Breadcrumbs = () => {
       </Link>
     ));
 
-  return <Breadcrumb divider="/" breadcrumbs={[HomeLink, ...restPages]} />;
+  return (
+    <div className="px-6 h-full hidden grow items-center lg:flex">
+      <Breadcrumb divider="/" breadcrumbs={[HomeLink, ...restPages]} />
+    </div>
+  );
 };
 
 export default Breadcrumbs;
