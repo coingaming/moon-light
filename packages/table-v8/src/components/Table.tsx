@@ -67,6 +67,7 @@ const Table = ({
     /* debugTable: true, */
   });
 
+  const tableResizeInfo = table.getState().columnSizingInfo;
   const tableWrapperRef = useRef<HTMLDivElement>(null);
   const [columnMap, setColumnMap] = useState<ColumnData[][]>();
 
@@ -76,7 +77,7 @@ const Table = ({
         tableWrapperRef.current?.childNodes[0] as HTMLTableElement,
       ),
     );
-  }, [tableWrapperRef.current, buildColumnMap]);
+  }, [tableWrapperRef.current, buildColumnMap, tableResizeInfo.isResizingColumn && tableResizeInfo.deltaOffset]);
 
   const renderTableComponent = () => {
     const tableLayout = layout === "fixed" ? "fixed" : "auto";
@@ -86,7 +87,7 @@ const Table = ({
     ]);
 
     const tableStyles = {
-      width,
+      //width,
       tableLayout,
       borderSpacing: `0 ${rowGap}`,
       "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
@@ -103,6 +104,7 @@ const Table = ({
           className={mergeClassnames(
             "border-separate bg-[color:var(--tableBGColor)]",
             layout !== "auto" && "w-full",
+            /* "w-max" */
           )}
         >
           <THead

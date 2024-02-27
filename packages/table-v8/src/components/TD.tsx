@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { flexRender, Cell } from "@tanstack/react-table";
 import ClipProps from "../private/types/ClipProps";
@@ -6,6 +6,7 @@ import StickyColumn from "../private/types/StickyColumn";
 import TDProps from "../private/types/TDProps";
 import getFontSize from "../private/utils/getFontSize";
 import getPadding from "../private/utils/getPadding";
+import buildColumnMap from "../private/utils/buildColumnMap";
 
 const getStickyShift = (
   cells: Cell<{}, unknown>[],

@@ -30,7 +30,7 @@ const Example = () => {
             id: "location",
             header: () => "Location",
             accessorKey: "location",
-            size: "100",
+            size: 100,
           },
         ],
       },
@@ -43,6 +43,7 @@ const Example = () => {
             header: () => "Deals",
             accessorKey: "deals",
             cell: (props) => props.getValue(),
+            maxSize: 300,
           },
           {
             id: "amount",
@@ -70,7 +71,7 @@ const Example = () => {
         header: () => "",
         sticky: "right",
         size: 70,
-        maxSize: 70,
+        /* maxSize: 70, */
         columns: [
           {
             id: "actions",
@@ -261,7 +262,7 @@ const Example = () => {
             ])}
           ></CellScroller>
         ),
-        range: (
+        range: (	
           <Chip
             size="sm"
             className="bg-transparent"
@@ -279,9 +280,10 @@ const Example = () => {
   );
 
   const defaultColumn = {
-    minSize: 10,
-    size: 150,
-    maxSize: 260,
+    minSize: 70,
+    size: 50,
+    //maxSize: 260,
+    maxSize: Number.MAX_SAFE_INTEGER,
   };
 
   return (
@@ -292,7 +294,7 @@ const Example = () => {
         defaultColumn={defaultColumn}
         width={800}
         height={400}
-        layout="auto"
+        layout="stretched-auto"
       />
     </div>
   );

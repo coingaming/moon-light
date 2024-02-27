@@ -25,6 +25,8 @@ const Example = () => {
         header: () => "Transactions",
         footer: () => "Transactions",
         sticky: "left",
+        size: 100,
+        minSize: 100,
         columns: [
           {
             header: () => "Transaction UUID",
@@ -110,7 +112,7 @@ const Example = () => {
   );
 
   const defaultColumn = {
-    minSize: 10,
+    minSize: 50,
     size: 150,
     maxSize: Number.MAX_SAFE_INTEGER,
   };
@@ -144,8 +146,8 @@ const Example = () => {
         defaultColumn={defaultColumn}
         width={800}
         height={500}
+        layout="stretched-auto"
         textClip={textClip}
-        layout="auto"
         withFooter={true}
       />
     </div>

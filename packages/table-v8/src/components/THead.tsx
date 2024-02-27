@@ -52,6 +52,7 @@ const THead = ({
               header={header}
               backgroundColor={backgroundColor}
               rowSize={rowSize}
+              isResizable={isResizable}
             />
           ))}
         </tr>

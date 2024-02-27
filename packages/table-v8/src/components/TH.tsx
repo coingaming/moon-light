@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { flexRender, Header } from "@tanstack/react-table";
 import StickyColumn from "../private/types/StickyColumn";
@@ -53,7 +53,9 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
     },
     ref,
   ) => {
-    const columnSizingInfo = table && table.getState().columnSizingInfo;
+    const [stickyWidth, setStickyWidth] = React.useState(header.getSize());
+
+    const columnSizingInfo = isResizable && table && table.getState().columnSizingInfo;
 
     const stickyColumn: StickyColumn = header.column.parent
       ? header.column.parent?.columnDef
@@ -66,17 +68,21 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       : undefined;
 
     const styles = new Map([
-      ["width", `${header.getSize()}px`], //`header.column.columnDef.size`];
+      ["width", `${stickySide ? stickyWidth : header.column.getSize()}px`],
       [
-        "minWidth",
-        `${stickySide ? header.column.columnDef.size : header.column.columnDef.minSize}px`,
+        "minWidth", `${header.column.columnDef.minSize}px`,
       ],
       [
-        "maxWidth",
-        `${stickySide ? header.column.columnDef.size : header.column.columnDef.maxSize}px`,
+        "maxWidth", `${header.column.columnDef.maxSize}px`,
       ],
       ["--headerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
     ]);
+
+    useEffect(() => {
+      if (stickySide && header.column.getIsResizing()) {
+        setStickyWidth(header.column.getSize());
+      }
+    }, [header.column.getIsResizing() && header.column.getSize()]);
 
     if (stickySide) {
       styles.set(
@@ -96,14 +102,15 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           "relative z-[1]",
           backgroundColor && "bg-[color:var(--headerBGColor)]",
           stickySide &&
-            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
+            "sticky z-[2] before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
+          columnSizingInfo && !!columnSizingInfo.isResizingColumn && "cursor-col-resize",
         )}
         ref={ref}
       >
         {header.isPlaceholder ? null : (
           <div
             className={mergeClassnames(
-              "relative text-start font-medium",
+              "relative text-start font-medium select-none",
               getFontSize(rowSize),
               headerValue && getPadding(rowSize),
             )}
@@ -117,7 +124,8 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
         {isResizable && (
           <div
             className={mergeClassnames(
-              "resizer absolute z-50 w-1 h-full top-0 right-0 bg-transparent hover:bg-beerus cursor-col-resize ltr",
+              "resizer absolute z-50 w-1 h-full top-0 right-0 bg-transparent cursor-col-resize ltr",
+              columnSizingInfo && !columnSizingInfo.isResizingColumn && "hover:bg-beerus",
               header.column.getIsResizing() ? "isResizing bg-beerus" : "",
             )}
             onMouseDown={header.getResizeHandler()}

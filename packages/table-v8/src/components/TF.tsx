@@ -46,14 +46,14 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
     const stickySide = stickyColumn.sticky;
 
     const styles = new Map([
-      ["width", `${header.column.columnDef.size}px`],
+      ["width", `${header.column.getSize() /*.columnDef.size*/}px`],
       [
         "minWidth",
-        `${stickySide ? columnDefinition.size : columnDefinition.minSize}px`,
+        `${stickySide ? header.column.getSize() /* columnDefinition.size */ : columnDefinition.minSize}px`,
       ],
       [
         "maxWidth",
-        `${stickySide ? columnDefinition.size : columnDefinition.maxSize}px`,
+        `${stickySide ? header.column.getSize() /* columnDefinition.size */ : columnDefinition.maxSize}px`,
       ],
       ["--footerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
     ]);
@@ -76,7 +76,7 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
           "z-[1]",
           backgroundColor && "bg-[color:var(--footerBGColor)]",
           stickySide &&
-            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--footerBGColor)]",
+            "sticky z-[2] before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--footerBGColor)]",
         )}
         ref={ref}
       >
