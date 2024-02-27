@@ -1,4 +1,4 @@
-import type ChildrenFunc from './ChildrenFunc';
+import type ChildrenFunc from "./ChildrenFunc";
 
 interface NextPrevButtonProps<C extends React.ElementType> {
   as?: C;

@@ -1,6 +1,6 @@
-import React from 'react';
-import scrollIntoView from 'scroll-into-view-if-needed';
-import smoothScrollIntoView from 'smooth-scroll-into-view-if-needed';
+import React from "react";
+import scrollIntoView from "scroll-into-view-if-needed";
+import smoothScrollIntoView from "smooth-scroll-into-view-if-needed";
 
 export const THRESHOLD = 0.75;
 
@@ -16,14 +16,14 @@ const findLastVisibleIndex = (childRefs: any[]): any => {
     // "reverse" mutates existing array, that's why we copy it via "slice"
     .slice()
     .reverse()
-    .findIndex((child) => child.getAttribute('visible'));
+    .findIndex((child) => child.getAttribute("visible"));
   const count = childRefs.length - 1;
   const finalIndex = reversedIndex >= 0 ? count - reversedIndex : reversedIndex;
   return finalIndex;
 };
 
 const findFirstVisibleIndex = (childRefs: any[]): any => {
-  return childRefs.findIndex((child) => child.getAttribute('visible'));
+  return childRefs.findIndex((child) => child.getAttribute("visible"));
 };
 
 const scrollToIndex = (
@@ -31,13 +31,13 @@ const scrollToIndex = (
   scrollIntoViewSmoothly: any,
   containerRef?: any,
   scrollStep?: number,
-  isNotSmooth?: boolean
+  isNotSmooth?: boolean,
 ) => {
   if (itemRef) {
     scrollIntoViewSmoothly(itemRef, {
-      block: 'nearest',
-      inline: scrollStep === 1 ? 'center' : 'nearest',
-      behavior: isNotSmooth ? undefined : 'smooth',
+      block: "nearest",
+      inline: scrollStep === 1 ? "center" : "nearest",
+      behavior: isNotSmooth ? undefined : "smooth",
       boundary: containerRef,
     });
   }
@@ -47,18 +47,18 @@ const scrollLeftToStep = (
   scrollStep: number,
   itemRefs: HTMLElement[],
   scrollIntoViewSmoothly: any,
-  containerRef?: any
+  containerRef?: any,
 ) => {
   const actualScrollForIndex = calculateActualScrollForIndex(
     itemRefs,
     scrollStep,
-    true
+    true,
   );
   scrollToIndex(
     itemRefs[actualScrollForIndex],
     scrollIntoViewSmoothly,
     containerRef,
-    scrollStep
+    scrollStep,
   );
 };
 
@@ -66,25 +66,25 @@ const scrollRightToStep = (
   scrollStep: number,
   itemRefs: HTMLElement[],
   scrollIntoViewSmoothly: any,
-  containerRef?: any
+  containerRef?: any,
 ) => {
   const actualScrollForIndex = calculateActualScrollForIndex(
     itemRefs,
     scrollStep,
-    false
+    false,
   );
   scrollToIndex(
     itemRefs[actualScrollForIndex],
     scrollIntoViewSmoothly,
     containerRef,
-    scrollStep
+    scrollStep,
   );
 };
 
 const calculateActualScrollForIndex = (
   itemRefs: HTMLElement[],
   scrollStep: number,
-  toLeft: boolean
+  toLeft: boolean,
 ) => {
   if (toLeft) {
     const firstVisibleIndex = findFirstVisibleIndex(itemRefs);
@@ -106,7 +106,7 @@ const showHideIndicator = (
   setLeftIndicator: (isShow: boolean) => void,
   setRightIndicator: (isShow: boolean) => void,
   setFirstVisibleIndex: (index: number) => void,
-  setLastVisibleIndex: (index: number) => void
+  setLastVisibleIndex: (index: number) => void,
 ) => {
   const firstVisibleIndex = findFirstVisibleIndex(itemRefs);
   const lastVisibleIndex = findLastVisibleIndex(itemRefs);
@@ -142,21 +142,21 @@ export const withHorizontalScroll = (options: Options): any => {
       (entries: any) => {
         entries.forEach((entry: any) => {
           entry.intersectionRatio >= THRESHOLD
-            ? entry.target.setAttribute('visible', 'true')
-            : entry.target.removeAttribute('visible');
+            ? entry.target.setAttribute("visible", "true")
+            : entry.target.removeAttribute("visible");
           showHideIndicator(
             itemRefs,
             setLeftIndicator,
             setRightIndicator,
             setFirstVisibleIndex,
-            setLastVisibleIndex
+            setLastVisibleIndex,
           );
         });
       },
       {
         root: containerRef.current,
         threshold: THRESHOLD,
-      }
+      },
     );
 
     itemRefs.forEach((item) => {
@@ -172,7 +172,7 @@ export const withHorizontalScroll = (options: Options): any => {
   React.useEffect(() => {
     if (document) {
       scrollIntoViewSmoothly =
-        'scrollBehavior' in document.documentElement.style
+        "scrollBehavior" in document.documentElement.style
           ? scrollIntoView
           : smoothScrollIntoView;
     }
@@ -196,7 +196,7 @@ export const withHorizontalScroll = (options: Options): any => {
         scrollIntoViewSmoothly,
         scrollInContainer && containerRef && containerRef.current,
         undefined,
-        true
+        true,
       );
     }
   }, []);
@@ -217,7 +217,7 @@ export const withHorizontalScroll = (options: Options): any => {
         scrollIntoViewSmoothly,
         scrollInContainer && containerRef && containerRef.current,
         undefined,
-        false
+        false,
       );
     }
     // No point for scroll another extra item because that's the last one
@@ -227,7 +227,7 @@ export const withHorizontalScroll = (options: Options): any => {
         scrollIntoViewSmoothly,
         scrollInContainer && containerRef && containerRef.current,
         undefined,
-        false
+        false,
       );
     }
   }, []);
@@ -242,20 +242,20 @@ export const withHorizontalScroll = (options: Options): any => {
         scrollStep || 0,
         itemRefs,
         scrollIntoViewSmoothly,
-        scrollInContainer && containerRef && containerRef.current
+        scrollInContainer && containerRef && containerRef.current,
       ),
     scrollRightToStep: () =>
       scrollRightToStep(
         scrollStep || 0,
         itemRefs,
         scrollIntoViewSmoothly,
-        scrollInContainer && containerRef && containerRef.current
+        scrollInContainer && containerRef && containerRef.current,
       ),
     scrollToIndex: (index: number) =>
       scrollToIndex(
         itemRefs[index],
         scrollIntoViewSmoothly,
-        scrollInContainer && containerRef && containerRef.current
+        scrollInContainer && containerRef && containerRef.current,
       ),
     canScrollLeft: leftIndicator,
     canScrollRight: rightIndicator,

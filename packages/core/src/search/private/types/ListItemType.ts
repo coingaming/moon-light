@@ -1,3 +1,3 @@
-type ListItemType = 'Link' | 'Action';
+type ListItemType = "Link" | "Action";
 
 export default ListItemType;

@@ -2,6 +2,6 @@ import { createContext } from "react";
 import type DropdownState from "../types/DropdownState";
 
 const DropdownContext = createContext<DropdownState>({});
-DropdownContext.displayName = 'DropdownContext';
+DropdownContext.displayName = "DropdownContext";
 
-export default DropdownContext
+export default DropdownContext;

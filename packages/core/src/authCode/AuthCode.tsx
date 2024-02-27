@@ -3,17 +3,17 @@ import React, {
   useEffect,
   useImperativeHandle,
   useRef,
-} from 'react';
-import type AuthCodeProps from './private/types/AuthCodeProps';
-import type AuthCodeRef from './private/types/AuthCodeTypes';
-import allowedCharactersValues from './private/utils/allowedCharactersValues';
-import propsMap from './private/utils/propsMap';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+} from "react";
+import type AuthCodeProps from "./private/types/AuthCodeProps";
+import type AuthCodeRef from "./private/types/AuthCodeTypes";
+import allowedCharactersValues from "./private/utils/allowedCharactersValues";
+import propsMap from "./private/utils/propsMap";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
   (
     {
-      allowedCharacters = 'alphanumeric',
+      allowedCharacters = "alphanumeric",
       ariaLabel,
       autoFocus = false,
       className,
@@ -24,15 +24,15 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
       onChange,
       isValid = true,
     },
-    ref
+    ref,
   ) => {
     if (isNaN(length) || length < 1) {
-      throw new Error('Length should be a number and greater than 0');
+      throw new Error("Length should be a number and greater than 0");
     }
 
     if (!allowedCharactersValues.some((value) => value === allowedCharacters)) {
       throw new Error(
-        'Invalid value for allowedCharacters. Use alpha, numeric, or alphanumeric'
+        "Invalid value for allowedCharacters. Use alpha, numeric, or alphanumeric",
       );
     }
 
@@ -50,7 +50,7 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
       clear: () => {
         if (inputsRef.current) {
           for (let i = 0; i < inputsRef.current.length; i++) {
-            inputsRef.current[i].value = '';
+            inputsRef.current[i].value = "";
           }
           inputsRef.current[0].focus();
         }
@@ -65,7 +65,7 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
     }, []);
 
     const sendResult = () => {
-      const res = inputsRef.current.map((input) => input.value).join('');
+      const res = inputsRef.current.map((input) => input.value).join("");
       onChange && onChange(res);
     };
 
@@ -79,12 +79,12 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
           (nextElementSibling as HTMLInputElement).focus();
         }
       } else {
-        if (value.match(new RegExp(inputProps.pattern, 'gi'))) {
+        if (value.match(new RegExp(inputProps.pattern, "gi"))) {
           if (nextElementSibling !== null) {
             (nextElementSibling as HTMLInputElement).focus();
           }
         } else {
-          e.target.value = '';
+          e.target.value = "";
         }
       }
       sendResult();
@@ -93,16 +93,16 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
     const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       const { key } = e;
       const target = e.target as HTMLInputElement;
-      if (key === 'Backspace') {
-        if (target.value === '') {
+      if (key === "Backspace") {
+        if (target.value === "") {
           if (target.previousElementSibling !== null) {
             const t = target.previousElementSibling as HTMLInputElement;
-            t.value = '';
+            t.value = "";
             t.focus();
             e.preventDefault();
           }
         } else {
-          target.value = '';
+          target.value = "";
         }
         sendResult();
       }
@@ -113,7 +113,7 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
     };
 
     const handleOnPaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
-      const pastedValue = e.clipboardData.getData('Text');
+      const pastedValue = e.clipboardData.getData("Text");
 
       let currentInput = 0;
 
@@ -149,22 +149,22 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
           onFocus={handleOnFocus}
           onPaste={handleOnPaste}
           {...inputProps}
-          type={isPassword ? 'password' : inputProps.type}
+          type={isPassword ? "password" : inputProps.type}
           ref={(el: HTMLInputElement) => {
             inputsRef.current[i] = el;
           }}
           maxLength={1}
           className={mergeClassnames(
-            'h-[72px] w-full max-w-[48px] rounded-moon-i-sm bg-goku text-moon-24 appearance-none',
-            'text-bulma text-center shadow-input hover:shadow-input-hov transition-shadow py-4',
-            'focus:shadow-input-focus focus:outline-none focus-visible::shadow-input-focus',
-            'focus-visible::outline-none',
+            "h-[72px] w-full max-w-[48px] rounded-moon-i-sm bg-goku text-moon-24 appearance-none",
+            "text-bulma text-center shadow-input hover:shadow-input-hov transition-shadow py-4",
+            "focus:shadow-input-focus focus:outline-none focus-visible::shadow-input-focus",
+            "focus-visible::outline-none",
             !isValid &&
-              'text-chichi shadow-input-err hover:shadow-input-err focus:shadow-input-err',
+              "text-chichi shadow-input-err hover:shadow-input-err focus:shadow-input-err",
             disabled &&
-              'opacity-60 shadow-input focus:shadow-input hover:shadow-input cursor-not-allowed'
+              "opacity-60 shadow-input focus:shadow-input hover:shadow-input cursor-not-allowed",
           )}
-          autoComplete={i === 0 ? 'one-time-code' : 'off'}
+          autoComplete={i === 0 ? "one-time-code" : "off"}
           aria-label={
             ariaLabel
               ? `${ariaLabel}. Character ${i + 1}`
@@ -172,14 +172,14 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
           }
           disabled={disabled}
           placeholder={placeholder && placeholder[i]}
-        />
+        />,
       );
     }
 
     return (
-      <div className={mergeClassnames('flex gap-2', className)}>{inputs}</div>
+      <div className={mergeClassnames("flex gap-2", className)}>{inputs}</div>
     );
-  }
+  },
 );
 
 export default AuthCode;

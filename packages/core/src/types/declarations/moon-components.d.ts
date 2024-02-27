@@ -1,1 +1,1 @@
-declare module '@heathmont/moon-components';
+declare module "@heathmont/moon-components";

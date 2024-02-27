@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const VIEWBOX_CENTER_X = 50;
 export const VIEWBOX_CENTER_Y = 50;
@@ -18,7 +18,7 @@ type PathProps = {
 
 const getPathDescription = (
   pathRadius: number,
-  center: Coordinate = { x: VIEWBOX_CENTER_X, y: VIEWBOX_CENTER_Y }
+  center: Coordinate = { x: VIEWBOX_CENTER_X, y: VIEWBOX_CENTER_Y },
 ): string => `
       M ${center.x},${center.y}
       m 0,-${pathRadius}

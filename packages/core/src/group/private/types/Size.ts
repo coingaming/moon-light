@@ -1,3 +1,3 @@
-type Size = 'sm' | 'md' | 'lg';
+type Size = "sm" | "md" | "lg";
 
 export default Size;

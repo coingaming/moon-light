@@ -3,18 +3,18 @@ const makeBorder = (
   isTopBottomBorderHidden?: boolean,
   isFirst?: boolean,
   isRtl?: boolean,
-  error?: boolean
+  error?: boolean,
 ) => {
-  if (error) return '';
+  if (error) return "";
   if (isSideBorderHidden) {
     if (isRtl) {
-      return isFirst ? 'input-lsb-hidden' : 'input-rsb-hidden';
+      return isFirst ? "input-lsb-hidden" : "input-rsb-hidden";
     }
-    return isFirst ? 'input-rsb-hidden' : 'input-lsb-hidden';
+    return isFirst ? "input-rsb-hidden" : "input-lsb-hidden";
   } else if (isTopBottomBorderHidden) {
-    return isFirst ? 'input-bbb-hidden' : 'input-tbb-hidden';
+    return isFirst ? "input-bbb-hidden" : "input-tbb-hidden";
   }
-  return '';
+  return "";
 };
 
 export default makeBorder;

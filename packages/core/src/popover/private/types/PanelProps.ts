@@ -4,7 +4,7 @@ interface PanelProps
       React.HTMLAttributes<HTMLDivElement>,
       HTMLDivElement
     >,
-    'children'
+    "children"
   > {
   className?: string;
   isStatic?: boolean;

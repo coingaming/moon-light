@@ -1,1 +1,1 @@
-declare module 'mini-svg-data-uri';
+declare module "mini-svg-data-uri";

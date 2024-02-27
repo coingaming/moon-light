@@ -1,4 +1,4 @@
-import type Placement from './Placement';
+import type Placement from "./Placement";
 
 interface PopoverRootProps
   extends Omit<
@@ -6,7 +6,7 @@ interface PopoverRootProps
       React.HTMLAttributes<HTMLDivElement>,
       HTMLDivElement
     >,
-    'children'
+    "children"
   > {
   position?: Placement;
   autoPositionDisable?: boolean;

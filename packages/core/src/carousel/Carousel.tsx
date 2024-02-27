@@ -1,12 +1,12 @@
-import React, { Children, useEffect } from 'react';
-import type CarouselRootProps from './private/types/CarouselRootProps';
-import type SubcomponentProps from './private/types/SubcomponentProps';
-import CarouselContext from './private/utils/CarouselContext';
-import useCarouselContext from './private/utils/useCarouselContext';
-import useInterval from './private/utils/useInterval';
-import withHorizontalScroll from './private/utils/withHorizontalScroll';
-import IconButton from '../iconButton/IconButton';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+import React, { Children, useEffect } from "react";
+import type CarouselRootProps from "./private/types/CarouselRootProps";
+import type SubcomponentProps from "./private/types/SubcomponentProps";
+import CarouselContext from "./private/utils/CarouselContext";
+import useCarouselContext from "./private/utils/useCarouselContext";
+import useInterval from "./private/utils/useInterval";
+import withHorizontalScroll from "./private/utils/withHorizontalScroll";
+import IconButton from "../iconButton/IconButton";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const CarouselRoot = ({
   children,
@@ -76,8 +76,8 @@ const CarouselRoot = ({
         isRtl,
       }}
     >
-      <div className={mergeClassnames('relative w-full', className)} {...rest}>
-        {typeof children === 'function'
+      <div className={mergeClassnames("relative w-full", className)} {...rest}>
+        {typeof children === "function"
           ? children({
               scrollLeftToStep,
               scrollRightToStep,
@@ -94,20 +94,20 @@ const CarouselRoot = ({
 
 const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
   const { containerRef, autoSlideDelay, isRtl } =
-    useCarouselContext('Carousel.Reel');
+    useCarouselContext("Carousel.Reel");
   const arrayChildren = Children.toArray(children);
   const revertChildren = arrayChildren.reverse();
   return (
     <ul
       className={mergeClassnames(
-        'flex overflow-x-auto overflow-y-hidden h-auto hidden-scroll gap-4',
-        '[-webkit-overflow-scrolling:touch] [scrollbar-width:none]',
-        '[-ms-overflow-style:-ms-autohiding-scrollbar]',
+        "flex overflow-x-auto overflow-y-hidden h-auto hidden-scroll gap-4",
+        "[-webkit-overflow-scrolling:touch] [scrollbar-width:none]",
+        "[-ms-overflow-style:-ms-autohiding-scrollbar]",
         '[&>li]:list-none [&>li]:before:absolute [&>li]:before:content-["\\200B"]',
-        '[&>*]:flex-[0_0_auto] [&>img]:h-full [&>img]:basis-auto [&>img]:w-auto',
-        'snap-x snap-mandatory rtl:flex-row-reverse',
-        autoSlideDelay && 'overflow-x-hidden',
-        className
+        "[&>*]:flex-[0_0_auto] [&>img]:h-full [&>img]:basis-auto [&>img]:w-auto",
+        "snap-x snap-mandatory rtl:flex-row-reverse",
+        autoSlideDelay && "overflow-x-hidden",
+        className,
       )}
       ref={containerRef}
       {...rest}
@@ -119,12 +119,12 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
 
 // TODO: highlight selected item (mark it as selected)
 const Item = ({ children, className, ...rest }: SubcomponentProps) => {
-  const { itemRef } = useCarouselContext('Carousel.Item');
+  const { itemRef } = useCarouselContext("Carousel.Item");
   return (
     <li
       className={mergeClassnames(
-        'snap-center flex bg-goku rounded-moon-s-sm items-center justify-center',
-        className
+        "snap-center flex bg-goku rounded-moon-s-sm items-center justify-center",
+        className,
       )}
       ref={itemRef}
       {...rest}
@@ -136,14 +136,14 @@ const Item = ({ children, className, ...rest }: SubcomponentProps) => {
 
 const LeftArrow = ({ children, className, ...rest }: SubcomponentProps) => {
   const { scrollLeftToStep = () => {}, canScrollLeft } =
-    useCarouselContext('Carousel.LeftArrow');
+    useCarouselContext("Carousel.LeftArrow");
   return (
     <IconButton
       size="sm"
       className={mergeClassnames(
-        'max-sm:hidden shadow-moon-sm bg-goku text-bulma',
-        'absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -start-4',
-        className
+        "max-sm:hidden shadow-moon-sm bg-goku text-bulma",
+        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -start-4",
+        className,
       )}
       onClick={scrollLeftToStep}
       disabled={!canScrollLeft}
@@ -157,15 +157,15 @@ const LeftArrow = ({ children, className, ...rest }: SubcomponentProps) => {
 
 const RightArrow = ({ children, className, ...rest }: SubcomponentProps) => {
   const { scrollRightToStep = () => {}, canScrollRight } = useCarouselContext(
-    'Carousel.RightArrow'
+    "Carousel.RightArrow",
   );
   return (
     <IconButton
       size="sm"
       className={mergeClassnames(
-        'max-sm:hidden shadow-moon-sm bg-goku text-bulma',
-        'absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -end-4',
-        className
+        "max-sm:hidden shadow-moon-sm bg-goku text-bulma",
+        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -end-4",
+        className,
       )}
       onClick={scrollRightToStep}
       disabled={!canScrollRight}
@@ -184,7 +184,7 @@ const Indicators = ({ className, ...rest }: SubcomponentProps) => {
     selectedIndex,
     firstVisibleIndex = 0,
     lastVisibleIndex = 0,
-  } = useCarouselContext('Carousel.RightArrow');
+  } = useCarouselContext("Carousel.RightArrow");
   const activeIndex =
     !selectedIndex ||
     selectedIndex < firstVisibleIndex ||
@@ -195,16 +195,16 @@ const Indicators = ({ className, ...rest }: SubcomponentProps) => {
   return (
     <div
       className={mergeClassnames(
-        'flex absolute bottom-8 left-1/2 -translate-x-1/2 rtl:flex-row-reverse',
-        className
+        "flex absolute bottom-8 left-1/2 -translate-x-1/2 rtl:flex-row-reverse",
+        className,
       )}
       {...rest}
     >
       {items?.map((_, index) => (
         <div
           className={mergeClassnames(
-            'w-2 h-2 mx-1 rounded-full bg-beerus',
-            activeIndex === index && 'bg-piccolo'
+            "w-2 h-2 mx-1 rounded-full bg-beerus",
+            activeIndex === index && "bg-piccolo",
           )}
           key={index}
         />

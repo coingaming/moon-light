@@ -1,4 +1,4 @@
-import type StatusOriginProps from './StatusOriginProps';
+import type StatusOriginProps from "./StatusOriginProps";
 
 type StatusProps = {
   position?: StatusOriginProps;

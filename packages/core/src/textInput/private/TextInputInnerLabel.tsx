@@ -1,10 +1,10 @@
-import React, { forwardRef } from 'react';
-import Container from './Container';
-import HintText from './HintText';
-import Input from './Input';
-import getBorderRadius from './utils/getBorderRadius';
-import mergeClassnames from '../../mergeClassnames/mergeClassnames';
-import type TextInputProps from '../private/types/TextInputProps';
+import React, { forwardRef } from "react";
+import Container from "./Container";
+import HintText from "./HintText";
+import Input from "./Input";
+import getBorderRadius from "./utils/getBorderRadius";
+import mergeClassnames from "../../mergeClassnames/mergeClassnames";
+import type TextInputProps from "../private/types/TextInputProps";
 
 const TextInputInnerLabel = forwardRef<HTMLInputElement, TextInputProps>(
   (props, ref) => {
@@ -24,7 +24,7 @@ const TextInputInnerLabel = forwardRef<HTMLInputElement, TextInputProps>(
       isSharpBottomSide,
       isTopBottomBorderHidden,
       isSideBorderHidden,
-      bgColor = 'bg-goku',
+      bgColor = "bg-goku",
       ...rest
     } = props;
     const inputProps = {
@@ -44,9 +44,9 @@ const TextInputInnerLabel = forwardRef<HTMLInputElement, TextInputProps>(
       <Container disabled={disabled} inputSize={inputSize}>
         <div
           className={mergeClassnames(
-            'w-full max-w-full relative',
-            bgColor ? bgColor : 'bg-transparent',
-            getBorderRadius(inputSize)
+            "w-full max-w-full relative",
+            bgColor ? bgColor : "bg-transparent",
+            getBorderRadius(inputSize),
           )}
         >
           <Input
@@ -55,7 +55,7 @@ const TextInputInnerLabel = forwardRef<HTMLInputElement, TextInputProps>(
             ref={ref}
             id={id}
             isLabel={!!label}
-            isRtl={dir === 'rtl'}
+            isRtl={dir === "rtl"}
             {...inputProps}
           />
           <label className="absolute text-moon-12 text-trunks top-3 z-[1] transition-all ease-in-out duration-200 start-4">
@@ -65,7 +65,7 @@ const TextInputInnerLabel = forwardRef<HTMLInputElement, TextInputProps>(
         {hintText && <HintText isError={isError}>{hintText}</HintText>}
       </Container>
     );
-  }
+  },
 );
 
 export default TextInputInnerLabel;

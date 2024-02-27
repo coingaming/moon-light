@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { useBottomSheetContext } from './context';
+import { useEffect, useRef, useState } from "react";
+import { useBottomSheetContext } from "./context";
 
 const useDrag = (onClose?: () => void, isDragable?: boolean) => {
   const draghandleRef = useRef<HTMLDivElement>(null);
@@ -56,13 +56,13 @@ const useDrag = (onClose?: () => void, isDragable?: boolean) => {
     if (!ref || !isDragable) {
       return;
     }
-    ref.addEventListener('touchstart', onTouchStart);
-    ref.addEventListener('touchmove', onTouchMove);
-    ref.addEventListener('touchend', onTouchEnd);
+    ref.addEventListener("touchstart", onTouchStart);
+    ref.addEventListener("touchmove", onTouchMove);
+    ref.addEventListener("touchend", onTouchEnd);
     return () => {
-      ref.removeEventListener('touchstart', onTouchStart);
-      ref.removeEventListener('touchmove', onTouchMove);
-      ref.removeEventListener('touchend', onTouchEnd);
+      ref.removeEventListener("touchstart", onTouchStart);
+      ref.removeEventListener("touchmove", onTouchMove);
+      ref.removeEventListener("touchend", onTouchEnd);
     };
   }, [draghandleRef, onTouchStart, onTouchMove, onTouchEnd]);
 
@@ -75,7 +75,7 @@ const useDrag = (onClose?: () => void, isDragable?: boolean) => {
       ref.style.transform = `translateY(${delta}px)`;
     } else {
       setTimeout(() => {
-        ref.style.transform = 'translateY(0)';
+        ref.style.transform = "translateY(0)";
       }, 0);
     }
   }, [delta, panelRef]);
@@ -88,12 +88,12 @@ const useDrag = (onClose?: () => void, isDragable?: boolean) => {
   }, [contentRef, panelRef]);
 
   const { bottomSheetChildren, dispatch } =
-    useBottomSheetContext('BottomSheet.Panel');
+    useBottomSheetContext("BottomSheet.Panel");
 
-  const hasDraghandle = bottomSheetChildren?.includes('Draghandle');
+  const hasDraghandle = bottomSheetChildren?.includes("Draghandle");
   useEffect(() => {
     if (hasDraghandle) {
-      dispatch?.({ type: 'RegisterDraghandleRef', draghandleRef });
+      dispatch?.({ type: "RegisterDraghandleRef", draghandleRef });
     }
   }, [hasDraghandle, bottomSheetChildren, dispatch, draghandleRef]);
 

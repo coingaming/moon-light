@@ -1,5 +1,5 @@
-import React from 'react';
-import type UsePagination from '../types/UsePagination';
+import React from "react";
+import type UsePagination from "../types/UsePagination";
 
 type UsePaginationProps = {
   currentPage: number;
@@ -38,7 +38,7 @@ const usePagination = ({
     }
     return pages.slice(
       currentPage - middlePagesSiblingCount,
-      currentPage + middlePagesSiblingCount + 1
+      currentPage + middlePagesSiblingCount + 1,
     );
   }, [currentPage, pages]);
 
@@ -58,7 +58,7 @@ const usePagination = ({
   const getAllNextPages = React.useMemo(() => {
     return pages.slice(
       middlePages[middlePages.length - 1],
-      pages[pages.length]
+      pages[pages.length],
     );
   }, [pages, middlePages]);
 

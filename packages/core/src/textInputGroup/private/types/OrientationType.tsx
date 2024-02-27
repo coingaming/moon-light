@@ -1,3 +1,3 @@
-type OrientationType = 'vertical' | 'horizontal';
+type OrientationType = "vertical" | "horizontal";
 
 export default OrientationType;

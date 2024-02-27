@@ -1,4 +1,4 @@
-import type Sizes from './Sizes';
+import type Sizes from "./Sizes";
 
 type Props = {
   size?: Sizes;

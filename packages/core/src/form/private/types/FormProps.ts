@@ -1,4 +1,4 @@
-import type Size from './Size';
+import type Size from "./Size";
 
 interface FormProps
   extends Omit<
@@ -6,7 +6,7 @@ interface FormProps
       React.FormHTMLAttributes<HTMLFormElement>,
       HTMLFormElement
     >,
-    'size'
+    "size"
   > {
   size?: Size;
   className?: string;

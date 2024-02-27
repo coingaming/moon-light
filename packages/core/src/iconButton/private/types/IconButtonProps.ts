@@ -1,7 +1,7 @@
-import React from 'react';
-import type ButtonAnimations from '../../../button/private/types/ButtonAnimations';
-import type ButtonSizes from '../../../button/private/types/ButtonSizes';
-import type ButtonVariants from '../../../button/private/types/ButtonVariants';
+import React from "react";
+import type ButtonAnimations from "../../../button/private/types/ButtonAnimations";
+import type ButtonSizes from "../../../button/private/types/ButtonSizes";
+import type ButtonVariants from "../../../button/private/types/ButtonVariants";
 
 export type IconButtonSettingsProps = {
   icon?: JSX.Element;

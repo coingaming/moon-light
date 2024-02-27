@@ -1,6 +1,6 @@
-import React from 'react';
-import InputValue from './InputValue';
-import type Size from './Size';
+import React from "react";
+import InputValue from "./InputValue";
+import type Size from "./Size";
 
 type ComboboxState = {
   value?: InputValue;
@@ -14,7 +14,7 @@ type ComboboxState = {
     setIsFocused: React.Dispatch<React.SetStateAction<boolean>>;
   };
   popper?: {
-    forceUpdate: (() => void) | null
+    forceUpdate: (() => void) | null;
     styles?: { [key: string]: React.CSSProperties };
     attributes?: { [key: string]: { [key: string]: string } | undefined };
     setAnchor: React.Dispatch<React.SetStateAction<Element | null | undefined>>;

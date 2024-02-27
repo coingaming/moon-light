@@ -1,5 +1,5 @@
-import type NextPrevButtonProps from './NextPrevButtonProps';
-import type PropsWithChildrenFunc from './PropsWithChildrenFunc';
+import type NextPrevButtonProps from "./NextPrevButtonProps";
+import type PropsWithChildrenFunc from "./PropsWithChildrenFunc";
 
 type PolymorphicNextPrevButtonProps<C extends React.ElementType> =
   PropsWithChildrenFunc<NextPrevButtonProps<C>> &

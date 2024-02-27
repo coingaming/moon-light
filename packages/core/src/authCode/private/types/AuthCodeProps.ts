@@ -1,4 +1,4 @@
-import allowedCharactersValues from '../utils/allowedCharactersValues';
+import allowedCharactersValues from "../utils/allowedCharactersValues";
 
 type AuthCodeProps = {
   allowedCharacters?: (typeof allowedCharactersValues)[number];

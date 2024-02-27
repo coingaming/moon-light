@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import mergeClassnames from '../../../mergeClassnames/mergeClassnames';
-import type ButtonProps from '../types/ButtonProps';
-import type LinkProps from '../types/LinkProps';
-import { OpenContext, SelectContext } from '../utils/context';
+import React, { useContext } from "react";
+import mergeClassnames from "../../../mergeClassnames/mergeClassnames";
+import type ButtonProps from "../types/ButtonProps";
+import type LinkProps from "../types/LinkProps";
+import { OpenContext, SelectContext } from "../utils/context";
 
-const commonClasses = 'moon-search-list-item w-full';
+const commonClasses = "moon-search-list-item w-full";
 
 export const Link = ({
   closeOnSelect = true,
@@ -21,7 +21,7 @@ export const Link = ({
   function renderLinkContent() {
     return (
       <div>
-        {typeof children === 'function'
+        {typeof children === "function"
           ? children(selected === index)
           : children}
       </div>
@@ -82,7 +82,7 @@ export const Button = ({
       onClick={clickAndClose}
       className={mergeClassnames(commonClasses, className)}
     >
-      {typeof children === 'function' ? children(selected === index) : children}
+      {typeof children === "function" ? children(selected === index) : children}
     </button>
   );
 };

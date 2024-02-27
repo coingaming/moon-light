@@ -11,7 +11,7 @@ type DropdownState = {
       React.SetStateAction<HTMLElement | null | undefined>
     >;
   };
-  size?: 'sm' | 'md' | 'lg' | string;
+  size?: "sm" | "md" | "lg" | string;
 };
 
-export default DropdownState
+export default DropdownState;
