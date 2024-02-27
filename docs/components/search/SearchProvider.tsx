@@ -42,7 +42,7 @@ export const SearchProvider = ({
         onOpenChange={setOpen}
         shouldFilter={false}
         label="Command Menu"
-        className="max-w-sm "
+        className="translate-y-0 lg:-translate-y-1/2 bottom-0 lg:bottom-auto max-w-sm rounded-b-none lg:rounded-b-moon-s-md"
       >
         <SearchCmdk.InputWrapper>
           <SearchCmdk.Icon />

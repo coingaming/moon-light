@@ -5,6 +5,15 @@ import useProps from "@/hooks/useProps";
 import useComponentInfo from "@/hooks/useComponentInfo";
 import sortExamples from "@/utils/sortExamples";
 import type { TagTypes } from "@/types";
+import COMPONENTS from "@/components.constants.mjs";
+
+export async function generateStaticParams() {
+  return Object.keys(COMPONENTS).map((name: string) => {
+    return {
+      slug: [name],
+    };
+  });
+}
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const componentName = params?.slug?.[0];
