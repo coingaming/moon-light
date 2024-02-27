@@ -1,6 +1,6 @@
 type MenuItemActions =
-  | { type: 'RegisterChild'; children: string }
-  | { type: 'UnregisterChild'; children: string };
+  | { type: "RegisterChild"; children: string }
+  | { type: "UnregisterChild"; children: string };
 
 type StatesProps = {
   childrens?: string[];
@@ -8,19 +8,19 @@ type StatesProps = {
 
 function stateReducer<T extends StatesProps>(
   state: T,
-  action: MenuItemActions
+  action: MenuItemActions,
 ) {
   switch (action.type) {
-    case 'RegisterChild': {
+    case "RegisterChild": {
       if (state.childrens?.includes(action.children)) return state;
       const currentChildren = state?.childrens || [];
       return { ...state, childrens: [...currentChildren, action.children] };
     }
-    case 'UnregisterChild': {
+    case "UnregisterChild": {
       return {
         ...state,
         childrens: state.childrens?.filter(
-          (child) => child !== action.children
+          (child) => child !== action.children,
         ),
       };
     }

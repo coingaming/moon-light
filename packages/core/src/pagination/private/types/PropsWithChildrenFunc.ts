@@ -1,4 +1,4 @@
-import type ChildrenFunc from './ChildrenFunc';
+import type ChildrenFunc from "./ChildrenFunc";
 
 type PropsWithChildrenFunc<P = unknown> = P & {
   children?: React.ReactNode | ChildrenFunc | undefined;

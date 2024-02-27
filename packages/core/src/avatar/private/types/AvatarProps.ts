@@ -1,5 +1,5 @@
-import type SizeProps from './SizeProps';
-import type StatusOriginProps from './StatusOriginProps';
+import type SizeProps from "./SizeProps";
+import type StatusOriginProps from "./StatusOriginProps";
 
 type AvatarProps = {
   imageUrl?: string;

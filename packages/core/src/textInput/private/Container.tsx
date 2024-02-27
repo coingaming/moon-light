@@ -1,6 +1,6 @@
-import React from 'react';
-import getBorderRadius from './utils/getBorderRadius';
-import mergeClassnames from '../../mergeClassnames/mergeClassnames';
+import React from "react";
+import getBorderRadius from "./utils/getBorderRadius";
+import mergeClassnames from "../../mergeClassnames/mergeClassnames";
 
 type Props = {
   disabled?: boolean;
@@ -11,9 +11,9 @@ type Props = {
 const Container = ({ children, disabled, inputSize }: Props) => (
   <div
     className={mergeClassnames(
-      'w-full max-w-full relative z-0',
-      disabled && 'opacity-60 cursor-not-allowed',
-      getBorderRadius(inputSize)
+      "w-full max-w-full relative z-0",
+      disabled && "opacity-60 cursor-not-allowed",
+      getBorderRadius(inputSize),
     )}
   >
     {children}

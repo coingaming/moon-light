@@ -1,4 +1,4 @@
-import type Size from './Size';
+import type Size from "./Size";
 
 type TagsInputState = {
   value?: unknown;

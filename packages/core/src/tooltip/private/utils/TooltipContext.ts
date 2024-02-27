@@ -1,7 +1,7 @@
-import { createContext } from 'react';
-import type TooltipState from '../types/TooltipState';
+import { createContext } from "react";
+import type TooltipState from "../types/TooltipState";
 
 const TooltipContext = createContext<TooltipState>({});
-TooltipContext.displayName = 'TooltipContext';
+TooltipContext.displayName = "TooltipContext";
 
 export default TooltipContext;

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 type CallableChildren = (data: {
   open?: boolean;
@@ -6,7 +6,7 @@ type CallableChildren = (data: {
     focusableElement?:
       | HTMLElement
       | React.MutableRefObject<HTMLElement | null>
-      | undefined
+      | undefined,
   ) => void;
 }) => ReactNode;
 

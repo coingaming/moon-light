@@ -1,5 +1,5 @@
-import { createContext } from 'react';
-import type UsePagination from './UsePagination';
+import { createContext } from "react";
+import type UsePagination from "./UsePagination";
 
 const defaultState: UsePagination = {
   currentPage: 0,
@@ -16,6 +16,6 @@ const defaultState: UsePagination = {
 };
 
 const PaginationContext = createContext(defaultState);
-PaginationContext.displayName = 'PaginationContext';
+PaginationContext.displayName = "PaginationContext";
 
 export default PaginationContext;

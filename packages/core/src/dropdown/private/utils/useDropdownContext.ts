@@ -5,7 +5,7 @@ const useDropdownContext = (component: string) => {
   const context = useContext(DropdownContext);
   if (context === null) {
     const err = new Error(
-      `<${component}> is missing a parent <Dropdown /> component.`
+      `<${component}> is missing a parent <Dropdown /> component.`,
     );
     // if (Error.captureStackTrace) Error.captureStackTrace(err, useDropdownContext);
     throw err;
@@ -13,4 +13,4 @@ const useDropdownContext = (component: string) => {
   return context;
 };
 
-export default useDropdownContext
+export default useDropdownContext;

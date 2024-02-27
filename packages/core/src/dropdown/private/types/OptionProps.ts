@@ -1,9 +1,8 @@
 type OptionProps = {
   value?: unknown;
-  children: React.ReactElement | ((data: {
-    selected?: boolean;
-    active?: boolean;
-  }) => React.ReactElement);
+  children:
+    | React.ReactElement
+    | ((data: { selected?: boolean; active?: boolean }) => React.ReactElement);
 };
 
-export default OptionProps
+export default OptionProps;

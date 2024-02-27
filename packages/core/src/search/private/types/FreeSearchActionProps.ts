@@ -1,7 +1,7 @@
-import type ButtonProps from './ButtonProps';
-import type LinkProps from './LinkProps';
+import type ButtonProps from "./ButtonProps";
+import type LinkProps from "./LinkProps";
 
-interface FreeSearchActionProps extends Omit<ButtonProps & LinkProps, 'index'> {
+interface FreeSearchActionProps extends Omit<ButtonProps & LinkProps, "index"> {
   index?: number;
   label?: string | React.ReactNode;
   className?: string;

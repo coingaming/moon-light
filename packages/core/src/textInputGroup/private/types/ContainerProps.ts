@@ -1,5 +1,5 @@
 type ContainerProps = {
-  orientation?: 'vertical' | 'horizontal';
+  orientation?: "vertical" | "horizontal";
   isXLarge?: boolean;
   dir?: string;
   backgroundColor?: string;

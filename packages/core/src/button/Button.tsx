@@ -1,20 +1,20 @@
-import React, { useCallback, useState } from 'react';
-import type ButtonProps from './private/types/ButtonProps';
-import AnimationContent from './private/utils/buttonAnimations/AnimationContent';
-import ButtonComponent from './styles/ButtonComponent';
-import Hover from './styles/Hover';
-import IconLeft from './styles/IconLeft';
-import IconRight from './styles/IconRight';
+import React, { useCallback, useState } from "react";
+import type ButtonProps from "./private/types/ButtonProps";
+import AnimationContent from "./private/utils/buttonAnimations/AnimationContent";
+import ButtonComponent from "./styles/ButtonComponent";
+import Hover from "./styles/Hover";
+import IconLeft from "./styles/IconLeft";
+import IconRight from "./styles/IconRight";
 
 export type Props<C extends React.ElementType> = React.PropsWithChildren<
   ButtonProps<C>
 > &
   Omit<React.ComponentPropsWithoutRef<C>, keyof ButtonProps<C>>;
 
-const Button = <C extends React.ElementType = 'button'>({
+const Button = <C extends React.ElementType = "button">({
   children,
-  variant = 'fill',
-  size = 'md',
+  variant = "fill",
+  size = "md",
   icon, // deprecated
   iconLeft, // not boolean anymore
   iconRight, // not boolean anymore
@@ -28,7 +28,7 @@ const Button = <C extends React.ElementType = 'button'>({
 }: Props<C>) => {
   const [isHover, setIsHover] = useState(false);
   const hasAnimationContent =
-    animation === 'progress' || animation === 'success';
+    animation === "progress" || animation === "success";
   const onMouseEnter = useCallback(() => setIsHover(true), [setIsHover]);
   const onMouseLeave = useCallback(() => setIsHover(false), [setIsHover]);
 

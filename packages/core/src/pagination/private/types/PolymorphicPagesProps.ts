@@ -1,4 +1,4 @@
-import type PagesProps from './PagesProps';
+import type PagesProps from "./PagesProps";
 
 type PolymorphicPagesProps<C extends React.ElementType> =
   React.PropsWithChildren<PagesProps<C>> &

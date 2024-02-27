@@ -1,5 +1,5 @@
-import type Orientation from './Orientation';
-import type Size from './Size';
+import type Orientation from "./Orientation";
+import type Size from "./Size";
 
 type GroupProps = {
   orientation?: Orientation;

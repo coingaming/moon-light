@@ -1,29 +1,29 @@
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from "react";
 import {
   Combobox as HeadlessCombobox,
   Transition as HeadlessTransition,
   Listbox,
-} from '@headlessui/react';
-import { usePopper } from 'react-popper';
-import ButtonProps from './private/types/ButtonProps';
-import { ComboboxRootProps } from './private/types/ComboboxRootProps';
-import InputProps from './private/types/InputProps';
-import type OptionProps from './private/types/OptionProps';
-import type OptionsProps from './private/types/OptionsProps';
-import SelectProps from './private/types/SelectProps';
-import WithChildren from './private/types/WithChildren';
-import { getSizeStyles, getTextSizes } from './private/utils/getSizeStyles';
+} from "@headlessui/react";
+import { usePopper } from "react-popper";
+import ButtonProps from "./private/types/ButtonProps";
+import { ComboboxRootProps } from "./private/types/ComboboxRootProps";
+import InputProps from "./private/types/InputProps";
+import type OptionProps from "./private/types/OptionProps";
+import type OptionsProps from "./private/types/OptionsProps";
+import SelectProps from "./private/types/SelectProps";
+import WithChildren from "./private/types/WithChildren";
+import { getSizeStyles, getTextSizes } from "./private/utils/getSizeStyles";
 import {
   useComboboxContext,
   ComboboxContext,
-} from './private/utils/useComboboxContext';
-import GenericHint from '../hint/Hint';
+} from "./private/utils/useComboboxContext";
+import GenericHint from "../hint/Hint";
 import {
   InsetInput as InputInset,
   SelectButton,
   Input as NativeInput,
-} from '../index';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+} from "../index";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const ComboboxRoot = ({
   value,
@@ -31,13 +31,13 @@ const ComboboxRoot = ({
   onChange,
   isError,
   disabled,
-  size = 'md',
+  size = "md",
   className,
   onClear,
   onQueryChange,
   multiple,
   nullable,
-  position = 'bottom-start',
+  position = "bottom-start",
   placeholder,
   displayValue,
   defaultValue,
@@ -75,12 +75,12 @@ const ComboboxRoot = ({
   };
 
   const childrens =
-    typeof children !== 'function' ? React.Children.toArray(children) : [];
-  const callableChildren = typeof children === 'function' && children;
+    typeof children !== "function" ? React.Children.toArray(children) : [];
+  const callableChildren = typeof children === "function" && children;
 
   return (
     <ComboboxContext.Provider value={states}>
-      <div className={mergeClassnames('w-full relative', className)}>
+      <div className={mergeClassnames("w-full relative", className)}>
         <HeadlessCombobox
           // type coercion due to following issues in HeadlessUI combobox
           // https://github.com/tailwindlabs/headlessui/issues/2438
@@ -96,7 +96,7 @@ const ComboboxRoot = ({
         >
           {({ open }) => (
             <>
-              {typeof children === 'function'
+              {typeof children === "function"
                 ? callableChildren && callableChildren({ open })
                 : childrens?.map((ch) => ch)}
             </>
@@ -110,10 +110,10 @@ const ComboboxRoot = ({
 const Trigger = forwardRef<HTMLDivElement, WithChildren<SelectProps>>(
   ({ children, className, innerLabel, open, onClose }, ref) => {
     const { value, size, input, popper, disabled, isError } =
-      useComboboxContext('Combobox.Trigger');
+      useComboboxContext("Combobox.Trigger");
 
     useEffect(() => {
-      if (!open && typeof onClose === 'function') {
+      if (!open && typeof onClose === "function") {
         onClose(value);
       }
     }, [open, value]);
@@ -122,26 +122,26 @@ const Trigger = forwardRef<HTMLDivElement, WithChildren<SelectProps>>(
       <div
         tabIndex={-1}
         className={mergeClassnames(
-          'relative',
-          'flex flex-nowrap w-full align-middle items-center rounded-lg py-2 px-3 bg-goku gap-x-2',
+          "relative",
+          "flex flex-nowrap w-full align-middle items-center rounded-lg py-2 px-3 bg-goku gap-x-2",
           getSizeStyles(size as string, innerLabel as boolean),
           input?.isFocused
-            ? 'shadow-input-focus hover:shadow-input-focus'
-            : 'shadow-input hover:shadow-input-hov',
-          'focus:shadow-input-focus focus:outline-none',
-          'focus-visible::shadow-input-focus focus-visible::outline-none',
+            ? "shadow-input-focus hover:shadow-input-focus"
+            : "shadow-input hover:shadow-input-hov",
+          "focus:shadow-input-focus focus:outline-none",
+          "focus-visible::shadow-input-focus focus-visible::outline-none",
           isError &&
-          'shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-err',
+            "shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-err",
           disabled &&
-          'opacity-60 shadow-input focus:shadow-input hover:shadow-input cursor-not-allowed',
-          className
+            "opacity-60 shadow-input focus:shadow-input hover:shadow-input cursor-not-allowed",
+          className,
         )}
         ref={popper?.setAnchor}
       >
         {children}
       </div>
     );
-  }
+  },
 );
 
 const Input = ({
@@ -153,27 +153,27 @@ const Input = ({
   ...rest
 }: InputProps) => {
   const { size, popper, disabled, isError, input, onQueryChange } =
-    useComboboxContext('Combobox.Input');
+    useComboboxContext("Combobox.Input");
   return (
     <HeadlessCombobox.Input
       onChange={({ target: { value } }) => {
-        onQueryChange ? onQueryChange(value) : () => { };
+        onQueryChange ? onQueryChange(value) : () => {};
       }}
       as={NativeInput}
       displayValue={displayValue}
       placeholder={placeholder}
-      type={type ? type : 'text'}
+      type={type ? type : "text"}
       className={mergeClassnames(
-        'flex-grow h-full border-0 !rounded-none bg-transparent px-0',
-        '!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none',
+        "flex-grow h-full border-0 !rounded-none bg-transparent px-0",
+        "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
         getTextSizes(size),
-        className
+        className,
       )}
       disabled={disabled}
       error={isError}
       onFocus={() => input?.setIsFocused(true)}
       onBlur={() => input?.setIsFocused(false)}
-      aria-label={rest['aria-label']}
+      aria-label={rest["aria-label"]}
       {...rest}
       ref={popper?.setAnchor}
     />
@@ -189,34 +189,34 @@ const InsetInput = ({
   ...rest
 }: InputProps) => {
   const { size, popper, disabled, isError, input, onQueryChange } =
-    useComboboxContext('Combobox.InsetInput');
+    useComboboxContext("Combobox.InsetInput");
   return (
-    <span className={mergeClassnames('relative', 'flex flex-grow w-full')}>
+    <span className={mergeClassnames("relative", "flex flex-grow w-full")}>
       <HeadlessCombobox.Input
         onChange={({ target: { value } }) => {
-          onQueryChange ? onQueryChange(value) : () => { };
+          onQueryChange ? onQueryChange(value) : () => {};
         }}
         as={NativeInput}
         displayValue={displayValue}
-        placeholder={placeholder === undefined ? '' : `${placeholder}`}
-        type={type ? type : 'text'}
+        placeholder={placeholder === undefined ? "" : `${placeholder}`}
+        type={type ? type : "text"}
         disabled={disabled}
         className={mergeClassnames(
-          'flex-grow h-full border-0 !rounded-none bg-transparent px-0',
-          '!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none',
+          "flex-grow h-full border-0 !rounded-none bg-transparent px-0",
+          "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
           label !== undefined &&
-          label.length > 0 &&
-          (placeholder === undefined || placeholder.length === 0) &&
-          'input-xl',
-          label !== undefined && label.length > 0 && 'pt-3 input-xl-dt-label',
+            label.length > 0 &&
+            (placeholder === undefined || placeholder.length === 0) &&
+            "input-xl",
+          label !== undefined && label.length > 0 && "pt-3 input-xl-dt-label",
           getTextSizes(size),
           className,
-          'leading-5'
+          "leading-5",
         )}
         error={isError}
         onFocus={() => input?.setIsFocused(true)}
         onBlur={() => input?.setIsFocused(false)}
-        aria-label={rest['aria-label']}
+        aria-label={rest["aria-label"]}
         {...rest}
         ref={popper?.setAnchor}
       />
@@ -236,14 +236,14 @@ const VisualSelectInput = ({
   ...rest
 }: InputProps) => {
   const { value, size, popper, disabled, isError, onQueryChange } =
-    useComboboxContext('Combobox.VisualSelectInput');
+    useComboboxContext("Combobox.VisualSelectInput");
   const selected = value as [];
 
   return (
     <span
       className={mergeClassnames(
-        'w-full flex flex-col',
-        !selected.length ? 'gap-y-0' : 'gap-y-1'
+        "w-full flex flex-col",
+        !selected.length ? "gap-y-0" : "gap-y-1",
       )}
     >
       <div className="flex flex-wrap justify-start items-start gap-1">
@@ -253,27 +253,27 @@ const VisualSelectInput = ({
       </div>
       <HeadlessCombobox.Input
         onChange={({ target: { value } }) => {
-          onQueryChange ? onQueryChange(value) : () => { };
+          onQueryChange ? onQueryChange(value) : () => {};
         }}
         as={NativeInput}
         displayValue={displayValue}
-        placeholder={placeholder === undefined ? '' : `${placeholder}`}
-        type={type ? type : 'text'}
+        placeholder={placeholder === undefined ? "" : `${placeholder}`}
+        type={type ? type : "text"}
         disabled={disabled}
         className={mergeClassnames(
-          'flex-grow w-full h-full border-0 !rounded-none bg-transparent px-0',
-          '!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none',
+          "flex-grow w-full h-full border-0 !rounded-none bg-transparent px-0",
+          "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
           label !== undefined &&
-          label.length > 0 &&
-          (placeholder === undefined || placeholder.length === 0) &&
-          'input-xl',
-          label !== undefined && label.length > 0 && 'pt-3 input-xl-dt-label',
+            label.length > 0 &&
+            (placeholder === undefined || placeholder.length === 0) &&
+            "input-xl",
+          label !== undefined && label.length > 0 && "pt-3 input-xl-dt-label",
           getTextSizes(size),
           className,
-          'leading-5'
+          "leading-5",
         )}
         error={isError}
-        aria-label={rest['aria-label']}
+        aria-label={rest["aria-label"]}
         {...rest}
         ref={popper?.setAnchor}
       />
@@ -286,20 +286,20 @@ const Button = ({
   children,
   label,
   className,
-  ['aria-label']: ariaLabel,
+  ["aria-label"]: ariaLabel,
   ...rest
 }: WithChildren<ButtonProps>) => {
-  const { size, disabled } = useComboboxContext('Combobox.Button');
-  const ariaLabelValue = ariaLabel ? ariaLabel : open ? 'Close' : 'Open';
+  const { size, disabled } = useComboboxContext("Combobox.Button");
+  const ariaLabelValue = ariaLabel ? ariaLabel : open ? "Close" : "Open";
   return (
     <HeadlessCombobox.Button
       className={mergeClassnames(
-        'w-6 h-6',
-        size === 'sm' ? 'w-4 h-4 text-moon-16' : 'text-moon-24',
-        open && '-rotate-180',
-        'text-bulma transition-transform flex-grow-0 flex-shrink-0 self-center',
-        disabled && 'cursor-not-allowed',
-        className
+        "w-6 h-6",
+        size === "sm" ? "w-4 h-4 text-moon-16" : "text-moon-24",
+        open && "-rotate-180",
+        "text-bulma transition-transform flex-grow-0 flex-shrink-0 self-center",
+        disabled && "cursor-not-allowed",
+        className,
       )}
       aria-label={ariaLabelValue}
       {...rest}
@@ -315,7 +315,7 @@ const Options = ({
   className,
   ...rest
 }: WithChildren<OptionsProps>) => {
-  const { popper } = useComboboxContext('Combobox.Options');
+  const { popper } = useComboboxContext("Combobox.Options");
   return (
     <HeadlessCombobox.Options
       ref={popper?.setPopper}
@@ -324,9 +324,9 @@ const Options = ({
       className={mergeClassnames(
         menuWidth
           ? menuWidth
-          : 'w-full max-h-[18.75rem] py-2 px-1 my-1 rounded-moon-s-md box-border bg-goku shadow-moon-lg z-10 absolute',
-        'overflow-y-auto focus:outline-none',
-        className
+          : "w-full max-h-[18.75rem] py-2 px-1 my-1 rounded-moon-s-md box-border bg-goku shadow-moon-lg z-10 absolute",
+        "overflow-y-auto focus:outline-none",
+        className,
       )}
       {...rest}
     >
@@ -339,7 +339,7 @@ const Option = ({ children, value }: OptionProps) => {
   return (
     <HeadlessCombobox.Option as="span" value={value}>
       {({ selected, disabled, active }) =>
-        typeof children === 'function'
+        typeof children === "function"
           ? children({ selected, disabled, active })
           : children
       }
@@ -349,13 +349,13 @@ const Option = ({ children, value }: OptionProps) => {
 
 const Counter = ({ open, className, counter, ...rest }: SelectProps) => {
   const { size, isError, disabled, onClear } =
-    useComboboxContext('Combobox.Counter');
+    useComboboxContext("Combobox.Counter");
 
   return (
     <span
       className={mergeClassnames(
-        'flex gap-2 items-center flex-grow-0 flex-shrink-0 self-center',
-        className
+        "flex gap-2 items-center flex-grow-0 flex-shrink-0 self-center",
+        className,
       )}
     >
       <SelectButton
@@ -384,13 +384,13 @@ const SelectedItem = ({
   label: number | string;
 } & SelectProps) => {
   const { size, isError, disabled, onClear } =
-    useComboboxContext('Combobox.Counter');
+    useComboboxContext("Combobox.Counter");
 
   return (
     <span
       className={mergeClassnames(
-        'flex gap-2 items-center flex-grow-0 flex-shrink-0 self-center',
-        className
+        "flex gap-2 items-center flex-grow-0 flex-shrink-0 self-center",
+        className,
       )}
     >
       <SelectButton
@@ -411,7 +411,7 @@ const SelectedItem = ({
 };
 
 const Transition = ({ children, ...rest }: WithChildren) => {
-  const { onQueryChange } = useComboboxContext('Combobox.Counter');
+  const { onQueryChange } = useComboboxContext("Combobox.Counter");
 
   return (
     <HeadlessTransition
@@ -419,7 +419,7 @@ const Transition = ({ children, ...rest }: WithChildren) => {
       leave="transition ease-in duration-100"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
-      afterLeave={onQueryChange ? () => onQueryChange('') : () => { }}
+      afterLeave={onQueryChange ? () => onQueryChange("") : () => {}}
       {...rest}
     >
       {children}
@@ -438,7 +438,7 @@ const Select = ({
   displayValue,
   ...rest
 }: WithChildren<SelectProps & InputProps>) => {
-  const { size, popper, disabled } = useComboboxContext('Combobox.Select');
+  const { size, popper, disabled } = useComboboxContext("Combobox.Select");
 
   return (
     <Listbox>
@@ -460,7 +460,7 @@ const Select = ({
           open={open}
           placeholder={placeholder}
           displayValue={displayValue}
-          aria-label={rest['aria-label']}
+          aria-label={rest["aria-label"]}
         />
         <Button open={open}>{children}</Button>
       </Listbox.Button>
@@ -479,7 +479,7 @@ const MultiSelect = ({
   displayValue,
   ...rest
 }: WithChildren<SelectProps & InputProps>) => {
-  const { size, popper, disabled } = useComboboxContext('Combobox.MultiSelect');
+  const { size, popper, disabled } = useComboboxContext("Combobox.MultiSelect");
 
   return (
     <Listbox>
@@ -502,7 +502,7 @@ const MultiSelect = ({
           open={open}
           placeholder={placeholder}
           displayValue={displayValue}
-          aria-label={rest['aria-label']}
+          aria-label={rest["aria-label"]}
         />
         <Button open={open}>{children}</Button>
       </Listbox.Button>
@@ -521,7 +521,7 @@ const InsetSelect = ({
   displayValue,
   ...rest
 }: WithChildren<SelectProps & InputProps>) => {
-  const { popper } = useComboboxContext('Combobox.Select');
+  const { popper } = useComboboxContext("Combobox.Select");
 
   return (
     <Listbox>
@@ -540,7 +540,7 @@ const InsetSelect = ({
           label={label}
           placeholder={placeholder}
           displayValue={displayValue}
-          aria-label={rest['aria-label']}
+          aria-label={rest["aria-label"]}
         />
         <Button open={open}>{children}</Button>
       </Listbox.Button>
@@ -559,7 +559,7 @@ const InsetMultiSelect = ({
   displayValue,
   ...rest
 }: WithChildren<SelectProps & InputProps>) => {
-  const { popper } = useComboboxContext('Combobox.MultiSelect');
+  const { popper } = useComboboxContext("Combobox.MultiSelect");
 
   return (
     <Listbox>
@@ -579,7 +579,7 @@ const InsetMultiSelect = ({
           label={label}
           placeholder={placeholder}
           displayValue={displayValue}
-          aria-label={rest['aria-label']}
+          aria-label={rest["aria-label"]}
         />
         <Button open={open}>{children}</Button>
       </Listbox.Button>
@@ -599,14 +599,16 @@ const VisualMultiSelect = ({
   forceUpdate,
   ...rest
 }: WithChildren<SelectProps & InputProps> & { forceUpdate?: boolean }) => {
-  const { size, popper, disabled, value } = useComboboxContext('Combobox.VisualMultiSelect');
+  const { size, popper, disabled, value } = useComboboxContext(
+    "Combobox.VisualMultiSelect",
+  );
 
   useEffect(() => {
     // Do nothing if forceUpdate is false.
     if (!forceUpdate) {
       return;
     }
-    if (typeof popper?.forceUpdate === 'function') {
+    if (typeof popper?.forceUpdate === "function") {
       popper.forceUpdate();
     }
   }, [value]);
@@ -630,7 +632,7 @@ const VisualMultiSelect = ({
           open={open}
           placeholder={placeholder}
           displayValue={displayValue}
-          aria-label={rest['aria-label']}
+          aria-label={rest["aria-label"]}
         />
         <Button open={open}>{children}</Button>
       </Listbox.Button>
@@ -643,7 +645,7 @@ const Hint = ({
   className,
   ...rest
 }: WithChildren<{ className?: string }>) => {
-  const { isError, disabled } = useComboboxContext('Combobox.Input');
+  const { isError, disabled } = useComboboxContext("Combobox.Input");
   return (
     <GenericHint error={isError} disabled={disabled} className={className}>
       {children}

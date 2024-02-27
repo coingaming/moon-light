@@ -1,10 +1,10 @@
-import { Children, ReactNode } from 'react';
-import type JsonStructure from '../types/JsonStructure';
+import { Children, ReactNode } from "react";
+import type JsonStructure from "../types/JsonStructure";
 
 export function getItemIndex(
   items: JsonStructure,
   id: string,
-  startIndex: number = 0
+  startIndex: number = 0,
 ) {
   return (
     items
@@ -23,14 +23,14 @@ export function filterItems(
     filterOnListHeading: boolean;
   } = {
     filterOnListHeading: true,
-  }
+  },
 ) {
   return items
     .filter((list) => {
       const listHasMatchingItem = list.items.some(
         (item) =>
           doesChildMatchSearch(search, item.children) ||
-          doesKeywordsMatchSearch(search, item.keywords ?? [])
+          doesKeywordsMatchSearch(search, item.keywords ?? []),
       );
 
       return filterOnListHeading
@@ -42,7 +42,7 @@ export function filterItems(
       const matchingItems = list.items.filter(
         (item) =>
           doesChildMatchSearch(search, item.children) ||
-          doesKeywordsMatchSearch(search, item.keywords ?? [])
+          doesKeywordsMatchSearch(search, item.keywords ?? []),
       );
 
       return {
@@ -65,18 +65,18 @@ function doesChildMatchSearch(search: string, children?: ReactNode) {
 }
 
 function doesKeywordsMatchSearch(search: string, keywords: string[]) {
-  return keywords.includes('*')
+  return keywords.includes("*")
     ? true
     : keywords.some((keyword) =>
-        keyword.toLowerCase().includes(search.toLowerCase())
+        keyword.toLowerCase().includes(search.toLowerCase()),
       );
 }
 
 function getLabelFromChildren(children: ReactNode) {
-  let label = '';
+  let label = "";
 
   Children.map(children, (child) => {
-    if (typeof child === 'string') {
+    if (typeof child === "string") {
       label += child;
     }
   });

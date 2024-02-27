@@ -1,7 +1,7 @@
-import { createContext } from 'react';
-import type FormState from '../types/FormState';
+import { createContext } from "react";
+import type FormState from "../types/FormState";
 
 const FormContext = createContext<FormState>({});
-FormContext.displayName = 'FormContext';
+FormContext.displayName = "FormContext";
 
 export default FormContext;

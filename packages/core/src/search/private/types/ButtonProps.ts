@@ -1,5 +1,5 @@
-import { DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
-import type ListItemBaseProps from './ListItemBaseProps';
+import { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
+import type ListItemBaseProps from "./ListItemBaseProps";
 
 type ButtonProps = ListItemBaseProps &
   DetailedHTMLProps<

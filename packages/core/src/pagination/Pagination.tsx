@@ -1,14 +1,14 @@
-import React from 'react';
-import usePagination from './private/hooks/usePagination';
-import usePaginationContext from './private/hooks/usePaginationContext';
-import PaginationContext from './private/types/PaginationContext';
-import type PaginationProps from './private/types/PaginationProps';
-import type PolymorphicNextPrevButtonProps from './private/types/PolymorphicNextPrevButtonProps';
-import type PolymorphicPagesProps from './private/types/PolymorphicPagesProps';
-import type TruncableElementProps from './private/types/TruncableElementProps';
-import type UsePagination from './private/types/UsePagination';
-import type WithChildren from './private/types/WithChildren';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+import React from "react";
+import usePagination from "./private/hooks/usePagination";
+import usePaginationContext from "./private/hooks/usePaginationContext";
+import PaginationContext from "./private/types/PaginationContext";
+import type PaginationProps from "./private/types/PaginationProps";
+import type PolymorphicNextPrevButtonProps from "./private/types/PolymorphicNextPrevButtonProps";
+import type PolymorphicPagesProps from "./private/types/PolymorphicPagesProps";
+import type TruncableElementProps from "./private/types/TruncableElementProps";
+import type UsePagination from "./private/types/UsePagination";
+import type WithChildren from "./private/types/WithChildren";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const PaginationRoot = ({
   children,
@@ -32,8 +32,8 @@ const PaginationRoot = ({
     <PaginationContext.Provider value={pagination}>
       <div
         className={mergeClassnames(
-          'flex justify-center items-center w-full select-none',
-          className
+          "flex justify-center items-center w-full select-none",
+          className,
         )}
       >
         {children}
@@ -42,15 +42,15 @@ const PaginationRoot = ({
   );
 };
 
-export const PrevButton = <C extends React.ElementType = 'button'>({
+export const PrevButton = <C extends React.ElementType = "button">({
   className,
   children,
   as,
   ...rest
 }: PolymorphicNextPrevButtonProps<C>) => {
-  const Component = as || 'button';
+  const Component = as || "button";
   const { currentPage, setCurrentPage }: UsePagination =
-    usePaginationContext('PrevButton');
+    usePaginationContext("PrevButton");
   const previous = () => {
     if (currentPage + 1 > 1) {
       setCurrentPage(currentPage - 1);
@@ -58,9 +58,9 @@ export const PrevButton = <C extends React.ElementType = 'button'>({
   };
   const disabled = currentPage === 0;
   const childrens =
-    typeof children !== 'function' ? React.Children.toArray(children) : [];
+    typeof children !== "function" ? React.Children.toArray(children) : [];
 
-  if (typeof children === 'function') {
+  if (typeof children === "function") {
     return (
       <Component
         {...rest}
@@ -68,7 +68,7 @@ export const PrevButton = <C extends React.ElementType = 'button'>({
         onClick={() => previous()}
         aria-disabled={disabled}
         disabled={disabled}
-        type={as === 'button' || as === undefined ? 'button' : undefined}
+        type={as === "button" || as === undefined ? "button" : undefined}
       >
         {children({ disabled })}
       </Component>
@@ -79,37 +79,37 @@ export const PrevButton = <C extends React.ElementType = 'button'>({
     <Component
       {...rest}
       className={mergeClassnames(
-        'moon-disabled:cursor-not-allowed moon-disabled:opacity-60',
-        className
+        "moon-disabled:cursor-not-allowed moon-disabled:opacity-60",
+        className,
       )}
       onClick={() => previous()}
       aria-disabled={disabled}
       disabled={disabled}
-      type={as === 'button' || as === undefined ? 'button' : undefined}
+      type={as === "button" || as === undefined ? "button" : undefined}
     >
       {childrens?.map((ch) => ch)}
     </Component>
   );
 };
 
-export const NextButton = <C extends React.ElementType = 'button'>({
+export const NextButton = <C extends React.ElementType = "button">({
   className,
   children,
   as,
   ...rest
 }: PolymorphicNextPrevButtonProps<C>) => {
-  const Component = as || 'button';
-  const pagination: UsePagination = usePaginationContext('NextButton');
+  const Component = as || "button";
+  const pagination: UsePagination = usePaginationContext("NextButton");
   const next = () => {
     if (pagination.currentPage + 1 < pagination.pages.length) {
       pagination.setCurrentPage(pagination.currentPage + 1);
     }
   };
   const childrens =
-    typeof children !== 'function' ? React.Children.toArray(children) : [];
+    typeof children !== "function" ? React.Children.toArray(children) : [];
   const disabled = pagination.currentPage === pagination.pages.length - 1;
 
-  if (typeof children === 'function') {
+  if (typeof children === "function") {
     return (
       <Component
         {...rest}
@@ -117,7 +117,7 @@ export const NextButton = <C extends React.ElementType = 'button'>({
         onClick={() => next()}
         aria-disabled={disabled}
         disabled={disabled}
-        type={as === 'button' || as === undefined ? 'button' : undefined}
+        type={as === "button" || as === undefined ? "button" : undefined}
       >
         {children({ disabled })}
       </Component>
@@ -127,13 +127,13 @@ export const NextButton = <C extends React.ElementType = 'button'>({
     <Component
       {...rest}
       className={mergeClassnames(
-        'moon-disabled:cursor-not-allowed moon-disabled:opacity-60',
-        className
+        "moon-disabled:cursor-not-allowed moon-disabled:opacity-60",
+        className,
       )}
       onClick={() => next()}
       aria-disabled={disabled}
       disabled={disabled}
-      type={as === 'button' || as === undefined ? 'button' : undefined}
+      type={as === "button" || as === undefined ? "button" : undefined}
     >
       {childrens?.map((ch) => ch)}
     </Component>
@@ -144,7 +144,7 @@ const TruncableElement = ({
   prev,
   children,
 }: WithChildren<TruncableElementProps>) => {
-  const pagination: UsePagination = usePaginationContext('TruncableElement');
+  const pagination: UsePagination = usePaginationContext("TruncableElement");
 
   const { isPreviousTruncable, isNextTruncable } = pagination;
 
@@ -156,14 +156,14 @@ const TruncableElement = ({
   ) : null;
 };
 
-const Pages = <C extends React.ElementType = 'a'>({
+const Pages = <C extends React.ElementType = "a">({
   as,
   className,
-  truncableText = '...',
+  truncableText = "...",
   ...rest
 }: PolymorphicPagesProps<C>) => {
-  const Component = as || 'a';
-  const pagination: UsePagination = usePaginationContext('Pagination.Pages');
+  const Component = as || "a";
+  const pagination: UsePagination = usePaginationContext("Pagination.Pages");
 
   const renderPage = (page: number) => (
     <Component
@@ -172,13 +172,13 @@ const Pages = <C extends React.ElementType = 'a'>({
       tabIndex={0}
       onClick={() => pagination.setCurrentPage(page - 1)}
       href={pagination.hrefsArray && pagination.hrefsArray[page - 1]}
-      type={as === 'button' ? 'button' : undefined}
+      type={as === "button" ? "button" : undefined}
       className={mergeClassnames(
-        'flex items-center justify-center cursor-pointer w-8 h-8 rounded-moon-s-sm focus:outline-none transition-colors',
+        "flex items-center justify-center cursor-pointer w-8 h-8 rounded-moon-s-sm focus:outline-none transition-colors",
         className,
         pagination.currentPage + 1 === page
-          ? 'text-goten bg-piccolo font-medium'
-          : 'text-bulma hover:bg-jiren focus:bg-jiren'
+          ? "text-goten bg-piccolo font-medium"
+          : "text-bulma hover:bg-jiren focus:bg-jiren",
       )}
       {...rest}
     >
@@ -189,8 +189,8 @@ const Pages = <C extends React.ElementType = 'a'>({
   return (
     <nav
       className={mergeClassnames(
-        'flex gap-1 items-center justify-center w-full h-10 text-moon-14 flex-grow',
-        className
+        "flex gap-1 items-center justify-center w-full h-10 text-moon-14 flex-grow",
+        className,
       )}
       aria-label="pagination"
     >

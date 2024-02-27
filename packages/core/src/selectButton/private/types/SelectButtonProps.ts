@@ -1,5 +1,5 @@
 type SelectButtonProps = {
-  size?: 'sm' | 'md' | 'lg' | string;
+  size?: "sm" | "md" | "lg" | string;
   isError?: boolean;
   open?: boolean;
   idDisabled?: boolean;

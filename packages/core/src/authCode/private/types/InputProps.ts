@@ -1,5 +1,5 @@
-import type InputMode from './InputMode';
-import type InputType from './InputType';
+import type InputMode from "./InputMode";
+import type InputType from "./InputType";
 
 type InputProps = {
   type: InputType;

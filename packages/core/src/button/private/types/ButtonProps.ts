@@ -1,5 +1,5 @@
-import React from 'react';
-import type ButtonSettingsProps from './ButtonSettingsProps';
+import React from "react";
+import type ButtonSettingsProps from "./ButtonSettingsProps";
 
 type ButtonProps<C extends React.ElementType> = {
   as?: C;

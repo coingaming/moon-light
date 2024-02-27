@@ -1,5 +1,5 @@
-import { DetailedHTMLProps, AnchorHTMLAttributes } from 'react';
-import type ListItemBaseProps from './ListItemBaseProps';
+import { DetailedHTMLProps, AnchorHTMLAttributes } from "react";
+import type ListItemBaseProps from "./ListItemBaseProps";
 
 type LinkProps = ListItemBaseProps &
   DetailedHTMLProps<

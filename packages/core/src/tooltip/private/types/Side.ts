@@ -1,3 +1,3 @@
-type Side = 'top' | 'right' | 'bottom' | 'left';
+type Side = "top" | "right" | "bottom" | "left";
 
 export default Side;

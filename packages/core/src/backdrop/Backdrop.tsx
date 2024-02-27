@@ -1,6 +1,6 @@
-import React from 'react';
-import { Transition } from '@headlessui/react';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+import React from "react";
+import { Transition } from "@headlessui/react";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const Backdrop = ({
   className,
@@ -19,7 +19,7 @@ const Backdrop = ({
     leaveTo="opacity-0"
   >
     <div
-      className={mergeClassnames('fixed -z-1 inset-0 bg-zeno', className)}
+      className={mergeClassnames("fixed -z-1 inset-0 bg-zeno", className)}
       aria-hidden="true"
       onClick={onClose}
     />

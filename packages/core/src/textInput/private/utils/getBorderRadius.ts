@@ -1,10 +1,10 @@
 const getBorderRadius = (size?: string) => {
   switch (size) {
-    case 'xl':
-    case 'lg':
-      return 'rounded-moon-i-sm';
+    case "xl":
+    case "lg":
+      return "rounded-moon-i-sm";
     default:
-      return 'rounded-moon-i-xs';
+      return "rounded-moon-i-xs";
   }
 };
 
