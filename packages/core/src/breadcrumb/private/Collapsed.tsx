@@ -19,7 +19,7 @@ const Collapsed = ({ breadcrumbs, divider }: Props) => {
         restBreadcrumbs.push(crumb);
       }
     })
-    .filter((crumd) => crumd);
+    .filter((crumb) => crumb);
   const clickHandle = () => toggleDropdown(!isOpen);
   React.useEffect(() => {
     if (hasClickedOutside) {
