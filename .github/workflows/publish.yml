@@ -1,0 +1,31 @@
+name: Publish
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  build:
+    name: "Build docs and publish npm packages"
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.40.0-jammy
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Corepack enable
+        run: corepack enable
+      - name: Use pnpm@latest
+        run: corepack prepare pnpm@latest --activate
+      - name: Install dependencies
+        run: pnpm i
+      - name: Build packages
+        run: pnpm run build
+      - name: Build documentation
+        run: pnpm run doc build
+      - name: Setting up private repository NPM access
+        run: echo "//registry.npmjs.org/:_authToken=$secrets.NPM_TOKEN" > .npmrc
+      - name: Publish packages
+        run: pnpm run publish
