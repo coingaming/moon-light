@@ -1,7 +1,7 @@
+import Head from "next/head";
 import { SearchProvider } from "@/components/search/SearchProvider";
 import { RtlProvider } from "@/components/settings/utils/RTLProvider";
 import { useSearchActions } from "@/components/search/useSearchActions";
-
 import "./globals.css";
 import "./themes.css";
 
@@ -19,6 +19,9 @@ export default async function RootLayout({
   const actions = await useSearchActions();
   return (
     <html lang="en" dir="ltr" className="scroll-pt-20">
+      <Head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </Head>
       <RtlProvider>
         <body className="theme-moon-light bg-goku">
           <SearchProvider actions={actions}>
