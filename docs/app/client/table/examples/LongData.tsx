@@ -81,7 +81,6 @@ const Example = () => {
         footer: () => "Status",
         sticky: "right",
         size: 90,
-        maxSize: 90,
         columns: [
           {
             header: () => "Status",
@@ -89,7 +88,7 @@ const Example = () => {
             accessorKey: "status",
             cell: (props) => props.getValue(),
             size: 90,
-            maxSize: 90,
+            minSize: 90,
           },
         ],
       },

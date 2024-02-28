@@ -68,7 +68,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       : undefined;
 
     const styles = new Map([
-      ["width", `${stickySide ? stickyWidth : header.column.getSize()}px`],
+      ["width", `${header.column.getSize()}px`],
       [
         "minWidth", `${header.column.columnDef.minSize}px`,
       ],
@@ -77,12 +77,6 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       ],
       ["--headerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
     ]);
-
-    useEffect(() => {
-      if (stickySide && header.column.getIsResizing()) {
-        setStickyWidth(header.column.getSize());
-      }
-    }, [header.column.getIsResizing() && header.column.getSize()]);
 
     if (stickySide) {
       styles.set(
@@ -124,7 +118,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
         {isResizable && (
           <div
             className={mergeClassnames(
-              "resizer absolute z-50 w-1 h-full top-0 right-0 bg-transparent cursor-col-resize ltr",
+              "resizer absolute z-50 w-4 h-full top-0 right-0 bg-transparent cursor-col-resize ltr",
               columnSizingInfo && !columnSizingInfo.isResizingColumn && "hover:bg-beerus",
               header.column.getIsResizing() ? "isResizing bg-beerus" : "",
             )}

@@ -78,7 +78,6 @@ const Example = () => {
             accessorKey: "actions",
             cell: (props) => props.getValue(),
             size: 70,
-            maxSize: 70,
           },
         ],
       },
