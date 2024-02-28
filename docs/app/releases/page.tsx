@@ -1,4 +1,4 @@
-import OverviewPage from "@/components/OverviewPage";
+import OverviewPage from "@/components/overviewPage/OverviewPage";
 import { ReleaseSection } from "@/components/releaseSection/ReleaseSection";
 
 export default async function ReleasesPage() {

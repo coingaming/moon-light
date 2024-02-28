@@ -1,14 +1,12 @@
 import { notFound } from "next/navigation";
-
-import DocsPage from "@/components/DocsPage";
+import DocsPage from "@/components/docsPage/DocsPage";
 import { useGetExample } from "@/utils/useGetExample";
 import useProps from "@/hooks/useProps";
 import useComponentInfo from "@/hooks/useComponentInfo";
 import sortExamples from "@/utils/sortExamples";
-import COMPONENTS from "../../../components.constants.mjs";
 import type { TagTypes } from "@/types";
+import COMPONENTS from "@/components.constants.mjs";
 
-// Generate segments for both [componentName]
 export async function generateStaticParams() {
   return Object.keys(COMPONENTS).map((name: string) => {
     return {
@@ -17,12 +15,7 @@ export async function generateStaticParams() {
   });
 }
 
-export default async function Page({
-  params,
-  ...rest
-}: {
-  params: { slug: string[] };
-}) {
+export default async function Page({ params }: { params: { slug: string[] } }) {
   const componentName = params?.slug?.[0];
   const searchParamRaw = params?.slug?.[1];
 

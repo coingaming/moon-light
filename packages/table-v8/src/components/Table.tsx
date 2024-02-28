@@ -37,6 +37,7 @@ const Table = ({
   textClip,
   layout = "auto",
   preventSelectionByRowClick = false,
+  getOnRowClickHandler,
   getSubRows,
   onExpandedChange,
   onRowSelectionChange,
@@ -127,6 +128,7 @@ const Table = ({
             rowHoverColor={rowHoverColor}
             columnMap={columnMap}
             textClip={textClip}
+            getOnRowClickHandler={getOnRowClickHandler}
           />
           {withFooter && (
             <TFoot

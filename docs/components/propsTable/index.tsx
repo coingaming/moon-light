@@ -3,7 +3,7 @@
 import HeaderSection from "../HeaderSection";
 import { PropsTableProp, PropsTablePropTypes } from "@/types";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import { Chip, Popover, Tag } from "@heathmont/moon-core-tw";
+import { Popover, Tag } from "@heathmont/moon-core-tw";
 import React from "react";
 import { GenericInfo } from "@heathmont/moon-icons-tw";
 import { ColumnDef } from "@tanstack/react-table";
@@ -30,24 +30,18 @@ const renderType = (item: PropsTablePropTypes) => {
 };
 
 const Name = (prop: PropsTableProp) => (
-  <div className="flex flex-row">
-    <Tag
-      className="w-fit bg-jiren text-frieza gap-1 text-moon-14"
-      isUppercase={false}
-    >
-      {prop.name} {prop.required && <span className="text-moon-16">*</span>}
+  <div className="flex flex-row gap-2 items-center">
+    <Tag className="bg-frieza-10 text-frieza gap-1" isUppercase={false}>
+      {prop.name}
+      {prop.required && <span>*</span>}
     </Tag>
-    <Popover position="top" className="items-center flex">
+    <Popover position="top">
       <Popover.Trigger>
-        <Chip
-          className="rounded-full p-0 h-fit hover:bg-heles self-center"
-          variant="ghost"
-        >
-          <GenericInfo className="text-moon-14" />
-        </Chip>
+        <GenericInfo className="text-moon-16" />
       </Popover.Trigger>
       <Popover.Panel className="w-auto min-w-[12rem] overflow-y-visible p-3 rounded-moon-s-xs text-moon-12 text-bulma bg-goku">
         {prop.description}
+        <Popover.Arrow />
       </Popover.Panel>
     </Popover>
   </div>
