@@ -43,7 +43,8 @@ const Example = () => {
             header: () => "Deals",
             accessorKey: "deals",
             cell: (props) => props.getValue(),
-            maxSize: 300,
+            size: 150,
+            //maxSize: 300,
           },
           {
             id: "amount",
@@ -168,6 +169,7 @@ const Example = () => {
         location: "Europe",
         deals: (
           <CellScroller
+            className="max-w-[260px]"
             data={rearrangeData([
               { "10.0": { start: "10000", end: "20000" } },
               { "9.0": { start: "20000", end: "30000" } },
@@ -254,6 +256,7 @@ const Example = () => {
         location: "Asia",
         deals: (
           <CellScroller
+            className="max-w-[260px]"
             data={rearrangeData([
               { "5.0": { start: "0", end: "150000" } },
               { "4.0": { start: "150000", end: "500000" } },

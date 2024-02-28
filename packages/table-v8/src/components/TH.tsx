@@ -117,8 +117,8 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           <div
             className={mergeClassnames(
               "resizer absolute z-50 w-4 h-full top-0 right-0 bg-transparent cursor-col-resize ltr",
-              columnSizingInfo && !columnSizingInfo.isResizingColumn && "hover:bg-beerus",
-              header.column.getIsResizing() ? "isResizing bg-beerus" : "",
+              columnSizingInfo && !columnSizingInfo.isResizingColumn && "hover:bg-black/20",
+              header.column.getIsResizing() ? "isResizing bg-black/20" : "",
             )}
             onMouseDown={header.getResizeHandler()}
             onTouchStart={header.getResizeHandler()}

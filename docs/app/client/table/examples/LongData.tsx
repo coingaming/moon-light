@@ -25,14 +25,14 @@ const Example = () => {
         header: () => "Transactions",
         footer: () => "Transactions",
         sticky: "left",
-        size: 100,
-        minSize: 100,
+        size: 110,
+        minSize: 110,
         columns: [
           {
             header: () => "Transaction UUID",
             footer: () => "Transaction UUID",
             accessorKey: "uuid",
-            size: 50,
+            size: 60,
           },
           {
             header: () => "User & Supplier user",
