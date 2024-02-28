@@ -24,7 +24,8 @@ const TBody = ({
       ((event as MouseEvent).target as HTMLElement).tagName,
     );
 
-  const handleRowClick = (target: Row<{}>) => getOnRowClickHandler && getOnRowClickHandler(target)();
+  const handleRowClick = (target: Row<{}>) =>
+    getOnRowClickHandler && getOnRowClickHandler(target)();
 
   const oddRowBGColor = defaultRowBackgroundColor && defaultRowBackgroundColor;
   const evenRowBGColor = evenRowBackgroundColor
@@ -55,13 +56,13 @@ const TBody = ({
 
         const useRowSelection = (event: unknown) => {
           isSelectable && !preventSelectionByRowClick
-          ? isRowElementClicked(event)
-            ? row.getToggleSelectedHandler()(event)
-            : () => {}
-          : () => {};
+            ? isRowElementClicked(event)
+              ? row.getToggleSelectedHandler()(event)
+              : () => {}
+            : () => {};
           handleRowClick(row);
-        }
-/*
+        };
+        /*
         const useRowSelection =
           isSelectable && !preventSelectionByRowClick
             ? (event: unknown) =>

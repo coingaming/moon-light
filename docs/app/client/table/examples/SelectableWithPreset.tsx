@@ -123,7 +123,7 @@ const Example = () => {
         onRowSelectionChange={setRowSelection}
         rowHoverColor="krillin-10"
         isSelectable={true}
-        getOnRowClickHandler={(row: { id: unknown}) => () => {
+        getOnRowClickHandler={(row: { id: unknown }) => () => {
           console.log(`You clicked row with ID - ${row.id}`);
         }}
       />
