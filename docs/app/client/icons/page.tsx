@@ -1,6 +1,5 @@
-import React from "react";
 import type { TagTypes } from "@/types";
-import { MainLayout } from "@/components/MainLayout";
+import MainLayout from "@/components/mainLayout/MainLayout";
 import { PageHeadComponent } from "@/components/PageHeadComponent";
 import IconSearch from "./search/IconSearch";
 import { useGetExample } from "@/utils/useGetExample";
@@ -13,7 +12,6 @@ const IconsPage = async () => {
   const data = await useGetExample("icons");
   const info = useComponentInfo("icons");
   const groupedIcons = useGroupedIcons();
-
   return (
     <MainLayout
       componentName="icons"

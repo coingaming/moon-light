@@ -1,4 +1,4 @@
-import { Table } from "@tanstack/react-table";
+import { Row, Table } from "@tanstack/react-table";
 import ClipProps from "./ClipProps";
 import ColumnData from "./ColumnData";
 import RowSizes from "./RowSizes";
@@ -16,6 +16,7 @@ type TBodyProps = {
   rowHoverColor?: string;
   columnMap?: ColumnData[][];
   textClip?: ClipProps;
+  getOnRowClickHandler?: (row: Row<{}>) => () => void | (() => void);
 };
 
 export default TBodyProps;

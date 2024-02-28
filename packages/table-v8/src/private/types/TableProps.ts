@@ -2,6 +2,7 @@ import {
   ColumnDef,
   ExpandedState,
   OnChangeFn,
+  Row,
   RowSelectionState,
   SortingState,
   TableState,
@@ -34,6 +35,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   textClip?: ClipProps;
   layout?: TableLayouts;
   preventSelectionByRowClick?: boolean;
+  getOnRowClickHandler?: (row: Row<D>) => () => void | (() => void);
   getSubRows?: (originalRow: D, index: number) => D[] | undefined;
   onExpandedChange?: OnChangeFn<ExpandedState>;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;

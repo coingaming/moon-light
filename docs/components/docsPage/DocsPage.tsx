@@ -1,28 +1,11 @@
 import { Loader } from "@heathmont/moon-core-tw";
 import dynamic from "next/dynamic";
-import { MainLayout } from "./MainLayout";
-import { PageHeadComponent } from "./PageHeadComponent";
-import { ExampleSectionData } from "./exampleSection/ExampleSection";
-import { PropsTable } from "./propsTable";
-import type { PropsTableProp, TagTypes } from "@/types";
-import { Anatomy } from "./Anatomy";
-import type { StaticImageData } from "next/image";
-
-interface DocsPageProps {
-  componentName: string;
-  isMockup?: boolean;
-  searchParam?: string;
-  description?: string;
-  title: string;
-  ordered: string[];
-  tags: TagTypes[];
-  examples: Record<string, string>;
-  descriptions: Record<string, string>;
-  propsTable?: Record<string, PropsTableProp[]>;
-  examplesAnatomy?: Record<string, string>;
-  anatomy?: string;
-  image?: StaticImageData;
-}
+import MainLayout from "../mainLayout/MainLayout";
+import { PageHeadComponent } from "../PageHeadComponent";
+import { ExampleSectionData } from "../exampleSection/ExampleSection";
+import { PropsTable } from "../propsTable";
+import { Anatomy } from "../Anatomy";
+import type DocsPageProps from "./types/DocsPageProps";
 
 const DocsPage = (props: DocsPageProps) => {
   const {

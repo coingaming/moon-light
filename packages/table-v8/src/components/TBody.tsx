@@ -2,6 +2,7 @@ import React from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import TD from "./TD";
 import TBodyProps from "../private/types/TBodyProps";
+import { Row } from "@tanstack/react-table";
 
 const TBody = ({
   table,
@@ -16,11 +17,15 @@ const TBody = ({
   rowSelectColor,
   rowHoverColor,
   textClip,
+  getOnRowClickHandler,
 }: TBodyProps) => {
   const isRowElementClicked = (event: unknown) =>
     ["TD", "DIV"].includes(
       ((event as MouseEvent).target as HTMLElement).tagName,
     );
+
+  const handleRowClick = (target: Row<{}>) =>
+    getOnRowClickHandler && getOnRowClickHandler(target)();
 
   const oddRowBGColor = defaultRowBackgroundColor && defaultRowBackgroundColor;
   const evenRowBGColor = evenRowBackgroundColor
@@ -49,6 +54,15 @@ const TBody = ({
             ? row.getIsAllSubRowsSelected()
             : row.getIsSelected());
 
+        const useRowSelection = (event: unknown) => {
+          isSelectable && !preventSelectionByRowClick
+            ? isRowElementClicked(event)
+              ? row.getToggleSelectedHandler()(event)
+              : () => {}
+            : () => {};
+          handleRowClick(row);
+        };
+        /*
         const useRowSelection =
           isSelectable && !preventSelectionByRowClick
             ? (event: unknown) =>
@@ -56,7 +70,7 @@ const TBody = ({
                   ? row.getToggleSelectedHandler()(event)
                   : () => {}
             : undefined;
-
+*/
         return (
           <tr
             key={row.id}
