@@ -3,7 +3,7 @@
 import { Chip, Tooltip } from "@heathmont/moon-core-tw";
 import { ArrowsRefreshRound } from "@heathmont/moon-icons-tw";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import { ColumnDef, RowSelectionState } from "@tanstack/react-table";
+import { ColumnDef, Row, RowSelectionState } from "@tanstack/react-table";
 import React, { useCallback } from "react";
 
 type DataTypeHelper = {
@@ -123,9 +123,9 @@ const Example = () => {
         onRowSelectionChange={setRowSelection}
         rowHoverColor="krillin-10"
         isSelectable={true}
-        getOnRowSelectHandler={() => (rows: any) => {
+        getOnRowSelectHandler={() => (rows: Row<{}>[]) => {
           console.log(
-            `IDs of selected rows - ${rows.map((row: any) => row.id)}`,
+            `IDs of selected rows - ${rows.map((row: Row<{}>) => row.id)}`,
           );
         }}
       />
