@@ -145,7 +145,9 @@ const Example = () => {
         preventSelectionByRowClick={true}
         isSelectable={true}
         getOnRowSelectHandler={() => (rows: any) => {
-          console.log(`IDs of selected rows - ${rows.map((row: any) => row.id)}`);
+          console.log(
+            `IDs of selected rows - ${rows.map((row: any) => row.id)}`,
+          );
         }}
       />
     </div>

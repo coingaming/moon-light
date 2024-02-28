@@ -74,8 +74,12 @@ const Table = ({
 
   useEffect(() => {
     if (!isSelectable || !getOnRowSelectHandler) return;
-    const selectedKeys = state?.rowSelection ? Object.keys(state?.rowSelection) : [];
-    getOnRowSelectHandler()(table.getRowModel().rows.filter(row => selectedKeys.includes(row.id)));
+    const selectedKeys = state?.rowSelection
+      ? Object.keys(state?.rowSelection)
+      : [];
+    getOnRowSelectHandler()(
+      table.getRowModel().rows.filter((row) => selectedKeys.includes(row.id)),
+    );
   }, [getOnRowSelectHandler && state?.rowSelection]);
 
   useEffect(() => {
