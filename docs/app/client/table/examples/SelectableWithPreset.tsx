@@ -123,8 +123,8 @@ const Example = () => {
         onRowSelectionChange={setRowSelection}
         rowHoverColor="krillin-10"
         isSelectable={true}
-        getOnRowClickHandler={(row: { id: unknown }) => () => {
-          console.log(`You clicked row with ID - ${row.id}`);
+        getOnRowSelectHandler={() => (rows: any) => {
+          console.log(`IDs of selected rows - ${rows.map((row: any) => row.id)}`);
         }}
       />
     </div>
