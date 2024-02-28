@@ -1,7 +1,7 @@
 {
-  "name": "@heathmont/moon-table-test-v8-tw",
+  "name": "@heathmont/moon-table-v8-tw",
   "sideEffects": false,
-  "version": "10.12.3",
+  "version": "10.13.0",
   "files": [
     "lib"
   ],
