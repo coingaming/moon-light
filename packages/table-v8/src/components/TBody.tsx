@@ -62,15 +62,7 @@ const TBody = ({
             : () => {};
           handleRowClick(row);
         };
-        /*
-        const useRowSelection =
-          isSelectable && !preventSelectionByRowClick
-            ? (event: unknown) =>
-                isRowElementClicked(event)
-                  ? row.getToggleSelectedHandler()(event)
-                  : () => {}
-            : undefined;
-*/
+        
         return (
           <tr
             key={row.id}
