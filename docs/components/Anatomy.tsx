@@ -1,7 +1,4 @@
-import { mergeClassnames } from "@heathmont/moon-core-tw";
-import { serialize } from "next-mdx-remote/serialize";
 import { MDX } from "./MDX";
-import CodePreviewWrapper from "./exampleSection/codePreview/wrapper/CodePreviewWrapper";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { HTMLProps } from "react";
 
