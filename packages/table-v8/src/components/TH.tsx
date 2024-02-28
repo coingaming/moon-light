@@ -53,8 +53,6 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
     },
     ref,
   ) => {
-    const [stickyWidth, setStickyWidth] = React.useState(header.getSize());
-
     const columnSizingInfo = isResizable && table && table.getState().columnSizingInfo;
 
     const stickyColumn: StickyColumn = header.column.parent
