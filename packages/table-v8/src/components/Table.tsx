@@ -14,6 +14,7 @@ import THead from "./THead";
 import ColumnData from "../private/types/ColumnData";
 import TableProps from "../private/types/TableProps";
 import buildColumnMap from "../private/utils/buildColumnMap";
+import { handleTableLayouts, handleTableMaxWidth } from "../private/utils/handleTableLayouts";
 
 const Table = ({
   columns,
@@ -21,6 +22,7 @@ const Table = ({
   defaultColumn,
   width,
   height,
+  maxWidth = "w-full",
   state,
   withFooter = false,
   headerBackgroundColor = "gohan",
@@ -31,7 +33,7 @@ const Table = ({
   rowHoverColor,
   rowGap = "2px",
   rowSize = "md",
-  isResizable = true,
+  isResizable = false,
   isSelectable = false,
   isSticky = true,
   textClip,
@@ -80,14 +82,16 @@ const Table = ({
   }, [tableWrapperRef.current, buildColumnMap, tableResizeInfo.isResizingColumn && tableResizeInfo.deltaOffset]);
 
   const renderTableComponent = () => {
-    const tableLayout = layout === "fixed" ? "fixed" : "auto";
     const wrapperStyles = new Map([
       ["maxWidth", width ? `${width}px` : undefined],
       ["height", height ? `${height}px` : undefined],
     ]);
 
+    const tableWidth = React.useMemo(() => handleTableLayouts(layout, isResizable) ?? handleTableMaxWidth(maxWidth), []);
+    const tableLayout = React.useMemo(() => layout === "fixed" ? "fixed" : "auto", []);
+
     const tableStyles = {
-      //width,
+      width: `${tableWidth}`,
       tableLayout,
       borderSpacing: `0 ${rowGap}`,
       "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
@@ -103,8 +107,6 @@ const Table = ({
           style={tableStyles}
           className={mergeClassnames(
             "border-separate bg-[color:var(--tableBGColor)]",
-            layout !== "auto" && "w-full",
-            /* "w-max" */
           )}
         >
           <THead

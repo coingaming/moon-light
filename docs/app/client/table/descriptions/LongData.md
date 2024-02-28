@@ -1,5 +1,5 @@
 ---
-title: Long data table
+title: Long data resizable table
 ---
 
 An example of a wide table with clipped data.

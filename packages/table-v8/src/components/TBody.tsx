@@ -2,7 +2,6 @@ import React from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import TD from "./TD";
 import TBodyProps from "../private/types/TBodyProps";
-// import { MouseEventHandler } from "react";
 
 const TBody = ({
   table,

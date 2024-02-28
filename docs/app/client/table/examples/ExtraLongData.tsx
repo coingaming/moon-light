@@ -71,7 +71,6 @@ const Example = () => {
         header: () => "",
         sticky: "right",
         size: 70,
-        /* maxSize: 70, */
         columns: [
           {
             id: "actions",
@@ -282,7 +281,6 @@ const Example = () => {
   const defaultColumn = {
     minSize: 70,
     size: 50,
-    //maxSize: 260,
     maxSize: Number.MAX_SAFE_INTEGER,
   };
 
@@ -294,7 +292,7 @@ const Example = () => {
         defaultColumn={defaultColumn}
         width={800}
         height={400}
-        layout="stretched-auto"
+        isResizable
       />
     </div>
   );

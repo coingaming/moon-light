@@ -146,9 +146,9 @@ const Example = () => {
         defaultColumn={defaultColumn}
         width={800}
         height={500}
-        layout="stretched-auto"
+        isResizable
         textClip={textClip}
-        withFooter={true}
+        withFooter
       />
     </div>
   );
