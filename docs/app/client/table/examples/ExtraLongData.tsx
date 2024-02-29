@@ -263,7 +263,7 @@ const Example = () => {
             ])}
           ></CellScroller>
         ),
-        range: (	
+        range: (
           <Chip
             size="sm"
             className="bg-transparent"

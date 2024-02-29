@@ -85,7 +85,9 @@ const TBody = ({
                 noGap={noGap}
                 className={mergeClassnames(
                   "group/rows before:bg-[color:var(--bodyBGColor)]",
-                  isSelectable && !preventSelectionByRowClick && "cursor-pointer",
+                  isSelectable &&
+                    !preventSelectionByRowClick &&
+                    "cursor-pointer",
                   isRowSelected &&
                     "group/rows bg-[color:var(--rowSelectColor)] group/rows after:bg-[color:var(--rowSelectColor)]",
                   !isRowSelected &&

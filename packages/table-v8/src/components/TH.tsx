@@ -53,7 +53,8 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
     },
     ref,
   ) => {
-    const columnSizingInfo = isResizable && table && table.getState().columnSizingInfo;
+    const columnSizingInfo =
+      isResizable && table && table.getState().columnSizingInfo;
 
     const stickyColumn: StickyColumn = header.column.parent
       ? header.column.parent?.columnDef
@@ -67,12 +68,8 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
 
     const styles = new Map([
       ["width", `${header.column.getSize()}px`],
-      [
-        "minWidth", `${header.column.columnDef.minSize}px`,
-      ],
-      [
-        "maxWidth", `${header.column.columnDef.maxSize}px`,
-      ],
+      ["minWidth", `${header.column.columnDef.minSize}px`],
+      ["maxWidth", `${header.column.columnDef.maxSize}px`],
       ["--headerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
     ]);
 
@@ -95,7 +92,9 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           backgroundColor && "bg-[color:var(--headerBGColor)]",
           stickySide &&
             "sticky z-[2] before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
-          columnSizingInfo && !!columnSizingInfo.isResizingColumn && "cursor-col-resize",
+          columnSizingInfo &&
+            !!columnSizingInfo.isResizingColumn &&
+            "cursor-col-resize",
         )}
         ref={ref}
       >
@@ -117,7 +116,9 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           <div
             className={mergeClassnames(
               "resizer absolute z-50 w-4 h-full top-0 right-0 rounded-sm bg-transparent cursor-col-resize ltr",
-              columnSizingInfo && !columnSizingInfo.isResizingColumn && "hover:bg-black/20",
+              columnSizingInfo &&
+                !columnSizingInfo.isResizingColumn &&
+                "hover:bg-black/20",
               header.column.getIsResizing() ? "isResizing bg-black/20" : "",
             )}
             onMouseDown={header.getResizeHandler()}

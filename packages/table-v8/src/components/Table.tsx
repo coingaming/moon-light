@@ -14,7 +14,10 @@ import THead from "./THead";
 import ColumnData from "../private/types/ColumnData";
 import TableProps from "../private/types/TableProps";
 import buildColumnMap from "../private/utils/buildColumnMap";
-import { handleTableLayouts, handleTableMaxWidth } from "../private/utils/handleTableLayouts";
+import {
+  handleTableLayouts,
+  handleTableMaxWidth,
+} from "../private/utils/handleTableLayouts";
 
 const Table = ({
   columns,
@@ -92,7 +95,11 @@ const Table = ({
         tableWrapperRef.current?.childNodes[0] as HTMLTableElement,
       ),
     );
-  }, [tableWrapperRef.current, buildColumnMap, tableResizeInfo.isResizingColumn && tableResizeInfo.deltaOffset]);
+  }, [
+    tableWrapperRef.current,
+    buildColumnMap,
+    tableResizeInfo.isResizingColumn && tableResizeInfo.deltaOffset,
+  ]);
 
   const renderTableComponent = () => {
     const wrapperStyles = new Map([
@@ -100,8 +107,16 @@ const Table = ({
       ["height", height ? `${height}px` : undefined],
     ]);
 
-    const tableWidth = React.useMemo(() => handleTableLayouts(layout, isResizable) ?? handleTableMaxWidth(maxWidth), []);
-    const tableLayout = React.useMemo(() => layout === "fixed" ? "fixed" : "auto", []);
+    const tableWidth = React.useMemo(
+      () =>
+        handleTableLayouts(layout, isResizable) ??
+        handleTableMaxWidth(maxWidth),
+      [],
+    );
+    const tableLayout = React.useMemo(
+      () => (layout === "fixed" ? "fixed" : "auto"),
+      [],
+    );
 
     const tableStyles = {
       width: `${tableWidth}`,
