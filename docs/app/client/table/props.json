@@ -121,6 +121,12 @@
         "type": ["string"]
       },
       {
+        "name": "rowActiveColor",
+        "description": "The background color of the row during mouse button is down.",
+        "required": false,
+        "type": ["string"]
+      },
+      {
         "name": "rowHoverColor",
         "description": "The background color of the row under the mouse cursor.",
         "required": false,

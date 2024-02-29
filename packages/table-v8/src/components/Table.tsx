@@ -30,6 +30,7 @@ const Table = ({
   defaultRowBackgroundColor = "goku",
   evenRowBackgroundColor = "goku",
   rowSelectColor = "heles",
+  rowActiveColor,
   rowHoverColor,
   rowGap = "2px",
   rowSize = "md",
@@ -141,6 +142,7 @@ const Table = ({
             defaultRowBackgroundColor={defaultRowBackgroundColor}
             evenRowBackgroundColor={evenRowBackgroundColor}
             rowHoverColor={rowHoverColor}
+            rowActiveColor={rowActiveColor}
             columnMap={columnMap}
             textClip={textClip}
             getOnRowClickHandler={getOnRowClickHandler}
