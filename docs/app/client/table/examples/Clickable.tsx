@@ -3,50 +3,20 @@
 import { Chip, Tooltip } from "@heathmont/moon-core-tw";
 import { ArrowsRefreshRound } from "@heathmont/moon-icons-tw";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import { ColumnDef, Row, RowSelectionState, flexRender } from "@tanstack/react-table";
-import React, { ReactNode, useCallback } from "react";
+import { ColumnDef, Row, RowSelectionState } from "@tanstack/react-table";
+import React, { useCallback } from "react";
 
 type DataTypeHelper = {
   firstName: string;
   lastName: string;
   age: string;
   visits: string;
-  progress: React.JSX.Element;
+  progress: string;
   status: number;
   activity: number;
-  actions: () => void;
-};
-
-const preset: RowSelectionState = {
-  1: true,
-  3: true,
-  4: true,
-  11: true,
-  16: true,
 };
 
 const Example = () => {
-  const tooltip = React.useMemo(
-    () => (
-      <Tooltip>
-        <Tooltip.Trigger className="max-h-6">
-          <Chip
-            variant="ghost"
-            iconOnly={<ArrowsRefreshRound className="text-moon-24 max-h-6" />}
-            onClick={() => {
-              window.location.reload();
-            }}
-          />
-        </Tooltip.Trigger>
-        <Tooltip.Content position="top-start" className="z-[2]">
-          Reload page
-          <Tooltip.Arrow />
-        </Tooltip.Content>
-      </Tooltip>
-    ),
-    [],
-  );
-
   const makeData = useCallback(
     (length: number) => {
       return Array.from("_".repeat(length)).map((_, index) => {
@@ -58,15 +28,12 @@ const Example = () => {
           progress: <span>{Math.floor(index * 100)}</span>,
           status: Math.floor(index * 100),
           activity: Math.floor(index * 100),
-          actions: tooltip,
         };
       });
     },
-    [tooltip],
+    [],
   );
 
-  const [rowSelection, setRowSelection] =
-    React.useState<RowSelectionState>(preset);
   const [data, setData] = React.useState(makeData(20));
 
   const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
@@ -82,29 +49,17 @@ const Example = () => {
       {
         header: () => "Age",
         accessorKey: "age",
-        cell: (props) => (
-          <div onClick={props.row.getToggleSelectedHandler()}>
-            {props.getValue() as unknown as ReactNode}
-          </div>
-        ),
+        cell: (props) => props.getValue(),
       },
       {
         header: () => "Visits",
         accessorKey: "visits",
-        cell: (props) => (
-          <div onClick={props.row.getToggleSelectedHandler()}>
-            {props.getValue() as unknown as ReactNode}
-          </div>
-        ),
+        cell: (props) => props.getValue(),
       },
       {
         header: () => "Progress",
         accessorKey: "progress",
-        cell: (props) => (
-          <div onClick={props.row.getToggleSelectedHandler()}>
-            {props.getValue() as unknown as ReactNode}
-          </div>
-        ),
+        cell: (props) => props.getValue(),
       },
       {
         header: () => "Activity",
@@ -113,11 +68,6 @@ const Example = () => {
       {
         header: () => "Status",
         accessorKey: "status",
-      },
-      {
-        header: () => "Actions",
-        accessorKey: "actions",
-        cell: (props) => props.getValue(),
       },
     ],
     [],
@@ -131,14 +81,11 @@ const Example = () => {
         width={800}
         height={400}
         layout="stretched-auto"
-        state={{ rowSelection }}
-        onRowSelectionChange={setRowSelection}
+        rowActiveColor="goku"
         rowHoverColor="krillin-10"
         isSelectable={true}
-        getOnRowSelectHandler={() => (rows: Row<{}>[]) => {
-          console.log(
-            `IDs of selected rows - ${rows.map((row: Row<{}>) => row.id)}`,
-          );
+        getOnRowClickHandler={(row: Row<{}>) => () => {
+          console.log(`You clicked row with ID - ${row.id}`);
         }}
       />
     </div>
