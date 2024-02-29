@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react';
-import type CheckboxProps from './private/types/CheckboxProps';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
-import ControlsMinus from '../private/icons/ControlsMinus';
-import GenericCheckAlternative from '../private/icons/GenericCheckAlternative';
+import React, { forwardRef } from "react";
+import type CheckboxProps from "./private/types/CheckboxProps";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
+import ControlsMinus from "../private/icons/ControlsMinus";
+import GenericCheckAlternative from "../private/icons/GenericCheckAlternative";
 
 const CheckboxPure = forwardRef<HTMLInputElement, CheckboxProps>(
   (
@@ -21,15 +21,15 @@ const CheckboxPure = forwardRef<HTMLInputElement, CheckboxProps>(
       isPure = true,
       ...inputProps
     },
-    ref
+    ref,
   ) => {
     return (
       <label
         htmlFor={id}
         className={mergeClassnames(
-          'relative flex items-center gap-2 text-moon-14 text-bulma cursor-pointer',
-          disabled && 'opacity-30 cursor-not-allowed select-none',
-          readOnly && 'cursor-not-allowed select-none'
+          "relative flex items-center gap-2 text-moon-14 text-bulma cursor-pointer",
+          disabled && "opacity-30 cursor-not-allowed select-none",
+          readOnly && "cursor-not-allowed select-none",
         )}
       >
         <input
@@ -45,24 +45,24 @@ const CheckboxPure = forwardRef<HTMLInputElement, CheckboxProps>(
         />
         <span
           className={mergeClassnames(
-            'absolute top-1 start-1 flex w-4 h-4 items-center justify-center shadow-[0_0_0_1px_inset] transition-colors text-moon-16 rounded-moon-s-xs shadow-trunks peer-checked:shadow-none text-goten',
+            "absolute top-1 start-1 flex w-4 h-4 items-center justify-center shadow-[0_0_0_1px_inset] transition-colors text-moon-16 rounded-moon-s-xs shadow-trunks peer-checked:shadow-none text-goten",
             isPure &&
-              'peer-checked:bg-piccolo [&_svg]:opacity-0 peer-checked:[&_svg]:opacity-100', //New
+              "peer-checked:bg-piccolo [&_svg]:opacity-0 peer-checked:[&_svg]:opacity-100", //New
             (checked || indeterminate) && bgColor,
-            indeterminate && 'shadow-none',
-            className && className
+            indeterminate && "shadow-none",
+            className && className,
           )}
           aria-hidden="true"
         >
           {indeterminate ? (
             <ControlsMinus
-              className={mergeClassnames('transition-opacity opacity-100')}
+              className={mergeClassnames("transition-opacity opacity-100")}
             />
           ) : (
             <GenericCheckAlternative
               className={mergeClassnames(
-                'transition-opacity',
-                checked ? 'opacity-100' : 'opacity-0'
+                "transition-opacity",
+                checked ? "opacity-100" : "opacity-0",
               )}
             />
           )}
@@ -70,7 +70,7 @@ const CheckboxPure = forwardRef<HTMLInputElement, CheckboxProps>(
         {label}
       </label>
     );
-  }
+  },
 );
 
 export default CheckboxPure;

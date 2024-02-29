@@ -1,5 +1,5 @@
-import type Props from './Props';
-import type Size from './Size';
+import type Props from "./Props";
+import type Size from "./Size";
 
 type TabProps = Props & {
   isDisabled?: boolean;

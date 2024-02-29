@@ -1,4 +1,4 @@
-import type AccordionSizes from './AccordionSizes';
+import type AccordionSizes from "./AccordionSizes";
 
 type AccordionProps = {
   className?: string;

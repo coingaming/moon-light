@@ -1,5 +1,5 @@
 // @ts-ignore
-import { cache } from 'react';
+import { cache } from "react";
 
 export default <T>(defaultValue: T): [() => T, (v: T) => void] => {
   const getRef = cache(() => ({ current: defaultValue }));

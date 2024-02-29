@@ -1,3 +1,3 @@
-type Size = 'sm' | 'md';
+type Size = "sm" | "md";
 
 export default Size;
