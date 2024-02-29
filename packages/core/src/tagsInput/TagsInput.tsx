@@ -137,7 +137,7 @@ const SelectedItem = ({
   ...rest
 }: SelectedItemProps) => {
   const { size, disabled, isError, onClear } = useTagsInputContext(
-    "TagstInput.SelectedItem",
+    "TagsInput.SelectedItem",
   );
   return (
     <div

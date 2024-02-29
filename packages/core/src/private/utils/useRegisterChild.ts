@@ -3,7 +3,7 @@ import stateReducer from "./stateReducer";
 
 const useRegisterChild = () => {
   const [state, dispatch] = useReducer(stateReducer, {
-    childrens: [],
+    childrenArray: [],
   });
   const registerChild = useCallback((child: string) => {
     dispatch && dispatch({ type: "RegisterChild", children: child });

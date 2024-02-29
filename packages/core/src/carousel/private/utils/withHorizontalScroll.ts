@@ -205,8 +205,8 @@ export const withHorizontalScroll = (options: Options): any => {
     if (!scrollTo || !itemRefs.length) {
       return;
     }
-    const revertSrollTo = itemRefs.length - scrollTo - 1;
-    const currentScrollTo = isRtl ? revertSrollTo : scrollTo;
+    const revertScrollTo = itemRefs.length - scrollTo - 1;
+    const currentScrollTo = isRtl ? revertScrollTo : scrollTo;
     // We scroll for another extra item because we defined our THRESHOLD = 0.75;
     // It means that item will be visible for 75%.
     // We scroll one more to guarantee 100% visibility.

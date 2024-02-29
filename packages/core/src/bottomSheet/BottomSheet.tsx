@@ -101,12 +101,14 @@ const Panel = ({
 }: PanelProps) => {
   const { size, bottomSheetChildren } =
     useBottomSheetContext("BottomSheet.Panel"); // deprecated
-  const isDragable = bottomSheetChildren?.find((name) => name === "Draghandle");
+  const isDraggable = bottomSheetChildren?.find(
+    (name) => name === "Draghandle",
+  );
   const {
     isTransition, // deprecated
     panelRef,
     clickOutsideClose,
-  } = useDrag(onClose, isDragable);
+  } = useDrag(onClose, isDraggable);
   let height;
   switch (size) {
     case "lg":

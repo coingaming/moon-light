@@ -2,7 +2,7 @@ name: Publish
 on:
   push:
     tags:
-      - "*"
+      - "v*"
 jobs:
   build:
     name: "Build docs and publish npm packages"

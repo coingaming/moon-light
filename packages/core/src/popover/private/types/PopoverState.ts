@@ -9,7 +9,7 @@ type PopoverState = {
     setArrow: React.Dispatch<React.SetStateAction<HTMLElement | null>>;
   };
   registerChild?: (child: string) => () => void;
-  childrens?: string[];
+  childrenArray?: string[];
 };
 
 export default PopoverState;

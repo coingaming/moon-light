@@ -3,7 +3,7 @@ type DropdownState = {
   isError?: boolean;
   disabled?: boolean;
   onClear?: () => void;
-  pooper?: {
+  popper?: {
     styles?: { [key: string]: React.CSSProperties };
     attributes?: { [key: string]: { [key: string]: string } | undefined };
     setAnchor: React.Dispatch<React.SetStateAction<Element | null | undefined>>;

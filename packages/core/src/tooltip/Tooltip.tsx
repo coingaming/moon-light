@@ -51,7 +51,7 @@ const Content = ({
     withArrow: false,
   };
   const { state, registerChild } = useRegisterChild();
-  const isArrow = state.childrens?.find((name) => name === "Arrow");
+  const isArrow = state.childrenArray?.find((name) => name === "Arrow");
   return (
     <TooltipContext.Provider value={{ ...states, ...state, registerChild }}>
       <RadixTooltip.Portal container={container}>

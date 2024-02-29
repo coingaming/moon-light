@@ -49,7 +49,7 @@ const DropdownRoot = ({
     size: size,
     disabled: disabled,
     onClear: onClear,
-    pooper: {
+    popper: {
       styles: styles,
       attributes: attributes,
       setAnchor: setAnchorEl,
@@ -57,7 +57,7 @@ const DropdownRoot = ({
     },
   };
 
-  const childrens =
+  const childrenArray =
     typeof children !== "function" ? React.Children.toArray(children) : [];
   const callableChildren = typeof children === "function" && children;
   return (
@@ -75,7 +75,7 @@ const DropdownRoot = ({
             <div className="relative">
               {typeof children === "function"
                 ? callableChildren && callableChildren({ open })
-                : childrens?.map((ch) => ch)}
+                : childrenArray?.map((ch) => ch)}
             </div>
           )}
         </Listbox>
@@ -99,12 +99,12 @@ const Options = ({
   className,
   ...rest
 }: WithChildren<OptionsProps>) => {
-  const { pooper } = useDropdownContext("Dropdown.Options");
+  const { popper } = useDropdownContext("Dropdown.Options");
   return (
     <Listbox.Options
-      ref={pooper?.setPopper}
-      style={pooper?.styles?.popper}
-      {...pooper?.attributes?.popper}
+      ref={popper?.setPopper}
+      style={popper?.styles?.popper}
+      {...popper?.attributes?.popper}
       className={mergeClassnames(
         menuWidth ? menuWidth : "w-full min-w-[18.75rem]",
         "z-5 absolute p-1 my-2 rounded-moon-s-md box-border bg-goku shadow-moon-lg overflow-y-auto focus:outline-none",
@@ -138,7 +138,7 @@ const Select = ({
   className,
   ...rest
 }: WithChildren<SelectProps>) => {
-  const { size, pooper, isError, disabled } =
+  const { size, popper, isError, disabled } =
     useDropdownContext("Dropdown.Select");
   return (
     <>
@@ -153,7 +153,7 @@ const Select = ({
           open={open}
           isError={isError}
           idDisabled={disabled}
-          ref={pooper?.setAnchor}
+          ref={popper?.setAnchor}
           {...rest}
         >
           <SelectButton.Input className={className}>
@@ -179,7 +179,7 @@ const InsetSelect = ({
   className,
   ...rest
 }: WithChildren<SelectProps>) => {
-  const { size, pooper, isError, disabled } = useDropdownContext(
+  const { size, popper, isError, disabled } = useDropdownContext(
     "Dropdown.InsetSelect",
   );
   return (
@@ -189,7 +189,7 @@ const InsetSelect = ({
         open={open}
         isError={isError}
         idDisabled={disabled}
-        ref={pooper?.setAnchor}
+        ref={popper?.setAnchor}
         {...rest}
       >
         <SelectButton.InsetInput className={className}>
@@ -218,7 +218,7 @@ const MultiSelect = ({
   counter = 0,
   ...rest
 }: WithChildren<SelectProps & { counter?: number }>) => {
-  const { size, pooper, isError, disabled, onClear } = useDropdownContext(
+  const { size, popper, isError, disabled, onClear } = useDropdownContext(
     "Dropdown.MultiSelect",
   );
   return (
@@ -234,7 +234,7 @@ const MultiSelect = ({
           open={open}
           isError={isError}
           idDisabled={disabled}
-          ref={pooper?.setAnchor}
+          ref={popper?.setAnchor}
           {...rest}
         >
           <SelectButton.Input className={mergeClassnames(className)}>
@@ -264,7 +264,7 @@ const InsetMultiSelect = ({
   counter = 0,
   ...rest
 }: WithChildren<SelectProps & { counter?: number }>) => {
-  const { size, pooper, isError, disabled, onClear } = useDropdownContext(
+  const { size, popper, isError, disabled, onClear } = useDropdownContext(
     "Dropdown.InsetMultiSelect",
   );
   return (
@@ -274,7 +274,7 @@ const InsetMultiSelect = ({
         open={open}
         isError={isError}
         idDisabled={disabled}
-        ref={pooper?.setAnchor}
+        ref={popper?.setAnchor}
         {...rest}
       >
         <SelectButton.InsetInput
@@ -299,10 +299,10 @@ const Trigger = ({
   className,
   ...rest
 }: WithChildren<{ className?: string }>) => {
-  const { pooper } = useDropdownContext("Dropdown.Trigger");
+  const { popper } = useDropdownContext("Dropdown.Trigger");
   return (
     <Listbox.Button
-      ref={pooper?.setAnchor}
+      ref={popper?.setAnchor}
       className={className && className}
       {...rest}
     >

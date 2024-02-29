@@ -16,7 +16,7 @@ const InsetInputRoot = forwardRef<HTMLInputElement, InsetInputProps>(
     const disabled = rest.disabled || formItemDisabled;
     const error = inputError || formItemError;
     const { state, registerChild } = useRegisterChild();
-    const isLabel = state.childrens?.some((name) => name === "Label");
+    const isLabel = state.childrenArray?.some((name) => name === "Label");
     return (
       <InsetInputContext.Provider value={{ ...state, registerChild }}>
         <div

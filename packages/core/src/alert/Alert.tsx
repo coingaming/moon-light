@@ -14,7 +14,7 @@ const AlertRoot = ({ className, children }: Props) => {
     withClose: false,
   };
   const { state, registerChild } = useRegisterChild();
-  const isClose = state.childrens?.find((name) => name === "Close");
+  const isClose = state.childrenArray?.find((name) => name === "Close");
   return (
     <AlertContext.Provider value={{ ...states, ...state, registerChild }}>
       <div

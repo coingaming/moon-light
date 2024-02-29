@@ -263,7 +263,7 @@ module.exports = {
         zeno: {
           DEFAULT: withOpacityValue("--zeno"),
         },
-        // support colours
+        // support colors
         krillin: {
           DEFAULT: withOpacityValue("--krillin"),
           60: withOpacityValue("--krillin-60"),
