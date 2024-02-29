@@ -1,4 +1,4 @@
-import type TabProps from './TabProps';
+import type TabProps from "./TabProps";
 
 type TabPolymorphicProps<C extends React.ElementType> =
   PolymorphicComponentPropWithRef<C, TabProps>;

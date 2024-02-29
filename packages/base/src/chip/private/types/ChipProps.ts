@@ -3,9 +3,9 @@ type ChipProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   iconOnly?: React.ReactNode;
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
-  size?: 'sm' | 'md';
+  size?: "sm" | "md";
   isStroke?: boolean;
-  variant?: 'default' | 'ghost';
+  variant?: "default" | "ghost";
   children?: React.ReactNode;
   className?: string;
 };

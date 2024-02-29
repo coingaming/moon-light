@@ -1,9 +1,9 @@
-import React from 'react';
-import type AccordionProps from './private/type/AccordionProps';
-import type ContentProps from './private/type/ContentProps';
-import type SummaryProps from './private/type/SummaryProps';
-import getSize from './private/utils/getSize';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+import React from "react";
+import type AccordionProps from "./private/type/AccordionProps";
+import type ContentProps from "./private/type/ContentProps";
+import type SummaryProps from "./private/type/SummaryProps";
+import getSize from "./private/utils/getSize";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const AccordionRoot = ({
   className,
@@ -15,11 +15,11 @@ const AccordionRoot = ({
   <details
     {...rest}
     className={mergeClassnames(
-      'w-full [&[open]_summary]:rounded-b-none text-bulma',
-      '[&[open]_svg]:rotate-180 [&[open]_svg]:text-bulma [&_svg]:transition [&_svg]:text-trunks',
+      "w-full [&[open]_summary]:rounded-b-none text-bulma",
+      "[&[open]_svg]:rotate-180 [&[open]_svg]:text-bulma [&_svg]:transition [&_svg]:text-trunks",
       getSize(size),
-      disabled && 'disabled cursor-not-allowed opacity-60',
-      className
+      disabled && "disabled cursor-not-allowed opacity-60",
+      className,
     )}
   >
     {children}
@@ -29,10 +29,10 @@ const AccordionRoot = ({
 const Summary = ({ className, children, ...rest }: SummaryProps) => (
   <summary
     className={mergeClassnames(
-      'flex w-full justify-between items-center gap-1 rounded-moon-s-sm bg-goku list-none',
-      'cursor-pointer font-medium [.disabled_&]:pointer-events-none',
-      '[&_::-webkit-details-marker]:hidden',
-      className
+      "flex w-full justify-between items-center gap-1 rounded-moon-s-sm bg-goku list-none",
+      "cursor-pointer font-medium [.disabled_&]:pointer-events-none",
+      "[&_::-webkit-details-marker]:hidden",
+      className,
     )}
     {...rest}
   >
@@ -43,9 +43,9 @@ const Summary = ({ className, children, ...rest }: SummaryProps) => (
 const Content = ({ children, className, ...rest }: ContentProps) => (
   <div
     className={mergeClassnames(
-      'content flex bg-goku p-2 rounded-moon-s-sm rounded-t-none w-full border-t text-moon-14',
-      'border-beerus',
-      className
+      "content flex bg-goku p-2 rounded-moon-s-sm rounded-t-none w-full border-t text-moon-14",
+      "border-beerus",
+      className,
     )}
     {...rest}
   >
@@ -56,8 +56,8 @@ const Content = ({ children, className, ...rest }: ContentProps) => (
 const ContentOutside = ({ children, className, ...rest }: ContentProps) => (
   <div
     className={mergeClassnames(
-      'content content-outside flex w-full text-moon-14',
-      className
+      "content content-outside flex w-full text-moon-14",
+      className,
     )}
     {...rest}
   >

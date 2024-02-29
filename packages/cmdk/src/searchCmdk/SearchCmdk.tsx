@@ -1,7 +1,7 @@
-import React from 'react';
-import { mergeClassnames } from '@heathmont/moon-core-tw';
-import { Command } from 'cmdk';
-import GenericSearch from './private/icons/GenericSearch';
+import React from "react";
+import { mergeClassnames } from "@heathmont/moon-core-tw";
+import { Command } from "cmdk";
+import GenericSearch from "./private/icons/GenericSearch";
 
 const SearchCmdkRoot = ({
   children,
@@ -13,9 +13,9 @@ const SearchCmdkRoot = ({
 }: React.ComponentProps<typeof Command.Dialog>) => (
   <Command.Dialog
     className={mergeClassnames(
-      'z-[60] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full bg-goku',
-      'sm:max-w-lg md:max-w-xl shadow-moon-md rounded-moon-s-md flex flex-col overflow-hidden',
-      className
+      "z-[60] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full bg-goku",
+      "sm:max-w-lg md:max-w-xl shadow-moon-md rounded-moon-s-md flex flex-col overflow-hidden",
+      className,
     )}
     open={open}
     onOpenChange={onOpenChange}
@@ -32,7 +32,7 @@ const InputWrapper = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={mergeClassnames('flex items-center gap-4 px-4', className)}
+    className={mergeClassnames("flex items-center gap-4 px-4", className)}
     {...props}
   >
     {children}
@@ -41,15 +41,15 @@ const InputWrapper = ({
 
 const Input = ({
   className,
-  placeholder = 'Search',
+  placeholder = "Search",
   ...props
 }: React.ComponentProps<typeof Command.Input>) => (
   <Command.Input
     placeholder={placeholder}
     className={mergeClassnames(
-      'py-4 border-0 w-full focus:outline-none focus:border-0 focus:ring-0 bg-transparent',
-      'placeholder-trunks text-bulma text-moon-16',
-      className
+      "py-4 border-0 w-full focus:outline-none focus:border-0 focus:ring-0 bg-transparent",
+      "placeholder-trunks text-bulma text-moon-16",
+      className,
     )}
     {...props}
   />
@@ -62,8 +62,8 @@ const Icon = ({
   <div>
     <GenericSearch
       className={mergeClassnames(
-        'pointer-events-none text-bulma text-moon-24',
-        className
+        "pointer-events-none text-bulma text-moon-24",
+        className,
       )}
       {...props}
     />
@@ -77,8 +77,8 @@ const Kbd = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <kbd
     className={mergeClassnames(
-      'select-none hover:cursor-pointer text-trunks text-moon-14',
-      className
+      "select-none hover:cursor-pointer text-trunks text-moon-14",
+      className,
     )}
     {...props}
   >
@@ -92,8 +92,8 @@ const Overlay = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={mergeClassnames(
-      'fixed w-screen inset-0 bg-zeno transition-opacity z-[55]',
-      className
+      "fixed w-screen inset-0 bg-zeno transition-opacity z-[55]",
+      className,
     )}
     {...props}
   />
@@ -104,7 +104,7 @@ const Separator = ({
 }: React.ComponentProps<typeof Command.Separator>) => (
   <Command.Separator
     alwaysRender
-    className={mergeClassnames('h-px bg-beerus', className)}
+    className={mergeClassnames("h-px bg-beerus", className)}
   />
 );
 
@@ -115,8 +115,8 @@ const Group = ({
 }: React.ComponentProps<typeof Command.Group>) => (
   <Command.Group
     className={mergeClassnames(
-      'w-full max-h-[50vh] overflow-y-auto p-2 space-y-1 bg-goku shadow-none',
-      className
+      "w-full max-h-[50vh] overflow-y-auto p-2 space-y-1 bg-goku shadow-none",
+      className,
     )}
     {...props}
   >
@@ -132,12 +132,12 @@ const Result = ({
   <Command.List
     style={{
       // Should be equal p-2 below
-      scrollPaddingBlockStart: '0.5rem',
-      scrollPaddingBlockEnd: '0.5rem',
+      scrollPaddingBlockStart: "0.5rem",
+      scrollPaddingBlockEnd: "0.5rem",
     }}
     className={mergeClassnames(
-      'w-full max-h-[50vh] overflow-y-auto p-2 space-y-1 bg-goku shadow-moon-md',
-      className
+      "w-full max-h-[50vh] overflow-y-auto p-2 space-y-1 bg-goku shadow-moon-md",
+      className,
     )}
     {...props}
   >
@@ -151,8 +151,8 @@ const NoResults = ({
 }: React.ComponentProps<typeof Command.Empty>) => (
   <Command.Empty
     className={mergeClassnames(
-      'p-3 text-moon-14 text-trunks flex items-center',
-      className
+      "p-3 text-moon-14 text-trunks flex items-center",
+      className,
     )}
   >
     {children}
@@ -167,10 +167,10 @@ const ResultItem = ({
 }: React.ComponentProps<typeof Command.Item>) => (
   <Command.Item
     className={mergeClassnames(
-      'flex gap-2 justify-between items-center p-2 bg-transparent rounded-moon-i-sm',
-      'text-moon-14 text-bulma focus:outline-none focus:shadow-focus cursor-pointer',
-      'hover:bg-heles transition data-[selected=true]:bg-heles',
-      className
+      "flex gap-2 justify-between items-center p-2 bg-transparent rounded-moon-i-sm",
+      "text-moon-14 text-bulma focus:outline-none focus:shadow-focus cursor-pointer",
+      "hover:bg-heles transition data-[selected=true]:bg-heles",
+      className,
     )}
     onSelect={onSelect}
     {...props}
@@ -187,9 +187,9 @@ const Trigger = ({
   <button
     aria-label="Search"
     className={mergeClassnames(
-      'flex gap-2 h-10 cursor-text items-center text-trunks w-full',
-      'rounded-moon-i-sm border border-beerus bg-goku px-2 text-moon-14',
-      className
+      "flex gap-2 h-10 cursor-text items-center text-trunks w-full",
+      "rounded-moon-i-sm border border-beerus bg-goku px-2 text-moon-14",
+      className,
     )}
     {...props}
   >
@@ -202,7 +202,7 @@ const TriggerIcon = ({
   ...props
 }: React.ComponentProps<typeof GenericSearch>) => (
   <GenericSearch
-    className={mergeClassnames('text-moon-24 text-bulma', className)}
+    className={mergeClassnames("text-moon-24 text-bulma", className)}
     {...props}
   />
 );
@@ -213,7 +213,7 @@ const TriggerKbd = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <kbd
-    className={mergeClassnames('text-moon-12 text-trunks ms-auto', className)}
+    className={mergeClassnames("text-moon-12 text-trunks ms-auto", className)}
     {...props}
   >
     {children}
