@@ -3,7 +3,12 @@
 import { Chip, Tooltip } from "@heathmont/moon-core-tw";
 import { ArrowsRefreshRound } from "@heathmont/moon-icons-tw";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import { ColumnDef, Row, RowSelectionState, flexRender } from "@tanstack/react-table";
+import {
+  ColumnDef,
+  Row,
+  RowSelectionState,
+  flexRender,
+} from "@tanstack/react-table";
 import React, { ReactNode, useCallback } from "react";
 
 type DataTypeHelper = {

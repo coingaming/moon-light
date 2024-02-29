@@ -15,22 +15,19 @@ type DataTypeHelper = {
 };
 
 const Example = () => {
-  const makeData = useCallback(
-    (length: number) => {
-      return Array.from("_".repeat(length)).map((_, index) => {
-        return {
-          firstName: "Test",
-          lastName: "Test",
-          age: <span>{Math.floor(index * 30)}</span>,
-          visits: <span>{Math.floor(index * 100)}</span>,
-          progress: <span>{Math.floor(index * 100)}</span>,
-          status: Math.floor(index * 100),
-          activity: Math.floor(index * 100),
-        };
-      });
-    },
-    [],
-  );
+  const makeData = useCallback((length: number) => {
+    return Array.from("_".repeat(length)).map((_, index) => {
+      return {
+        firstName: "Test",
+        lastName: "Test",
+        age: <span>{Math.floor(index * 30)}</span>,
+        visits: <span>{Math.floor(index * 100)}</span>,
+        progress: <span>{Math.floor(index * 100)}</span>,
+        status: Math.floor(index * 100),
+        activity: Math.floor(index * 100),
+      };
+    });
+  }, []);
 
   const [data, setData] = React.useState(makeData(20));
 
