@@ -133,7 +133,6 @@ const Example = () => {
         layout="stretched-auto"
         state={{ rowSelection }}
         onRowSelectionChange={setRowSelection}
-        rowHoverColor="krillin-10"
         isSelectable={true}
         getOnRowSelectHandler={() => (rows: Row<{}>[]) => {
           console.log(
