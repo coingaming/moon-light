@@ -322,6 +322,7 @@ const COMPONENTS = {
       "Default",
       "RowGaps",
       "RowSizes",
+      "Clickable",
       "ExpandableWithPreset",
       "SelectableWithPreset",
       "CheckboxesWithPreset",

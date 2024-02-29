@@ -683,6 +683,7 @@ export type Examples = {
       "description": "string",
       "descriptions": {
         "CheckboxesWithPreset": "string",
+        "Clickable": "string",
         "Default": "string",
         "ExpandableCheckboxes": "string",
         "ExpandableWithPreset": "string",
@@ -695,6 +696,7 @@ export type Examples = {
       },
       "examples": {
         "CheckboxesWithPreset": "string",
+        "Clickable": "string",
         "Default": "string",
         "ExpandableCheckboxes": "string",
         "ExpandableWithPreset": "string",
