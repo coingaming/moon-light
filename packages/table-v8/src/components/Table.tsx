@@ -40,6 +40,7 @@ const Table = ({
   layout = "auto",
   preventSelectionByRowClick = false,
   getOnRowClickHandler,
+  getOnRowSelectHandler,
   getSubRows,
   onExpandedChange,
   onRowSelectionChange,
@@ -73,6 +74,16 @@ const Table = ({
   const tableResizeInfo = table.getState().columnSizingInfo;
   const tableWrapperRef = useRef<HTMLDivElement>(null);
   const [columnMap, setColumnMap] = useState<ColumnData[][]>();
+
+  useEffect(() => {
+    if (!isSelectable || !getOnRowSelectHandler) return;
+    const selectedKeys = state?.rowSelection
+      ? Object.keys(state?.rowSelection)
+      : [];
+    getOnRowSelectHandler()(
+      table.getRowModel().rows.filter((row) => selectedKeys.includes(row.id)),
+    );
+  }, [getOnRowSelectHandler && state?.rowSelection]);
 
   useEffect(() => {
     setColumnMap(

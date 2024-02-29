@@ -36,6 +36,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   layout?: TableLayouts;
   preventSelectionByRowClick?: boolean;
   getOnRowClickHandler?: (row: Row<D>) => () => void | (() => void);
+  getOnRowSelectHandler?: () => (row: Row<D>[]) => void | (() => void);
   getSubRows?: (originalRow: D, index: number) => D[] | undefined;
   onExpandedChange?: OnChangeFn<ExpandedState>;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;
