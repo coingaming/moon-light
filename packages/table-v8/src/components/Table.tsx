@@ -119,7 +119,7 @@ const Table = ({
     );
 
     const tableStyles = {
-      width: `${tableWidth}`,
+      width: tableWidth,
       tableLayout,
       borderSpacing: `0 ${rowGap}`,
       "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
