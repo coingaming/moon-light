@@ -11,7 +11,7 @@ type DataTypeHelper = {
   lastName: string;
   age: string;
   visits: string;
-  progress: React.JSX.Element;
+  progress: string;
   status: number;
   activity: number;
   actions: () => void;
