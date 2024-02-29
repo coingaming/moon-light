@@ -1,7 +1,7 @@
 type PageInfo = {
   nextPage?: number;
   previousPage?: number;
-  isTrancable?: boolean;
+  isTruncable?: boolean;
   previousPages?: number[];
   nextPages?: number[];
   middlePages?: number[];
