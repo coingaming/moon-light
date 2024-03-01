@@ -29,10 +29,7 @@ const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
 };
 
 const TF = forwardRef<HTMLTableCellElement, THProps>(
-  (
-    { backgroundColor, header, rowSize, columnData },
-    ref,
-  ) => {
+  ({ backgroundColor, header, rowSize, columnData }, ref) => {
     const columnDefinition = header.column.columnDef;
     const footerValue = columnDefinition.footer
       ? typeof columnDefinition.footer === "function"

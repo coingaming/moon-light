@@ -15,13 +15,13 @@ export const handleTableLayouts = (
 
 const handleFixedLayout = (isResizable: boolean) => {
   return isResizable ? undefined : "max-content";
-}
+};
 
 const handleAutoLayout = (isResizable: boolean) => {
   return isResizable ? "max-content" : "100%";
-}
+};
 
-const PATTERNS = new Map<RegExp, ((data: string, dim: string) => string)>([
+const PATTERNS = new Map<RegExp, (data: string, dim: string) => string>([
   [/^([0-9]+)$/, (data: string) => `${data}px`],
   [/^([0-9]+)([\%\w]+)$/, (data: string, dim: string) => data + dim],
   [/^(w-max)$/, () => "max-content"],
