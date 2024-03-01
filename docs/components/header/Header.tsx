@@ -4,6 +4,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import SearchButton from "../search/SearchButton";
 import ThemeSwitcher from "../settings/ThemeSwitcher";
+import RTLSwitcher from "../settings/RTLSwitcher";
 import { GenericMenu } from "@heathmont/moon-icons-tw";
 import { IconButton } from "@heathmont/moon-core-tw";
 import { useCallback, useState } from "react";
@@ -26,14 +27,16 @@ export const Header = () => {
           <Version />
         </div>
         <Breadcrumbs />
-        <div className="flex gap-3 lg:gap-4 lg:pe-6 pe-5">
+        <div className="flex items-center gap-3 lg:gap-4 lg:pe-6 pe-5">
           <div className="hidden lg:block">
             <SearchButton />
           </div>
           <ThemeSwitcher />
+          <RTLSwitcher />
           <IconButton
             variant="outline"
-            className="rounded-full block lg:hidden text-moon-24"
+            size="sm"
+            className="rounded-full lg:hidden"
             icon={<GenericMenu />}
             aria-label="Open menu"
             onClick={handleClick}

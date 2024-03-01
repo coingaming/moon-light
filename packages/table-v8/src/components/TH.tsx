@@ -69,11 +69,19 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       ["width", `${header.getSize()}px`], //`header.column.columnDef.size`];
       [
         "minWidth",
-        `${stickySide ? header.column.columnDef.size : header.column.columnDef.minSize}px`,
+        `${
+          stickySide
+            ? header.column.columnDef.size
+            : header.column.columnDef.minSize
+        }px`,
       ],
       [
         "maxWidth",
-        `${stickySide ? header.column.columnDef.size : header.column.columnDef.maxSize}px`,
+        `${
+          stickySide
+            ? header.column.columnDef.size
+            : header.column.columnDef.maxSize
+        }px`,
       ],
       ["--headerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
     ]);
@@ -82,8 +90,12 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       styles.set(
         stickySide,
         stickySide === "left"
-          ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
-          : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
+          ? `${
+              columnData ? columnData?.left : getStickyShift(header, "left")
+            }px`
+          : `${
+              columnData ? columnData?.right : getStickyShift(header, "right")
+            }px`,
       );
     }
 
@@ -96,7 +108,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           "relative z-[1]",
           backgroundColor && "bg-[color:var(--headerBGColor)]",
           stickySide &&
-            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
+            "sticky before:absolute before:top-0 before:start-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
         )}
         ref={ref}
       >
@@ -117,7 +129,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
         {isResizable && (
           <div
             className={mergeClassnames(
-              "resizer absolute z-50 w-1 h-full top-0 right-0 bg-transparent hover:bg-beerus cursor-col-resize ltr",
+              "resizer absolute z-50 w-1 h-full top-0 end-0 bg-transparent hover:bg-beerus cursor-col-resize ltr",
               header.column.getIsResizing() ? "isResizing bg-beerus" : "",
             )}
             onMouseDown={header.getResizeHandler()}

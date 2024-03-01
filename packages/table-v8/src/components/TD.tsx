@@ -54,11 +54,19 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       ["width", `${cell.column.getSize() /*.columnDef.size*/}px`],
       [
         "minWidth",
-        `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.minSize}px`,
+        `${
+          stickySide
+            ? cell.column.columnDef.size
+            : cell.column.columnDef.minSize
+        }px`,
       ],
       [
         "maxWidth",
-        `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.maxSize}px`,
+        `${
+          stickySide
+            ? cell.column.columnDef.size
+            : cell.column.columnDef.maxSize
+        }px`,
       ],
     ]);
 
@@ -66,8 +74,16 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       styles.set(
         stickySide,
         stickySide === "left"
-          ? `${columnData ? columnData?.left : getStickyShift(cells, index, "left")}px`
-          : `${columnData ? columnData?.right : getStickyShift(cells, index, "right")}px`,
+          ? `${
+              columnData
+                ? columnData?.left
+                : getStickyShift(cells, index, "left")
+            }px`
+          : `${
+              columnData
+                ? columnData?.right
+                : getStickyShift(cells, index, "right")
+            }px`,
       );
     }
 
@@ -83,9 +99,9 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
           isLastColumn && !noGap && "rounded-e-lg after:rounded-e-lg",
           stickySide && "sticky z-[1] before:-z-[1] after:-z-[1]",
           stickySide &&
-            "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
+            "before:absolute before:top-0 before:start-0 before:-end-[1px] before:h-full",
           stickySide &&
-            "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
+            "after:absolute after:top-0 after:start-0 after:-end-[1px] after:h-full",
           className,
         )}
         ref={ref}
