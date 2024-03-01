@@ -79,7 +79,7 @@ const Example = () => {
   }
 
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-2 overflow-hidden">
       <div className="w-full border border-beerus rounded-lg overflow-hidden bg-gohan">
         <Table
           columns={columns}
