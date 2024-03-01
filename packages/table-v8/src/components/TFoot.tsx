@@ -33,7 +33,6 @@ const TFoot = ({
               header={header}
               backgroundColor={backgroundColor}
               rowSize={rowSize}
-              rowGap={rowGap}
               isLastColumn={index === footerGroup.headers.length - 1}
               columnData={columnMap && columnMap[cmLength - indexFG - 1][index]}
             />

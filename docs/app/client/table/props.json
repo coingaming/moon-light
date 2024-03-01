@@ -42,6 +42,12 @@
         "type": ["string"]
       },
       {
+        "name": "fixedWidth",
+        "description": "Sets the actual width of the table when the 'fixed' layout mode is being selected",
+        "required": false,
+        "type": ["string | number"]
+      },
+      {
         "name": "getSubRows",
         "description": "This is used to access the sub rows for any given row.",
         "required": false,
@@ -61,6 +67,13 @@
         "type": ["string | number"]
       },
       {
+        "name": "isResizable",
+        "description": "Allows columns to be resizable.",
+        "defaultState": "false",
+        "required": false,
+        "type": ["boolean"]
+      },
+      {
         "name": "isSelectable",
         "description": "Allows rows to be selected.",
         "defaultState": "false",
@@ -77,21 +90,9 @@
       {
         "name": "layout",
         "description": "Sets the layout of the table.",
-        "defaultState": "fixed",
+        "defaultState": "auto",
         "required": false,
-        "type": ["auto | fixed | stretched-auto"]
-      },
-      {
-        "name": "maxHeight",
-        "description": "Maximum table height.",
-        "required": false,
-        "type": ["string | number"]
-      },
-      {
-        "name": "maxWidth",
-        "description": "Maximum table width.",
-        "required": false,
-        "type": ["string | number"]
+        "type": ["auto | stretched-auto | fixed"]
       },
       {
         "name": "onExpandedChange",

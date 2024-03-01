@@ -71,7 +71,7 @@ const Example = () => {
   const makeData = React.useMemo(
     () => [
       {
-        firstName: "Test lvl1",
+        firstName: "Lvl1",
         age: <span>36</span>,
         visits: <span>50</span>,
         progress: <span>20</span>,
@@ -80,7 +80,7 @@ const Example = () => {
         actions: tooltip,
         subRows: [
           {
-            firstName: "Sub test lvl2",
+            firstName: "Sub lvl2",
             age: <span>96</span>,
             visits: <span>8</span>,
             progress: <span>2</span>,
@@ -89,7 +89,7 @@ const Example = () => {
             actions: tooltip,
             subRows: [
               {
-                firstName: "Sub test lvl3",
+                firstName: "Sub lvl3",
                 age: <span>63</span>,
                 visits: <span>82</span>,
                 progress: <span>59</span>,
@@ -98,7 +98,7 @@ const Example = () => {
                 actions: tooltip,
               },
               {
-                firstName: "Sub test lvl3",
+                firstName: "Sub lvl3",
                 age: <span>64</span>,
                 visits: <span>35</span>,
                 progress: <span>78</span>,
@@ -107,7 +107,7 @@ const Example = () => {
                 actions: tooltip,
               },
               {
-                firstName: "Sub test lvl3",
+                firstName: "Sub lvl3",
                 age: <span>12</span>,
                 visits: <span>4</span>,
                 progress: <span>44</span>,
@@ -118,7 +118,7 @@ const Example = () => {
             ],
           },
           {
-            firstName: "Sub test lvl2",
+            firstName: "Sub lvl2",
             age: <span>74</span>,
             visits: <span>5</span>,
             progress: <span>1</span>,
@@ -127,7 +127,7 @@ const Example = () => {
             actions: tooltip,
             subRows: [
               {
-                firstName: "Sub test lvl3",
+                firstName: "Sub lvl3",
                 age: <span>89</span>,
                 visits: <span>98</span>,
                 progress: <span>54</span>,
@@ -136,7 +136,7 @@ const Example = () => {
                 actions: tooltip,
               },
               {
-                firstName: "Sub test lvl3",
+                firstName: "Sub lvl3",
                 age: <span>52</span>,
                 visits: <span>25</span>,
                 progress: <span>25</span>,
@@ -145,7 +145,7 @@ const Example = () => {
                 actions: tooltip,
               },
               {
-                firstName: "Sub test lvl3",
+                firstName: "Sub lvl3",
                 age: <span>55</span>,
                 visits: <span>54</span>,
                 progress: <span>24</span>,
@@ -156,7 +156,7 @@ const Example = () => {
             ],
           },
           {
-            firstName: "Sub test lvl2",
+            firstName: "Sub lvl2",
             age: <span>53</span>,
             visits: <span>63</span>,
             progress: <span>24</span>,
@@ -165,7 +165,7 @@ const Example = () => {
             actions: tooltip,
             subRows: [
               {
-                firstName: "Sub test lvl3",
+                firstName: "Sub lvl3",
                 age: <span>4</span>,
                 visits: <span>653</span>,
                 progress: <span>36</span>,
@@ -174,7 +174,7 @@ const Example = () => {
                 actions: tooltip,
               },
               {
-                firstName: "Sub test lvl3",
+                firstName: "Sub lvl3",
                 age: <span>49</span>,
                 visits: <span>45</span>,
                 progress: <span>454</span>,
@@ -334,12 +334,13 @@ const Example = () => {
       {
         id: "actions",
         header: () => "Actions",
+        size: 90,
         columns: [
           {
             header: () => "Actions",
             accessorKey: "actions",
             cell: (props) => props.getValue(),
-            size: 80,
+            size: 90,
           },
         ],
       },

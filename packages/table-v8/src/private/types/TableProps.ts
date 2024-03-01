@@ -20,6 +20,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   withFooter?: boolean;
   width?: string | number;
   height?: string | number;
+  fixedWidth?: string | number;
   headerBackgroundColor?: string;
   bodyBackgroundColor?: string;
   defaultRowBackgroundColor?: string;
