@@ -76,7 +76,7 @@ const Example = () => {
   const data = React.useMemo(() => makeData(2), [makeData]);
   const defaultColumn = {
     size: 120,
-  }
+  };
 
   return (
     <div className="flex flex-col gap-y-2 overflow-hidden">
