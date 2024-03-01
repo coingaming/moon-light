@@ -12,6 +12,7 @@ examples:
     "CheckboxesWithPreset",
     "ExpandableCheckboxes",
     "WithSorting",
+    "Resize",
     "LongData",
     "ExtraLongData",
   ]
