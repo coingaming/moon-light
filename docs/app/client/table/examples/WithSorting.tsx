@@ -99,7 +99,7 @@ const Example = () => {
         activity: 2,
       },
       {
-        firstName: "Jeremie",
+        firstName: "John",
         lastName: "Watts",
         age: 89,
         visits: 98,
