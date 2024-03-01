@@ -4,26 +4,39 @@ export const handleTableLayouts = (
   layout: TableLayouts,
   isResizable: boolean,
 ) => {
-  return layout === "fixed"
-    ? isResizable
-      ? undefined
-      : "max-content"
-    : layout === "auto"
-      ? isResizable
-        ? "max-content"
-        : "100%"
-      : "100%";
+  if (layout === "fixed") {
+    return handleFixedLayout(isResizable);
+  } else if (layout === "auto") {
+    return handleAutoLayout(isResizable);
+  } else {
+    return "100%";
+  }
 };
 
-export const handleTableMaxWidth = (maxWidth: number | string) => {
-  for (const [match, callback] of new Map([
-    [/^([0-9]+)$/, (data: string) => `${data}px`],
-    [/^([0-9]+)([\%\w]+)$/, (data: string, dim: string) => data + dim],
-    [/^(w-max)$/, () => "max-content"],
-    [/^(w-full)$/, () => "100%"],
-  ]).entries()) {
-    if (`${maxWidth}`.match(match) !== null) {
-      return `${maxWidth}`.replace(match, callback("$1", "$2"));
+const handleFixedLayout = (isResizable: boolean) => {
+  return isResizable ? undefined : "max-content";
+}
+
+const handleAutoLayout = (isResizable: boolean) => {
+  return isResizable ? "max-content" : "100%";
+}
+
+const PATTERNS = new Map<RegExp, ((data: string, dim: string) => string)>([
+  [/^([0-9]+)$/, (data: string) => `${data}px`],
+  [/^([0-9]+)([\%\w]+)$/, (data: string, dim: string) => data + dim],
+  [/^(w-max)$/, () => "max-content"],
+  [/^(w-full)$/, () => "100%"],
+]);
+
+export const handleTableFixedWidth = (fixedWidth: number | string) => {
+  const fixedWidthStr = `${fixedWidth}`;
+
+  for (const [pattern, callback] of PATTERNS.entries()) {
+    const matched = fixedWidthStr.match(pattern);
+    if (matched) {
+      return fixedWidthStr.replace(pattern, callback("$1", "$2"));
     }
   }
+
+  return undefined;
 };

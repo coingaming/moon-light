@@ -112,13 +112,13 @@ const Example = () => {
 
   const defaultColumn = {
     minSize: 50,
-    size: 150,
+    size: 50,
     maxSize: Number.MAX_SAFE_INTEGER,
   };
 
   const makeData = useCallback(
     (length: number) => {
-      return Array.from("_".repeat(length)).map((_, index) => {
+      return Array.from("_".repeat(length)).map((_) => {
         return {
           uuid: "84837d8ac654aa4689efa4649-84837d8ac654aa4689efa4649756454a5646545546d54f6546f546",
           user: "aleksandr@heathmonitoring.com",

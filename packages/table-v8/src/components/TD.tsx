@@ -6,7 +6,6 @@ import StickyColumn from "../private/types/StickyColumn";
 import TDProps from "../private/types/TDProps";
 import getFontSize from "../private/utils/getFontSize";
 import getPadding from "../private/utils/getPadding";
-import buildColumnMap from "../private/utils/buildColumnMap";
 
 const getStickyShift = (
   cells: Cell<{}, unknown>[],
@@ -52,7 +51,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
     const stickySide = stickyColumn.sticky;
 
     const styles = new Map([
-      ["width", `${cell.column.getSize() /*.columnDef.size*/}px`],
+      ["width", `${cell.column.getSize()}px`],
       [
         "minWidth",
         `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.minSize}px`,

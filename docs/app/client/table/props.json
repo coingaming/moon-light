@@ -42,6 +42,12 @@
         "type": ["string"]
       },
       {
+        "name": "fixedWidth",
+        "description": "Sets the actual width of the table when the 'fixed' layout mode is being selected",
+        "required": false,
+        "type": ["string | number"]
+      },
+      {
         "name": "getSubRows",
         "description": "This is used to access the sub rows for any given row.",
         "required": false,
@@ -87,12 +93,6 @@
         "defaultState": "auto",
         "required": false,
         "type": ["auto | stretched-auto | fixed"]
-      },
-      {
-        "name": "maxWidth",
-        "description": "Sets the actual width of the table when the 'fixed' layout mode is being selected",
-        "required": false,
-        "type": ["string | number"]
       },
       {
         "name": "onExpandedChange",

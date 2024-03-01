@@ -16,7 +16,7 @@ import TableProps from "../private/types/TableProps";
 import buildColumnMap from "../private/utils/buildColumnMap";
 import {
   handleTableLayouts,
-  handleTableMaxWidth,
+  handleTableFixedWidth,
 } from "../private/utils/handleTableLayouts";
 
 const Table = ({
@@ -25,7 +25,7 @@ const Table = ({
   defaultColumn,
   width,
   height,
-  maxWidth = "w-full",
+  fixedWidth = "w-full",
   state,
   withFooter = false,
   headerBackgroundColor = "gohan",
@@ -65,6 +65,7 @@ const Table = ({
     state,
     enableColumnResizing: isResizable,
     enableRowSelection: true,
+    enableSortingRemoval: false,
     onExpandedChange: onExpandedChange,
     onRowSelectionChange: onRowSelectionChange,
     onSortingChange: onSortingChange,
@@ -110,7 +111,7 @@ const Table = ({
     const tableWidth = React.useMemo(
       () =>
         handleTableLayouts(layout, isResizable) ??
-        handleTableMaxWidth(maxWidth),
+        handleTableFixedWidth(fixedWidth),
       [],
     );
     const tableLayout = React.useMemo(

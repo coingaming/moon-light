@@ -33,7 +33,6 @@ const THead = ({
               header={header}
               backgroundColor={backgroundColor}
               rowSize={rowSize}
-              rowGap={rowGap}
               isResizable={isResizable}
               isLastColumn={index === headerGroup.headers.length - 1}
               columnData={columnMap && columnMap[indexHG][index]}

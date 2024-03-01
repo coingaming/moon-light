@@ -44,7 +44,6 @@ const Example = () => {
             accessorKey: "deals",
             cell: (props) => props.getValue(),
             size: 150,
-            //maxSize: 300,
           },
           {
             id: "amount",

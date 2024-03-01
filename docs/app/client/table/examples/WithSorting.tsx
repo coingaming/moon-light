@@ -20,15 +20,15 @@ const headerCell = (header: Header<{}, DataTypeHelper>, cellLabel: string) => {
   return (
     <div
       className={mergeClassnames(
-        "flex gap-x-1",
+        "flex gap-x-1 items-center",
         header.column.getCanSort() ? "cursor-pointer select-none" : "",
       )}
       onClick={header.column.getToggleSortingHandler()}
     >
       {cellLabel}
       {{
-        asc: <ArrowsSorting />,
-        desc: <ArrowsSorting />,
+        asc: <ArrowsSorting className="min-w-[20px] min-h-[20px]" />,
+        desc: <ArrowsSorting className="min-w-[20px] min-h-[20px]" />,
       }[header.column.getIsSorted() as string] ?? null}
     </div>
   );

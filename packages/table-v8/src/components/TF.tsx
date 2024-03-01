@@ -30,7 +30,7 @@ const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
 
 const TF = forwardRef<HTMLTableCellElement, THProps>(
   (
-    { backgroundColor, header, rowSize, rowGap, isLastColumn, columnData },
+    { backgroundColor, header, rowSize, columnData },
     ref,
   ) => {
     const columnDefinition = header.column.columnDef;
@@ -46,14 +46,14 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
     const stickySide = stickyColumn.sticky;
 
     const styles = new Map([
-      ["width", `${header.column.getSize() /*.columnDef.size*/}px`],
+      ["width", `${header.column.getSize()}px`],
       [
         "minWidth",
-        `${stickySide ? header.column.getSize() /* columnDefinition.size */ : columnDefinition.minSize}px`,
+        `${stickySide ? header.column.getSize() : columnDefinition.minSize}px`,
       ],
       [
         "maxWidth",
-        `${stickySide ? header.column.getSize() /* columnDefinition.size */ : columnDefinition.maxSize}px`,
+        `${stickySide ? header.column.getSize() : columnDefinition.maxSize}px`,
       ],
       ["--footerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
     ]);
