@@ -59,7 +59,9 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
       styles.set(
         stickySide,
         stickySide === "left"
+          // prettier-ignore
           ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
+          // prettier-ignore
           : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
       );
     }
@@ -73,7 +75,7 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
           "z-[1]",
           backgroundColor && "bg-[color:var(--footerBGColor)]",
           stickySide &&
-            "sticky z-[2] before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--footerBGColor)]",
+          "sticky z-[2] before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--footerBGColor)]",
         )}
         ref={ref}
       >
