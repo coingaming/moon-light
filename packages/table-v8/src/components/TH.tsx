@@ -75,10 +75,10 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       styles.set(
         stickySide,
         stickySide === "left"
-          // prettier-ignore
-          ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
-          // prettier-ignore
-          : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
+          ? // prettier-ignore
+            `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
+          : // prettier-ignore
+            `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
       );
     }
 
@@ -91,10 +91,10 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           "relative z-[1]",
           backgroundColor && "bg-[color:var(--headerBGColor)]",
           stickySide &&
-          "sticky z-[2] before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
+            "sticky z-[2] before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
           columnSizingInfo &&
-          !!columnSizingInfo.isResizingColumn &&
-          "cursor-col-resize",
+            !!columnSizingInfo.isResizingColumn &&
+            "cursor-col-resize",
         )}
         ref={ref}
       >
@@ -117,8 +117,8 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
             className={mergeClassnames(
               "resizer absolute z-50 w-4 h-full top-0 right-0 rounded-sm bg-transparent cursor-col-resize ltr",
               columnSizingInfo &&
-              !columnSizingInfo.isResizingColumn &&
-              "hover:bg-black/20",
+                !columnSizingInfo.isResizingColumn &&
+                "hover:bg-black/20",
               header.column.getIsResizing() ? "isResizing bg-black/20" : "",
             )}
             onMouseDown={header.getResizeHandler()}

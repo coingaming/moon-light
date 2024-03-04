@@ -68,10 +68,10 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       styles.set(
         stickySide,
         stickySide === "left"
-          // prettier-ignore
-          ? `${columnData ? columnData?.left : getStickyShift(cells, index, "left")}px`
-          // prettier-ignore
-          : `${columnData ? columnData?.right : getStickyShift(cells, index, "right")}px`,
+          ? // prettier-ignore
+            `${columnData ? columnData?.left : getStickyShift(cells, index, "left")}px`
+          : // prettier-ignore
+            `${columnData ? columnData?.right : getStickyShift(cells, index, "right")}px`,
       );
     }
 
@@ -87,9 +87,9 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
           isLastColumn && !noGap && "rounded-e-lg after:rounded-e-lg",
           stickySide && "sticky z-[1] before:-z-[1] after:-z-[1]",
           stickySide &&
-          "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
+            "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
           stickySide &&
-          "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
+            "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
           className,
         )}
         ref={ref}
