@@ -30,7 +30,7 @@ const Example = () => {
             id: "location",
             header: () => "Location",
             accessorKey: "location",
-            size: "100",
+            size: 100,
           },
         ],
       },
@@ -43,6 +43,7 @@ const Example = () => {
             header: () => "Deals",
             accessorKey: "deals",
             cell: (props) => props.getValue(),
+            size: 150,
           },
           {
             id: "amount",
@@ -70,7 +71,6 @@ const Example = () => {
         header: () => "",
         sticky: "right",
         size: 70,
-        maxSize: 70,
         columns: [
           {
             id: "actions",
@@ -78,7 +78,6 @@ const Example = () => {
             accessorKey: "actions",
             cell: (props) => props.getValue(),
             size: 70,
-            maxSize: 70,
           },
         ],
       },
@@ -169,6 +168,7 @@ const Example = () => {
         location: "Europe",
         deals: (
           <CellScroller
+            className="max-w-[260px]"
             data={rearrangeData([
               { "10.0": { start: "10000", end: "20000" } },
               { "9.0": { start: "20000", end: "30000" } },
@@ -255,6 +255,7 @@ const Example = () => {
         location: "Asia",
         deals: (
           <CellScroller
+            className="max-w-[260px]"
             data={rearrangeData([
               { "5.0": { start: "0", end: "150000" } },
               { "4.0": { start: "150000", end: "500000" } },
@@ -279,9 +280,9 @@ const Example = () => {
   );
 
   const defaultColumn = {
-    minSize: 10,
-    size: 150,
-    maxSize: 260,
+    minSize: 70,
+    size: 50,
+    maxSize: Number.MAX_SAFE_INTEGER,
   };
 
   return (
@@ -292,7 +293,7 @@ const Example = () => {
         defaultColumn={defaultColumn}
         width={800}
         height={400}
-        layout="auto"
+        isResizable
       />
     </div>
   );

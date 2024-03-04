@@ -77,7 +77,7 @@ const Example = () => {
         height={400}
         layout="stretched-auto"
         rowActiveColor="goku"
-        rowHoverColor="krillin-10"
+        rowHoverColor="beerus"
         isSelectable={true}
         getOnRowClickHandler={(row: Row<{}>) => () => {
           console.log(`You clicked row with ID - ${row.id}`);

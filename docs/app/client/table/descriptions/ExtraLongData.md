@@ -1,5 +1,5 @@
 ---
-title: Extra long data table
+title: Extra long data resizable table
 ---
 
 An example of a table with clipped extra-long data, which can be both text and html structure.

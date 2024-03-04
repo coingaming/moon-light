@@ -25,12 +25,14 @@ const Example = () => {
         header: () => "Transactions",
         footer: () => "Transactions",
         sticky: "left",
+        size: 110,
+        minSize: 110,
         columns: [
           {
             header: () => "Transaction UUID",
             footer: () => "Transaction UUID",
             accessorKey: "uuid",
-            size: 50,
+            size: 60,
           },
           {
             header: () => "User & Supplier user",
@@ -79,7 +81,6 @@ const Example = () => {
         footer: () => "Status",
         sticky: "right",
         size: 90,
-        maxSize: 90,
         columns: [
           {
             header: () => "Status",
@@ -87,7 +88,7 @@ const Example = () => {
             accessorKey: "status",
             cell: (props) => props.getValue(),
             size: 90,
-            maxSize: 90,
+            minSize: 90,
           },
         ],
       },
@@ -110,14 +111,14 @@ const Example = () => {
   );
 
   const defaultColumn = {
-    minSize: 10,
-    size: 150,
+    minSize: 50,
+    size: 50,
     maxSize: Number.MAX_SAFE_INTEGER,
   };
 
   const makeData = useCallback(
     (length: number) => {
-      return Array.from("_".repeat(length)).map((_, index) => {
+      return Array.from("_".repeat(length)).map((_) => {
         return {
           uuid: "84837d8ac654aa4689efa4649-84837d8ac654aa4689efa4649756454a5646545546d54f6546f546",
           user: "aleksandr@heathmonitoring.com",
@@ -144,9 +145,9 @@ const Example = () => {
         defaultColumn={defaultColumn}
         width={800}
         height={500}
+        isResizable
         textClip={textClip}
-        layout="auto"
-        withFooter={true}
+        withFooter
       />
     </div>
   );
