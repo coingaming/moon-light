@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { flexRender, Header } from "@tanstack/react-table";
 import StickyColumn from "../private/types/StickyColumn";
@@ -43,9 +43,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       backgroundColor,
       header,
       table,
-      isLastColumn,
       rowSize,
-      rowGap,
       isResizable,
       isCellBorder,
       columnData,
@@ -53,7 +51,8 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
     },
     ref,
   ) => {
-    const columnSizingInfo = table && table.getState().columnSizingInfo;
+    const columnSizingInfo =
+      isResizable && table && table.getState().columnSizingInfo;
 
     const stickyColumn: StickyColumn = header.column.parent
       ? header.column.parent?.columnDef
@@ -108,14 +107,17 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
           "relative z-[1]",
           backgroundColor && "bg-[color:var(--headerBGColor)]",
           stickySide &&
-            "sticky before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
+            "sticky z-[2] before:absolute before:top-0 before:left-0 before:w-[calc(100%+1px)] before:h-full before:bg-[color:var(--headerBGColor)]",
+          columnSizingInfo &&
+            !!columnSizingInfo.isResizingColumn &&
+            "cursor-col-resize",
         )}
         ref={ref}
       >
         {header.isPlaceholder ? null : (
           <div
             className={mergeClassnames(
-              "relative text-start font-medium",
+              "relative text-start font-medium select-none",
               getFontSize(rowSize),
               headerValue && getPadding(rowSize),
             )}
@@ -129,8 +131,11 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
         {isResizable && (
           <div
             className={mergeClassnames(
-              "resizer absolute z-50 w-1 h-full top-0 right-0 bg-transparent hover:bg-beerus cursor-col-resize ltr",
-              header.column.getIsResizing() ? "isResizing bg-beerus" : "",
+              "resizer absolute z-50 w-4 h-full top-0 right-0 rounded-sm bg-transparent cursor-col-resize ltr",
+              columnSizingInfo &&
+                !columnSizingInfo.isResizingColumn &&
+                "hover:bg-black/20",
+              header.column.getIsResizing() ? "isResizing bg-black/20" : "",
             )}
             onMouseDown={header.getResizeHandler()}
             onTouchStart={header.getResizeHandler()}

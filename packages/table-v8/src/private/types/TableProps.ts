@@ -20,12 +20,14 @@ type TableProps<D extends DataHelper = DataHelper> = {
   withFooter?: boolean;
   width?: string | number;
   height?: string | number;
+  fixedWidth?: string | number;
   headerBackgroundColor?: string;
   bodyBackgroundColor?: string;
   defaultRowBackgroundColor?: string;
   evenRowBackgroundColor?: string;
   rowSelectColor?: string;
   rowHoverColor?: string;
+  rowActiveColor?: string;
   rowGap?: string;
   rowSize?: RowSizes;
   isResizable?: boolean;
@@ -35,6 +37,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   layout?: TableLayouts;
   preventSelectionByRowClick?: boolean;
   getOnRowClickHandler?: (row: Row<D>) => () => void | (() => void);
+  getOnRowSelectHandler?: () => (row: Row<D>[]) => void | (() => void);
   getSubRows?: (originalRow: D, index: number) => D[] | undefined;
   onExpandedChange?: OnChangeFn<ExpandedState>;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;

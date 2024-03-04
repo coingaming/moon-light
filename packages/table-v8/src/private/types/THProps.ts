@@ -8,7 +8,6 @@ type THProps = {
   table?: Table<{}>;
   isLastColumn?: boolean;
   rowSize?: RowSizes;
-  rowGap?: string;
   isCellBorder?: boolean;
   isResizable?: boolean;
   onClick?: (e: any) => void;

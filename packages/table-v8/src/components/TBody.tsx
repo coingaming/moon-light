@@ -15,6 +15,7 @@ const TBody = ({
   defaultRowBackgroundColor,
   evenRowBackgroundColor,
   rowSelectColor,
+  rowActiveColor,
   rowHoverColor,
   textClip,
   getOnRowClickHandler,
@@ -39,6 +40,7 @@ const TBody = ({
     "--rowOddColor": `rgba(var(--${oddRowBGColor}, var(--goku)))`,
     "--rowSelectColor": `rgba(var(--${rowSelectColor}))`,
     "--rowHoverColor": `rgba(var(--${rowHoverColor}))`,
+    "--rowActiveColor": `rgba(var(--${rowActiveColor}))`,
   } as const;
 
   return (
@@ -62,15 +64,7 @@ const TBody = ({
             : () => {};
           handleRowClick(row);
         };
-        /*
-        const useRowSelection =
-          isSelectable && !preventSelectionByRowClick
-            ? (event: unknown) =>
-                isRowElementClicked(event)
-                  ? row.getToggleSelectedHandler()(event)
-                  : () => {}
-            : undefined;
-*/
+
         return (
           <tr
             key={row.id}
@@ -91,7 +85,9 @@ const TBody = ({
                 noGap={noGap}
                 className={mergeClassnames(
                   "group/rows before:bg-[color:var(--bodyBGColor)]",
-                  !!useRowSelection && "cursor-pointer",
+                  isSelectable &&
+                    !preventSelectionByRowClick &&
+                    "cursor-pointer",
                   isRowSelected &&
                     "group/rows bg-[color:var(--rowSelectColor)] group/rows after:bg-[color:var(--rowSelectColor)]",
                   !isRowSelected &&
@@ -102,6 +98,8 @@ const TBody = ({
                     "group/rows bg-[color:var(--rowOddColor)] group/rows after:bg-[color:var(--rowOddColor)]",
                   rowHoverColor &&
                     "group-hover/rows:bg-[color:var(--rowHoverColor)] group-hover/rows:after:bg-[color:var(--rowHoverColor)]",
+                  rowActiveColor &&
+                    "group-active/rows:bg-[color:var(--rowActiveColor)] group-active/rows:after:bg-[color:var(--rowActiveColor)]",
                 )}
                 isFirstColumn={cellIndex === 0}
                 isLastColumn={cellIndex === lastIndex}

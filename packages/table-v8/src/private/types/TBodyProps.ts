@@ -14,6 +14,7 @@ type TBodyProps = {
   preventSelectionByRowClick?: boolean;
   rowSelectColor?: string;
   rowHoverColor?: string;
+  rowActiveColor?: string;
   columnMap?: ColumnData[][];
   textClip?: ClipProps;
   getOnRowClickHandler?: (row: Row<{}>) => () => void | (() => void);

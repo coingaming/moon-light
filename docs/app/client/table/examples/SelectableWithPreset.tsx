@@ -3,8 +3,13 @@
 import { Chip, Tooltip } from "@heathmont/moon-core-tw";
 import { ArrowsRefreshRound } from "@heathmont/moon-icons-tw";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import { ColumnDef, RowSelectionState } from "@tanstack/react-table";
-import React, { useCallback } from "react";
+import {
+  ColumnDef,
+  Row,
+  RowSelectionState,
+  flexRender,
+} from "@tanstack/react-table";
+import React, { ReactNode, useCallback } from "react";
 
 type DataTypeHelper = {
   firstName: string;
@@ -82,17 +87,29 @@ const Example = () => {
       {
         header: () => "Age",
         accessorKey: "age",
-        cell: (props) => props.getValue(),
+        cell: (props) => (
+          <div onClick={props.row.getToggleSelectedHandler()}>
+            {props.getValue() as unknown as ReactNode}
+          </div>
+        ),
       },
       {
         header: () => "Visits",
         accessorKey: "visits",
-        cell: (props) => props.getValue(),
+        cell: (props) => (
+          <div onClick={props.row.getToggleSelectedHandler()}>
+            {props.getValue() as unknown as ReactNode}
+          </div>
+        ),
       },
       {
         header: () => "Progress",
         accessorKey: "progress",
-        cell: (props) => props.getValue(),
+        cell: (props) => (
+          <div onClick={props.row.getToggleSelectedHandler()}>
+            {props.getValue() as unknown as ReactNode}
+          </div>
+        ),
       },
       {
         header: () => "Activity",
@@ -121,10 +138,11 @@ const Example = () => {
         layout="stretched-auto"
         state={{ rowSelection }}
         onRowSelectionChange={setRowSelection}
-        rowHoverColor="krillin-10"
         isSelectable={true}
-        getOnRowClickHandler={(row: { id: unknown }) => () => {
-          console.log(`You clicked row with ID - ${row.id}`);
+        getOnRowSelectHandler={() => (rows: Row<{}>[]) => {
+          console.log(
+            `IDs of selected rows - ${rows.map((row: Row<{}>) => row.id)}`,
+          );
         }}
       />
     </div>

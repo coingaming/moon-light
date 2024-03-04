@@ -14,6 +14,10 @@ import THead from "./THead";
 import ColumnData from "../private/types/ColumnData";
 import TableProps from "../private/types/TableProps";
 import buildColumnMap from "../private/utils/buildColumnMap";
+import {
+  handleTableLayouts,
+  handleTableFixedWidth,
+} from "../private/utils/handleTableLayouts";
 
 const Table = ({
   columns,
@@ -21,6 +25,7 @@ const Table = ({
   defaultColumn,
   width,
   height,
+  fixedWidth = "w-full",
   state,
   withFooter = false,
   headerBackgroundColor = "gohan",
@@ -28,16 +33,18 @@ const Table = ({
   defaultRowBackgroundColor = "goku",
   evenRowBackgroundColor = "goku",
   rowSelectColor = "heles",
+  rowActiveColor,
   rowHoverColor,
   rowGap = "2px",
   rowSize = "md",
-  isResizable = true,
+  isResizable = false,
   isSelectable = false,
   isSticky = true,
   textClip,
   layout = "auto",
   preventSelectionByRowClick = false,
   getOnRowClickHandler,
+  getOnRowSelectHandler,
   getSubRows,
   onExpandedChange,
   onRowSelectionChange,
@@ -58,6 +65,7 @@ const Table = ({
     state,
     enableColumnResizing: isResizable,
     enableRowSelection: true,
+    enableSortingRemoval: false,
     onExpandedChange: onExpandedChange,
     onRowSelectionChange: onRowSelectionChange,
     onSortingChange: onSortingChange,
@@ -68,8 +76,19 @@ const Table = ({
     /* debugTable: true, */
   });
 
+  const tableResizeInfo = table.getState().columnSizingInfo;
   const tableWrapperRef = useRef<HTMLDivElement>(null);
   const [columnMap, setColumnMap] = useState<ColumnData[][]>();
+
+  useEffect(() => {
+    if (!isSelectable || !getOnRowSelectHandler) return;
+    const selectedKeys = state?.rowSelection
+      ? Object.keys(state?.rowSelection)
+      : [];
+    getOnRowSelectHandler()(
+      table.getRowModel().rows.filter((row) => selectedKeys.includes(row.id)),
+    );
+  }, [getOnRowSelectHandler && state?.rowSelection]);
 
   useEffect(() => {
     setColumnMap(
@@ -77,17 +96,31 @@ const Table = ({
         tableWrapperRef.current?.childNodes[0] as HTMLTableElement,
       ),
     );
-  }, [tableWrapperRef.current, buildColumnMap]);
+  }, [
+    tableWrapperRef.current,
+    buildColumnMap,
+    tableResizeInfo.isResizingColumn && tableResizeInfo.deltaOffset,
+  ]);
 
   const renderTableComponent = () => {
-    const tableLayout = layout === "fixed" ? "fixed" : "auto";
     const wrapperStyles = new Map([
       ["maxWidth", width ? `${width}px` : undefined],
       ["height", height ? `${height}px` : undefined],
     ]);
 
+    const tableWidth = React.useMemo(
+      () =>
+        handleTableLayouts(layout, isResizable) ??
+        handleTableFixedWidth(fixedWidth),
+      [],
+    );
+    const tableLayout = React.useMemo(
+      () => (layout === "fixed" ? "fixed" : "auto"),
+      [],
+    );
+
     const tableStyles = {
-      width,
+      width: tableWidth,
       tableLayout,
       borderSpacing: `0 ${rowGap}`,
       "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
@@ -103,7 +136,6 @@ const Table = ({
           style={tableStyles}
           className={mergeClassnames(
             "border-separate bg-[color:var(--tableBGColor)]",
-            layout !== "auto" && "w-full",
           )}
         >
           <THead
@@ -126,6 +158,7 @@ const Table = ({
             defaultRowBackgroundColor={defaultRowBackgroundColor}
             evenRowBackgroundColor={evenRowBackgroundColor}
             rowHoverColor={rowHoverColor}
+            rowActiveColor={rowActiveColor}
             columnMap={columnMap}
             textClip={textClip}
             getOnRowClickHandler={getOnRowClickHandler}

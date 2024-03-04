@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { flexRender, Cell } from "@tanstack/react-table";
 import ClipProps from "../private/types/ClipProps";
@@ -51,7 +51,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
     const stickySide = stickyColumn.sticky;
 
     const styles = new Map([
-      ["width", `${cell.column.getSize() /*.columnDef.size*/}px`],
+      ["width", `${cell.column.getSize()}px`],
       [
         "minWidth",
         `${
