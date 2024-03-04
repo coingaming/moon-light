@@ -54,10 +54,12 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       ["width", `${cell.column.getSize()}px`],
       [
         "minWidth",
+        // prettier-ignore
         `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.minSize}px`,
       ],
       [
         "maxWidth",
+        // prettier-ignore
         `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.maxSize}px`,
       ],
     ]);
@@ -66,8 +68,10 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       styles.set(
         stickySide,
         stickySide === "left"
-          ? `${columnData ? columnData?.left : getStickyShift(cells, index, "left")}px`
-          : `${columnData ? columnData?.right : getStickyShift(cells, index, "right")}px`,
+          ? // prettier-ignore
+            `${columnData ? columnData?.left : getStickyShift(cells, index, "left")}px`
+          : // prettier-ignore
+            `${columnData ? columnData?.right : getStickyShift(cells, index, "right")}px`,
       );
     }
 

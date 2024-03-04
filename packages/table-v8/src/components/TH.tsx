@@ -75,8 +75,10 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       styles.set(
         stickySide,
         stickySide === "left"
-          ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
-          : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
+          ? // prettier-ignore
+            `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
+          : // prettier-ignore
+            `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
       );
     }
 
