@@ -18,6 +18,7 @@ import {
   handleTableLayouts,
   handleTableFixedWidth,
 } from "../private/utils/handleTableLayouts";
+import Minimap from "./Minimap";
 
 const Table = ({
   columns,
@@ -42,6 +43,7 @@ const Table = ({
   isSticky = true,
   textClip,
   layout = "auto",
+  withMinimap = false,
   preventSelectionByRowClick = false,
   getOnRowClickHandler,
   getOnRowSelectHandler,
@@ -78,6 +80,8 @@ const Table = ({
 
   const tableResizeInfo = table.getState().columnSizingInfo;
   const tableWrapperRef = useRef<HTMLDivElement>(null);
+  const tableRef = useRef<HTMLTableElement>(null);
+
   const [columnMap, setColumnMap] = useState<ColumnData[][]>();
 
   useEffect(() => {
@@ -133,6 +137,7 @@ const Table = ({
         tableWrapperRef={tableWrapperRef}
       >
         <table
+          ref={tableRef}
           style={tableStyles}
           className={mergeClassnames(
             "border-separate bg-[color:var(--tableBGColor)]",
@@ -177,6 +182,18 @@ const Table = ({
       </TableWrapper>
     );
   };
+
+  if (withMinimap) {
+    return (
+      <div className="h-full w-full overflow-auto">
+        {renderTableComponent()}
+        <Minimap
+          numberOfColumns={columnMap && columnMap[columnMap?.length-1].length || 0}
+          tableWrapperRef={tableWrapperRef}
+        />
+      </div>
+    );
+  }
 
   return renderTableComponent();
 };
