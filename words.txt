@@ -78,3 +78,6 @@ Neue
 classname
 brcrumb
 fraunces
+npmjs
+Trancable
+popperjs
