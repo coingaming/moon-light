@@ -54,21 +54,6 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       ["width", `${cell.column.getSize()}px`],
       [
         "minWidth",
-<<<<<<< HEAD
-        `${
-          stickySide
-            ? cell.column.columnDef.size
-            : cell.column.columnDef.minSize
-        }px`,
-      ],
-      [
-        "maxWidth",
-        `${
-          stickySide
-            ? cell.column.columnDef.size
-            : cell.column.columnDef.maxSize
-        }px`,
-=======
         // prettier-ignore
         `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.minSize}px`,
       ],
@@ -76,7 +61,6 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
         "maxWidth",
         // prettier-ignore
         `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.maxSize}px`,
->>>>>>> origin
       ],
     ]);
 
