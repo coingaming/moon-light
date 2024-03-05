@@ -7,7 +7,7 @@ import SearchButton from "../search/SearchButton";
 import ThemeSwitcher from "../settings/ThemeSwitcher";
 import { ControlsCloseSmall } from "@heathmont/moon-icons-tw";
 import Version from "../header/Version";
-import RTLSwitcher from "../settings/RTLSwitcher";
+import RtlSwitcher from "../settings/RtlSwitcher";
 
 const Menu = ({ isOpen, setIsOpen, handleClick }: Props) => (
   <Drawer open={isOpen} setOpen={setIsOpen}>
@@ -21,7 +21,7 @@ const Menu = ({ isOpen, setIsOpen, handleClick }: Props) => (
         </div>
         <div className="flex items-center gap-3">
           <ThemeSwitcher />
-          <RTLSwitcher />
+          <RtlSwitcher />
           <IconButton
             variant="outline"
             size="sm"

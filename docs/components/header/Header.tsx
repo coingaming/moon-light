@@ -4,7 +4,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import SearchButton from "../search/SearchButton";
 import ThemeSwitcher from "../settings/ThemeSwitcher";
-import RTLSwitcher from "../settings/RTLSwitcher";
+import RtlSwitcher from "../settings/RtlSwitcher";
 import { GenericMenu } from "@heathmont/moon-icons-tw";
 import { IconButton } from "@heathmont/moon-core-tw";
 import { useCallback, useState } from "react";
@@ -32,7 +32,7 @@ export const Header = () => {
             <SearchButton />
           </div>
           <ThemeSwitcher />
-          <RTLSwitcher />
+          <RtlSwitcher />
           <IconButton
             variant="outline"
             size="sm"
