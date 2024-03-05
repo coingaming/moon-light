@@ -188,7 +188,9 @@ const Table = ({
       <div className="h-full w-full overflow-auto">
         {renderTableComponent()}
         <Minimap
-          numberOfColumns={columnMap && columnMap[columnMap?.length-1].length || 0}
+          numberOfColumns={
+            (columnMap && columnMap[columnMap?.length - 1].length) || 0
+          }
           tableWrapperRef={tableWrapperRef}
         />
       </div>

@@ -1,4 +1,4 @@
-import type { MutableRefObject } from 'react';
+import type { MutableRefObject } from "react";
 
 type MinimapProps = {
   numberOfColumns: number;

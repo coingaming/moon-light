@@ -65,13 +65,13 @@ const Example = () => {
         columns: [
           {
             header: () => "Age",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "age",
             size: 50,
           },
           {
             header: () => "Visits",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "visits",
           },
           {
@@ -86,13 +86,13 @@ const Example = () => {
         columns: [
           {
             header: () => "Age1",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "age1",
             size: 50,
           },
           {
             header: () => "Visits1",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "visits1",
           },
           {
@@ -107,13 +107,13 @@ const Example = () => {
         columns: [
           {
             header: () => "Age2",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "age2",
             size: 50,
           },
           {
             header: () => "Visits2",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "visits2",
           },
           {
@@ -128,13 +128,13 @@ const Example = () => {
         columns: [
           {
             header: () => "Age3",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "age3",
             size: 50,
           },
           {
             header: () => "Visits3",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "visits3",
           },
           {
@@ -149,13 +149,13 @@ const Example = () => {
         columns: [
           {
             header: () => "Age4",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "age4",
             size: 50,
           },
           {
             header: () => "Visits4",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "visits4",
           },
           {
@@ -170,13 +170,13 @@ const Example = () => {
         columns: [
           {
             header: () => "Age5",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "age5",
             size: 50,
           },
           {
             header: () => "Visits5",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "visits5",
           },
           {
@@ -192,20 +192,20 @@ const Example = () => {
         columns: [
           {
             header: () => "Profile Progress",
-            cell: props => props.getValue(),
+            cell: (props) => props.getValue(),
             accessorKey: "progress",
           },
         ],
       },
     ],
-    []
+    [],
   );
 
   const makeData = React.useCallback((length: number) => {
-    return Array.from('_'.repeat(length)).map((_, index) => {
+    return Array.from("_".repeat(length)).map((_, index) => {
       return {
-        firstName: 'Test',
-        lastName: 'Test',
+        firstName: "Test",
+        lastName: "Test",
         age: <span>{Math.floor(index * 30)}</span>,
         visits: <span>{Math.floor(index * 100)}</span>,
         activity: Math.floor(index * 100),
@@ -243,6 +243,6 @@ const Example = () => {
       />
     </div>
   );
-}
+};
 
 export default Example;
