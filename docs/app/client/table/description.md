@@ -11,6 +11,7 @@ examples:
     "SelectableWithPreset",
     "CheckboxesWithPreset",
     "ExpandableCheckboxes",
+    "Minimap",
     "WithSorting",
     "Resize",
     "LongData",

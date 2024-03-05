@@ -170,6 +170,13 @@
         "defaultState": "false",
         "required": false,
         "type": ["boolean"]
+      },
+      {
+        "name": "withMinimap",
+        "description": "Whether use a table minimap",
+        "defaultState": "false",
+        "required": false,
+        "type": ["boolean"]
       }
     ]
   }
