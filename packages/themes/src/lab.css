@@ -15,7 +15,7 @@
 
   /* support-colors  */
   --krillin: 255 179 25; /* #ffb319 */
-  --krillin-60: 255 179 25  / 0.56; /* #ffb319 */
+  --krillin-60: 255 179 25 / 0.56; /* #ffb319 */
   --krillin-10: 255 179 25 / 0.08; /* #ffb319 */
 
   --chichi: 255 78 100; /* #ff4e64 */
@@ -67,8 +67,8 @@
   --opacity-moon: 0.6;
 
   /* fonts */
-  --averta: 'Averta Std';
-  --dm-sans: 'DM Sans';
+  --averta: "Averta Std";
+  --dm-sans: "DM Sans";
 
   /* box-shadow */
   --shadow-xs: 0 4px 12px -6px rgb(0 0 0 / 0.06);

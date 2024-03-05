@@ -68,11 +68,19 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       ["width", `${header.getSize()}px`], //`header.column.columnDef.size`];
       [
         "minWidth",
-        `${stickySide ? header.column.columnDef.size : header.column.columnDef.minSize}px`,
+        `${
+          stickySide
+            ? header.column.columnDef.size
+            : header.column.columnDef.minSize
+        }px`,
       ],
       [
         "maxWidth",
-        `${stickySide ? header.column.columnDef.size : header.column.columnDef.maxSize}px`,
+        `${
+          stickySide
+            ? header.column.columnDef.size
+            : header.column.columnDef.maxSize
+        }px`,
       ],
       ["--headerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
     ]);
@@ -81,8 +89,12 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       styles.set(
         stickySide,
         stickySide === "left"
-          ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
-          : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
+          ? `${
+              columnData ? columnData?.left : getStickyShift(header, "left")
+            }px`
+          : `${
+              columnData ? columnData?.right : getStickyShift(header, "right")
+            }px`,
       );
     }
 

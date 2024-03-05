@@ -20,7 +20,5 @@
     ".config/aws-task-definition.json",
     ".gitignore",
     ".vscode/extensions.json",
-    "packages/core/CHANGELOG.md",
-    "packages/theme/CHANGELOG.md",
   ]
 }

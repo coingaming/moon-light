@@ -59,8 +59,12 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
       styles.set(
         stickySide,
         stickySide === "left"
-          ? `${columnData ? columnData?.left : getStickyShift(header, "left")}px`
-          : `${columnData ? columnData?.right : getStickyShift(header, "right")}px`,
+          ? `${
+              columnData ? columnData?.left : getStickyShift(header, "left")
+            }px`
+          : `${
+              columnData ? columnData?.right : getStickyShift(header, "right")
+            }px`,
       );
     }
 
