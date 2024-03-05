@@ -1,3 +1,5 @@
+"use client";
+
 import { Chip } from "@heathmont/moon-core-tw";
 
 const Sizes = () => (

@@ -1,4 +1,4 @@
-import { Loader } from "@heathmont/moon-core-tw";
+import Loader from "@heathmont/moon-core-tw/lib/loader/Loader";
 import dynamic from "next/dynamic";
 import MainLayout from "../mainLayout/MainLayout";
 import { PageHeadComponent } from "../PageHeadComponent";
