@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { flexRender, Header } from "@tanstack/react-table";
 import StickyColumn from "../private/types/StickyColumn";
