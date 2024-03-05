@@ -1,5 +1,5 @@
 import React from "react";
-import { Tab as HeadlesssTab } from "@headlessui/react";
+import { Tab as HeadlessTab } from "@headlessui/react";
 import type ListProps from "./private/types/ListProps";
 import type PanelProps from "./private/types/PanelProps";
 import type TabProps from "./private/types/TabProps";
@@ -10,9 +10,9 @@ import useTabsContext from "./private/utils/useTabsContext";
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const TabsRoot = ({ children, selectedIndex, onChange }: TabsProps) => (
-  <HeadlesssTab.Group selectedIndex={selectedIndex} onChange={onChange}>
+  <HeadlessTab.Group selectedIndex={selectedIndex} onChange={onChange}>
     {children}
-  </HeadlesssTab.Group>
+  </HeadlessTab.Group>
 );
 
 const List = ({ children, className, size = "md" }: ListProps) => {
@@ -21,14 +21,14 @@ const List = ({ children, className, size = "md" }: ListProps) => {
   };
   return (
     <TabsContext.Provider value={states}>
-      <HeadlesssTab.List
+      <HeadlessTab.List
         className={mergeClassnames(
           "flex items-center justify-center w-fit gap-2",
           className,
         )}
       >
         {children}
-      </HeadlesssTab.List>
+      </HeadlessTab.List>
     </TabsContext.Provider>
   );
 };
@@ -39,7 +39,7 @@ const Segment = ({ children, className, size = "md" }: ListProps) => {
   };
   return (
     <TabsContext.Provider value={states}>
-      <HeadlesssTab.List
+      <HeadlessTab.List
         className={mergeClassnames(
           "flex items-center justify-center w-fit gap-1 p-1 bg-gohan",
           size === "md" ? "rounded-moon-s-md" : "rounded-moon-s-sm",
@@ -47,7 +47,7 @@ const Segment = ({ children, className, size = "md" }: ListProps) => {
         )}
       >
         {children}
-      </HeadlesssTab.List>
+      </HeadlessTab.List>
     </TabsContext.Provider>
   );
 };
@@ -57,7 +57,7 @@ const Tab = React.forwardRef(
     const { size } = useTabsContext("Tabs.Tab");
     const isDisabled = rest.disabled;
     return (
-      <HeadlesssTab
+      <HeadlessTab
         className={({ selected }: { selected: boolean }) =>
           mergeClassnames(
             getTabSize(size),
@@ -81,7 +81,7 @@ const Tab = React.forwardRef(
         {...rest}
       >
         {children}
-      </HeadlesssTab>
+      </HeadlessTab>
     );
   },
 );
@@ -91,7 +91,7 @@ const Pill = React.forwardRef(
     const { size } = useTabsContext("Tabs.Pill");
     const isDisabled = rest.disabled;
     return (
-      <HeadlesssTab
+      <HeadlessTab
         className={({ selected }: { selected: boolean }) =>
           mergeClassnames(
             getTabSize(size),
@@ -110,17 +110,17 @@ const Pill = React.forwardRef(
         {...rest}
       >
         {children}
-      </HeadlesssTab>
+      </HeadlessTab>
     );
   },
 );
 
 const Panels = ({ children, className }: PanelProps) => (
-  <HeadlesssTab.Panels className={className}>{children}</HeadlesssTab.Panels>
+  <HeadlessTab.Panels className={className}>{children}</HeadlessTab.Panels>
 );
 
 const Panel = ({ children, className }: PanelProps) => (
-  <HeadlesssTab.Panel className={className}>{children}</HeadlesssTab.Panel>
+  <HeadlessTab.Panel className={className}>{children}</HeadlessTab.Panel>
 );
 
 const Tabs = Object.assign(TabsRoot, {

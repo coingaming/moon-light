@@ -3,7 +3,7 @@ type MenuItemActions =
   | { type: "UnregisterChild"; children: string };
 
 type StatesProps = {
-  childrens?: string[];
+  childArray?: string[];
 };
 
 function stateReducer<T extends StatesProps>(
@@ -12,14 +12,14 @@ function stateReducer<T extends StatesProps>(
 ) {
   switch (action.type) {
     case "RegisterChild": {
-      if (state.childrens?.includes(action.children)) return state;
-      const currentChildren = state?.childrens || [];
-      return { ...state, childrens: [...currentChildren, action.children] };
+      if (state.childArray?.includes(action.children)) return state;
+      const currentChildren = state?.childArray || [];
+      return { ...state, childArray: [...currentChildren, action.children] };
     }
     case "UnregisterChild": {
       return {
         ...state,
-        childrens: state.childrens?.filter(
+        childArray: state.childArray?.filter(
           (child) => child !== action.children,
         ),
       };

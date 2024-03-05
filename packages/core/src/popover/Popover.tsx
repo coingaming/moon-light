@@ -20,7 +20,7 @@ const PopoverRoot = ({
   const [popperEl, setPopperEl] = React.useState<HTMLElement | null>();
   const [arrowEl, setArrowEl] = React.useState<HTMLElement | null>(null);
   const { state, registerChild } = useRegisterChild();
-  const isArrow = state.childrens?.find((name) => name === "Arrow");
+  const isArrow = state.childArray?.find((name) => name === "Arrow");
   const offset = isArrow ? 16 : 8;
 
   const defaultModifiers = [
@@ -58,7 +58,7 @@ const PopoverRoot = ({
       setArrow: setArrowEl,
     },
   };
-  const childrens =
+  const childArray =
     typeof children !== "function" ? React.Children.toArray(children) : [];
   const callableChildren =
     typeof children === "function" && (children as CallableChildren);
@@ -69,7 +69,7 @@ const PopoverRoot = ({
           <>
             {typeof children === "function"
               ? callableChildren && callableChildren({ open })
-              : childrens.map((ch) => ch)}
+              : childArray.map((ch) => ch)}
           </>
         )}
       </HeadlessPopover>
@@ -99,10 +99,10 @@ const Trigger = ({
 };
 
 const Panel = ({ children, className, isStatic }: PanelProps) => {
-  const { popper, childrens: registerChildrens } =
+  const { popper, childArray: registerChildArray } =
     usePopoverContext("Popover.Trigger");
-  const isArrow = registerChildrens?.find((name) => name === "Arrow");
-  const childrens =
+  const isArrow = registerChildArray?.find((name) => name === "Arrow");
+  const childArray =
     typeof children !== "function" ? React.Children.toArray(children) : [];
   const callableChildren =
     typeof children === "function" && (children as CallableChildren);
@@ -123,7 +123,7 @@ const Panel = ({ children, className, isStatic }: PanelProps) => {
         <>
           {typeof children === "function"
             ? callableChildren && callableChildren({ open, close })
-            : childrens.map((ch) => ch)}
+            : childArray.map((ch) => ch)}
         </>
       )}
     </HeadlessPopover.Panel>

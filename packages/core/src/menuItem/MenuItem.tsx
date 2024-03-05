@@ -27,7 +27,7 @@ const MenuItemRoot = React.forwardRef(
       active: isActive,
     };
     const { state, registerChild } = useRegisterChild();
-    const isNoBg = state.childrens?.find(
+    const isNoBg = state.childArray?.find(
       (name) => name === "Radio" || name === "Checkbox",
     );
     const innerSelected = isNoBg ? false : isSelected;

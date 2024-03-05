@@ -57,7 +57,7 @@ export const PrevButton = <C extends React.ElementType = "button">({
     }
   };
   const disabled = currentPage === 0;
-  const childrens =
+  const childArray =
     typeof children !== "function" ? React.Children.toArray(children) : [];
 
   if (typeof children === "function") {
@@ -87,7 +87,7 @@ export const PrevButton = <C extends React.ElementType = "button">({
       disabled={disabled}
       type={as === "button" || as === undefined ? "button" : undefined}
     >
-      {childrens?.map((ch) => ch)}
+      {childArray?.map((ch) => ch)}
     </Component>
   );
 };
@@ -105,7 +105,7 @@ export const NextButton = <C extends React.ElementType = "button">({
       pagination.setCurrentPage(pagination.currentPage + 1);
     }
   };
-  const childrens =
+  const childArray =
     typeof children !== "function" ? React.Children.toArray(children) : [];
   const disabled = pagination.currentPage === pagination.pages.length - 1;
 
@@ -135,7 +135,7 @@ export const NextButton = <C extends React.ElementType = "button">({
       disabled={disabled}
       type={as === "button" || as === undefined ? "button" : undefined}
     >
-      {childrens?.map((ch) => ch)}
+      {childArray?.map((ch) => ch)}
     </Component>
   );
 };

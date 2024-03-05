@@ -32,7 +32,7 @@ export const PrevButton = <C extends React.ElementType = "a">({
   ...rest
 }: PolymorphicNextPrevButtonProps<C>) => {
   const Component = as || "a";
-  const childrens =
+  const childArray =
     typeof children !== "function" ? React.Children.toArray(children) : [];
   return (
     <Component
@@ -44,7 +44,7 @@ export const PrevButton = <C extends React.ElementType = "a">({
       aria-disabled={disabled}
       disabled={disabled}
     >
-      {childrens?.map((ch) => ch)}
+      {childArray?.map((ch) => ch)}
     </Component>
   );
 };
@@ -57,7 +57,7 @@ export const NextButton = <C extends React.ElementType = "a">({
   ...rest
 }: PolymorphicNextPrevButtonProps<C>) => {
   const Component = as || "a";
-  const childrens =
+  const childArray =
     typeof children !== "function" ? React.Children.toArray(children) : [];
   return (
     <Component
@@ -69,7 +69,7 @@ export const NextButton = <C extends React.ElementType = "a">({
       aria-disabled={disabled}
       disabled={disabled}
     >
-      {childrens?.map((ch) => ch)}
+      {childArray?.map((ch) => ch)}
     </Component>
   );
 };
@@ -137,7 +137,7 @@ const Pages = ({
       isTruncable: isTruncable && totalPages > maxNotTruncablePages,
     });
   const Component = as || "a";
-  const childrens =
+  const childArray =
     typeof children !== "function" ? React.Children.toArray(children) : [];
   return (
     <nav
@@ -147,8 +147,8 @@ const Pages = ({
       )}
       aria-label="pagination"
     >
-      {childrens.length > 0 ? (
-        <>{childrens}</>
+      {childArray.length > 0 ? (
+        <>{childArray}</>
       ) : (
         <>
           {previousPages?.map((page) => (

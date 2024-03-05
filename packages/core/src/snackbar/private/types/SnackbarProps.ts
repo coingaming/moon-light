@@ -1,6 +1,3 @@
-//TODO: Ask Oladetoun Temitayo Micheal:
-//why onOpenChange: (value: sting) => void, and not onOpenChange: (value: boolean) => void
-
 import type Position from "./Position";
 
 type SnackbarProps = {

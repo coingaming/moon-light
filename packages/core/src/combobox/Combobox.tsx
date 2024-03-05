@@ -74,7 +74,7 @@ const ComboboxRoot = ({
     },
   };
 
-  const childrens =
+  const childArray =
     typeof children !== "function" ? React.Children.toArray(children) : [];
   const callableChildren = typeof children === "function" && children;
 
@@ -98,7 +98,7 @@ const ComboboxRoot = ({
             <>
               {typeof children === "function"
                 ? callableChildren && callableChildren({ open })
-                : childrens?.map((ch) => ch)}
+                : childArray?.map((ch) => ch)}
             </>
           )}
         </HeadlessCombobox>

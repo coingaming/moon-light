@@ -33,7 +33,7 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
 
     const [passwordShown, setPasswordShown] = React.useState(false);
 
-    const togglePasswordVisiblity = () => {
+    const togglePasswordVisibility = () => {
       setPasswordShown(passwordShown ? false : true);
     };
 
@@ -73,7 +73,7 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
             <label className="absolute text-moon-12 text-trunks top-3 z-[1] transition-all start-4">
               {label}
             </label>
-            <ShowPassword onClick={togglePasswordVisiblity}>
+            <ShowPassword onClick={togglePasswordVisibility}>
               {showPasswordText}
             </ShowPassword>
           </div>
@@ -111,7 +111,7 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
             isPassword
             {...inputProps}
           />
-          <ShowPassword onClick={togglePasswordVisiblity}>
+          <ShowPassword onClick={togglePasswordVisibility}>
             {showPasswordText}
           </ShowPassword>
         </div>
