@@ -67,7 +67,7 @@
   --opacity-moon: 0.6;
 
   /* fonts */
-  --fira: "Fira Sans";
+  --fira: 'Fira Sans';
 
   /* box-shadow */
   --shadow-xs: 0 4px 12px -6px rgb(0 0 0 / 0.06);
@@ -129,7 +129,7 @@
   --nappa: 114 85 80; /* #725550 */
   --nappa-60: 114 85 80 / 0.56; /* #725550 */
   --nappa-10: 114 85 80 / 0.08; /* #725550 */
-
+  
   /* border-radius */
   --radius-i-xs: 0.25rem; /* 4px */
   --radius-i-sm: 0.5rem; /* 8px */
@@ -147,7 +147,7 @@
   --opacity-moon: 0.6;
 
   /* fonts */
-  --fira: "Fira Sans";
+  --fira: 'Fira Sans';
 
   /* box-shadow */
   --shadow-xs: 0 4px 12px -6px rgb(0 0 0 / 0.64);
