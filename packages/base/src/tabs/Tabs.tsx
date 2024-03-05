@@ -1,9 +1,9 @@
-import React from 'react';
-import type PanelProps from './private/types/PanelProps';
-import type Props from './private/types/Props';
-import type TabPolymorphicProps from './private/types/TabPolymorphicProps';
-import getTabSize from './private/utils/getTabSize';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+import React from "react";
+import type PanelProps from "./private/types/PanelProps";
+import type Props from "./private/types/Props";
+import type TabPolymorphicProps from "./private/types/TabPolymorphicProps";
+import getTabSize from "./private/utils/getTabSize";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const TabsRoot = ({ className, children }: Props) => (
   <div className={className}>{children}</div>
@@ -12,8 +12,8 @@ const TabsRoot = ({ className, children }: Props) => (
 const List = ({ className, children }: Props) => (
   <div
     className={mergeClassnames(
-      'flex items-center justify-center w-fit gap-2',
-      className
+      "flex items-center justify-center w-fit gap-2",
+      className,
     )}
   >
     {children}
@@ -21,7 +21,7 @@ const List = ({ className, children }: Props) => (
 );
 
 const Tab = React.forwardRef(
-  <C extends React.ElementType = 'a'>(
+  <C extends React.ElementType = "a">(
     {
       className,
       children,
@@ -32,27 +32,27 @@ const Tab = React.forwardRef(
       as,
       ...rest
     }: TabPolymorphicProps<C>,
-    ref?: PolymorphicRef<C>
+    ref?: PolymorphicRef<C>,
   ) => {
-    const Component = as || 'a';
+    const Component = as || "a";
     return (
       <Component
         href={href}
         className={mergeClassnames(
           getTabSize(size),
-          'relative flex items-center justify-center w-full whitespace-nowrap text-moon-14',
-          'text-bulma font-medium cursor-pointer after:absolute after:start-0 after:bottom-0',
-          'after:w-full after:h-[2px] after:bg-piccolo after:transition-transform',
-          'after:duration-300 ltr:after:origin-top-left rtl:after:origin-top-right',
-          'after:scale-x-0 after:scale-y-100 ltr:hover:after:origin-top-left',
-          'rtl:hover:after:origin-top-right hover:after:scale-100 hover:text-piccolo',
-          'focus:outline-none ltr:[&:local-link]:after:origin-top-left',
-          'rtl:[&:local-link]:after:origin-top-right [&:local-link]:after:scale-x-100',
-          '[&:local-link]:text-piccolo',
-          isDisabled && 'opacity-30 hover:after:scale-0 cursor-not-allowed',
+          "relative flex items-center justify-center w-full whitespace-nowrap text-moon-14",
+          "text-bulma font-medium cursor-pointer after:absolute after:start-0 after:bottom-0",
+          "after:w-full after:h-[2px] after:bg-piccolo after:transition-transform",
+          "after:duration-300 ltr:after:origin-top-left rtl:after:origin-top-right",
+          "after:scale-x-0 after:scale-y-100 ltr:hover:after:origin-top-left",
+          "rtl:hover:after:origin-top-right hover:after:scale-100 hover:text-piccolo",
+          "focus:outline-none ltr:[&:local-link]:after:origin-top-left",
+          "rtl:[&:local-link]:after:origin-top-right [&:local-link]:after:scale-x-100",
+          "[&:local-link]:text-piccolo",
+          isDisabled && "opacity-30 hover:after:scale-0 cursor-not-allowed",
           selected &&
-            'ltr:after:origin-top-left rtl:after:origin-top-right after:scale-x-100 text-piccolo',
-          className
+            "ltr:after:origin-top-left rtl:after:origin-top-right after:scale-x-100 text-piccolo",
+          className,
         )}
         ref={ref}
         {...rest}
@@ -60,11 +60,11 @@ const Tab = React.forwardRef(
         {children}
       </Component>
     );
-  }
+  },
 );
 
 const Pill = React.forwardRef(
-  <C extends React.ElementType = 'a'>(
+  <C extends React.ElementType = "a">(
     {
       className,
       children,
@@ -75,26 +75,26 @@ const Pill = React.forwardRef(
       as,
       ...rest
     }: TabPolymorphicProps<C>,
-    ref?: PolymorphicRef<C>
+    ref?: PolymorphicRef<C>,
   ) => {
-    const Component = as || 'a';
+    const Component = as || "a";
     return (
       <Component
         href={href}
         className={mergeClassnames(
           getTabSize(size),
-          'relative flex items-center justify-center w-full whitespace-nowrap text-moon-14',
-          'text-bulma font-medium cursor-pointer after:absolute after:start-0 after:bottom-0',
-          'after:w-full after:h-[2px] after:bg-piccolo after:transition-transform',
-          'after:duration-300 ltr:after:origin-top-left rtl:after:origin-top-right after:scale-x-0',
-          'after:scale-y-100 ltr:hover:after:origin-top-left rtl:hover:after:origin-top-right',
-          'hover:after:scale-100 hover:text-piccolo focus:outline-none',
-          'ltr:[&:local-link]:after:origin-top-left rtl:[&:local-link]:after:origin-top-right',
-          '[&:local-link]:after:scale-x-100 [&:local-link]:text-piccolo',
-          isDisabled && 'opacity-30 hover:after:scale-0 cursor-not-allowed',
+          "relative flex items-center justify-center w-full whitespace-nowrap text-moon-14",
+          "text-bulma font-medium cursor-pointer after:absolute after:start-0 after:bottom-0",
+          "after:w-full after:h-[2px] after:bg-piccolo after:transition-transform",
+          "after:duration-300 ltr:after:origin-top-left rtl:after:origin-top-right after:scale-x-0",
+          "after:scale-y-100 ltr:hover:after:origin-top-left rtl:hover:after:origin-top-right",
+          "hover:after:scale-100 hover:text-piccolo focus:outline-none",
+          "ltr:[&:local-link]:after:origin-top-left rtl:[&:local-link]:after:origin-top-right",
+          "[&:local-link]:after:scale-x-100 [&:local-link]:text-piccolo",
+          isDisabled && "opacity-30 hover:after:scale-0 cursor-not-allowed",
           selected &&
-            'ltr:after:origin-top-left rtl:after:origin-top-right after:scale-x-100 text-piccolo',
-          className
+            "ltr:after:origin-top-left rtl:after:origin-top-right after:scale-x-100 text-piccolo",
+          className,
         )}
         ref={ref}
         {...rest}
@@ -102,7 +102,7 @@ const Pill = React.forwardRef(
         {children}
       </Component>
     );
-  }
+  },
 );
 
 // const Pill: TabComponentProps = React.forwardRef(
@@ -141,15 +141,15 @@ const Pill = React.forwardRef(
 // );
 
 const Panels = ({ children, className }: Props) => (
-  <div className={mergeClassnames('relative', className)}>{children}</div>
+  <div className={mergeClassnames("relative", className)}>{children}</div>
 );
 
 const Panel = ({ children, id, className }: PanelProps) => (
   <div
     id={id}
     className={mergeClassnames(
-      'absolute w-full p-5 [&:not(:target)]:hidden target:block',
-      className
+      "absolute w-full p-5 [&:not(:target)]:hidden target:block",
+      className,
     )}
   >
     {children}

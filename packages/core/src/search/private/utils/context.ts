@@ -1,8 +1,4 @@
-import {
-  createContext,
-  MutableRefObject,
-  RefObject,
-} from 'react';
+import { createContext, MutableRefObject, RefObject } from "react";
 
 export const SelectContext = createContext<{ selected: number }>({
   selected: 0,
@@ -15,7 +11,7 @@ export const SearchContext = createContext<{
   inputRef: RefObject<MutableRefObject<HTMLInputElement>> | null;
   isOpen: boolean;
 }>({
-  search: '',
+  search: "",
   onChangeOpen: () => {},
   onChangeSearch: () => {},
   inputRef: null,

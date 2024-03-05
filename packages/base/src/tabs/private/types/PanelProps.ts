@@ -1,4 +1,4 @@
-import type Props from './Props';
+import type Props from "./Props";
 
 type PanelProps = Props & {
   id: string;

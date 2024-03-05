@@ -1,4 +1,4 @@
-import type JsonStructureItem from './JsonStructureItem';
+import type JsonStructureItem from "./JsonStructureItem";
 
 type JsonStructure = Array<{
   items: Array<JsonStructureItem>;

@@ -1,11 +1,11 @@
-import InputValue from './InputValue';
-import Placement from './Placement';
-import Size from './Size';
+import InputValue from "./InputValue";
+import Placement from "./Placement";
+import Size from "./Size";
 
 export interface ComboboxRootProps
   extends Omit<
     React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
-    'children' | 'ref'
+    "children" | "ref"
   > {
   value?: InputValue;
   displayValue?: (value: InputValue) => string;

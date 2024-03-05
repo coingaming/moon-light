@@ -1,14 +1,14 @@
-import React, { forwardRef } from 'react';
-import type FormProps from './private/types/FormProps';
-import type ItemProps from './private/types/ItemProps';
-import type WithChildren from './private/types/WithChildren';
-import FormContext from './private/utils/FormContext';
-import ItemContext from './private/utils/ItemContext';
-import useFormContext from './private/utils/useFormContext';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+import React, { forwardRef } from "react";
+import type FormProps from "./private/types/FormProps";
+import type ItemProps from "./private/types/ItemProps";
+import type WithChildren from "./private/types/WithChildren";
+import FormContext from "./private/utils/FormContext";
+import ItemContext from "./private/utils/ItemContext";
+import useFormContext from "./private/utils/useFormContext";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const FormRoot = forwardRef<HTMLFormElement, WithChildren<FormProps>>(
-  ({ children, size = 'md', className, onSubmit, ...rest }, ref) => {
+  ({ children, size = "md", className, onSubmit, ...rest }, ref) => {
     const state = {
       size: size,
     };
@@ -24,7 +24,7 @@ const FormRoot = forwardRef<HTMLFormElement, WithChildren<FormProps>>(
         </form>
       </FormContext.Provider>
     );
-  }
+  },
 );
 
 const Item = ({
@@ -34,7 +34,7 @@ const Item = ({
   error,
   className,
 }: WithChildren<ItemProps>) => {
-  const { size: formSize } = useFormContext('Form.Item');
+  const { size: formSize } = useFormContext("Form.Item");
   const state = {
     size: size || formSize,
     disabled: disabled,
@@ -44,9 +44,9 @@ const Item = ({
     <ItemContext.Provider value={state}>
       <div
         className={mergeClassnames(
-          'w-full max-w-full relative z-0',
-          disabled && 'opacity-60 cursor-not-allowed',
-          className && className
+          "w-full max-w-full relative z-0",
+          disabled && "opacity-60 cursor-not-allowed",
+          className && className,
         )}
       >
         {children}

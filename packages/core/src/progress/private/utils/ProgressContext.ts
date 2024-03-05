@@ -1,7 +1,7 @@
-import { createContext } from 'react';
-import type ProgressState from '../types/ProgressState';
+import { createContext } from "react";
+import type ProgressState from "../types/ProgressState";
 
 const PropgressContext = createContext<ProgressState>({});
-PropgressContext.displayName = 'PropgressContext';
+PropgressContext.displayName = "PropgressContext";
 
 export default PropgressContext;

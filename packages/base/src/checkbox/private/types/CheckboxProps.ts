@@ -3,7 +3,7 @@ interface CheckboxProps {
   id?: string;
   label?: JSX.Element | string;
   ariaLabel?: string;
-  ariaChecked?: boolean | 'false' | 'mixed' | 'true' | undefined;
+  ariaChecked?: boolean | "false" | "mixed" | "true" | undefined;
   disabled?: boolean;
   readOnly?: boolean;
   checked?: boolean;

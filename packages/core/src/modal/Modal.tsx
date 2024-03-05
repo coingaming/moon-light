@@ -4,10 +4,10 @@ import React, {
   useState,
   useEffect,
   MutableRefObject,
-} from 'react';
-import { Dialog, Transition } from '@headlessui/react';
-import Backdrop from '../backdrop/Backdrop';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+} from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import Backdrop from "../backdrop/Backdrop";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 type WithChildren<T = {}> = T & { children?: ReactNode };
 
@@ -19,7 +19,7 @@ type ModalRootProps = {
 };
 
 type ModalComponentProps = (
-  props: WithChildren<ModalRootProps>
+  props: WithChildren<ModalRootProps>,
 ) => React.ReactElement | null;
 
 const ModalRoot: ModalComponentProps = ({
@@ -27,7 +27,7 @@ const ModalRoot: ModalComponentProps = ({
   onClose,
   children,
   initialFocus,
-  className
+  className,
 }) => {
   const defFocus = useRef(null);
   const [focusElRef, setFocusElRef] =
@@ -66,8 +66,8 @@ const Panel = ({ children, className }: WithChildren<PanelProps>) => (
       >
         <Dialog.Panel
           className={mergeClassnames(
-            'w-full max-w-sm inline-block transform rounded-xl bg-goku align-middle shadow-moon-lg transition-all',
-            className
+            "w-full max-w-sm inline-block transform rounded-xl bg-goku align-middle shadow-moon-lg transition-all",
+            className,
           )}
         >
           {children}
@@ -78,12 +78,18 @@ const Panel = ({ children, className }: WithChildren<PanelProps>) => (
 );
 
 type TitleProps = {
-  children?: ReactNode; 
+  children?: ReactNode;
   className?: string;
-}
+};
 
 const Title = ({ children, className }: TitleProps) => (
-  <Dialog.Title as="h3" className={mergeClassnames("text-moon-18 font-medium text-gray-900", className)}>
+  <Dialog.Title
+    as="h3"
+    className={mergeClassnames(
+      "text-moon-18 font-medium text-gray-900",
+      className,
+    )}
+  >
     {children}
   </Dialog.Title>
 );

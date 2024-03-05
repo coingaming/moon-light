@@ -1,12 +1,12 @@
-import React, { forwardRef } from 'react';
-import Container from './Container';
-import HintText from './HintText';
-import Input from './Input';
-import ShowPassword from './ShowPassword';
-import getBorderRadius from './utils/getBorderRadius';
-import getLabelSize from './utils/getLabelSize';
-import mergeClassnames from '../../mergeClassnames/mergeClassnames';
-import type TextInputProps from '../private/types/TextInputProps';
+import React, { forwardRef } from "react";
+import Container from "./Container";
+import HintText from "./HintText";
+import Input from "./Input";
+import ShowPassword from "./ShowPassword";
+import getBorderRadius from "./utils/getBorderRadius";
+import getLabelSize from "./utils/getLabelSize";
+import mergeClassnames from "../../mergeClassnames/mergeClassnames";
+import type TextInputProps from "../private/types/TextInputProps";
 
 const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
   (props, ref) => {
@@ -27,7 +27,7 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
       isSharpBottomSide,
       isTopBottomBorderHidden,
       isSideBorderHidden,
-      bgColor = 'bg-goku',
+      bgColor = "bg-goku",
       ...rest
     } = props;
 
@@ -50,19 +50,19 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
       ...rest,
     };
 
-    if (inputSize === 'xl') {
+    if (inputSize === "xl") {
       return (
         <Container disabled={disabled}>
           <div
             className={mergeClassnames(
-              'w-full max-w-full relative',
+              "w-full max-w-full relative",
               getBorderRadius(inputSize),
-              bgColor && bgColor
+              bgColor && bgColor,
             )}
           >
             <Input
               inputSize={inputSize}
-              type={passwordShown ? 'text' : 'password'}
+              type={passwordShown ? "text" : "password"}
               isError={isError}
               ref={ref}
               id={id}
@@ -88,8 +88,8 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
             dir={dir}
             htmlFor={id}
             className={mergeClassnames(
-              'block text-bulma pb-2',
-              getLabelSize(inputSize)
+              "block text-bulma pb-2",
+              getLabelSize(inputSize),
             )}
           >
             {label}
@@ -97,13 +97,13 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
         )}
         <div
           className={mergeClassnames(
-            'w-full max-w-full relative',
-            getBorderRadius(inputSize)
+            "w-full max-w-full relative",
+            getBorderRadius(inputSize),
           )}
         >
           <Input
             inputSize={inputSize}
-            type={passwordShown ? 'text' : 'password'}
+            type={passwordShown ? "text" : "password"}
             isError={isError}
             ref={ref}
             id={id}
@@ -118,7 +118,7 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
         {hintText && <HintText isError={isError}>{hintText}</HintText>}
       </Container>
     );
-  }
+  },
 );
 
 export default TextInputPassword;

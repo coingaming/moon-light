@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 const ControlsMinus = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="1em"

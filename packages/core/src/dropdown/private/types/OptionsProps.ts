@@ -3,4 +3,4 @@ type OptionsProps = {
   className?: string;
 };
 
-export default OptionsProps
+export default OptionsProps;

@@ -1,6 +1,6 @@
-import React from 'react';
-import * as RadixAccordion from '@radix-ui/react-accordion';
-import type AccordionRootProps from './types/AccordionRootProps';
+import React from "react";
+import * as RadixAccordion from "@radix-ui/react-accordion";
+import type AccordionRootProps from "./types/AccordionRootProps";
 
 const AccordionSingle = ({
   children,

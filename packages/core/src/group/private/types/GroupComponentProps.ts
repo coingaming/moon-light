@@ -1,8 +1,8 @@
-import type GroupProps from './GroupProps';
-import type WithChildren from './WithChildren';
+import type GroupProps from "./GroupProps";
+import type WithChildren from "./WithChildren";
 
 type GroupComponentProps = (
-  props: WithChildren<GroupProps>
+  props: WithChildren<GroupProps>,
 ) => React.ReactElement | null;
 
 export default GroupComponentProps;

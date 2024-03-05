@@ -7,4 +7,4 @@ type SelectProps = {
   className?: string;
 };
 
-export default SelectProps
+export default SelectProps;

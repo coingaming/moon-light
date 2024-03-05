@@ -1,10 +1,10 @@
-import React from 'react';
-import getPageInfo from './getPageInfo';
-import type PolymorphicNextPrevButtonProps from './private/type/NextPrevButton';
-import type PolymorphicPagesProps from './private/type/PageProps';
-import type PagesProps from './private/type/PagesProps';
-import type WithStyledChildren from './private/type/WithStyledChildren';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+import React from "react";
+import getPageInfo from "./getPageInfo";
+import type PolymorphicNextPrevButtonProps from "./private/type/NextPrevButton";
+import type PolymorphicPagesProps from "./private/type/PageProps";
+import type PagesProps from "./private/type/PagesProps";
+import type WithStyledChildren from "./private/type/WithStyledChildren";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const PaginationRoot = ({
   className,
@@ -14,8 +14,8 @@ const PaginationRoot = ({
   return (
     <div
       className={mergeClassnames(
-        'flex justify-center items-center w-full select-none',
-        className
+        "flex justify-center items-center w-full select-none",
+        className,
       )}
       {...rest}
     >
@@ -24,22 +24,22 @@ const PaginationRoot = ({
   );
 };
 
-export const PrevButton = <C extends React.ElementType = 'a'>({
+export const PrevButton = <C extends React.ElementType = "a">({
   className,
   children,
   as,
   disabled,
   ...rest
 }: PolymorphicNextPrevButtonProps<C>) => {
-  const Component = as || 'a';
+  const Component = as || "a";
   const childrens =
-    typeof children !== 'function' ? React.Children.toArray(children) : [];
+    typeof children !== "function" ? React.Children.toArray(children) : [];
   return (
     <Component
       {...rest}
       className={mergeClassnames(
-        'moon-disabled:cursor-not-allowed moon-disabled:opacity-30',
-        className
+        "moon-disabled:cursor-not-allowed moon-disabled:opacity-30",
+        className,
       )}
       aria-disabled={disabled}
       disabled={disabled}
@@ -49,22 +49,22 @@ export const PrevButton = <C extends React.ElementType = 'a'>({
   );
 };
 
-export const NextButton = <C extends React.ElementType = 'a'>({
+export const NextButton = <C extends React.ElementType = "a">({
   className,
   children,
   as,
   disabled,
   ...rest
 }: PolymorphicNextPrevButtonProps<C>) => {
-  const Component = as || 'a';
+  const Component = as || "a";
   const childrens =
-    typeof children !== 'function' ? React.Children.toArray(children) : [];
+    typeof children !== "function" ? React.Children.toArray(children) : [];
   return (
     <Component
       {...rest}
       className={mergeClassnames(
-        'moon-disabled:cursor-not-allowed moon-disabled:opacity-30',
-        className
+        "moon-disabled:cursor-not-allowed moon-disabled:opacity-30",
+        className,
       )}
       aria-disabled={disabled}
       disabled={disabled}
@@ -81,8 +81,8 @@ const TruncableElement = ({
 }: WithStyledChildren<{}>) => (
   <span
     className={mergeClassnames(
-      'truncable flex justify-center min-w-[2rem]',
-      className
+      "truncable flex justify-center min-w-[2rem]",
+      className,
     )}
     {...rest}
   >
@@ -90,7 +90,7 @@ const TruncableElement = ({
   </span>
 );
 
-const Page = <C extends React.ElementType = 'a'>({
+const Page = <C extends React.ElementType = "a">({
   as,
   className,
   page,
@@ -98,18 +98,18 @@ const Page = <C extends React.ElementType = 'a'>({
   selected,
   ...rest
 }: PolymorphicPagesProps<C>) => {
-  const Component = as || 'a';
+  const Component = as || "a";
   return (
     <Component
       key={page}
       aria-label={`page ${page}`}
       tabIndex={0}
       className={mergeClassnames(
-        'flex items-center justify-center cursor-pointer w-8 h-8 rounded-moon-s-sm font-medium focus:outline-none transition-colors',
+        "flex items-center justify-center cursor-pointer w-8 h-8 rounded-moon-s-sm font-medium focus:outline-none transition-colors",
         className,
         selected
-          ? 'text-goten bg-piccolo'
-          : 'text-bulma hover:bg-jiren focus:bg-jiren'
+          ? "text-goten bg-piccolo"
+          : "text-bulma hover:bg-jiren focus:bg-jiren",
       )}
       {...rest}
     >
@@ -126,7 +126,7 @@ const Pages = ({
   totalPages,
   isTruncable = true,
   hrefsArray,
-  truncableText = '...',
+  truncableText = "...",
   maxNotTruncablePages = 7,
   ...rest
 }: PagesProps) => {
@@ -136,14 +136,14 @@ const Pages = ({
       pageSize: totalPages,
       isTruncable: isTruncable && totalPages > maxNotTruncablePages,
     });
-  const Component = as || 'a';
+  const Component = as || "a";
   const childrens =
-    typeof children !== 'function' ? React.Children.toArray(children) : [];
+    typeof children !== "function" ? React.Children.toArray(children) : [];
   return (
     <nav
       className={mergeClassnames(
-        'flex gap-1 items-center justify-center w-full h-10 text-moon-14 flex-grow',
-        className
+        "flex gap-1 items-center justify-center w-full h-10 text-moon-14 flex-grow",
+        className,
       )}
       aria-label="pagination"
     >

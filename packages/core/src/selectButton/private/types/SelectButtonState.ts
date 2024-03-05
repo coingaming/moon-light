@@ -1,6 +1,6 @@
 type SelectButtonState = {
   open?: boolean;
-  size?: 'sm' | 'md' | 'lg' | string;
+  size?: "sm" | "md" | "lg" | string;
   isError?: boolean;
   idDisabled?: boolean;
   isUppercase?: boolean;

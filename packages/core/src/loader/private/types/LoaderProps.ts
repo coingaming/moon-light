@@ -1,4 +1,4 @@
-import type LoaderSize from './LoaderSize';
+import type LoaderSize from "./LoaderSize";
 
 type LoaderProps = {
   color?: string;

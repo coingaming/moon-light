@@ -1,7 +1,7 @@
 type ChipProps = {
   children: React.ReactNode;
   onClear?: () => void;
-  isUppercase?: boolean
+  isUppercase?: boolean;
 };
 
 export default ChipProps;

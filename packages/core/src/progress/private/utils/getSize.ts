@@ -1,18 +1,18 @@
-import type Sizes from '../types/Sizes';
+import type Sizes from "../types/Sizes";
 
 const getSize = (size?: Sizes) => {
   switch (size) {
-    case '6xs':
-      return 'h-0.5';
-    case '5xs':
-      return 'h-1';
-    case '4xs':
-      return 'h-2';
-    case '3xs':
-      return 'h-3';
-    case '2xs':
+    case "6xs":
+      return "h-0.5";
+    case "5xs":
+      return "h-1";
+    case "4xs":
+      return "h-2";
+    case "3xs":
+      return "h-3";
+    case "2xs":
     default:
-      return 'h-4';
+      return "h-4";
   }
 };
 

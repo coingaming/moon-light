@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
 
 function useClickOutside() {
   const ref: any = useRef();
@@ -17,12 +17,12 @@ function useClickOutside() {
   }
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleEvent);
-    document.addEventListener('touchstart', handleEvent);
+    document.addEventListener("mousedown", handleEvent);
+    document.addEventListener("touchstart", handleEvent);
 
     return () => {
-      document.removeEventListener('mousedown', handleEvent);
-      document.removeEventListener('touchstart', handleEvent);
+      document.removeEventListener("mousedown", handleEvent);
+      document.removeEventListener("touchstart", handleEvent);
     };
   }, []);
 

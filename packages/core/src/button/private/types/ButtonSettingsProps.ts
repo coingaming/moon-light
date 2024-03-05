@@ -1,7 +1,7 @@
-import ButtonAnimations from './ButtonAnimations';
-import type ButtonIcons from './ButtonIcons';
-import type ButtonSizes from './ButtonSizes';
-import type ButtonVariants from './ButtonVariants';
+import ButtonAnimations from "./ButtonAnimations";
+import type ButtonIcons from "./ButtonIcons";
+import type ButtonSizes from "./ButtonSizes";
+import type ButtonVariants from "./ButtonVariants";
 
 type ButtonSettingsProps = {
   icon?: ButtonIcons; // deprecated

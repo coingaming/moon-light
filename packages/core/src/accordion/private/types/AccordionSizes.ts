@@ -1,3 +1,3 @@
-type AccordionSizes = 'sm' | 'md' | 'lg' | 'xl';
+type AccordionSizes = "sm" | "md" | "lg" | "xl";
 
 export default AccordionSizes;

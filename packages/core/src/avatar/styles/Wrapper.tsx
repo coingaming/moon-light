@@ -1,8 +1,8 @@
-import React from 'react';
-import mergeClassnames from '../../mergeClassnames/mergeClassnames';
-import type AvatarProps from '../private/types/AvatarProps';
-import getBorderRadius from '../private/utils/getBorderRadius';
-import getWrapperSize from '../private/utils/getWrapperSize';
+import React from "react";
+import mergeClassnames from "../../mergeClassnames/mergeClassnames";
+import type AvatarProps from "../private/types/AvatarProps";
+import getBorderRadius from "../private/utils/getBorderRadius";
+import getWrapperSize from "../private/utils/getWrapperSize";
 
 const Wrapper = ({
   children,
@@ -15,13 +15,13 @@ const Wrapper = ({
 }: AvatarProps) => (
   <div
     className={mergeClassnames(
-      'relative overflow-hidden uppercase font-medium flex items-center justify-center bg-cover',
-      'text-bulma bg-goku',
+      "relative overflow-hidden uppercase font-medium flex items-center justify-center bg-cover",
+      "text-bulma bg-goku",
       color,
       bgColor,
       getWrapperSize(size),
       getBorderRadius(size, isRounded),
-      className
+      className,
     )}
     style={{ backgroundImage: imageUrl && `url('${imageUrl}')` }}
   >

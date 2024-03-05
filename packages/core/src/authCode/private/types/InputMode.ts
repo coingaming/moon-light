@@ -1,3 +1,3 @@
-type InputMode = 'text' | 'numeric';
+type InputMode = "text" | "numeric";
 
 export default InputMode;

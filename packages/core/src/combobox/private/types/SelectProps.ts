@@ -10,4 +10,4 @@ type SelectProps = {
   onClose?: (value: unknown) => void;
 };
 
-export default SelectProps
+export default SelectProps;

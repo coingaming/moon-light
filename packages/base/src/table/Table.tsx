@@ -1,15 +1,15 @@
-import React from 'react';
-import type Props from './private/types/Props';
-import type TableProps from './private/types/TableProps';
-import getSize from './private/utils/getSize';
-import mergeClassnames from '../mergeClassnames/mergeClassnames';
+import React from "react";
+import type Props from "./private/types/Props";
+import type TableProps from "./private/types/TableProps";
+import getSize from "./private/utils/getSize";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const TableRoot = ({ children, className, size, ...props }: TableProps) => (
   <table
     className={mergeClassnames(
-      'w-full border-separate border-spacing-y-1 [&_td]:px-2',
+      "w-full border-separate border-spacing-y-1 [&_td]:px-2",
       getSize(size),
-      className
+      className,
     )}
     {...props}
   >
@@ -39,7 +39,7 @@ const Header = ({ children, className, ...props }: Props) => (
   <th
     className={mergeClassnames(
       className,
-      'text-moon-14 px-3 py-2 font-medium text-start text-bulma'
+      "text-moon-14 px-3 py-2 font-medium text-start text-bulma",
     )}
     {...props}
   >
@@ -51,7 +51,7 @@ const Cell = ({ children, className, ...props }: Props) => (
   <td
     className={mergeClassnames(
       className,
-      'text-start text-bulma bg-goku first:rounded-s-moon-s-sm last:rounded-e-moon-s-sm'
+      "text-start text-bulma bg-goku first:rounded-s-moon-s-sm last:rounded-e-moon-s-sm",
     )}
     {...props}
   >

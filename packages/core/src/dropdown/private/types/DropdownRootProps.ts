@@ -1,16 +1,16 @@
-import type Placement from './Placement';
+import type Placement from "./Placement";
 
 interface DropdownRootProps
   extends Omit<
     React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
-    'children' | 'ref'
+    "children" | "ref"
   > {
   value: unknown;
   onChange(value: unknown): void;
   onClear?: () => void;
   isError?: boolean;
   disabled?: boolean;
-  size?: 'sm' | 'md' | 'lg' | 'xl' | string;
+  size?: "sm" | "md" | "lg" | "xl" | string;
   className?: string;
   multiple?: boolean;
   position?: Placement;
