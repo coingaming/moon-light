@@ -1,4 +1,4 @@
-import { mergeClassnames } from "@heathmont/moon-core-tw";
+import { mergeClassnames } from "@heathmont/moon-base-tw";
 import MainLayout from "../mainLayout/MainLayout";
 import { PageHeadComponent } from "../PageHeadComponent";
 import type OverviewPageProps from "./types/OverviewPageProps";
