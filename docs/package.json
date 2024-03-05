@@ -16,11 +16,10 @@
     "clean:next": "rimraf .next"
   },
   "dependencies": {
-    "@heathmont/moon-base-tw": "^10.11.1",
-    "@heathmont/moon-cmdk-tw": "^10.11.1",
-    "@heathmont/moon-core-tw": "^10.11.1",
+    "@heathmont/moon-base-tw": "workspace:^10.13.2",
+    "@heathmont/moon-cmdk-tw": "workspace:^10.13.2",
+    "@heathmont/moon-core-tw": "workspace:^10.13.2",
     "@heathmont/moon-icons-tw": "^9.28.6",
-    "@heathmont/moon-table-tw": "^10.12.1",
     "@heathmont/moon-table-v8-tw": "workspace:^10.12.1",
     "@heathmont/moon-themes-tw": "^10.11.1",
     "@hookform/resolvers": "^3.3.2",

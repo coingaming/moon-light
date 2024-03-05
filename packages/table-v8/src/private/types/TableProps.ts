@@ -36,6 +36,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   textClip?: ClipProps;
   layout?: TableLayouts;
   preventSelectionByRowClick?: boolean;
+  withMinimap?: boolean;
   getOnRowClickHandler?: (row: Row<D>) => () => void | (() => void);
   getOnRowSelectHandler?: () => (row: Row<D>[]) => void | (() => void);
   getSubRows?: (originalRow: D, index: number) => D[] | undefined;
