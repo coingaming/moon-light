@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const useRtl = () => {
   const [isRtl, setIsRtl] = useState(false);
@@ -12,12 +12,12 @@ const useRtl = () => {
       );
     }
   }, []);
-  const toggleRtl = () => {
+  const toggleRtl = useCallback(() => {
     const newIsRtl = !isRtl;
     setIsRtl(newIsRtl);
     localStorage.setItem("isRtl", newIsRtl ? "true" : "false");
     document.documentElement.setAttribute("dir", newIsRtl ? "rtl" : "ltr");
-  };
+  }, [isRtl]);
   return {
     toggleRtl,
     isRtl,
