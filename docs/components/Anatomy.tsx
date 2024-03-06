@@ -24,7 +24,7 @@ export const Anatomy = async ({ anatomy }: { anatomy?: string }) => {
       {title && <h2 className={"text-moon-24 font-medium"}>{title}</h2>}
       {description && <MDX markdown={description} />}
       {content && (
-        <pre className="flex w-full p-4 rounded-moon-s-sm overflow-x-auto text-moon-14 text-bulma border border-beerus">
+        <pre className="flex w-full p-4 rounded-lg overflow-x-auto text-moon-14 text-bulma border border-beerus">
           {content}
         </pre>
       )}

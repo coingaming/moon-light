@@ -22,7 +22,9 @@ const HeaderSection = ({ title, description, className, href }: Props) => (
       </a>
     </h2>
     {description && (
-      <div className="max-w-3xl text-moon-16 text-bulma">{description}</div>
+      <div className="flex flex-col gap-4 text-moon-16 text-bulma">
+        {description}
+      </div>
     )}
   </>
 );

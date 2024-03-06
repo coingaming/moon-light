@@ -20,7 +20,6 @@ const DocsPage = (props: DocsPageProps) => {
     propsTable,
     anatomy,
     tags,
-    image,
     examplesAnatomy,
   } = props;
 

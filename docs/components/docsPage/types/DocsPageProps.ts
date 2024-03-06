@@ -14,7 +14,6 @@ type DocsPageProps = {
   propsTable?: Record<string, PropsTableProp[]>;
   examplesAnatomy?: Record<string, string>;
   anatomy?: string;
-  image?: StaticImageData;
 };
 
 export default DocsPageProps;
