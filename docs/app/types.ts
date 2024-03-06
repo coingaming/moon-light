@@ -682,6 +682,7 @@ export type Examples = {
     "table": {
       "description": "string",
       "descriptions": {
+        "Borders": "string",
         "CheckboxesWithPreset": "string",
         "Clickable": "string",
         "Default": "string",
@@ -697,6 +698,7 @@ export type Examples = {
         "WithSorting": "string"
       },
       "examples": {
+        "Borders": "string",
         "CheckboxesWithPreset": "string",
         "Clickable": "string",
         "Default": "string",

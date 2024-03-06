@@ -1,6 +1,7 @@
 import { Table } from "@tanstack/react-table";
 import ColumnData from "./ColumnData";
 import RowSizes from "./RowSizes";
+import { CellBorderType } from "./CellBorderType";
 
 type THeadProps = {
   table: Table<{}>;
@@ -10,6 +11,7 @@ type THeadProps = {
   isResizable?: boolean;
   isSticky?: boolean;
   columnMap?: ColumnData[][];
+  withBorder?: CellBorderType;
 };
 
 export default THeadProps;

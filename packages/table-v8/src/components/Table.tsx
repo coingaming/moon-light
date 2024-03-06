@@ -43,6 +43,7 @@ const Table = ({
   isSticky = true,
   textClip,
   layout = "auto",
+  withCellBorder = false,
   withMinimap = false,
   preventSelectionByRowClick = false,
   getOnRowClickHandler,
@@ -151,6 +152,7 @@ const Table = ({
             isResizable={isResizable}
             isSticky={isSticky}
             columnMap={columnMap}
+            withBorder={withCellBorder}
           />
           <TBody
             table={table}
@@ -166,6 +168,7 @@ const Table = ({
             rowActiveColor={rowActiveColor}
             columnMap={columnMap}
             textClip={textClip}
+            withBorder={withCellBorder}
             getOnRowClickHandler={getOnRowClickHandler}
           />
           {withFooter && (
@@ -176,6 +179,7 @@ const Table = ({
               rowGap={rowGap}
               isSticky={isSticky}
               columnMap={columnMap}
+              withBorder={withCellBorder}
             />
           )}
         </table>

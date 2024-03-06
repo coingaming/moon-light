@@ -5,6 +5,7 @@ import StickyColumn from "../private/types/StickyColumn";
 import THProps from "../private/types/THProps";
 import getFontSize from "../private/utils/getFontSize";
 import getPadding from "../private/utils/getPadding";
+import CellBorder from "./CellBorder";
 
 const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
   const { headers } = header.headerGroup;
@@ -29,7 +30,15 @@ const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
 };
 
 const TF = forwardRef<HTMLTableCellElement, THProps>(
-  ({ backgroundColor, header, rowSize, columnData }, ref) => {
+  ({
+    backgroundColor,
+    header,
+    rowSize,
+    columnData,
+    withBorder,
+    isFirstColumn
+  },
+  ref) => {
     const columnDefinition = header.column.columnDef;
     const footerValue = columnDefinition.footer
       ? typeof columnDefinition.footer === "function"
@@ -80,15 +89,18 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
         ref={ref}
       >
         {header.isPlaceholder ? null : (
-          <div
-            className={mergeClassnames(
-              "relative text-start",
-              getFontSize(rowSize),
-              footerValue && getPadding(rowSize),
-            )}
-          >
-            {flexRender(header.column.columnDef.footer, header.getContext())}
-          </div>
+          <>
+            {<CellBorder withBorder={withBorder} isFirstColumn={isFirstColumn} stickySide={stickySide} />}
+            <div
+              className={mergeClassnames(
+                "relative text-start",
+                getFontSize(rowSize),
+                footerValue && getPadding(rowSize),
+              )}
+            >
+              {flexRender(header.column.columnDef.footer, header.getContext())}
+            </div>
+          </>
         )}
       </th>
     );

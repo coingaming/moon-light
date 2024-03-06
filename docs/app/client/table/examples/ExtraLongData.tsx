@@ -294,6 +294,7 @@ const Example = () => {
         width={800}
         height={400}
         isResizable
+        withCellBorder="sticky"
       />
     </div>
   );

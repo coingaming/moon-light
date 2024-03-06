@@ -5,6 +5,7 @@ import StickyColumn from "../private/types/StickyColumn";
 import THProps from "../private/types/THProps";
 import getFontSize from "../private/utils/getFontSize";
 import getPadding from "../private/utils/getPadding";
+import CellBorder from "./CellBorder";
 
 const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
   const { headers } = header.headerGroup;
@@ -45,7 +46,8 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       table,
       rowSize,
       isResizable,
-      isCellBorder,
+      isFirstColumn,
+      withBorder,
       columnData,
       onClick,
     },
@@ -98,6 +100,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
         )}
         ref={ref}
       >
+        {<CellBorder withBorder={withBorder} isFirstColumn={isFirstColumn} stickySide={stickySide} />}
         {header.isPlaceholder ? null : (
           <div
             className={mergeClassnames(

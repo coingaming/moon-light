@@ -2,6 +2,7 @@ import { Cell } from "@tanstack/react-table";
 import ClipProps from "./ClipProps";
 import ColumnData from "./ColumnData";
 import RowSizes from "./RowSizes";
+import { CellBorderType } from "./CellBorderType";
 
 type TDProps = {
   cell: Cell<{}, unknown>;
@@ -19,6 +20,7 @@ type TDProps = {
   isCellBorder?: boolean;
   columnData?: ColumnData;
   textClip?: ClipProps;
+  withBorder?: CellBorderType;
 };
 
 export default TDProps;

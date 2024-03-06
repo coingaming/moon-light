@@ -6,6 +6,7 @@ import StickyColumn from "../private/types/StickyColumn";
 import TDProps from "../private/types/TDProps";
 import getFontSize from "../private/utils/getFontSize";
 import getPadding from "../private/utils/getPadding";
+import CellBorder from "./CellBorder";
 
 const getStickyShift = (
   cells: Cell<{}, unknown>[],
@@ -42,6 +43,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       isLastColumn,
       columnData,
       textClip,
+      withBorder,
     },
     ref,
   ) => {
@@ -80,7 +82,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
         key={cell.id}
         style={Object.fromEntries(styles)}
         className={mergeClassnames(
-          "box-border text-start",
+          "relative box-border text-start",
           getFontSize(rowSize),
           getPadding(rowSize),
           isFirstColumn && !noGap && "rounded-s-lg after:rounded-s-lg",
@@ -94,6 +96,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
         )}
         ref={ref}
       >
+        {<CellBorder withBorder={withBorder} isFirstColumn={isFirstColumn} stickySide={stickySide} />}
         {textClip ? (
           <div
             className={mergeClassnames(

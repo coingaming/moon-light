@@ -6,6 +6,7 @@ examples:
     "Default",
     "RowGaps",
     "RowSizes",
+    "Borders",
     "Clickable",
     "ExpandableWithPreset",
     "SelectableWithPreset",

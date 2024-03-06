@@ -322,6 +322,7 @@ const COMPONENTS = {
       "Default",
       "RowGaps",
       "RowSizes",
+      "Borders",
       "Clickable",
       "ExpandableWithPreset",
       "SelectableWithPreset",

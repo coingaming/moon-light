@@ -18,6 +18,7 @@ const TBody = ({
   rowActiveColor,
   rowHoverColor,
   textClip,
+  withBorder,
   getOnRowClickHandler,
 }: TBodyProps) => {
   const isRowElementClicked = (event: unknown) =>
@@ -107,6 +108,7 @@ const TBody = ({
                   columnMap && columnMap[columnMap.length - 1][cellIndex]
                 }
                 textClip={textClip}
+                withBorder={withBorder}
               />
             ))}
           </tr>

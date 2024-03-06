@@ -165,6 +165,13 @@
         "type": ["string | number"]
       },
       {
+        "name": "withCellBorder",
+        "description": "Wether to draw the borders of the cells",
+        "defaultState": "false",
+        "required": false,
+        "type": ["false | true | 'sticky'"]
+      },
+      {
         "name": "withFooter",
         "description": "Whether use a footer",
         "defaultState": "false",
