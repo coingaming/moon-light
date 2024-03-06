@@ -1,0 +1,20 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [],
+  "linked": [
+    [
+      "@heathmont/moon-base-tw",
+      "@heathmont/moon-cmdk-tw",
+      "@heathmont/moon-core-tw",
+      "@heathmont/moon-table-v8-tw",
+      "@heathmont/moon-themes-tw",
+      "docs"
+    ]
+  ],
+  "access": "restricted",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": []
+}
