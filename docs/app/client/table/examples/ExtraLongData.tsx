@@ -116,7 +116,7 @@ const Example = () => {
         const [key, range] = Object.entries(value)[0];
         return (
           <>
-            <span className="mr-[5px]">{key}</span>
+            <span className="me-[5px]">{key}</span>
             <span>({range.start ? range.start : ""}</span>
             <span>-</span>
             <span>{range.end ? range.end : ""})</span>
