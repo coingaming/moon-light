@@ -24,4 +24,6 @@ jobs:
       - name: Install dependencies
         run: pnpm i
       - name: Check changeset status
-        run: corepack pnpm changeset status --since origin/main
+        run: |
+          last_tag=$(git describe --tags --abbrev=0)
+          pnpm changeset status --since $last_tag
