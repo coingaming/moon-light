@@ -25,6 +25,7 @@ jobs:
         run: pnpm i
       - name: Check changeset status
         run: |
+          git config --global --add safe.directory /__w/moon-light/moon-light
           last_tag=$(git describe --tags --abbrev=0)
           pnpm changeset status --since $last_tag
         env:
