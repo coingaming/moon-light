@@ -96,7 +96,13 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
         )}
         ref={ref}
       >
-        {<CellBorder withBorder={withBorder} isFirstColumn={isFirstColumn} stickySide={stickySide} />}
+        {
+          <CellBorder
+            withBorder={withBorder}
+            isFirstColumn={isFirstColumn}
+            stickySide={stickySide}
+          />
+        }
         {textClip ? (
           <div
             className={mergeClassnames(

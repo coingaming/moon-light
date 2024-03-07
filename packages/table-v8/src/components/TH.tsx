@@ -100,7 +100,13 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
         )}
         ref={ref}
       >
-        {<CellBorder withBorder={withBorder} isFirstColumn={isFirstColumn} stickySide={stickySide} />}
+        {
+          <CellBorder
+            withBorder={withBorder}
+            isFirstColumn={isFirstColumn}
+            stickySide={stickySide}
+          />
+        }
         {header.isPlaceholder ? null : (
           <div
             className={mergeClassnames(

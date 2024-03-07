@@ -30,15 +30,10 @@ const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
 };
 
 const TF = forwardRef<HTMLTableCellElement, THProps>(
-  ({
-    backgroundColor,
-    header,
-    rowSize,
-    columnData,
-    withBorder,
-    isFirstColumn
-  },
-  ref) => {
+  (
+    { backgroundColor, header, rowSize, columnData, withBorder, isFirstColumn },
+    ref,
+  ) => {
     const columnDefinition = header.column.columnDef;
     const footerValue = columnDefinition.footer
       ? typeof columnDefinition.footer === "function"
@@ -90,7 +85,13 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
       >
         {header.isPlaceholder ? null : (
           <>
-            {<CellBorder withBorder={withBorder} isFirstColumn={isFirstColumn} stickySide={stickySide} />}
+            {
+              <CellBorder
+                withBorder={withBorder}
+                isFirstColumn={isFirstColumn}
+                stickySide={stickySide}
+              />
+            }
             <div
               className={mergeClassnames(
                 "relative text-start",
