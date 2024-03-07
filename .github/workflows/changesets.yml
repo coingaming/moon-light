@@ -24,4 +24,4 @@ jobs:
       - name: Install dependencies
         run: pnpm i
       - name: Check changeset status
-        run: corepack pnpm changeset status --since=main
+        run: corepack pnpm changeset status
