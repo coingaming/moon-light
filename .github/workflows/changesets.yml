@@ -27,3 +27,5 @@ jobs:
         run: |
           last_tag=$(git describe --tags --abbrev=0)
           pnpm changeset status --since $last_tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
