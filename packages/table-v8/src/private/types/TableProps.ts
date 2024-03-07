@@ -11,6 +11,7 @@ import ClipProps from "./ClipProps";
 import DataHelper from "./DataHelper";
 import RowSizes from "./RowSizes";
 import TableLayouts from "./TableLayouts";
+import { CellBorderType } from "./CellBorderType";
 
 type TableProps<D extends DataHelper = DataHelper> = {
   columns: ColumnDef<D, any>[];
@@ -36,6 +37,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   textClip?: ClipProps;
   layout?: TableLayouts;
   preventSelectionByRowClick?: boolean;
+  withCellBorder?: CellBorderType;
   withMinimap?: boolean;
   getOnRowClickHandler?: (row: Row<D>) => () => void | (() => void);
   getOnRowSelectHandler?: () => (row: Row<D>[]) => void | (() => void);

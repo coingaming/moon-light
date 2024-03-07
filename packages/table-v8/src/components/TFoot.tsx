@@ -8,6 +8,7 @@ const TFoot = ({
   rowSize,
   rowGap,
   isSticky,
+  withBorder,
   columnMap,
 }: TFootProps) => {
   const bottom = isSticky && rowGap ? rowGap : undefined;
@@ -33,8 +34,10 @@ const TFoot = ({
               header={header}
               backgroundColor={backgroundColor}
               rowSize={rowSize}
+              isFirstColumn={index === 0}
               isLastColumn={index === footerGroup.headers.length - 1}
               columnData={columnMap && columnMap[cmLength - indexFG - 1][index]}
+              withBorder={withBorder}
             />
           ))}
         </tr>
@@ -48,7 +51,9 @@ const TFoot = ({
             <TF
               header={header}
               backgroundColor={backgroundColor}
+              isFirstColumn={index === 0}
               rowSize={rowSize}
+              withBorder={withBorder}
             />
           ))}
         </tr>

@@ -147,6 +147,7 @@ const Example = () => {
         height={500}
         isResizable
         textClip={textClip}
+        withCellBorder="sticky"
         withFooter
       />
     </div>

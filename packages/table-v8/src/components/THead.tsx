@@ -9,6 +9,7 @@ const THead = ({
   rowSize,
   isResizable,
   isSticky,
+  withBorder,
   columnMap,
 }: THeadProps) => {
   const top = isSticky && rowGap ? rowGap : undefined;
@@ -34,8 +35,10 @@ const THead = ({
               backgroundColor={backgroundColor}
               rowSize={rowSize}
               isResizable={isResizable}
+              isFirstColumn={index === 0}
               isLastColumn={index === headerGroup.headers.length - 1}
               columnData={columnMap && columnMap[indexHG][index]}
+              withBorder={withBorder}
             />
           ))}
         </tr>
@@ -45,13 +48,15 @@ const THead = ({
     <thead>
       {table.getHeaderGroups().map((headerGroup) => (
         <tr key={headerGroup.id}>
-          {headerGroup.headers.map((header) => (
+          {headerGroup.headers.map((header, index) => (
             <TH
               table={table}
               header={header}
               backgroundColor={backgroundColor}
               rowSize={rowSize}
               isResizable={isResizable}
+              isFirstColumn={index === 0}
+              withBorder={withBorder}
             />
           ))}
         </tr>
