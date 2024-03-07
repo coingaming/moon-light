@@ -31,7 +31,7 @@ const CodePreviewWrapper = ({
     <div
       ref={wrapperRef}
       className={mergeClassnames(
-        "relative text-bulma p-4 pb-0 lg:pe-12 overflow-hidden border border-t-0 border-beerus rounded-b-xl",
+        "relative text-bulma p-4 pb-0 lg:pe-12 overflow-hidden border border-t-0 border-beerus rounded-b-lg",
         className,
       )}
     >
