@@ -45,7 +45,7 @@
         "name": "fixedWidth",
         "description": "Sets the actual width of the table when the 'fixed' layout mode is being selected",
         "required": false,
-        "type": ["string | number"]
+        "type": ["string", "number"]
       },
       {
         "name": "getSubRows",
@@ -64,7 +64,7 @@
         "name": "height",
         "description": "A table height.",
         "required": false,
-        "type": ["string | number"]
+        "type": ["string", "number"]
       },
       {
         "name": "isResizable",
@@ -92,7 +92,7 @@
         "description": "Sets the layout of the table.",
         "defaultState": "auto",
         "required": false,
-        "type": ["auto | stretched-auto | fixed"]
+        "type": ["auto", "stretched-auto", "fixed"]
       },
       {
         "name": "onExpandedChange",
@@ -144,7 +144,7 @@
         "description": "Size of the table rows.",
         "defaultState": "md",
         "required": false,
-        "type": ["xs | sm | md | lg | xl | 2xl"]
+        "type": ["xs", "sm", "md", "lg", "xl", "2xl"]
       },
       {
         "name": "state",
@@ -156,20 +156,20 @@
         "name": "textClip",
         "description": "Sets the type of clipping of long data inside a table cell",
         "required": false,
-        "type": ["clip | break"]
+        "type": ["clip", "break"]
       },
       {
         "name": "width",
         "description": "A table width",
         "required": false,
-        "type": ["string | number"]
+        "type": ["string", "number"]
       },
       {
         "name": "withCellBorder",
         "description": "Wether to draw the borders of the cells",
         "defaultState": "false",
         "required": false,
-        "type": ["false | true | 'sticky'"]
+        "type": ["boolean", "sticky"]
       },
       {
         "name": "withFooter",
