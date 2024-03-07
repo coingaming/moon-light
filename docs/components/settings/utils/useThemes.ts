@@ -1,16 +1,16 @@
 "use client";
 
-import React from "react";
 import isStorageAvailable from "./isStorageAvailable";
 
 import type { ThemeColorModes, Themes } from "@/types";
 import { themes } from "@/constants";
+import { useState } from "react";
 
 export type Brand = keyof Themes;
 export type Mode = keyof ThemeColorModes;
 
 const useTheme = () => {
-  const [themeState, setThemeState] = React.useState({
+  const [themeState, setThemeState] = useState({
     brand: "moonDesign" as Brand,
     colorMode: "light" as Mode,
   });

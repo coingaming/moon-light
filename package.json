@@ -8,7 +8,8 @@
     "clean": "rimraf packages/**/lib && rimraf docs/{lib,dist,.cache,.next}",
     "doc": "pnpm run --filter \"docs\"",
     "fmt": "prettier --write .",
-    "nuke": "pnpm run clean && rimraf docs/.next/ && rimraf packages/**/node_modules/ && rimraf docs/node_modules/ && rimraf node_modules/"
+    "nuke": "pnpm run clean && rimraf docs/.next/ && rimraf packages/**/node_modules/ && rimraf docs/node_modules/ && rimraf node_modules/",
+    "publish": "pnpm publish --no-git-checks --filter \"./packages/**\" -r --access public"
   },
   "keywords": [],
   "author": "Karl Kallavus",
@@ -17,10 +18,11 @@
     "typescript": "^5.3.2"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "cpy-cli": "5.0.0",
     "prettier": "^3.1.1",
-    "rimraf": "^5.0.5",
-    "cpy-cli": "5.0.0"
+    "rimraf": "^5.0.5"
   }
 }

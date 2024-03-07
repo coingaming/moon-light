@@ -26,7 +26,7 @@ export const ExampleSection = async ({
 }: Props) => (
   <div className="flex flex-col gap-4 relative">
     <HeaderSection title={title} description={description} href={href} />
-    <div className="bg-gohan rounded-lg mt-2">
+    <div className="bg-gohan rounded-lg">
       <ComponentPreview component={component} />
       <CodePreview code={code} />
     </div>
@@ -72,12 +72,14 @@ export async function withExamples(
         component={<Component />}
         description={
           <>
-            <MDX
-              markdown={descriptions?.[exampleDescriptionKey]}
-              options={{
-                parseFrontmatter: true,
-              }}
-            />
+            <div className="max-w-3xl">
+              <MDX
+                markdown={descriptions?.[exampleDescriptionKey]}
+                options={{
+                  parseFrontmatter: true,
+                }}
+              />
+            </div>
             {client?.examplesAnatomy?.[exampleKey] && (
               <Anatomy
                 anatomy={client?.examplesAnatomy?.[exampleDescriptionKey]}

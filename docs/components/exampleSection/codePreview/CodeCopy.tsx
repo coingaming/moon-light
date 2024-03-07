@@ -45,7 +45,7 @@ const CodeCopy = ({
 
   return (
     <div>
-      <span className="absolute top-2 right-2 cursor-pointer z-1">
+      <span className="absolute top-2 end-2 cursor-pointer z-1">
         <IconButton
           onClick={copyCode}
           variant="ghost"

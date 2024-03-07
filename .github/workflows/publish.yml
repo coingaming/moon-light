@@ -15,6 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          registry-url: "https://registry.npmjs.org"
       - name: Corepack enable
         run: corepack enable
       - name: Use pnpm@latest
@@ -23,7 +24,7 @@ jobs:
         run: pnpm i
       - name: Build packages
         run: pnpm run build
-      - name: Setting up private repository npm access
-        run: echo "//registry.npmjs.org/:_authToken=$secrets.NPM_TOKEN" > .npmrc
       - name: Publish packages
         run: pnpm run publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
