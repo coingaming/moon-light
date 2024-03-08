@@ -15,6 +15,7 @@ const useTheme = () => {
     colorMode: "light" as Mode,
   });
 
+
   const setTheme = (className: string) => {
     const previewElements = document.getElementsByTagName("body");
     const themeClasses = [];
@@ -31,6 +32,7 @@ const useTheme = () => {
       previewElements[i].className += ` ${className}`;
     }
     localStorage.setItem("theme", className);
+    if (document) document.cookie = `theme=${className};path=/;MaxAge=0;SameSite=Strict`;
   };
 
   const getBrand = (): Brand => {
