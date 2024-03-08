@@ -26,7 +26,9 @@ jobs:
         run: corepack prepare pnpm@latest --activate
       - name: Install dependencies
         run: pnpm i
-      - name: Check changeset status
-        run: pnpm changeset status --since origin/main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     - name: Require changeset
+        run: |
+          # Checkout PR head commit instead of merge commit
+          # See: https://github.com/atlassian/changesets/issues/517
+          git checkout ${{ github.event.pull_request.head.sha }}
+          pnpm changeset status --since=origin/main
