@@ -46,6 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{github.event.pull_request.head.sha}}
           # check out full history
           fetch-depth: 0
       - name: Use Node
@@ -60,11 +61,6 @@ jobs:
       - name: Install dependencies
         run: pnpm i
       - name: Require changeset
-        run: |
-          # Checkout PR head commit instead of merge commit
-          # See: https://github.com/atlassian/changesets/issues/517
-          git config --global --add safe.directory /__w/moon-light/moon-light
-          git checkout ${{ github.event.pull_request.head.sha }}
-          pnpm changeset status --since=origin/main
+        run: pnpm changeset status --since=origin/main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
