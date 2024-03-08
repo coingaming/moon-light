@@ -26,7 +26,7 @@ jobs:
         run: corepack prepare pnpm@latest --activate
       - name: Install dependencies
         run: pnpm i
-     - name: Require changeset
+      - name: Require changeset
         run: |
           # Checkout PR head commit instead of merge commit
           # See: https://github.com/atlassian/changesets/issues/517
