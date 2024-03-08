@@ -12,6 +12,8 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.40.0-jammy
     steps:
       - uses: actions/checkout@v4
+          # check out full history
+          fetch-depth: 0
       - name: Use Node
         uses: actions/setup-node@v4
         with:
