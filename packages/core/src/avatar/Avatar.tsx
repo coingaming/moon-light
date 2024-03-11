@@ -14,7 +14,7 @@ const AvatarRoot = ({
   color, // deprecated
   bgColor, // deprecated
   size = "md",
-  statusOrigin = { vertical: "bottom", horizontal: "right" }, // deprecated
+  statusOrigin = { vertical: "top", horizontal: "right" }, // deprecated
   isStatusActive, // deprecated
   isRounded, // deprecated
   className,
