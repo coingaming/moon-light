@@ -47,7 +47,7 @@ const DocsPage = (props: DocsPageProps) => {
       componentName={componentName}
       contentSidebar={ordered}
     >
-      <div className="flex flex-col gap-12 text-moon-14 pb-20">
+      <div className="flex flex-col gap-12 text-moon-14 pb-10">
         <PageHeadComponent
           title={title}
           description={description}

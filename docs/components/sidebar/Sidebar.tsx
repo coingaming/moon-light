@@ -4,7 +4,7 @@ import COMPONENTS from "@/components.constants.mjs";
 
 const Sidebar = () => (
   <nav
-    className="flex flex-col gap-6 top-[4.5rem] h-screen w-full lg:w-72 bg-goku overflow-y-scroll border-e border-beerus px-3 py-6"
+    className="flex flex-col gap-6 h-full w-full lg:w-72 bg-goku overflow-y-scroll border-e border-beerus px-3 py-6"
     aria-label="Sidebar"
   >
     <p className="ps-2 text-moon-10-caption font-medium uppercase text-trunks">

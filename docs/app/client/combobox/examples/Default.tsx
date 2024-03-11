@@ -58,7 +58,7 @@ const Example = () => {
               </Combobox.Button>
             </Combobox.Trigger>
             <Combobox.Transition>
-              <Combobox.Options className={"min-w-[18.75rem] z-50"}>
+              <Combobox.Options>
                 {filteredPeople0.length === 0 && query0 !== "" ? (
                   <div className="relative cursor-default select-none py-2 px-4 text-trunks">
                     Nothing found.
@@ -103,7 +103,7 @@ const Example = () => {
               </Combobox.Button>
             </Combobox.Trigger>
             <Combobox.Transition>
-              <Combobox.Options className={"min-w-[18.75rem] z-50"}>
+              <Combobox.Options>
                 {filteredPeople1.length === 0 && query1 !== "" ? (
                   <div className="relative cursor-default select-none py-2 px-4 text-trunks">
                     Nothing found.
