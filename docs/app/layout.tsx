@@ -18,8 +18,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const actions = await useSearchActions();
-  const defTheme = await cookies().get("theme")?.value ?? "theme-moon-light";
-  const dirLayout = await cookies().get("dir")?.value ?? "ltr";
+  const defTheme = (await cookies().get("theme")?.value) ?? "theme-moon-light";
+  const dirLayout = (await cookies().get("dir")?.value) ?? "ltr";
   return (
     <html lang="en" dir={dirLayout} className="scroll-pt-20">
       <Head>

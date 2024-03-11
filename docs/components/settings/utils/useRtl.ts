@@ -16,7 +16,8 @@ const useRtl = () => {
     const newIsRtl = !isRtl;
     setIsRtl(newIsRtl);
     localStorage.setItem("isRtl", newIsRtl ? "true" : "false");
-    if (document) document.cookie = `dir=${newIsRtl ? "rtl" : "ltr"};path=/;MaxAge=0;SameSite=Strict`;
+    if (document)
+      document.cookie = `dir=${newIsRtl ? "rtl" : "ltr"};path=/;MaxAge=0;SameSite=Strict`;
     document.documentElement.setAttribute("dir", newIsRtl ? "rtl" : "ltr");
   }, [isRtl]);
   return {
