@@ -82,7 +82,7 @@ You only require a `pnpm install` in the root directory to install everything yo
 pnpm install
 ```
 
-## Prerelease Process
+## Prerelease Process (WIP)
 
 You might want to release a version of your packages before you do an actual release, Changesets lets you do this but there are some caveats because of the complexity that monorepos add that are important to understand.
 
@@ -106,28 +106,34 @@ git push --follow-tags
 pnpm changeset pre exit
 ```
 
+## Changeset
+
+All your PRs should contain a [changeset](https://github.com/changesets/changesets) file.
+
+Thanks to this, we can generate version changelogs automatically and do a release coordination.
+
+### How to generate changeset
+
+Run `pnpm changeset` in the root of the repository and follow CLI instructions to generate a new changeset.
+
 ## Release Process
 
-Thanks to [changeset](https://github.com/changesets/changesets), we can generate version bumps automatically.
-
-1. Ensure that `develop` branch is up to date with `master`. Run these commands on `develop` branch
-2. Run `pnpm changeset` in the root of the repository and follow CLI instructions to generate a new changeset.
-3. Run `pnpm changeset version` command. This will bump the versions of the packages previously specified with pnpm changeset (and any dependents of those) and update the changelog files.
-4. Run `pnpm install`. This will update the lockfile and rebuild packages.
-5. Commit the changes. (e.g `git add .` and `git commit -m "chore: bump version X.X.X"`)
-6. Push your changes.
-7. Raise a pull request from [`develop` into `master`](https://github.com/coingaming/moon-design/compare/master...develop).
-8. Obtain at least 1 approval.
-9. Click the "Merge Pull Request" button to trigger an automatic release process.
-10. After release is done tag a version on `master` branch and push your tag
+1. Ensure that the `main` branch is up-to-date. Run these commands via PRs to the `main` branch.
+2. Run `pnpm changeset version` command. This will bump the versions of the packages previously specified with pnpm changeset (and any dependents of those) and update the changelog files.
+3. Run `pnpm install`. This will update the lockfile and rebuild packages.
+4. Commit the changes. (e.g `git add .` and `git commit -m "chore: bump version X.X.X"`)
+5. Push your changes.
+6. Raise a pull request to the `main` branch.
+7. Obtain approvals and merge pull request.
+8. To publish packages to NPM, create a new tag with the version on the `main` branch, and then push your tag.
 
 ```
-git checkout master
+git checkout main
 git tag vX.X.X
-git push && git push --tags
+git push --tags
 ```
 
-10. Communicate the release to the team!
+9. Communicate the release to the team!
 
 ## Additional materials
 
