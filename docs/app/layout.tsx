@@ -17,15 +17,21 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const actions = await useSearchActions();
-  const defTheme = (await cookies().get("theme")?.value) ?? "theme-moon-light";
-  const dirLayout = (await cookies().get("dir")?.value) ?? "ltr";
+  const [actions, themeCookie, dirCookie] = await Promise.all([
+    useSearchActions(),
+    cookies().get("theme"),
+    cookies().get("dir")
+  ]);
+
+  const defaultTheme = themeCookie?.value || "theme-moon-light";
+  const defaultLayoutDir = dirCookie?.value || "ltr";
+
   return (
-    <html lang="en" dir={dirLayout} className="scroll-pt-20">
+    <html lang="en" dir={defaultLayoutDir} className="scroll-pt-20">
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
-      <body className={mergeClassnames(defTheme, "bg-goku")}>
+      <body className={mergeClassnames(defaultTheme, "bg-goku")}>
         <SearchProvider actions={actions}>
           <div id="__next">{children}</div>
         </SearchProvider>
