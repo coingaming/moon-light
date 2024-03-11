@@ -116,6 +116,17 @@ Thanks to this, we can generate version changelogs automatically and do a releas
 
 Run `pnpm changeset` in the root of the repository and follow CLI instructions to generate a new changeset.
 
+Example of a bad changeset description:
+
+`fix: bump version`
+
+Example of a good changeset description:
+
+`fix: Component Name - Dark Mode & RTL Flickering [MDS-XXX]`
+`feat(Table): the cell border customization has been added [MDS-1023]`
+`feat(Table & Button) - the cell border customization has been added [MDS-1023]`
+`feat: Table & Button - the cell border customization has been added [MDS-1023]`
+
 ## Release Process
 
 1. Ensure that the `main` branch is up-to-date. Run these commands via PRs to the `main` branch.
