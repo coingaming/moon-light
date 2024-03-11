@@ -130,7 +130,6 @@ Example of a good changeset description:
 
 `feat: Table & Button - the cell border customization has been added [MDS-1023]`
 
-
 ## Release Process
 
 1. Ensure that the `main` branch is up-to-date. Run these commands via PRs to the `main` branch.
