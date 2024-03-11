@@ -19,8 +19,9 @@ export default async function RootLayout({
 }) {
   const actions = await useSearchActions();
   const defTheme = await cookies().get("theme")?.value ?? "theme-moon-light";
+  const dirLayout = await cookies().get("dir")?.value ?? "ltr";
   return (
-    <html lang="en" dir="ltr" className="scroll-pt-20">
+    <html lang="en" dir={dirLayout} className="scroll-pt-20">
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
