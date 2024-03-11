@@ -123,9 +123,13 @@ Example of a bad changeset description:
 Example of a good changeset description:
 
 `fix: Component Name - Dark Mode & RTL Flickering [MDS-XXX]`
+
 `feat(Table): the cell border customization has been added [MDS-1023]`
+
 `feat(Table & Button) - the cell border customization has been added [MDS-1023]`
+
 `feat: Table & Button - the cell border customization has been added [MDS-1023]`
+
 
 ## Release Process
 
