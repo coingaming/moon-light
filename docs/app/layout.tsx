@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { SearchProvider } from "@/components/search/SearchProvider";
 import { useSearchActions } from "@/components/search/useSearchActions";
+import { cookies } from "next/headers";
 import "./globals.css";
 import "./themes.css";
+import { mergeClassnames } from "@heathmont/moon-base-tw";
 
 export const metadata = {
   title: "Moon Design System",
@@ -15,13 +17,21 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const actions = await useSearchActions();
+  const [actions, themeCookie, dirCookie] = await Promise.all([
+    useSearchActions(),
+    cookies().get("theme"),
+    cookies().get("dir"),
+  ]);
+
+  const defaultTheme = themeCookie?.value || "theme-moon-light";
+  const defaultLayoutDir = dirCookie?.value || "ltr";
+
   return (
-    <html lang="en" dir="ltr" className="scroll-pt-20">
+    <html lang="en" dir={defaultLayoutDir} className="scroll-pt-20">
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
-      <body className="theme-moon-light bg-goku">
+      <body className={mergeClassnames(defaultTheme, "bg-goku")}>
         <SearchProvider actions={actions}>
           <div id="__next">{children}</div>
         </SearchProvider>
