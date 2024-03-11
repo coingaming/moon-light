@@ -20,7 +20,7 @@ export default async function RootLayout({
   const [actions, themeCookie, dirCookie] = await Promise.all([
     useSearchActions(),
     cookies().get("theme"),
-    cookies().get("dir")
+    cookies().get("dir"),
   ]);
 
   const defaultTheme = themeCookie?.value || "theme-moon-light";
