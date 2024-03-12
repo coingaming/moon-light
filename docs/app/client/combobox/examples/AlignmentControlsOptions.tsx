@@ -65,7 +65,7 @@ const Example = () => {
             <Combobox.Transition>
               <Combobox.Options
                 menuWidth="w-48"
-                className="z-5 rounded-moon-s-md box-border bg-goku shadow-moon-lg py-2 px-1 my-2"
+                className="rounded-moon-s-md box-border bg-goku shadow-moon-lg py-2 px-1 my-2"
               >
                 {filteredPeople0.length === 0 && query0 !== "" ? (
                   <div className="relative cursor-default select-none py-2 px-4 text-trunks">
@@ -111,7 +111,7 @@ const Example = () => {
             <Combobox.Transition>
               <Combobox.Options
                 menuWidth="w-48"
-                className="z-5 rounded-moon-s-md box-border bg-goku shadow-moon-lg py-2 px-1 my-2"
+                className="rounded-moon-s-md box-border bg-goku shadow-moon-lg py-2 px-1 my-2"
               >
                 {filteredPeople1.length === 0 && query1 !== "" ? (
                   <div className="relative cursor-default select-none py-2 px-4 text-trunks">
