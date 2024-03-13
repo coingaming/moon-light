@@ -1,6 +1,5 @@
 import { test, expect } from "@playwright/test";
 import { setupTest, setDarkTheme, setRtl } from "@/utils/playwrightHelpers";
-import { set } from "react-hook-form";
 
 const COMPONENT_NAME = "switch";
 

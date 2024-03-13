@@ -1,31 +1,16 @@
 import { test, expect } from "@playwright/test";
-import {
-  PLAYWRIGHT_DEFAULT_TIMEOUT,
-  PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-} from "@/constants";
+import { setupTest } from "@/utils/playwrightHelpers";
 
-const COMPONENT_NAME = "authcode";
+const COMPONENT_NAME = "authCode";
 
-test.beforeEach(async ({ page }, testInfo) => {
-  const example = testInfo.title?.split(":")?.[0] ?? "Default";
-  await page.goto(`/client/authcode/${example}`);
-  await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
-});
-test.afterEach(async ({ page }) => {
-  // Cleanup from route
-  await page.close();
-});
+setupTest(COMPONENT_NAME);
 
 test("Default: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}.png`);
 });
 
 test("ErrorState: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-ErrorState.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-ErrorState.png`);
 });
 
 test("AllowedCharacters: should render and match screenshot", async ({
@@ -33,57 +18,37 @@ test("AllowedCharacters: should render and match screenshot", async ({
 }) => {
   await expect(page).toHaveScreenshot(
     `${COMPONENT_NAME}-AllowedCharacters.png`,
-    {
-      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    },
   );
 });
 
 test("CustomLength: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-CustomLength.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-CustomLength.png`);
 });
 
 test("DifferentGaps: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-DifferentGaps.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-DifferentGaps.png`);
 });
 
 test("HintMessage: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-HintMessage.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-HintMessage.png`);
 });
 
 test("Password: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Password.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Password.png`);
 });
 
 test("Placeholder: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Placeholder.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Placeholder.png`);
 });
 
 test("WithAutoSubmit: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithAutoSubmit.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithAutoSubmit.png`);
 });
 
 test("WithManualSubmit: should render and match screenshot", async ({
   page,
 }) => {
-  await expect(page).toHaveScreenshot(
-    `${COMPONENT_NAME}-WithManualSubmit.png`,
-    {
-      maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    },
-  );
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithManualSubmit.png`);
 });
 
 test("Default: should exists 6 input in the DOM", async ({ page }) => {
@@ -131,9 +96,7 @@ test("Password: should not print any character", async ({ page }) => {
   await page.getByLabel("Character 4").fill("1");
   await page.getByLabel("Character 5").fill("1");
   await page.getByLabel("Character 6").fill("1");
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Password-filled.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Password-filled.png`);
 });
 
 test("ErrorState: Should the error be visible until it get fixed", async ({
@@ -211,9 +174,7 @@ test("Placeholder: component support for RTL", async ({ page }) => {
     }
   });
   await page.waitForSelector("html[dir=rtl]");
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL.png`);
 });
 
 test("Default: test hover effect", async ({ page, isMobile }) => {
@@ -227,8 +188,5 @@ test("Default: test hover effect", async ({ page, isMobile }) => {
       y: posFirstInput?.y || 0,
     },
   });
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Hover.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    threshold: 0, // for fix colors in playwright
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Hover.png`);
 });

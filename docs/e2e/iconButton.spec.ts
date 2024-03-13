@@ -6,7 +6,7 @@ import {
   setLightTheme,
 } from "@/utils/playwrightHelpers";
 
-const COMPONENT_NAME = "iconbutton";
+const COMPONENT_NAME = "iconButton";
 
 setupTest(COMPONENT_NAME);
 

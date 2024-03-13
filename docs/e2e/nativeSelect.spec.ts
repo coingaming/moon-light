@@ -4,10 +4,9 @@ import {
   setDarkTheme,
   setRtl,
   setLightTheme,
-  getMoonColor,
 } from "@/utils/playwrightHelpers";
 
-const COMPONENT_NAME = "nativeselect";
+const COMPONENT_NAME = "nativeSelect";
 
 setupTest(COMPONENT_NAME);
 

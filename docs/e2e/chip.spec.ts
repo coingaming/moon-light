@@ -1,73 +1,44 @@
 import { test, expect } from "@playwright/test";
-import {
-  PLAYWRIGHT_DEFAULT_TIMEOUT,
-  PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-} from "@/constants";
+import { setupTest } from "@/utils/playwrightHelpers";
 
 const COMPONENT_NAME = "chip";
 
-test.beforeEach(async ({ page }, testInfo) => {
-  const example = testInfo.title?.split(":")?.[0] ?? "Default";
-  await page.goto(`/client/${COMPONENT_NAME}/${example}`);
-  await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
-});
-test.afterEach(async ({ page }) => {
-  // Cleanup from route
-  await page.close();
-});
+setupTest(COMPONENT_NAME);
 
 test("Default: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`chip-Default.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`chip-Default.png`);
 });
 
 test("Sizes: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`chip-Sizes.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`chip-Sizes.png`);
 });
 
 test("Variants: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`chip-Variants.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`chip-Variants.png`);
 });
 
 test("Customization: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`chip-Customization.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`chip-Customization.png`);
 });
 
 test("Active: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`chip-Active.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`chip-Active.png`);
 });
 
 test("Disabled: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`chip-Disabled.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`chip-Disabled.png`);
 });
 
 test("Icons: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`chip-Icons.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`chip-Icons.png`);
 });
 
 test("IsStroke: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`chip-IsStroke.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`chip-IsStroke.png`);
 });
 
 test("WithOnClick: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`chip-WithOnClick.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`chip-WithOnClick.png`);
 });
 
 test("WithOnClick: should callback onClick works", async ({ page }) => {

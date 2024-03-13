@@ -1,17 +1,10 @@
 import { test, expect } from "@playwright/test";
-import { PLAYWRIGHT_DEFAULT_TIMEOUT } from "@/constants";
+import { setupTest } from "@/utils/playwrightHelpers";
 
 const COMPONENT_NAME = "button";
 
-test.beforeEach(async ({ page }, testInfo) => {
-  const example = testInfo.title?.split(":")?.[0] ?? "Default";
-  await page.goto(`/client/${COMPONENT_NAME}/${example}`);
-  await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
-});
-test.afterEach(async ({ page }) => {
-  // Cleanup from route
-  await page.close();
-});
+setupTest(COMPONENT_NAME);
+
 test.describe("Default tests", () => {
   test("Default: should render and match screenshot", async ({ page }) => {
     await expect(page).toHaveScreenshot(`button-Default.png`);
