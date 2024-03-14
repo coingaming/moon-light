@@ -1,16 +1,11 @@
 import React from "react";
-import { readFromFile } from "@/utils/getExamples";
+import { useGetExample } from "@/utils/useGetExample";
 
-const ComponentDescription = async ({ filename }: { filename: string }) => {
-  const md = await readFromFile(
-    `${__dirname}/../../../app/client/${filename}/description.md`,
-  );
+const ComponentDescription = async ({ component }: { component: string }) => {
+  const { description } = await useGetExample(component) as { description?: string };
   return (
     <>
-      {md
-        ?.split(/[-]{2,}/g)
-        .pop()
-        ?.trim() || ""}
+      {description?.split(/[-]{2,}/g).pop()?.trim() || ""}
     </>
   );
 };

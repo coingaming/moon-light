@@ -1,21 +1,27 @@
+import Image from "next/image";
 import React from "react";
 
 type ComponentImageType = {
-  name?: string;
+  title?: string;
 };
 
-export const ComponentImage = ({ name }: ComponentImageType) => {
-  const imageStyles = {
-    backgroundImage: `url("/components/${name?.toLocaleLowerCase()}.png")`,
-    backgroundPosition: "left top",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
+export const ComponentImage = ({ title }: ComponentImageType) => {
+  const url = `/components/${title?.toLocaleLowerCase()}.png`;
+  const alt = `The ${title} component`;
 
-  return name ? (
-    <div
-      style={imageStyles}
-      className="w-full h-52 object-cover rounded-xl"
-    ></div>
-  ) : undefined;
+  return (
+    title 
+    ? <div className={"relative w-full h-52 rounded-xl"}>
+        <Image
+          loading="lazy"
+          src={url}
+          objectFit="cover"
+          objectPosition="left top"
+          fill
+          alt={alt}
+          className="rounded-xl"
+        />
+      </div>
+    : undefined
+  );
 };
