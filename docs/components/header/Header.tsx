@@ -34,7 +34,7 @@ export const Header = () => {
           <ThemeSwitcher />
           <RtlSwitcher />
           <IconButton
-            variant="outline"
+            variant="fill"
             size="sm"
             className="rounded-full lg:hidden"
             icon={<GenericMenu />}
