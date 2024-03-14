@@ -3,7 +3,7 @@ import ComponentDescription from "./ComponentDescription";
 import { ComponentImage } from "./ComponentImage";
 import Link from "next/link";
 
-export type ReviewCardType = {
+type ReviewCardType = {
   title: string;
   component: string;
 };
