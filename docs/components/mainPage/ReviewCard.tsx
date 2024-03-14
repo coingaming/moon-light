@@ -8,10 +8,7 @@ export type ReviewCardType = {
   filename: string;
 };
 
-const ReviewCard = ({
-  name,
-  filename,
-}: ReviewCardType) => {
+const ReviewCard = ({ name, filename }: ReviewCardType) => {
   const uri = `/client/${filename}/`;
 
   return (
@@ -28,6 +25,6 @@ const ReviewCard = ({
       </div>
     </Link>
   );
-}
+};
 
 export default ReviewCard;
