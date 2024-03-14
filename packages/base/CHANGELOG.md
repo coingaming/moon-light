@@ -1,5 +1,11 @@
 # @heathmont/moon-base-tw
 
+## 10.14.0
+
+### Minor Changes
+
+- Bump version
+
 ## 10.13.5
 
 ### Patch Changes

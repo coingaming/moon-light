@@ -1,5 +1,26 @@
 # docs
 
+## 10.14.0
+
+### Minor Changes
+
+- Bump version
+- 6a576cf: fix: incorrect definition of the enum type in props tables [MDS-1029]
+- 1a84c8b: feat(Table): the cell border customization has been added [MDS-1023]
+
+### Patch Changes
+
+- 48129e5: chore: update CONTRIBUTING.md regarding changeset
+- d9276b8: fix: Dark Mode & RTL Flickering [MDS-1024]
+- Updated dependencies
+- Updated dependencies [0302fc9]
+- Updated dependencies [1a84c8b]
+  - @heathmont/moon-base-tw@10.14.0
+  - @heathmont/moon-cmdk-tw@10.14.0
+  - @heathmont/moon-core-tw@10.14.0
+  - @heathmont/moon-table-v8-tw@10.14.0
+  - @heathmont/moon-themes-tw@10.14.0
+
 ## 10.13.5
 
 ### Patch Changes
