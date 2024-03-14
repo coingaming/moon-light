@@ -8,10 +8,7 @@ export type ReviewCardType = {
   component: string;
 };
 
-const ReviewCard = ({
-  title,
-  component,
-}: ReviewCardType) => {
+const ReviewCard = ({ title, component }: ReviewCardType) => {
   const uri = `/client/${component}/`;
   return (
     <Link
