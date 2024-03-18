@@ -1,9 +1,11 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import Link from "next/link";
 import { ComponentProps, HTMLProps } from "react";
 
 const defaultComponents: ComponentProps<any> = {
   a: (props: HTMLProps<HTMLAnchorElement>) => (
     <a
+      as={Link}
       {...props}
       className="transition-colors underline hover:text-piccolo"
       target="_blank"

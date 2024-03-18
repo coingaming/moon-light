@@ -1,53 +1,55 @@
+import Link from "next/link";
+
 const Footer = () => (
   <footer className="flex flex-col gap-4 pt-8 pb-6 lg:pb-12 items-center text-moon-14 text-bulma">
     <p>
       With the help of{" "}
-      <a
+      <Link
         href="https://yolo.com/"
         className="hover:underline font-medium"
         target="_blank"
         rel="noreferrer"
       >
         Yolo Group
-      </a>{" "}
+      </Link>{" "}
       ❤️
     </p>
     <div className="flex gap-x-4 gap-y-6 flex-wrap justify-center items-center text-trunks">
-      <a
+      <Link
         href="https://github.com/coingaming/moon-design"
         className="hover:underline"
         target="_blank"
         rel="noreferrer"
       >
         Github
-      </a>
+      </Link>
       <span>•</span>
-      <a
+      <Link
         href="https://www.figma.com/community/file/1002945721703152933"
         className="hover:underline"
         target="_blank"
         rel="noreferrer"
       >
         Figma
-      </a>
+      </Link>
       <span>•</span>
-      <a
+      <Link
         href="https://moonds.medium.com/"
         className="hover:underline"
         target="_blank"
         rel="noreferrer"
       >
         Medium
-      </a>
+      </Link>
       <span>•</span>
-      <a
+      <Link
         href="https://www.linkedin.com/company/moon-io/"
         className="hover:underline"
         target="_blank"
         rel="noreferrer"
       >
         LinkedIn
-      </a>
+      </Link>
     </div>
   </footer>
 );
