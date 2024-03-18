@@ -11,29 +11,28 @@ const descriptionMap = new Map();
  * @param {string} contents - data to arrange.
  */
 const arrangeText = (contents) => {
-  let output = contents.split('","').join('",\n\t"');
-  output = output.split('":"').join('": "');
-  output = output.split("{").join("{\n\t");
-  output = output.split("}").join("\n}");
-  output = output.split("<br />").join("");
-  return output;
+  return contents.split('","').join('",\n\t"')
+    .split('":"').join('": "')
+    .split("{").join("{\n\t")
+    .split("}").join("\n}")
+    .split("<br />").join("");
 };
 
 /**
- * Converts data from the Map dataset to the JSON-like text
- * and stores into the specified file
+ * Converts data from the Map dataset to the JSON-like byte stream
+ */
+const prepareData = () => {
+  const contents = arrangeText(JSON.stringify(Object.fromEntries(descriptionMap)));
+  return new Uint8Array(Buffer.from(`const componentDescriptions = ${contents};\nexport default componentDescriptions;\n`));
+};
+
+/**
+ * Stores prepared data into the specified file
  */
 const storeDataSet = async () => {
   const controller = new AbortController();
-  const contents = arrangeText(
-    JSON.stringify(Object.fromEntries(descriptionMap)),
-  );
-  const data = new Uint8Array(
-    Buffer.from(
-      `const componentDescriptions = ${contents};${"\n"}export default componentDescriptions;${"\n"}`,
-    ),
-  );
   const { signal } = controller;
+  const data = prepareData();
   const storePath = path.join(path.resolve(), storeAs);
   await writeFile(storePath, data, { signal });
 };

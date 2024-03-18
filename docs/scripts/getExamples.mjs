@@ -18,16 +18,11 @@ async function isEmptyDirectory(_path) {
 }
 
 /**
- * Reads files from а directory
- * and processes them depending on
- * their extensions
+ * Manages reading and processing the contents of the files
  * @param {string} dirPath - path to the directory.
  * @param {function} processCallback - callback function to process file content.
  */
-async function processFiles(
-  dirPath,
-  processCallback,
-) {
+async function processFiles(dirPath, processCallback) {
   const files = await fs.readdir(dirPath);
   const result = {};
 
@@ -35,34 +30,50 @@ async function processFiles(
     const filePath = path.join(dirPath, file);
     const stats = await fs.stat(filePath);
 
-    if (file?.startsWith("[...")) {
-    } else if (stats.isDirectory()) {
-      const _hasSubfolders = await hasSubfolders(filePath);
-      if (_hasSubfolders) {
-        result[file] = await processFiles(filePath, processCallback);
-      } else {
-        const isEmpty = await isEmptyDirectory(filePath);
-        if (!isEmpty) {
-          result[file] = await processCallback(filePath);
-        }
-      }
+    if (file.startsWith('[...]')) continue;
+    if (stats.isDirectory()) {
+      result[file] = await handleDirectory(filePath, processCallback);
     } else if (stats.isFile()) {
-      const extname = path.extname(filePath).toLowerCase();
-      const fileName = path.basename(filePath);
-      const fileNameWithoutExtension = path.parse(fileName).name;
-
-      if (extname === ".md") {
-        const content = await readFromFile(filePath);
-        result[fileNameWithoutExtension] = content;
-      }
-      if (extname === ".json") {
-        const content = await readFromFile(filePath);
-        result[fileNameWithoutExtension] = content || "";
-      }
+      await handleFile(filePath, result);
     }
   }
 
   return result;
+}
+
+/**
+ * Manages file reading from а directory (and its subdirectories if exist)
+ * @param {string} dirPath - path to the directory.
+ * @param {function} processCallback - callback function to process file content.
+ */
+async function handleDirectory(dirPath, processCallback) {
+  const hasSubfoldersDir = await hasSubfolders(dirPath);
+
+  if (hasSubfoldersDir) {
+    return await processFiles(dirPath, processCallback);
+  }
+
+  const isEmpty = await isEmptyDirectory(dirPath);
+
+  if (!isEmpty) {
+    return await processCallback(dirPath);
+  }
+}
+
+/**
+ * Reads a file content
+ * @param {string} filePath - the path to the file to read.
+ * @param {object} resultObj - storage object for the read content.
+ */
+async function handleFile(filePath, resultObj) {
+  const extname = path.extname(filePath).toLowerCase();
+  const fileName = path.basename(filePath);
+  const fileNameWithoutExtension = path.parse(fileName).name;
+
+  if (['.md', '.json'].includes(extname)) {
+    const content = await readFromFile(filePath);
+    resultObj[fileNameWithoutExtension] = content || '';
+  }
 }
 
 /**
