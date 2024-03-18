@@ -18,7 +18,9 @@ const ReviewCard = ({ title, component, description }: ReviewCardType) => {
       <ComponentImage title={title} />
       <div className="flex flex-col gap-y-2 px-4 mb-4">
         <h3 className="text-moon-20 font-medium">{title}</h3>
-        <p className="h-12 text-moon-14 text-ellipsis overflow-hidden">{description}</p>
+        <p className="h-12 text-moon-14 text-ellipsis overflow-hidden">
+          {description}
+        </p>
       </div>
     </Link>
   );
