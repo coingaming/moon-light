@@ -1,18 +1,17 @@
-import COMPONENTS from "@/components.constants.mjs";
-import { useGetExample } from "@/utils/useGetExample";
+import path from "path";
+import COMPONENTS from "../components.constants.mjs"
+import { useGetExample } from "./getExamples.mjs";
 import { writeFile } from "fs/promises";
 
-type ComponentEntry = {
-  index: number;
-  component: string;
-};
-
-const storeAs = "/../../../generated/componentDescriptions.ts";
+const storeAs = "/generated/componentDescriptions.ts";
 const descriptionMap = new Map();
 
-const arrangeText = (contents: string) => {
-  let output = contents.split("\n").join("\\n");
-  output = output.split('","').join('",\n\t"');
+/**
+ * Makes edits to the text data
+ * @param {string} contents - data to arrange.
+ */
+const arrangeText = (contents) => {
+  let output = contents.split('","').join('",\n\t"');
   output = output.split('":"').join('": "');
   output = output.split("{").join("{\n\t");
   output = output.split("}").join("\n}");
@@ -20,6 +19,10 @@ const arrangeText = (contents: string) => {
   return output;
 };
 
+/**
+ * Converts data from the Map dataset to the JSON-like text
+ * and stores into the specified file
+ */
 const storeDataSet = async () => {
   const controller = new AbortController();
   const contents = arrangeText(
@@ -31,11 +34,17 @@ const storeDataSet = async () => {
     ),
   );
   const { signal } = controller;
-  const storePath = __dirname + storeAs;
+  const storePath = path.join(path.resolve(), storeAs);
   await writeFile(storePath, data, { signal });
 };
 
-const getIgnoreCaseEntry = (input: Array<string>, value: string) => {
+/**
+ * Retrieves and returns an entry from the list of component names
+ * by comparing with the value
+ * @param {array} input - array of the component names.
+ * @param {string} value - data to find.
+ */
+const getIgnoreCaseEntry = (input, value) => {
   const index = input.findIndex(
     (item) => item.toLowerCase() === value.toLocaleLowerCase(),
   );
@@ -44,35 +53,52 @@ const getIgnoreCaseEntry = (input: Array<string>, value: string) => {
     : { index, component: input[index] };
 };
 
-const loadExamplesData = async (components: string[]) => {
+/**
+ * Retrieves info about the components
+ * @param {array} components - names of components.
+ */
+const loadExamplesData = async (components) => {
   const settings = await Promise.all(
-    components.map((component: string) => {
+    components.map((component) => {
       return useGetExample(component);
     }),
   );
 
-  return settings as { description: string }[];
+  return settings;
 };
 
-const retrieveTitle = (data: string) =>
+/**
+ * Retrieves the title name of the component
+ * @param {string} data - component info.
+ */
+const retrieveTitle = (data) =>
   data.replace(/.*title:\s+(\w+).*/gms, "$1");
 
-const retrieveText = (data: string) => {
+/**
+ * Retrieves the text of the component description
+ * @param {string} data - component info.
+ */
+const retrieveText = (data) => {
   const splittedData = data.split(/[-]{2,}/g);
   const lastPart = splittedData.pop();
   return lastPart?.trim();
 };
 
+/**
+ * Fills the Map with named descriptions of the components
+ * @param {array} descriptions - the descriptions ot the components.
+ * @param {array} components - the names ot the components.
+ */
 const populateDataSet = (
-  descriptions: { description: string }[],
-  components: string[],
+  descriptions,
+  components,
 ) => {
   descriptions.forEach(({ description }) => {
     const title = retrieveTitle(description);
     const { index, component } = getIgnoreCaseEntry(
       components,
       title,
-    ) as ComponentEntry;
+    );
     if (index >= 0) {
       const text = retrieveText(description);
       descriptionMap.set(component, text);
@@ -80,7 +106,10 @@ const populateDataSet = (
   });
 };
 
-const generateComponentDescriptions = async () => {
+/**
+ * Generates a file with component descriptions
+ */
+const buildComponentDescriptions = async () => {
   const components = Object.keys(COMPONENTS);
   const descriptions = await loadExamplesData(components);
 
@@ -88,4 +117,4 @@ const generateComponentDescriptions = async () => {
   storeDataSet();
 };
 
-export default generateComponentDescriptions;
+buildComponentDescriptions();

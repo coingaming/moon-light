@@ -3,9 +3,6 @@ import COMPONENTS from "@/components.constants.mjs";
 import componentDescriptions from "@/generated/componentDescriptions";
 
 const Review = () => {
-  /* Use here the generateComponentDescriptions utility from ./utils/GenerateComponentDescriptions"
-    to re-generate a set of componentDescriptions if there have been changes in the component set.
-   */
   const descriptions = componentDescriptions as { [key: string]: string };
   return (
     <>
