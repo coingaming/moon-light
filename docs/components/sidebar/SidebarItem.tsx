@@ -1,6 +1,7 @@
 "use client";
 
 import MenuItem from "@heathmont/moon-core-tw/lib/es/menuItem/MenuItem";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 type Props = {
@@ -14,7 +15,7 @@ const SidebarItem = ({ href, children, onClick }: Props) => {
   const isActive = href === pathname;
   return (
     <MenuItem
-      as="a"
+      as={Link}
       href={href}
       isActive={isActive}
       onClick={onClick}
