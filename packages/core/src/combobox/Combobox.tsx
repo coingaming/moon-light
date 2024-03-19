@@ -325,7 +325,7 @@ const Options = ({
         menuWidth
           ? menuWidth
           : "w-full max-h-[18.75rem] py-2 px-1 my-1 rounded-moon-s-md box-border bg-goku shadow-moon-lg z-5 absolute",
-        "z-5 overflow-y-auto focus:outline-none",
+        "overflow-y-auto focus:outline-none",
         className,
       )}
       {...rest}
