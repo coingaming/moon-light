@@ -39,7 +39,7 @@ const ModalRoot: ModalComponentProps = ({
     <Transition appear show={open} as={React.Fragment}>
       <Dialog
         as="div"
-        className={mergeClassnames("relative z-50", className)}
+        className={mergeClassnames("relative z-10", className)}
         onClose={onClose}
         initialFocus={focusElRef}
       >
