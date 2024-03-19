@@ -14,7 +14,7 @@ export type Props<C extends React.ElementType> = React.PropsWithChildren<
 const Button = <C extends React.ElementType = "button">({
   children,
   variant = "fill",
-  size = "md",
+  size = "xl",
   icon, // deprecated
   iconLeft, // not boolean anymore
   iconRight, // not boolean anymore
