@@ -112,7 +112,7 @@ const Panel = ({ children, className, isStatic }: PanelProps) => {
       style={popper?.styles?.popper}
       {...popper?.attributes?.popper}
       className={mergeClassnames(
-        "w-72 z-5 rounded-moon-s-md box-border bg-goku shadow-moon-lg overflow-y-auto",
+        "w-72 z-[999999] rounded-moon-s-md box-border bg-goku shadow-moon-lg overflow-y-auto",
         isArrow && "shadow-none drop-shadow-[0_0_1px_rgba(0,0,0,0.4)]",
         "focus:outline-none",
         className && className,
