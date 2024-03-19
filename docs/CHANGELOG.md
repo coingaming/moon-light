@@ -1,17 +1,5 @@
 # docs
 
-## 10.14.1
-
-### Patch Changes
-
-- feat: update e2e tests for all components
-- Updated dependencies
-  - @heathmont/moon-table-v8-tw@10.14.1
-  - @heathmont/moon-themes-tw@10.14.1
-  - @heathmont/moon-base-tw@10.14.1
-  - @heathmont/moon-cmdk-tw@10.14.1
-  - @heathmont/moon-core-tw@10.14.1
-
 ## 10.14.0
 
 ### Minor Changes
