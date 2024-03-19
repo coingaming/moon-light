@@ -24,14 +24,18 @@ const Example = () => {
 
   const onClear1 = useCallback(
     (index: number) => {
-      setSelected1(selected1.filter((item: string, id: number) => id !== index));
+      setSelected1(
+        selected1.filter((item: string, id: number) => id !== index),
+      );
     },
     [selected1, setSelected1],
   );
 
   const onClear2 = useCallback(
     (index: number) => {
-      setSelected2(selected2.filter((item: string, id: number) => id !== index));
+      setSelected2(
+        selected2.filter((item: string, id: number) => id !== index),
+      );
     },
     [selected2, setSelected2],
   );
