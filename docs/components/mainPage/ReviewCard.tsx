@@ -1,14 +1,14 @@
 import React from "react";
-import ComponentDescription from "./ComponentDescription";
 import { ComponentImage } from "./ComponentImage";
 import Link from "next/link";
 
 type ReviewCardType = {
   title: string;
   component: string;
+  description: string;
 };
 
-const ReviewCard = ({ title, component }: ReviewCardType) => {
+const ReviewCard = ({ title, component, description }: ReviewCardType) => {
   const uri = `/client/${component}/`;
   return (
     <Link
@@ -19,7 +19,7 @@ const ReviewCard = ({ title, component }: ReviewCardType) => {
       <div className="flex flex-col gap-y-2 px-4 mb-4">
         <h3 className="text-moon-20 font-medium">{title}</h3>
         <p className="h-12 text-moon-14 text-ellipsis overflow-hidden">
-          <ComponentDescription component={component} />
+          {description}
         </p>
       </div>
     </Link>

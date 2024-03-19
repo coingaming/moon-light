@@ -1,7 +1,9 @@
 import ReviewCard from "./ReviewCard";
 import COMPONENTS from "@/components.constants.mjs";
+import componentDescriptions from "@/generated/componentDescriptions";
 
 const Review = () => {
+  const descriptions = componentDescriptions as { [key: string]: string };
   return (
     <>
       <h2 className="text-moon-56 font-medium max-w-3xl text-bulma">
@@ -11,7 +13,12 @@ const Review = () => {
         {Object.keys(COMPONENTS).map((componentKey, index) => {
           const { title } = COMPONENTS[componentKey as keyof typeof COMPONENTS];
           return (
-            <ReviewCard key={index} title={title} component={componentKey} />
+            <ReviewCard
+              key={index}
+              title={title}
+              component={componentKey}
+              description={descriptions[componentKey]}
+            />
           );
         })}
       </div>
