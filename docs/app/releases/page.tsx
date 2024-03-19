@@ -7,11 +7,6 @@ export default async function ReleasesPage() {
       className="gap-12"
       title="Releases"
       description="Moon Design System releases and their change logs."
-      subtitles={[
-        { subtitle: "10.12.1", id: "10-12-1" },
-        { subtitle: "10.12.0", id: "10-12-0" },
-        { subtitle: "10.11.5", id: "10-11-5" },
-      ]}
     >
       <ReleaseSection
         title="10.12.1"

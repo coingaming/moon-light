@@ -5,7 +5,6 @@ interface MainLayoutProps {
   isMockup?: boolean;
   componentName?: string;
   contentSidebar?: string[];
-  subtitles?: Title[];
   title?: string;
 }
 

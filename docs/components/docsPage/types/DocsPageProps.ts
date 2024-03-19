@@ -1,5 +1,4 @@
 import { PropsTableProp, TagTypes } from "@/types";
-import { StaticImageData } from "next/image";
 
 type DocsPageProps = {
   componentName: string;

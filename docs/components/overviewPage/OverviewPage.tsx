@@ -4,12 +4,12 @@ import { PageHeadComponent } from "../PageHeadComponent";
 import type OverviewPageProps from "./types/OverviewPageProps";
 
 const OverviewPage = (props: OverviewPageProps) => {
-  const { title, description, subtitles, children, className } = props;
+  const { title, description, children, className } = props;
   return (
-    <MainLayout subtitles={subtitles}>
+    <MainLayout>
       <div
         className={mergeClassnames(
-          "flex flex-col gap-6 text-moon-14 pb-20",
+          "flex w-full max-w-7xl mx-auto flex-col gap-12 text-moon-14 pb-10",
           className,
         )}
       >

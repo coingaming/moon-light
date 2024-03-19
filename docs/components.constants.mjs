@@ -16,7 +16,7 @@ const COMPONENTS = {"accordion": {
         examples: ["Default","Variants","Sizes","ActiveStatus","StatusOrigin","Customization"],
       },"bottomSheet": {
         title: "BottomSheet",
-        tags: ["IN PROGRESS","ARIA","RTL"],
+        tags: ["ARIA","RTL"],
         examples: ["Default","Sizes","WithDraghandle","WithTitle","Customization","RootPortal"],
       },"breadcrumb": {
         title: "Breadcrumb",
@@ -116,7 +116,7 @@ const COMPONENTS = {"accordion": {
         examples: ["Default","Uncontrolled","Disabled","AsFormItem","Customization"],
       },"search": {
         title: "Search",
-        tags: ["IN PROGRESS","ARIA","RTL"],
+        tags: ["ARIA","RTL"],
         examples: ["Default","WithTransition"],
       },"searchCmdk": {
         title: "SearchCmdk",
@@ -144,7 +144,7 @@ const COMPONENTS = {"accordion": {
         examples: ["Default","Size","WithIcons","Casing","Customization"],
       },"tagsInput": {
         title: "TagsInput",
-        tags: ["IN PROGRESS","ARIA","RTL"],
+        tags: ["ARIA","RTL"],
         examples: ["Default","DifferentSizes","States","UppercaseLowercase"],
       },"textarea": {
         title: "Textarea",
@@ -152,7 +152,7 @@ const COMPONENTS = {"accordion": {
         examples: ["Default","States","WithButton","Customization"],
       },"tooltip": {
         title: "Tooltip",
-        tags: undefined,
+        tags: ["ARIA","RTL"],
         examples: undefined,
       }};
 
