@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "10.13.5",
+  "version": "10.14.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -21,7 +21,7 @@
     "@heathmont/moon-cmdk-tw": "workspace:^10.13.5",
     "@heathmont/moon-core-tw": "workspace:^10.13.5",
     "@heathmont/moon-icons-tw": "^9.28.6",
-    "@heathmont/moon-table-v8-tw": "workspace:^10.13.5",
+    "@heathmont/moon-table-v8-tw": "workspace:^10.14.0",
     "@heathmont/moon-themes-tw": "^10.13.5",
     "@hookform/resolvers": "^3.3.2",
     "@tanstack/react-table": "8.9.3",
