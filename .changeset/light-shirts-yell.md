@@ -2,4 +2,4 @@
 "docs": patch
 ---
 
-chore: bump e2e screenshoots after packages migration
+chore: bump e2e screenshots after packages migration
