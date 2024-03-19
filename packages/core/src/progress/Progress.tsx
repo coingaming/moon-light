@@ -47,7 +47,7 @@ const Pin = ({ className }: PinProps) => {
   return (
     <div
       className={mergeClassnames(
-        "absolute z-5 box-content flex items-center justify-center w-8 h-8 border-2 font-medium",
+        "absolute box-content flex items-center justify-center w-8 h-8 border-2 font-medium",
         "text-moon-10-caption uppercase text-goten bg-popo border-goten rounded-full",
         "shadow-[0_2px_8px_0_rgba(0,0,0,0.16)] before:shadow-[0_2px_8px_0_rgba(0,0,0,0.16)]",
         "before:absolute before:bg-goten before:rounded-full",
