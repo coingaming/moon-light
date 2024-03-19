@@ -200,7 +200,7 @@ const Result = ({
     <div
       className={mergeClassnames(
         "moon-search-result",
-        "absolute z-5 w-full flex-1 focus:outline-none p-2 space-y-4 bg-goku shadow-moon-md ",
+        "absolute w-full flex-1 focus:outline-none p-2 space-y-4 bg-goku shadow-moon-md ",
         isOpen ? "rounded-b-moon-s-sm" : "rounded-moon-s-sm",
         className,
       )}
