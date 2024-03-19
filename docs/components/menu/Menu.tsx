@@ -25,7 +25,7 @@ const Menu = ({ isOpen, setIsOpen, handleClick }: Props) => (
           <IconButton
             variant="outline"
             size="sm"
-            className="rounded-full text-moon-24"
+            className="rounded-full text-moon-24 ring-beerus"
             icon={<ControlsCloseSmall />}
             aria-label="Close menu"
             onClick={handleClick}
