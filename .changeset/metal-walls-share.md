@@ -2,4 +2,4 @@
 "docs": patch
 ---
 
-Added linting of new generated datasets before pushing
+Added linting for newly generated datasets before pushing.
