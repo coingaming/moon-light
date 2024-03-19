@@ -13,7 +13,7 @@ const SearchCmdkRoot = ({
 }: React.ComponentProps<typeof Command.Dialog>) => (
   <Command.Dialog
     className={mergeClassnames(
-      "z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full bg-goku",
+      "z-[60] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full bg-goku",
       "sm:max-w-lg md:max-w-xl shadow-moon-md rounded-moon-s-md flex flex-col overflow-hidden",
       className,
     )}
@@ -92,7 +92,7 @@ const Overlay = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={mergeClassnames(
-      "fixed w-screen inset-0 bg-zeno transition-opacity z-50",
+      "fixed w-screen inset-0 bg-zeno transition-opacity z-[55]",
       className,
     )}
     {...props}
