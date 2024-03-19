@@ -48,7 +48,9 @@ const Name = (prop: PropsTableProp) => (
 );
 
 const Type = (prop: PropsTableProp) => {
-  const isLongType = prop.type.reduce((acc, type) => acc + type.length, 0) > 25;
+  const isLongType =
+    prop.type.length > 1 &&
+    prop.type.reduce((acc, type) => acc + type.length, 0) > 25;
   const isDefaultType = prop.type.map(renderType).join(" | ");
 
   return (
