@@ -8,6 +8,7 @@
     "build:dict": "node scripts/buildDict.mjs",
     "build:components": "pnpm run build:types && pnpm run lint:components",
     "build:descriptions": "node scripts/buildComponentDescriptions.mjs",
+    "build:changelog": "node scripts/buildChangelog.mjs",
     "build": "pnpm run build:types && pnpm run lint:components && pnpm run build:components && pnpm build:descriptions && pnpm run build:dict && next build",
     "lint": "next lint",
     "lint:components": "prettier --write ./components.constants.mjs",
