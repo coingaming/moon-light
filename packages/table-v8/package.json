@@ -15,7 +15,7 @@
     "build": "tsc --project tsconfig.esm.json"
   },
   "dependencies": {
-    "@heathmont/moon-core-tw": "^10.14.1",
+    "@heathmont/moon-core-tw": "^10.13.5",
     "@tanstack/react-table": "8.9.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"

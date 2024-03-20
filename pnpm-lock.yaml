@@ -34,22 +34,22 @@ importers:
   docs:
     dependencies:
       '@heathmont/moon-base-tw':
-        specifier: workspace:^10.14.1
+        specifier: workspace:^10.13.5
         version: link:../packages/base
       '@heathmont/moon-cmdk-tw':
-        specifier: workspace:^10.14.1
+        specifier: workspace:^10.13.5
         version: link:../packages/cmdk
       '@heathmont/moon-core-tw':
-        specifier: workspace:^10.14.1
+        specifier: workspace:^10.13.5
         version: link:../packages/core
       '@heathmont/moon-icons-tw':
         specifier: ^9.28.6
         version: 9.28.6(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-table-v8-tw':
-        specifier: workspace:^10.14.1
+        specifier: workspace:^10.13.5
         version: link:../packages/table-v8
       '@heathmont/moon-themes-tw':
-        specifier: ^10.14.1
+        specifier: ^10.13.5
         version: link:../packages/themes
       '@hookform/resolvers':
         specifier: ^3.3.2
@@ -143,7 +143,7 @@ importers:
         specifier: 1.7.16
         version: 1.7.16(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-core-tw':
-        specifier: workspace:^10.14.1
+        specifier: workspace:^10.13.5
         version: link:../core
       cmdk:
         specifier: 0.2.0
@@ -203,7 +203,7 @@ importers:
   packages/table-v8:
     dependencies:
       '@heathmont/moon-core-tw':
-        specifier: ^10.14.1
+        specifier: ^10.13.5
         version: link:../core
       '@tanstack/react-table':
         specifier: 8.9.3
