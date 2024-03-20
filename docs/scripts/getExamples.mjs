@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { hasSubfolders, readFromFile } from "./buildExamplesType.mjs"
+import { hasSubfolders, readFromFile } from "./buildExamplesType.mjs";
 
 /**
  * Checks if the directory is empty
