@@ -21,11 +21,13 @@ const Default = () => {
   );
 
   return (
-    <TagsInput selected={selected} onEnter={onEnter} onClear={onClear}>
-      {selected.map((text, index) => (
-        <TagsInput.SelectedItem key={index} index={index} label={text} />
-      ))}
-    </TagsInput>
+    <div className="w-full max-w-sm">
+      <TagsInput selected={selected} onEnter={onEnter} onClear={onClear}>
+        {selected.map((text, index) => (
+          <TagsInput.SelectedItem key={index} index={index} label={text} />
+        ))}
+      </TagsInput>
+    </div>
   );
 };
 

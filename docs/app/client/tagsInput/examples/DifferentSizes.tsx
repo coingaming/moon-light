@@ -25,6 +25,7 @@ const TagsInputWithLogic = ({ size }: { size?: Size }) => {
       onEnter={onEnter}
       onClear={onClear}
       size={size as Size}
+      className="mb-4"
     >
       {selected.map((text, index) => (
         <TagsInput.SelectedItem key={index} index={index} label={text} />
@@ -34,14 +35,14 @@ const TagsInputWithLogic = ({ size }: { size?: Size }) => {
 };
 
 const DifferentSizes = () => (
-  <>
+  <div className="w-full max-w-sm">
     <p>Small</p>
     <TagsInputWithLogic size="sm" />
     <p>Medium (default)</p>
     <TagsInputWithLogic />
     <p>Large</p>
     <TagsInputWithLogic size="lg" />
-  </>
+  </div>
 );
 
 export default DifferentSizes;
