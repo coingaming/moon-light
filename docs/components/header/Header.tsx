@@ -31,12 +31,12 @@ export const Header = () => {
           <div className="hidden lg:block">
             <SearchButton />
           </div>
-          <ThemeSwitcher />
-          <RtlSwitcher />
+          <ThemeSwitcher className="hidden lg:block" />
+          <RtlSwitcher className="hidden lg:block" />
           <IconButton
-            variant="fill"
+            variant="outline"
             size="sm"
-            className="rounded-full lg:hidden"
+            className="rounded-full lg:hidden ring-beerus"
             icon={<GenericMenu />}
             aria-label="Open menu"
             onClick={handleClick}

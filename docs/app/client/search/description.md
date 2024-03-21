@@ -1,6 +1,6 @@
 ---
 title: Search
-tags: ["IN PROGRESS", "ARIA", "RTL"]
+tags: ["ARIA", "RTL"]
 examples: ["Default", "WithTransition"]
 ---
 

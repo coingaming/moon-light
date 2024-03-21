@@ -1,6 +1,6 @@
 ---
 title: TagsInput
-tags: ["IN PROGRESS", "ARIA", "RTL"]
+tags: ["ARIA", "RTL"]
 examples: ["Default", "DifferentSizes", "States", "UppercaseLowercase"]
 ---
 

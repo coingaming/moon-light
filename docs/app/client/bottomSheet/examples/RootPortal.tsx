@@ -34,7 +34,7 @@ export const RootPortal = () => {
       <Button variant="outline" onClick={openBottomSheet}>
         BottomSheet
       </Button>
-      <BottomSheet open={isOpen} rootId="__next" className="z-[60]">
+      <BottomSheet open={isOpen} rootId="__next">
         <BottomSheet.Panel onClose={closeBottomSheet}>
           <BottomSheet.Draghandle />
           <div className="flex grow items-center justify-center bg-jiren text-piccolo">

@@ -3,9 +3,9 @@
 import { OtherMoon, OtherSun } from "@heathmont/moon-icons-tw";
 import useTheme from "@/components/settings/utils/useThemes";
 import { useLayoutEffect } from "react";
-import { IconButton } from "@heathmont/moon-core-tw";
+import { IconButton, mergeClassnames } from "@heathmont/moon-core-tw";
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({ className }: { className?: string }) => {
   const { apply, toggleDarkLightMode, isDarkThemeEnabled } = useTheme();
 
   // Apply the current theme from localStorage when loaded
@@ -17,7 +17,10 @@ const ThemeSwitcher = () => {
   return (
     <IconButton
       variant="outline"
-      className="rounded-full h-8 w-8 p-1 lg:h-10 lg:w-10 lg:p-2 ring-beerus"
+      className={mergeClassnames(
+        "rounded-full h-8 w-8 p-1 lg:h-10 lg:w-10 lg:p-2 ring-beerus",
+        className,
+      )}
       icon={isDarkThemeEnabled ? <OtherMoon /> : <OtherSun />}
       aria-label="Theme switcher"
       onClick={toggleDarkLightMode}

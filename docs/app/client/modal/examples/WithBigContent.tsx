@@ -11,9 +11,9 @@ const WithBigContent = () => {
   return (
     <>
       <Button onClick={openModal}>Open modal</Button>
-      <Modal open={isOpen} onClose={closeModal}>
+      <Modal open={isOpen} onClose={closeModal} className="z-50">
         <Modal.Backdrop />
-        <Modal.Panel className="z-20">
+        <Modal.Panel>
           <div className="p-4 border-b-2 border-beerus">
             <h3 className="text-moon-18 text-bulma font-medium">
               Payment successful
