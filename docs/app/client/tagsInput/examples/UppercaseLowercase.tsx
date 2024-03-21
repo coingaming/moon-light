@@ -4,33 +4,48 @@ import { TagsInput } from "@heathmont/moon-core-tw";
 import { useCallback, useState } from "react";
 
 const Example = () => {
-  const [selected, setSelected] = useState<string[]>(["Preset data"]);
+  const [selected1, setSelected1] = useState<string[]>(["Preset data"]);
+  const [selected2, setSelected2] = useState<string[]>(["Preset data"]);
 
-  const onEnter = useCallback(
+  const onEnter1 = useCallback(
     (value: string) => {
-      setSelected([...selected, value]);
+      setSelected1([...selected1, value]);
     },
-    [selected, setSelected],
+    [selected1, setSelected1],
   );
 
-  const onClear = useCallback(
-    (index: number) => {
-      setSelected(selected.filter((item, id) => id !== index));
+  const onEnter2 = useCallback(
+    (value: string) => {
+      setSelected2([...selected2, value]);
     },
-    [selected, setSelected],
+    [selected2, setSelected2],
+  );
+
+  const onClear1 = useCallback(
+    (index: number) => {
+      setSelected1(selected1.filter((item, id) => id !== index));
+    },
+    [selected1, setSelected1],
+  );
+
+  const onClear2 = useCallback(
+    (index: number) => {
+      setSelected2(selected2.filter((item, id) => id !== index));
+    },
+    [selected2, setSelected2],
   );
 
   return (
     <div className="flex flex-col items-center w-full h-50">
       <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start w-full gap-2">
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full max-w-sm lg:max-w-md">
           <TagsInput
-            selected={selected}
+            selected={selected1}
             label="Lower"
-            onEnter={onEnter}
-            onClear={onClear}
+            onEnter={onEnter1}
+            onClear={onClear1}
           >
-            {selected.map((text, index) => (
+            {selected1.map((text, index) => (
               <TagsInput.SelectedItem
                 isUppercase={false}
                 index={index}
@@ -40,14 +55,14 @@ const Example = () => {
             ))}
           </TagsInput>
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full max-w-sm lg:max-w-md">
           <TagsInput
-            selected={selected}
+            selected={selected2}
             label="Uppercase (default)"
-            onEnter={onEnter}
-            onClear={onClear}
+            onEnter={onEnter2}
+            onClear={onClear2}
           >
-            {selected.map((text, index) => (
+            {selected2.map((text, index) => (
               <TagsInput.SelectedItem key={index} index={index} label={text} />
             ))}
           </TagsInput>
