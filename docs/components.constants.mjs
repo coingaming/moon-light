@@ -54,7 +54,7 @@ const COMPONENTS = {
   },
   bottomSheet: {
     title: "BottomSheet",
-    tags: ["IN PROGRESS", "ARIA", "RTL"],
+    tags: ["ARIA", "RTL"],
     examples: [
       "Default",
       "Sizes",
@@ -281,7 +281,7 @@ const COMPONENTS = {
   },
   search: {
     title: "Search",
-    tags: ["IN PROGRESS", "ARIA", "RTL"],
+    tags: ["ARIA", "RTL"],
     examples: ["Default", "WithTransition"],
   },
   searchCmdk: {
@@ -357,7 +357,7 @@ const COMPONENTS = {
   },
   tagsInput: {
     title: "TagsInput",
-    tags: ["IN PROGRESS", "ARIA", "RTL"],
+    tags: ["ARIA", "RTL"],
     examples: ["Default", "DifferentSizes", "States", "UppercaseLowercase"],
   },
   textarea: {
@@ -367,7 +367,7 @@ const COMPONENTS = {
   },
   tooltip: {
     title: "Tooltip",
-    tags: undefined,
+    tags: ["ARIA", "RTL"],
     examples: undefined,
   },
 };

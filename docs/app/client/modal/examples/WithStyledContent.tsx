@@ -11,7 +11,7 @@ const WithStyledContent = () => {
   return (
     <>
       <Button onClick={openModal}>Open modal</Button>
-      <Modal open={isOpen} onClose={closeModal}>
+      <Modal open={isOpen} onClose={closeModal} className="z-50">
         <Modal.Backdrop />
         <Modal.Panel className="lg:max-w-md bg-roshi text-goten rounded-none">
           <IconButton
@@ -22,7 +22,7 @@ const WithStyledContent = () => {
           >
             <ControlsCloseSmall className="text-moon-24" />
           </IconButton>
-          <div className=" p-4 pt-11">
+          <div className="p-4 pt-11">
             <div className="mt-2">
               <h3 className="text-moon-24 text-goten font-medium text-center">
                 Your payment has been successfully submitted.

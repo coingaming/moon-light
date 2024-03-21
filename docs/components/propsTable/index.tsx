@@ -120,8 +120,8 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
   );
 
   return (
-    <div>
-      <section className="flex flex-col gap-6">
+    <section className="flex flex-col gap-2">
+      <div className="flex flex-col gap-6">
         <HeaderSection title={title} description={description} />
         <div className="border border-beerus rounded-lg overflow-hidden bg-beerus">
           <Table
@@ -132,13 +132,13 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
             rowGap="0"
           />
         </div>
-      </section>
+      </div>
       {hasRequiredProps && (
         <p className="text-trunks text-moon-12">
-          Properties indicated with{" "}
-          <span className="text-moon-16 text-frieza">*</span> are required.
+          Properties indicated with <span className="text-frieza">*</span> are
+          required.
         </p>
       )}
-    </div>
+    </section>
   );
 };

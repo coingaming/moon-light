@@ -36,13 +36,13 @@ export const SearchProvider = ({
     <SearchContext.Provider
       value={{ actions, open, setOpen, search, setSearch }}
     >
-      {open && <SearchCmdk.Overlay />}
+      {open && <SearchCmdk.Overlay className="z-[60]" />}
       <SearchCmdk
         open={open}
         onOpenChange={setOpen}
         shouldFilter={false}
         label="Command Menu"
-        className="translate-y-0 lg:-translate-y-1/2 bottom-0 lg:bottom-auto max-w-sm rounded-b-none lg:rounded-b-moon-s-md"
+        className="z-[70] translate-y-0 lg:-translate-y-1/2 bottom-0 lg:bottom-auto max-w-sm rounded-b-none lg:rounded-b-moon-s-md"
       >
         <SearchCmdk.InputWrapper>
           <SearchCmdk.Icon />

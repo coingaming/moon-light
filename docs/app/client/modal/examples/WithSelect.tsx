@@ -45,7 +45,7 @@ const WithSelect = () => {
   return (
     <>
       <Button onClick={openModal}>Open modal</Button>
-      <Modal open={isOpen} onClose={closeModal}>
+      <Modal open={isOpen} onClose={closeModal} className="z-50">
         <Modal.Backdrop />
         <Modal.Panel>
           <div className="border-b-[0.063rem] border-beerus pt-5 pb-4 px-6 relative">
