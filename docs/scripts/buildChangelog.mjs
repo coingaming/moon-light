@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import { tabulate } from "./utils/tabulator.mjs";
 import { readdir } from "node:fs/promises";
 import { readFromFile } from "./buildExamplesType.mjs";
 import { writeFile } from "fs/promises";
@@ -19,7 +18,7 @@ const scanMap = [
  * (specified in the "searchFor" array)
  * @param {string} fullPath - a qualified path to check.
  */
-const isValidFile = (fullPath) => { 
+const isValidFile = (fullPath) => {
   if (!fs.existsSync(fullPath) || !fs.lstatSync(fullPath).isFile()) return false;
   return searchFor.includes(path.basename(fullPath));
 }
@@ -37,15 +36,15 @@ const isValidDirectory = (fullPath) => fs.existsSync(fullPath) && fs.lstatSync(f
  */
 const scanDirectory = async (dir) => {
   const entities = await readdir(dir, { withFileTypes: true });
-  
+
   const files = await Promise.all(entities.map(async entity => {
-      const filePath = path.join(entity.path, entity.name);
-      const stats = fs.lstatSync(filePath);
-      if (stats.isDirectory()) return scanDirectory(filePath);
-      if (isValidFile(filePath)) return [filePath];
+    const filePath = path.join(entity.path, entity.name);
+    const stats = fs.lstatSync(filePath);
+    if (stats.isDirectory()) return scanDirectory(filePath);
+    if (isValidFile(filePath)) return [filePath];
   }));
 
-  return files.reduce((all, file) => { 
+  return files.reduce((all, file) => {
     if (file) all.push(...file); return all;
   }, []);
 }
@@ -96,9 +95,9 @@ const cropVersion = (content) => {
 }
 
 /**
- * Picks a specific type of the data block 
+ * Picks a specific type of the data block
  * such as "major", "minor" or "patch",
- * and its description; 
+ * and its description;
  * returns them as an object structure
  * @param {string} content - version content.
  */
@@ -138,9 +137,9 @@ const splitChanges = (content) => {
 }
 
 /**
- * Splits each part of the content 
- * into specific blocks of versions 
- * and data about their changes; 
+ * Splits each part of the content
+ * into specific blocks of versions
+ * and data about their changes;
  * returns them as an object structure
  * @param {array} parts - version data chunks.
  */
@@ -178,7 +177,7 @@ const getData = async (filePaths) => {
   const contents = await loadContents(filePaths);
   return contents.map((content, index) => {
     const section = filePaths[index].replace(BASEDIR, '').replace(/\/[^\/]+$/, '');
-    return {[section]: parseData(content)} 
+    return { [section]: parseData(content) }
   });
 }
 
@@ -187,16 +186,28 @@ const getData = async (filePaths) => {
  * @param {string} contents - data to arrange.
  */
 const arrangeText = (contents) => {
-  return contents.split('","').join('",\n"')
-    .split('":"').join('": "')
-    .split('":{').join('": {')
-    .split('":[').join('": [')
-    .split('},').join('},\n')
-    .split("[").join("[\n")
-    .split("]").join("\n]")
-    .split("{").join("{\n")
-    .split("}").join("\n}")
-    .tabulate();
+  const tabulate = (input) => {
+    let level = 0;
+    return input.split('\n')
+      .map((line) => {
+        if (line.includes('}') || line.includes(']')) level--;
+        let newLine = level > 0 ? "\t".repeat(level) + line : line;
+        if (line.includes('{') || line.includes('[')) level++;
+        return newLine;
+      })
+      .join('\n');
+  };
+
+  const results = contents.replace(/","/g, '",\n"')
+    .replace(/":{/g, '": {')
+    .replace(/":\[/g, '": [')
+    .replace(/},/g, '},\n')
+    .replace(/\[/g, '[\n')
+    .replace(/\]/g, '\n]')
+    .replace(/{/g, '{\n')
+    .replace(/}/g, '\n}');
+
+  return tabulate(results);
 };
 
 /**
