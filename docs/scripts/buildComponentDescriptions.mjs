@@ -11,11 +11,7 @@ const descriptionMap = new Map();
  * @param {string} contents - data to arrange.
  */
 const arrangeText = (contents) => {
-  return contents.split('","').join('",\n\t"')
-    .split('":"').join('": "')
-    .split("{").join("{\n\t")
-    .split("}").join("\n}")
-    .split("<br />").join("");
+  return contents.replace(/<br \/>/gsm, "");
 };
 
 /**
