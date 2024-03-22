@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { tabulate } from "./utils/tabulator.mjs";
 import { readdir } from "node:fs/promises";
 import { readFromFile } from "./buildExamplesType.mjs";
 import { writeFile } from "fs/promises";
@@ -182,27 +183,11 @@ const getData = async (filePaths) => {
 }
 
 /**
- * Places tab characters in structured text data
- * @param {string} contents - data to arrange.
- */
-const tabulate = (contents) => {
-  let level = 0;
-  const lines = contents.split('\n')
-    .map((line) => {
-      if (line.match(/[\}\]]/)) level--;
-      if (level > 0) line = "\t".repeat(level) + line;
-      if (line.match(/[\{\[]/)) level++;
-      return line;
-    });
-  return lines.join('\n');
-}
-
-/**
  * Makes edits to the text data
  * @param {string} contents - data to arrange.
  */
 const arrangeText = (contents) => {
-  return tabulate(contents.split('","').join('",\n"')
+  return contents.split('","').join('",\n"')
     .split('":"').join('": "')
     .split('":{').join('": {')
     .split('":[').join('": [')
@@ -210,7 +195,8 @@ const arrangeText = (contents) => {
     .split("[").join("[\n")
     .split("]").join("\n]")
     .split("{").join("{\n")
-    .split("}").join("\n}"));
+    .split("}").join("\n}")
+    .tabulate();
 };
 
 /**
