@@ -182,40 +182,11 @@ const getData = async (filePaths) => {
 }
 
 /**
- * Makes edits to the text data
- * @param {string} contents - data to arrange.
- */
-const arrangeText = (contents) => {
-  const tabulate = (input) => {
-    let level = 0;
-    return input.split('\n')
-      .map((line) => {
-        if (line.includes('}') || line.includes(']')) level--;
-        let newLine = level > 0 ? "\t".repeat(level) + line : line;
-        if (line.includes('{') || line.includes('[')) level++;
-        return newLine;
-      })
-      .join('\n');
-  };
-
-  const results = contents.replace(/","/g, '",\n"')
-    .replace(/":{/g, '": {')
-    .replace(/":\[/g, '": [')
-    .replace(/},/g, '},\n')
-    .replace(/\[/g, '[\n')
-    .replace(/\]/g, '\n]')
-    .replace(/{/g, '{\n')
-    .replace(/}/g, '\n}');
-
-  return tabulate(results);
-};
-
-/**
  * Converts data from the object structure to the JSON-like byte stream
  * @param {string} data - data to convert.
  */
 const prepareData = (data) => {
-  const contents = arrangeText(JSON.stringify(data));
+  const contents = JSON.stringify(data);
   return new Uint8Array(Buffer.from(`const changeLogs = ${contents};\nexport default changeLogs;\n`));
 };
 
