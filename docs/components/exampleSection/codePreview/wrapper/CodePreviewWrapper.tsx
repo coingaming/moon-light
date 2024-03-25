@@ -37,8 +37,8 @@ const CodePreviewWrapper = ({
     >
       <div
         className={mergeClassnames(
-          "max-h-32 transition-[max-height] ease-in-out overflow-hidden overflow-x-scroll pb-10 pt-10 lg:pt-0",
-          expand && "max-h-96 overflow-scroll",
+          "max-h-32 transition-[max-height] ease-in-out overflow-hidden overflow-x-auto pb-10 pt-10 lg:pt-0",
+          expand && "max-h-96 overflow-auto",
         )}
       >
         {children}

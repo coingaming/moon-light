@@ -17,6 +17,7 @@ const useTheme = () => {
 
   const setTheme = (className: string) => {
     const previewElements = document.getElementsByTagName("body");
+    const htmlElement = document.getElementsByTagName("html");
     const themeClasses = [];
     for (let key in themes) {
       const brandName = key as Brand;
@@ -33,6 +34,11 @@ const useTheme = () => {
     localStorage.setItem("theme", className);
     if (document)
       document.cookie = `theme=${className};path=/;MaxAge=0;SameSite=Strict`;
+    if (className.includes("dark")) {
+      htmlElement[0].style.colorScheme = "dark";
+    } else {
+      htmlElement[0].removeAttribute("style");
+    }
   };
 
   const getBrand = (): Brand => {
