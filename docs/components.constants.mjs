@@ -24,7 +24,7 @@ const COMPONENTS = {
       "Customization",
     ],
   },
-  authcode: {
+  authCode: {
     title: "AuthCode",
     tags: ["ARIA", "RTL"],
     examples: [
@@ -175,7 +175,7 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Direction", "Options", "Size", "States"],
   },
-  iconbutton: {
+  iconButton: {
     title: "IconButton",
     tags: ["ARIA", "RTL"],
     examples: undefined,
@@ -203,7 +203,7 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: ["Default", "DifferentStates", "TextInputTypes", "Customization"],
   },
-  insetnativeselect: {
+  insetNativeSelect: {
     title: "InsetNativeSelect",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "DifferentStates", "CustomStyles"],
@@ -233,7 +233,7 @@ const COMPONENTS = {
     tags: ["ARIA", "RTL"],
     examples: ["Default", "WithBigContent", "WithStyledContent", "WithSelect"],
   },
-  nativeselect: {
+  nativeSelect: {
     title: "NativeSelect",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Sizes", "DifferentStates", "CustomStyles"],

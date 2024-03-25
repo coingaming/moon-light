@@ -1,25 +1,12 @@
 import { test, expect } from "@playwright/test";
-import {
-  PLAYWRIGHT_DEFAULT_TIMEOUT,
-  PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-} from "@/constants";
+import { setupTest } from "@/utils/playwrightHelpers";
 
 const COMPONENT_NAME = "avatar";
 
-test.beforeEach(async ({ page }, testInfo) => {
-  const example = testInfo.title?.split(":")?.[0] ?? "Default";
-  await page.goto(`/client/${COMPONENT_NAME}/${example}`);
-  await page.waitForTimeout(PLAYWRIGHT_DEFAULT_TIMEOUT);
-});
-test.afterEach(async ({ page }) => {
-  // Cleanup from route
-  await page.close();
-});
+setupTest(COMPONENT_NAME);
 
 test("Default: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Default.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Default.png`);
 });
 
 test("Default: should render and match screenshot in RTL", async ({ page }) => {
@@ -33,39 +20,25 @@ test("Default: should render and match screenshot in RTL", async ({ page }) => {
   });
   await page.waitForSelector("html[dir=rtl]");
   await page.waitForTimeout(1000);
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Rtl.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-    threshold: 0,
-    omitBackground: false,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Rtl.png`);
 });
 
 test("Variants: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Variants.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Variants.png`);
 });
 
 test("Sizes: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Sizes.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Sizes.png`);
 });
 
 test("ActiveStatus: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-ActiveStatus.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-ActiveStatus.png`);
 });
 
 test("StatusOrigin: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-StatusOrigin.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-StatusOrigin.png`);
 });
 
 test("Customization: should render and match screenshot", async ({ page }) => {
-  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Customization.png`, {
-    maxDiffPixelRatio: PLAYWRIGHT_MAX_DIFF_PIXEL_RATIO,
-  });
+  await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Customization.png`);
 });

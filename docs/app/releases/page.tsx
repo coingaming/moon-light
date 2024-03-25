@@ -1,30 +1,30 @@
+import { MDX } from "@/components/MDX";
 import OverviewPage from "@/components/overviewPage/OverviewPage";
-import { ReleaseSection } from "@/components/releaseSection/ReleaseSection";
+import changeLogs from "@/generated/changelog";
+
+const changelogsOrder = [
+  "packages/base",
+  "packages/core",
+  "packages/table-v8",
+  "packages/cmdk",
+  "packages/themes",
+  "docs",
+] as const;
 
 export default async function ReleasesPage() {
   return (
     <OverviewPage
-      className="gap-12"
+      className="gap-10"
       title="Releases"
       description="Moon Design System releases and their change logs."
     >
-      <ReleaseSection
-        title="10.12.1"
-        href="10-12-1"
-        date="January 15, 2024"
-        change="Card"
-        description="Added: Added a new component."
-      ></ReleaseSection>
-      <ReleaseSection
-        title="10.12.0"
-        href="10-12-0"
-        date="January 5, 2024"
-      ></ReleaseSection>
-      <ReleaseSection
-        title="10.11.5"
-        href="10-11-5"
-        date="January 1, 2024"
-      ></ReleaseSection>
+      <div className="flex flex-col gap-3">
+        {changelogsOrder.map((log, index) => {
+          return changeLogs[log] ? (
+            <MDX key={index} markdown={changeLogs[log]} />
+          ) : undefined;
+        })}
+      </div>
     </OverviewPage>
   );
 }

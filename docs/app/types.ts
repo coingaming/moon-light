@@ -43,7 +43,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "authcode": {
+    "authCode": {
       "description": "string",
       "descriptions": {
         "AllowedCharacters": "string",
@@ -365,7 +365,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "iconbutton": {
+    "iconButton": {
       "description": "string",
       "descriptions": {
         "Animations": "string",
@@ -442,7 +442,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "insetnativeselect": {
+    "insetNativeSelect": {
       "description": "string",
       "descriptions": {
         "CustomStyles": "string",
@@ -519,7 +519,7 @@ export type Examples = {
       },
       "props": "string"
     },
-    "nativeselect": {
+    "nativeSelect": {
       "description": "string",
       "descriptions": {
         "CustomStyles": "string",

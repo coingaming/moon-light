@@ -24,7 +24,7 @@ test.describe(`${COMPONENT_NAME} in Light Theme`, () => {
 });
 
 test.describe(`${COMPONENT_NAME} functionality`, () => {
-  test("Option: should render and match screenshot by hover first input", async ({
+  test("Options: should render and match screenshot by hover first input", async ({
     page,
   }) => {
     await page.getByPlaceholder("First input").first().hover();
@@ -33,7 +33,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-first-input-hover.png`,
     );
   });
-  test("Option: should render and match screenshot by hover first insetInput", async ({
+  test("Options: should render and match screenshot by hover first insetInput", async ({
     page,
   }) => {
     await page.getByPlaceholder("First inset input").first().hover();
@@ -42,7 +42,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-first-insetInput-hover.png`,
     );
   });
-  test("Option: should render and match screenshot by hover last input", async ({
+  test("Options: should render and match screenshot by hover last input", async ({
     page,
   }) => {
     await page.getByPlaceholder("Last input").first().hover();
@@ -51,7 +51,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-last-input-hover.png`,
     );
   });
-  test("Option: should render and match screenshot by hover last insetInput", async ({
+  test("Options: should render and match screenshot by hover last insetInput", async ({
     page,
   }) => {
     await page.getByPlaceholder("Last inset input").first().hover();
@@ -61,7 +61,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
     );
   });
 
-  test("Option: should render and match screenshot by focus on first input", async ({
+  test("Options: should render and match screenshot by focus on first input", async ({
     page,
   }) => {
     await page.getByPlaceholder("First input").first().focus();
@@ -70,7 +70,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-first-input-focus.png`,
     );
   });
-  test("Option: should render and match screenshot by focus on first insetInput", async ({
+  test("Options: should render and match screenshot by focus on first insetInput", async ({
     page,
   }) => {
     await page.getByPlaceholder("First inset input").first().focus();
@@ -79,7 +79,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-first-insetInput-focus.png`,
     );
   });
-  test("Option: should render and match screenshot by focus on last input", async ({
+  test("Options: should render and match screenshot by focus on last input", async ({
     page,
   }) => {
     await page.getByPlaceholder("Last input").first().focus();
@@ -88,7 +88,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-last-input-focus.png`,
     );
   });
-  test("Option: should render and match screenshot by focus on last insetInput", async ({
+  test("Options: should render and match screenshot by focus on last insetInput", async ({
     page,
   }) => {
     await page.getByPlaceholder("Last inset input").first().focus();
@@ -98,28 +98,28 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
     );
   });
 
-  test("Option: first input should enter and display value", async ({
+  test("Options: first input should enter and display value", async ({
     page,
   }) => {
     const input = page.getByPlaceholder("First input").first();
     await input.fill("testFirstInput");
     await expect(input).toHaveValue("testFirstInput");
   });
-  test("Option: first insetInput should enter and display value", async ({
+  test("Options: first insetInput should enter and display value", async ({
     page,
   }) => {
     const input = page.getByPlaceholder("First inset input").first();
     await input.fill("testFirstInsetInput");
     await expect(input).toHaveValue("testFirstInsetInput");
   });
-  test("Option: last input should enter and display value", async ({
+  test("Options: last input should enter and display value", async ({
     page,
   }) => {
     const input = page.getByPlaceholder("Last input").first();
     await input.fill("testLastInput");
     await expect(input).toHaveValue("testLastInput");
   });
-  test("Option: last insetInput should enter and display value", async ({
+  test("Options: last insetInput should enter and display value", async ({
     page,
   }) => {
     const input = page.getByPlaceholder("Last inset input").first();
@@ -127,7 +127,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
     await expect(input).toHaveValue("testLastInsetInput");
   });
 
-  test("Option: should render and match screenshot by hover first select", async ({
+  test("Options: should render and match screenshot by hover first select", async ({
     page,
   }) => {
     await page.getByRole("combobox").nth(1).hover();
@@ -136,7 +136,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-first-select-hover.png`,
     );
   });
-  test("Option: should render and match screenshot by hover first insetSelect", async ({
+  test("Options: should render and match screenshot by hover first insetSelect", async ({
     page,
   }) => {
     await page.getByRole("combobox").nth(5).hover();
@@ -145,7 +145,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-first-insetSelect-hover.png`,
     );
   });
-  test("Option: should render and match screenshot by hover last select", async ({
+  test("Options: should render and match screenshot by hover last select", async ({
     page,
   }) => {
     await page.getByRole("combobox").first().hover();
@@ -154,7 +154,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-last-select-hover.png`,
     );
   });
-  test("Option: should render and match screenshot by hover last insetSelect", async ({
+  test("Options: should render and match screenshot by hover last insetSelect", async ({
     page,
   }) => {
     await page.getByRole("combobox").nth(4).hover();
@@ -164,7 +164,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
     );
   });
 
-  test("Option: should render and match screenshot by focus on first select", async ({
+  test("Options: should render and match screenshot by focus on first select", async ({
     page,
   }) => {
     await page.getByRole("combobox").nth(1).focus();
@@ -173,7 +173,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-first-select-focus.png`,
     );
   });
-  test("Option: should render and match screenshot by focus on first insetSelect", async ({
+  test("Options: should render and match screenshot by focus on first insetSelect", async ({
     page,
   }) => {
     await page.getByRole("combobox").nth(5).focus();
@@ -182,7 +182,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-first-insetSelect-focus.png`,
     );
   });
-  test("Option: should render and match screenshot by focus on last select", async ({
+  test("Options: should render and match screenshot by focus on last select", async ({
     page,
   }) => {
     await page.getByRole("combobox").first().focus();
@@ -191,7 +191,7 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
       `${COMPONENT_NAME}-last-select-focus.png`,
     );
   });
-  test("Option: should render and match screenshot by focus on last insetSelect", async ({
+  test("Options: should render and match screenshot by focus on last insetSelect", async ({
     page,
   }) => {
     await page.getByRole("combobox").nth(4).focus();
@@ -201,28 +201,28 @@ test.describe(`${COMPONENT_NAME} functionality`, () => {
     );
   });
 
-  test("Option: first select should select and display value", async ({
+  test("Options: first select should select and display value", async ({
     page,
   }) => {
     const select = page.getByRole("combobox").nth(1);
     await select.selectOption("Option 1");
     await expect(select).toHaveValue("1");
   });
-  test("Option: first insetSelect should select and display value", async ({
+  test("Options: first insetSelect should select and display value", async ({
     page,
   }) => {
     const select = page.getByRole("combobox").nth(5);
     await select.selectOption("Option 1");
     await expect(select).toHaveValue("1");
   });
-  test("Option: last select should select and display value", async ({
+  test("Options: last select should select and display value", async ({
     page,
   }) => {
     const select = page.getByRole("combobox").first();
     await select.selectOption("Option 1");
     await expect(select).toHaveValue("1");
   });
-  test("Option: last insetSelect should select and display value", async ({
+  test("Options: last insetSelect should select and display value", async ({
     page,
   }) => {
     const select = page.getByRole("combobox").nth(4);
