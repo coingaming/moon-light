@@ -6,14 +6,14 @@ import {
   getMoonColor,
 } from "@/utils/playwrightHelpers";
 
-const COMPONENT_NAME = "menuitem";
+const COMPONENT_NAME = "menuItem";
 
 setupTest(COMPONENT_NAME);
 
-test.describe("Menuitem in Light Theme", () => {
+test.describe(`${COMPONENT_NAME} in Light Theme`, () => {
   test.describe("Default tests", () => {
     test("Default: should render and match screenshot", async ({ page }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Default.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Default.png`);
     });
     test("Default: should render and have correct text", async ({ page }) => {
       const element = page.getByText("Menu item text");
@@ -42,7 +42,7 @@ test.describe("Menuitem in Light Theme", () => {
   });
   test.describe("AsLink tests", () => {
     test("AsLink: should render and match screenshot", async ({ page }) => {
-      await expect(page).toHaveScreenshot(`menuitem-AsLink.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-AsLink.png`);
     });
     test("AsLink: should render and have correct text", async ({ page }) => {
       const element = page.getByText("Menu item text");
@@ -62,7 +62,7 @@ test.describe("Menuitem in Light Theme", () => {
       const element = page.getByText("Menu item text");
       await element.click();
       await page.waitForTimeout(100);
-      expect(page.url()).toBe("http://localhost:3000/client/menuitem/AsLink#");
+      expect(page.url()).toBe("http://localhost:3000/client/menuItem/AsLink#");
     });
     test("AsLink: should render and have correct hover state", async ({
       page,
@@ -83,7 +83,7 @@ test.describe("Menuitem in Light Theme", () => {
   });
   test.describe("Checkbox tests", () => {
     test("Checkbox: should render and match screenshot", async ({ page }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Checkbox.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Checkbox.png`);
     });
     test("Checkbox: should render 2 checkboxes", async ({ page }) => {
       // Checkboxes is render as SVGs
@@ -105,7 +105,7 @@ test.describe("Menuitem in Light Theme", () => {
       await page.waitForTimeout(100);
       expect(await span.getAttribute("aria-checked")).toBe("true");
     });
-    test("Checkbox: should render and click on menuitem should trigger the checkbox click", async ({
+    test("Checkbox: should render and click on menuItem should trigger the checkbox click", async ({
       page,
     }) => {
       const span = page.locator(`span[role="checkbox"]`).first();
@@ -114,19 +114,23 @@ test.describe("Menuitem in Light Theme", () => {
       expect(await span.getAttribute("aria-checked")).toBe("true");
     });
     test("Checkbox: should render and have correct icon", async ({ page }) => {
-      const element = page.getByTestId("playwright-test-menuitem");
+      const element = page.getByTestId("playwright-test-menuItem");
       await page.locator(`button`).first().click();
       await page.locator(`button`).last().click();
       await page.mouse.move(0, 0);
       await page.waitForTimeout(100);
-      await expect(element).toHaveScreenshot(`menuitem-Checkbox-Checked.png`);
+      await expect(element).toHaveScreenshot(
+        `${COMPONENT_NAME}-Checkbox-Checked.png`,
+      );
     });
   });
   test.describe("ExpandCollapse tests", () => {
     test("ExpandCollapse: should render and match screenshot", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-ExpandCollapse.png`);
+      await expect(page).toHaveScreenshot(
+        `${COMPONENT_NAME}-ExpandCollapse.png`,
+      );
     });
 
     test("ExpandCollapse: should render and click on first expandable should close it", async ({
@@ -150,7 +154,7 @@ test.describe("Menuitem in Light Theme", () => {
   });
   test.describe("MultiTitle tests", () => {
     test("MultiTitle: should render and match screenshot", async ({ page }) => {
-      await expect(page).toHaveScreenshot(`menuitem-MultiTitle.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-MultiTitle.png`);
     });
     test("MultiTitle: should render and have correct hover state [1]", async ({
       page,
@@ -197,27 +201,29 @@ test.describe("Menuitem in Light Theme", () => {
     test("MultiLineItems: should render and match screenshot", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-MultiLineItems.png`);
+      await expect(page).toHaveScreenshot(
+        `${COMPONENT_NAME}-MultiLineItems.png`,
+      );
     });
   });
   test.describe("Radio tests", () => {
     test("Radio: should render and match screenshot", async ({ page }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Radio.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Radio.png`);
     });
   });
   test.describe("WithIcon tests", () => {
     test("WithIcon: should render and match screenshot", async ({ page }) => {
-      await expect(page).toHaveScreenshot(`menuitem-WithIcon.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithIcon.png`);
     });
   });
   test.describe("WithMeta tests", () => {
     test("WithMeta: should render and match screenshot", async ({ page }) => {
-      await expect(page).toHaveScreenshot(`menuitem-WithMeta.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-WithMeta.png`);
     });
   });
 });
 
-test.describe("MenuItem in Dark Theme", () => {
+test.describe(`${COMPONENT_NAME} in Dark Theme`, () => {
   test.beforeEach(async ({ page }) => {
     await setDarkTheme(page);
   });
@@ -225,7 +231,7 @@ test.describe("MenuItem in Dark Theme", () => {
     test("Default: should render and match screenshot in dark theme", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Dark-Default.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Dark-Default.png`);
     });
 
     test("Default: should render and have correct text", async ({ page }) => {
@@ -241,54 +247,64 @@ test.describe("MenuItem in Dark Theme", () => {
     test("AsLink: should render and match screenshot in dark theme", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Dark-AsLink.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Dark-AsLink.png`);
     });
   });
   test.describe("Checkbox tests", () => {
     test("Checkbox: should render and match screenshot in dark theme", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Dark-Checkbox.png`);
+      await expect(page).toHaveScreenshot(
+        `${COMPONENT_NAME}-Dark-Checkbox.png`,
+      );
     });
   });
   test.describe("ExpandCollapse tests", () => {
     test("ExpandCollapse: should render and match screenshot in dark theme", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Dark-ExpandCollapse.png`);
+      await expect(page).toHaveScreenshot(
+        `${COMPONENT_NAME}-Dark-ExpandCollapse.png`,
+      );
     });
   });
   test.describe("MultiLineItems tests", () => {
     test("MultiLineItems: should render and match screenshot in dark theme", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Dark-MultiLineItems.png`);
+      await expect(page).toHaveScreenshot(
+        `${COMPONENT_NAME}-Dark-MultiLineItems.png`,
+      );
     });
   });
   test.describe("Radio tests", () => {
     test("Radio: should render and match screenshot in dark theme", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Dark-Radio.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-Dark-Radio.png`);
     });
   });
   test.describe("WithIcon tests", () => {
     test("WithIcon: should render and match screenshot in dark theme", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Dark-WithIcon.png`);
+      await expect(page).toHaveScreenshot(
+        `${COMPONENT_NAME}-Dark-WithIcon.png`,
+      );
     });
   });
   test.describe("WithMeta tests", () => {
     test("WithMeta: should render and match screenshot in dark theme", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-Dark-WithMeta.png`);
+      await expect(page).toHaveScreenshot(
+        `${COMPONENT_NAME}-Dark-WithMeta.png`,
+      );
     });
   });
 });
 
-test.describe("MenuItem in RTL", () => {
+test.describe(`${COMPONENT_NAME} in RTL`, () => {
   test.beforeEach(async ({ page }) => {
     await setRtl(page);
   });
@@ -297,56 +313,60 @@ test.describe("MenuItem in RTL", () => {
     test("Default: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-RTL-Default.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-Default.png`);
     });
   });
   test.describe("AsLink tests", () => {
     test("AsLink: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-RTL-AsLink.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-AsLink.png`);
     });
   });
   test.describe("Checkbox tests", () => {
     test("Checkbox: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-RTL-Checkbox.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-Checkbox.png`);
     });
   });
   test.describe("ExpandCollapse tests", () => {
     test("ExpandCollapse: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-RTL-ExpandCollapse.png`);
+      await expect(page).toHaveScreenshot(
+        `${COMPONENT_NAME}-RTL-ExpandCollapse.png`,
+      );
     });
   });
   test.describe("MultiLineItems tests", () => {
     test("MultiLineItems: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-RTL-MultiLineItems.png`);
+      await expect(page).toHaveScreenshot(
+        `${COMPONENT_NAME}-RTL-MultiLineItems.png`,
+      );
     });
   });
   test.describe("Radio tests", () => {
     test("Radio: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-RTL-Radio.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-Radio.png`);
     });
   });
   test.describe("WithIcon tests", () => {
     test("WithIcon: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-RTL-WithIcon.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-WithIcon.png`);
     });
   });
   test.describe("WithMeta tests", () => {
     test("WithMeta: should render and match screenshot in RTL", async ({
       page,
     }) => {
-      await expect(page).toHaveScreenshot(`menuitem-RTL-WithMeta.png`);
+      await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-RTL-WithMeta.png`);
     });
   });
 });

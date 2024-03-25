@@ -6,7 +6,7 @@ import {
   setLightTheme,
 } from "@/utils/playwrightHelpers";
 
-const COMPONENT_NAME = "insetnativeselect";
+const COMPONENT_NAME = "insetNativeSelect";
 
 setupTest(COMPONENT_NAME);
 
