@@ -4,7 +4,6 @@ import { readdir } from "node:fs/promises";
 import { readFromFile } from "./buildExamplesType.mjs";
 import { writeFile } from "fs/promises";
 
-const LEVEL_TAB = 2; /* Reserved for the future */
 const BASEDIR = path.join(path.resolve(), '../');
 const storeAs = 'docs/generated/changelog.ts';
 const searchFor = ['CHANGELOG.md'];
@@ -76,98 +75,6 @@ const loadContents = async (filePaths) => {
 }
 
 /**
- * Picks a header of the file content
- * @param {string} content - a file text data.
- */
-const pickHeader = (content) => content.replace(/^#\s([^\n]+).+/ms, "$1");
-
-/**
- * Crops the version number of the data block,
- * and returns it with the rest of the data block
- * as an object structure
- * @param {string} content - a chunk of the text.
- */
-const cropVersion = (content) => {
-  const version = content.replace(/^([\d\.]+).+/gms, "$1");
-  const pattern = new RegExp(`^${version}[^#]+`, 'gms');
-  const tailPart = content.replace(pattern, '');
-  return { version, tailPart };
-}
-
-/**
- * Picks a specific type of the data block
- * such as "major", "minor" or "patch",
- * and its description;
- * returns them as an object structure
- * @param {string} content - version content.
- */
-const cropChangesType = (content) => {
-  return {
-    type: content.replace(/^([^\s]+).+$/gms, "$1").toLowerCase(),
-    description: content.split(/\n{2,}/gms).splice(1)[0]
-  };
-};
-
-/**
- * Splits the description by the lines,
- * and returns them as an array
- * @param {string} content - description content.
- */
-const splitDescription = (content) => {
-  const parts = content.trim().split(/\n+/gms);
-  /** TODO: If necessary, make the parsing into tree */
-  return parts;
-}
-
-/**
- * Splits the version content into the parts,
- * splits them into types and its descriptions;
- * returns them as an object structure
- * @param {string} content - version content.
- */
-const splitChanges = (content) => {
-  const parts = content.split('### ').splice(1);
-  return parts.map((part) => {
-    const { type, description } = cropChangesType(part);
-    return {
-      type,
-      description: splitDescription(description)
-    }
-  });
-}
-
-/**
- * Splits each part of the content
- * into specific blocks of versions
- * and data about their changes;
- * returns them as an object structure
- * @param {array} parts - version data chunks.
- */
-const splitVersions = (parts) => {
-  return parts.map((part) => {
-    const { version, tailPart } = cropVersion(part);
-    const changes = splitChanges(tailPart);
-    return {
-      version,
-      changes
-    }
-  });
-}
-
-/**
- * Picks the header and version data from a file content
- * and returns them as an object structure
- * @param {string} content - data to handle.
- */
-const parseData = (content) => {
-  const versionParts = content.split(/[^#]{1}##\s/gms);
-  return {
-    header: pickHeader(versionParts[0]),
-    versions: splitVersions(versionParts.splice(1))
-  };
-}
-
-/**
  * Loads the contents from the specified files,
  * manages their conversion, and returns them
  * as the object structure
@@ -175,10 +82,12 @@ const parseData = (content) => {
  */
 const getData = async (filePaths) => {
   const contents = await loadContents(filePaths);
-  return contents.map((content, index) => {
+  return contents.reduce((acc, content, index) => {
     const section = filePaths[index].replace(BASEDIR, '').replace(/\/[^\/]+$/, '');
-    return { [section]: parseData(content) }
-  });
+    /* return { [section]: parseData(content) } */
+    acc[section] = content;
+    return acc;
+  }, {});
 }
 
 /**

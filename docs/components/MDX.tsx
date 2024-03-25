@@ -3,6 +3,30 @@ import Link from "next/link";
 import { ComponentProps, HTMLProps } from "react";
 
 const defaultComponents: ComponentProps<any> = {
+  h1: (props: HTMLProps<HTMLHeadingElement>) => (
+    <h1
+      {...props}
+      className="text-xl font-semibold"
+    >
+      {props.children}
+    </h1>
+  ),
+  h2: (props: HTMLProps<HTMLHeadingElement>) => (
+    <h2
+      {...props}
+      className="text-lg font-semibold ps-4"
+    >
+      {props.children}
+    </h2>
+  ),
+  h3: (props: HTMLProps<HTMLHeadingElement>) => (
+    <h3
+      {...props}
+      className="text-base font-semibold ps-8"
+    >
+      {props.children}
+    </h3>
+  ),
   a: (props: HTMLProps<HTMLAnchorElement>) => (
     <a
       as={Link}
@@ -19,7 +43,7 @@ const defaultComponents: ComponentProps<any> = {
     </span>
   ),
   ul: (props: HTMLProps<HTMLUListElement>) => (
-    <ul {...props} className="list-disc ps-8 pt-2">
+    <ul {...props} className="list-disc ps-12 mb-6">
       {props.children}
     </ul>
   ),
@@ -32,7 +56,7 @@ const defaultComponents: ComponentProps<any> = {
     const { type, ...rest } = props;
 
     return (
-      <ol {...rest} className="list-decimal ps-4 gap-2 flex flex-col">
+      <ol {...rest} className="list-decimal ps-12 gap-2 flex flex-col">
         {props.children}
       </ol>
     );
