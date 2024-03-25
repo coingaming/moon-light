@@ -30,10 +30,7 @@ const changeLogs = [
         {
           version: "10.13.5",
           changes: [
-            {
-              type: "patch",
-              description: ["- bump version to 10.13.5"],
-            },
+            { type: "patch", description: ["- bump version to 10.13.5"] },
           ],
         },
       ],
@@ -66,10 +63,7 @@ const changeLogs = [
         {
           version: "10.13.5",
           changes: [
-            {
-              type: "patch",
-              description: ["- bump version to 10.13.5"],
-            },
+            { type: "patch", description: ["- bump version to 10.13.5"] },
           ],
         },
       ],
@@ -102,10 +96,7 @@ const changeLogs = [
         {
           version: "10.13.5",
           changes: [
-            {
-              type: "patch",
-              description: ["- bump version to 10.13.5"],
-            },
+            { type: "patch", description: ["- bump version to 10.13.5"] },
           ],
         },
       ],
