@@ -4,26 +4,17 @@ import { ComponentProps, HTMLProps } from "react";
 
 const defaultComponents: ComponentProps<any> = {
   h1: (props: HTMLProps<HTMLHeadingElement>) => (
-    <h1
-      {...props}
-      className="text-xl font-semibold"
-    >
+    <h1 {...props} className="text-xl font-semibold">
       {props.children}
     </h1>
   ),
   h2: (props: HTMLProps<HTMLHeadingElement>) => (
-    <h2
-      {...props}
-      className="text-lg font-semibold ps-4"
-    >
+    <h2 {...props} className="text-lg font-semibold ps-4">
       {props.children}
     </h2>
   ),
   h3: (props: HTMLProps<HTMLHeadingElement>) => (
-    <h3
-      {...props}
-      className="text-base font-semibold ps-8"
-    >
+    <h3 {...props} className="text-base font-semibold ps-8">
       {props.children}
     </h3>
   ),

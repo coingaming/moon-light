@@ -8,7 +8,7 @@ const partsOrder = [
   "packages/table-v8",
   "packages/cmdk",
   "packages/themes",
-  "docs"
+  "docs",
 ];
 
 const logs = changeLogs as { [key: string]: string };
@@ -22,7 +22,9 @@ export default async function ReleasesPage() {
     >
       <div className="flex flex-col gap-3">
         {partsOrder.map((part, index) => {
-          return logs[part] ? <MDX key={index} markdown={logs[part]} /> : undefined
+          return logs[part] ? (
+            <MDX key={index} markdown={logs[part]} />
+          ) : undefined;
         })}
       </div>
     </OverviewPage>
