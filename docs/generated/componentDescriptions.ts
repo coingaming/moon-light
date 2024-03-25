@@ -2,7 +2,7 @@ const componentDescriptions = {
   accordion:
     "An accordion is a vertical stack of interactive headings used to toggle the display of further information; each item can be 'collapsed' with just a short label visible or 'expanded' to show the full content.\n\nBased on [Radix UI](https://www.radix-ui.com/).",
   alert: "A way of informing the user of important changes in a prominent way.",
-  authcode:
+  authCode:
     "A one-time password (OTP) is an automatically generated numeric or alphanumeric string of characters that authenticates a user for a single transaction or login session.\n\nAuthcode component is designed for entering OTP codes;it is usually positioned through your UI in places like:\n\n- Login\n- OTP check",
   avatar:
     "The Avatar component is typically used to display images, icons, or initials representing people or other entities.",
@@ -28,7 +28,7 @@ const componentDescriptions = {
   form: "Form component is a grouping of input controls that allow a user to submit information to a server.\nYou can set the size prop for Form and this size will be applied to all children's components.\nYou can set disabled and error props prop for Form.Item and this props will be applied to all children's.",
   group:
     "Combine different types of inputs into groups to save vertical space on your designs and also simplify form filling.",
-  iconbutton:
+  iconButton:
     "Buttons allow users to take actions, and make choices, with a single tap.\n\nButtons communicate actions that users can take. They are typically placed throughout your UI, in places like:\n\n- Modal windows\n- Forms\n- Cards\n- Toolbars",
   icons:
     "Moon Design System provides a set of commonly used interface `icons` you can use in your project.",
@@ -36,7 +36,7 @@ const componentDescriptions = {
     "Text input fields allow users to enter text and can be used to collect user feedback or enter information in data entry forms.\n\nThese types of input fields are used on their own, or in combination with other inputs such as number entry, date picker, etc.",
   insetInput:
     "Text input fields allow users to enter text and can be used to collect user feedback or enter information in data entry forms.\n\nThese types of input fields are used on their own, or in combination with other inputs such as number entry, date picker, etc.",
-  insetnativeselect:
+  insetNativeSelect:
     "A form input utilized to select a value: when collapsed, it displays the presently chosen option, and when expanded, it reveals a scrollable list using native select of browser for the user to make a selection.\n\nWhen in a collapsed state, it displays the presently selected option, and upon expansion, it presents a scrollable list of predefined choices for the user to select from. Moon.io offers two types of selects: one that opens the browser's native styling option list and a [Dropdown](https://moon.io/core/dropdown).",
   loader:
     "Loaders provide a visual cue that an action is processing awaiting a course of change or a result.",
@@ -44,7 +44,7 @@ const componentDescriptions = {
     "Menu items are used in such vertical menu and containers as Popovers, Sidebars, Drawers, Dialogs etc.\n\nMenu item row heights can vary based on the amount of content in each row. The content in each row is flexible. By default, each menu item row height is Medium(md) 40px for one line of content.",
   modal:
     "A modal is an interface element that appears over other content. It requires an interaction from the user before they can return to whatever is underneath.\n\nBased on [Headless UI](https://headlessui.com/).",
-  nativeselect:
+  nativeSelect:
     "A form input designed for value selection: in its collapsed state, it reveals the presently chosen option, and upon expansion, it presents a scrollable list of predetermined choices for the user's selection.\n\nIn a collapsed state, it reveals the currently selected option, and upon expansion, it displays a scrollable list of predefined choices for the user's selection.\n\nMoon.io supports two types of selects: one that opens the browser's native styling option list and a [Dropdown](https://moon.io/components/dropdown).",
   pagination:
     "Pagination is the process of splitting information over multiple pages instead of showing it all on a single page.\n\nAlso the name for the interface component used for navigating between these pages.",
