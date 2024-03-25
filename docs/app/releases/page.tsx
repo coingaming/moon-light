@@ -2,16 +2,14 @@ import { MDX } from "@/components/MDX";
 import OverviewPage from "@/components/overviewPage/OverviewPage";
 import changeLogs from "@/generated/changelog";
 
-const partsOrder = [
+const changelogsOrder = [
   "packages/base",
   "packages/core",
   "packages/table-v8",
   "packages/cmdk",
   "packages/themes",
   "docs",
-];
-
-const logs = changeLogs as { [key: string]: string };
+] as const;
 
 export default async function ReleasesPage() {
   return (
@@ -21,9 +19,9 @@ export default async function ReleasesPage() {
       description="Moon Design System releases and their change logs."
     >
       <div className="flex flex-col gap-3">
-        {partsOrder.map((part, index) => {
-          return logs[part] ? (
-            <MDX key={index} markdown={logs[part]} />
+        {changelogsOrder.map((log, index) => {
+          return changeLogs[log] ? (
+            <MDX key={index} markdown={changeLogs[log]} />
           ) : undefined;
         })}
       </div>
