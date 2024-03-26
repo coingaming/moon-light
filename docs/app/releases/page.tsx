@@ -35,16 +35,16 @@ export default async function ReleasesPage() {
   return (
     <>
       <OverviewPage
-        className="gap-10"
+        className="gap-12"
         title="Releases"
         description="Moon Design System releases and their change logs."
       >
-        <div className="flex flex-col gap-4">
-          {logItems.map((log, index) => 
+        <div className="flex flex-col gap-6">
+          {logItems.map((log, index) => (
             <div key={index} id={log.header} className="flex flex-col gap-3">
               <MDX markdown={log.logItem} />
             </div>
-          )}
+          ))}
         </div>
       </OverviewPage>
       <ReleaseSidebar items={logItems} />
