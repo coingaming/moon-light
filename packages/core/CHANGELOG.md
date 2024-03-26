@@ -6,9 +6,3 @@
 
 - 67a7327: fix: z-indices for Combobox and Search
 - 829fdc1: feat: Chip - as polymorphic component
-
-## 10.13.5
-
-### Patch Changes
-
-- bump version to 10.13.5
