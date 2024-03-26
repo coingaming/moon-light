@@ -16,9 +16,10 @@ export type LogItem = {
   logKey: string;
   header: string;
   logItem: string;
-}
+};
 
-const pickHeader = (content: string) => content.replace(/^#\s([^\n]+).+$/gsm, "$1");
+const pickHeader = (content: string) =>
+  content.replace(/^#\s([^\n]+).+$/gms, "$1");
 
 const prepareData = () => {
   return changelogsOrder.reduce((acc, logKey) => {
@@ -28,7 +29,7 @@ const prepareData = () => {
     }
     return acc;
   }, [] as LogItem[]);
-}
+};
 
 export default async function ReleasesPage() {
   const logItems = prepareData();
