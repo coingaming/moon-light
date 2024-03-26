@@ -16,7 +16,7 @@ const ReleaseSidebar = ({
             return (
               <li key={item.logKey}>
                 <Link
-                  href={`#${item.logKey}`}
+                  href={`#${item.header}`}
                   className="text-moon-14 transition-colors hover:underline"
                 >
                   {item.header}

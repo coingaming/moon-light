@@ -41,7 +41,7 @@ export default async function ReleasesPage() {
       >
         <div className="flex flex-col gap-4">
           {logItems.map((log, index) => 
-            <div key={index} id={log.logKey} className="flex flex-col gap-3">
+            <div key={index} id={log.header} className="flex flex-col gap-3">
               <MDX markdown={log.logItem} />
             </div>
           )}
