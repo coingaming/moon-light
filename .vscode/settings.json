@@ -7,5 +7,7 @@
     "**/.git/subtree-cache/**": true
   },
   "prettier.printWidth": 2,
-  "eslint.workingDirectories": ["./docs"]
+  "eslint.workingDirectories": [
+    "./docs"
+  ]
 }
