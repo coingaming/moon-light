@@ -79,6 +79,7 @@ const COMPONENTS = {
     title: "Button",
     tags: ["ARIA", "RTL"],
     examples: [
+      "Default",
       "Sizes",
       "Disabled",
       "Animations",

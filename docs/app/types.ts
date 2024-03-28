@@ -144,6 +144,7 @@ export type Examples = {
       "examples": {
         "Animations": "string",
         "ButtonAsLinkHTML": "string",
+        "Default": "string",
         "DefaultWithClick": "string",
         "Disabled": "string",
         "FullWidth": "string",
