@@ -7,22 +7,27 @@ type RightSidebarItemProps = {
   href: string;
   title: string;
   className?: string;
-}
+};
 
-const RightSidebarItem = ({ index, href, title, className }: RightSidebarItemProps ) => {
+const RightSidebarItem = ({
+  index,
+  href,
+  title,
+  className,
+}: RightSidebarItemProps) => {
   return (
     <li key={index}>
       <Link
         href={`#${href}`}
         className={mergeClassnames(
           "text-moon-14 transition-colors hover:underline",
-          className
+          className,
         )}
       >
         {title}
       </Link>
     </li>
   );
-}
+};
 
 export default RightSidebarItem;
