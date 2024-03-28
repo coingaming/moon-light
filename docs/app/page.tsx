@@ -5,7 +5,7 @@ import Review from "@/components/mainPage/Review";
 export default async function Home() {
   return (
     <MainLayout>
-      <div className="flex flex-col gap-12">
+      <div className="flex w-full max-w-7xl mx-auto flex-col gap-12 text-moon-14 pb-10">
         <PageTitle />
         <Review />
       </div>

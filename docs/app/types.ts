@@ -205,6 +205,7 @@ export type Examples = {
       "description": "string",
       "descriptions": {
         "Active": "string",
+        "AsDiv": "string",
         "Customization": "string",
         "Default": "string",
         "Disabled": "string",
@@ -216,6 +217,7 @@ export type Examples = {
       },
       "examples": {
         "Active": "string",
+        "AsDiv": "string",
         "Customization": "string",
         "Default": "string",
         "Disabled": "string",
