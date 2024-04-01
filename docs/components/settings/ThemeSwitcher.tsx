@@ -1,7 +1,7 @@
 "use client";
 
 import { OtherMoon, OtherSun } from "@heathmont/moon-icons-tw";
-import useTheme from "@/components/settings/utils/useThemes";
+import useTheme from "@/components/settings/utils/useTheme";
 import { useLayoutEffect } from "react";
 import { IconButton, mergeClassnames } from "@heathmont/moon-core-tw";
 
