@@ -16,7 +16,7 @@ const Footer = () => (
     </p>
     <div className="flex gap-x-4 gap-y-6 flex-wrap justify-center items-center text-trunks">
       <Link
-        href="https://github.com/coingaming/moon-design"
+        href="https://github.com/coingaming/moon-light"
         className="hover:underline"
         target="_blank"
         rel="noreferrer"
