@@ -21,7 +21,7 @@ Please take a moment to review this document **before submitting a pull request*
 
 **Please ask first before starting work on any new features.**
 
-Having your pull request declined after investing a significant amount of time and effort into a new feature can be disheartening. To prevent such situations, we kindly request that contributors first create [an issue](https://github.com/coingaming/moon-design/issues) to initiate a discussion about any new features. This includes tasks like adding new components, modifying tokens, or exposing internal information.
+Having your pull request declined after investing a significant amount of time and effort into a new feature can be disheartening. To prevent such situations, we kindly request that contributors first create [an issue](https://github.com/coingaming/moon-light/issues) to initiate a discussion about any new features. This includes tasks like adding new components, modifying tokens, or exposing internal information.
 
 It's crucial to understand that the Moon Design System is a complex ecosystem comprising `Figma` files, different versions for `React`, `Elixir`, and even `Flutter`. Ensuring consistency and feature parity across all these platforms involves numerous stakeholders and users who rely on us to avoid breaking changes. Thus, it's vital to respect this process and seek approval **before commencing work on any new features**.
 
