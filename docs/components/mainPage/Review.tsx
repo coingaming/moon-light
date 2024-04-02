@@ -6,7 +6,7 @@ const Review = () => {
   const descriptions = componentDescriptions as { [key: string]: string };
   return (
     <>
-      <h2 className="text-moon-56 font-medium max-w-3xl text-bulma">
+      <h2 className="text-moon-48 font-medium max-w-3xl text-bulma">
         Accelerate your development journey with moon components.
       </h2>
       <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 2xl:grid-cols-3 auto-rows-auto w-full gap-x-5 gap-y-5">
