@@ -3,7 +3,7 @@ import type ContributorsProps from "../types/ContributorsProps";
 import fetchContributors from "./fetchContributors";
 
 const useContributors = () => {
-  const TOP = 3;
+  const TOP = 10;
   const [contributors, setContributors] = useState<ContributorsProps[]>([]);
   useEffect(() => {
     fetchContributors()
