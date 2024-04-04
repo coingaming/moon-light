@@ -1,5 +1,13 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.14.1
+
+### Patch Changes
+
+- 56c7165: fix: update instances of github repo links [MDS-1056]
+- Updated dependencies [56c7165]
+  - @heathmont/moon-core-tw@10.14.1
+
 ## 10.14.0
 
 ### Minor Changes
