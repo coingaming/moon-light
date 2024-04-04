@@ -1,18 +1,9 @@
 import { useState, useCallback } from "react";
-import IconButton from "@heathmont/moon-core-tw/lib/es/iconButton/IconButton";
-import Snackbar from "@heathmont/moon-core-tw/lib/es/snackbar/Snackbar";
+import { IconButton, Snackbar } from "@heathmont/moon-core-tw";
 import { FilesCopy, GenericCheckAlternative } from "@heathmont/moon-icons-tw";
-import { mergeClassnames } from "@heathmont/moon-base-tw";
 
-const CodeCopy = ({
-  code,
-  className,
-}: {
-  code: string;
-  className?: string;
-}) => {
+const CodeCopy = ({ code }: { code: string }) => {
   const [snackbar, setSnackbar] = useState("");
-
   const openSnackbarHandler = useCallback(
     (type: string) => {
       if (snackbar) {
@@ -33,10 +24,9 @@ const CodeCopy = ({
         console.info("Attempted to copy, but the code is empty.");
         return;
       }
-
       if (navigator?.clipboard) {
         navigator.clipboard.writeText(code);
-        openSnackbarHandler("top-right");
+        openSnackbarHandler("isOpen");
       }
     } catch (error) {
       console.error("Error occurred while copying code: ", error);
@@ -45,19 +35,17 @@ const CodeCopy = ({
 
   return (
     <div>
-      <span className="absolute top-2 end-2 cursor-pointer z-1">
-        <IconButton
-          onClick={copyCode}
-          variant="ghost"
-          icon={
-            <FilesCopy className={mergeClassnames("text-bulma", className)} />
-          }
-        />
-      </span>
+      <IconButton
+        onClick={copyCode}
+        variant="outline"
+        icon={<FilesCopy />}
+        className="theme-moon-dark absolute top-2 end-2 z-1 bg-gohan"
+      />
       <Snackbar
-        isOpen={snackbar === "top-right"}
+        isOpen={snackbar === "isOpen"}
         onOpenChange={setSnackbar}
-        position="top-right"
+        position="bottom-center"
+        autoClose={3000}
       >
         <Snackbar.Message className="flex gap-2">
           <GenericCheckAlternative className="text-moon-24 text-roshi" />
