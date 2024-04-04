@@ -34,6 +34,7 @@ goten
 headlessui
 heathmont
 heles
+hljs
 hrefs
 hub88
 iconbutton
@@ -67,6 +68,7 @@ Scroller
 Segoe
 snackbars
 sportsbet
+stackoverflow
 Subcomponent
 tabpanel
 tagsinput

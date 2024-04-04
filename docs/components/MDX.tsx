@@ -1,12 +1,14 @@
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { ComponentProps, HTMLProps } from "react";
+import HeaderSection from "./HeaderSection";
 
 const defaultComponents: ComponentProps<any> = {
   h1: (props: HTMLProps<HTMLHeadingElement>) => (
-    <h1 {...props} className="text-xl font-semibold">
-      {props.children}
-    </h1>
+    <HeaderSection
+      title={props.children?.toString()}
+      href={props.children?.toString()}
+    />
   ),
   h2: (props: HTMLProps<HTMLHeadingElement>) => (
     <h2 {...props} className="text-lg font-semibold ps-4">
