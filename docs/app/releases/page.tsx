@@ -1,5 +1,6 @@
 import { MDX } from "@/components/MDX";
 import OverviewPage from "@/components/overviewPage/OverviewPage";
+import ReleaseSidebar from "@/components/releaseSidebar/releaseSidebar";
 import changeLogs from "@/generated/changelog";
 
 const changelogsOrder = [
@@ -11,20 +12,43 @@ const changelogsOrder = [
   "docs",
 ] as const;
 
+export type LogItem = {
+  logKey: string;
+  header: string;
+  logItem: string;
+};
+
+const pickHeader = (content: string) =>
+  content.replace(/^#\s([^\n]+).+$/gms, "$1");
+
+const prepareData = () => {
+  return changelogsOrder.reduce((acc, logKey) => {
+    const logItem = changeLogs[logKey];
+    if (logItem) {
+      acc.push({ logKey, header: pickHeader(logItem), logItem });
+    }
+    return acc;
+  }, [] as LogItem[]);
+};
+
 export default async function ReleasesPage() {
+  const logItems = prepareData();
   return (
-    <OverviewPage
-      className="gap-10"
-      title="Releases"
-      description="Moon Design System releases and their change logs."
-    >
-      <div className="flex flex-col gap-3">
-        {changelogsOrder.map((log, index) => {
-          return changeLogs[log] ? (
-            <MDX key={index} markdown={changeLogs[log]} />
-          ) : undefined;
-        })}
-      </div>
-    </OverviewPage>
+    <>
+      <OverviewPage
+        className="gap-12"
+        title="Releases"
+        description="Moon Design System releases and their change logs."
+      >
+        <div className="flex flex-col gap-6">
+          {logItems.map((log, index) => (
+            <div key={index} id={log.header} className="flex flex-col gap-3">
+              <MDX markdown={log.logItem} />
+            </div>
+          ))}
+        </div>
+      </OverviewPage>
+      <ReleaseSidebar items={logItems} />
+    </>
   );
 }
