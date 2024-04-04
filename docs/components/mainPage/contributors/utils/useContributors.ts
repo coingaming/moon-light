@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type ContributorsProps from "../types/ContributorsProps";
 import fetchContributors from "./fetchContributors";
 
@@ -8,16 +8,33 @@ const useContributors = () => {
   useEffect(() => {
     fetchContributors().then(setContributors).catch(console.error);
   }, []);
-  const contributorsFiltered = contributors.filter(
-    (contributor) => contributor.login !== "dependabot[bot]",
+  const contributorsFiltered = useMemo(
+    () =>
+      contributors.filter(
+        (contributor) => contributor.login !== "dependabot[bot]",
+      ),
+    [contributors],
   );
-  const contributorsList = contributorsFiltered.sort(
-    (a, b) => b.contributions - a.contributions,
+  const contributorsList = useMemo(
+    () =>
+      contributorsFiltered.sort((a, b) => b.contributions - a.contributions),
+    [contributorsFiltered],
   );
-  const topContributors = contributorsList.slice(0, TOP);
-  const otherContributors = contributorsList.slice(TOP);
-  const title =
-    otherContributors.length >= 1 ? "Our top contributors" : "Our contributors";
+  const topContributors = useMemo(
+    () => contributorsList.slice(0, TOP),
+    [contributorsList],
+  );
+  const otherContributors = useMemo(
+    () => contributorsList.slice(TOP),
+    [contributorsList],
+  );
+  const title = useMemo(
+    () =>
+      otherContributors.length >= 1
+        ? "Our top contributors"
+        : "Our contributors",
+    [otherContributors],
+  );
   return {
     topContributors,
     otherContributors,
