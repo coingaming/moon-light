@@ -9,7 +9,7 @@ const Card = ({ contributor, size, className }: CardProps) => (
       <a href={contributor.html_url} target="_blank" rel="noreferrer">
         <Image
           src={contributor.avatar_url}
-          alt=""
+          alt={contributor.login}
           width={size}
           height={size}
           className={mergeClassnames(

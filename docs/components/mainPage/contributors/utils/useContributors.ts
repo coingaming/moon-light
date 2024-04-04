@@ -6,9 +6,7 @@ const useContributors = () => {
   const TOP = 10;
   const [contributors, setContributors] = useState<ContributorsProps[]>([]);
   useEffect(() => {
-    fetchContributors()
-      .then((data) => setContributors(data))
-      .catch((error) => console.error(error));
+    fetchContributors().then(setContributors).catch(console.error);
   }, []);
   const contributorsFiltered = contributors.filter(
     (contributor) => contributor.login !== "dependabot[bot]",
