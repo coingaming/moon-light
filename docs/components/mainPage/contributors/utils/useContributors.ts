@@ -35,11 +35,14 @@ const useContributors = () => {
         : "Our contributors",
     [otherContributors],
   );
-  return {
-    topContributors,
-    otherContributors,
-    title,
-  };
+  return useMemo(
+    () => ({
+      topContributors,
+      otherContributors,
+      title,
+    }),
+    [topContributors, otherContributors, title],
+  );
 };
 
 export default useContributors;
