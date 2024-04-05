@@ -10,15 +10,14 @@ export const ComponentImage = ({ title }: ComponentImageType) => {
   const alt = `The ${title} component`;
 
   return title ? (
-    <div className={"relative w-full h-52 rounded-xl"}>
+    <div className="relative w-full h-52">
       <Image
         loading="lazy"
         src={url}
-        objectFit="cover"
-        objectPosition="left top"
         fill
+        sizes="100% 100%"
         alt={alt}
-        className="rounded-xl"
+        className="rounded-xl object-cover"
       />
     </div>
   ) : undefined;
