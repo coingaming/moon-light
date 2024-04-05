@@ -55,8 +55,8 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Corepack enable
         run: corepack enable
-      - name: Use pnpm@latest
-        run: corepack prepare pnpm@latest --activate
+      - name: Use pnpm@8.15.6
+        run: corepack prepare pnpm@8.15.6 --activate
       - name: Install dependencies
         run: pnpm i
       - name: Require changeset

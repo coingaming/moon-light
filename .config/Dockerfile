@@ -5,7 +5,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY ./ ./
 RUN corepack enable \
-    && corepack prepare pnpm@latest --activate \
+    && corepack prepare pnpm@8.15.6 --activate \
     && corepack pnpm i
 
 # Rebuild the source code only when needed
@@ -14,7 +14,7 @@ WORKDIR /app
 COPY --from=deps /app/ .
 ENV NODE_ENV production
 RUN corepack enable \
-    && corepack prepare pnpm@latest --activate \
+    && corepack prepare pnpm@8.15.6 --activate \
     && corepack pnpm i \
     && pnpm run build \
     && pnpm run doc build
