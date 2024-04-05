@@ -11,7 +11,7 @@
    Note that we are using pnpm version 8
 
    ```
-   corepack prepare pnpm@latest --activate
+   corepack prepare pnpm@8.15.6 --activate
    ```
 
 1. Install dependencies and link local packages together:
@@ -59,4 +59,4 @@ Packages are developed inside their respective `src` folders, utilizing [pnpm wo
 
 ## Contributing
 
-If you're interested in contributing to Moon Design, please read our [сontributing docs](CONTRIBUTING.md) before submitting a pull request.
+If you're interested in contributing to Moon Design, please read our [contributing docs](CONTRIBUTING.md) before submitting a pull request.
