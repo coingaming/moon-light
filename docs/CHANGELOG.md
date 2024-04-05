@@ -1,5 +1,12 @@
 # docs
 
+## 10.14.2
+
+### Patch Changes
+
+- a43ad4e: build: utilize pnpm@8.15.6
+  build: fix npm registry path
+
 ## 10.14.1
 
 ### Patch Changes
