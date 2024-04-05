@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://registry.npmjs.org/"
       - name: Corepack enable
         run: corepack enable
       - name: Use pnpm@8.15.6
