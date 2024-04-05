@@ -11,7 +11,7 @@
    Note that we are using pnpm version 8
 
    ```
-   corepack prepare pnpm@latest --activate
+   corepack prepare pnpm@8.15.6 --activate
    ```
 
 1. Install dependencies and link local packages together:
