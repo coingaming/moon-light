@@ -32,7 +32,7 @@ const IconWrapper = ({ children, name }: IconProps) => {
       navigator.clipboard.writeText(
         name ? `import { ${name} } from '@heathmont/moon-icons-tw';` : "",
       );
-      openSnackbarHandler("top-right");
+      openSnackbarHandler("isOpen");
     }
   };
 
@@ -43,22 +43,26 @@ const IconWrapper = ({ children, name }: IconProps) => {
 
   return (
     <>
-      <div className="flex flex-col min-w-16 w-16 content-start">
+      <div className="flex flex-col gap-1 items-center w-14">
         <Chip
           variant="ghost"
           aria-label={name}
           onClick={copyCode}
           iconOnly={children}
-          className="text-moon-24 h-16"
+          className="text-moon-24"
         />
-        <p className="text-moon-10 text-trunks text-center truncate ...">
+        <p className="w-full text-moon-10 text-trunks text-center truncate hover:w-auto hover:bg-goku hover:px-2 hover:z-1">
           {name}
         </p>
       </div>
-      <Snackbar isOpen={snackbar === "top-right"} onOpenChange={setSnackbar}>
+      <Snackbar
+        isOpen={snackbar === "isOpen"}
+        onOpenChange={setSnackbar}
+        position="bottom-center"
+      >
         <Snackbar.Message className="flex gap-2">
-          Icon copied for import
-          {renderIcon(name)}
+          <Icons.GenericCheckAlternative className="text-moon-24 text-roshi" />
+          Icon {renderIcon(name)} copied for import
         </Snackbar.Message>
       </Snackbar>
     </>

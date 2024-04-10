@@ -1,7 +1,8 @@
 const componentDescriptions = {
   accordion:
     "An accordion is a vertical stack of interactive headings used to toggle the display of further information; each item can be 'collapsed' with just a short label visible or 'expanded' to show the full content.\n\nBased on [Radix UI](https://www.radix-ui.com/).",
-  alert: "A way of informing the user of important changes in a prominent way.",
+  alert:
+    "Alert is a way of informing a user of important changes in a prominent way.",
   authCode:
     "A one-time password (OTP) is an automatically generated numeric or alphanumeric string of characters that authenticates a user for a single transaction or login session.\n\nAuthcode component is designed for entering OTP codes;it is usually positioned through your UI in places like:\n\n- Login\n- OTP check",
   avatar:

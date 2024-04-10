@@ -7,8 +7,8 @@ const ReleaseSidebar = ({ items }: { items: LogItem[] }) =>
   items.length && (
     <RightSidebar
       purpose="Release navigation"
-      title="Releases"
-      className="md:block"
+      title="Packages"
+      className="xl:block"
     >
       {items.map((item: LogItem, index) => (
         <RightSidebarItem

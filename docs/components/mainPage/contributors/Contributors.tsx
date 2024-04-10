@@ -7,18 +7,24 @@ const Contributors = () => {
   const { topContributors, otherContributors, title } = useContributors();
   return (
     <>
-      <h3 className="text-moon-40 font-medium max-w-3xl text-bulma">{title}</h3>
-      <div className="flex gap-2">
-        {topContributors.map((contributor, i) => (
-          <Card
-            key={i}
-            contributor={contributor}
-            size={96}
-            className="w-12 h-12"
-          />
-        ))}
-      </div>
-      {otherContributors.length >= 1 && (
+      {topContributors.length > 0 && (
+        <>
+          <h3 className="text-moon-40 font-medium max-w-3xl text-bulma">
+            {title}
+          </h3>
+          <div className="flex gap-2">
+            {topContributors.map((contributor, i) => (
+              <Card
+                key={i}
+                contributor={contributor}
+                size={96}
+                className="w-12 h-12"
+              />
+            ))}
+          </div>
+        </>
+      )}
+      {otherContributors.length > 0 && (
         <>
           <h4 className="text-moon-32 font-medium max-w-3xl text-bulma">
             Other contributors

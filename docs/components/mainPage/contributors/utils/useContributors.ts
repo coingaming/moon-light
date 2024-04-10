@@ -10,9 +10,11 @@ const useContributors = () => {
   }, []);
   const contributorsFiltered = useMemo(
     () =>
-      contributors.filter(
-        (contributor) => contributor.login !== "dependabot[bot]",
-      ),
+      Array.isArray(contributors)
+        ? contributors.filter(
+            (contributor) => contributor.login !== "dependabot[bot]",
+          )
+        : [],
     [contributors],
   );
   const contributorsList = useMemo(
