@@ -40,7 +40,7 @@ const IconSearch = () => {
             `import { ${iconName} } from '@heathmont/moon-icons-tw';`,
           );
           setLastClickedIcon(iconName);
-          openSnackbarHandler("top-right");
+          openSnackbarHandler("isOpen");
         }
       };
     },
@@ -74,22 +74,22 @@ const IconSearch = () => {
         <Search.Transition>
           <Search.Result>
             {search && filteredIcons.length ? (
-              <div className="flex flex-row flex-wrap gap-4 p-4">
+              <div className="flex flex-wrap gap-2 p-4">
                 {filteredIcons.map((iconName, index) => (
                   <Search.ResultItem
                     key={iconName}
                     index={index}
                     closeOnSelect={true}
-                    className="w-16 h-16"
+                    className="flex flex-col gap-1 items-center w-14"
                   >
                     <Chip
                       variant="ghost"
-                      className="flex flex-col min-w-16 w-16 content-start h-16 text-moon-24"
+                      aria-label={iconName}
                       onClick={copyCode(iconName)}
-                    >
-                      {renderIcon(iconName)}
-                    </Chip>
-                    <p className="text-moon-10 text-trunks text-center truncate ...">
+                      iconOnly={renderIcon(iconName)}
+                      className="text-moon-24"
+                    />
+                    <p className="w-full text-moon-10 text-trunks text-center truncate hover:w-auto hover:bg-goku hover:px-2 hover:z-1">
                       {iconName}
                     </p>
                   </Search.ResultItem>
@@ -101,10 +101,14 @@ const IconSearch = () => {
           </Search.Result>
         </Search.Transition>
       </Search>
-      <Snackbar isOpen={snackbar === "top-right"} onOpenChange={setSnackbar}>
+      <Snackbar
+        isOpen={snackbar === "isOpen"}
+        onOpenChange={setSnackbar}
+        position="bottom-center"
+      >
         <Snackbar.Message className="flex gap-2">
-          Icon copied for import
-          {renderIcon(lastClickedIcon)}
+          <Icons.GenericCheckAlternative className="text-moon-24 text-roshi" />
+          Icon {renderIcon(lastClickedIcon)} copied for import
         </Snackbar.Message>
       </Snackbar>
     </div>

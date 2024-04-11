@@ -4,4 +4,4 @@ tags: ["ARIA", "RTL"]
 examples: ["Default", "WithTitle", "WithIcon", "WithClose", "Customization"]
 ---
 
-A way of informing the user of important changes in a prominent way.
+Alert is a way of informing a user of important changes in a prominent way.

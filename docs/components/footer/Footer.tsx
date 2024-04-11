@@ -3,7 +3,7 @@ import Link from "next/link";
 const Footer = () => (
   <footer className="flex flex-col gap-4 pt-8 pb-6 lg:pb-12 items-center text-moon-14 text-bulma">
     <p>
-      With the help of{" "}
+      With the help of the{" "}
       <Link
         href="https://yolo.com/"
         className="hover:underline font-medium"
