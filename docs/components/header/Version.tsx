@@ -1,12 +1,17 @@
+import { useMemo } from "react";
 import packageInfo from "../../package.json";
 
 const Version = ({ packageName }: { packageName: string }) => {
-  const packageVersion =
-    packageInfo.dependencies[
-      packageName as keyof typeof packageInfo.dependencies
-    ];
-  const packageVersionFormatted = new RegExp(/(\d+\.\d+\.\d+)$/).exec(
-    packageVersion,
+  const packageVersion = useMemo(
+    () =>
+      packageInfo.dependencies[
+        packageName as keyof typeof packageInfo.dependencies
+      ],
+    [packageName],
+  );
+  const packageVersionFormatted = useMemo(
+    () => new RegExp(/(\d+\.\d+\.\d+)$/).exec(packageVersion),
+    [packageVersion],
   );
   if (!packageVersionFormatted) {
     return null;
