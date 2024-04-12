@@ -1,9 +1,13 @@
 import { useMemo } from "react";
 import packageInfo from "../../package.json";
 
+type Props = {
+  packageName: string;
+};
+
 const versionRegex = /(\d+\.\d+\.\d+)$/;
 
-const Version = ({ packageName }: { packageName: string }) => {
+const useVersion = (packageName: string) => {
   const packageVersion = useMemo(
     () =>
       packageInfo.dependencies[
@@ -15,13 +19,16 @@ const Version = ({ packageName }: { packageName: string }) => {
     () => new RegExp(versionRegex).exec(packageVersion),
     [packageVersion],
   );
+  return packageVersionFormatted ? packageVersionFormatted[0] : null;
+};
+
+const Version = ({ packageName }: Props) => {
+  const packageVersionFormatted = useVersion(packageName);
   if (!packageVersionFormatted) {
     return null;
   }
   return (
-    <span className="text-moon-14 text-trunks">
-      {packageVersionFormatted[0]}
-    </span>
+    <span className="text-moon-14 text-trunks">{packageVersionFormatted}</span>
   );
 };
 
