@@ -1,6 +1,8 @@
 import { useMemo } from "react";
 import packageInfo from "../../package.json";
 
+const versionRegex = /(\d+\.\d+\.\d+)$/;
+
 const Version = ({ packageName }: { packageName: string }) => {
   const packageVersion = useMemo(
     () =>
@@ -10,15 +12,15 @@ const Version = ({ packageName }: { packageName: string }) => {
     [packageName],
   );
   const packageVersionFormatted = useMemo(
-    () => new RegExp(/(\d+\.\d+\.\d+)$/).exec(packageVersion),
+    () => new RegExp(versionRegex).exec(packageVersion),
     [packageVersion],
   );
   if (!packageVersionFormatted) {
     return null;
   }
   return (
-    <span className="text-moon-14 text-trunks">
-      v{packageVersionFormatted[0]}
+    <span className="text-moon-10-caption font-medium text-trunks">
+      {packageVersionFormatted[0]}
     </span>
   );
 };
