@@ -136,6 +136,7 @@ export const buildExamplesType = async () => {
     componentsInTheBuild.push(
       `"${component}": {
         title: "${mdxSource?.frontmatter?.title}",
+        packageName: "${mdxSource?.frontmatter?.packageName}",
         tags: ${
           mdxSource?.frontmatter?.tags
             ? JSON.stringify(mdxSource?.frontmatter?.tags)

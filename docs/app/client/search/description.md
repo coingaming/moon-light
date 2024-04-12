@@ -1,5 +1,6 @@
 ---
 title: Search
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "WithTransition"]
 ---

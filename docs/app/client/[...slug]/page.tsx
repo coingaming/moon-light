@@ -32,13 +32,13 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   if (!data) {
     return notFound();
   }
-
   return (
     <DocsPage
       {...data}
       descriptions={data?.descriptions || {}}
       examples={data?.examples || {}}
       title={(info?.title as string) || (componentName as string)}
+      packageName={(info?.packageName as string) || ""}
       tags={(info?.tags as TagTypes[]) || []}
       isMockup={isMockup}
       searchParam={searchParamRaw}

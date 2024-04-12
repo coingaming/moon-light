@@ -1,5 +1,6 @@
 ---
 title: SearchCmdk
+packageName: "@heathmont/moon-cmdk-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default"]
 ---

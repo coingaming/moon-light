@@ -23,9 +23,9 @@ const IconsPage = async () => {
       <div className="flex w-full max-w-7xl mx-auto flex-col gap-12 text-moon-14 pb-10">
         <PageHeadComponent
           title="Icons"
+          packageName={info?.packageName as string}
           description={data?.description}
           tags={(info?.tags as TagTypes[]) || []}
-          name={"icons"}
         />
         <IconSearch />
         <ExampleSectionData

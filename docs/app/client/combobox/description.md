@@ -1,5 +1,6 @@
 ---
 title: Combobox
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples:
   [

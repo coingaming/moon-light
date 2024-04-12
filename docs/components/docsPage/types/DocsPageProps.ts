@@ -6,6 +6,7 @@ type DocsPageProps = {
   searchParam?: string;
   description?: string;
   title: string;
+  packageName: string;
   ordered: string[];
   tags: TagTypes[];
   examples: Record<string, string>;

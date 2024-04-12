@@ -1,5 +1,6 @@
 ---
 title: Drawer
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "Positions", "WithBackdrop", "WithClose"]
 ---

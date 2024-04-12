@@ -1,5 +1,6 @@
 ---
 title: InsetInput
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "DifferentStates", "TextInputTypes", "Customization"]
 ---

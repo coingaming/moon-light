@@ -10,6 +10,7 @@ import type DocsPageProps from "./types/DocsPageProps";
 const DocsPage = (props: DocsPageProps) => {
   const {
     title,
+    packageName,
     description,
     descriptions,
     ordered,
@@ -22,7 +23,6 @@ const DocsPage = (props: DocsPageProps) => {
     tags,
     examplesAnatomy,
   } = props;
-
   if (isMockup) {
     const Component = dynamic(
       () => import(`@/app/client/${componentName}/examples/${searchParam}`),
@@ -50,9 +50,9 @@ const DocsPage = (props: DocsPageProps) => {
       <div className="flex w-full max-w-7xl mx-auto flex-col gap-12 text-moon-14 pb-10">
         <PageHeadComponent
           title={title}
+          packageName={packageName}
           description={description}
           tags={tags}
-          name={componentName}
         />
         {anatomy && <Anatomy anatomy={anatomy} />}
         <ExampleSectionData
