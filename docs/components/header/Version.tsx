@@ -19,7 +19,7 @@ const Version = ({ packageName }: { packageName: string }) => {
     return null;
   }
   return (
-    <span className="text-moon-10-caption font-medium text-trunks">
+    <span className="text-moon-14 text-trunks">
       {packageVersionFormatted[0]}
     </span>
   );

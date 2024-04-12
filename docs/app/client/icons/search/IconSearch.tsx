@@ -74,25 +74,30 @@ const IconSearch = () => {
         <Search.Transition>
           <Search.Result>
             {search && filteredIcons.length ? (
-              <div className="flex flex-wrap gap-2 p-4">
+              <div className="flex flex-wrap gap-2 p-4 text-moon-14">
                 {filteredIcons.map((iconName, index) => (
-                  <Search.ResultItem
+                  <div
                     key={iconName}
-                    index={index}
-                    closeOnSelect={true}
                     className="flex flex-col gap-1 items-center w-14"
                   >
-                    <Chip
-                      variant="ghost"
-                      aria-label={iconName}
-                      onClick={copyCode(iconName)}
-                      iconOnly={renderIcon(iconName)}
-                      className="text-moon-24"
-                    />
+                    <Search.ResultItem
+                      index={index}
+                      closeOnSelect={true}
+                      className="flex flex-col gap-1 items-center w-14"
+                    >
+                      <Chip
+                        as="span"
+                        variant="ghost"
+                        aria-label={iconName}
+                        onClick={copyCode(iconName)}
+                        iconOnly={renderIcon(iconName)}
+                        className="text-moon-24"
+                      />
+                    </Search.ResultItem>
                     <p className="w-full text-moon-10 text-trunks text-center truncate hover:w-auto hover:bg-goku hover:px-2 hover:z-1">
                       {iconName}
                     </p>
-                  </Search.ResultItem>
+                  </div>
                 ))}
               </div>
             ) : (
