@@ -7,7 +7,7 @@ type Props = {
 
 const versionRegex = /(\d+\.\d+\.\d+)$/;
 
-const useVersion = (packageName: string) => {
+const useVersion = ({ packageName }: Props) => {
   const packageVersion = useMemo(
     () =>
       packageInfo.dependencies[
@@ -23,7 +23,7 @@ const useVersion = (packageName: string) => {
 };
 
 const Version = ({ packageName }: Props) => {
-  const packageVersionFormatted = useVersion(packageName);
+  const packageVersionFormatted = useVersion({ packageName });
   if (!packageVersionFormatted) {
     return null;
   }
