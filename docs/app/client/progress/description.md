@@ -1,5 +1,6 @@
 ---
 title: Progress
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "Size", "Value", "Pin", "WithLabels", "Customization"]
 ---

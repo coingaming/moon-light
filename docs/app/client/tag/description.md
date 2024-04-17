@@ -1,5 +1,6 @@
 ---
 title: Tag
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "Size", "WithIcons", "Casing", "Customization"]
 ---

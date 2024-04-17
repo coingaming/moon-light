@@ -1,5 +1,6 @@
 ---
 title: Pagination
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "WithButton", "WithArrayOfPageHREFs"]
 ---

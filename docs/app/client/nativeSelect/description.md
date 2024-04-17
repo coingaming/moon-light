@@ -1,5 +1,6 @@
 ---
 title: NativeSelect
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "Sizes", "DifferentStates", "CustomStyles"]
 ---

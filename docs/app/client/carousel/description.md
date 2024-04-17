@@ -1,5 +1,6 @@
 ---
 title: Carousel
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA"]
 examples:
   [

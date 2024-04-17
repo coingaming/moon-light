@@ -1,5 +1,6 @@
 ---
 title: Alert
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "WithTitle", "WithIcon", "WithClose", "Customization"]
 ---

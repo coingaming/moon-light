@@ -1,6 +1,7 @@
 const COMPONENTS = {
   accordion: {
     title: "Accordion",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -15,6 +16,7 @@ const COMPONENTS = {
   },
   alert: {
     title: "Alert",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -26,6 +28,7 @@ const COMPONENTS = {
   },
   authCode: {
     title: "AuthCode",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -42,6 +45,7 @@ const COMPONENTS = {
   },
   avatar: {
     title: "Avatar",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -54,6 +58,7 @@ const COMPONENTS = {
   },
   bottomSheet: {
     title: "BottomSheet",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -66,6 +71,7 @@ const COMPONENTS = {
   },
   breadcrumb: {
     title: "Breadcrumb",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Collapsed",
@@ -77,6 +83,7 @@ const COMPONENTS = {
   },
   button: {
     title: "Button",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Sizes",
@@ -92,6 +99,7 @@ const COMPONENTS = {
   },
   carousel: {
     title: "Carousel",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA"],
     examples: [
       "Default",
@@ -106,6 +114,7 @@ const COMPONENTS = {
   },
   checkbox: {
     title: "Checkbox",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -119,16 +128,19 @@ const COMPONENTS = {
   },
   chip: {
     title: "Chip",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: undefined,
   },
   circularProgress: {
     title: "CircularProgress",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Size", "Value", "Customization"],
   },
   combobox: {
     title: "Combobox",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -145,11 +157,13 @@ const COMPONENTS = {
   },
   drawer: {
     title: "Drawer",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Positions", "WithBackdrop", "WithClose"],
   },
   dropdown: {
     title: "Dropdown",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -167,26 +181,31 @@ const COMPONENTS = {
   },
   form: {
     title: "Form",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Size", "WithInsetItems"],
   },
   group: {
     title: "Group",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Direction", "Options", "Size", "States"],
   },
   iconButton: {
     title: "IconButton",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: undefined,
   },
   icons: {
     title: "Icons",
+    packageName: "@heathmont/moon-icons-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Customization"],
   },
   input: {
     title: "Input",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -200,21 +219,25 @@ const COMPONENTS = {
   },
   insetInput: {
     title: "InsetInput",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "DifferentStates", "TextInputTypes", "Customization"],
   },
   insetNativeSelect: {
     title: "InsetNativeSelect",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "DifferentStates", "CustomStyles"],
   },
   loader: {
     title: "Loader",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Sizes", "Colors"],
   },
   menuItem: {
     title: "MenuItem",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -230,21 +253,25 @@ const COMPONENTS = {
   },
   modal: {
     title: "Modal",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "WithBigContent", "WithStyledContent", "WithSelect"],
   },
   nativeSelect: {
     title: "NativeSelect",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Sizes", "DifferentStates", "CustomStyles"],
   },
   pagination: {
     title: "Pagination",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "WithButton", "WithArrayOfPageHREFs"],
   },
   popover: {
     title: "Popover",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -258,6 +285,7 @@ const COMPONENTS = {
   },
   progress: {
     title: "Progress",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -270,6 +298,7 @@ const COMPONENTS = {
   },
   radio: {
     title: "Radio",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -281,16 +310,19 @@ const COMPONENTS = {
   },
   search: {
     title: "Search",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "WithTransition"],
   },
   searchCmdk: {
     title: "SearchCmdk",
+    packageName: "@heathmont/moon-cmdk-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default"],
   },
   snackbar: {
     title: "Snackbar",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -304,6 +336,7 @@ const COMPONENTS = {
   },
   switch: {
     title: "Switch",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -317,6 +350,7 @@ const COMPONENTS = {
   },
   table: {
     title: "Table",
+    packageName: "@heathmont/moon-table-v8-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -337,6 +371,7 @@ const COMPONENTS = {
   },
   tabs: {
     title: "Tabs",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: [
       "Default",
@@ -352,21 +387,25 @@ const COMPONENTS = {
   },
   tag: {
     title: "Tag",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "Size", "WithIcons", "Casing", "Customization"],
   },
   tagsInput: {
     title: "TagsInput",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "DifferentSizes", "States", "UppercaseLowercase"],
   },
   textarea: {
     title: "Textarea",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: ["Default", "States", "WithButton", "Customization"],
   },
   tooltip: {
     title: "Tooltip",
+    packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
     examples: undefined,
   },

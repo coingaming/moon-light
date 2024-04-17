@@ -1,5 +1,6 @@
 ---
 title: Modal
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "WithBigContent", "WithStyledContent", "WithSelect"]
 ---

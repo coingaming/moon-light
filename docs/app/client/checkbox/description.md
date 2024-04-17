@@ -1,5 +1,6 @@
 ---
 title: Checkbox
+packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
 examples:
   [

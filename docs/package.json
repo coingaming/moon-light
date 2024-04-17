@@ -23,7 +23,7 @@
     "@heathmont/moon-base-tw": "workspace:^10.14.1",
     "@heathmont/moon-cmdk-tw": "workspace:^10.14.1",
     "@heathmont/moon-core-tw": "workspace:^10.14.1",
-    "@heathmont/moon-icons-tw": "^9.29.0",
+    "@heathmont/moon-icons-tw": "^9.29.3",
     "@heathmont/moon-table-v8-tw": "workspace:^10.14.1",
     "@heathmont/moon-themes-tw": "^10.14.1",
     "@hookform/resolvers": "^3.3.2",

@@ -1,5 +1,6 @@
 ---
 title: Table
+packageName: "@heathmont/moon-table-v8-tw"
 tags: ["ARIA", "RTL"]
 examples:
   [

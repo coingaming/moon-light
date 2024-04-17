@@ -1,5 +1,6 @@
 ---
 title: Breadcrumb
+packageName: "@heathmont/moon-core-tw"
 examples: [ "Collapsed",
 "FourItems",
 "TwoItems",

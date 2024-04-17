@@ -1,5 +1,6 @@
 ---
 title: Icons
+packageName: "@heathmont/moon-icons-tw"
 tags: ["ARIA", "RTL"]
 examples: ["Default", "Customization"]
 ---

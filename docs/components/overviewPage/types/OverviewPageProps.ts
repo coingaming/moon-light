@@ -1,5 +1,3 @@
-import type Title from "./Title";
-
 type OverviewPageProps = {
   description?: any;
   title: string;
