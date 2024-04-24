@@ -2,4 +2,4 @@
 "@heathmont/moon-themes-tw": patch
 ---
 
-fix: update bitcasino hit colour
+fix: update bitcasino hit color
