@@ -49,7 +49,7 @@ importers:
         specifier: workspace:^10.14.1
         version: link:../packages/table-v8
       '@heathmont/moon-themes-tw':
-        specifier: ^10.14.1
+        specifier: ^10.15.0
         version: link:../packages/themes
       '@hookform/resolvers':
         specifier: ^3.3.2

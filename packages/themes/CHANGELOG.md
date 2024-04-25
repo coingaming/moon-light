@@ -1,5 +1,11 @@
 # @heathmont/moon-themes-tw
 
+## 10.15.0
+
+### Patch Changes
+
+- 240db00: fix: update bitcasino hit color
+
 ## 10.14.1
 
 ### Patch Changes

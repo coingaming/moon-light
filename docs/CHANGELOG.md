@@ -1,5 +1,19 @@
 # docs
 
+## 10.15.0
+
+### Minor Changes
+
+- d71a61f: docs: add Our contributors section on the main page [MDS-1061]
+- f557d96: Add version number to every component page title [MDS-1086]
+
+### Patch Changes
+
+- c032714: Update icons set, overall style improvements, useContributors hook fix [MDS-1085]
+- 64d9592: docs: Update AuthCode preview image [MDS-1083]
+- Updated dependencies [240db00]
+  - @heathmont/moon-themes-tw@10.15.0
+
 ## 10.14.2
 
 ### Patch Changes
