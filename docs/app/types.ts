@@ -817,6 +817,9 @@ export type Examples = {
     "Video": "string",
     "page": "string"
   },
+  "installation": {
+    "page": "string"
+  },
   "releases": {
     "page": "string"
   },
