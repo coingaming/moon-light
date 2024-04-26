@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-function generateInstallationFile() {
+function buildInstallation() {
   // Define the path to the README.md file
   const readmePath = path.resolve("../README.md");
 
@@ -12,7 +12,7 @@ function generateInstallationFile() {
   readmeContents = readmeContents.replace(/`/g, "\\`").replace(/\${/g, "\\${");
 
   // Define the path to the output .ts file
-  const outputPath = path.resolve("generated/installation.ts");
+  const outputPath = path.resolve("./generated/installation.ts");
 
   // Assign the contents of the README.md file to a variable
   const readmeString = `const Installation = \`${readmeContents}\`;
@@ -23,4 +23,4 @@ export default Installation;
   fs.writeFileSync(outputPath, readmeString);
 }
 
-generateInstallationFile();
+buildInstallation();
