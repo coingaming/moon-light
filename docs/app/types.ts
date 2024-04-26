@@ -813,6 +813,9 @@ export type Examples = {
       "props": "string"
     }
   },
+  "contribution": {
+    "page": "string"
+  },
   "figma": {
     "Video": "string",
     "page": "string"
