@@ -60,5 +60,5 @@ Packages are developed inside their respective \`src\` folders, utilizing [pnpm 
 ## Contributing
 
 If you're interested in contributing to Moon Design, please read our [contributing docs](CONTRIBUTING.md) before submitting a pull request.
-`; 
+`;
 export default Installation;
