@@ -15,8 +15,9 @@ function generateInstallationFile() {
   const outputPath = path.resolve("generated/installation.ts");
 
   // Assign the contents of the README.md file to a variable
-  const readmeString = `const Installation = \`${readmeContents}\`; 
-export default Installation;`;
+  const readmeString = `const Installation = \`${readmeContents}\`;
+export default Installation;
+`;
 
   // Write the variable to the .ts file
   fs.writeFileSync(outputPath, readmeString);
