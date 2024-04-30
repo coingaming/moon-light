@@ -6,6 +6,10 @@ type NavigationProps = {
 
 const navigation: NavigationProps[] = [
   {
+    name: "Installation",
+    href: "/installation",
+  },
+  {
     name: "Releases",
     href: "/releases",
   },
