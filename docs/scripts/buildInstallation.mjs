@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-function generateInstallationFile() {
+function buildInstallation() {
   // Define the path to the README.md file
   const readmePath = path.resolve("../README.md");
 
@@ -23,4 +23,4 @@ export default Installation;
   fs.writeFileSync(outputPath, readmeString);
 }
 
-generateInstallationFile();
+buildInstallation();
