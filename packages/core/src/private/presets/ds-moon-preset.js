@@ -312,9 +312,6 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {},
-  },
   plugins: [
     require("tailwindcss-radix")(),
     plugin(function ({ addComponents }) {
@@ -516,6 +513,7 @@ module.exports = {
         `&[data-state="open"]`,
         `:where([data-state="open"]) &`,
       ]);
+      addVariant("hover-supported", "@media (hover: hover)");
     }),
   ],
 };

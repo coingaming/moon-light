@@ -6,6 +6,12 @@ const COMPONENT_NAME = "button";
 setupTest(COMPONENT_NAME);
 
 test.describe("Default tests", () => {
+  test("Default: should render and match screenshot", async ({ page }) => {
+    await expect(page).toHaveScreenshot(`${COMPONENT_NAME}-default.png`);
+  });
+});
+
+test.describe("DefaultWithClick tests", () => {
   test("DefaultWithClick: should run the callback on the click", async ({
     page,
   }) => {
