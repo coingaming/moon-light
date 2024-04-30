@@ -1,5 +1,17 @@
 # docs
 
+## 10.16.0
+
+### Minor Changes
+
+- ac50cda: feat: update hover logics for Button and IconButton. Add hover-supported @media to MDS configuration file
+
+### Patch Changes
+
+- 18e3224: Add Installation page [MDS-1065]
+- Updated dependencies [ac50cda]
+  - @heathmont/moon-core-tw@10.16.0
+
 ## 10.15.0
 
 ### Minor Changes

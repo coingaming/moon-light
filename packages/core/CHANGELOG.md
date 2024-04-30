@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.16.0
+
+### Minor Changes
+
+- ac50cda: feat: update hover logics for Button and IconButton. Add hover-supported @media to MDS configuration file
+
 ## 10.14.1
 
 ### Patch Changes
