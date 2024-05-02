@@ -14,6 +14,10 @@ const navigation: NavigationProps[] = [
     href: "/releases",
   },
   {
+    name: "Themes",
+    href: "/themes",
+  },
+  {
     name: "Figma",
     href: "/figma",
   },

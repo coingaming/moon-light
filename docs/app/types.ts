@@ -901,5 +901,11 @@ export type Examples = {
         "Default": "string"
       }
     }
+  },
+  "themes": {
+    "ColorSet": "string",
+    "MainColors": "string",
+    "SupportiveColors": "string",
+    "page": "string"
   }
 };
