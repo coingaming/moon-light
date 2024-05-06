@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import "./globals.css";
 import "./themes.css";
 import { mergeClassnames } from "@heathmont/moon-base-tw";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata = {
   title: "Moon Design System",
@@ -31,6 +32,7 @@ export default async function RootLayout({
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
+      <GoogleAnalytics />
       <body className={mergeClassnames(defaultTheme, "bg-goku")}>
         <SearchProvider actions={actions}>
           <div id="__next">{children}</div>
