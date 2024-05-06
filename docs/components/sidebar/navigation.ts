@@ -10,6 +10,10 @@ const navigation: NavigationProps[] = [
     href: "/installation",
   },
   {
+    name: "Contribution",
+    href: "/contribution",
+  },
+  {
     name: "Releases",
     href: "/releases",
   },
