@@ -3,4 +3,4 @@
 "docs": patch
 ---
 
-fix: add missing keys to Table map functions, remove unnecessary scroll on right sidebar in docs
+fix: add missing keys to Table map functions, remove unnecessary scroll on right sidebar in docs [MDS-1175]
