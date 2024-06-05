@@ -36,7 +36,7 @@ const Name = (prop: PropsTableProp) => (
       {prop.required && <span>*</span>}
     </Tag>
     <Popover position="top">
-      <Popover.Trigger>
+      <Popover.Trigger aria-label="info">
         <GenericInfo className="text-moon-16" />
       </Popover.Trigger>
       <Popover.Panel className="w-auto min-w-[12rem] overflow-y-visible p-3 rounded-moon-s-xs text-moon-12 text-bulma bg-goku">
