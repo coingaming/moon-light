@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from "react";
+import React, { forwardRef } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { flexRender, Cell } from "@tanstack/react-table";
 import ClipProps from "../private/types/ClipProps";

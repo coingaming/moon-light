@@ -115,13 +115,13 @@ const Example = () => {
       const deals = data.map((value, index, src) => {
         const [key, range] = Object.entries(value)[0];
         return (
-          <>
+          <React.Fragment key={index}>
             <span className="me-[5px]">{key}</span>
             <span>({range.start ? range.start : ""}</span>
             <span>-</span>
             <span>{range.end ? range.end : ""})</span>
             {index < src.length - 1 && <span className="mx-2">|</span>}
-          </>
+          </React.Fragment>
         );
       });
 

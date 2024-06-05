@@ -28,9 +28,10 @@ const TFoot = ({
       }
     >
       {table.getFooterGroups().map((footerGroup, indexFG) => (
-        <tr key={footerGroup.id}>
+        <tr key={indexFG}>
           {footerGroup.headers.map((header, index) => (
             <TF
+              key={index}
               header={header}
               backgroundColor={backgroundColor}
               rowSize={rowSize}
@@ -45,10 +46,11 @@ const TFoot = ({
     </tfoot>
   ) : (
     <tfoot>
-      {table.getFooterGroups().map((footerGroup) => (
-        <tr key={footerGroup.id}>
+      {table.getFooterGroups().map((footerGroup, indexTF) => (
+        <tr key={indexTF}>
           {footerGroup.headers.map((header, index) => (
             <TF
+              key={index}
               header={header}
               backgroundColor={backgroundColor}
               isFirstColumn={index === 0}

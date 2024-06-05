@@ -69,8 +69,8 @@ const Minimap = ({ tableWrapperRef, numberOfColumns }: MinimapProps) => {
         />
         {[...new Array(numberOfColumns)].map((_, index) => (
           <div
-            className="h-full w-2 bg-beerus rounded-moon-i-xs"
             key={index}
+            className="h-full w-2 bg-beerus rounded-moon-i-xs"
             children={""}
           />
         ))}

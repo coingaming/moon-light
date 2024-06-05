@@ -27,9 +27,10 @@ const THead = ({
       }
     >
       {table.getHeaderGroups().map((headerGroup, indexHG) => (
-        <tr key={headerGroup.id}>
+        <tr key={indexHG}>
           {headerGroup.headers.map((header, index) => (
             <TH
+              key={index}
               table={table}
               header={header}
               backgroundColor={backgroundColor}
@@ -46,10 +47,11 @@ const THead = ({
     </thead>
   ) : (
     <thead>
-      {table.getHeaderGroups().map((headerGroup) => (
-        <tr key={headerGroup.id}>
+      {table.getHeaderGroups().map((headerGroup, indexTH) => (
+        <tr key={indexTH}>
           {headerGroup.headers.map((header, index) => (
             <TH
+              key={index}
               table={table}
               header={header}
               backgroundColor={backgroundColor}
