@@ -68,7 +68,7 @@ const TBody = ({
 
         return (
           <tr
-            key={row.id}
+            key={rowIndex}
             style={styles}
             className={mergeClassnames(
               rowIndex === 0 && "border-t-transparent",
@@ -79,6 +79,7 @@ const TBody = ({
           >
             {cells.map((cell, cellIndex) => (
               <TD
+                key={cellIndex}
                 cell={cell}
                 index={cellIndex}
                 cells={cells}

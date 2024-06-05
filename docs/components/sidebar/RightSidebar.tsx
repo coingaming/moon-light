@@ -19,7 +19,7 @@ const RightSidebar = ({
   return (
     <aside
       className={mergeClassnames(
-        "fixed top-[72px] end-0 w-64 pt-6 px-3 bg-goku overflow-y-scroll border-s border-beerus hidden xl:block",
+        "fixed top-[72px] end-0 w-64 pt-6 px-3 bg-goku overflow-y-auto border-s border-beerus hidden xl:block",
         className,
       )}
     >
