@@ -1,5 +1,17 @@
 # docs
 
+## 10.16.1
+
+### Patch Changes
+
+- 884cf84: fix: add missing keys to Table map functions, remove unnecessary scroll on right sidebar in docs [MDS-1175]
+- 772195f: Add Contribution page [MDS-1064]
+- cdcfbab: fix: accessibility issue in TableProps component [MDS-950]
+- ab7501c: Add Themes page to documentation
+- 4d38494: Add Google Analytics [MDS-1066]
+- Updated dependencies [884cf84]
+  - @heathmont/moon-table-v8-tw@10.16.1
+
 ## 10.16.0
 
 ### Minor Changes

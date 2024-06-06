@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.16.1
+
+### Patch Changes
+
+- 884cf84: fix: add missing keys to Table map functions, remove unnecessary scroll on right sidebar in docs [MDS-1175]
+
 ## 10.14.1
 
 ### Patch Changes
