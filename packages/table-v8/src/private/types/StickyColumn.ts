@@ -1,4 +1,4 @@
-import { ColumnDef } from "@tanstack/react-table";
+import type { ColumnDef } from ".";
 
 type StickyColumn = ColumnDef<{}> & {
   sticky?: string;

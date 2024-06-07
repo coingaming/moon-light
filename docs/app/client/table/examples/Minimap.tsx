@@ -1,8 +1,8 @@
 "use client";
 
-import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import { ColumnDef } from "@tanstack/react-table";
-import React from "react";
+import { useCallback, useMemo } from "react";
+import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
+import type { ColumnDef } from "@heathmont/moon-table-v8-tw/lib/es/private/types";
 
 type DataTypeHelper = {
   firstName: string;
@@ -40,7 +40,7 @@ type DataTypeHelper = {
 };
 
 const Example = () => {
-  const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
+  const columns = useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
       {
         id: "name",
@@ -201,7 +201,7 @@ const Example = () => {
     [],
   );
 
-  const makeData = React.useCallback((length: number) => {
+  const makeData = useCallback((length: number) => {
     return Array.from("_".repeat(length)).map((_, index) => {
       return {
         firstName: "Test",
@@ -230,7 +230,7 @@ const Example = () => {
     });
   }, []);
 
-  const data = React.useMemo(() => makeData(40), [makeData]);
+  const data = useMemo(() => makeData(40), [makeData]);
 
   return (
     <div className="border border-beerus rounded-lg overflow-hidden">

@@ -1,10 +1,10 @@
-import React from "react";
+import type { CSSProperties, ReactNode, RefObject } from "react";
 
 type TableWrapperProps = {
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   className?: string;
-  children?: React.ReactNode;
-  tableWrapperRef?: React.RefObject<HTMLDivElement>;
+  children?: ReactNode;
+  tableWrapperRef?: RefObject<HTMLDivElement>;
 };
 
 export default TableWrapperProps;

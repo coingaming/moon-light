@@ -1,12 +1,12 @@
-import { Header, Table } from "@tanstack/react-table";
-import ColumnData from "./ColumnData";
-import RowSizes from "./RowSizes";
-import { CellBorderType } from "./CellBorderType";
+import type { Header, TableInterface } from ".";
+import type ColumnData from "./ColumnData";
+import type RowSizes from "./RowSizes";
+import type CellBorderType from "./CellBorderType";
 
 type THProps = {
   backgroundColor?: string;
   header: Header<{}, unknown>;
-  table?: Table<{}>;
+  table?: TableInterface<{}>;
   isFirstColumn?: boolean;
   isLastColumn?: boolean;
   rowSize?: RowSizes;

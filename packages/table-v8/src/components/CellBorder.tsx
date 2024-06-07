@@ -1,6 +1,6 @@
-import { mergeClassnames } from "@heathmont/moon-core-tw";
-import { CellBorderType } from "../private/types/CellBorderType";
 import React from "react";
+import { mergeClassnames } from "@heathmont/moon-core-tw";
+import type CellBorderType from "../private/types/CellBorderType";
 
 const mainClass =
   "absolute left-0 top-[6px] w-[1px] h-[calc(100%-12px)] bg-beerus";

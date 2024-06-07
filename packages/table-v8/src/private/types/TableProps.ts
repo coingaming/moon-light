@@ -1,4 +1,4 @@
-import {
+import type {
   ColumnDef,
   ExpandedState,
   OnChangeFn,
@@ -6,12 +6,12 @@ import {
   RowSelectionState,
   SortingState,
   TableState,
-} from "@tanstack/react-table";
-import ClipProps from "./ClipProps";
-import DataHelper from "./DataHelper";
-import RowSizes from "./RowSizes";
-import TableLayouts from "./TableLayouts";
-import { CellBorderType } from "./CellBorderType";
+} from ".";
+import type ClipProps from "./ClipProps";
+import type DataHelper from "./DataHelper";
+import type RowSizes from "./RowSizes";
+import type TableLayouts from "./TableLayouts";
+import type CellBorderType from "./CellBorderType";
 
 type TableProps<D extends DataHelper = DataHelper> = {
   columns: ColumnDef<D, any>[];

@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useCallback } from "react";
-import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import { ColumnDef } from "@tanstack/react-table";
+import { useCallback, useMemo } from "react";
+import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
+import type { ColumnDef } from "@heathmont/moon-table-v8-tw/lib/es/private/types";
 
 type DefaultHelper = {
   firstName: string;
@@ -29,7 +29,7 @@ const Example = () => {
     });
   }, []);
 
-  const columns = React.useMemo<ColumnDef<{}, DefaultHelper>[]>(
+  const columns = useMemo<ColumnDef<{}, DefaultHelper>[]>(
     () => [
       {
         id: "firstName",
@@ -73,7 +73,7 @@ const Example = () => {
     [],
   );
 
-  const data = React.useMemo(() => makeData(2), [makeData]);
+  const data = useMemo(() => makeData(2), [makeData]);
   const defaultColumn = {
     size: 120,
   };

@@ -1,10 +1,10 @@
-import { Table } from "@tanstack/react-table";
-import ColumnData from "./ColumnData";
-import RowSizes from "./RowSizes";
-import { CellBorderType } from "./CellBorderType";
+import type { TableInterface } from ".";
+import type ColumnData from "./ColumnData";
+import type RowSizes from "./RowSizes";
+import type CellBorderType from "./CellBorderType";
 
 type TFootProps = {
-  table: Table<{}>;
+  table: TableInterface<{}>;
   backgroundColor?: string;
   rowGap?: string;
   rowSize?: RowSizes;

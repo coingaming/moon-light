@@ -1,8 +1,8 @@
 import React from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import TD from "./TD";
-import TBodyProps from "../private/types/TBodyProps";
-import { Row } from "@tanstack/react-table";
+import type TBodyProps from "../private/types/TBodyProps";
+import type { Row } from "../private/types";
 
 const TBody = ({
   table,

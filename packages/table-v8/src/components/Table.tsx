@@ -1,24 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import {
-  ColumnResizeMode,
   getCoreRowModel,
   getExpandedRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table";
+} from "../private/utils";
 import TableWrapper from "./TableWrapper";
 import TBody from "./TBody";
 import TFoot from "./TFoot";
 import THead from "./THead";
-import ColumnData from "../private/types/ColumnData";
-import TableProps from "../private/types/TableProps";
 import buildColumnMap from "../private/utils/buildColumnMap";
 import {
   handleTableLayouts,
   handleTableFixedWidth,
 } from "../private/utils/handleTableLayouts";
 import Minimap from "./Minimap";
+import type { ColumnResizeMode } from "../private/types";
+import type ColumnData from "../private/types/ColumnData";
+import type TableProps from "../private/types/TableProps";
 
 const Table = ({
   columns,

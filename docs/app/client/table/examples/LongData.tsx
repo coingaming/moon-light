@@ -1,10 +1,10 @@
 "use client";
 
+import { useCallback, useMemo } from "react";
 import { Tag } from "@heathmont/moon-core-tw";
-import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import ClipProps from "@heathmont/moon-table-v8-tw/lib/es/private/types/ClipProps";
-import { ColumnDef } from "@tanstack/react-table";
-import React, { useCallback } from "react";
+import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
+import type ClipProps from "@heathmont/moon-table-v8-tw/lib/es/private/types/ClipProps";
+import type { ColumnDef } from "@heathmont/moon-table-v8-tw/lib/es/private/types";
 
 type DataTypeHelper = {
   uuid: string;
@@ -13,12 +13,12 @@ type DataTypeHelper = {
   client: string;
   gameNameAndProvider: string;
   amount: number;
-  currency: React.JSX.Element;
-  status: React.JSX.Element;
+  currency: JSX.Element;
+  status: JSX.Element;
 };
 
 const Example = () => {
-  const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
+  const columns = useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
       {
         id: "operation",
@@ -96,14 +96,14 @@ const Example = () => {
     [],
   );
 
-  const currency = React.useMemo(
+  const currency = useMemo(
     () => (
       <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
     ),
     [],
   );
 
-  const success = React.useMemo(
+  const success = useMemo(
     () => (
       <Tag className="bg-roshi-10 text-lg text-roshi max-w-fit">SUCCESS</Tag>
     ),
@@ -134,7 +134,7 @@ const Example = () => {
     [currency, success],
   );
 
-  const data = React.useMemo(() => makeData(40), [makeData]);
+  const data = useMemo(() => makeData(40), [makeData]);
   const textClip = "clip" as ClipProps;
 
   return (

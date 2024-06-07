@@ -3,8 +3,12 @@
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { ArrowsSorting } from "@heathmont/moon-icons-tw";
 import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
-import { ColumnDef, Header, SortingState } from "@tanstack/react-table";
-import React from "react";
+import {
+  ColumnDef,
+  Header,
+  SortingState,
+} from "@heathmont/moon-table-v8-tw/lib/es/private/types";
+import { useMemo, useState } from "react";
 
 type DataTypeHelper = {
   firstName: string;
@@ -42,7 +46,7 @@ const preset: SortingState = [
 ];
 
 const Example = () => {
-  const makeData = React.useMemo(
+  const makeData = useMemo(
     () => [
       {
         firstName: "Magdalena",
@@ -156,10 +160,10 @@ const Example = () => {
     [],
   );
 
-  const [data, setData] = React.useState(makeData);
-  const [sorting, setSorting] = React.useState<SortingState>(preset);
+  const [data, setData] = useState(makeData);
+  const [sorting, setSorting] = useState<SortingState>(preset);
 
-  const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
+  const columns = useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
       {
         id: "first_name",

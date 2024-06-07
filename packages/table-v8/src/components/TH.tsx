@@ -1,11 +1,12 @@
 import React, { forwardRef } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
-import { flexRender, Header } from "@tanstack/react-table";
-import StickyColumn from "../private/types/StickyColumn";
-import THProps from "../private/types/THProps";
+import { flexRender } from "../private/utils";
 import getFontSize from "../private/utils/getFontSize";
 import getPadding from "../private/utils/getPadding";
 import CellBorder from "./CellBorder";
+import type { Header } from "../private/types";
+import type StickyColumn from "../private/types/StickyColumn";
+import type THProps from "../private/types/THProps";
 
 const getStickyShift = (header: Header<{}, unknown>, stickySide: string) => {
   const { headers } = header.headerGroup;
