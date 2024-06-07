@@ -3,7 +3,7 @@
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import { ArrowsSorting } from "@heathmont/moon-icons-tw";
 import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
-import {
+import type {
   ColumnDef,
   Header,
   SortingState,
