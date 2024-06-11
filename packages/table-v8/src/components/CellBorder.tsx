@@ -26,12 +26,12 @@ const CellBorder = ({
   isFirstColumn?: boolean;
   stickySide?: string;
 }) => {
-  if (!withBorder) return undefined;
+  if (!withBorder) null;
   return stickySide ? (
     <StickyBorder stickySide={stickySide} />
   ) : withBorder === true ? (
     <Border isFirstColumn={isFirstColumn} />
-  ) : undefined;
+  ) : null;
 };
 
 export default CellBorder;

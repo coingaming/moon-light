@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.17.2
+
+### Patch Changes
+
+- Fix CellBorder return from undefined to null
+
 ## 10.17.0
 
 ### Minor Changes
