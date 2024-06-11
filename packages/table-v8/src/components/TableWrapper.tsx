@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useState } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
-import TableWrapperProps from "../private/types/TableWrapperProps";
+import type TableWrapperProps from "../private/types/TableWrapperProps";
 
 const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
   ({ style, className, children, tableWrapperRef }) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import TF from "./TF";
-import TFootProps from "../private/types/TFootProps";
+import type TFootProps from "../private/types/TFootProps";
 
 const TFoot = ({
   table,

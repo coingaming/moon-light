@@ -1,1 +1,3 @@
-export type CellBorderType = boolean | "sticky";
+type CellBorderType = boolean | "sticky";
+
+export default CellBorderType;

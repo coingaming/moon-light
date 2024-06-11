@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useCallback } from "react";
-import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import DataHelper from "@heathmont/moon-table-v8-tw/lib/es/private/types/DataHelper";
-import { ExpandedState, ColumnDef } from "@tanstack/react-table";
+import { useCallback, useMemo, useState } from "react";
+import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
 import {
   ArrowsRefreshRound,
   ControlsChevronDown,
   ControlsChevronRight,
 } from "@heathmont/moon-icons-tw";
 import { Chip, Tooltip } from "@heathmont/moon-core-tw";
+import type DataHelper from "@heathmont/moon-table-v8-tw/lib/es/private/types/DataHelper";
+import type {
+  ExpandedState,
+  ColumnDef,
+} from "@heathmont/moon-table-v8-tw/lib/es/private/types";
 
 interface Person extends DataHelper {
   firstName: string;
@@ -18,7 +21,7 @@ interface Person extends DataHelper {
   visits: number;
   progress: number;
   status: "relationship" | "complicated" | "single";
-  actions: React.JSX.Element;
+  actions: JSX.Element;
   subRows?: Person[];
 }
 
@@ -31,7 +34,7 @@ const Example = () => {
     return arr;
   }, []);
 
-  const tooltip = React.useMemo(
+  const tooltip = useMemo(
     () => (
       <Tooltip>
         <Tooltip.Trigger className="max-h-6">
@@ -52,7 +55,7 @@ const Example = () => {
     [],
   );
 
-  const newPerson = React.useMemo((): Person => {
+  const newPerson = useMemo((): Person => {
     return {
       firstName: "FirstName",
       lastName: "LastName",
@@ -81,7 +84,7 @@ const Example = () => {
     [newPerson, range],
   );
 
-  const columns = React.useMemo<ColumnDef<{}, Person>[]>(
+  const columns = useMemo<ColumnDef<{}, Person>[]>(
     () => [
       {
         header: "Name",
@@ -183,8 +186,8 @@ const Example = () => {
     "0.2.1": true,
   };
 
-  const [expanded, setExpanded] = React.useState<ExpandedState>(preset);
-  const [data, setData] = React.useState(makeData(10, 5, 3));
+  const [expanded, setExpanded] = useState<ExpandedState>(preset);
+  const [data, setData] = useState(makeData(10, 5, 3));
 
   const getSubRows = useCallback(
     ({ subRows }: DataHelper) => subRows as DataHelper[],

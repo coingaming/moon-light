@@ -1,26 +1,26 @@
 "use client";
 
+import { useCallback, useMemo, useState } from "react";
 import {
   Checkbox,
   Chip,
   Tooltip,
   mergeClassnames,
 } from "@heathmont/moon-core-tw";
-import DataHelper from "@heathmont/moon-table-v8-tw/lib/es/private/types/DataHelper";
 import {
   ArrowsRefreshRound,
   ControlsChevronDown,
   ControlsChevronRight,
 } from "@heathmont/moon-icons-tw";
-import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import {
+import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
+import type DataHelper from "@heathmont/moon-table-v8-tw/lib/es/private/types/DataHelper";
+import type {
   ColumnDef,
   ExpandedState,
   Row,
   RowSelectionState,
-  Table as TanStackTable,
-} from "@tanstack/react-table";
-import React, { useCallback } from "react";
+  TableInterface,
+} from "@heathmont/moon-table-v8-tw/lib/es/private/types";
 
 interface DataTypeHelper extends DataHelper {
   firstName: string;
@@ -47,7 +47,7 @@ const preset: RowSelectionState = {
 };
 
 const Example = () => {
-  const tooltip = React.useMemo(
+  const tooltip = useMemo(
     () => (
       <Tooltip>
         <Tooltip.Trigger className="max-h-6">
@@ -68,7 +68,7 @@ const Example = () => {
     [],
   );
 
-  const makeData = React.useMemo(
+  const makeData = useMemo(
     () => [
       {
         firstName: "Lvl1",
@@ -190,12 +190,11 @@ const Example = () => {
     [tooltip],
   );
 
-  const [rowSelection, setRowSelection] =
-    React.useState<RowSelectionState>(preset);
-  const [expanded, setExpanded] = React.useState<ExpandedState>(true);
-  const [data, setData] = React.useState(makeData);
+  const [rowSelection, setRowSelection] = useState<RowSelectionState>(preset);
+  const [expanded, setExpanded] = useState<ExpandedState>(true);
+  const [data, setData] = useState(makeData);
 
-  const trackCheckState = (row: Row<{}>, table: TanStackTable<{}>) => {
+  const trackCheckState = (row: Row<{}>, table: TableInterface<{}>) => {
     let parentRowId = row.parentId;
     while (parentRowId) {
       const nodeRow = table.getRow(parentRowId);
@@ -232,7 +231,7 @@ const Example = () => {
     );
   };
 
-  const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
+  const columns = useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
       {
         id: "expand/select",

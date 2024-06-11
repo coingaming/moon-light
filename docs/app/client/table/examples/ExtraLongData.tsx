@@ -1,25 +1,25 @@
 "use client";
 
+import { Fragment, useCallback, useMemo } from "react";
 import { Chip, Tag, Tooltip } from "@heathmont/moon-core-tw";
 import {
   Other3DotsHorizontal,
   TimeCalendarDate,
 } from "@heathmont/moon-icons-tw";
 import { CellScroller, Table } from "@heathmont/moon-table-v8-tw/lib/es";
-import { ColumnDef } from "@tanstack/react-table";
-import React from "react";
+import type { ColumnDef } from "@heathmont/moon-table-v8-tw/lib/es/private/types";
 
 type DataTypeHelper = {
   location: string;
-  deals: React.JSX.Element | string;
-  range: React.JSX.Element | string;
+  deals: JSX.Element | string;
+  range: JSX.Element | string;
   amount: number;
-  currency: React.JSX.Element;
-  actions: React.JSX.Element;
+  currency: JSX.Element;
+  actions: JSX.Element;
 };
 
 const Example = () => {
-  const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
+  const columns = useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
       {
         id: "leftSticky",
@@ -85,14 +85,14 @@ const Example = () => {
     [],
   );
 
-  const currency = React.useMemo(
+  const currency = useMemo(
     () => (
       <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
     ),
     [],
   );
 
-  const tooltip = React.useMemo(
+  const tooltip = useMemo(
     () => (
       <Tooltip>
         <Tooltip.Trigger className="max-h-6">
@@ -110,18 +110,18 @@ const Example = () => {
     [],
   );
 
-  const rearrangeData = React.useCallback(
+  const rearrangeData = useCallback(
     (data: { [key: string]: { start?: string; end?: string } }[]) => {
       const deals = data.map((value, index, src) => {
         const [key, range] = Object.entries(value)[0];
         return (
-          <React.Fragment key={index}>
+          <Fragment key={index}>
             <span className="me-[5px]">{key}</span>
             <span>({range.start ? range.start : ""}</span>
             <span>-</span>
             <span>{range.end ? range.end : ""})</span>
             {index < src.length - 1 && <span className="mx-2">|</span>}
-          </React.Fragment>
+          </Fragment>
         );
       });
 
@@ -130,7 +130,7 @@ const Example = () => {
     [],
   );
 
-  const data = React.useMemo(
+  const data = useMemo(
     () => [
       {
         location: "Lithuania",

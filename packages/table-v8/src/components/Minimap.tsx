@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import MinimapProps from "../private/types/MinimapProps";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
+import type MinimapProps from "../private/types/MinimapProps";
 
 let timeoutId: ReturnType<typeof setTimeout>;
 const TIMEOUT = 350;

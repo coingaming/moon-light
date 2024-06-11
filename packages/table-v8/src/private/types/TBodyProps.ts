@@ -1,11 +1,11 @@
-import { Row, Table } from "@tanstack/react-table";
-import ClipProps from "./ClipProps";
-import ColumnData from "./ColumnData";
-import RowSizes from "./RowSizes";
-import { CellBorderType } from "./CellBorderType";
+import type { Row, TableInterface } from ".";
+import type ClipProps from "./ClipProps";
+import type ColumnData from "./ColumnData";
+import type RowSizes from "./RowSizes";
+import type CellBorderType from "./CellBorderType";
 
 type TBodyProps = {
-  table: Table<{}>;
+  table: TableInterface<{}>;
   rowGap?: string;
   rowSize: RowSizes;
   isSelectable?: boolean;

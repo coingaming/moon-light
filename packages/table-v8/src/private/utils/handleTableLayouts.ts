@@ -1,4 +1,4 @@
-import TableLayouts from "../types/TableLayouts";
+import type TableLayouts from "../types/TableLayouts";
 
 export const handleTableLayouts = (
   layout: TableLayouts,

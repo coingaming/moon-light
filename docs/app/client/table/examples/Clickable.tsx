@@ -1,8 +1,11 @@
 "use client";
 
-import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import { ColumnDef, Row } from "@tanstack/react-table";
-import React, { useCallback } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
+import type {
+  ColumnDef,
+  Row,
+} from "@heathmont/moon-table-v8-tw/lib/es/private/types";
 
 type DataTypeHelper = {
   firstName: string;
@@ -29,9 +32,9 @@ const Example = () => {
     });
   }, []);
 
-  const [data, setData] = React.useState(makeData(20));
+  const [data, setData] = useState(makeData(20));
 
-  const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
+  const columns = useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
       {
         header: () => "First Name",

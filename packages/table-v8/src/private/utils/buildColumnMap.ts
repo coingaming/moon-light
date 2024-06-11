@@ -1,4 +1,4 @@
-import ColumnData from "../types/ColumnData";
+import type ColumnData from "../types/ColumnData";
 
 const buildColumnMap = (tableRef: HTMLTableElement) => {
   const columnMap: ColumnData[][] = [];

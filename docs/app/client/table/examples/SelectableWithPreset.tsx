@@ -1,15 +1,14 @@
 "use client";
 
+import { ReactNode, useCallback, useMemo, useState } from "react";
 import { Chip, Tooltip } from "@heathmont/moon-core-tw";
 import { ArrowsRefreshRound } from "@heathmont/moon-icons-tw";
-import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
-import {
+import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
+import type {
   ColumnDef,
   Row,
   RowSelectionState,
-  flexRender,
-} from "@tanstack/react-table";
-import React, { ReactNode, useCallback } from "react";
+} from "@heathmont/moon-table-v8-tw/lib/es/private/types";
 
 type DataTypeHelper = {
   firstName: string;
@@ -31,7 +30,7 @@ const preset: RowSelectionState = {
 };
 
 const Example = () => {
-  const tooltip = React.useMemo(
+  const tooltip = useMemo(
     () => (
       <Tooltip>
         <Tooltip.Trigger className="max-h-6">
@@ -70,11 +69,10 @@ const Example = () => {
     [tooltip],
   );
 
-  const [rowSelection, setRowSelection] =
-    React.useState<RowSelectionState>(preset);
-  const [data, setData] = React.useState(makeData(20));
+  const [rowSelection, setRowSelection] = useState<RowSelectionState>(preset);
+  const [data, setData] = useState(makeData(20));
 
-  const columns = React.useMemo<ColumnDef<{}, DataTypeHelper>[]>(
+  const columns = useMemo<ColumnDef<{}, DataTypeHelper>[]>(
     () => [
       {
         header: () => "First Name",

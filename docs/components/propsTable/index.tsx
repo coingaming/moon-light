@@ -1,12 +1,12 @@
 "use client";
 
+import React from "react";
 import HeaderSection from "../HeaderSection";
-import { PropsTableProp, PropsTablePropTypes } from "@/types";
 import Table from "@heathmont/moon-table-v8-tw/lib/es/components/Table";
 import { Popover, Tag } from "@heathmont/moon-core-tw";
-import React from "react";
 import { GenericInfo } from "@heathmont/moon-icons-tw";
-import { ColumnDef } from "@tanstack/react-table";
+import type { ColumnDef } from "@heathmont/moon-table-v8-tw/lib/es/private/types";
+import type { PropsTableProp, PropsTablePropTypes } from "@/types";
 
 type TableProps = {
   data: PropsTableProp[];

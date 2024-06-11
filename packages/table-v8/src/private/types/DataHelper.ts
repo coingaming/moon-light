@@ -1,5 +1,5 @@
-interface DataHelper {
+type DataHelper = {
   [key: string]: unknown;
-}
+};
 
 export default DataHelper;
