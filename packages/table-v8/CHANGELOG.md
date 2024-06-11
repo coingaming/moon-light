@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.17.0
+
+### Minor Changes
+
+- 9ec1d47: feat: remove necessity of installation of @tanstack package [MDS-1181]
+
 ## 10.16.1
 
 ### Patch Changes
