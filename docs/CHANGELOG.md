@@ -1,5 +1,11 @@
 # docs
 
+## 10.17.1
+
+### Patch Changes
+
+- Updated docs Accordion example
+
 ## 10.17.0
 
 ### Minor Changes
