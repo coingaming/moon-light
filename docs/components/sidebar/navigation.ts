@@ -22,6 +22,10 @@ const navigation: NavigationProps[] = [
     href: "/themes",
   },
   {
+    name: "Typography",
+    href: "/typography",
+  },
+  {
     name: "Figma",
     href: "/figma",
   },

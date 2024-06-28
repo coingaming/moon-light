@@ -72,14 +72,12 @@ export async function withExamples(
         component={<Component />}
         description={
           <>
-            <div className="max-w-3xl">
-              <MDX
-                markdown={descriptions?.[exampleDescriptionKey]}
-                options={{
-                  parseFrontmatter: true,
-                }}
-              />
-            </div>
+            <MDX
+              markdown={descriptions?.[exampleDescriptionKey]}
+              options={{
+                parseFrontmatter: true,
+              }}
+            />
             {client?.examplesAnatomy?.[exampleKey] && (
               <Anatomy
                 anatomy={client?.examplesAnatomy?.[exampleDescriptionKey]}
