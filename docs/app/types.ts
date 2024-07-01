@@ -910,5 +910,12 @@ export type Examples = {
     "MainColors": "string",
     "SupportiveColors": "string",
     "page": "string"
+  },
+  "typography": {
+    "examples": {
+      "Captions": "string",
+      "Customization": "string",
+      "Sizes": "string"
+    }
   }
 };
