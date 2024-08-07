@@ -14,7 +14,7 @@ const Footer = () => (
       </Link>{" "}
       ❤️
     </p>
-    <div className="flex gap-x-4 gap-y-6 flex-wrap justify-center items-center text-trunks">
+    <div className="flex gap-x-4 gap-y-2 flex-wrap justify-center items-center text-trunks">
       <Link
         href="https://github.com/coingaming/moon-light"
         className="hover:underline"
@@ -49,6 +49,15 @@ const Footer = () => (
         rel="noreferrer"
       >
         LinkedIn
+      </Link>
+      <span>•</span>
+      <Link
+        href="https://github.com/coingaming/moon-light/blob/main/COPYING"
+        className="hover:underline"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Copyright
       </Link>
     </div>
   </footer>
