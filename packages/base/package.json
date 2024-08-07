@@ -11,7 +11,7 @@
   "typings": "lib/index.d.ts",
   "repository": "https://github.com/coingaming/moon-light",
   "author": "Yolo Group",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "scripts": {
     "build": "tsc --project tsconfig.esm.json"
   },
