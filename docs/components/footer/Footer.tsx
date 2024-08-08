@@ -57,7 +57,7 @@ const Footer = () => (
         target="_blank"
         rel="noreferrer"
       >
-        Copyright
+        License
       </Link>
     </div>
   </footer>
