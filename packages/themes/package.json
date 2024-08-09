@@ -10,7 +10,7 @@
   "typings": "lib/index.d.ts",
   "repository": "https://github.com/coingaming/moon-light",
   "author": "Yolo Group",
-  "license": "GPL-3.0-only",
+  "license": "MIT",
   "scripts": {
     "build": "pnpm run build:copy",
     "build:copy": "cpy src lib --flat"

@@ -2,7 +2,7 @@
   "name": "docs",
   "version": "10.17.2",
   "private": true,
-  "license": "GPL-3.0-only",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build:types": "node scripts/buildExamplesType.mjs",

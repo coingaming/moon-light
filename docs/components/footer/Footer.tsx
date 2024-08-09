@@ -52,7 +52,7 @@ const Footer = () => (
       </Link>
       <span>•</span>
       <Link
-        href="https://github.com/coingaming/moon-light/blob/main/COPYING"
+        href="https://github.com/coingaming/moon-light/blob/main/LICENSE"
         className="hover:underline"
         target="_blank"
         rel="noreferrer"
