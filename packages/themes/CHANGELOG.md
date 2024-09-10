@@ -1,5 +1,11 @@
 # @heathmont/moon-themes-tw
 
+## 10.17.3
+
+### Patch Changes
+
+- 5debd57: fix: update license to MIT
+
 ## 10.15.0
 
 ### Patch Changes
