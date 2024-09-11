@@ -26,7 +26,7 @@ const CellBorder = ({
   isFirstColumn?: boolean;
   stickySide?: string;
 }) => {
-  if (!withBorder) null;
+  if (!withBorder) return null;
   return stickySide ? (
     <StickyBorder stickySide={stickySide} />
   ) : withBorder === true ? (
