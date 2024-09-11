@@ -924,7 +924,7 @@ test.describe("Snackbar in Light Theme", () => {
   });
 
   test.describe("SnackbarQueue tests", () => {
-    test("SnackbarQueue: should open 3 snackbars in a queue", async ({
+    test("SnackbarQueue: should open 3 snackbar in a queue", async ({
       page,
     }) => {
       await page.getByRole("button", { name: "Queue Snackbar" }).click();
@@ -944,7 +944,7 @@ test.describe("Snackbar in Light Theme", () => {
       await expect(third).not.toBeVisible();
     });
 
-    test("SnackbarQueue: enter press should open 3 snackbars in a queue", async ({
+    test("SnackbarQueue: enter press should open 3 snackbar in a queue", async ({
       page,
     }) => {
       await page.getByRole("button", { name: "Queue Snackbar" }).press("Enter");

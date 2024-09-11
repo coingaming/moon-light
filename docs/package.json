@@ -12,7 +12,7 @@
     "build:changelog": "node scripts/buildChangelog.mjs",
     "build:installation": "node scripts/buildInstallation.mjs",
     "build:contribution": "node scripts/buildContribution.mjs",
-    "build": "pnpm run build:types && pnpm run build:components && pnpm run build:dict && pnpm build:descriptions && pnpm build:changelog && pnpm build:installation && pnpm build:contribution && pnpm run lint:components && pnpm run lint:descriptions && pnpm run lint:changelog && pnpm run build:dict && next build",
+    "build": "pnpm run build:types && pnpm run build:components && pnpm run build:dict && pnpm build:descriptions && pnpm build:changelog && pnpm build:installation && pnpm build:contribution && pnpm run lint:components && pnpm run lint:descriptions && pnpm run lint:changelog && next build",
     "lint": "next lint",
     "lint:components": "prettier --write ./components.constants.mjs",
     "lint:descriptions": "prettier --write ./generated/componentDescriptions.ts",

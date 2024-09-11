@@ -9,16 +9,22 @@
     }
   ],
   "enableGlobDot": true,
-  "dictionaries": ["project-words"],
+  "dictionaries": [
+    "project-words"
+  ],
   "ignorePaths": [
     "**/*.svg",
+    "**/*.yml",
+    "**/*.yaml",
+    "**/package.json",
     ".git",
-    "pnpm-lock.yaml",
     "node_modules",
-    "pnpm-workspace.yaml",
-    "docs/package.json",
+    "docs/generated/changelog.ts",
+    "docs/CHANGELOG.md",
     ".config/aws-task-definition.json",
+    ".config/Dockerfile",
     ".gitignore",
-    ".vscode/extensions.json"
+    ".vscode/extensions.json",
+    "packages/base/src/private/presets/ds-moon-preset.js",
   ]
 }
