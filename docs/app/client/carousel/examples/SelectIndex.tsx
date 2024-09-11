@@ -23,7 +23,7 @@ const SelectIndex = () => {
         ))}
       </div>
       <Carousel step={1} selectedIndex={selected} className="w-[320px]">
-        <Carousel.Reel className="overflow-x-hidden">
+        <Carousel.Reel>
           {ITEMS.map((_, index) => (
             <Carousel.Item
               key={index}
