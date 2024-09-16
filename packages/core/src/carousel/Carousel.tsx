@@ -108,7 +108,7 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
         '[&>li]:list-none [&>li]:before:absolute [&>li]:before:content-["\\200B"]',
         "[&>*]:flex-[0_0_auto] [&>img]:h-full [&>img]:basis-auto [&>img]:w-auto",
         "snap-x snap-mandatory rtl:flex-row-reverse",
-        !isSwipeDragEnabled && 'overflow-x-hidden',
+        !isSwipeDragEnabled && "overflow-x-hidden",
         className,
       )}
       ref={containerRef}
