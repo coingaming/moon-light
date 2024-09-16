@@ -12,6 +12,7 @@ type CarouselState = {
   firstVisibleIndex?: number;
   lastVisibleIndex?: number;
   autoSlideDelay?: number;
+  isSwipeDragEnabled?: boolean;
   isRtl?: boolean;
 };
 

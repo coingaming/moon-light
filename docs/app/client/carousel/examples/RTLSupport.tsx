@@ -26,7 +26,7 @@ const RTLSupport = () => {
         ))}
       </div>
       <Carousel step={1} selectedIndex={selected} className="w-[320px]" isRtl>
-        <Carousel.Reel className="overflow-x-hidden">
+        <Carousel.Reel>
           {items.map((_, index) => (
             <Carousel.Item
               key={index}
