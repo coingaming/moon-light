@@ -57,6 +57,7 @@ Scroller
 Segoe
 sportsbet
 stackoverflow
+Subcomponent
 tabpanel
 tagsinput
 testid
