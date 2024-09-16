@@ -15,7 +15,7 @@ const CarouselRoot = ({
   step,
   selectedIndex,
   autoSlideDelay,
-  isSwipeDragEnabled,
+  isSwipeDragDisabled,
   isRtl,
   ...rest
 }: CarouselRootProps) => {
@@ -74,7 +74,7 @@ const CarouselRoot = ({
         firstVisibleIndex,
         lastVisibleIndex,
         autoSlideDelay,
-        isSwipeDragEnabled: isSwipeDragEnabled ?? true,
+        isSwipeDragDisabled: isSwipeDragDisabled ?? false,
         isRtl,
       }}
     >
@@ -95,7 +95,7 @@ const CarouselRoot = ({
 };
 
 const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
-  const { containerRef, isSwipeDragEnabled, isRtl } =
+  const { containerRef, isSwipeDragDisabled, isRtl } =
     useCarouselContext("Carousel.Reel");
   const arrayChildren = Children.toArray(children);
   const revertChildren = arrayChildren.reverse();
@@ -108,7 +108,7 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
         '[&>li]:list-none [&>li]:before:absolute [&>li]:before:content-["\\200B"]',
         "[&>*]:flex-[0_0_auto] [&>img]:h-full [&>img]:basis-auto [&>img]:w-auto",
         "snap-x snap-mandatory rtl:flex-row-reverse",
-        !isSwipeDragEnabled && 'overflow-x-hidden',
+        isSwipeDragDisabled && 'overflow-x-hidden',
         className,
       )}
       ref={containerRef}
