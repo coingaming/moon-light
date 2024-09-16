@@ -1,5 +1,22 @@
 # docs
 
+## 10.17.3
+
+### Patch Changes
+
+- 5debd57: fix: update license to MIT
+- d0c40fd: feat: update license to GPL
+- ad824db: feat: update license to GPL
+- 0111dde: Add Typography page [MDS-1062]
+- 3f09e8e: fix: footer license link
+- Updated dependencies [5debd57]
+- Updated dependencies
+  - @heathmont/moon-table-v8-tw@10.17.3
+  - @heathmont/moon-themes-tw@10.17.3
+  - @heathmont/moon-base-tw@10.17.3
+  - @heathmont/moon-cmdk-tw@10.17.3
+  - @heathmont/moon-core-tw@10.17.3
+
 ## 10.17.2
 
 ### Patch Changes

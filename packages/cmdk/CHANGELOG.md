@@ -1,5 +1,13 @@
 # @heathmont/moon-cmdk-tw
 
+## 10.17.3
+
+### Patch Changes
+
+- 5debd57: fix: update license to MIT
+- Updated dependencies [5debd57]
+  - @heathmont/moon-core-tw@10.17.3
+
 ## 10.14.1
 
 ### Patch Changes

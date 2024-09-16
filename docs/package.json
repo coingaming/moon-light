@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "10.17.2",
+  "version": "10.17.3",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -12,7 +12,7 @@
     "build:changelog": "node scripts/buildChangelog.mjs",
     "build:installation": "node scripts/buildInstallation.mjs",
     "build:contribution": "node scripts/buildContribution.mjs",
-    "build": "pnpm run build:types && pnpm run build:components && pnpm run build:dict && pnpm build:descriptions && pnpm build:changelog && pnpm build:installation && pnpm build:contribution && pnpm run lint:components && pnpm run lint:descriptions && pnpm run lint:changelog && pnpm run build:dict && next build",
+    "build": "pnpm run build:types && pnpm run build:components && pnpm run build:dict && pnpm build:descriptions && pnpm build:changelog && pnpm build:installation && pnpm build:contribution && pnpm run lint:components && pnpm run lint:descriptions && pnpm run lint:changelog && next build",
     "lint": "next lint",
     "lint:components": "prettier --write ./components.constants.mjs",
     "lint:descriptions": "prettier --write ./generated/componentDescriptions.ts",
@@ -23,12 +23,12 @@
     "clean:next": "rimraf .next"
   },
   "dependencies": {
-    "@heathmont/moon-base-tw": "workspace:^10.14.1",
-    "@heathmont/moon-cmdk-tw": "workspace:^10.14.1",
-    "@heathmont/moon-core-tw": "workspace:^10.16.0",
+    "@heathmont/moon-base-tw": "workspace:^10.17.3",
+    "@heathmont/moon-cmdk-tw": "workspace:^10.17.3",
+    "@heathmont/moon-core-tw": "workspace:^10.17.3",
     "@heathmont/moon-icons-tw": "^9.29.3",
-    "@heathmont/moon-table-v8-tw": "workspace:^10.17.2",
-    "@heathmont/moon-themes-tw": "^10.15.0",
+    "@heathmont/moon-table-v8-tw": "workspace:^10.17.3",
+    "@heathmont/moon-themes-tw": "^10.17.3",
     "@hookform/resolvers": "^3.3.2",
     "commander": "^11.1.0",
     "next": "14.0.3",
