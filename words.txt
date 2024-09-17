@@ -58,6 +58,7 @@ Segoe
 sportsbet
 stackoverflow
 Subcomponent
+Swipping
 tabpanel
 tagsinput
 testid

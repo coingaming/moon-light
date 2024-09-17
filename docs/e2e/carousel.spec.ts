@@ -78,7 +78,7 @@ test.describe("Carousel in Light Theme", () => {
       await expect(page.getByTestId(`carousel-7`)).toBeInViewport();
     });
 
-    test("Autoslide: Swipping over the carousel should be enabled", async ({
+    test("AutoSlide: Swipping over the carousel should be enabled", async ({
       page,
     }) => {
       const autoSlideCarousel = page.getByTestId("autoSlide-carousel");
@@ -355,7 +355,7 @@ test.describe("Carousel in Dark Theme", () => {
       await page.waitForTimeout(5000);
       await expect(page.getByTestId(`carousel-7`)).toBeInViewport();
     });
-    test("Autoslide: Swipping over the carousel should be enabled", async ({
+    test("AutoSlide: Swipping over the carousel should be enabled", async ({
       page,
     }) => {
       const autoSlideCarousel = page.getByTestId("autoSlide-carousel");
