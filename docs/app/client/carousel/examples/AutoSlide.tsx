@@ -5,7 +5,7 @@ import { Carousel } from "@heathmont/moon-core-tw";
 const AutoSlide = () => {
   const items = Array.from({ length: 25 }, (index) => index);
   return (
-    <Carousel autoSlideDelay={3000} step={1}>
+    <Carousel autoSlideDelay={3000} step={1} data-testid="autoSlide-carousel">
       <Carousel.Reel>
         {items.map((_, index) => (
           <Carousel.Item
