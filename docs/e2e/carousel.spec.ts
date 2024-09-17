@@ -78,21 +78,30 @@ test.describe("Carousel in Light Theme", () => {
       await expect(page.getByTestId(`carousel-7`)).toBeInViewport();
     });
 
-    test('Autoslide: Swipping over the carousel should be enabled', async ({page}) => {
-      const autoSlideCarousel = page.getByTestId('autoSlide-carousel');
+    test("Autoslide: Swipping over the carousel should be enabled", async ({
+      page,
+    }) => {
+      const autoSlideCarousel = page.getByTestId("autoSlide-carousel");
       await autoSlideCarousel.hover(); // Show carousel on screen
 
-      await expect(autoSlideCarousel.getByTestId(`carousel-0`)).toBeInViewport();
+      await expect(
+        autoSlideCarousel.getByTestId(`carousel-0`),
+      ).toBeInViewport();
       await page.waitForTimeout(3000);
-      await expect(autoSlideCarousel.getByTestId(`carousel-2`)).toBeInViewport();
-      
+      await expect(
+        autoSlideCarousel.getByTestId(`carousel-2`),
+      ).toBeInViewport();
+
       await page.mouse.wheel(500, 0); // Scroll to the right
-      await expect(autoSlideCarousel.getByTestId(`carousel-5`)).toBeInViewport();
+      await expect(
+        autoSlideCarousel.getByTestId(`carousel-5`),
+      ).toBeInViewport();
       await page.waitForTimeout(500);
-      await page.mouse.wheel(-500, 0);// Scroll back to the left
+      await page.mouse.wheel(-500, 0); // Scroll back to the left
       await page.waitForTimeout(500);
-      await expect(autoSlideCarousel.getByTestId(`carousel-2`)).toBeInViewport();
-      
+      await expect(
+        autoSlideCarousel.getByTestId(`carousel-2`),
+      ).toBeInViewport();
     });
   });
   /* CustomizedArrows tests */
@@ -188,21 +197,29 @@ test.describe("Carousel in Light Theme", () => {
       await page.getByTestId(`carousel-button-0`).click();
       await expect(page.getByTestId(`carousel-0`)).toBeInViewport();
     });
-    test('SelectedIndex: Swipping over the carousel should be disabled when isSwipeDragDisabled is present', async ({page}) => {
-      const selectedIndexCarousel = page.getByTestId('selectedIndex-carousel');
-      const secondElementInCarousel = page.getByTestId('carousel-button-1');
+    test("SelectedIndex: Swipping over the carousel should be disabled when isSwipeDragDisabled is present", async ({
+      page,
+    }) => {
+      const selectedIndexCarousel = page.getByTestId("selectedIndex-carousel");
+      const secondElementInCarousel = page.getByTestId("carousel-button-1");
 
       await secondElementInCarousel.first().click(); // Place the carousel on the second element for better test purposes
       await page.waitForTimeout(500);
       await selectedIndexCarousel.hover();
       await page.waitForTimeout(500);
       await page.mouse.wheel(100, 0); // Scroll to the right
-      await expect(selectedIndexCarousel.getByTestId(`carousel-2`)).not.toBeInViewport();
+      await expect(
+        selectedIndexCarousel.getByTestId(`carousel-2`),
+      ).not.toBeInViewport();
       await page.waitForTimeout(500);
-      await page.mouse.wheel(-100, 0);// Scroll to the left
+      await page.mouse.wheel(-100, 0); // Scroll to the left
       await page.waitForTimeout(500);
-      await expect(selectedIndexCarousel.getByTestId(`carousel-0`)).not.toBeInViewport();
-      await expect(selectedIndexCarousel.getByTestId(`carousel-1`)).toBeInViewport();
+      await expect(
+        selectedIndexCarousel.getByTestId(`carousel-0`),
+      ).not.toBeInViewport();
+      await expect(
+        selectedIndexCarousel.getByTestId(`carousel-1`),
+      ).toBeInViewport();
     });
   });
   /* Spaces tests */
