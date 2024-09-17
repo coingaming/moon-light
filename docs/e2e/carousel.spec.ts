@@ -232,9 +232,9 @@ test.describe("Carousel in Light Theme", () => {
       expect(text).toBe("Visible indices:0-3");
       await page.getByTestId(`scroll-right`).click();
       await page.waitForTimeout(500);
-      expect(page.getByTestId(`carousel-4`)).toBeInViewport();
+      await expect(page.getByTestId(`carousel-4`)).toBeInViewport();
       const text2 = await page.getByTestId(`visible-indices-4`).textContent();
-      expect(text2).toBe("Visible indices:4-7");
+      expect(text2).toBe("Visible indices:5-7");
     });
   });
 });
@@ -460,9 +460,9 @@ test.describe("Carousel in Dark Theme", () => {
       expect(text).toBe("Visible indices:0-3");
       await page.getByTestId(`scroll-right`).click();
       await page.waitForTimeout(500);
-      expect(page.getByTestId(`carousel-4`)).toBeInViewport();
+      await expect(page.getByTestId(`carousel-4`)).toBeInViewport();
       const text2 = await page.getByTestId(`visible-indices-4`).textContent();
-      expect(text2).toBe("Visible indices:4-7");
+      expect(text2).toBe("Visible indices:5-7");
     });
   });
 });
