@@ -22,7 +22,7 @@ const SelectIndex = () => {
           </Chip>
         ))}
       </div>
-      <Carousel step={1} selectedIndex={selected} className="w-[320px]">
+      <Carousel step={1} selectedIndex={selected} className="w-[320px]" data-testid="selectedIndex-carousel" isSwipeDragDisabled>
         <Carousel.Reel>
           {ITEMS.map((_, index) => (
             <Carousel.Item

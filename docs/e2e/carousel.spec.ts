@@ -171,6 +171,26 @@ test.describe("Carousel in Light Theme", () => {
       await page.getByTestId(`carousel-button-0`).click();
       await expect(page.getByTestId(`carousel-0`)).toBeInViewport();
     });
+    test('SelectedIndex: Swipping over the carousel should be disabled when isSwipeDragDisabled is present', async ({page}) => {
+      const autoSlideCarousel = page.getByTestId('selectedIndex-carousel');
+      const secondElementInCarousel = page.getByTestId('carousel-button-1');
+
+      await secondElementInCarousel.first().click();
+      await page.waitForTimeout(500);
+      await autoSlideCarousel.hover();
+      await page.waitForTimeout(500);
+      await page.mouse.wheel(100, 0);
+      await page.waitForTimeout(500);
+      await page.mouse.wheel(-100, 0);
+      await page.waitForTimeout(500);
+      await expect(autoSlideCarousel.getByTestId(`carousel-1`)).toBeInViewport();
+
+      // await page.getByTestId(`carousel-button-1`).first().click();
+      // await page.waitForTimeout(500);
+      // await expect(page.getByTestId(`carousel-1`)).toBeInViewport();
+      // await page.getByTestId(`carousel-button-0`).click();
+      // await expect(page.getByTestId(`carousel-0`)).toBeInViewport();
+    });
   });
   /* Spaces tests */
   test.describe("Spaces tests", () => {
