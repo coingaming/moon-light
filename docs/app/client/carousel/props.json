@@ -57,6 +57,11 @@
         "name": "isRtl",
         "type": ["boolean"],
         "description": "Render Props: Set right to left (rtl) view"
+      },
+      {
+        "name": "isSwipeDragDisabled",
+        "type": ["boolean"],
+        "description": "Disable swipe gesture over carousel content for desktop and dragging on mobile devices."
       }
     ]
   }
