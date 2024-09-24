@@ -14,6 +14,12 @@ type CarouselState = {
   autoSlideDelay?: number;
   isSwipeDragDisabled?: boolean;
   isRtl?: boolean;
+  isDragging?: boolean;
+  setIsDragging?: () => void;
+  handleMouseDown?: () => void;
+  handleMouseUp?: () => void;
+  debounceMouseDown?: () => () => void;
+  debounceMouseUp?: () => () => void;
 };
 
 export default CarouselState;

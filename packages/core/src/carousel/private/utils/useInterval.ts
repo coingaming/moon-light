@@ -1,7 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const useInterval = (callback: () => void, delay: number) => {
+const useInterval = (
+  callback: () => void,
+  delay: number,
+  isDragging?: boolean,
+) => {
   const savedCallback = useRef<() => void>();
+  const [intervalId, setIntervalId] = useState<number | undefined>();
 
   useEffect(() => {
     savedCallback.current = callback;
@@ -11,11 +16,25 @@ const useInterval = (callback: () => void, delay: number) => {
     function tick() {
       savedCallback.current?.();
     }
+
+    console.log("in here oe test", { isDragging, intervalId, delay });
+
+    if (isDragging && intervalId) {
+      // clearInterval(intervalId);
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+
     if (delay !== null) {
       let id = setInterval(tick, delay);
-      return () => clearInterval(id);
+      setIntervalId(id);
+      return () => {
+        clearInterval(id);
+        setIntervalId(undefined);
+      };
     }
-  }, [delay]);
+  }, [delay, isDragging]);
 };
 
 export default useInterval;

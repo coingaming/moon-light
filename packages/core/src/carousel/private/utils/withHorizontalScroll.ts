@@ -130,6 +130,7 @@ export const withHorizontalScroll = (options: Options): any => {
   const [firstVisibleIndex, setFirstVisibleIndex] = React.useState(-1);
   const [lastVisibleIndex, setLastVisibleIndex] = React.useState(-1);
   const [itemsCount, setItemsCount] = React.useState(0);
+  const [isDragging, setIsDragging] = React.useState(false);
   const containerRef = React.useRef(null);
 
   const { scrollStep, scrollInContainer, scrollTo, isRtl } = options;
@@ -232,6 +233,35 @@ export const withHorizontalScroll = (options: Options): any => {
     }
   }, []);
 
+  const handleMouseDown = () => {
+    setIsDragging(true);
+    console.log("in here oe mouse down");
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    console.log("in here oe mouse up");
+  };
+
+  const debounce = (fallback: (...args: any) => void, delay: number) => {
+    let timer: number;
+
+    return (...args: any) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        fallback(...args);
+      }, delay);
+    };
+  };
+
+  const debounceMouseDown = () => {
+    return debounce(handleMouseDown, 500);
+  };
+
+  const debounceMouseUp = () => {
+    return debounce(handleMouseUp, 500);
+  };
+
   return {
     itemRef,
     containerRef,
@@ -260,6 +290,12 @@ export const withHorizontalScroll = (options: Options): any => {
     canScrollLeft: leftIndicator,
     canScrollRight: rightIndicator,
     itemsCount,
+    isDragging,
+    setIsDragging,
+    handleMouseDown,
+    handleMouseUp,
+    debounceMouseDown,
+    debounceMouseUp,
   };
 };
 
