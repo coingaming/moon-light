@@ -17,16 +17,15 @@ const useInterval = (
       savedCallback.current?.();
     }
 
-    console.log("in here oe test", { isDragging, intervalId, delay });
-
     if (isDragging && intervalId) {
-      // clearInterval(intervalId);
+      clearInterval(intervalId);
+      setIntervalId(undefined);
       return () => {
         clearInterval(intervalId);
       };
     }
 
-    if (delay !== null) {
+    if (!isDragging && delay !== null) {
       let id = setInterval(tick, delay);
       setIntervalId(id);
       return () => {

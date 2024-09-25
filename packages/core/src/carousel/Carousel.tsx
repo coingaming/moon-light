@@ -119,6 +119,7 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
     handleMouseUp,
     debounceMouseDown,
     debounceMouseUp,
+    isDragging,
   } = useCarouselContext("Carousel.Reel");
   const arrayChildren = Children.toArray(children);
   const revertChildren = arrayChildren.reverse();
@@ -138,28 +139,19 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
         className,
       )}
       onMouseEnter={() => {
-        console.log("in here oe on mouse enter");
         handleMouseDown?.();
       }}
       onMouseLeave={() => {
-        console.log("in here oe on mouse leave");
         handleMouseUp?.();
       }}
       onTouchStart={() => {
-        // handleMouseDown?.();
-        console.log("in here oe on touch start");
-        if (debouncedMouseDown) {
-          console.log("in here oe inside down");
-          debouncedMouseDown();
+        if (!isDragging) {
+          handleMouseDown?.();
         }
       }}
       onTouchEnd={() => {
-        // handleMouseUp?.();
-        // debouncedMouseUp?.();
-        console.log("in here oe on touch end");
-        if (debouncedMouseUp) {
-          console.log("in here oe inside up");
-          debouncedMouseUp();
+        if (isDragging) {
+          debouncedMouseUp?.();
         }
       }}
       ref={containerRef}

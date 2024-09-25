@@ -26,7 +26,7 @@ const findFirstVisibleIndex = (childRefs: any[]): any => {
   return childRefs.findIndex((child) => child.getAttribute("visible"));
 };
 
-const scrollToIndex = (
+const scrollToIndex = async (
   itemRef: HTMLElement,
   scrollIntoViewSmoothly: any,
   containerRef?: any,
@@ -34,7 +34,7 @@ const scrollToIndex = (
   isNotSmooth?: boolean,
 ) => {
   if (itemRef) {
-    scrollIntoViewSmoothly(itemRef, {
+    await scrollIntoViewSmoothly(itemRef, {
       block: "nearest",
       inline: scrollStep === 1 ? "center" : "nearest",
       behavior: isNotSmooth ? undefined : "smooth",
@@ -234,18 +234,16 @@ export const withHorizontalScroll = (options: Options): any => {
   }, []);
 
   const handleMouseDown = () => {
-    setIsDragging(true);
-    console.log("in here oe mouse down");
+    setIsDragging((prevState) => !prevState);
   };
 
   const handleMouseUp = () => {
-    setIsDragging(false);
+    setIsDragging((prevState) => !prevState);
     console.log("in here oe mouse up");
   };
 
   const debounce = (fallback: (...args: any) => void, delay: number) => {
     let timer: number;
-
     return (...args: any) => {
       clearTimeout(timer);
       timer = setTimeout(() => {
@@ -259,7 +257,7 @@ export const withHorizontalScroll = (options: Options): any => {
   };
 
   const debounceMouseUp = () => {
-    return debounce(handleMouseUp, 500);
+    return debounce(handleMouseUp, 3000);
   };
 
   return {
