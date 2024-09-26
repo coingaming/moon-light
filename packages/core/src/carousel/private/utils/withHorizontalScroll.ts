@@ -239,7 +239,6 @@ export const withHorizontalScroll = (options: Options): any => {
 
   const handleMouseUp = () => {
     setIsDragging((prevState) => !prevState);
-    console.log("in here oe mouse up");
   };
 
   const debounce = (fallback: (...args: any) => void, delay: number) => {
