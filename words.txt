@@ -1,6 +1,7 @@
 Aldus
 authcode
 autohiding
+autoslide
 averta
 beerus
 betadda
