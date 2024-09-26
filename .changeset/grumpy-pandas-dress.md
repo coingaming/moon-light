@@ -3,4 +3,4 @@
 "docs": patch
 ---
 
-Add isSwipeDragDisabled property to Carousel component
+fix: fix autoslide and selected index scroll [MDS-1320]
