@@ -253,11 +253,11 @@ export const withHorizontalScroll = (options: Options): any => {
 
   const debounceMouseDown = useCallback(() => {
     return debounce(handleMouseDown, 500);
-  },[]);
+  }, []);
 
   const debounceMouseUp = useCallback(() => {
     return debounce(handleMouseUp, 3000);
-  },[]);
+  }, []);
 
   return {
     itemRef,
