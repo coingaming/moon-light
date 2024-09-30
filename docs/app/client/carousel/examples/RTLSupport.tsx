@@ -8,7 +8,7 @@ const RTLSupport = () => {
   const items = Array.from({ length: 5 }, (index) => index);
   return (
     <div
-      className="flex flex-col items-center gap-4"
+      className="flex flex-col items-center gap-4 w-full"
       dir="rtl"
       data-testid="carousel"
     >
