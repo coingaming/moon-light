@@ -12,7 +12,10 @@ type RenderProps = {
 const Example = () => {
   const items = Array.from({ length: 25 }, (index) => index);
   return (
-    <Carousel scrollTo={5}>
+    <div className="flex flex-col w-full items-center">
+
+    
+    <Carousel scrollTo={5} className="w-full sm:max-w-auto">
       {({
         scrollLeftToStep,
         scrollRightToStep,
@@ -32,7 +35,7 @@ const Example = () => {
             {items.map((_, index) => (
               <Carousel.Item
                 key={index}
-                className="w-80 h-48 border border-beerus"
+                className="w-full max-w-80 h-48 border border-beerus"
                 data-testid={`carousel-${index}`}
               >
                 {index}
@@ -50,6 +53,7 @@ const Example = () => {
         </>
       )}
     </Carousel>
+    </div>
   );
 };
 

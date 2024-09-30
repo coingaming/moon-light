@@ -9,7 +9,8 @@ import {
 const Spaces = () => {
   const items = Array.from({ length: 10 }, (index) => index);
   return (
-    <Carousel>
+    <div className="flex flex-col items-center gap-4 w-full">
+    <Carousel className="w-full sm:max-w-auto">
       <Carousel.LeftArrow data-testid="scroll-left">
         <ControlsChevronLeftSmall />
       </Carousel.LeftArrow>
@@ -17,7 +18,7 @@ const Spaces = () => {
         {items.map((_, index) => (
           <Carousel.Item
             key={index}
-            className="w-80 h-48 border border-beerus"
+            className="w-full max-w-80 h-48 border border-beerus"
             data-testid={`carousel-${index}`}
           >
             {index}
@@ -28,6 +29,7 @@ const Spaces = () => {
         <ControlsChevronRightSmall />
       </Carousel.RightArrow>
     </Carousel>
+    </div>
   );
 };
 
