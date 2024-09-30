@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import scrollIntoView from "scroll-into-view-if-needed";
 import smoothScrollIntoView from "smooth-scroll-into-view-if-needed";
 
@@ -251,13 +251,13 @@ export const withHorizontalScroll = (options: Options): any => {
     };
   };
 
-  const debounceMouseDown = () => {
+  const debounceMouseDown = useCallback(() => {
     return debounce(handleMouseDown, 500);
-  };
+  },[]);
 
-  const debounceMouseUp = () => {
+  const debounceMouseUp = useCallback(() => {
     return debounce(handleMouseUp, 3000);
-  };
+  },[]);
 
   return {
     itemRef,

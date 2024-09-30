@@ -6,7 +6,7 @@ const useInterval = (
   isDragging?: boolean,
 ) => {
   const savedCallback = useRef<() => void>();
-  const [intervalId, setIntervalId] = useState<number | undefined>();
+  const intervalId = useRef<number | undefined>();
 
   useEffect(() => {
     savedCallback.current = callback;
@@ -18,19 +18,18 @@ const useInterval = (
     }
 
     if (isDragging && intervalId) {
-      clearInterval(intervalId);
-      setIntervalId(undefined);
+      clearInterval(intervalId.current);
+      intervalId.current = undefined;
       return () => {
-        clearInterval(intervalId);
+        clearInterval(intervalId.current);
       };
     }
 
     if (!isDragging && delay !== null) {
-      let id = setInterval(tick, delay);
-      setIntervalId(id);
+      intervalId.current = setInterval(tick, delay);
       return () => {
-        clearInterval(id);
-        setIntervalId(undefined);
+        clearInterval(intervalId.current);
+        intervalId.current = undefined;
       };
     }
   }, [delay, isDragging]);
