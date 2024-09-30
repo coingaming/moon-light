@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const ITEMS = Array.from({ length: 5 }, (index) => index);
 
-const SelectIndex = () => {
+const SwipeDragDisabled = () => {
   const [selected, setSelected] = useState(0);
   return (
     <div className="flex flex-col items-center gap-4">
@@ -27,6 +27,7 @@ const SelectIndex = () => {
         selectedIndex={selected}
         className="w-64"
         data-testid="selectedIndex-carousel"
+        isSwipeDragDisabled
       >
         <Carousel.Reel>
           {ITEMS.map((_, index) => (
@@ -44,4 +45,4 @@ const SelectIndex = () => {
   );
 };
 
-export default SelectIndex;
+export default SwipeDragDisabled;
