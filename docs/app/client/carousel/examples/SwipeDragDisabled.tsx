@@ -3,17 +3,14 @@
 import { Carousel, Chip } from "@heathmont/moon-core-tw";
 import { useState } from "react";
 
-const RTLSupport = () => {
+const ITEMS = Array.from({ length: 5 }, (index) => index);
+
+const SwipeDragDisabled = () => {
   const [selected, setSelected] = useState(0);
-  const items = Array.from({ length: 5 }, (index) => index);
   return (
-    <div
-      className="flex flex-col items-center gap-4 w-full"
-      dir="rtl"
-      data-testid="carousel"
-    >
+    <div className="items-center gap-4 w-full flex flex-col">
       <div className="flex gap-1">
-        {items.map((_, index) => (
+        {ITEMS.map((_, index) => (
           <Chip
             key={index}
             isActive={selected === index}
@@ -25,12 +22,18 @@ const RTLSupport = () => {
           </Chip>
         ))}
       </div>
-      <Carousel step={1} selectedIndex={selected} className="w-[320px]" isRtl>
+      <Carousel
+        step={1}
+        selectedIndex={selected}
+        className="w-full max-w-80"
+        data-testid="selectedIndex-carousel"
+        isSwipeDragDisabled
+      >
         <Carousel.Reel>
-          {items.map((_, index) => (
+          {ITEMS.map((_, index) => (
             <Carousel.Item
               key={index}
-              className="w-80 h-48 border border-beerus"
+              className="w-full h-48 border border-beerus"
               data-testid={`carousel-${index}`}
             >
               {index}
@@ -42,4 +45,4 @@ const RTLSupport = () => {
   );
 };
 
-export default RTLSupport;
+export default SwipeDragDisabled;

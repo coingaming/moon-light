@@ -1,6 +1,7 @@
 Aldus
 authcode
 autohiding
+autoslide
 averta
 beerus
 betadda
@@ -57,6 +58,8 @@ Scroller
 Segoe
 sportsbet
 stackoverflow
+Subcomponent
+Swipping
 tabpanel
 tagsinput
 testid

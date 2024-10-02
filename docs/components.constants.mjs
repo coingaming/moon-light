@@ -111,6 +111,7 @@ const COMPONENTS = {
       "SelectIndex",
       "AutoSlide",
       "RTLSupport",
+      "SwipeDragDisabled",
     ],
   },
   checkbox: {

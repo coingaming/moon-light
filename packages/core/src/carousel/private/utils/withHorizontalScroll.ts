@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import scrollIntoView from "scroll-into-view-if-needed";
 import smoothScrollIntoView from "smooth-scroll-into-view-if-needed";
 
@@ -26,7 +26,7 @@ const findFirstVisibleIndex = (childRefs: any[]): any => {
   return childRefs.findIndex((child) => child.getAttribute("visible"));
 };
 
-const scrollToIndex = (
+const scrollToIndex = async (
   itemRef: HTMLElement,
   scrollIntoViewSmoothly: any,
   containerRef?: any,
@@ -34,7 +34,7 @@ const scrollToIndex = (
   isNotSmooth?: boolean,
 ) => {
   if (itemRef) {
-    scrollIntoViewSmoothly(itemRef, {
+    await scrollIntoViewSmoothly(itemRef, {
       block: "nearest",
       inline: scrollStep === 1 ? "center" : "nearest",
       behavior: isNotSmooth ? undefined : "smooth",
@@ -130,6 +130,7 @@ export const withHorizontalScroll = (options: Options): any => {
   const [firstVisibleIndex, setFirstVisibleIndex] = React.useState(-1);
   const [lastVisibleIndex, setLastVisibleIndex] = React.useState(-1);
   const [itemsCount, setItemsCount] = React.useState(0);
+  const [isDragging, setIsDragging] = React.useState(false);
   const containerRef = React.useRef(null);
 
   const { scrollStep, scrollInContainer, scrollTo, isRtl } = options;
@@ -232,6 +233,32 @@ export const withHorizontalScroll = (options: Options): any => {
     }
   }, []);
 
+  const handleMouseDown = () => {
+    setIsDragging((prevState) => !prevState);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging((prevState) => !prevState);
+  };
+
+  const debounce = (fallback: (...args: any) => void, delay: number) => {
+    let timer: number;
+    return (...args: any) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        fallback(...args);
+      }, delay);
+    };
+  };
+
+  const debounceMouseDown = useCallback(() => {
+    return debounce(handleMouseDown, 500);
+  }, []);
+
+  const debounceMouseUp = useCallback(() => {
+    return debounce(handleMouseUp, 3000);
+  }, []);
+
   return {
     itemRef,
     containerRef,
@@ -260,6 +287,12 @@ export const withHorizontalScroll = (options: Options): any => {
     canScrollLeft: leftIndicator,
     canScrollRight: rightIndicator,
     itemsCount,
+    isDragging,
+    setIsDragging,
+    handleMouseDown,
+    handleMouseUp,
+    debounceMouseDown,
+    debounceMouseUp,
   };
 };
 

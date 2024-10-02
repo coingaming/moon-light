@@ -12,6 +12,7 @@ examples:
     "SelectIndex",
     "AutoSlide",
     "RTLSupport",
+    "SwipeDragDisabled",
   ]
 ---
 

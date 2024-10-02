@@ -15,6 +15,7 @@ const CarouselRoot = ({
   step,
   selectedIndex,
   autoSlideDelay,
+  isSwipeDragDisabled,
   isRtl,
   ...rest
 }: CarouselRootProps) => {
@@ -29,6 +30,12 @@ const CarouselRoot = ({
     itemsCount,
     firstVisibleIndex,
     lastVisibleIndex,
+    isDragging,
+    setIsDragging,
+    handleMouseDown,
+    handleMouseUp,
+    debounceMouseDown,
+    debounceMouseUp,
   } = withHorizontalScroll({
     scrollStep: step || 5,
     scrollTo: scrollTo,
@@ -36,22 +43,26 @@ const CarouselRoot = ({
     isRtl,
   });
 
-  useInterval(() => {
-    if (!autoSlideDelay) return;
-    if (isRtl) {
-      if (canScrollLeft) {
-        scrollLeftToStep();
+  useInterval(
+    () => {
+      if (!autoSlideDelay) return;
+      if (isRtl) {
+        if (canScrollLeft) {
+          scrollLeftToStep();
+        } else {
+          scrollToIndex(itemsCount - 1);
+        }
       } else {
-        scrollToIndex(itemsCount - 1);
+        if (canScrollRight) {
+          scrollRightToStep();
+        } else {
+          scrollToIndex(0);
+        }
       }
-    } else {
-      if (canScrollRight) {
-        scrollRightToStep();
-      } else {
-        scrollToIndex(0);
-      }
-    }
-  }, autoSlideDelay as number);
+    },
+    autoSlideDelay as number,
+    isDragging,
+  );
 
   useEffect(() => {
     if (selectedIndex !== undefined) {
@@ -73,7 +84,14 @@ const CarouselRoot = ({
         firstVisibleIndex,
         lastVisibleIndex,
         autoSlideDelay,
+        isSwipeDragDisabled: isSwipeDragDisabled ?? false,
         isRtl,
+        isDragging,
+        setIsDragging,
+        handleMouseDown,
+        handleMouseUp,
+        debounceMouseDown,
+        debounceMouseUp,
       }}
     >
       <div className={mergeClassnames("relative w-full", className)} {...rest}>
@@ -93,10 +111,21 @@ const CarouselRoot = ({
 };
 
 const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
-  const { containerRef, autoSlideDelay, isRtl } =
-    useCarouselContext("Carousel.Reel");
+  const {
+    containerRef,
+    isSwipeDragDisabled,
+    isRtl,
+    handleMouseDown,
+    handleMouseUp,
+    debounceMouseDown,
+    debounceMouseUp,
+    isDragging,
+  } = useCarouselContext("Carousel.Reel");
   const arrayChildren = Children.toArray(children);
   const revertChildren = arrayChildren.reverse();
+  const debouncedMouseDown = debounceMouseDown ? debounceMouseDown() : null;
+  const debouncedMouseUp = debounceMouseUp ? debounceMouseUp() : null;
+
   return (
     <ul
       className={mergeClassnames(
@@ -106,9 +135,25 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
         '[&>li]:list-none [&>li]:before:absolute [&>li]:before:content-["\\200B"]',
         "[&>*]:flex-[0_0_auto] [&>img]:h-full [&>img]:basis-auto [&>img]:w-auto",
         "snap-x snap-mandatory rtl:flex-row-reverse",
-        autoSlideDelay && "overflow-x-hidden",
+        isSwipeDragDisabled && "overflow-x-hidden",
         className,
       )}
+      onMouseEnter={() => {
+        handleMouseDown?.();
+      }}
+      onMouseLeave={() => {
+        handleMouseUp?.();
+      }}
+      onTouchStart={() => {
+        if (!isDragging) {
+          handleMouseDown?.();
+        }
+      }}
+      onTouchEnd={() => {
+        if (isDragging) {
+          debouncedMouseUp?.();
+        }
+      }}
       ref={containerRef}
       {...rest}
     >

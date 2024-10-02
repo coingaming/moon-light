@@ -166,6 +166,7 @@ export type Examples = {
         "RTLSupport": "string",
         "SelectIndex": "string",
         "Spaces": "string",
+        "SwipeDragDisabled": "string",
         "VisibleIndices": "string"
       },
       "examples": {
@@ -176,6 +177,7 @@ export type Examples = {
         "RTLSupport": "string",
         "SelectIndex": "string",
         "Spaces": "string",
+        "SwipeDragDisabled": "string",
         "VisibleIndices": "string"
       },
       "props": "string"
