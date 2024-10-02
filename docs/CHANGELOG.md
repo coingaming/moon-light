@@ -1,5 +1,13 @@
 # docs
 
+## 10.17.4
+
+### Patch Changes
+
+- 3e9b5ab: fix: fix autoslide and selected index scroll [MDS-1320]
+- Updated dependencies [3e9b5ab]
+  - @heathmont/moon-core-tw@10.17.4
+
 ## 10.17.3
 
 ### Patch Changes
