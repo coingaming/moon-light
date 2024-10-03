@@ -8,6 +8,7 @@ import type { Cell } from "../private/types";
 import type ClipProps from "../private/types/ClipProps";
 import type StickyColumn from "../private/types/StickyColumn";
 import type TDProps from "../private/types/TDProps";
+import TDContent from "./TDContent";
 
 const getStickyShift = (
   cells: Cell<{}, unknown>[],
@@ -33,7 +34,10 @@ const getStickyShift = (
 
 const TD = forwardRef<HTMLTableCellElement, TDProps>(
   (
-    {
+    props,
+    ref,
+  ) => {
+    const {
       cell,
       index,
       cells,
@@ -45,9 +49,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       columnData,
       textClip,
       withBorder,
-    },
-    ref,
-  ) => {
+    } = props;
     const stickyColumn: StickyColumn = cell.column.parent
       ? cell.column.parent?.columnDef
       : cell.column.columnDef;
@@ -78,6 +80,11 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
       );
     }
 
+    // console.log('in here oe cell data', {
+    //   cell: cell.column.columnDef.cell,
+    //   cellContext: cell.getContext()
+    // })
+
     return (
       <td
         key={cell.id}
@@ -94,28 +101,11 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>(
           stickySide &&
             "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
           className,
+          
         )}
         ref={ref}
       >
-        {
-          <CellBorder
-            withBorder={withBorder}
-            isFirstColumn={isFirstColumn}
-            stickySide={stickySide}
-          />
-        }
-        {textClip ? (
-          <div
-            className={mergeClassnames(
-              textClip === ("clip" as ClipProps) && "break-all truncate",
-              textClip === ("break" as ClipProps) && "break-all text-clip",
-            )}
-          >
-            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-          </div>
-        ) : (
-          flexRender(cell.column.columnDef.cell, cell.getContext())
-        )}
+        <TDContent {...props} stickySide={stickySide} />
       </td>
     );
   },

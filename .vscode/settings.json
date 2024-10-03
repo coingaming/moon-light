@@ -9,5 +9,6 @@
   "prettier.printWidth": 2,
   "eslint.workingDirectories": [
     "./docs"
-  ]
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
