@@ -32,83 +32,77 @@ const getStickyShift = (
   }
 };
 
-const TD = forwardRef<HTMLTableCellElement, TDProps>(
-  (
-    props,
-    ref,
-  ) => {
-    const {
-      cell,
-      index,
-      cells,
-      rowSize,
-      noGap,
-      className,
-      isFirstColumn,
-      isLastColumn,
-      columnData,
-      textClip,
-      withBorder,
-    } = props;
-    const stickyColumn: StickyColumn = cell.column.parent
-      ? cell.column.parent?.columnDef
-      : cell.column.columnDef;
-    const stickySide = stickyColumn.sticky;
+const TD = forwardRef<HTMLTableCellElement, TDProps>((props, ref) => {
+  const {
+    cell,
+    index,
+    cells,
+    rowSize,
+    noGap,
+    className,
+    isFirstColumn,
+    isLastColumn,
+    columnData,
+    textClip,
+    withBorder,
+  } = props;
+  const stickyColumn: StickyColumn = cell.column.parent
+    ? cell.column.parent?.columnDef
+    : cell.column.columnDef;
+  const stickySide = stickyColumn.sticky;
 
-    const styles = new Map([
-      ["width", `${cell.column.getSize()}px`],
-      [
-        "minWidth",
-        // prettier-ignore
-        `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.minSize}px`,
-      ],
-      [
-        "maxWidth",
-        // prettier-ignore
-        `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.maxSize}px`,
-      ],
-    ]);
+  const styles = new Map([
+    ["width", `${cell.column.getSize()}px`],
+    [
+      "minWidth",
+      // prettier-ignore
+      `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.minSize}px`,
+    ],
+    [
+      "maxWidth",
+      // prettier-ignore
+      `${stickySide ? cell.column.columnDef.size : cell.column.columnDef.maxSize}px`,
+    ],
+  ]);
 
-    if (stickySide) {
-      styles.set(
-        stickySide,
-        stickySide === "left"
-          ? // prettier-ignore
-            `${columnData ? columnData?.left : getStickyShift(cells, index, "left")}px`
-          : // prettier-ignore
-            `${columnData ? columnData?.right : getStickyShift(cells, index, "right")}px`,
-      );
-    }
-
-    // console.log('in here oe cell data', {
-    //   cell: cell.column.columnDef.cell,
-    //   cellContext: cell.getContext()
-    // })
-
-    return (
-      <td
-        key={cell.id}
-        style={Object.fromEntries(styles)}
-        className={mergeClassnames(
-          "relative box-border text-start",
-          getFontSize(rowSize),
-          getPadding(rowSize),
-          isFirstColumn && !noGap && "rounded-s-lg after:rounded-s-lg",
-          isLastColumn && !noGap && "rounded-e-lg after:rounded-e-lg",
-          stickySide && "sticky z-[1] before:-z-[1] after:-z-[1]",
-          stickySide &&
-            "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
-          stickySide &&
-            "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
-          className,
-          
-        )}
-        ref={ref}
-      >
-        <TDContent {...props} stickySide={stickySide} />
-      </td>
+  if (stickySide) {
+    styles.set(
+      stickySide,
+      stickySide === "left"
+        ? // prettier-ignore
+          `${columnData ? columnData?.left : getStickyShift(cells, index, "left")}px`
+        : // prettier-ignore
+          `${columnData ? columnData?.right : getStickyShift(cells, index, "right")}px`,
     );
-  },
-);
+  }
+
+  // console.log('in here oe cell data', {
+  //   cell: cell.column.columnDef.cell,
+  //   cellContext: cell.getContext()
+  // })
+
+  return (
+    <td
+      key={cell.id}
+      style={Object.fromEntries(styles)}
+      className={mergeClassnames(
+        "relative box-border text-start",
+        getFontSize(rowSize),
+        getPadding(rowSize),
+        isFirstColumn && !noGap && "rounded-s-lg after:rounded-s-lg",
+        isLastColumn && !noGap && "rounded-e-lg after:rounded-e-lg",
+        stickySide && "sticky z-[1] before:-z-[1] after:-z-[1]",
+        stickySide &&
+          "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
+        stickySide &&
+          "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
+        className,
+      )}
+      ref={ref}
+    >
+      <TDContent {...props} stickySide={stickySide} />
+    </td>
+  );
+});
 
 export default TD;
