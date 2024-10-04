@@ -19,6 +19,7 @@ import Minimap from "./Minimap";
 import type { ColumnResizeMode } from "../private/types";
 import type ColumnData from "../private/types/ColumnData";
 import type TableProps from "../private/types/TableProps";
+import DataHelper from "../private/types/DataHelper";
 
 const Table = ({
   columns,
@@ -60,10 +61,37 @@ const Table = ({
     React.useState<ColumnResizeDirection>('ltr')
 */
 
+  const curatedData: DataHelper[] = isSelectable
+    ? data.map((dataItem) => ({
+        ...dataItem,
+        select: dataItem.select ?? false,
+      }))
+    : data;
+
+  const selectColumnIndex = isSelectable
+    ? columns.findIndex((column) => column.id === "select")
+    : -1;
+
+  const selectColumn =
+    selectColumnIndex > -1
+      ? {
+          ...columns[selectColumnIndex],
+          accessorKey: "select",
+        }
+      : undefined;
+
+  const curatedColumns = selectColumn
+    ? [
+        ...columns.slice(0, selectColumnIndex),
+        { ...selectColumn },
+        ...columns.slice(selectColumnIndex + 1),
+      ]
+    : columns;
+
   const table = useReactTable({
-    columns,
+    columns: curatedColumns,
     columnResizeMode,
-    data,
+    data: curatedData,
     defaultColumn,
     state,
     enableColumnResizing: isResizable,
