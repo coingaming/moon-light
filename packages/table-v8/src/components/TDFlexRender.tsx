@@ -5,12 +5,6 @@ import TDProps from "../private/types/TDProps";
 import { flexRender } from "../private/utils";
 
 const TDFlexRender: FC<TDProps> = ({ cell, textClip }) => {
-  console.log("in here oe cell context", {
-    cellContext: cell.getContext(),
-    cellValue: cell.getValue(),
-    cellRenderValue: cell.renderValue(),
-  });
-
   if (cell.getValue() === undefined) {
     return null;
   }

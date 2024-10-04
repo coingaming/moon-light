@@ -76,11 +76,6 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>((props, ref) => {
     );
   }
 
-  // console.log('in here oe cell data', {
-  //   cell: cell.column.columnDef.cell,
-  //   cellContext: cell.getContext()
-  // })
-
   return (
     <td
       key={cell.id}
