@@ -20,6 +20,7 @@ import type { ColumnResizeMode } from "../private/types";
 import type ColumnData from "../private/types/ColumnData";
 import type TableProps from "../private/types/TableProps";
 import DataHelper from "../private/types/DataHelper";
+import handleSelectableTable from "../private/utils/handleSelectableTable";
 
 const Table = ({
   columns,
@@ -61,37 +62,13 @@ const Table = ({
     React.useState<ColumnResizeDirection>('ltr')
 */
 
-  const curatedData: DataHelper[] = isSelectable
-    ? data.map((dataItem) => ({
-        ...dataItem,
-        select: dataItem.select ?? false,
-      }))
-    : data;
-
-  const selectColumnIndex = isSelectable
-    ? columns.findIndex((column) => column.id === "select")
-    : -1;
-
-  const selectColumn =
-    selectColumnIndex > -1
-      ? {
-          ...columns[selectColumnIndex],
-          accessorKey: "select",
-        }
-      : undefined;
-
-  const curatedColumns = selectColumn
-    ? [
-        ...columns.slice(0, selectColumnIndex),
-        { ...selectColumn },
-        ...columns.slice(selectColumnIndex + 1),
-      ]
-    : columns;
+  const { data: selectableData, columns: selectableColumns } =
+    handleSelectableTable({ data, columns, isSelectable });
 
   const table = useReactTable({
-    columns: curatedColumns,
+    columns: selectableColumns,
     columnResizeMode,
-    data: curatedData,
+    data: selectableData,
     defaultColumn,
     state,
     enableColumnResizing: isResizable,
