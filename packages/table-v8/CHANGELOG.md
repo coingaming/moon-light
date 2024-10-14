@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.17.5
+
+### Patch Changes
+
+- d4becdb: fix: add accessor key to select column to avoid crashing when no data is present [MDS-1321]
+
 ## 10.17.3
 
 ### Patch Changes
