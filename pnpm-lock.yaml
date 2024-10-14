@@ -40,7 +40,7 @@ importers:
         specifier: workspace:^10.17.3
         version: link:../packages/cmdk
       '@heathmont/moon-core-tw':
-        specifier: workspace:^10.17.3
+        specifier: workspace:^10.17.4
         version: link:../packages/core
       '@heathmont/moon-icons-tw':
         specifier: ^9.29.3
@@ -49,7 +49,7 @@ importers:
         specifier: workspace:^10.17.3
         version: link:../packages/table-v8
       '@heathmont/moon-themes-tw':
-        specifier: ^10.17.3
+        specifier: workspace:^10.17.3
         version: link:../packages/themes
       '@hookform/resolvers':
         specifier: ^3.3.2
@@ -114,7 +114,7 @@ importers:
         version: 9.1.0(eslint@8.54.0)
       eslint-plugin-prettier:
         specifier: ^5.1.2
-        version: 5.1.2(eslint-config-prettier@9.1.0)(eslint@8.54.0)(prettier@3.1.1)
+        version: 5.1.2(eslint-config-prettier@9.1.0)(eslint@8.54.0)(prettier@3.3.3)
       pa11y:
         specifier: ^6.2.3
         version: 6.2.3
@@ -209,7 +209,7 @@ importers:
         specifier: ^10.17.3
         version: link:../core
       '@tanstack/react-table':
-        specifier: ^8.9.11
+        specifier: ^8.20.5
         version: 8.20.5(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: 18.2.0
@@ -447,7 +447,7 @@ packages:
     resolution: {integrity: sha512-ZX/etZEZw8DR7zAB1eVQT40lNo0jeqpb6dCgOvctB6FIQ5PoXfMuNY8+ayQfu8tNQbAB8gQWSSJupR8NxeiZXw==}
     requiresBuild: true
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.7.0
     dev: false
     optional: true
 
@@ -2963,7 +2963,7 @@ packages:
       object.fromentries: 2.0.7
     dev: true
 
-  /eslint-plugin-prettier@5.1.2(eslint-config-prettier@9.1.0)(eslint@8.54.0)(prettier@3.1.1):
+  /eslint-plugin-prettier@5.1.2(eslint-config-prettier@9.1.0)(eslint@8.54.0)(prettier@3.3.3):
     resolution: {integrity: sha512-dhlpWc9vOwohcWmClFcA+HjlvUpuyynYs0Rf+L/P6/0iQE6vlHW9l5bkfzN62/Stm9fbq8ku46qzde76T1xlSg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2979,7 +2979,7 @@ packages:
     dependencies:
       eslint: 8.54.0
       eslint-config-prettier: 9.1.0(eslint@8.54.0)
-      prettier: 3.1.1
+      prettier: 3.3.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
     dev: true
@@ -5223,6 +5223,12 @@ packages:
     hasBin: true
     dev: true
 
+  /prettier@3.3.3:
+    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
   /prismjs@1.27.0:
     resolution: {integrity: sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==}
     engines: {node: '>=6'}
@@ -6187,6 +6193,12 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+
+  /tslib@2.7.0:
+    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /tty-table@4.2.3:
     resolution: {integrity: sha512-Fs15mu0vGzCrj8fmJNP7Ynxt5J7praPXqFN0leZeZBXJwkMxv9cb2D454k1ltrtUSJbZ4yH4e0CynsHLxmUfFA==}

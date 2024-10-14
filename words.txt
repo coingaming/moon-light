@@ -1,6 +1,7 @@
 Aldus
 authcode
 autohiding
+autoslide
 averta
 beerus
 betadda
@@ -19,6 +20,7 @@ datetime
 datetimelocal
 dodoria
 Draghandle
+esbenp
 fraunces
 frieza
 frontmatter
@@ -57,6 +59,8 @@ Scroller
 Segoe
 sportsbet
 stackoverflow
+Subcomponent
+Swipping
 tabpanel
 tagsinput
 testid

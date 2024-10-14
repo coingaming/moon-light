@@ -26,7 +26,7 @@ const Installation = `# Moon Light Design System
    pnpm run build
    \`\`\`
 
-3. Run storybook for development:
+3. Run storybook for development at \`localhost:3000\`:
 
    \`\`\`sh
    pnpm run doc dev
@@ -36,9 +36,6 @@ const Installation = `# Moon Light Design System
 
    \`\`\`sh
    pnpm run doc build
-   \`\`\`
-
-   \`\`\`sh
    pnpm run doc start
    \`\`\`
 

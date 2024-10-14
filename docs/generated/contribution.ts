@@ -1,6 +1,4 @@
-const Contribution = `# Contributing
-
-Thanks for your interest in contributing to Moon Light Design System!
+const Contribution = `Thanks for your interest in contributing to Moon Light Design System!
 
 Please take a moment to review this document **before submitting a pull request**.
 
