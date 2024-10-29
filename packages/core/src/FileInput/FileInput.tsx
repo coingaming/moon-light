@@ -1,16 +1,16 @@
-import React, { FC, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import Input from "../input/Input";
 import GenericUpload from "../private/icons/GenericUpload";
-import InputProps from "../input/private/types/InputProps";
+import type InputProps from "../input/private/types/InputProps";
 
 type FileInputProps = InputProps & {
   onFileUpload?: (file?: File) => void;
-  initFile?: string;
+  initFile?: File;
 };
 
-const FileInput: FC = forwardRef<HTMLInputElement, FileInputProps>(
+const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
   ({ onFileUpload, initFile, ...rest }, ref) => {
-    const [file, setFile] = React.useState<File | undefined>();
+    const [file, setFile] = React.useState<File | undefined>(initFile);
 
     const handleFileUpload: React.ChangeEventHandler<HTMLInputElement> = (
       event,
@@ -33,6 +33,7 @@ const FileInput: FC = forwardRef<HTMLInputElement, FileInputProps>(
           className="top-0 left-0 pr-10"
           placeholder="Choose a file"
           value={fileName}
+          readOnly
           {...rest}
         />
         <GenericUpload className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
