@@ -1,6 +1,6 @@
 "use client";
 
-import { Input, Label } from "@heathmont/moon-core-tw";
+import { FileInput, Input, Label } from "@heathmont/moon-core-tw";
 
 const TextInputTypes = () => (
   <>
@@ -8,6 +8,10 @@ const TextInputTypes = () => (
       <div className="w-full">
         <Label>Number</Label>
         <Input type="number" placeholder="e.g. 12345" />
+      </div>
+      <div className="w-full">
+        <Label>File</Label>
+        <FileInput />
       </div>
       <div className="w-full">
         <Label>Date</Label>

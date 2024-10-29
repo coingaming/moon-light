@@ -86,3 +86,5 @@ export { default as Textarea } from "./textarea/Textarea";
 export * from "./textarea/Textarea";
 export { default as Tooltip } from "./tooltip/Tooltip";
 export * from "./tooltip/Tooltip";
+export { default as FileInput } from "./FileInput/FileInput";
+export * from "./FileInput/FileInput";
