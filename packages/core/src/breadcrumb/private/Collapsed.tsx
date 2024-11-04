@@ -12,6 +12,7 @@ const Collapsed = ({ breadcrumbs, divider }: Props) => {
   const restBreadcrumbs: React.ReactNode[] = [];
   const collapseBreadcrumbs = breadcrumbs
     .map((crumb, index) => {
+      //  show the first breadcrumb
       if (index === 0) return crumb;
       if (index > breadcrumbs.length - 3) {
         return crumb;
@@ -20,22 +21,25 @@ const Collapsed = ({ breadcrumbs, divider }: Props) => {
       }
     })
     .filter((crumd) => crumd);
+
   const clickHandle = () => toggleDropdown(!isOpen);
+
   React.useEffect(() => {
     if (hasClickedOutside) {
       toggleDropdown(false);
     }
-  });
+  }, [hasClickedOutside]);
+
   return (
     <nav aria-label="Breadcrumb">
       <ol className="flex flex-wrap gap-2 items-center text-moon-14">
         <li key={"crumb" + 0} className="flex items-center gap-2 text-trunks">
           <span className="text-trunks transition-colors duration-200 hover:text-bulma">
-            {collapseBreadcrumbs && collapseBreadcrumbs[0]}
+            {collapseBreadcrumbs[0]}
           </span>
           {divider ? divider : <ArrowsRight className="rtl:rotate-180" />}
         </li>
-        {restBreadcrumbs?.length !== 0 && (
+        {restBreadcrumbs.length !== 0 && (
           <li key={"crumb" + 1} ref={ref} className="relative">
             <IconButton
               variant="ghost"
@@ -58,12 +62,13 @@ const Collapsed = ({ breadcrumbs, divider }: Props) => {
             )}
           </li>
         )}
-        {collapseBreadcrumbs?.length !== 0 &&
+        {collapseBreadcrumbs.length !== 0 &&
           collapseBreadcrumbs.map((crumb, index) => {
+            // we skip the first crumb 
             if (index === 0) return null;
             return (
               <li
-                key={"crumb" + index + 1}
+                key={"crumb" + (index + 1)}
                 className="flex items-center gap-2 text-trunks"
               >
                 {divider ? (
@@ -75,10 +80,10 @@ const Collapsed = ({ breadcrumbs, divider }: Props) => {
                   className={mergeClassnames(
                     "text-trunks transition-colors duration-200 hover:text-bulma",
                     index === collapseBreadcrumbs.length - 1 &&
-                      "text-bulma font-medium",
+                    "text-bulma font-medium",
                   )}
                 >
-                  {crumb && crumb}
+                  {crumb}
                 </span>
               </li>
             );
