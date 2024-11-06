@@ -9,13 +9,18 @@ type FileInputProps = InputProps & {
 };
 
 const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
-  ({ onFileUpload, initFile, ...rest }, ref) => {
+  ({ onFileUpload, initFile, placeholder, className, ...rest }, ref) => {
     const [file, setFile] = React.useState<File | undefined>(initFile);
 
     const handleFileUpload: React.ChangeEventHandler<HTMLInputElement> = (
       event,
     ) => {
       const file = event?.target?.files?.[0];
+
+      if (!file) {
+        return;
+      }
+
       setFile(file);
       onFileUpload?.(file);
     };
@@ -30,8 +35,8 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
         />
         <Input
           type="text"
-          className="top-0 left-0 pr-10"
-          placeholder="Choose a file"
+          className={`top-0 left-0 pr-10 ${className || ""}`}
+          placeholder={placeholder}
           value={fileName}
           readOnly
           {...rest}

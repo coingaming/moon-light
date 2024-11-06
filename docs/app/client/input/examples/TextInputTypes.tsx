@@ -1,10 +1,13 @@
 "use client";
 
-import { FileInput, Input, Label } from "@heathmont/moon-core-tw";
+import { FileInput, Input, Label, Alert } from "@heathmont/moon-core-tw";
+import { useState } from "react";
 
 const TextInputTypes = () => {
+  const [alert, setAlert] = useState(false);
+  const [file, setFile] = useState<File>();
   const fileTestHandler = (file: File | undefined) => {
-    console.info("File uploaded: ", file?.name);
+    setFile(file);
   };
 
   return (
@@ -14,10 +17,7 @@ const TextInputTypes = () => {
           <Label>Number</Label>
           <Input type="number" placeholder="e.g. 12345" />
         </div>
-        <div className="w-full">
-          <Label>File</Label>
-          <FileInput onFileUpload={fileTestHandler} />
-        </div>
+
         <div className="w-full">
           <Label>Date</Label>
           <Input type="date" aria-label="Date" />
@@ -53,6 +53,20 @@ const TextInputTypes = () => {
         <div className="w-full">
           <Label>Url</Label>
           <Input type="url" placeholder="e.g. https://domain.com" />
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-2 w-full items-center">
+        <div>
+          <Label>File</Label>
+          <FileInput
+            onFileUpload={fileTestHandler}
+            placeholder="Choose a file"
+          />
+        </div>
+        <div>
+          {file && (
+            <Alert className="m-0 p-0">File uploaded: {file.name}</Alert>
+          )}
         </div>
       </div>
     </>
