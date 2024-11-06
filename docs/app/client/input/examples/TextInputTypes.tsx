@@ -4,10 +4,13 @@ import { FileInput, Input, Label, Alert } from "@heathmont/moon-core-tw";
 import { useState } from "react";
 
 const TextInputTypes = () => {
-  const [alert, setAlert] = useState(false);
   const [file, setFile] = useState<File>();
-  const fileTestHandler = (file: File | undefined) => {
+  const testFileHandler = (file: File | undefined) => {
     setFile(file);
+  };
+
+  const removeTestFileHandler = () => {
+    setFile(undefined);
   };
 
   return (
@@ -59,7 +62,8 @@ const TextInputTypes = () => {
         <div>
           <Label>File</Label>
           <FileInput
-            onFileUpload={fileTestHandler}
+            onFileUpload={testFileHandler}
+            onFileRemove={removeTestFileHandler}
             placeholder="Choose a file"
           />
         </div>

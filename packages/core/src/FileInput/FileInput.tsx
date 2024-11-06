@@ -1,15 +1,20 @@
 import React, { forwardRef } from "react";
 import Input from "../input/Input";
 import GenericUpload from "../private/icons/GenericUpload";
+import GenericCloseSmall from "../private/icons/ControlsCloseSmall";
 import type InputProps from "../input/private/types/InputProps";
 
 type FileInputProps = InputProps & {
   onFileUpload?: (file?: File) => void;
+  onFileRemove?: () => void;
   initFile?: File;
 };
 
 const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
-  ({ onFileUpload, initFile, placeholder, className, ...rest }, ref) => {
+  (
+    { onFileUpload, onFileRemove, initFile, placeholder, className, ...rest },
+    ref,
+  ) => {
     const [file, setFile] = React.useState<File | undefined>(initFile);
 
     const handleFileUpload: React.ChangeEventHandler<HTMLInputElement> = (
@@ -23,6 +28,11 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 
       setFile(file);
       onFileUpload?.(file);
+    };
+
+    const handleFileRemove = () => {
+      setFile(undefined);
+      onFileRemove?.();
     };
 
     const fileName = file?.name || "";
@@ -41,7 +51,15 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
           readOnly
           {...rest}
         />
-        <GenericUpload className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
+        {!file && (
+          <GenericUpload className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
+        )}
+        {file && (
+          <GenericCloseSmall
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 size-6 cursor-pointer"
+            onClick={handleFileRemove}
+          />
+        )}
         <input
           id="file-input"
           type="file"
