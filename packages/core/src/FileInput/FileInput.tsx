@@ -4,7 +4,7 @@ import GenericUpload from "../private/icons/GenericUpload";
 import GenericCloseSmall from "../private/icons/ControlsCloseSmall";
 import type InputProps from "../input/private/types/InputProps";
 
-type FileInputProps = InputProps & {
+type FileInputProps = Omit<InputProps, "type"> & {
   onFileUpload?: (file?: File) => void;
   onFileRemove?: () => void;
   initFile?: File;
