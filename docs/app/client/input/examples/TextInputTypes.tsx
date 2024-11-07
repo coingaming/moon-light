@@ -1,6 +1,6 @@
 "use client";
 
-import { FileInput, Input, Label, Alert } from "@heathmont/moon-core-tw";
+import { FileInput, Input, Label, Hint } from "@heathmont/moon-core-tw";
 import { useState } from "react";
 
 const TextInputTypes = () => {
@@ -66,11 +66,7 @@ const TextInputTypes = () => {
             onFileRemove={removeTestFileHandler}
             placeholder="Choose a file"
           />
-        </div>
-        <div>
-          {file && (
-            <Alert className="m-0 p-0">File uploaded: {file.name}</Alert>
-          )}
+          {file && <Hint>File uploaded: {file.name}</Hint>}
         </div>
       </div>
     </>

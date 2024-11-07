@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, memo } from "react";
 import Input from "../input/Input";
 import GenericUpload from "../private/icons/GenericUpload";
 import GenericCloseSmall from "../private/icons/ControlsCloseSmall";
@@ -10,66 +10,68 @@ type FileInputProps = InputProps & {
   initFile?: File;
 };
 
-const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
-  (
-    { onFileUpload, onFileRemove, initFile, placeholder, className, ...rest },
-    ref,
-  ) => {
-    const [file, setFile] = React.useState<File | undefined>(initFile);
-
-    const handleFileUpload: React.ChangeEventHandler<HTMLInputElement> = (
-      event,
+const FileInput = memo(
+  forwardRef<HTMLInputElement, FileInputProps>(
+    (
+      { onFileUpload, onFileRemove, initFile, placeholder, className, ...rest },
+      ref,
     ) => {
-      const file = event?.target?.files?.[0];
+      const [file, setFile] = React.useState<File | undefined>(initFile);
 
-      if (!file) {
-        return;
-      }
+      const handleFileUpload: React.ChangeEventHandler<HTMLInputElement> = (
+        event,
+      ) => {
+        const file = event?.target?.files?.[0];
 
-      setFile(file);
-      onFileUpload?.(file);
-    };
+        if (!file) {
+          return;
+        }
 
-    const handleFileRemove = () => {
-      setFile(undefined);
-      onFileRemove?.();
-    };
+        setFile(file);
+        onFileUpload?.(file);
+      };
 
-    const fileName = file?.name || "";
+      const handleFileRemove = () => {
+        setFile(undefined);
+        onFileRemove?.();
+      };
 
-    return (
-      <div className="relative">
-        <label
-          htmlFor="file-input"
-          className="absolute w-full h-full top-0 left-0 cursor-pointer z-20"
-        />
-        <Input
-          type="text"
-          className={`top-0 left-0 pr-10 ${className || ""}`}
-          placeholder={placeholder}
-          value={fileName}
-          readOnly
-          {...rest}
-        />
-        {!file && (
-          <GenericUpload className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
-        )}
-        {file && (
-          <GenericCloseSmall
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 size-6 cursor-pointer"
-            onClick={handleFileRemove}
+      const fileName = file?.name || "";
+
+      return (
+        <div className="relative">
+          <label
+            htmlFor="file-input"
+            className="absolute w-full h-full top-0 left-0 cursor-pointer z-20"
           />
-        )}
-        <input
-          id="file-input"
-          type="file"
-          className="hidden"
-          ref={ref}
-          onChange={handleFileUpload}
-        />
-      </div>
-    );
-  },
+          <Input
+            type="text"
+            className={`top-0 left-0 pr-10 ${className || ""}`}
+            placeholder={placeholder}
+            value={fileName}
+            readOnly
+            {...rest}
+          />
+          {!file && (
+            <GenericUpload className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
+          )}
+          {file && (
+            <GenericCloseSmall
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 size-6 cursor-pointer"
+              onClick={handleFileRemove}
+            />
+          )}
+          <input
+            id="file-input"
+            type="file"
+            className="hidden"
+            ref={ref}
+            onChange={handleFileUpload}
+          />
+        </div>
+      );
+    },
+  ),
 );
 
 export default FileInput;
