@@ -17,6 +17,7 @@ const FileInput = memo(
       ref,
     ) => {
       const [file, setFile] = React.useState<File | undefined>(initFile);
+      const inputFileRef = React.useRef<HTMLInputElement>(null);
 
       const handleFileUpload: React.ChangeEventHandler<HTMLInputElement> = (
         event,
@@ -43,6 +44,18 @@ const FileInput = memo(
           <label
             htmlFor="file-input"
             className="absolute w-full h-full top-0 left-0 cursor-pointer z-20"
+            tabIndex={0}
+            onKeyDown={(event) => {
+              console.log("in here oe event key", { key: event.key });
+              if (
+                event.key === "Enter" ||
+                event.key === " " ||
+                event.key === "Space"
+              ) {
+                event.preventDefault();
+                inputFileRef?.current?.click();
+              }
+            }}
           />
           <Input
             type="text"
@@ -65,7 +78,7 @@ const FileInput = memo(
             id="file-input"
             type="file"
             className="hidden"
-            ref={ref}
+            ref={inputFileRef}
             onChange={handleFileUpload}
           />
         </div>
