@@ -46,7 +46,6 @@ const FileInput = memo(
             className="absolute w-full h-full top-0 left-0 cursor-pointer z-20"
             tabIndex={0}
             onKeyDown={(event) => {
-              console.log("in here oe event key", { key: event.key });
               if (
                 event.key === "Enter" ||
                 event.key === " " ||
