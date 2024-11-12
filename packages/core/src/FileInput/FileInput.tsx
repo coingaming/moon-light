@@ -43,6 +43,7 @@ const FileInput = memo(
       const inputFileRef = React.useRef<HTMLInputElement>(null);
       const acceptRegexp =
         accept !== "*/*" ? createAcceptRegex(accept) : /^.*\/.*$/;
+      const hasErrors = Object.keys(errors).length > 0;
 
       const clearFile = () => {
         setFile(undefined);
@@ -62,9 +63,9 @@ const FileInput = memo(
           return;
         }
 
-        const errors = errorHandling(file);
-        if (Object.keys(errors).length) {
-          setErrors(errors);
+        const fileErrors = errorHandling(file);
+        if (Object.keys(fileErrors).length) {
+          setErrors(fileErrors);
           return;
         }
 
@@ -79,29 +80,27 @@ const FileInput = memo(
       };
 
       const errorHandling = (file: File | undefined) => {
-        const errors: Errors = {};
+        const fileErrors: Errors = {};
         if (!file) {
           return {};
         }
 
         if (maxFileSize && file.size > maxFileSize) {
-          errors.maxFileSize = errorMessages.maxFileSize;
+          fileErrors.maxFileSize = errorMessages.maxFileSize;
         }
 
-        console.log("in here oe file", { file, maxFileSize, errors });
-
         if (accept === "*/*") {
-          return errors;
+          return fileErrors;
         }
 
         const isValidExtension = acceptRegexp.test(file.name);
         const isValidMimeType = acceptRegexp.test(file.type);
 
         if (!isValidMimeType && !isValidExtension) {
-          errors.type = errorMessages.type;
+          fileErrors.type = errorMessages.type;
         }
 
-        return errors;
+        return fileErrors;
       };
 
       const handleKeyDown = (event: React.KeyboardEvent<HTMLLabelElement>) => {
@@ -118,11 +117,11 @@ const FileInput = memo(
       const fileName = file?.name || "";
 
       return (
-        <div>
+        <>
           <div className="relative">
             <label
               htmlFor="file-input"
-              className="absolute w-full h-full top-0 start-0 cursor-pointer z-20"
+              className="absolute w-full h-full top-0 start-0 cursor-pointer z-20 rounded-moon-i-sm"
               tabIndex={0}
               onKeyDown={handleKeyDown}
             />
@@ -132,6 +131,7 @@ const FileInput = memo(
               placeholder={placeholder}
               value={fileName}
               readOnly
+              error={hasErrors}
               {...rest}
             />
             {!file && (
@@ -157,7 +157,7 @@ const FileInput = memo(
               <li key={key}>{value}</li>
             ))}
           </ul>
-        </div>
+        </>
       );
     },
   ),
