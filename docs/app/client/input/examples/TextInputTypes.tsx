@@ -65,6 +65,7 @@ const TextInputTypes = () => {
             onFileUpload={testFileHandler}
             onFileRemove={removeTestFileHandler}
             placeholder="Choose a file"
+            accept=".jpg, .png, video/mp4, .pdf"
           />
           {file && <Hint>File uploaded: {file.name}</Hint>}
         </div>
