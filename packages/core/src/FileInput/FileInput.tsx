@@ -6,13 +6,13 @@ import type InputProps from "../input/private/types/InputProps";
 import createAcceptRegex from "./utils/createAcceptRegex";
 
 type Errors = {
-  size?: string;
+  maxFileSize?: string;
   type?: string;
 };
 
 type FileInputProps = Omit<InputProps, "type"> & {
   accept?: string;
-  size?: number;
+  maxFileSize?: number;
   onFileUpload?: (file?: File) => void;
   onFileRemove?: () => void;
   initFile?: File;
@@ -29,9 +29,9 @@ const FileInput = memo(
         placeholder,
         className,
         accept = "*/*",
-        size,
+        maxFileSize,
         errorMessages = {
-          size: "File is too large",
+          maxFileSize: "File is too large",
           type: "Invalid file type",
         },
         ...rest
@@ -84,11 +84,11 @@ const FileInput = memo(
           return {};
         }
 
-        console.log("in here oe file", { file });
-
-        if (size && file.size > size) {
-          errors.size = errorMessages.size;
+        if (maxFileSize && file.size > maxFileSize) {
+          errors.maxFileSize = errorMessages.maxFileSize;
         }
+
+        console.log("in here oe file", { file, maxFileSize, errors });
 
         if (accept === "*/*") {
           return errors;
@@ -150,7 +150,6 @@ const FileInput = memo(
               ref={inputFileRef}
               onChange={handleFileUpload}
               accept={accept}
-              size={size}
             />
           </div>
           <ul className="text-chichi">
