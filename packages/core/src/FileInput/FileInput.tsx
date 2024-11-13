@@ -1,4 +1,4 @@
-import React, { forwardRef, memo } from "react";
+import React, { forwardRef, memo, useImperativeHandle, useRef } from "react";
 import Input from "../input/Input";
 import GenericUpload from "../private/icons/GenericUpload";
 import GenericCloseSmall from "../private/icons/ControlsCloseSmall";
@@ -20,8 +20,13 @@ type FileInputProps = Omit<InputProps, "type"> & {
   errorMessages?: Errors;
 };
 
+type FileInputRef = {
+  click: () => void;
+  focus: () => void;
+};
+
 const FileInput = memo(
-  forwardRef<HTMLInputElement, FileInputProps>(
+  forwardRef<FileInputRef, FileInputProps>(
     (
       {
         onFileUpload,
@@ -41,10 +46,23 @@ const FileInput = memo(
     ) => {
       const [file, setFile] = React.useState<File | undefined>(initFile);
       const [errors, setErrors] = React.useState<Errors>({});
-      const inputFileRef = React.useRef<HTMLInputElement>(null);
+      const inputFileRef = useRef<HTMLInputElement>(null);
       const acceptRegexp =
         accept !== "*/*" ? createAcceptRegex(accept) : /^.*\/.*$/;
       const hasErrors = Object.keys(errors).length > 0;
+
+      useImperativeHandle(
+        ref,
+        () => ({
+          click: () => {
+            inputFileRef?.current?.click();
+          },
+          focus: () => {
+            inputFileRef?.current?.focus();
+          },
+        }),
+        [],
+      );
 
       const clearFile = () => {
         setFile(undefined);
