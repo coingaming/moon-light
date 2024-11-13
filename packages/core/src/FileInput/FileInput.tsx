@@ -2,28 +2,11 @@ import React, { forwardRef, memo, useImperativeHandle, useRef } from "react";
 import Input from "../input/Input";
 import GenericUpload from "../private/icons/GenericUpload";
 import GenericCloseSmall from "../private/icons/ControlsCloseSmall";
-import type InputProps from "../input/private/types/InputProps";
 import createAcceptRegex from "./utils/createAcceptRegex";
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
-
-type Errors = {
-  maxFileSize?: string;
-  type?: string;
-};
-
-type FileInputProps = Omit<InputProps, "type"> & {
-  accept?: string;
-  maxFileSize?: number;
-  onFileUpload?: (file?: File) => void;
-  onFileRemove?: () => void;
-  initFile?: File;
-  errorMessages?: Errors;
-};
-
-type FileInputRef = {
-  click: () => void;
-  focus: () => void;
-};
+import FileInputProps from "./types/FileInputProps";
+import Errors from "./types/Errors";
+import FileInputRef from "./types/FileInputRef";
 
 const FileInput = memo(
   forwardRef<FileInputRef, FileInputProps>(
