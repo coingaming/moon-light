@@ -121,7 +121,7 @@ const FileInput = memo(
           <div className="relative">
             <label
               htmlFor="file-input"
-              className="absolute w-full h-full top-0 start-0 cursor-pointer z-20 rounded-moon-i-sm"
+              className="absolute w-full h-full top-0 start-0 cursor-pointer z-20 rounded-moon-i-sm hover:shadow-input-hov"
               tabIndex={0}
               onKeyDown={handleKeyDown}
             />
