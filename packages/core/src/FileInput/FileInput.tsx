@@ -4,6 +4,7 @@ import GenericUpload from "../private/icons/GenericUpload";
 import GenericCloseSmall from "../private/icons/ControlsCloseSmall";
 import type InputProps from "../input/private/types/InputProps";
 import createAcceptRegex from "./utils/createAcceptRegex";
+import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 type Errors = {
   maxFileSize?: string;
@@ -121,13 +122,20 @@ const FileInput = memo(
           <div className="relative">
             <label
               htmlFor="file-input"
-              className="absolute w-full h-full top-0 start-0 cursor-pointer z-20 rounded-moon-i-sm hover:shadow-input-hov"
+              className={mergeClassnames(
+                "absolute w-full h-full top-0 start-0 cursor-pointer z-20 rounded-moon-i-sm hover:shadow-input-hov",
+                hasErrors &&
+                  "shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-err focus:outline-none",
+              )}
               tabIndex={0}
               onKeyDown={handleKeyDown}
             />
             <Input
               type="text"
-              className={`top-0 start-0 pe-10 ${className || ""}`}
+              className={mergeClassnames(
+                "top-0 start-0 pe-10",
+                className && className,
+              )}
               placeholder={placeholder}
               value={fileName}
               readOnly
