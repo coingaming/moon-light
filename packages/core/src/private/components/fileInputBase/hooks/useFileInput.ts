@@ -8,11 +8,11 @@ import React, {
 } from "react";
 import createAcceptRegex from "../utils/createAcceptRegex";
 import Errors from "../types/Errors";
-import FileInputProps from "../types/FileInputBaseProps";
+import FileInputBaseProps from "../types/FileInputBaseProps";
 import FileInputRef from "../types/FileInputRef";
 
 const useFileInput = (
-  props: FileInputProps,
+  props: FileInputBaseProps,
   ref: ForwardedRef<FileInputRef>,
 ) => {
   const {

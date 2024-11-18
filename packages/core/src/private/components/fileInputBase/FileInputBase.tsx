@@ -1,14 +1,15 @@
 import React, { forwardRef, memo } from "react";
-import GenericUpload from "../private/icons/GenericUpload";
-import GenericCloseSmall from "../private/icons/ControlsCloseSmall";
-import mergeClassnames from "../mergeClassnames/mergeClassnames";
-import FileInputProps from "./types/FileInputBaseProps";
-import FileInputRef from "./types/FileInputRef";
+import GenericUpload from "../../icons/GenericUpload";
+import GenericCloseSmall from "../../icons/ControlsCloseSmall";
+import mergeClassnames from "../../../mergeClassnames/mergeClassnames";
+
 import useFileInput from "./hooks/useFileInput";
+import FileInputRef from "./types/FileInputRef";
+import FileInputBaseProps from "./types/FileInputBaseProps";
 
 const FileInputBase = memo(
-  forwardRef<FileInputRef, FileInputProps>((props, ref) => {
-    const { children, accept = "*/*" } = props;
+  forwardRef<FileInputRef, FileInputBaseProps>((props, ref) => {
+    const { children, accept = "*/*", renderContent } = props;
 
     const {
       file,
@@ -34,7 +35,7 @@ const FileInputBase = memo(
             tabIndex={0}
             onKeyDown={handleKeyDown}
           />
-          {children}
+          {renderContent?.(file)}
           {!file && (
             <GenericUpload className="absolute end-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
           )}
