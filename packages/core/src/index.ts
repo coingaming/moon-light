@@ -88,3 +88,5 @@ export { default as Tooltip } from "./tooltip/Tooltip";
 export * from "./tooltip/Tooltip";
 export { default as FileInput } from "./FileInput/FileInput";
 export * from "./FileInput/FileInput";
+export { default as InsetFileInput } from "./InsetFileInput/InsetFileInput";
+export * from "./InsetFileInput/InsetFileInput";

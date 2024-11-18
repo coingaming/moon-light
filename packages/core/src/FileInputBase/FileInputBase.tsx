@@ -1,28 +1,14 @@
 import React, { forwardRef, memo } from "react";
-import Input from "../input/Input";
 import GenericUpload from "../private/icons/GenericUpload";
 import GenericCloseSmall from "../private/icons/ControlsCloseSmall";
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
-import FileInputProps from "./types/FileInputProps";
+import FileInputProps from "./types/FileInputBaseProps";
 import FileInputRef from "./types/FileInputRef";
 import useFileInput from "./hooks/useFileInput";
 
-const FileInput = memo(
+const FileInputBase = memo(
   forwardRef<FileInputRef, FileInputProps>((props, ref) => {
-    const {
-      onFileUpload,
-      onFileRemove,
-      initFile,
-      placeholder,
-      className,
-      accept = "*/*",
-      maxFileSize,
-      errorMessages = {
-        maxFileSize: "File is too large",
-        type: "Invalid file type",
-      },
-      ...rest
-    } = props;
+    const { children, accept = "*/*" } = props;
 
     const {
       file,
@@ -48,18 +34,7 @@ const FileInput = memo(
             tabIndex={0}
             onKeyDown={handleKeyDown}
           />
-          <Input
-            type="text"
-            className={mergeClassnames(
-              "top-0 start-0 pe-10",
-              className && className,
-            )}
-            placeholder={placeholder}
-            value={fileName}
-            readOnly
-            error={hasErrors}
-            {...rest}
-          />
+          {children}
           {!file && (
             <GenericUpload className="absolute end-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
           )}
@@ -88,4 +63,4 @@ const FileInput = memo(
   }),
 );
 
-export default FileInput;
+export default FileInputBase;
