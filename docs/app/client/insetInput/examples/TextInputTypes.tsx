@@ -54,8 +54,8 @@ const TextInputTypes = () => {
             onFileUpload={testFileHandler}
             onFileRemove={removeTestFileHandler}
             label="Choose a file"
-            accept="image/*"
-            maxFileSize={5000 * 1024}
+            accept="image/*, .pdf"
+            maxFileSize={4000 * 1024}
           />
           {file && <Hint>File uploaded: {file.name}</Hint>}
         </div>

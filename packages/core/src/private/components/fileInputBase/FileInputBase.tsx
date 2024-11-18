@@ -9,7 +9,7 @@ import FileInputBaseProps from "./types/FileInputBaseProps";
 
 const FileInputBase = memo(
   forwardRef<FileInputRef, FileInputBaseProps>((props, ref) => {
-    const { children, accept = "*/*", renderContent } = props;
+    const { accept = "*/*", renderContent } = props;
 
     const {
       file,

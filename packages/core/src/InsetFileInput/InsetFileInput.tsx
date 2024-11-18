@@ -22,6 +22,7 @@ const InsetFileInput = memo(
     const fileUploadHandler = (file: File | undefined) => {
       onFileUpload?.(file);
     };
+
     const fileRemoveHandler = () => {
       onFileRemove?.();
     };
