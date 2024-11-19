@@ -1,13 +1,6 @@
 import InputProps from "../../input/private/types/InputProps";
-import Errors from "./Errors";
+import FileInputBaseProps from "../../private/components/fileInputBase/types/FileInputBaseProps";
 
-type FileInputProps = Omit<InputProps, "type"> & {
-  accept?: string;
-  maxFileSize?: number;
-  onFileUpload?: (file?: File) => void;
-  onFileRemove?: () => void;
-  initFile?: File;
-  errorMessages?: Errors;
-};
+type FileInputProps = Omit<InputProps, "type"> & FileInputBaseProps;
 
 export default FileInputProps;

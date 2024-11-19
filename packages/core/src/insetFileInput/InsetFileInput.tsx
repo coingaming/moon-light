@@ -18,8 +18,6 @@ const InsetFileInput = memo(
       ...rest
     } = props;
 
-    const inputRef = React.useRef<HTMLInputElement>(null);
-
     const fileUploadHandler = (file: File | undefined) => {
       onFileUpload?.(file);
     };
@@ -44,7 +42,6 @@ const InsetFileInput = memo(
             placeholder={placeholder}
             readOnly
             {...rest}
-            ref={inputRef}
           >
             <InsetInput.Label>{label}</InsetInput.Label>
           </InsetInput>
