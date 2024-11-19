@@ -9,7 +9,7 @@ import FileInputBaseProps from "./types/FileInputBaseProps";
 
 const FileInputBase = memo(
   forwardRef<FileInputRef, FileInputBaseProps>((props, ref) => {
-    const { accept = "*/*", renderContent } = props;
+    const { accept = "*/*", renderContent, children } = props;
 
     const {
       file,
@@ -19,7 +19,6 @@ const FileInputBase = memo(
       handleFileUpload,
       inputFileRef,
       errors,
-      fileName,
     } = useFileInput(props, ref);
 
     return (
@@ -35,7 +34,9 @@ const FileInputBase = memo(
             tabIndex={0}
             onKeyDown={handleKeyDown}
           />
-          {renderContent?.(file)}
+          {/* {renderContent?.(file)} */}
+          {typeof children === "function" ? children(file) : children}
+
           {!file && (
             <GenericUpload className="absolute end-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
           )}

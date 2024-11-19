@@ -37,7 +37,8 @@ const InsetFileInput = memo(
         onFileRemove={fileRemoveHandler}
         errorMessages={errorMessages}
         ref={ref}
-        renderContent={(file) => (
+      >
+        {(file: File | undefined) => (
           <InsetInput
             value={file?.name || ""}
             placeholder={placeholder}
@@ -48,7 +49,7 @@ const InsetFileInput = memo(
             <InsetInput.Label>{label}</InsetInput.Label>
           </InsetInput>
         )}
-      ></FileInputBase>
+      </FileInputBase>
     );
   }),
 );

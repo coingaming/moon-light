@@ -1,7 +1,7 @@
 import Errors from "./Errors";
 
 type FileInputBaseProps = {
-  children?: React.ReactNode | ((file?: File) => React.ReactNode);
+  children?: React.ReactNode | ((file?: File) => React.ReactElement);
   renderContent?: (file?: File) => React.ReactNode;
   accept?: string;
   maxFileSize?: number;
