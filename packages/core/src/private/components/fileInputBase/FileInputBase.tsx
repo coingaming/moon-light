@@ -34,9 +34,7 @@ const FileInputBase = memo(
             tabIndex={0}
             onKeyDown={handleKeyDown}
           />
-          {/* {renderContent?.(file)} */}
           {typeof children === "function" ? children(file) : children}
-
           {!file && (
             <GenericUpload className="absolute end-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
           )}
