@@ -14,6 +14,7 @@ const InsetFileInput = memo(
       onFileRemove,
       errorMessages,
       label = "Choose a file",
+      placeholder = "No file chosen",
       ...rest
     } = props;
 
@@ -39,7 +40,7 @@ const InsetFileInput = memo(
         renderContent={(file) => (
           <InsetInput
             value={file?.name || ""}
-            placeholder="No file chosen"
+            placeholder={placeholder}
             readOnly
             {...rest}
             ref={inputRef}

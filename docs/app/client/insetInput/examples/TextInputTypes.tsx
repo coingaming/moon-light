@@ -53,7 +53,7 @@ const TextInputTypes = () => {
           <InsetFileInput
             onFileUpload={testFileHandler}
             onFileRemove={removeTestFileHandler}
-            label="Choose a file"
+            label={!file ? "Choose a file" : "File"}
             accept="image/*, .pdf"
             maxFileSize={4000 * 1024}
           />
