@@ -14,20 +14,14 @@ const THead = ({
 }: THeadProps) => {
   const top = isSticky && rowGap ? rowGap : undefined;
   const styles = {
-    top: top,
-    "--beforeShift": top,
-    "--headerBGColor": `rgba(var(--${backgroundColor}, var(--gohan)))`,
+    top: `-${top}`,
+    "--headerBGColor": `rgb(var(--${backgroundColor || "gohan"}))`,
   } as const;
 
   return isSticky ? (
-    <thead
-      style={styles}
-      className={
-        "sticky z-[2] before:absolute before:w-full before:bottom-0 before:-top-[var(--beforeShift)] before:bg-[color:var(--headerBGColor)]"
-      }
-    >
+    <thead style={styles} className={"sticky z-[2]"}>
       {table.getHeaderGroups().map((headerGroup, indexHG) => (
-        <tr key={indexHG}>
+        <tr key={indexHG} style={{ top: `-${rowGap}` }}>
           {headerGroup.headers.map((header, index) => (
             <TH
               key={index}

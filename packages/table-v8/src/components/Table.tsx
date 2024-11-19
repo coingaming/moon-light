@@ -19,7 +19,6 @@ import Minimap from "./Minimap";
 import type { ColumnResizeMode } from "../private/types";
 import type ColumnData from "../private/types/ColumnData";
 import type TableProps from "../private/types/TableProps";
-import DataHelper from "../private/types/DataHelper";
 import handleSelectableTable from "../private/utils/handleSelectableTable";
 
 const Table = ({
@@ -57,10 +56,6 @@ const Table = ({
 }: TableProps) => {
   const [columnResizeMode, setColumnResizeMode] =
     React.useState<ColumnResizeMode>("onChange");
-  /*
-  const [columnResizeDirection, setColumnResizeDirection] =
-    React.useState<ColumnResizeDirection>('ltr')
-*/
 
   const { data: selectableData, columns: selectableColumns } =
     handleSelectableTable({ data, columns, isSelectable });
