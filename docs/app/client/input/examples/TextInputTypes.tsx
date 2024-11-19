@@ -5,11 +5,11 @@ import { useState } from "react";
 
 const TextInputTypes = () => {
   const [file, setFile] = useState<File>();
-  const testFileHandler = (file: File | undefined) => {
+  const fileHandler = (file: File | undefined) => {
     setFile(file);
   };
 
-  const removeTestFileHandler = () => {
+  const removeFileHandler = () => {
     setFile(undefined);
   };
 
@@ -62,8 +62,8 @@ const TextInputTypes = () => {
         <div>
           <Label>File</Label>
           <FileInput
-            onFileUpload={testFileHandler}
-            onFileRemove={removeTestFileHandler}
+            onFileUpload={fileHandler}
+            onFileRemove={removeFileHandler}
             placeholder="Choose a file"
             accept=".jpg, .png, video/mp4, .pdf"
             maxFileSize={4000 * 1024}

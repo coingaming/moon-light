@@ -5,11 +5,11 @@ import { useState } from "react";
 
 const TextInputTypes = () => {
   const [file, setFile] = useState<File>();
-  const testFileHandler = (file: File | undefined) => {
+  const fileHandler = (file: File | undefined) => {
     setFile(file);
   };
 
-  const removeTestFileHandler = () => {
+  const removeFileHandler = () => {
     setFile(undefined);
   };
 
@@ -51,8 +51,8 @@ const TextInputTypes = () => {
       <div className="grid grid-cols-3 w-full gap-2">
         <div className="w-full">
           <InsetFileInput
-            onFileUpload={testFileHandler}
-            onFileRemove={removeTestFileHandler}
+            onFileUpload={fileHandler}
+            onFileRemove={removeFileHandler}
             label={!file ? "Choose a file" : "File"}
             accept="image/*, .pdf"
             maxFileSize={4000 * 1024}
