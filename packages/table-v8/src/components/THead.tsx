@@ -15,13 +15,15 @@ const THead = ({
   const top = isSticky && rowGap ? rowGap : undefined;
   const styles = {
     top: `-${top}`,
+    borderSpacing: "0",
+    borderCollapse: "collapse",
     "--headerBGColor": `rgb(var(--${backgroundColor || "gohan"}))`,
   } as const;
 
   return isSticky ? (
-    <thead style={styles} className={"sticky z-[2]"}>
+    <thead style={styles} className={`sticky z-[2]`}>
       {table.getHeaderGroups().map((headerGroup, indexHG) => (
-        <tr key={indexHG} style={{ top: `-${rowGap}` }}>
+        <tr key={indexHG}>
           {headerGroup.headers.map((header, index) => (
             <TH
               key={index}

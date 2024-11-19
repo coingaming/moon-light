@@ -127,7 +127,7 @@ const Table = ({
     const tableStyles = {
       width: tableWidth,
       tableLayout,
-      borderSpacing: `0 ${rowGap}`,
+      borderSpacing: `0px`,
       "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
     } as const;
 
