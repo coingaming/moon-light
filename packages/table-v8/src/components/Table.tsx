@@ -27,12 +27,7 @@ import type ColumnData from "../private/types/ColumnData";
 import type TableProps from "../private/types/TableProps";
 import DataHelper from "../private/types/DataHelper";
 import handleSelectableTable from "../private/utils/handleSelectableTable";
-
-type TableRef = {
-  getAllLeafColumns: () => Column<DataHelper, unknown>[];
-  getIsAllColumnsVisible: () => boolean;
-  getToggleAllColumnsVisibilityHandler: (event: unknown) => void;
-};
+import TableRef from "../private/types/TableRef";
 
 const Table = forwardRef<TableRef, TableProps>(
   (
@@ -102,18 +97,11 @@ const Table = forwardRef<TableRef, TableProps>(
       /* debugTable: true, */
     });
 
-    const tableFunctions = {
+    useImperativeHandle(ref, () => ({
       getAllLeafColumns: () => table.getAllLeafColumns(),
       getIsAllColumnsVisible: () => table.getIsAllColumnsVisible(),
       getToggleAllColumnsVisibilityHandler: () =>
         table.getToggleAllColumnsVisibilityHandler(),
-    };
-
-    useImperativeHandle(ref, () => ({
-      getAllLeafColumns: table.getAllLeafColumns,
-      getIsAllColumnsVisible: table.getIsAllColumnsVisible,
-      getToggleAllColumnsVisibilityHandler:
-        table.getToggleAllColumnsVisibilityHandler,
     }));
 
     const tableResizeInfo = table.getState().columnSizingInfo;
