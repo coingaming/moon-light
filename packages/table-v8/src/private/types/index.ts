@@ -11,6 +11,7 @@ import type {
   Table as TableInterface,
   TableState,
   VisibilityState,
+  Column,
 } from "@tanstack/react-table";
 
 export {
@@ -26,4 +27,5 @@ export {
   TableInterface,
   TableState,
   VisibilityState,
+  Column,
 };
