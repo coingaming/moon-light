@@ -22,7 +22,7 @@ import type TableProps from "../private/types/TableProps";
 import DataHelper from "../private/types/DataHelper";
 import handleSelectableTable from "../private/utils/handleSelectableTable";
 
-const Table = ({
+const Table: React.FC<TableProps> = ({
   columns,
   data,
   defaultColumn,
@@ -54,7 +54,8 @@ const Table = ({
   onExpandedChange,
   onRowSelectionChange,
   onSortingChange,
-}: TableProps) => {
+  onColumnVisibilityChange,
+}) => {
   const [columnResizeMode, setColumnResizeMode] =
     React.useState<ColumnResizeMode>("onChange");
   /*
@@ -74,13 +75,14 @@ const Table = ({
     enableColumnResizing: isResizable,
     enableRowSelection: true,
     enableSortingRemoval: false,
-    onExpandedChange: onExpandedChange,
-    onRowSelectionChange: onRowSelectionChange,
-    onSortingChange: onSortingChange,
-    getSubRows: getSubRows,
+    onExpandedChange,
+    onRowSelectionChange,
+    onSortingChange,
+    getSubRows,
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
     getSortedRowModel: getSortedRowModel(),
+    onColumnVisibilityChange,
     /* debugTable: true, */
   });
 
