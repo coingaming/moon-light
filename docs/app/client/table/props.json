@@ -184,6 +184,12 @@
         "defaultState": "false",
         "required": false,
         "type": ["boolean"]
+      },
+      {
+        "name": "onColumnVisibilityChange",
+        "description": "This function handles state.columnVisibility changes",
+        "required": false,
+        "type": ["OnChangeFn<VisibilityState>"]
       }
     ]
   }

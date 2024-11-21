@@ -354,7 +354,7 @@ const COMPONENTS = {
     title: "Table",
     packageName: "@heathmont/moon-table-v8-tw",
     tags: ["ARIA", "RTL"],
-    examples: ["Default"],
+    examples: ["ColumnVisibility"],
   },
   tabs: {
     title: "Tabs",
