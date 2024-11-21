@@ -88,11 +88,6 @@ const Example = () => {
   };
 
   const isColumnVisible = (columnId: string) => {
-    console.log("in here oe columndId", {
-      columnId,
-      columnVisible: columnVisibility[columnId],
-    });
-
     if (columnVisibility[columnId] === undefined) {
       return true;
     }
