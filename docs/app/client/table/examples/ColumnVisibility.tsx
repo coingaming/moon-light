@@ -3,7 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
 import type { ColumnDef } from "@heathmont/moon-table-v8-tw/lib/es/private/types";
-import { Button } from "@heathmont/moon-core-tw";
+import { Checkbox } from "@heathmont/moon-core-tw";
 
 type DefaultHelper = {
   firstName: string;
@@ -79,16 +79,49 @@ const Example = () => {
     Record<string, boolean>
   >({});
 
-  const handleColumnVisibilityChange = () => {
+  const hideColumn = (columnId: string) => {
     setColumnsVisibility((prevState) => ({
       ...prevState,
-      activity: !prevState.activity,
+      [columnId]:
+        prevState[columnId] === undefined ? false : !prevState[columnId],
     }));
+  };
+
+  const isColumnVisible = (columnId: string) => {
+    console.log("in here oe columndId", {
+      columnId,
+      columnVisible: columnVisibility[columnId],
+    });
+
+    if (columnVisibility[columnId] === undefined) {
+      return true;
+    }
+
+    return columnVisibility[columnId];
+  };
+
+  const ColumnsVisibilityControls = () => {
+    return (
+      <ul className="w-full grid grid-cols-7 gap-2">
+        {columns.map((column) => (
+          <li key={column.id}>
+            <Checkbox
+              label={column?.id}
+              id={`checkbox-${column.id}`}
+              checked={isColumnVisible(column.id as string)}
+              onChange={() => {
+                hideColumn(column.id as string);
+              }}
+            />
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   return (
     <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
-      <Button onClick={handleColumnVisibilityChange}>Toggle column</Button>
+      <ColumnsVisibilityControls />
       <Table
         columns={columns}
         data={data}
