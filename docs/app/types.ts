@@ -690,6 +690,7 @@ export type Examples = {
         "Borders": "string",
         "CheckboxesWithPreset": "string",
         "Clickable": "string",
+        "ColumnVisibility": "string",
         "Default": "string",
         "ExpandableCheckboxes": "string",
         "ExpandableWithPreset": "string",
