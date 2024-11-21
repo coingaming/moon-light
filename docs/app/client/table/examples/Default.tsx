@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Table } from "@heathmont/moon-table-v8-tw/lib/es";
 import type { ColumnDef } from "@heathmont/moon-table-v8-tw/lib/es/private/types";
+import { Button } from "@heathmont/moon-core-tw";
 
 type DefaultHelper = {
   firstName: string;
@@ -74,9 +75,27 @@ const Example = () => {
   );
   const data = useMemo(() => makeData(5), [makeData]);
 
+  const [columnVisibility, setColumnsVisibility] = useState<
+    Record<string, boolean>
+  >({});
+
+  const handleColumnVisibilityChange = () => {
+    setColumnsVisibility((prevState) => ({
+      ...prevState,
+      activity: !prevState.activity,
+    }));
+    console.log("in here oe handle visibility");
+  };
+
   return (
     <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
-      <Table columns={columns} data={data} />
+      <Button onClick={handleColumnVisibilityChange}>Toggle column</Button>
+      <Table
+        columns={columns}
+        data={data}
+        state={{ columnVisibility }}
+        onColumnVisibilityChange={setColumnsVisibility}
+      />
     </div>
   );
 };
