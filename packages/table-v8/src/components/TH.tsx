@@ -73,7 +73,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       ["maxWidth", `${header.column.columnDef.maxSize}px`],
       ["--headerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
       [
-        "box-shadow",
+        "boxShadow",
         `0 ${rowGap} rgba(var(--${backgroundColor}, var(--gohan)))`,
       ],
     ]);
