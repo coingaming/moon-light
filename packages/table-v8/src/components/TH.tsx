@@ -50,6 +50,7 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       isFirstColumn,
       withBorder,
       columnData,
+      rowGap = "2px",
     },
     ref,
   ) => {
@@ -71,7 +72,10 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       ["minWidth", `${header.column.columnDef.minSize}px`],
       ["maxWidth", `${header.column.columnDef.maxSize}px`],
       ["--headerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
-      ["box-shadow", `0 2px rgba(var(--${backgroundColor}, var(--gohan)))`],
+      [
+        "box-shadow",
+        `0 ${rowGap} rgba(var(--${backgroundColor}, var(--gohan)))`,
+      ],
     ]);
 
     if (stickySide) {

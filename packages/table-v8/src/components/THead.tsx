@@ -36,6 +36,7 @@ const THead = ({
               isLastColumn={index === headerGroup.headers.length - 1}
               columnData={columnMap && columnMap[indexHG][index]}
               withBorder={withBorder}
+              rowGap={rowGap}
             />
           ))}
         </tr>

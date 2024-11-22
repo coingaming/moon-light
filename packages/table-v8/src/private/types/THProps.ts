@@ -14,6 +14,7 @@ type THProps = {
   isResizable?: boolean;
   onClick?: (e: any) => void;
   columnData?: ColumnData;
+  rowGap?: string;
 };
 
 export default THProps;
