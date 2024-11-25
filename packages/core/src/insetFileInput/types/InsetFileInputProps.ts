@@ -3,7 +3,7 @@ import InsetInputProps from "../../insetInput/private/types/InsetInputProps";
 import React from "react";
 
 type InsetFileInputProps = Omit<InsetInputProps, "type"> &
-  FileInputBaseProps & {
+  Omit<FileInputBaseProps, "children"> & {
     label?: React.ReactNode;
   };
 

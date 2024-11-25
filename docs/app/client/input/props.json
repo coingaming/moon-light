@@ -60,5 +60,46 @@
         "description": "CSS classes for customization"
       }
     ]
+  },
+  {
+    "name": "FileInput",
+    "props": [
+      {
+        "name": "accept",
+        "type": ["string"],
+        "description": "Accepted formats. It follows same <input type='file'> accept attribute. See Developer Mozilla docs input file #accept attribute for more information. e.g. image/*,video/*,.pdf",
+        "defaultState": false
+      },
+      {
+        "name": "maxFileSize",
+        "type": ["number"],
+        "description": "Max file size in Bytes",
+        "defaultState": false
+      },
+      {
+        "name": "onFileUpload",
+        "type": ["(file: File) => void"],
+        "description": "On File upload callback. It expects only one argument of type File.",
+        "defaultState": false
+      },
+      {
+        "name": "onFileRemove",
+        "type": ["() => void"],
+        "description": "On File remove callback",
+        "defaultState": false
+      },
+      {
+        "name": "initFile",
+        "type": ["File"],
+        "description": "Initial file to display on the input.",
+        "defaultState": false
+      },
+      {
+        "name": "errorMessages",
+        "type": ["Errors"],
+        "description": "Error messages to be displayed. 'maxFileSize' and 'type' only supported currently.",
+        "defaultState": false
+      }
+    ]
   }
 ]
