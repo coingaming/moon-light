@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, forwardRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
 import {
   getCoreRowModel,
