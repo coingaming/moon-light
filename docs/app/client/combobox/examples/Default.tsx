@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Combobox, MenuItem } from "@heathmont/moon-core-tw";
+import { Button, Combobox, MenuItem } from "@heathmont/moon-core-tw";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
 const people = [
@@ -30,6 +30,7 @@ const filter = (
 const Example = () => {
   const [selected0, setSelected0] = useState(people[4]);
   const [selected1, setSelected1] = useState(people[2]);
+  const [testOpen, setTestOpen] = useState(false);
 
   const [query0, setQuery0] = useState<string>("");
   const [query1, setQuery1] = useState<string>("");
@@ -39,26 +40,31 @@ const Example = () => {
 
   return (
     <div className="flex flex-col lg:flex-row lg:justify-center items-center w-full gap-4">
+      <Button onClick={() => setTestOpen((prevState) => !prevState)}>
+        Test Button
+      </Button>
       <Combobox
         value={selected0}
         onChange={setSelected0}
         onQueryChange={setQuery0}
         className="w-full max-w-xs"
       >
-        {({ open }) => (
-          <>
-            <Combobox.Trigger open={open} onClose={console.log}>
-              <Combobox.Input
-                open={open}
-                placeholder={"Choose a name..."}
-                displayValue={({ label }) => label}
-              />
-              <Combobox.Button open={open}>
-                <ControlsChevronDownSmall />
-              </Combobox.Button>
-            </Combobox.Trigger>
-            <Combobox.Transition>
-              <Combobox.Options>
+        {({ open }) => {
+          const test = true;
+          return (
+            <>
+              <Combobox.Trigger open={testOpen} onClose={console.log}>
+                <Combobox.Input
+                  open={testOpen}
+                  placeholder={"Choose a name..."}
+                  displayValue={({ label }) => label}
+                />
+                <Combobox.Button open={testOpen}>
+                  <ControlsChevronDownSmall />
+                </Combobox.Button>
+              </Combobox.Trigger>
+              {/* <Combobox.Transition> */}
+              <Combobox.Options open={testOpen}>
                 {filteredPeople0.length === 0 && query0 !== "" ? (
                   <div className="relative cursor-default select-none py-2 px-4 text-trunks">
                     Nothing found.
@@ -77,10 +83,13 @@ const Example = () => {
                   ))
                 )}
               </Combobox.Options>
-            </Combobox.Transition>
-            <Combobox.Hint>Informative message holder (default)</Combobox.Hint>
-          </>
-        )}
+              {/* </Combobox.Transition> */}
+              <Combobox.Hint>
+                Informative message holder (default)
+              </Combobox.Hint>
+            </>
+          );
+        }}
       </Combobox>
 
       <Combobox

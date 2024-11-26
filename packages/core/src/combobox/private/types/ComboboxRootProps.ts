@@ -22,4 +22,5 @@ export interface ComboboxRootProps
   children?: React.ReactNode | ((data: { open?: boolean }) => React.ReactNode);
   placeholder?: string;
   ref?: React.Ref<HTMLElement>;
+  isOpen?: boolean;
 }

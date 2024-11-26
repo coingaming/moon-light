@@ -42,15 +42,22 @@ const ComboboxRoot = ({
   displayValue,
   defaultValue,
   ref,
+  isOpen = false,
   ...rest
 }: ComboboxRootProps) => {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>();
   const [popperEl, setPopperEl] = React.useState<HTMLElement | null>();
   const [isInputFocused, setIsInputFocused] = React.useState<boolean>(false);
 
-  let { styles, attributes, forceUpdate } = usePopper(anchorEl, popperEl, {
-    placement: position,
-  });
+  let { styles, attributes, forceUpdate, state, update } = usePopper(
+    anchorEl,
+    popperEl,
+    {
+      placement: position,
+    },
+  );
+
+  console.log("in here oe popper attributes", { attributes, state, update });
 
   const states = {
     value: value,
@@ -72,6 +79,7 @@ const ComboboxRoot = ({
       setAnchor: setAnchorEl,
       setPopper: setPopperEl,
     },
+    isOpen,
   };
 
   const childArray =
@@ -313,14 +321,16 @@ const Options = ({
   children,
   menuWidth,
   className,
+  open,
   ...rest
 }: WithChildren<OptionsProps>) => {
   const { popper } = useComboboxContext("Combobox.Options");
-  return (
+  const OptionsComponent = (
     <HeadlessCombobox.Options
       ref={popper?.setPopper}
       style={popper?.styles?.popper}
       {...popper?.attributes?.popper}
+      static={open ?? true}
       className={mergeClassnames(
         menuWidth
           ? menuWidth
@@ -333,6 +343,12 @@ const Options = ({
       {children}
     </HeadlessCombobox.Options>
   );
+
+  if (open === undefined) {
+    return OptionsComponent;
+  }
+
+  return open && OptionsComponent;
 };
 
 const Option = ({ children, value }: OptionProps) => {
