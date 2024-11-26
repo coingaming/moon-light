@@ -57,10 +57,6 @@ const Table: React.FC<TableProps> = ({
 }) => {
   const [columnResizeMode, setColumnResizeMode] =
     React.useState<ColumnResizeMode>("onChange");
-  /*
-  const [columnResizeDirection, setColumnResizeDirection] =
-    React.useState<ColumnResizeDirection>('ltr')
-*/
 
   const { data: selectableData, columns: selectableColumns } =
     handleSelectableTable({ data, columns, isSelectable });

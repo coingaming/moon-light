@@ -14,17 +14,17 @@ const THead = ({
 }: THeadProps) => {
   const top = isSticky && rowGap ? rowGap : undefined;
   const styles = {
-    top: top,
-    "--beforeShift": top,
-    "--headerBGColor": `rgba(var(--${backgroundColor}, var(--gohan)))`,
+    top,
+    "--headerBGColor": `rgba(var(--${backgroundColor || "gohan"}))`,
+    boxShadow: `0 ${rowGap} rgba(var(--${backgroundColor}, var(--gohan)))`,
   } as const;
+
+  const beforeBg = "gohan";
 
   return isSticky ? (
     <thead
       style={styles}
-      className={
-        "sticky z-[2] before:absolute before:w-full before:bottom-0 before:-top-[var(--beforeShift)] before:bg-[color:var(--headerBGColor)]"
-      }
+      className={`sticky z-[2] before:content-[''] before:absolute before:-top-[2px] before:left-0 before:w-full before:max-h-[8px] before:h-[8px] before:bg-[color:var(--headerBGColor)]`}
     >
       {table.getHeaderGroups().map((headerGroup, indexHG) => (
         <tr key={indexHG}>
@@ -40,13 +40,14 @@ const THead = ({
               isLastColumn={index === headerGroup.headers.length - 1}
               columnData={columnMap && columnMap[indexHG][index]}
               withBorder={withBorder}
+              rowGap={rowGap}
             />
           ))}
         </tr>
       ))}
     </thead>
   ) : (
-    <thead>
+    <thead style={styles}>
       {table.getHeaderGroups().map((headerGroup, indexTH) => (
         <tr key={indexTH}>
           {headerGroup.headers.map((header, index) => (
