@@ -6,6 +6,7 @@ import type {
   RowSelectionState,
   SortingState,
   TableState,
+  VisibilityState,
 } from ".";
 import type ClipProps from "./ClipProps";
 import type DataHelper from "./DataHelper";
@@ -45,6 +46,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   onExpandedChange?: OnChangeFn<ExpandedState>;
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;
   onSortingChange?: OnChangeFn<SortingState>;
+  onColumnVisibilityChange?: OnChangeFn<VisibilityState>;
 };
 
 export default TableProps;

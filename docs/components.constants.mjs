@@ -369,6 +369,7 @@ const COMPONENTS = {
       "Resize",
       "LongData",
       "ExtraLongData",
+      "ColumnVisibility",
     ],
   },
   tabs: {

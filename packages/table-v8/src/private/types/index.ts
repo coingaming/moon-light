@@ -10,6 +10,8 @@ import type {
   SortingState,
   Table as TableInterface,
   TableState,
+  VisibilityState,
+  Column,
 } from "@tanstack/react-table";
 
 export {
@@ -24,4 +26,6 @@ export {
   SortingState,
   TableInterface,
   TableState,
+  VisibilityState,
+  Column,
 };
