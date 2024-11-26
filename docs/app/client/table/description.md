@@ -18,6 +18,7 @@ examples:
     "Resize",
     "LongData",
     "ExtraLongData",
+    "ColumnVisibility",
   ]
 ---
 
