@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect } from "react";
 import {
   Combobox as HeadlessCombobox,
   Transition as HeadlessTransition,
@@ -57,7 +57,7 @@ const ComboboxRoot = ({
     },
   );
 
-  console.log("in here oe popper attributes", { attributes, state, update });
+  const comboboxButtonRef = React.useRef<HTMLButtonElement | null>(null);
 
   const states = {
     value: value,
@@ -80,6 +80,7 @@ const ComboboxRoot = ({
       setPopper: setPopperEl,
     },
     isOpen,
+    comboboxButtonRef,
   };
 
   const childArray =
@@ -297,8 +298,16 @@ const Button = ({
   ["aria-label"]: ariaLabel,
   ...rest
 }: WithChildren<ButtonProps>) => {
-  const { size, disabled } = useComboboxContext("Combobox.Button");
+  const { size, disabled, comboboxButtonRef, input } =
+    useComboboxContext("Combobox.Button");
   const ariaLabelValue = ariaLabel ? ariaLabel : open ? "Close" : "Open";
+
+  useEffect(() => {
+    if (input?.isFocused && comboboxButtonRef?.current) {
+      comboboxButtonRef?.current.click();
+    }
+  }, [input?.isFocused, comboboxButtonRef?.current]);
+
   return (
     <HeadlessCombobox.Button
       className={mergeClassnames(
@@ -310,6 +319,7 @@ const Button = ({
         className,
       )}
       aria-label={ariaLabelValue}
+      ref={comboboxButtonRef}
       {...rest}
     >
       {children}

@@ -30,7 +30,7 @@ const filter = (
 const Example = () => {
   const [selected0, setSelected0] = useState(people[4]);
   const [selected1, setSelected1] = useState(people[2]);
-  const [testOpen, setTestOpen] = useState(false);
+  const [customOpen, setCustomOpen] = useState(false);
 
   const [query0, setQuery0] = useState<string>("");
   const [query1, setQuery1] = useState<string>("");
@@ -43,8 +43,8 @@ const Example = () => {
       <Checkbox
         label="Combobox Options Visibility"
         id="options-open-control"
-        checked={testOpen}
-        onChange={() => setTestOpen((prevState) => !prevState)}
+        checked={customOpen}
+        onChange={() => setCustomOpen((prevState) => !prevState)}
       />
       <Combobox
         value={selected0}
@@ -55,17 +55,17 @@ const Example = () => {
         {() => {
           return (
             <>
-              <Combobox.Trigger open={testOpen} onClose={console.log}>
+              <Combobox.Trigger open={customOpen} onClose={console.log}>
                 <Combobox.Input
-                  open={testOpen}
+                  open={customOpen}
                   placeholder={"Choose a name..."}
                   displayValue={({ label }) => label}
                 />
-                <Combobox.Button open={testOpen}>
+                <Combobox.Button open={customOpen}>
                   <ControlsChevronDownSmall />
                 </Combobox.Button>
               </Combobox.Trigger>
-              <Combobox.Options open={testOpen}>
+              <Combobox.Options open={customOpen}>
                 {filteredPeople0.length === 0 && query0 !== "" ? (
                   <div className="relative cursor-default select-none py-2 px-4 text-trunks">
                     Nothing found.

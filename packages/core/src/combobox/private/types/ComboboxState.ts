@@ -23,6 +23,7 @@ type ComboboxState = {
     >;
   };
   size?: Size;
+  comboboxButtonRef?: React.MutableRefObject<HTMLButtonElement | null>;
 };
 
 export default ComboboxState;
