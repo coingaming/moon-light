@@ -265,6 +265,7 @@ export type Examples = {
       "examples": {
         "AlignmentControlsOptions": "string",
         "Default": "string",
+        "DisplayOptionsExternalControl": "string",
         "MultiSelect": "string",
         "MultiSelectInsetInput": "string",
         "MultiSelectWithAll": "string",
