@@ -14,7 +14,6 @@ examples:
     "MultiSelectInsetInput",
     "VisualMultiSelect",
     "AlignmentControlsOptions",
-    "DisplayOptionsExternalControl",
   ]
 ---
 

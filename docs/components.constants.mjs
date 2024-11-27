@@ -155,7 +155,6 @@ const COMPONENTS = {
       "MultiSelectInsetInput",
       "VisualMultiSelect",
       "AlignmentControlsOptions",
-      "DisplayOptionsExternalControl",
     ],
   },
   drawer: {

@@ -167,11 +167,6 @@
         "name": "className",
         "type": ["string"],
         "description": "CSS classes for customization"
-      },
-      {
-        "name": "open",
-        "type": ["boolean"],
-        "description": "Manage the open state for the Combobox Options List"
       }
     ]
   },
