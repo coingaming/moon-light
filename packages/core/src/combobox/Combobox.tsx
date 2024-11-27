@@ -42,7 +42,6 @@ const ComboboxRoot = ({
   displayValue,
   defaultValue,
   ref,
-  isOpen = false,
   ...rest
 }: ComboboxRootProps) => {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>();
@@ -79,7 +78,6 @@ const ComboboxRoot = ({
       setAnchor: setAnchorEl,
       setPopper: setPopperEl,
     },
-    isOpen,
     comboboxButtonRef,
   };
 
@@ -102,6 +100,7 @@ const ComboboxRoot = ({
           disabled={disabled}
           ref={ref}
           {...rest}
+          immediate
         >
           {({ open }) => (
             <>
@@ -302,12 +301,6 @@ const Button = ({
     useComboboxContext("Combobox.Button");
   const ariaLabelValue = ariaLabel ? ariaLabel : open ? "Close" : "Open";
 
-  useEffect(() => {
-    if (input?.isFocused && comboboxButtonRef?.current) {
-      comboboxButtonRef?.current.click();
-    }
-  }, [input?.isFocused, comboboxButtonRef?.current]);
-
   return (
     <HeadlessCombobox.Button
       className={mergeClassnames(
@@ -319,7 +312,6 @@ const Button = ({
         className,
       )}
       aria-label={ariaLabelValue}
-      ref={comboboxButtonRef}
       {...rest}
     >
       {children}
