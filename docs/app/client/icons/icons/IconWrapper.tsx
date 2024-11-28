@@ -62,7 +62,9 @@ const IconWrapper = ({ children, name }: IconProps) => {
       >
         <Snackbar.Message className="flex gap-2">
           <Icons.GenericCheckAlternative className="text-moon-24 text-roshi" />
-          Icon {renderIcon(name)} copied for import
+          Icon {renderIcon(
+            name,
+          )} copied for import
         </Snackbar.Message>
       </Snackbar>
     </>
