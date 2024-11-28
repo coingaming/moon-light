@@ -100,7 +100,6 @@ const ComboboxRoot = ({
           disabled={disabled}
           ref={ref}
           {...rest}
-          immediate
         >
           {({ open }) => (
             <>
@@ -160,8 +159,24 @@ const Input = ({
   label,
   ...rest
 }: InputProps) => {
-  const { size, popper, disabled, isError, input, onQueryChange } =
-    useComboboxContext("Combobox.Input");
+  const {
+    size,
+    popper,
+    disabled,
+    isError,
+    input,
+    onQueryChange,
+    comboboxButtonRef,
+  } = useComboboxContext("Combobox.Input");
+
+  const handleOnFocus: React.FocusEventHandler<HTMLInputElement> = (event) => {
+    input?.setIsFocused(true);
+    if (event.relatedTarget?.id?.includes("headlessui-combobox-button")) {
+      return;
+    }
+    comboboxButtonRef?.current?.click();
+  };
+
   return (
     <HeadlessCombobox.Input
       onChange={({ target: { value } }) => {
@@ -179,7 +194,7 @@ const Input = ({
       )}
       disabled={disabled}
       error={isError}
-      onFocus={() => input?.setIsFocused(true)}
+      onFocus={handleOnFocus}
       onBlur={() => input?.setIsFocused(false)}
       aria-label={rest["aria-label"]}
       {...rest}
@@ -311,6 +326,7 @@ const Button = ({
         disabled && "cursor-not-allowed",
         className,
       )}
+      ref={comboboxButtonRef}
       aria-label={ariaLabelValue}
       {...rest}
     >
