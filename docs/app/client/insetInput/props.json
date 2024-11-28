@@ -50,7 +50,7 @@
         "name": "maxFileSize",
         "type": ["number"],
         "description": "Max file size in Bytes",
-        "defaultState": false
+        "defaultState": "100 MB"
       },
       {
         "name": "onFileUpload",

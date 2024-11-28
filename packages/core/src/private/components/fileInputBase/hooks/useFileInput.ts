@@ -11,6 +11,8 @@ import Errors from "../types/Errors";
 import FileInputBaseProps from "../types/FileInputBaseProps";
 import FileInputRef from "../types/FileInputRef";
 
+const DEFAULT_MAX_FILE_SIZE = 100 * 1014 * 1024;
+
 const useFileInput = (
   props: FileInputBaseProps,
   ref: ForwardedRef<FileInputRef>,
@@ -20,7 +22,7 @@ const useFileInput = (
     onFileRemove,
     initFile,
     accept = "*/*",
-    maxFileSize,
+    maxFileSize = DEFAULT_MAX_FILE_SIZE,
     errorMessages = {
       maxFileSize: "File is too large",
       type: "Invalid file type",
