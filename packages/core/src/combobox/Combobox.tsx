@@ -48,15 +48,19 @@ const ComboboxRoot = ({
   const [popperEl, setPopperEl] = React.useState<HTMLElement | null>();
   const [isInputFocused, setIsInputFocused] = React.useState<boolean>(false);
 
-  let { styles, attributes, forceUpdate, state, update } = usePopper(
-    anchorEl,
-    popperEl,
-    {
-      placement: position,
-    },
-  );
+  let { styles, attributes, forceUpdate } = usePopper(anchorEl, popperEl, {
+    placement: position,
+  });
 
   const comboboxButtonRef = React.useRef<HTMLButtonElement | null>(null);
+
+  const handleOnFocus: React.FocusEventHandler<HTMLInputElement> = (event) => {
+    setIsInputFocused(true);
+    if (event.relatedTarget?.id?.includes("headlessui-combobox-button")) {
+      return;
+    }
+    comboboxButtonRef?.current?.click();
+  };
 
   const states = {
     value: value,
@@ -79,6 +83,7 @@ const ComboboxRoot = ({
       setPopper: setPopperEl,
     },
     comboboxButtonRef,
+    handleOnFocus,
   };
 
   const childArray =
@@ -166,16 +171,8 @@ const Input = ({
     isError,
     input,
     onQueryChange,
-    comboboxButtonRef,
+    handleOnFocus,
   } = useComboboxContext("Combobox.Input");
-
-  const handleOnFocus: React.FocusEventHandler<HTMLInputElement> = (event) => {
-    input?.setIsFocused(true);
-    if (event.relatedTarget?.id?.includes("headlessui-combobox-button")) {
-      return;
-    }
-    comboboxButtonRef?.current?.click();
-  };
 
   return (
     <HeadlessCombobox.Input
@@ -211,8 +208,15 @@ const InsetInput = ({
   label,
   ...rest
 }: InputProps) => {
-  const { size, popper, disabled, isError, input, onQueryChange } =
-    useComboboxContext("Combobox.InsetInput");
+  const {
+    size,
+    popper,
+    disabled,
+    isError,
+    input,
+    onQueryChange,
+    handleOnFocus,
+  } = useComboboxContext("Combobox.InsetInput");
   return (
     <span className={mergeClassnames("relative", "flex flex-grow w-full")}>
       <HeadlessCombobox.Input
@@ -237,7 +241,7 @@ const InsetInput = ({
           "leading-5",
         )}
         error={isError}
-        onFocus={() => input?.setIsFocused(true)}
+        onFocus={handleOnFocus}
         onBlur={() => input?.setIsFocused(false)}
         aria-label={rest["aria-label"]}
         {...rest}
@@ -258,8 +262,15 @@ const VisualSelectInput = ({
   label,
   ...rest
 }: InputProps) => {
-  const { value, size, popper, disabled, isError, onQueryChange } =
-    useComboboxContext("Combobox.VisualSelectInput");
+  const {
+    value,
+    size,
+    popper,
+    disabled,
+    isError,
+    onQueryChange,
+    handleOnFocus,
+  } = useComboboxContext("Combobox.VisualSelectInput");
   const selected = value as [];
 
   return (
@@ -299,6 +310,7 @@ const VisualSelectInput = ({
         aria-label={rest["aria-label"]}
         {...rest}
         ref={popper?.setAnchor}
+        onFocus={handleOnFocus}
       />
     </span>
   );
