@@ -48,7 +48,7 @@ const TextInputTypes = () => {
           <InsetInput.Label>Url</InsetInput.Label>
         </InsetInput>
       </div>
-      <div className="grid grid-cols-3 w-full gap-2">
+      <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-2 w-full">
         <div className="w-full">
           <InsetFileInput
             onFileUpload={fileHandler}

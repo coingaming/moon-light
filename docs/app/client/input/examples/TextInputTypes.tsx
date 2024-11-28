@@ -58,7 +58,7 @@ const TextInputTypes = () => {
           <Input type="url" placeholder="e.g. https://domain.com" />
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-2 w-full items-center">
+      <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-2 w-full">
         <div>
           <Label>File</Label>
           <FileInput
