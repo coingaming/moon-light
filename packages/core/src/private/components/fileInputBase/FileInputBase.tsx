@@ -7,9 +7,9 @@ import useFileInput from "./hooks/useFileInput";
 import FileInputRef from "./types/FileInputRef";
 import FileInputBaseProps from "./types/FileInputBaseProps";
 
-const FileInputBase = memo(
-  forwardRef<FileInputRef, FileInputBaseProps>((props, ref) => {
-    const { accept = "*/*", children } = props;
+const FileInputBase = forwardRef<FileInputRef, FileInputBaseProps>(
+  (props, ref) => {
+    const { id, accept = "*/*", children } = props;
 
     const {
       file,
@@ -25,7 +25,7 @@ const FileInputBase = memo(
       <>
         <div className="relative">
           <label
-            htmlFor="file-input"
+            htmlFor={id}
             className={mergeClassnames(
               "absolute w-full h-full top-0 start-0 cursor-pointer z-20 rounded-moon-i-sm hover:shadow-input-hov",
               hasErrors &&
@@ -45,7 +45,7 @@ const FileInputBase = memo(
             />
           )}
           <input
-            id="file-input"
+            id={id}
             type="file"
             className="hidden"
             ref={inputFileRef}
@@ -60,7 +60,7 @@ const FileInputBase = memo(
         </ul>
       </>
     );
-  }),
+  },
 );
 
 export default FileInputBase;

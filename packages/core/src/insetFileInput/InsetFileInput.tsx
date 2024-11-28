@@ -7,6 +7,7 @@ import FileInputBase from "../private/components/fileInputBase/FileInputBase";
 const InsetFileInput = memo(
   forwardRef<FileInputRef, InsetFileInputProps>((props, ref) => {
     const {
+      id,
       accept,
       maxFileSize,
       initFile,
@@ -28,6 +29,7 @@ const InsetFileInput = memo(
 
     return (
       <FileInputBase
+        id={id}
         accept={accept}
         maxFileSize={maxFileSize}
         initFile={initFile}

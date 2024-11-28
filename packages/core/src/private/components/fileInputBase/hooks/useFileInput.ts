@@ -1,8 +1,8 @@
 import React, {
   ForwardedRef,
-  forwardRef,
-  memo,
+  useEffect,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -27,11 +27,13 @@ const useFileInput = (
     },
   } = props;
 
-  const [file, setFile] = useState<File | undefined>(initFile);
+  const [file, setFile] = useState<File | undefined>();
   const [errors, setErrors] = React.useState<Errors>({});
   const inputFileRef = useRef<HTMLInputElement>(null);
-  const acceptRegexp =
-    accept !== "*/*" ? createAcceptRegex(accept) : /^.*\/.*$/;
+  const acceptRegexp = useMemo(
+    () => (accept !== "*/*" ? createAcceptRegex(accept) : /^.*\/.*$/),
+    [accept],
+  );
   const hasErrors = Object.keys(errors).length > 0;
   const fileName = file?.name || "";
 
@@ -47,6 +49,10 @@ const useFileInput = (
     }),
     [],
   );
+
+  useEffect(() => {
+    handleFileUpdate(initFile);
+  }, [initFile]);
 
   const clearFile = () => {
     setFile(undefined);
@@ -66,20 +72,33 @@ const useFileInput = (
       return;
     }
 
-    const fileErrors = errorHandling(file);
-    if (Object.keys(fileErrors).length) {
-      setErrors(fileErrors);
-      return;
+    handleFileUpdate(file) && onFileUpload?.(file);
+  };
+
+  const handleFileUpdate = (file: File | undefined) => {
+    const hasErrors = handleFileErrors(file);
+
+    if (hasErrors) {
+      return false;
     }
 
     setFile(file);
-    onFileUpload?.(file);
+    return true;
   };
 
   const handleFileRemove = () => {
     clearFile();
     clearErrors();
     onFileRemove?.();
+  };
+
+  const handleFileErrors = (file: File | undefined) => {
+    const fileErrors = errorHandling(file);
+    if (Object.keys(fileErrors).length) {
+      setErrors(fileErrors);
+      return true;
+    }
+    return false;
   };
 
   const errorHandling = (file: File | undefined) => {

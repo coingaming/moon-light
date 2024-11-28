@@ -51,6 +51,7 @@ const TextInputTypes = () => {
       <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-2 w-full">
         <div className="w-full">
           <InsetFileInput
+            id="file-input"
             onFileUpload={fileHandler}
             onFileRemove={removeFileHandler}
             label={!file ? "Choose a file" : "File"}

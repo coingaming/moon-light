@@ -8,6 +8,7 @@ type FileInputBaseProps = {
   onFileRemove?: () => void;
   initFile?: File;
   errorMessages?: Errors;
+  id?: string;
 };
 
 export default FileInputBaseProps;

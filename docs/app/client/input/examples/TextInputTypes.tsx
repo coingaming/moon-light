@@ -58,10 +58,11 @@ const TextInputTypes = () => {
           <Input type="url" placeholder="e.g. https://domain.com" />
         </div>
       </div>
-      <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-2 w-full">
+      <div className="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
         <div>
           <Label>File</Label>
           <FileInput
+            id="file-input"
             onFileUpload={fileHandler}
             onFileRemove={removeFileHandler}
             placeholder="Choose a file"
