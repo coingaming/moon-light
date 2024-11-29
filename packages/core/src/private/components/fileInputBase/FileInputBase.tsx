@@ -27,7 +27,7 @@ const FileInputBase = forwardRef<FileInputRef, FileInputBaseProps>(
           <label
             htmlFor={id}
             className={mergeClassnames(
-              "absolute w-full h-full top-0 start-0 cursor-pointer z-20 rounded-moon-i-sm hover:shadow-input-hov",
+              "absolute w-full h-full top-0 start-0 cursor-pointer z-20 rounded-moon-i-sm hover:shadow-input-hov transition-shadow",
               hasErrors &&
                 "shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-err focus:outline-none",
             )}
