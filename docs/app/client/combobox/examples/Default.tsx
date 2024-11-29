@@ -45,46 +45,42 @@ const Example = () => {
         onQueryChange={setQuery0}
         className="w-full max-w-xs"
       >
-        {({ open }) => {
-          return (
-            <>
-              <Combobox.Trigger open={open} onClose={console.log}>
-                <Combobox.Input
-                  open={open}
-                  placeholder={"Choose a name..."}
-                  displayValue={({ label }) => label}
-                />
-                <Combobox.Button open={open}>
-                  <ControlsChevronDownSmall />
-                </Combobox.Button>
-              </Combobox.Trigger>
-              <Combobox.Transition>
-                <Combobox.Options>
-                  {filteredPeople0.length === 0 && query0 !== "" ? (
-                    <div className="relative cursor-default select-none py-2 px-4 text-trunks">
-                      Nothing found.
-                    </div>
-                  ) : (
-                    filteredPeople0.map((person, index) => (
-                      <Combobox.Option value={person} key={index}>
-                        {({ selected, active }) => (
-                          <div>
-                            <MenuItem isActive={active} isSelected={selected}>
-                              {person.label}
-                            </MenuItem>
-                          </div>
-                        )}
-                      </Combobox.Option>
-                    ))
-                  )}
-                </Combobox.Options>
-              </Combobox.Transition>
-              <Combobox.Hint>
-                Informative message holder (default)
-              </Combobox.Hint>
-            </>
-          );
-        }}
+        {({ open }) => (
+          <>
+            <Combobox.Trigger open={open} onClose={console.log}>
+              <Combobox.Input
+                open={open}
+                placeholder={"Choose a name..."}
+                displayValue={({ label }) => label}
+              />
+              <Combobox.Button open={open}>
+                <ControlsChevronDownSmall />
+              </Combobox.Button>
+            </Combobox.Trigger>
+            <Combobox.Transition>
+              <Combobox.Options>
+                {filteredPeople0.length === 0 && query0 !== "" ? (
+                  <div className="relative cursor-default select-none py-2 px-4 text-trunks">
+                    Nothing found.
+                  </div>
+                ) : (
+                  filteredPeople0.map((person, index) => (
+                    <Combobox.Option value={person} key={index}>
+                      {({ selected, active }) => (
+                        <div>
+                          <MenuItem isActive={active} isSelected={selected}>
+                            {person.label}
+                          </MenuItem>
+                        </div>
+                      )}
+                    </Combobox.Option>
+                  ))
+                )}
+              </Combobox.Options>
+            </Combobox.Transition>
+            <Combobox.Hint>Informative message holder (default)</Combobox.Hint>
+          </>
+        )}
       </Combobox>
 
       <Combobox
