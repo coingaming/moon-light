@@ -1,7 +1,7 @@
 interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size"> {
   className?: string;
-  type?: React.HTMLInputTypeAttribute;
+  type?: Exclude<React.HTMLInputTypeAttribute, "file">;
   size?: "sm" | "md" | "lg";
   error?: boolean;
   isRtl?: boolean;
