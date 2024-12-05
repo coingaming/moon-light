@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect } from "react";
 import {
   Combobox as HeadlessCombobox,
   Transition as HeadlessTransition,
@@ -52,19 +52,50 @@ const ComboboxRoot = ({
     placement: position,
   });
 
+  const comboboxButtonRef = React.useRef<HTMLButtonElement | null>(null);
+  const blurredRef = React.useRef<boolean>(false);
+  const prevSelected = React.useRef<unknown | undefined>({});
+
+  const handleOnFocus: React.FocusEventHandler<HTMLInputElement> = (event) => {
+    setIsInputFocused(true);
+
+    if (event.relatedTarget?.id?.includes("headlessui-combobox-button")) {
+      return;
+    }
+
+    comboboxButtonRef?.current?.click();
+  };
+
+  const handleOnKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (
+    event,
+  ) => {
+    if (event.key === "Tab") {
+      blurredRef.current = true;
+      prevSelected.current = value;
+      console.log("in here oe key down tab");
+    }
+  };
+
+  const handleOnBlur: React.FocusEventHandler<HTMLInputElement> = () => {
+    setIsInputFocused(false);
+    if (blurredRef.current) {
+      onChange(prevSelected.current);
+    }
+  };
+
   const states = {
-    value: value,
-    displayValue: displayValue,
-    isError: isError,
-    size: size,
-    disabled: disabled,
+    value,
+    displayValue,
+    isError,
+    size,
+    disabled,
     input: {
       isFocused: isInputFocused,
       setIsFocused: setIsInputFocused,
     },
-    multiple: multiple,
-    onClear: onClear,
-    onQueryChange: onQueryChange,
+    multiple,
+    onClear,
+    onQueryChange,
     popper: {
       forceUpdate,
       styles,
@@ -72,6 +103,10 @@ const ComboboxRoot = ({
       setAnchor: setAnchorEl,
       setPopper: setPopperEl,
     },
+    comboboxButtonRef,
+    handleOnFocus,
+    handleOnBlur,
+    handleOnKeyDown,
   };
 
   const childArray =
@@ -152,8 +187,17 @@ const Input = ({
   label,
   ...rest
 }: InputProps) => {
-  const { size, popper, disabled, isError, input, onQueryChange } =
-    useComboboxContext("Combobox.Input");
+  const {
+    size,
+    popper,
+    disabled,
+    isError,
+    onQueryChange,
+    handleOnFocus,
+    handleOnKeyDown,
+    handleOnBlur,
+  } = useComboboxContext("Combobox.Input");
+
   return (
     <HeadlessCombobox.Input
       onChange={({ target: { value } }) => {
@@ -171,8 +215,9 @@ const Input = ({
       )}
       disabled={disabled}
       error={isError}
-      onFocus={() => input?.setIsFocused(true)}
-      onBlur={() => input?.setIsFocused(false)}
+      onFocus={handleOnFocus}
+      onKeyDown={handleOnKeyDown}
+      onBlur={handleOnBlur}
       aria-label={rest["aria-label"]}
       {...rest}
       ref={popper?.setAnchor}
@@ -188,8 +233,16 @@ const InsetInput = ({
   label,
   ...rest
 }: InputProps) => {
-  const { size, popper, disabled, isError, input, onQueryChange } =
-    useComboboxContext("Combobox.InsetInput");
+  const {
+    size,
+    popper,
+    disabled,
+    isError,
+    onQueryChange,
+    handleOnFocus,
+    handleOnKeyDown,
+    handleOnBlur,
+  } = useComboboxContext("Combobox.InsetInput");
   return (
     <span className={mergeClassnames("relative", "flex flex-grow w-full")}>
       <HeadlessCombobox.Input
@@ -214,8 +267,9 @@ const InsetInput = ({
           "leading-5",
         )}
         error={isError}
-        onFocus={() => input?.setIsFocused(true)}
-        onBlur={() => input?.setIsFocused(false)}
+        onFocus={handleOnFocus}
+        onKeyDown={handleOnKeyDown}
+        onBlur={handleOnBlur}
         aria-label={rest["aria-label"]}
         {...rest}
         ref={popper?.setAnchor}
@@ -235,8 +289,17 @@ const VisualSelectInput = ({
   label,
   ...rest
 }: InputProps) => {
-  const { value, size, popper, disabled, isError, onQueryChange } =
-    useComboboxContext("Combobox.VisualSelectInput");
+  const {
+    value,
+    size,
+    popper,
+    disabled,
+    isError,
+    onQueryChange,
+    handleOnFocus,
+    handleOnKeyDown,
+    handleOnBlur,
+  } = useComboboxContext("Combobox.VisualSelectInput");
   const selected = value as [];
 
   return (
@@ -276,6 +339,9 @@ const VisualSelectInput = ({
         aria-label={rest["aria-label"]}
         {...rest}
         ref={popper?.setAnchor}
+        onFocus={handleOnFocus}
+        onKeyDown={handleOnKeyDown}
+        onBlur={handleOnBlur}
       />
     </span>
   );
@@ -289,8 +355,10 @@ const Button = ({
   ["aria-label"]: ariaLabel,
   ...rest
 }: WithChildren<ButtonProps>) => {
-  const { size, disabled } = useComboboxContext("Combobox.Button");
+  const { size, disabled, comboboxButtonRef, input } =
+    useComboboxContext("Combobox.Button");
   const ariaLabelValue = ariaLabel ? ariaLabel : open ? "Close" : "Open";
+
   return (
     <HeadlessCombobox.Button
       className={mergeClassnames(
@@ -301,6 +369,7 @@ const Button = ({
         disabled && "cursor-not-allowed",
         className,
       )}
+      ref={comboboxButtonRef}
       aria-label={ariaLabelValue}
       {...rest}
     >
@@ -313,14 +382,16 @@ const Options = ({
   children,
   menuWidth,
   className,
+  open,
   ...rest
 }: WithChildren<OptionsProps>) => {
   const { popper } = useComboboxContext("Combobox.Options");
-  return (
+  const OptionsComponent = (
     <HeadlessCombobox.Options
       ref={popper?.setPopper}
       style={popper?.styles?.popper}
       {...popper?.attributes?.popper}
+      static={open ?? true}
       className={mergeClassnames(
         menuWidth
           ? menuWidth
@@ -333,6 +404,12 @@ const Options = ({
       {children}
     </HeadlessCombobox.Options>
   );
+
+  if (open === undefined) {
+    return OptionsComponent;
+  }
+
+  return open && OptionsComponent;
 };
 
 const Option = ({ children, value }: OptionProps) => {

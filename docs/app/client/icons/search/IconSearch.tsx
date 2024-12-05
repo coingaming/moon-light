@@ -113,9 +113,7 @@ const IconSearch = () => {
       >
         <Snackbar.Message className="flex gap-2">
           <Icons.GenericCheckAlternative className="text-moon-24 text-roshi" />
-          Icon {renderIcon(
-            lastClickedIcon,
-          )} copied for import
+          Icon {renderIcon(lastClickedIcon)} copied for import
         </Snackbar.Message>
       </Snackbar>
     </div>
