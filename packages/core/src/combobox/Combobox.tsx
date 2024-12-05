@@ -238,9 +238,10 @@ const InsetInput = ({
     popper,
     disabled,
     isError,
-    input,
     onQueryChange,
     handleOnFocus,
+    handleOnKeyDown,
+    handleOnBlur,
   } = useComboboxContext("Combobox.InsetInput");
   return (
     <span className={mergeClassnames("relative", "flex flex-grow w-full")}>
@@ -267,7 +268,8 @@ const InsetInput = ({
         )}
         error={isError}
         onFocus={handleOnFocus}
-        onBlur={() => input?.setIsFocused(false)}
+        onKeyDown={handleOnKeyDown}
+        onBlur={handleOnBlur}
         aria-label={rest["aria-label"]}
         {...rest}
         ref={popper?.setAnchor}
@@ -295,6 +297,8 @@ const VisualSelectInput = ({
     isError,
     onQueryChange,
     handleOnFocus,
+    handleOnKeyDown,
+    handleOnBlur,
   } = useComboboxContext("Combobox.VisualSelectInput");
   const selected = value as [];
 
@@ -336,6 +340,8 @@ const VisualSelectInput = ({
         {...rest}
         ref={popper?.setAnchor}
         onFocus={handleOnFocus}
+        onKeyDown={handleOnKeyDown}
+        onBlur={handleOnBlur}
       />
     </span>
   );
