@@ -51,7 +51,7 @@ const Example = () => {
               <Combobox.Input
                 open={open}
                 placeholder={"Choose a name..."}
-                displayValue={(item) => item?.label}
+                displayValue={({ label }) => label}
               />
               <Combobox.Button open={open}>
                 <ControlsChevronDownSmall />

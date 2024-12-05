@@ -123,7 +123,7 @@ const ComboboxRoot = ({
           // https://codesandbox.io/s/festive-curran-ic7y9n?file=/src/ComboboxMultiple.tsx:527-565
           value={value as {}[]}
           multiple={multiple as true}
-          nullable
+          nullable={nullable as true}
           onChange={onChange}
           disabled={disabled}
           ref={ref}

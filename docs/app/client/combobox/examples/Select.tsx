@@ -49,7 +49,6 @@ const Example = () => {
           onQueryChange={setQuery0}
           className="w-full max-w-xs"
           size="sm"
-          nullable={true}
         >
           {({ open }) => (
             <>
