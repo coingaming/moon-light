@@ -53,28 +53,49 @@ const ComboboxRoot = ({
   });
 
   const comboboxButtonRef = React.useRef<HTMLButtonElement | null>(null);
+  const blurredRef = React.useRef<boolean>(false);
+  const prevSelected = React.useRef<unknown | undefined>({});
 
   const handleOnFocus: React.FocusEventHandler<HTMLInputElement> = (event) => {
     setIsInputFocused(true);
+
     if (event.relatedTarget?.id?.includes("headlessui-combobox-button")) {
       return;
     }
+
     comboboxButtonRef?.current?.click();
   };
 
+  const handleOnKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (
+    event,
+  ) => {
+    if (event.key === "Tab") {
+      blurredRef.current = true;
+      prevSelected.current = value;
+      console.log("in here oe key down tab");
+    }
+  };
+
+  const handleOnBlur: React.FocusEventHandler<HTMLInputElement> = () => {
+    setIsInputFocused(false);
+    if (blurredRef.current) {
+      onChange(prevSelected.current);
+    }
+  };
+
   const states = {
-    value: value,
-    displayValue: displayValue,
-    isError: isError,
-    size: size,
-    disabled: disabled,
+    value,
+    displayValue,
+    isError,
+    size,
+    disabled,
     input: {
       isFocused: isInputFocused,
       setIsFocused: setIsInputFocused,
     },
-    multiple: multiple,
-    onClear: onClear,
-    onQueryChange: onQueryChange,
+    multiple,
+    onClear,
+    onQueryChange,
     popper: {
       forceUpdate,
       styles,
@@ -84,6 +105,8 @@ const ComboboxRoot = ({
     },
     comboboxButtonRef,
     handleOnFocus,
+    handleOnBlur,
+    handleOnKeyDown,
   };
 
   const childArray =
@@ -100,7 +123,7 @@ const ComboboxRoot = ({
           // https://codesandbox.io/s/festive-curran-ic7y9n?file=/src/ComboboxMultiple.tsx:527-565
           value={value as {}[]}
           multiple={multiple as true}
-          nullable={nullable as true}
+          nullable
           onChange={onChange}
           disabled={disabled}
           ref={ref}
@@ -169,9 +192,10 @@ const Input = ({
     popper,
     disabled,
     isError,
-    input,
     onQueryChange,
     handleOnFocus,
+    handleOnKeyDown,
+    handleOnBlur,
   } = useComboboxContext("Combobox.Input");
 
   return (
@@ -192,7 +216,8 @@ const Input = ({
       disabled={disabled}
       error={isError}
       onFocus={handleOnFocus}
-      onBlur={() => input?.setIsFocused(false)}
+      onKeyDown={handleOnKeyDown}
+      onBlur={handleOnBlur}
       aria-label={rest["aria-label"]}
       {...rest}
       ref={popper?.setAnchor}

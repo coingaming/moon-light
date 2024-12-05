@@ -25,6 +25,8 @@ type ComboboxState = {
   size?: Size;
   comboboxButtonRef?: React.MutableRefObject<HTMLButtonElement | null>;
   handleOnFocus?: React.FocusEventHandler<HTMLInputElement>;
+  handleOnBlur?: React.FocusEventHandler<HTMLInputElement>;
+  handleOnKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
 };
 
 export default ComboboxState;
