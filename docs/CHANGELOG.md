@@ -1,5 +1,20 @@
 # docs
 
+## 10.18.0
+
+### Minor Changes
+
+- c691086: feat: Add column visibility to table v8 [MDS-1374]
+
+### Patch Changes
+
+- Updated dependencies [5718ac9]
+- Updated dependencies [c691086]
+- Updated dependencies [98f923f]
+- Updated dependencies [88fad71]
+  - @heathmont/moon-core-tw@10.18.0
+  - @heathmont/moon-table-v8-tw@10.18.0
+
 ## 10.17.4
 
 ### Patch Changes

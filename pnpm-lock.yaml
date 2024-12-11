@@ -40,13 +40,13 @@ importers:
         specifier: workspace:^10.17.3
         version: link:../packages/cmdk
       '@heathmont/moon-core-tw':
-        specifier: workspace:^10.17.4
+        specifier: workspace:^10.18.0
         version: link:../packages/core
       '@heathmont/moon-icons-tw':
         specifier: ^9.29.3
         version: 9.29.3(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-table-v8-tw':
-        specifier: workspace:^10.17.5
+        specifier: workspace:^10.18.0
         version: link:../packages/table-v8
       '@heathmont/moon-themes-tw':
         specifier: workspace:^10.17.3
@@ -206,7 +206,7 @@ importers:
   packages/table-v8:
     dependencies:
       '@heathmont/moon-core-tw':
-        specifier: ^10.17.3
+        specifier: ^10.18.0
         version: link:../core
       '@tanstack/react-table':
         specifier: ^8.20.5
