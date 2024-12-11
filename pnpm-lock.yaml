@@ -1952,7 +1952,7 @@ packages:
     resolution: {integrity: sha512-xcLxITLe2HYa1cnYnwCjkOO1PqUHQpozB8x9AR0OgWN2woOBi5kSDVxKfd0b7sb1hw5qFeJhXm9H1nu3xSfLeQ==}
     engines: {node: '>=10'}
     dependencies:
-      tslib: 2.6.2
+      tslib: 2.7.0
     dev: false
 
   /aria-query@5.3.0:
@@ -5370,7 +5370,7 @@ packages:
       '@types/react': 18.2.37
       react: 18.2.0
       react-style-singleton: 2.2.1(@types/react@18.2.37)(react@18.2.0)
-      tslib: 2.6.2
+      tslib: 2.7.0
     dev: false
 
   /react-remove-scroll@2.5.4(@types/react@18.2.37)(react@18.2.0):
@@ -5387,7 +5387,7 @@ packages:
       react: 18.2.0
       react-remove-scroll-bar: 2.3.4(@types/react@18.2.37)(react@18.2.0)
       react-style-singleton: 2.2.1(@types/react@18.2.37)(react@18.2.0)
-      tslib: 2.6.2
+      tslib: 2.7.0
       use-callback-ref: 1.3.0(@types/react@18.2.37)(react@18.2.0)
       use-sidecar: 1.1.2(@types/react@18.2.37)(react@18.2.0)
     dev: false
@@ -5406,7 +5406,7 @@ packages:
       get-nonce: 1.0.1
       invariant: 2.2.4
       react: 18.2.0
-      tslib: 2.6.2
+      tslib: 2.7.0
     dev: false
 
   /react-syntax-highlighter@15.5.0(react@18.2.0):
@@ -6198,7 +6198,6 @@ packages:
     resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
     requiresBuild: true
     dev: false
-    optional: true
 
   /tty-table@4.2.3:
     resolution: {integrity: sha512-Fs15mu0vGzCrj8fmJNP7Ynxt5J7praPXqFN0leZeZBXJwkMxv9cb2D454k1ltrtUSJbZ4yH4e0CynsHLxmUfFA==}
@@ -6400,7 +6399,7 @@ packages:
     dependencies:
       '@types/react': 18.2.37
       react: 18.2.0
-      tslib: 2.6.2
+      tslib: 2.7.0
     dev: false
 
   /use-sidecar@1.1.2(@types/react@18.2.37)(react@18.2.0):
@@ -6416,7 +6415,7 @@ packages:
       '@types/react': 18.2.37
       detect-node-es: 1.1.0
       react: 18.2.0
-      tslib: 2.6.2
+      tslib: 2.7.0
     dev: false
 
   /util-deprecate@1.0.2:
