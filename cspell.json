@@ -26,6 +26,6 @@
     ".config/Dockerfile",
     ".gitignore",
     ".vscode/extensions.json",
-    "packages/base/src/private/presets/*",
+    "packages/base/src/private/presets/*.js",
   ]
 }
