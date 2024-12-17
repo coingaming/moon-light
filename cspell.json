@@ -25,6 +25,6 @@
     ".config/Dockerfile",
     ".gitignore",
     ".vscode/extensions.json",
-    "packages/base/src/private/presets/ds-moon-preset.js",
+    "packages/base/src/private/presets/*",
   ]
 }
