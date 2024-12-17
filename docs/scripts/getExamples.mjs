@@ -30,7 +30,7 @@ async function processFiles(dirPath, processCallback) {
     const filePath = path.join(dirPath, file);
     const stats = await fs.stat(filePath);
 
-    if (file.startsWith('[...]')) continue;
+    if (file.startsWith("[...]")) continue;
     if (stats.isDirectory()) {
       result[file] = await handleDirectory(filePath, processCallback);
     } else if (stats.isFile()) {
@@ -70,9 +70,9 @@ async function handleFile(filePath, resultObj) {
   const fileName = path.basename(filePath);
   const fileNameWithoutExtension = path.parse(fileName).name;
 
-  if (['.md', '.json'].includes(extname)) {
+  if ([".md", ".json"].includes(extname)) {
     const content = await readFromFile(filePath);
-    resultObj[fileNameWithoutExtension] = content || '';
+    resultObj[fileNameWithoutExtension] = content || "";
   }
 }
 
@@ -99,10 +99,7 @@ const getFilesContent = async (dirPath) => {
  * data about examples of the components
  */
 async function getExamples() {
-  const components = (await processFiles(
-    "./app/",
-    getFilesContent,
-  ));
+  const components = await processFiles("./app/", getFilesContent);
 
   return components;
 }

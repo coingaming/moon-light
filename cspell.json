@@ -9,13 +9,12 @@
     }
   ],
   "enableGlobDot": true,
-  "dictionaries": [
-    "project-words"
-  ],
+  "dictionaries": ["project-words"],
   "ignorePaths": [
     "**/*.svg",
     "**/*.yml",
     "**/*.yaml",
+    "**/*.css",
     "**/package.json",
     "**/CHANGELOG.md",
     ".git",
@@ -25,6 +24,6 @@
     ".config/Dockerfile",
     ".gitignore",
     ".vscode/extensions.json",
-    "packages/base/src/private/presets/ds-moon-preset.js",
+    "**/src/private/presets/*.js"
   ]
 }
