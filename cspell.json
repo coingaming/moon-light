@@ -9,9 +9,7 @@
     }
   ],
   "enableGlobDot": true,
-  "dictionaries": [
-    "project-words"
-  ],
+  "dictionaries": ["project-words"],
   "ignorePaths": [
     "**/*.svg",
     "**/*.yml",
@@ -26,6 +24,6 @@
     ".config/Dockerfile",
     ".gitignore",
     ".vscode/extensions.json",
-    "**/src/private/presets/*.js",
+    "**/src/private/presets/*.js"
   ]
 }
