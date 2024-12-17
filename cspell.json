@@ -16,6 +16,7 @@
     "**/*.svg",
     "**/*.yml",
     "**/*.yaml",
+    "**/*.css",
     "**/package.json",
     "**/CHANGELOG.md",
     ".git",
