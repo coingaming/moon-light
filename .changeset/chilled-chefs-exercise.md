@@ -1,6 +1,7 @@
 ---
 "@heathmont/moon-themes-tw": patch
 "@heathmont/moon-core-tw": patch
+"@heathmont/moon-base-tw": patch
 "docs": patch
 ---
 
