@@ -1,5 +1,11 @@
 # @heathmont/moon-themes-tw
 
+## 10.18.1
+
+### Patch Changes
+
+- fbd9dd0: feat: introduce new token system [MDS-1414]
+
 ## 10.17.3
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # docs
 
+## 10.18.1
+
+### Patch Changes
+
+- fbd9dd0: feat: introduce new token system [MDS-1414]
+- Updated dependencies [fbd9dd0]
+  - @heathmont/moon-themes-tw@10.18.1
+  - @heathmont/moon-core-tw@10.18.1
+  - @heathmont/moon-base-tw@10.18.1
+
 ## 10.18.0
 
 ### Minor Changes

@@ -34,13 +34,13 @@ importers:
   docs:
     dependencies:
       '@heathmont/moon-base-tw':
-        specifier: workspace:^10.17.3
+        specifier: workspace:^10.18.1
         version: link:../packages/base
       '@heathmont/moon-cmdk-tw':
         specifier: workspace:^10.17.3
         version: link:../packages/cmdk
       '@heathmont/moon-core-tw':
-        specifier: workspace:^10.18.0
+        specifier: workspace:^10.18.1
         version: link:../packages/core
       '@heathmont/moon-icons-tw':
         specifier: ^9.29.3
@@ -49,7 +49,7 @@ importers:
         specifier: workspace:^10.18.0
         version: link:../packages/table-v8
       '@heathmont/moon-themes-tw':
-        specifier: workspace:^10.17.3
+        specifier: workspace:^10.18.1
         version: link:../packages/themes
       '@hookform/resolvers':
         specifier: ^3.3.2
