@@ -11,6 +11,5 @@ type Story = StoryObj<typeof AvatarComponent>;
 export const Avatar: Story = {
   args: {
     size: "sm",
-    // children: <span>Alexander</span>,
   },
 };

@@ -22,7 +22,7 @@
     "test:pa11y": "node scripts/cli/index.mjs pa11y",
     "clean:next": "rimraf .next",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build:storybook": "storybook build"
   },
   "dependencies": {
     "@heathmont/moon-base-tw": "workspace:^10.18.1",
