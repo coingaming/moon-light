@@ -20,7 +20,9 @@
     "start": "next start -p 80",
     "test": "playwright test",
     "test:pa11y": "node scripts/cli/index.mjs pa11y",
-    "clean:next": "rimraf .next"
+    "clean:next": "rimraf .next",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@heathmont/moon-base-tw": "workspace:^10.18.1",
@@ -33,15 +35,23 @@
     "commander": "^11.1.0",
     "next": "14.0.3",
     "next-mdx-remote": "^4.4.1",
-    "react-syntax-highlighter": "^15.5.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.49.0",
+    "react-syntax-highlighter": "^15.5.0",
     "sharp": "^0.33.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
     "@playwright/test": "^1.40.0",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/nextjs": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/test": "^8.4.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -53,8 +63,10 @@
     "eslint-config-next": "14.0.3",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-storybook": "^0.11.1",
     "pa11y": "^6.2.3",
     "postcss": "^8",
+    "storybook": "^8.4.7",
     "tailwindcss": "^3.4.3",
     "typescript": "^5"
   }
