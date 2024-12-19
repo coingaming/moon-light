@@ -13,7 +13,6 @@ const args = {
   isActive: true,
   size: "md",
   isStroke: true,
-  variant: "default",
   children: <span>To the moon</span>,
 };
 
