@@ -11759,10 +11759,7 @@ y to select."
 s(fv, "getA11yStatusMessage");
 function Jc(e, t) {
   return (
-    (e = Array.isArray(e)
-      ? /* istanbul ignore next (preact) */
-        e[0]
-      : e),
+    (e = Array.isArray(e) ? /* istanbul ignore next (preact) */ e[0] : e),
     !e && t ? t : e
   );
 }
@@ -12418,11 +12415,7 @@ var ld = 0,
             g.onPress;
             var k = g.index,
               E = g.item,
-              O =
-                E === void 0
-                  ? /* istanbul ignore next */
-                    void 0
-                  : E,
+              O = E === void 0 ? /* istanbul ignore next */ void 0 : E,
               P = ke(g, Ev);
             k === void 0
               ? (r.items.push(O), (k = r.items.indexOf(O)))

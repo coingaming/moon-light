@@ -13358,12 +13358,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
               l(!0),
                 s &&
                   setTimeout(() => {
-                    document
-                      .getElementById(`${s}-option`)
-                      ?.scrollIntoView({
-                        behavior: "smooth",
-                        inline: "nearest",
-                      });
+                    document.getElementById(`${s}-option`)?.scrollIntoView({
+                      behavior: "smooth",
+                      inline: "nearest",
+                    });
                   }, 200);
             },
             [l],
