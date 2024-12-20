@@ -1,7 +1,7 @@
-@import "./themes.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "./themes.css";
 
 /* @font-face {
   font-family: 'DM Sans';
