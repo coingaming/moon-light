@@ -12,6 +12,7 @@
 # next.js
 /.next/
 /out/
+/public/stories/
 
 # production
 /build

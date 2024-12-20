@@ -33,6 +33,7 @@ cache
 
 # next.js
 /docs/.next
+/docs/public/stories/
 /.next/
 /out/
 
