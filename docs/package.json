@@ -12,7 +12,7 @@
     "build:changelog": "node scripts/buildChangelog.mjs",
     "build:installation": "node scripts/buildInstallation.mjs",
     "build:contribution": "node scripts/buildContribution.mjs",
-    "build": "pnpm run build:types && pnpm run build:components && pnpm run build:dict && pnpm build:descriptions && pnpm build:changelog && pnpm build:installation && pnpm build:contribution && pnpm run lint:components && pnpm run lint:descriptions && pnpm run lint:changelog && next build",
+    "build": "pnpm run build:types && pnpm run build:components && pnpm run build:dict && pnpm build:descriptions && pnpm build:changelog && pnpm build:installation && pnpm build:contribution && pnpm build:storybook && pnpm run lint:components && pnpm run lint:descriptions && pnpm run lint:changelog && next build",
     "lint": "next lint",
     "lint:components": "prettier --write ./components.constants.mjs",
     "lint:descriptions": "prettier --write ./generated/componentDescriptions.ts",
@@ -22,7 +22,7 @@
     "test:pa11y": "node scripts/cli/index.mjs pa11y",
     "clean:next": "rimraf .next",
     "storybook": "storybook dev -p 6006",
-    "build:storybook": "storybook build"
+    "build:storybook": "storybook build -o public/stories"
   },
   "dependencies": {
     "@heathmont/moon-base-tw": "workspace:^10.18.1",
