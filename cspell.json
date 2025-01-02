@@ -9,22 +9,22 @@
     }
   ],
   "enableGlobDot": true,
-  "dictionaries": [
-    "project-words"
-  ],
+  "dictionaries": ["project-words"],
   "ignorePaths": [
     "**/*.svg",
     "**/*.yml",
     "**/*.yaml",
+    "**/*.css",
     "**/package.json",
     "**/CHANGELOG.md",
     ".git",
     "node_modules",
     "docs/generated/changelog.ts",
+    "docs/public/stories/**",
     ".config/aws-task-definition.json",
     ".config/Dockerfile",
     ".gitignore",
     ".vscode/extensions.json",
-    "packages/base/src/private/presets/ds-moon-preset.js",
+    "**/src/private/presets/*.js"
   ]
 }

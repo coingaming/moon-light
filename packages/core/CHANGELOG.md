@@ -1,5 +1,21 @@
 # @heathmont/moon-core-tw
 
+## 10.18.1
+
+### Patch Changes
+
+- fbd9dd0: feat: introduce new token system [MDS-1414]
+
+## 10.18.0
+
+### Minor Changes
+
+- 5718ac9: fix: open options list on input focus [MDS-1378]
+
+### Patch Changes
+
+- 88fad71: feat: Add File Input component [MDS-1365]
+
 ## 10.17.4
 
 ### Patch Changes

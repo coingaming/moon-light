@@ -3,7 +3,6 @@ import { SearchProvider } from "@/components/search/SearchProvider";
 import { useSearchActions } from "@/components/search/useSearchActions";
 import { cookies } from "next/headers";
 import "./globals.css";
-import "./themes.css";
 import { mergeClassnames } from "@heathmont/moon-base-tw";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 

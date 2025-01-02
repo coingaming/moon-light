@@ -69,3 +69,4 @@ truncable
 valuenow
 viewbox
 whis
+autodocs

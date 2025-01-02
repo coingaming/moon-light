@@ -1,5 +1,18 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.18.0
+
+### Minor Changes
+
+- c691086: feat: Add column visibility to table v8 [MDS-1374]
+
+### Patch Changes
+
+- 98f923f: Fix: Show table content on safari for moon docs [MDS-1375]
+- Updated dependencies [5718ac9]
+- Updated dependencies [88fad71]
+  - @heathmont/moon-core-tw@10.18.0
+
 ## 10.17.5
 
 ### Patch Changes

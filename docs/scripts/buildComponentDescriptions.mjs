@@ -1,5 +1,5 @@
 import path from "path";
-import COMPONENTS from "../components.constants.mjs"
+import COMPONENTS from "../components.constants.mjs";
 import { useGetExample } from "./getExamples.mjs";
 import { writeFile } from "fs/promises";
 
@@ -11,15 +11,21 @@ const descriptionMap = new Map();
  * @param {string} contents - data to arrange.
  */
 const arrangeText = (contents) => {
-  return contents.replace(/<br \/>/gsm, "");
+  return contents.replace(/<br \/>/gms, "");
 };
 
 /**
  * Converts data from the Map dataset to the JSON-like byte stream
  */
 const prepareData = () => {
-  const contents = arrangeText(JSON.stringify(Object.fromEntries(descriptionMap)));
-  return new Uint8Array(Buffer.from(`const componentDescriptions = ${contents};\nexport default componentDescriptions;\n`));
+  const contents = arrangeText(
+    JSON.stringify(Object.fromEntries(descriptionMap)),
+  );
+  return new Uint8Array(
+    Buffer.from(
+      `const componentDescriptions = ${contents};\nexport default componentDescriptions;\n`,
+    ),
+  );
 };
 
 /**
@@ -66,8 +72,7 @@ const loadExamplesData = async (components) => {
  * Retrieves the title name of the component
  * @param {string} data - component info.
  */
-const retrieveTitle = (data) =>
-  data.replace(/.*title:\s+(\w+).*/gms, "$1");
+const retrieveTitle = (data) => data.replace(/.*title:\s+(\w+).*/gms, "$1");
 
 /**
  * Retrieves the text of the component description
@@ -84,16 +89,10 @@ const retrieveText = (data) => {
  * @param {array} descriptions - the descriptions ot the components.
  * @param {array} components - the names ot the components.
  */
-const populateDataSet = (
-  descriptions,
-  components,
-) => {
+const populateDataSet = (descriptions, components) => {
   descriptions.forEach(({ description }) => {
     const title = retrieveTitle(description);
-    const { index, component } = getIgnoreCaseEntry(
-      components,
-      title,
-    );
+    const { index, component } = getIgnoreCaseEntry(components, title);
     if (index >= 0) {
       const text = retrieveText(description);
       descriptionMap.set(component, text);
