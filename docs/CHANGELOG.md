@@ -1,5 +1,16 @@
 # docs
 
+## 10.19.0
+
+### Minor Changes
+
+- b8d4d05: feat: add docs to stories [MDS-1442]
+- 02677a6: feat: add storybook [MDS-1442]
+
+### Patch Changes
+
+- 24fca7f: feat: update moon-icons package [MDS-1477]
+
 ## 10.18.1
 
 ### Patch Changes
