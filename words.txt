@@ -1,5 +1,6 @@
 Aldus
 authcode
+autodocs
 autohiding
 autoslide
 averta
@@ -69,4 +70,3 @@ truncable
 valuenow
 viewbox
 whis
-autodocs

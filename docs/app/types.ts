@@ -913,7 +913,8 @@ export type Examples = {
     "Avatar.stories": "string",
     "Button.stories": "string",
     "Chip.stories": "string",
-    "Textarea.stories": "string"
+    "Textarea.stories": "string",
+    "page": "string"
   },
   "themes": {
     "ColorSet": "string",
