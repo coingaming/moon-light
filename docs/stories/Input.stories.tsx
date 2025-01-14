@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Input as InputComponent, Label } from "@heathmont/moon-core-tw";
+import { Input as InputComponent } from "@heathmont/moon-core-tw";
 
 type InputComponentType = typeof InputComponent;
 
