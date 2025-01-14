@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Table as TableComponent } from "@heathmont/moon-table-v8-tw";
-import { COLORS } from "./storiesConstants";
+import { COLORS } from "./constants";
 
 const meta: Meta<typeof TableComponent> = {
   title: "Moon DS/Table",

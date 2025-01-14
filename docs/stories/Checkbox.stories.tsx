@@ -11,6 +11,9 @@ const meta: Meta<typeof CheckboxComponent> = {
       type: "string",
     },
   },
+  render: (args) => (
+    <CheckboxComponent {...args} label="this is a new test oe" />
+  ),
 };
 
 export default meta;

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tooltip as TooltipComponent } from "@heathmont/moon-core-tw";
 
-import { COLORS } from "./storiesConstants";
+import { COLORS } from "./constants";
 
 type TooltipType = typeof TooltipComponent;
 
