@@ -1,24 +1,92 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tooltip as TooltipComponent } from "@heathmont/moon-core-tw";
 
-import { COLORS } from "./constants";
-
-type TooltipType = typeof TooltipComponent;
+type TooltipType = {
+  position:
+    | "top-start"
+    | "top-center"
+    | "top-end"
+    | "bottom-start"
+    | "bottom-center"
+    | "bottom-end"
+    | "right"
+    | "left";
+  container?: HTMLElement | null;
+  trigger: string;
+  tooltipContent: string;
+  triggerClassName?: string;
+  contentClassName?: string;
+};
 
 const meta: Meta<TooltipType> = {
   title: "Moon DS/Tooltip",
   tags: ["autodocs"],
-  component: TooltipComponent,
-  argTypes: {},
-  render: () => {
+
+  argTypes: {
+    position: {
+      description: "Position of the tooltip",
+      table: {
+        type: {},
+        defaultValue: { summary: "top-start" },
+      },
+      control: { type: "select" },
+      options: [
+        "top-start",
+        "top-center",
+        "top-end",
+        "bottom-start",
+        "bottom-center",
+        "bottom-end",
+        "right",
+        "left",
+      ],
+    },
+    container: {
+      description:
+        "Render tooltip content inside this container. Defaults to document.body",
+      type: "string",
+    },
+    trigger: {
+      description: "Trigger element for the tooltip",
+      type: "string",
+    },
+    tooltipContent: {
+      description: "Tooltip content",
+      type: "string",
+    },
+    triggerClassName: {
+      description: "Additional CSS class specific to the trigger.",
+      type: "string",
+    },
+    contentClassName: {
+      description: "Additional CSS class specific to the content.",
+      type: "string",
+    },
+  },
+
+  render: ({
+    position,
+    trigger,
+    tooltipContent,
+    container,
+    triggerClassName,
+    contentClassName,
+  }) => {
     return (
       <div className="flex">
         <TooltipComponent>
-          <TooltipComponent.Trigger data-testid="tooltip-trigger">
-            <div className="border border-beerus">Trigger</div>
+          <TooltipComponent.Trigger
+            data-testid="tooltip-trigger"
+            className={triggerClassName}
+          >
+            <div className="border border-beerus">{trigger}</div>
           </TooltipComponent.Trigger>
-          <TooltipComponent.Content>
-            This is the default tooltip
+          <TooltipComponent.Content
+            position={position}
+            container={container}
+            className={contentClassName}
+          >
+            {tooltipContent}
             <TooltipComponent.Arrow />
           </TooltipComponent.Content>
         </TooltipComponent>
@@ -32,5 +100,12 @@ export default meta;
 type Story = StoryObj<TooltipType>;
 
 export const Tooltip: Story = {
-  args: {},
+  args: {
+    position: "top-start",
+    container: undefined,
+    trigger: "Trigger here oe",
+    tooltipContent: "This is the default tooltip oe",
+    triggerClassName: "",
+    contentClassName: "",
+  },
 };
