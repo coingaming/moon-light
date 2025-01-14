@@ -18,7 +18,7 @@ export const COLORS = [
   "cell",
   "raditz",
   "whis",
-  "freeza",
+  "frieza",
   "nappa",
   "nappa",
 ];
