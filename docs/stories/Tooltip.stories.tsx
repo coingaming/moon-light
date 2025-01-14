@@ -16,6 +16,7 @@ type TooltipType = {
   tooltipContent: string;
   triggerClassName?: string;
   contentClassName?: string;
+  withArrow?: boolean;
 };
 
 const meta: Meta<TooltipType> = {
@@ -62,6 +63,14 @@ const meta: Meta<TooltipType> = {
       description: "Additional CSS class specific to the content.",
       type: "string",
     },
+    withArrow: {
+      description: "Add arrow to the tooltip",
+      type: "boolean",
+      table: {
+        type: {},
+        defaultValue: { summary: "true" },
+      },
+    },
   },
 
   render: ({
@@ -71,6 +80,7 @@ const meta: Meta<TooltipType> = {
     container,
     triggerClassName,
     contentClassName,
+    withArrow,
   }) => {
     return (
       <div className="flex">
@@ -87,7 +97,7 @@ const meta: Meta<TooltipType> = {
             className={contentClassName}
           >
             {tooltipContent}
-            <TooltipComponent.Arrow />
+            {withArrow && <TooltipComponent.Arrow />}
           </TooltipComponent.Content>
         </TooltipComponent>
       </div>
@@ -107,5 +117,6 @@ export const Tooltip: Story = {
     tooltipContent: "This is the default tooltip oe",
     triggerClassName: "",
     contentClassName: "",
+    withArrow: true,
   },
 };
