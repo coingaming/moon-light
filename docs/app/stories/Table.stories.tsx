@@ -1,4 +1,3 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Table as TableComponent } from "@heathmont/moon-table-v8-tw";
 import { COLORS } from "./storiesConstants";
