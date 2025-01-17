@@ -322,33 +322,42 @@ type Story = StoryObj<TableType>;
 
 export const Table: Story = {
   args: {
-    bodyBackgroundColor: "gohan",
     columns: [
       { id: "name", header: "Name", accessorKey: "name" },
       { id: "age", header: "Age", accessorKey: "age" },
       { id: "status", header: "Status", accessorKey: "status" },
-    ],
+    ], // checked
     data: [
       { id: 1, name: "John Doe", age: 28, status: "Active" },
       { id: 2, name: "Jane Smith", age: 34, status: "Inactive" },
       { id: 3, name: "Sam Green", age: 45, status: "Active" },
-    ],
-    width: 600,
+    ], // checked
+    bodyBackgroundColor: "gohan", // checked
+    defaultColumn: undefined,
+    defaultRowBackgroundColor: "goku", // checked
+    evenRowBackgroundColor: "goku", // checked
+    fixedWidth: "w-full", // checked
+    getSubRows: undefined,
+    headerBackgroundColor: "gohan",
     height: 400,
-    fixedWidth: "w-full",
-    rowGap: "2px",
-    isResizable: true,
+    isResizable: false, // checked
     isSelectable: false,
     isSticky: true,
-    withFooter: false,
-    withMinimap: false,
-    getSubRows: undefined,
-    preventSelectionByRowClick: false,
-    layout: "auto",
-    defaultColumn: undefined,
+    layout: "auto", // checked
+    onColumnVisibilityChange: undefined,
     onExpandedChange: undefined,
     onRowSelectionChange: undefined,
+    preventSelectionByRowClick: false,
+    rowActiveColor: undefined,
+    rowGap: "2px",
+    rowHoverColor: undefined,
+    rowSelectColor: "heles",
+    rowSize: "md",
     state: {},
-    onColumnVisibilityChange: undefined,
+    textClip: undefined,
+    width: 600,
+    withCellBorder: false,
+    withFooter: false,
+    withMinimap: false,
   },
 };
