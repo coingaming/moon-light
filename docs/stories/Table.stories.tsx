@@ -7,7 +7,6 @@ type TableType = typeof TableComponent;
 const meta: Meta<TableType> = {
   title: "Moon DS/Table",
   tags: ["autodocs"],
-  component: TableComponent,
   render: (args) => {
     return <TableComponent {...args} />;
   },
@@ -18,6 +17,9 @@ const meta: Meta<TableType> = {
       table: {
         type: {
           summary: "string",
+        },
+        defaultValue: {
+          summary: "gohan",
         },
       },
       description:
@@ -54,7 +56,10 @@ const meta: Meta<TableType> = {
     fixedWidth: {
       description:
         "Specifies a fixed width for the table as a string value (e.g., '100px').",
-      table: { type: { summary: "string" } },
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "w-full" },
+      },
     },
     rowGap: {
       description:
@@ -72,6 +77,9 @@ const meta: Meta<TableType> = {
         type: {
           summary: "xs | sm | md | lg | xl | 2xl",
         },
+        defaultValue: {
+          summary: "md",
+        },
       },
     },
     layout: {
@@ -82,6 +90,9 @@ const meta: Meta<TableType> = {
         type: {
           summary: "auto | fixed",
         },
+        defaultValue: {
+          summary: "auto",
+        },
       },
     },
     isResizable: {
@@ -90,6 +101,9 @@ const meta: Meta<TableType> = {
       table: {
         type: {
           summary: "boolean",
+        },
+        defaultValue: {
+          summary: "false",
         },
       },
     },
@@ -100,6 +114,9 @@ const meta: Meta<TableType> = {
         type: {
           summary: "boolean",
         },
+        defaultValue: {
+          summary: "false",
+        },
       },
     },
     isSticky: {
@@ -108,6 +125,9 @@ const meta: Meta<TableType> = {
       table: {
         type: {
           summary: "boolean",
+        },
+        defaultValue: {
+          summary: "true",
         },
       },
     },
@@ -118,6 +138,9 @@ const meta: Meta<TableType> = {
         type: {
           summary: "boolean",
         },
+        defaultValue: {
+          summary: "false",
+        },
       },
     },
     withMinimap: {
@@ -127,16 +150,25 @@ const meta: Meta<TableType> = {
         type: {
           summary: "boolean",
         },
+        defaultValue: {
+          summary: "false",
+        },
       },
     },
     withCellBorder: {
-      control: "boolean",
       description: "Adds borders around table cells.",
       table: {
         type: {
-          summary: "boolean",
+          summary: "boolean | 'sticky' ",
+        },
+        defaultValue: {
+          summary: "false",
         },
       },
+      control: {
+        type: "select",
+      },
+      options: [true, false, "sticky"],
     },
     headerBackgroundColor: {
       control: "select",
@@ -144,6 +176,9 @@ const meta: Meta<TableType> = {
       table: {
         type: {
           summary: "string",
+        },
+        defaultValue: {
+          summary: "gohan",
         },
       },
       description: "Sets the background color for the table header.",
@@ -155,6 +190,9 @@ const meta: Meta<TableType> = {
       table: {
         type: {
           summary: "string",
+        },
+        defaultValue: {
+          summary: "goku",
         },
       },
     },
@@ -175,6 +213,9 @@ const meta: Meta<TableType> = {
         type: {
           summary: "string",
         },
+        defaultValue: {
+          summary: "goku",
+        },
       },
     },
     rowSelectColor: {
@@ -185,17 +226,30 @@ const meta: Meta<TableType> = {
         type: {
           summary: "string",
         },
+        defaultValue: {
+          summary: "heles",
+        },
       },
     },
     rowActiveColor: {
       control: "select",
       options: COLORS,
       description: "Specifies the background color for active rows.",
+      table: {
+        type: {
+          summary: "string",
+        },
+      },
     },
     rowHoverColor: {
       control: "select",
       options: COLORS,
       description: "Specifies the background color for rows when hovered over.",
+      table: {
+        type: {
+          summary: "string",
+        },
+      },
     },
     getSubRows: {
       table: {
@@ -248,6 +302,8 @@ const meta: Meta<TableType> = {
           summary: "clip | break",
         },
       },
+      control: { type: "select" },
+      options: ["clip", "break"],
     },
     onColumnVisibilityChange: {
       description: "This function handles state.columnVisibility changes",
@@ -266,6 +322,7 @@ type Story = StoryObj<TableType>;
 
 export const Table: Story = {
   args: {
+    bodyBackgroundColor: "gohan",
     columns: [
       { id: "name", header: "Name", accessorKey: "name" },
       { id: "age", header: "Age", accessorKey: "age" },
@@ -280,13 +337,18 @@ export const Table: Story = {
     height: 400,
     fixedWidth: "w-full",
     rowGap: "2px",
-    isResizable: false,
-    isSelectable: true,
+    isResizable: true,
+    isSelectable: false,
     isSticky: true,
     withFooter: false,
     withMinimap: false,
     getSubRows: undefined,
     preventSelectionByRowClick: false,
     layout: "auto",
+    defaultColumn: undefined,
+    onExpandedChange: undefined,
+    onRowSelectionChange: undefined,
+    state: {},
+    onColumnVisibilityChange: undefined,
   },
 };

@@ -55,8 +55,7 @@ const Table: React.FC<TableProps> = ({
   onSortingChange,
   onColumnVisibilityChange,
 }) => {
-  const [columnResizeMode, setColumnResizeMode] =
-    React.useState<ColumnResizeMode>("onChange");
+  const [columnResizeMode] = React.useState<ColumnResizeMode>("onChange");
 
   const { data: selectableData, columns: selectableColumns } =
     handleSelectableTable({ data, columns, isSelectable });
@@ -115,16 +114,11 @@ const Table: React.FC<TableProps> = ({
       ["height", height ? `${height}px` : undefined],
     ]);
 
-    const tableWidth = React.useMemo(
-      () =>
-        handleTableLayouts(layout, isResizable) ??
-        handleTableFixedWidth(fixedWidth),
-      [],
-    );
-    const tableLayout = React.useMemo(
-      () => (layout === "fixed" ? "fixed" : "auto"),
-      [],
-    );
+    const tableWidth =
+      handleTableLayouts(layout, isResizable) ??
+      handleTableFixedWidth(fixedWidth);
+
+    const tableLayout = layout === "fixed" ? "fixed" : "auto";
 
     const tableStyles = {
       width: tableWidth,
