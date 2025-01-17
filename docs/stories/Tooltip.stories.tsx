@@ -27,7 +27,10 @@ const meta: Meta<TooltipType> = {
     position: {
       description: "Position of the tooltip",
       table: {
-        type: {},
+        type: {
+          summary:
+            "top-start | top-center | top-end | bottom-start | bottom-center | bottom-end | right | left",
+        },
         defaultValue: { summary: "top-start" },
       },
       control: { type: "select" },
@@ -113,8 +116,8 @@ export const Tooltip: Story = {
   args: {
     position: "top-start",
     container: undefined,
-    trigger: "Trigger here oe",
-    tooltipContent: "This is the default tooltip oe",
+    trigger: "Tooltip Trigger",
+    tooltipContent: "This is the default tooltip content",
     triggerClassName: "",
     contentClassName: "",
     withArrow: true,
