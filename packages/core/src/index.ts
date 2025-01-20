@@ -90,3 +90,5 @@ export { default as FileInput } from "./fileInput/FileInput";
 export * from "./fileInput/FileInput";
 export { default as InsetFileInput } from "./insetFileInput/InsetFileInput";
 export * from "./insetFileInput/InsetFileInput";
+export { default as Badge } from "./badge/Badge";
+export * from "./badge/Badge";

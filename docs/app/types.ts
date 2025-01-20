@@ -90,6 +90,17 @@ export type Examples = {
       },
       "props": "string"
     },
+    "badge": {
+      "description": "string",
+      "description_copy": "string",
+      "descriptions": {
+        "Default": "string"
+      },
+      "examples": {
+        "Default": "string"
+      },
+      "props": "string"
+    },
     "bottomSheet": {
       "anatomy": "string",
       "description": "string",

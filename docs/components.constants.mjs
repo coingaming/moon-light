@@ -56,6 +56,12 @@ const COMPONENTS = {
       "Customization",
     ],
   },
+  badge: {
+    title: "Badge",
+    packageName: "@heathmont/moon-core-tw",
+    tags: ["ARIA", "RTL"],
+    examples: ["Default"],
+  },
   bottomSheet: {
     title: "BottomSheet",
     packageName: "@heathmont/moon-core-tw",
