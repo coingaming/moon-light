@@ -60,7 +60,7 @@ const COMPONENTS = {
     title: "Badge",
     packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
-    examples: ["Default"],
+    examples: ["Default", "Label", "AnchorElement", "Customization"],
   },
   bottomSheet: {
     title: "BottomSheet",

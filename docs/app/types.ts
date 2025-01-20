@@ -92,12 +92,17 @@ export type Examples = {
     },
     "badge": {
       "description": "string",
-      "description_copy": "string",
       "descriptions": {
-        "Default": "string"
+        "AnchorElement": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Label": "string"
       },
       "examples": {
-        "Default": "string"
+        "AnchorElement": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Label": "string"
       },
       "props": "string"
     },
