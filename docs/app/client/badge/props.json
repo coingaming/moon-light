@@ -1,6 +1,6 @@
 [
   {
-    "name": "Avatar",
+    "name": "Badge",
     "props": [
       {
         "name": "className",
@@ -8,30 +8,9 @@
         "type": ["string"]
       },
       {
-        "name": "imageUrl",
-        "description": "Path to the image",
-        "type": ["string"]
-      },
-      {
-        "name": "size",
-        "description": "Size of avatar",
-        "type": ["xs", "sm", "md", "lg", "xl", "2xl"],
-        "defaultState": "md"
-      }
-    ]
-  },
-  {
-    "name": "Avatar.Status",
-    "props": [
-      {
-        "name": "className",
-        "description": "CSS classes for customization",
-        "type": ["string"]
-      },
-      {
-        "name": "position",
-        "description": "Position for status indicator",
-        "type": ["{ vertical: 'top' | 'bottom', horizontal: 'left' | 'right' }"]
+        "name": "children",
+        "description": "Inner content of badge",
+        "type": ["React.ReactNode", "() => React.ReactNode"]
       }
     ]
   }
