@@ -326,7 +326,7 @@ export const Table: Story = {
       { id: "name", header: "Name", accessorKey: "name" },
       { id: "age", header: "Age", accessorKey: "age" },
       { id: "status", header: "Status", accessorKey: "status" },
-    ], // checked
+    ],
     data: [
       { id: 1, name: "John Doe", age: 28, status: "Active", subRows: [] },
       {
@@ -343,33 +343,33 @@ export const Table: Story = {
         status: "Active",
         subRows: [{ id: 4, name: "Sam Green 2", age: 45, status: "Active" }],
       },
-    ], // checked
-    bodyBackgroundColor: "gohan", // checked
+    ],
+    bodyBackgroundColor: "gohan",
     defaultColumn: undefined,
-    defaultRowBackgroundColor: "goku", // checked
-    evenRowBackgroundColor: "goku", // checked
-    fixedWidth: "w-full", // checked
-    getSubRows: undefined, // checked
-    headerBackgroundColor: "gohan", // checked
-    height: 400, //checked
-    isResizable: false, // checked
-    isSelectable: false, // checked
-    isSticky: true, // checked
-    layout: "auto", // checked
-    onColumnVisibilityChange: undefined, // skipped, assumed to work fine
-    onExpandedChange: undefined, // skipped, assumed to work fine
-    onRowSelectionChange: undefined, // skipped, assumed to work fine
-    preventSelectionByRowClick: false, // skipped, assumed to work fine
-    rowActiveColor: undefined, // checked
-    rowGap: "2px", // checked
-    rowHoverColor: undefined, // checked
-    rowSelectColor: "heles", // checked
-    rowSize: "md", // checked
-    state: {}, // checked
-    textClip: undefined, // checked
-    width: 600, // checked
-    withCellBorder: false, // checked
-    withFooter: false, // checked
-    withMinimap: false, // checked
+    defaultRowBackgroundColor: "goku",
+    evenRowBackgroundColor: "goku",
+    fixedWidth: "w-full",
+    getSubRows: undefined,
+    headerBackgroundColor: "gohan",
+    height: 400,
+    isResizable: false,
+    isSelectable: false,
+    isSticky: true,
+    layout: "auto",
+    onColumnVisibilityChange: undefined,
+    onExpandedChange: undefined,
+    onRowSelectionChange: undefined,
+    preventSelectionByRowClick: false,
+    rowActiveColor: undefined,
+    rowGap: "2px",
+    rowHoverColor: undefined,
+    rowSelectColor: "heles",
+    rowSize: "md",
+    state: {},
+    textClip: undefined,
+    width: 600,
+    withCellBorder: false,
+    withFooter: false,
+    withMinimap: false,
   },
 };
