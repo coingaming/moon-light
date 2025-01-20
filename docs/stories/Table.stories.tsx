@@ -7,7 +7,7 @@ type TableType = typeof TableComponent;
 const meta: Meta<TableType> = {
   title: "Moon DS/Table",
   tags: ["autodocs"],
-  render: (args) => {
+  render: ({ ...args }) => {
     return <TableComponent {...args} />;
   },
   argTypes: {
@@ -328,36 +328,48 @@ export const Table: Story = {
       { id: "status", header: "Status", accessorKey: "status" },
     ], // checked
     data: [
-      { id: 1, name: "John Doe", age: 28, status: "Active" },
-      { id: 2, name: "Jane Smith", age: 34, status: "Inactive" },
-      { id: 3, name: "Sam Green", age: 45, status: "Active" },
+      { id: 1, name: "John Doe", age: 28, status: "Active", subRows: [] },
+      {
+        id: 2,
+        name: "Jane Smith test test test test test test test test test test test ",
+        age: 34,
+        status: "Inactive",
+        subRows: [],
+      },
+      {
+        id: 3,
+        name: "Sam Green",
+        age: 45,
+        status: "Active",
+        subRows: [{ id: 4, name: "Sam Green 2", age: 45, status: "Active" }],
+      },
     ], // checked
     bodyBackgroundColor: "gohan", // checked
     defaultColumn: undefined,
     defaultRowBackgroundColor: "goku", // checked
     evenRowBackgroundColor: "goku", // checked
     fixedWidth: "w-full", // checked
-    getSubRows: undefined,
-    headerBackgroundColor: "gohan",
-    height: 400,
+    getSubRows: undefined, // checked
+    headerBackgroundColor: "gohan", // checked
+    height: 400, //checked
     isResizable: false, // checked
-    isSelectable: false,
-    isSticky: true,
+    isSelectable: false, // checked
+    isSticky: true, // checked
     layout: "auto", // checked
-    onColumnVisibilityChange: undefined,
-    onExpandedChange: undefined,
-    onRowSelectionChange: undefined,
-    preventSelectionByRowClick: false,
-    rowActiveColor: undefined,
-    rowGap: "2px",
-    rowHoverColor: undefined,
-    rowSelectColor: "heles",
-    rowSize: "md",
-    state: {},
-    textClip: undefined,
-    width: 600,
-    withCellBorder: false,
-    withFooter: false,
-    withMinimap: false,
+    onColumnVisibilityChange: undefined, // skipped, assumed to work fine
+    onExpandedChange: undefined, // skipped, assumed to work fine
+    onRowSelectionChange: undefined, // skipped, assumed to work fine
+    preventSelectionByRowClick: false, // skipped, assumed to work fine
+    rowActiveColor: undefined, // checked
+    rowGap: "2px", // checked
+    rowHoverColor: undefined, // checked
+    rowSelectColor: "heles", // checked
+    rowSize: "md", // checked
+    state: {}, // checked
+    textClip: undefined, // checked
+    width: 600, // checked
+    withCellBorder: false, // checked
+    withFooter: false, // checked
+    withMinimap: false, // checked
   },
 };
