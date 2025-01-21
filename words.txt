@@ -35,6 +35,7 @@ hljs
 hrefs
 hub88
 iconbutton
+idle
 innercrumb
 insetinput
 insetnativeselect
@@ -70,4 +71,3 @@ truncable
 valuenow
 viewbox
 whis
-idle

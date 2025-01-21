@@ -8,7 +8,7 @@ const componentDescriptions = {
   avatar:
     "The Avatar component is typically used to display images, icons, or initials representing people or other entities.",
   badge:
-    "The Badge component is typically used to display statuses (i.e. online, iddle, offline) or numbers representing the count of items in a given list (i.e. List of notifications or unread messages).",
+    "The Badge component is typically used to display statuses (i.e. online, idle, offline) or numbers representing the count of items in a given list (i.e. List of notifications or unread messages).",
   bottomSheet:
     "The bottom sheet component is a modified dialog that slides from the bottom of the screen, common pattern in mobile apps.\n\nBottom sheets can contain any anything so let your imagination fly.\nBased on [Headless UI](https://headlessui.com/).",
   breadcrumb:
