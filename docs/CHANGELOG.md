@@ -1,6 +1,6 @@
 # docs
 
-## 10.19.1
+## 10.19.2
 
 ### Patch Changes
 
