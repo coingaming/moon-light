@@ -43,8 +43,8 @@ importers:
         specifier: workspace:^10.18.1
         version: link:../packages/core
       '@heathmont/moon-icons-tw':
-        specifier: ^9.29.4
-        version: 9.29.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^9.29.5
+        version: 9.29.5(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-table-v8-tw':
         specifier: workspace:^10.18.0
         version: link:../packages/table-v8
@@ -1985,8 +1985,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@heathmont/moon-icons-tw@9.29.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-J4eu6gNOivSN8yT9tDnl2EA5vdOP+n3T+tonvmEZqunq2aMZa/zYaI+yoCX40faRN+WA37S0LvZh+WDOOXsS4w==}
+  /@heathmont/moon-icons-tw@9.29.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-CwrEGuU40cl5ibg4ukKiksD9q7qw+Yay3/jitCk/28DDKsdBb2c1JU1IhnX5PChpWjOwttSa979M1qIgvZ9goA==}
     peerDependencies:
       react: '>= 18.2.0'
       react-dom: '>= 18.2.0'
