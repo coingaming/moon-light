@@ -72,7 +72,6 @@ const ComboboxRoot = ({
     if (event.key === "Tab") {
       blurredRef.current = true;
       prevSelected.current = value;
-      console.log("in here oe key down tab");
     }
   };
 
