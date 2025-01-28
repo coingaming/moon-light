@@ -7,6 +7,8 @@ const componentDescriptions = {
     "A one-time password (OTP) is an automatically generated numeric or alphanumeric string of characters that authenticates a user for a single transaction or login session.\n\nAuthcode component is designed for entering OTP codes;it is usually positioned through your UI in places like:\n\n- Login\n- OTP check",
   avatar:
     "The Avatar component is typically used to display images, icons, or initials representing people or other entities.",
+  badge:
+    "The Badge component is typically used to display statuses (i.e. online, idle, offline) or numbers representing the count of items in a given list (i.e. List of notifications or unread messages).",
   bottomSheet:
     "The bottom sheet component is a modified dialog that slides from the bottom of the screen, common pattern in mobile apps.\n\nBottom sheets can contain any anything so let your imagination fly.\nBased on [Headless UI](https://headlessui.com/).",
   breadcrumb:

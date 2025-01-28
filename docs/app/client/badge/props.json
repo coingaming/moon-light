@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Badge",
+    "props": [
+      {
+        "name": "className",
+        "description": "CSS classes for customization",
+        "type": ["string"]
+      },
+      {
+        "name": "children",
+        "description": "Inner content of badge",
+        "type": ["React.ReactNode", "() => React.ReactNode"]
+      }
+    ]
+  }
+]
