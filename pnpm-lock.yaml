@@ -43,8 +43,8 @@ importers:
         specifier: workspace:^10.18.1
         version: link:../packages/core
       '@heathmont/moon-icons-tw':
-        specifier: ^9.29.4
-        version: 9.29.4(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^9.29.6
+        version: 9.29.6(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-table-v8-tw':
         specifier: workspace:^10.18.0
         version: link:../packages/table-v8
@@ -1985,20 +1985,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@headlessui/react@1.7.17(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-4am+tzvkqDSSgiwrsEpGWqgGo9dz8qU5M3znCkC4PgkpY4HcCZzEDEvozltGGGHIKl9jbXbZPSH5TWn4sWJdow==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: ^16 || ^17 || ^18
-      react-dom: ^16 || ^17 || ^18
-    dependencies:
-      client-only: 0.0.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
-  /@heathmont/moon-icons-tw@9.29.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-J4eu6gNOivSN8yT9tDnl2EA5vdOP+n3T+tonvmEZqunq2aMZa/zYaI+yoCX40faRN+WA37S0LvZh+WDOOXsS4w==}
+  /@heathmont/moon-icons-tw@9.29.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-pQIX/zQqgpo3q8WG+OK5OXuL5UE6pjjMfdhmdvPNO+4qlu3G/tPXm/XTI0JiURDyEc0UxEy3nNIkuD39ZDSv+w==}
     peerDependencies:
       react: '>= 18.2.0'
       react-dom: '>= 18.2.0'
