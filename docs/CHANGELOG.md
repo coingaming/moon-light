@@ -1,5 +1,11 @@
 # docs
 
+## 10.19.2
+
+### Patch Changes
+
+- 1ac1bb2: feat: update moon-icons-tw package [MDS-1516]
+
 ## 10.19.0
 
 ### Minor Changes
