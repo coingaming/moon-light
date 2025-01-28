@@ -2,4 +2,4 @@
 "docs": minor
 ---
 
-feat: add story to Table component [MDS-1473]
+feat: add story for Several components [MDS-1500] [MDS-1501] [MDS-1502] [MDS-1503]
