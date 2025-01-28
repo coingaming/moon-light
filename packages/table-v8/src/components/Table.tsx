@@ -55,7 +55,8 @@ const Table: React.FC<TableProps> = ({
   onSortingChange,
   onColumnVisibilityChange,
 }) => {
-  const [columnResizeMode] = React.useState<ColumnResizeMode>("onChange");
+  const [columnResizeMode, setColumnResizeMode] =
+    React.useState<ColumnResizeMode>("onChange");
 
   const { data: selectableData, columns: selectableColumns } =
     handleSelectableTable({ data, columns, isSelectable });
@@ -108,83 +109,90 @@ const Table: React.FC<TableProps> = ({
     tableResizeInfo.isResizingColumn && tableResizeInfo.deltaOffset,
   ]);
 
-  const wrapperStyles = new Map([
-    ["maxWidth", width ? `${width}px` : undefined],
-    ["height", height ? `${height}px` : undefined],
-  ]);
+  const renderTableComponent = () => {
+    const wrapperStyles = new Map([
+      ["maxWidth", width ? `${width}px` : undefined],
+      ["height", height ? `${height}px` : undefined],
+    ]);
 
-  const tableWidth =
-    handleTableLayouts(layout, isResizable) ??
-    handleTableFixedWidth(fixedWidth);
+    const tableWidth = React.useMemo(
+      () =>
+        handleTableLayouts(layout, isResizable) ??
+        handleTableFixedWidth(fixedWidth),
+      [],
+    );
+    const tableLayout = React.useMemo(
+      () => (layout === "fixed" ? "fixed" : "auto"),
+      [],
+    );
 
-  const tableLayout = layout === "fixed" ? "fixed" : "auto";
+    const tableStyles = {
+      width: tableWidth,
+      tableLayout,
+      borderSpacing: `0 ${rowGap}`,
+      "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
+    } as const;
 
-  const tableStyles = {
-    width: tableWidth,
-    tableLayout,
-    borderSpacing: `0 ${rowGap}`,
-    "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
-  } as const;
-
-  const renderTableComponent = (
-    <TableWrapper
-      style={Object.fromEntries(wrapperStyles)}
-      className={mergeClassnames("rounded-lg", isSticky && "overflow-auto")}
-      tableWrapperRef={tableWrapperRef}
-    >
-      <table
-        ref={tableRef}
-        style={tableStyles}
-        className={mergeClassnames(
-          "border-separate bg-[color:var(--tableBGColor)]",
-        )}
+    return (
+      <TableWrapper
+        style={Object.fromEntries(wrapperStyles)}
+        className={mergeClassnames("rounded-lg", isSticky && "overflow-auto")}
+        tableWrapperRef={tableWrapperRef}
       >
-        <THead
-          table={table}
-          backgroundColor={headerBackgroundColor}
-          rowSize={rowSize}
-          rowGap={rowGap}
-          isResizable={isResizable}
-          isSticky={isSticky}
-          columnMap={columnMap}
-          withBorder={withCellBorder}
-        />
-        <TBody
-          table={table}
-          rowGap={rowGap}
-          rowSize={rowSize}
-          isSelectable={isSelectable}
-          preventSelectionByRowClick={preventSelectionByRowClick}
-          rowSelectColor={rowSelectColor}
-          backgroundColor={bodyBackgroundColor}
-          defaultRowBackgroundColor={defaultRowBackgroundColor}
-          evenRowBackgroundColor={evenRowBackgroundColor}
-          rowHoverColor={rowHoverColor}
-          rowActiveColor={rowActiveColor}
-          columnMap={columnMap}
-          textClip={textClip}
-          withBorder={withCellBorder}
-          getOnRowClickHandler={getOnRowClickHandler}
-        />
-        {withFooter && (
-          <TFoot
+        <table
+          ref={tableRef}
+          style={tableStyles}
+          className={mergeClassnames(
+            "border-separate bg-[color:var(--tableBGColor)]",
+          )}
+        >
+          <THead
             table={table}
             backgroundColor={headerBackgroundColor}
             rowSize={rowSize}
             rowGap={rowGap}
+            isResizable={isResizable}
             isSticky={isSticky}
             columnMap={columnMap}
             withBorder={withCellBorder}
           />
-        )}
-      </table>
-    </TableWrapper>
-  );
+          <TBody
+            table={table}
+            rowGap={rowGap}
+            rowSize={rowSize}
+            isSelectable={isSelectable}
+            preventSelectionByRowClick={preventSelectionByRowClick}
+            rowSelectColor={rowSelectColor}
+            backgroundColor={bodyBackgroundColor}
+            defaultRowBackgroundColor={defaultRowBackgroundColor}
+            evenRowBackgroundColor={evenRowBackgroundColor}
+            rowHoverColor={rowHoverColor}
+            rowActiveColor={rowActiveColor}
+            columnMap={columnMap}
+            textClip={textClip}
+            withBorder={withCellBorder}
+            getOnRowClickHandler={getOnRowClickHandler}
+          />
+          {withFooter && (
+            <TFoot
+              table={table}
+              backgroundColor={headerBackgroundColor}
+              rowSize={rowSize}
+              rowGap={rowGap}
+              isSticky={isSticky}
+              columnMap={columnMap}
+              withBorder={withCellBorder}
+            />
+          )}
+        </table>
+      </TableWrapper>
+    );
+  };
 
   if (withMinimap) {
     return (
       <div className="h-full w-full overflow-auto">
-        {renderTableComponent}
+        {renderTableComponent()}
         <Minimap
           numberOfColumns={
             (columnMap && columnMap[columnMap?.length - 1].length) || 0
@@ -195,7 +203,7 @@ const Table: React.FC<TableProps> = ({
     );
   }
 
-  return renderTableComponent;
+  return renderTableComponent();
 };
 
 export default Table;
