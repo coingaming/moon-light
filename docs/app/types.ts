@@ -90,6 +90,22 @@ export type Examples = {
       },
       "props": "string"
     },
+    "badge": {
+      "description": "string",
+      "descriptions": {
+        "AnchorElement": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Label": "string"
+      },
+      "examples": {
+        "AnchorElement": "string",
+        "Customization": "string",
+        "Default": "string",
+        "Label": "string"
+      },
+      "props": "string"
+    },
     "bottomSheet": {
       "anatomy": "string",
       "description": "string",

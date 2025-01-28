@@ -7,6 +7,8 @@ const componentDescriptions = {
     "A one-time password (OTP) is an automatically generated numeric or alphanumeric string of characters that authenticates a user for a single transaction or login session.\n\nAuthcode component is designed for entering OTP codes;it is usually positioned through your UI in places like:\n\n- Login\n- OTP check",
   avatar:
     "The Avatar component is typically used to display images, icons, or initials representing people or other entities.",
+  badge:
+    "The Badge component is typically used to display statuses (i.e. online, idle, offline) or numbers representing the count of items in a given list (i.e. List of notifications or unread messages).",
   bottomSheet:
     "The bottom sheet component is a modified dialog that slides from the bottom of the screen, common pattern in mobile apps.\n\nBottom sheets can contain any anything so let your imagination fly.\nBased on [Headless UI](https://headlessui.com/).",
   breadcrumb:
@@ -32,7 +34,7 @@ const componentDescriptions = {
   iconButton:
     "Buttons allow users to take actions, and make choices, with a single tap.\n\nButtons communicate actions that users can take. They are typically placed throughout your UI, in places like:\n\n- Modal windows\n- Forms\n- Cards\n- Toolbars",
   icons:
-    "Moon Design System provides a set of commonly used interface `icons` you can use in your project.",
+    "Moon Design System provides a set of commonly used interface `icons` you can use in your project. To use the icons, install the npm package: `@heathmont/moon-icons-tw`.",
   input:
     "Text input fields allow users to enter text and can be used to collect user feedback or enter information in data entry forms.\n\nThese types of input fields are used on their own, or in combination with other inputs such as number entry, date picker, etc.",
   insetInput:
