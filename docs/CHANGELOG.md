@@ -1,5 +1,23 @@
 # docs
 
+## 10.20.0
+
+### Minor Changes
+
+- 4dbf7b3: feat: add story for Several components [MDS-1500] [MDS-1501] [MDS-1502] [MDS-1503]
+- 4c99faf: feat: Create Radio button story [MDS-1528]
+- 6a35506: feat: Create Badge component [MDS-1504]
+- 1908a62: feat: Create Badge story [MDS-1505]
+- 7169dbd: feat: Add table story [MDS-1473]
+
+### Patch Changes
+
+- 0a26a4a: fix: Add Badge image for docs homepage [MDS-1530]
+- Updated dependencies [6a35506]
+- Updated dependencies [7169dbd]
+  - @heathmont/moon-core-tw@10.20.0
+  - @heathmont/moon-table-v8-tw@10.20.0
+
 ## 10.19.2
 
 ### Patch Changes
