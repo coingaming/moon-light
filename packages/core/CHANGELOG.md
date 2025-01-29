@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.20.0
+
+### Minor Changes
+
+- 6a35506: feat: Create Badge component [MDS-1504]
+
 ## 10.18.1
 
 ### Patch Changes
