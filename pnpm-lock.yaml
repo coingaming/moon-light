@@ -100,6 +100,9 @@ importers:
       '@storybook/blocks':
         specifier: ^8.4.7
         version: 8.4.7(react-dom@18.2.0)(react@18.2.0)(storybook@8.4.7)
+      '@storybook/manager-api':
+        specifier: ^8.5.2
+        version: 8.5.2(storybook@8.4.7)
       '@storybook/nextjs':
         specifier: ^8.4.7
         version: 8.4.7(esbuild@0.24.0)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)(storybook@8.4.7)(typescript@5.3.2)(webpack@5.97.1)
@@ -109,6 +112,9 @@ importers:
       '@storybook/test':
         specifier: ^8.4.7
         version: 8.4.7(storybook@8.4.7)
+      '@storybook/theming':
+        specifier: ^8.5.2
+        version: 8.5.2(storybook@8.4.7)
       '@types/node':
         specifier: ^20
         version: 20.9.2
@@ -3653,6 +3659,14 @@ packages:
       storybook: 8.4.7(prettier@3.3.3)
     dev: true
 
+  /@storybook/manager-api@8.5.2(storybook@8.4.7):
+    resolution: {integrity: sha512-Cn+oINA6BOO2GmGHinGsOWnEpoBnurlZ9ekMq7H/c1SYMvQWNg5RlELyrhsnyhNd83fqFZy9Asb0RXI8oqz7DQ==}
+    peerDependencies:
+      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+    dependencies:
+      storybook: 8.4.7(prettier@3.3.3)
+    dev: true
+
   /@storybook/nextjs@8.4.7(esbuild@0.24.0)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)(storybook@8.4.7)(typescript@5.3.2)(webpack@5.97.1):
     resolution: {integrity: sha512-6dVt6VKBndSqn91egZx2fWl44i1TnIggRgmnk5jyl2KHDRvXziFNa2ujBz1nveriAWmwRchhce0OLDx9zQ9b4w==}
     engines: {node: '>=18.0.0'}
@@ -3857,6 +3871,14 @@ packages:
 
   /@storybook/theming@8.4.7(storybook@8.4.7):
     resolution: {integrity: sha512-99rgLEjf7iwfSEmdqlHkSG3AyLcK0sfExcr0jnc6rLiAkBhzuIsvcHjjUwkR210SOCgXqBPW0ZA6uhnuyppHLw==}
+    peerDependencies:
+      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+    dependencies:
+      storybook: 8.4.7(prettier@3.3.3)
+    dev: true
+
+  /@storybook/theming@8.5.2(storybook@8.4.7):
+    resolution: {integrity: sha512-vro8vJx16rIE0UehawEZbxFFA4/VGYS20PMKP6Y6Fpsce0t2/cF/U9qg3jOzVb/XDwfx+ne3/V+8rjfWx8wwJw==}
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
     dependencies:
