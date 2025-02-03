@@ -926,10 +926,6 @@ export type Examples = {
     }
   },
   "stories": {
-    "Avatar.stories": "string",
-    "Button.stories": "string",
-    "Chip.stories": "string",
-    "Textarea.stories": "string",
     "page": "string"
   },
   "themes": {

@@ -1,5 +1,16 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.20.0
+
+### Minor Changes
+
+- 7169dbd: feat: Add table story [MDS-1473]
+
+### Patch Changes
+
+- Updated dependencies [6a35506]
+  - @heathmont/moon-core-tw@10.20.0
+
 ## 10.18.0
 
 ### Minor Changes
