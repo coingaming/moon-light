@@ -66,20 +66,19 @@ const ComboboxRoot = ({
     comboboxButtonRef?.current?.click();
   };
 
+  const handleOnBlur: React.FocusEventHandler<HTMLInputElement> = () => {
+    setIsInputFocused(false);
+    if (blurredRef.current) {
+      onChange(prevSelected.current);
+    }
+  };
+
   const handleOnKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (
     event,
   ) => {
     if (event.key === "Tab") {
       blurredRef.current = true;
       prevSelected.current = value;
-      console.log("in here oe key down tab");
-    }
-  };
-
-  const handleOnBlur: React.FocusEventHandler<HTMLInputElement> = () => {
-    setIsInputFocused(false);
-    if (blurredRef.current) {
-      onChange(prevSelected.current);
     }
   };
 
