@@ -46,7 +46,7 @@ const meta: Meta<InputComponentType> = {
       ],
     },
     placeholder: {
-      description: "Custom label for the checkbox.",
+      description: "Custom placeholder for the input.",
       type: "string",
     },
     error: {
