@@ -31,7 +31,7 @@ const meta: Meta<typeof AccordionComponent> = {
       type: "string",
     },
     defaultValue: {
-      description: "Value of item to be expendaded by default",
+      description: "Value of item to be expanded by default",
       table: {
         type: {
           summary: "string",
@@ -39,7 +39,7 @@ const meta: Meta<typeof AccordionComponent> = {
       },
     },
     value: {
-      description: "Value of item to be expendaded by default",
+      description: "Value of item to be expanded by default",
       table: {
         type: {
           summary: "string[] | undefined",
@@ -47,7 +47,7 @@ const meta: Meta<typeof AccordionComponent> = {
       },
     },
     onValueChange: {
-      description: "Value of item to be expendaded by default",
+      description: "Value of item to be expanded by default",
       table: {
         type: {
           summary: "(value: string[]) => void | undefined",
