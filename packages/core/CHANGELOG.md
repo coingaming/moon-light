@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.21.0
+
+### Patch Changes
+
+- c2f6795: feat: update @headlessui/react to v1.7.17 [MDS-1507]
+
 ## 10.20.0
 
 ### Minor Changes
