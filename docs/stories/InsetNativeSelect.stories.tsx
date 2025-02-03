@@ -1,6 +1,18 @@
 import { InsetNativeSelect as InsetNativeSelectComponent } from "@heathmont/moon-core-tw";
 import React, { useState } from "react";
 
+type InsetNativeSelectProps = Omit<
+  React.SelectHTMLAttributes<HTMLSelectElement>,
+  "size"
+> & {
+  className?: string;
+  size?: "sm" | "md" | "lg";
+  error?: boolean;
+  disabled?: boolean;
+  label: React.ReactNode | string;
+  readOnly?: boolean;
+};
+
 export default {
   title: "Moon DS/InsetNativeSelect",
   component: InsetNativeSelectComponent,
@@ -36,7 +48,7 @@ export default {
   },
 };
 
-export const InsetNativeSelect = (props: any) => {
+export const InsetNativeSelect = (props: InsetNativeSelectProps) => {
   const [value, setValue] = useState("");
   return (
     <InsetNativeSelectComponent
