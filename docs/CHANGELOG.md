@@ -1,5 +1,22 @@
 # docs
 
+## 10.21.1
+
+### Patch Changes
+
+- f5347e5: feat: update docs package.json
+
+## 10.21.0
+
+### Minor Changes
+
+- cd77a8f: feat: Use MoonDS light theme on React storybook [MDS-1561]
+
+### Patch Changes
+
+- Updated dependencies [c2f6795]
+  - @heathmont/moon-core-tw@10.21.0
+
 ## 10.20.0
 
 ### Minor Changes

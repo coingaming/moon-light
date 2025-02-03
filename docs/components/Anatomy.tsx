@@ -1,6 +1,5 @@
 import { MDX } from "./MDX";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { HTMLProps } from "react";
 
 export const Anatomy = async ({ anatomy }: { anatomy?: string }) => {
   if (!anatomy || typeof anatomy !== "string") {
@@ -13,7 +12,7 @@ export const Anatomy = async ({ anatomy }: { anatomy?: string }) => {
       parseFrontmatter: true,
     },
     components: {
-      code: (props: HTMLProps<HTMLSpanElement>) => props.children,
+      code: (props: React.HTMLProps<HTMLSpanElement>) => props.children,
     },
   });
   const title = frontmatter?.title as string | undefined;
