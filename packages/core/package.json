@@ -1,7 +1,7 @@
 {
   "name": "@heathmont/moon-core-tw",
   "sideEffects": false,
-  "version": "10.20.0",
+  "version": "10.21.0",
   "files": [
     "lib"
   ],
@@ -17,7 +17,7 @@
     "build:js:es": "tsc --project tsconfig.esm.json"
   },
   "dependencies": {
-    "@headlessui/react": "1.7.16",
+    "@headlessui/react": "1.7.17",
     "@popperjs/core": "2.11.8",
     "@radix-ui/react-accordion": "1.1.2",
     "@radix-ui/react-toast": "1.1.4",
