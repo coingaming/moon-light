@@ -1,5 +1,11 @@
 # docs
 
+## 10.21.1
+
+### Patch Changes
+
+- f5347e5: feat: update docs package.json
+
 ## 10.21.0
 
 ### Minor Changes
