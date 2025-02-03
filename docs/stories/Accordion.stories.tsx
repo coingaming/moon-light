@@ -1,18 +1,26 @@
 import { Accordion as AccordionComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
+import getDefaultValues from "./utils/getDefaultValues";
+
+const defaultValues: Record<string, string | boolean> = {
+  itemSize: "md",
+  singleOpen: false,
+  defaultValue: "",
+  className: "",
+};
 
 const meta: Meta<typeof AccordionComponent> = {
   title: "Moon DS/Accordion",
   tags: ["autodocs"],
   argTypes: {
     itemSize: {
-      options: ["xs", "sm", "md", "lg", "xl", "2xl"],
+      options: ["sm", "md", "lg", "xl", "2xl"],
       control: { type: "select" },
       description: "Size of accordion item",
       table: {
         type: {
-          summary: "xs | sm | md | lg | xl | 2xl",
+          summary: "sm | md | lg | xl | 2xl",
         },
         defaultValue: {
           summary: "md",
@@ -56,13 +64,18 @@ const meta: Meta<typeof AccordionComponent> = {
     },
   },
   render: ({ itemSize, singleOpen, className, defaultValue, ...args }) => {
+    const rootProps = getDefaultValues(
+      {
+        itemSize,
+        singleOpen,
+        className,
+        defaultValue,
+      },
+      defaultValues,
+    );
+
     return (
-      <AccordionComponent
-        itemSize={itemSize}
-        singleOpen={singleOpen}
-        className={className || undefined}
-        defaultValue={defaultValue || undefined}
-      >
+      <AccordionComponent {...rootProps}>
         <AccordionComponent.Item
           value="item-1"
           className="border border-beerus rounded-moon-s-sm"
@@ -123,5 +136,6 @@ export const Accordion: Story = {
     defaultValue: "",
     value: undefined,
     onValueChange: undefined,
+    itemSize: "md",
   },
 };
