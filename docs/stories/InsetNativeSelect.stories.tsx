@@ -1,5 +1,7 @@
 import { InsetNativeSelect as InsetNativeSelectComponent } from "@heathmont/moon-core-tw";
 import React, { useState } from "react";
+import getDefaultValues from "./utils/getDefaultValues";
+import { Meta, StoryObj } from "@storybook/react";
 
 type InsetNativeSelectProps = Omit<
   React.SelectHTMLAttributes<HTMLSelectElement>,
@@ -13,7 +15,15 @@ type InsetNativeSelectProps = Omit<
   readOnly?: boolean;
 };
 
-export default {
+const defaultValues = {
+  label: "",
+  size: "lg",
+  disabled: false,
+  error: false,
+  readOnly: false,
+};
+
+const meta: Meta<typeof InsetNativeSelectComponent> = {
   title: "Moon DS/InsetNativeSelect",
   component: InsetNativeSelectComponent,
   tags: ["autodocs"],
@@ -25,7 +35,7 @@ export default {
       description: "The placeholder for the input",
     },
     size: {
-      type: {},
+      type: "string",
       control: { type: "select" },
       options: ["sm", "md", "lg"],
       description: "Set the input size",
@@ -46,20 +56,48 @@ export default {
       description: "Set whether the input is for reading only or not",
     },
   },
+  render: ({
+    label,
+    className,
+    size,
+    disabled,
+    error,
+    readOnly,
+  }: InsetNativeSelectProps) => {
+    const [value, setValue] = useState("");
+    const rootProps = {
+      label,
+      ...getDefaultValues(
+        {
+          label,
+          className,
+          size,
+          disabled,
+          error,
+          readOnly,
+        },
+        defaultValues,
+      ),
+    };
+    return (
+      <InsetNativeSelectComponent
+        {...rootProps}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      >
+        <option value="">Please select</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+      </InsetNativeSelectComponent>
+    );
+  },
 };
 
-export const InsetNativeSelect = (props: InsetNativeSelectProps) => {
-  const [value, setValue] = useState("");
-  return (
-    <InsetNativeSelectComponent
-      {...props}
-      value={value}
-      onChange={(e) => setValue(e.target.value)}
-    >
-      <option value="">Please select</option>
-      <option value="option1">Option 1</option>
-      <option value="option2">Option 2</option>
-      <option value="option3">Option 3</option>
-    </InsetNativeSelectComponent>
-  );
+export default meta;
+
+type Story = StoryObj<typeof InsetNativeSelectComponent>;
+
+export const InsetNativeSelect: Story = {
+  args: defaultValues as InsetNativeSelectProps,
 };
