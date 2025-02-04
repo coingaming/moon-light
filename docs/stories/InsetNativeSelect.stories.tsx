@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import getDefaultValues from "./utils/getDefaultValues";
 import { Meta, StoryObj } from "@storybook/react";
 
+type Size = "sm" | "md" | "lg";
+
 type InsetNativeSelectProps = Omit<
   React.SelectHTMLAttributes<HTMLSelectElement>,
   "size"
 > & {
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: Size;
   error?: boolean;
   disabled?: boolean;
   label: React.ReactNode | string;
@@ -17,7 +19,7 @@ type InsetNativeSelectProps = Omit<
 
 const defaultValues = {
   label: "",
-  size: "lg",
+  size: "lg" as Size,
   disabled: false,
   error: false,
   readOnly: false,
@@ -99,5 +101,5 @@ export default meta;
 type Story = StoryObj<typeof InsetNativeSelectComponent>;
 
 export const InsetNativeSelect: Story = {
-  args: defaultValues as InsetNativeSelectProps,
+  args: defaultValues,
 };
