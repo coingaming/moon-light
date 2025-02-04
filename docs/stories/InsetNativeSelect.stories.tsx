@@ -6,7 +6,6 @@ import { Meta, StoryObj } from "@storybook/react";
 type Size = "sm" | "md" | "lg";
 
 const defaultValues = {
-  label: "",
   size: "lg" as Size,
   disabled: false,
   error: false,
@@ -52,8 +51,6 @@ const meta: Meta<typeof InsetNativeSelectComponent> = {
       label,
       ...getDefaultValues(
         {
-          children: (<></>) as React.ReactNode,
-          label,
           className,
           size,
           disabled,
