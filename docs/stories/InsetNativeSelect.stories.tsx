@@ -24,7 +24,11 @@ const meta: Meta<typeof InsetNativeSelectComponent> = {
       description: "The placeholder for the input",
     },
     size: {
-      type: "string",
+      table: {
+        type: {
+          summary: "sm | md | lg",
+        },
+      },
       control: { type: "select" },
       options: ["sm", "md", "lg"],
       description: "Set the input size",
