@@ -52,7 +52,7 @@ const meta: Meta<typeof InsetNativeSelectComponent> = {
       label,
       ...getDefaultValues(
         {
-          children: <></>,
+          children: (<></>) as React.ReactNode,
           label,
           className,
           size,
