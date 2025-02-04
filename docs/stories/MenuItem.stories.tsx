@@ -48,6 +48,6 @@ export default meta;
 
 type Story = StoryObj<typeof MenuItemComponent>;
 
-export const Accordion: Story = {
+export const MenuItem: Story = {
   args: defaultValues,
 };
