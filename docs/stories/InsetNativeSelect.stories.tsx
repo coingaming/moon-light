@@ -6,7 +6,8 @@ import { Meta, StoryObj } from "@storybook/react";
 type Size = "sm" | "md" | "lg";
 
 const defaultValues = {
-  size: "lg" as Size,
+  label: "",
+  size: "sm" as Size,
   disabled: false,
   error: false,
   readOnly: false,
@@ -20,7 +21,6 @@ const meta: Meta<typeof InsetNativeSelectComponent> = {
     label: {
       control: "text",
       type: "string",
-      defaultValue: "Select an option",
       description: "The placeholder for the input",
     },
     size: {
