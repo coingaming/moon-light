@@ -5,18 +5,6 @@ import { Meta, StoryObj } from "@storybook/react";
 
 type Size = "sm" | "md" | "lg";
 
-type InsetNativeSelectProps = Omit<
-  React.SelectHTMLAttributes<HTMLSelectElement>,
-  "size"
-> & {
-  className?: string;
-  size?: Size;
-  error?: boolean;
-  disabled?: boolean;
-  label: React.ReactNode | string;
-  readOnly?: boolean;
-};
-
 const defaultValues = {
   label: "",
   size: "lg" as Size,
@@ -58,14 +46,7 @@ const meta: Meta<typeof InsetNativeSelectComponent> = {
       description: "Set whether the input is for reading only or not",
     },
   },
-  render: ({
-    label,
-    className,
-    size,
-    disabled,
-    error,
-    readOnly,
-  }: InsetNativeSelectProps) => {
+  render: ({ label, className, size, disabled, error, readOnly }) => {
     const [value, setValue] = useState("");
     const rootProps = {
       label,
