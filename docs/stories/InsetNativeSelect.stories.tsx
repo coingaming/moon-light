@@ -52,6 +52,7 @@ const meta: Meta<typeof InsetNativeSelectComponent> = {
       label,
       ...getDefaultValues(
         {
+          children: <></>,
           label,
           className,
           size,
