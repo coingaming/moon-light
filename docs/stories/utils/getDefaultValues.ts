@@ -1,5 +1,7 @@
+import React from "react";
+
 const getDefaultValues = (
-  obj: Record<string, string | boolean | number | undefined>,
+  obj: Record<string, string | boolean | number | React.ReactNode | undefined>,
   defaultValues: Record<string, string | boolean | number>,
 ) => {
   const obj2 = Object.entries(obj).reduce((acc, [key, value]) => {
