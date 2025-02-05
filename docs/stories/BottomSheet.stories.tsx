@@ -45,7 +45,7 @@ const meta: Meta<typeof BottomSheetComponent> = {
     },
   },
   render: ({ open, className, rootId, ...args }) => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(open);
     const rootProps = getDefaultValues(
       {
         rootId,
@@ -56,6 +56,7 @@ const meta: Meta<typeof BottomSheetComponent> = {
 
     const bottomSheetProps = {
       ...rootProps,
+      open: isOpen,
     };
 
     const closeBottomSheet = () => {
@@ -63,16 +64,15 @@ const meta: Meta<typeof BottomSheetComponent> = {
     };
     const openBottomSheet = () => {
       setIsOpen(true);
-      console.log("in here oe button click");
     };
 
     return (
       <>
         <Button variant="outline" onClick={openBottomSheet}>
-          Default BottomSheet {isOpen ? " true" : "false"}
+          Trigger BottomSheet
         </Button>
 
-        <BottomSheetComponent open={isOpen} onClose={closeBottomSheet}>
+        <BottomSheetComponent {...bottomSheetProps} onClose={closeBottomSheet}>
           <BottomSheetComponent.Panel>
             <div className="flex grow items-center justify-center bg-white text-green-500">
               BottomSheet content
@@ -93,6 +93,7 @@ export const BottomSheet: Story = {
   args: {
     open: false,
     className: "",
-    rootId: "__next",
+    rootId: "",
+    onClose: undefined,
   },
 };
