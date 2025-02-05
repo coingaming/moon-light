@@ -35,7 +35,7 @@ const meta: Meta<typeof AccordionComponent> = {
       description: "Whether only one item can be opened at a time",
     },
     className: {
-      description: "Additional CSS class for the checkbox.",
+      description: "Additional CSS class for the Accordion.",
       type: "string",
     },
     defaultValue: {
