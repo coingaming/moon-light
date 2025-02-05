@@ -55,6 +55,6 @@ export const Button: Story = {
     size: "md",
     disabled: false,
     fullWidth: false,
-    animation: "pulse",
+    animation: undefined,
   },
 };

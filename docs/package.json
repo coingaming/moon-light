@@ -32,6 +32,7 @@
     "@heathmont/moon-table-v8-tw": "workspace:^10.20.0",
     "@heathmont/moon-themes-tw": "workspace:^10.18.1",
     "@hookform/resolvers": "^3.10.0",
+    "@storybook/preview-api": "^8.5.3",
     "commander": "^11.1.0",
     "next": "14.2.23",
     "next-mdx-remote": "^4.4.1",
