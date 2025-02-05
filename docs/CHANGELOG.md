@@ -1,5 +1,18 @@
 # docs
 
+## 10.22.0
+
+### Minor Changes
+
+- db97c25: feat: Add BottomSheet story [MDS-1535]
+- e84a57b: feat: Create AuthCode story [MDS-1534]
+- de57974: feat: add InsetNativeSelect story [MDS-1547]
+- 77b9f09: feat: add modal story [MDS-1550]
+- 372da7b: feat: add story to MenuItem [MDS-1549]
+- 26b1c20: feat: add Loader story [MDS-1548]
+- e047eb8: feat: create accordion story [MDS-1532]
+- 0882bd7: feat: Create Alert story [MDS-1533]
+
 ## 10.21.1
 
 ### Patch Changes
