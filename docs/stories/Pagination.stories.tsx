@@ -5,7 +5,23 @@ import { useState } from "react";
 const meta: Meta<typeof PaginationComponent> = {
   title: "Moon DS/Accordion",
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    totalPages: {
+      type: "number",
+      control: "number",
+      description: "Define the total amount of pages",
+    },
+    currentPage: {
+      type: "number",
+      control: "number",
+      description: "Define the current page number",
+    },
+    setCurrentPage: {
+      type: "function",
+      control: "object",
+      description: "Set a new page number",
+    },
+  },
   render: () => {
     const [page, setPage] = useState<number>(0);
     const handlePageChange = (page: number) => {
