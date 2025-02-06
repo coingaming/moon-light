@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 import getDefaultValues from "./utils/getDefaultValues";
 import { Progress as ProgressComponent } from "@heathmont/moon-core-tw";
 
