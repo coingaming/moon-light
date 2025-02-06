@@ -34,7 +34,7 @@ const meta: Meta<typeof PaginationComponent> = {
     edgePageCount: {
       type: "number",
       control: "number",
-      description: "Define pages links to show at the beginning and the end",
+      description: "Defines what pages links to show at the end",
       defaultValue: {
         summary: 1,
       },
@@ -42,7 +42,7 @@ const meta: Meta<typeof PaginationComponent> = {
     middlePagesSiblingCount: {
       type: "number",
       control: "number",
-      description: "Defines what pages links to show in the middle",
+      description: "Defines what pages links to show at the beginning",
       defaultValue: {
         summary: 1,
       },
