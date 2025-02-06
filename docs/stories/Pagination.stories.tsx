@@ -92,9 +92,7 @@ type Story = StoryObj<typeof PaginationComponent>;
 
 export const Pagination: Story = {
   args: {
+    ...defaultValues,
     totalPages: 11,
-    edgePageCount: 1,
-    currentPage: 0,
-    middlePagesSiblingCount: 1,
   },
 };
