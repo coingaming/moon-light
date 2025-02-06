@@ -1,9 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Pagination as PaginationComponent } from "@heathmont/moon-core-tw";
-import { useState } from "react";
+import { useArgs } from "@storybook/preview-api";
+import getDefaultValues from "./utils/getDefaultValues";
+
+const defaultValues = {
+  edgePageCount: 1,
+  currentPage: 0,
+  middlePagesSiblingCount: 1,
+};
 
 const meta: Meta<typeof PaginationComponent> = {
-  title: "Moon DS/Accordion",
+  title: "Moon DS/Pagination",
   tags: ["autodocs"],
   argTypes: {
     totalPages: {
@@ -14,25 +21,59 @@ const meta: Meta<typeof PaginationComponent> = {
     currentPage: {
       type: "number",
       control: "number",
-      description: "Define the current page number",
+      description: "Define the page index number",
+      defaultValue: {
+        summary: 0,
+      },
     },
     setCurrentPage: {
       type: "function",
       control: "object",
       description: "Set a new page number",
     },
+    edgePageCount: {
+      type: "number",
+      control: "number",
+      description: "Define pages links to show at the beginning and the end",
+      defaultValue: {
+        summary: 1,
+      },
+    },
+    middlePagesSiblingCount: {
+      type: "number",
+      control: "number",
+      description: "Defines what pages links to show in the middle",
+      defaultValue: {
+        summary: 1,
+      },
+    },
   },
-  render: () => {
-    const [page, setPage] = useState<number>(0);
+  render: ({
+    totalPages,
+    currentPage,
+    edgePageCount,
+    middlePagesSiblingCount,
+  }) => {
+    const [args, updateArgs] = useArgs();
     const handlePageChange = (page: number) => {
-      setPage(page);
+      updateArgs({ currentPage: page });
     };
+
+    const rootProps = getDefaultValues(
+      {
+        middlePagesSiblingCount,
+        edgePageCount,
+        currentPage: args.currentPage,
+      },
+      defaultValues,
+    );
     return (
       <>
         <PaginationComponent
-          totalPages={11}
-          currentPage={page}
+          totalPages={totalPages}
+          currentPage={currentPage}
           setCurrentPage={handlePageChange}
+          {...rootProps}
         >
           <PaginationComponent.PrevButton>
             Previous
@@ -49,13 +90,11 @@ export default meta;
 
 type Story = StoryObj<typeof PaginationComponent>;
 
-/* export const Accordion: Story = {
+export const Pagination: Story = {
   args: {
-    singleOpen: false,
-    className: "",
-    defaultValue: "",
-    value: undefined,
-    onValueChange: undefined,
-    itemSize: "md",
+    totalPages: 11,
+    edgePageCount: 1,
+    currentPage: 0,
+    middlePagesSiblingCount: 1,
   },
-}; */
+};
