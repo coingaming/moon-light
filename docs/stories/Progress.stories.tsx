@@ -2,10 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
 import { Progress as ProgressComponent } from "@heathmont/moon-core-tw";
 
-type Sizes = "6xs" | "5xs" | "4xs" | "3xs" | "2xs";
+const sizes = ["6xs", "5xs", "4xs", "3xs", "2xs"] as const;
+type SizesOptionsType = (typeof sizes)[number];
 
 const defaultValues = {
-  size: "2xs" as Sizes,
+  size: "2xs" as SizesOptionsType,
   value: 0,
   className: "",
 };
@@ -19,10 +20,10 @@ const meta: Meta<typeof ProgressComponent> = {
       control: {
         type: "select",
       },
-      options: ["6xs", "5xs", "4xs", "3xs", "2xs"],
+      options: sizes,
       table: {
         type: {
-          summary: "6xs | 5xs| 4xs | 3xs | 2xs",
+          summary: sizes.join(" | "),
         },
       },
       defaultValue: {
