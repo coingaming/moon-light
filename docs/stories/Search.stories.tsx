@@ -5,10 +5,9 @@ import {
   searchFilterItems,
   searchGetItemIndex,
 } from "@heathmont/moon-core-tw";
-import { useState } from "react";
 import { useMemo } from "react";
-
-const defaultValues = {};
+import { useArgs } from "@storybook/preview-api";
+import getDefaultValues from "./utils/getDefaultValues";
 
 const meta: Meta<typeof SearchComponent> = {
   title: "Moon DS/Search",
@@ -17,7 +16,22 @@ const meta: Meta<typeof SearchComponent> = {
     search: {
       type: "string",
       control: "text",
-      description: "Data to search",
+      description: "Search value the user is querying",
+    },
+    className: {
+      type: "string",
+      control: "text",
+      description: "Add extra css class for styling",
+    },
+    onChangeOpen: {
+      type: "function",
+      control: "object",
+      description: "Action to open the search component",
+    },
+    onChangeSearch: {
+      type: "function",
+      control: "object",
+      description: "Action to update the search value",
     },
     isOpen: {
       type: "boolean",
@@ -26,8 +40,7 @@ const meta: Meta<typeof SearchComponent> = {
     },
   },
   render: ({}) => {
-    const [open, setOpen] = useState<boolean>(false);
-    const [search, setSearch] = useState("");
+    const [{ isOpen, search, className }, updateArgs] = useArgs();
 
     const filteredItems = useMemo(
       () =>
@@ -86,13 +99,16 @@ const meta: Meta<typeof SearchComponent> = {
       [search],
     );
 
+    const optionalProps = getDefaultValues({ className }, { className: "" });
+
     return (
       <div className="w-full xl:mx-32">
         <SearchComponent
-          onChangeSearch={setSearch}
-          onChangeOpen={setOpen}
+          onChangeSearch={(value) => updateArgs({ search: value })}
+          onChangeOpen={(value) => updateArgs({ isOpen: value })}
           search={search}
-          isOpen={open}
+          isOpen={isOpen}
+          {...optionalProps}
         >
           <SearchComponent.Input>
             <SearchComponent.Input.Icon />
@@ -153,8 +169,10 @@ export default meta;
 
 type Story = StoryObj<typeof SearchComponent>;
 
-export const Progress: Story = {
+export const Search: Story = {
   args: {
     className: "",
+    isOpen: false,
+    search: "",
   },
 };
