@@ -38,7 +38,7 @@ const meta: Meta<CircularProgressComponentProps> = {
       defaultValue: 0,
     },
   },
-  render: ({ className, size, value, ...args }) => {
+  render: ({ className, size, value }) => {
     const rootProps = getDefaultValues(
       { className, size, value },
       defaultValues,
