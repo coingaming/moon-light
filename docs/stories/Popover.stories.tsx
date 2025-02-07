@@ -7,21 +7,23 @@ import {
 } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
-type PopoverComponentComponentProps = typeof PopoverComponent;
+const positionsOptions = [
+  "top-start",
+  "top-end",
+  "bottom-start",
+  "bottom-end",
+  "right-start",
+  "right-end",
+  "left-start",
+  "left-end",
+  "top",
+  "bottom",
+  "right",
+  "left",
+] as const;
 
-type Placement =
-  | "top-start"
-  | "top-end"
-  | "bottom-start"
-  | "bottom-end"
-  | "right-start"
-  | "right-end"
-  | "left-start"
-  | "left-end"
-  | "top"
-  | "bottom"
-  | "right"
-  | "left";
+type PositionsOptionsType = (typeof positionsOptions)[number];
+type PopoverComponentComponentProps = typeof PopoverComponent;
 
 interface PopoverRootProps
   extends Omit<
@@ -31,14 +33,14 @@ interface PopoverRootProps
     >,
     "children"
   > {
-  position?: Placement;
+  position?: PositionsOptionsType;
   autoPositionDisable?: boolean;
   className?: string;
   children?: React.ReactNode | ((data: { open?: boolean }) => React.ReactNode);
 }
 
 const defaultValues = {
-  position: "bottom" as Placement,
+  position: "bottom" as PositionsOptionsType,
   autoPositionDisable: false,
   className: "",
 };
@@ -57,24 +59,10 @@ const meta: Meta<PopoverComponentComponentProps> = {
       control: {
         type: "select",
       },
-      options: [
-        "top-start",
-        "top-end",
-        "bottom-start",
-        "bottom-end",
-        "right-start",
-        "right-end",
-        "left-start",
-        "left-end",
-        "top",
-        "bottom",
-        "right",
-        "left",
-      ],
+      options: positionsOptions,
       table: {
         type: {
-          summary:
-            "top-start | top-end | bottom-start | bottom-end right-start | right-end | left-start | left-end | top | bottom | right | left",
+          summary: positionsOptions.join(" | "),
         },
       },
     },
