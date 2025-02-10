@@ -10,7 +10,7 @@ import {
 import { GenericInfo } from "@heathmont/moon-icons-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
-import { options as basicOptions } from "./mockData/basicOptions";
+import { basicOptions } from "./mockData/basicOptions";
 
 const options = ["sm", "md", "lg"] as const;
 type OptionsType = (typeof options)[number];

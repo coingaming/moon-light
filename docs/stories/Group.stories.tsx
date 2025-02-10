@@ -2,6 +2,7 @@ import { Group as GroupComponent, Hint } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
 import { GenericInfo } from "@heathmont/moon-icons-tw";
+import { basicOptions } from "./mockData/basicOptions";
 
 type GroupComponentProps = typeof GroupComponent;
 
@@ -59,6 +60,12 @@ const meta: Meta<GroupComponentProps> = {
       defaultValues,
     );
 
+    const selectOptions = basicOptions.map((opt) => (
+      <option key={opt.name} value={opt.name}>
+        Option {opt.name}
+      </option>
+    ));
+
     return (
       <>
         <GroupComponent {...rootProps} error={error}>
@@ -74,9 +81,7 @@ const meta: Meta<GroupComponentProps> = {
         <GroupComponent {...rootProps}>
           <GroupComponent.FirstSelect>
             <option value="">First select</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            {selectOptions}
           </GroupComponent.FirstSelect>
         </GroupComponent>
         <GroupComponent {...rootProps}>
@@ -84,22 +89,16 @@ const meta: Meta<GroupComponentProps> = {
           <GroupComponent.LastInsetInput placeholder="Last inset input" />
           <GroupComponent.LastSelect>
             <option value="">Last select</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            {selectOptions}
           </GroupComponent.LastSelect>
         </GroupComponent>
 
         <GroupComponent {...rootProps}>
           <GroupComponent.FirstInsetSelect label="First inset select">
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            {selectOptions}
           </GroupComponent.FirstInsetSelect>
           <GroupComponent.LastInsetSelect label="Last inset select">
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
+            {selectOptions}
           </GroupComponent.LastInsetSelect>
         </GroupComponent>
       </>
