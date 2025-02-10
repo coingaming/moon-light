@@ -14,6 +14,7 @@ Cantarell
 circularprogress
 classname
 cmdk
+CDMK
 combobox
 corepack
 crumd
