@@ -29,6 +29,15 @@ export const SEARCH_CDMK_ITEMS = [
   { label: "Zinc" },
   { label: "Plumbum" },
 ];
+export const snackbarPositions = [
+  "top-left",
+  "top-center",
+  "top-right",
+  "bottom-left",
+  "bottom-center",
+  "bottom-right",
+] as const;
+
 export const positions = [
   "top-start",
   "top-end",
