@@ -66,19 +66,20 @@ const meta: Meta<ComboboxComponentProps> = {
       },
     },
     onChange: {
-      description: "",
+      description: "The function to call when a new option is selected",
       table: {
         type: { summary: "(value: unknown) => void" },
       },
     },
     onQueryChange: {
-      description: "",
+      description: "The function to call when the filter query is changing",
       table: {
         type: { summary: "(value: unknown) => void" },
       },
     },
     onClear: {
-      description: "",
+      description:
+        "The function to call when the selected options at MultiSelect Combobox type are being cleared",
       table: {
         type: { summary: "(index?: number | string) => void" },
       },
