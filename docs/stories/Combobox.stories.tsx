@@ -7,26 +7,12 @@ import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
 import { useState } from "react";
 import { people } from "./mockData/people";
+import { positions } from "./constants";
 
 type ComboboxComponentProps = typeof ComboboxComponent;
 
 const options = ["sm", "md", "lg", "xl"] as const;
 type OptionsType = (typeof options)[number];
-
-const positions = [
-  "top-start",
-  "top-end",
-  "bottom-start",
-  "bottom-end",
-  "right-start",
-  "right-end",
-  "left-start",
-  "left-end",
-  "top",
-  "bottom",
-  "right",
-  "left",
-] as const;
 
 type Placement = (typeof positions)[number];
 

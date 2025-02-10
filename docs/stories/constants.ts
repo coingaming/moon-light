@@ -22,3 +22,18 @@ export const COLORS = [
   "nappa",
   "nappa",
 ];
+
+export const positions = [
+  "top-start",
+  "top-end",
+  "bottom-start",
+  "bottom-end",
+  "right-start",
+  "right-end",
+  "left-start",
+  "left-end",
+  "top",
+  "bottom",
+  "right",
+  "left",
+] as const;
