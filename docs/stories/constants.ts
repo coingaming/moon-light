@@ -37,6 +37,7 @@ export const snackbarPositions = [
   "bottom-center",
   "bottom-right",
 ] as const;
+
 export const positions = [
   "top-start",
   "top-end",
