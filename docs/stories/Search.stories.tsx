@@ -8,6 +8,7 @@ import {
 import { useMemo } from "react";
 import { useArgs } from "@storybook/preview-api";
 import getDefaultValues from "./utils/getDefaultValues";
+import { SEARCH_ITEMS } from "./constants";
 
 const meta: Meta<typeof SearchComponent> = {
   title: "Moon DS/Search",
@@ -43,59 +44,7 @@ const meta: Meta<typeof SearchComponent> = {
     const [{ isOpen, search, className }, updateArgs] = useArgs();
 
     const filteredItems = useMemo(
-      () =>
-        searchFilterItems(
-          [
-            {
-              heading: "Results",
-              id: "results",
-              items: [
-                {
-                  id: "home",
-                  children: "Home",
-                  href: "#home",
-                },
-                {
-                  id: "settings",
-                  children: "Settings",
-                  href: "#settings",
-                },
-                {
-                  id: "projects",
-                  children: "Projects",
-                  closeOnSelect: false,
-                  onClick: () => {
-                    alert("projects");
-                  },
-                },
-              ],
-            },
-            {
-              heading: "Other",
-              id: "other",
-              items: [
-                {
-                  id: "developer-settings",
-                  children: "Developer settings",
-                  href: "#developer-settings",
-                },
-                {
-                  id: "privacy-policy",
-                  children: "Privacy policy",
-                  href: "#privacy-policy",
-                },
-                {
-                  id: "log-out",
-                  children: "Log out",
-                  onClick: () => {
-                    alert("Logging out...");
-                  },
-                },
-              ],
-            },
-          ],
-          search,
-        ),
+      () => searchFilterItems(SEARCH_ITEMS, search),
       [search],
     );
 
