@@ -36,14 +36,12 @@ const meta: Meta<GroupComponentProps> = {
         defaultValue: { summary: "md" },
       },
     },
-
     error: {
       description: "Set valid/non-valid",
       table: {
         type: { summary: "boolean" },
       },
     },
-
     orientation: {
       description: "Two ways you can stack your input groups.",
       options: orientation,
