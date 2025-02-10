@@ -1,25 +1,26 @@
 import { Button, Snackbar as SnackbarComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 import getDefaultValues from "./utils/getDefaultValues";
 import { useState } from "react";
 import { useCallback } from "react";
+import { snackbarPositions } from "./constants";
 
-const defaultValues: Record<string, string | boolean> = {
-  itemSize: "md",
-  singleOpen: false,
-  defaultValue: "",
+type Placement = (typeof snackbarPositions)[number];
+
+const defaultValues = {
+  position: "top-left" as Placement,
+  autoClose: 0,
   className: "",
 };
 
 const meta: Meta<typeof SnackbarComponent> = {
-  title: "Moon DS/Accordion",
+  title: "Moon DS/Snackbar",
   tags: ["autodocs"],
   argTypes: {
     autoClose: {
       description: "Duration the snackbar takes in ms",
-      control: "boolean",
-      type: "boolean",
+      control: "number",
+      type: "number",
     },
     isOpen: {
       type: "boolean",
@@ -27,7 +28,16 @@ const meta: Meta<typeof SnackbarComponent> = {
       description: "Define whether the component is open or not",
     },
     position: {
-      description: "",
+      description: "Place where the component would appears",
+      control: {
+        type: "select",
+      },
+      options: snackbarPositions,
+      table: {
+        type: {
+          summary: snackbarPositions.join(" | "),
+        },
+      },
     },
     children: {
       description: "Set elements to be rendered as children",
@@ -38,8 +48,19 @@ const meta: Meta<typeof SnackbarComponent> = {
         },
       },
     },
+    className: {
+      description: "Add extra css class for custom styling",
+      type: "string",
+      control: "text",
+    },
+    onOpenChange: {
+      description:
+        "Event handler called when the open state of the dialog changes",
+      type: "function",
+      control: "object",
+    },
   },
-  render: ({}) => {
+  render: ({ position, autoClose, className }) => {
     const [snackbar, setSnackbar] = useState("");
 
     const openSnackbarHandler = useCallback(
@@ -56,6 +77,11 @@ const meta: Meta<typeof SnackbarComponent> = {
       [snackbar],
     );
 
+    const rootProps = getDefaultValues(
+      { position, autoClose, className },
+      defaultValues,
+    );
+
     return (
       <div>
         <Button
@@ -67,6 +93,7 @@ const meta: Meta<typeof SnackbarComponent> = {
         <SnackbarComponent
           isOpen={snackbar === "default"}
           onOpenChange={setSnackbar}
+          {...rootProps}
         >
           <SnackbarComponent.Message>
             Snackbar message
@@ -81,6 +108,9 @@ export default meta;
 
 type Story = StoryObj<typeof SnackbarComponent>;
 
-export const Accordion: Story = {
-  args: {},
+export const Snackbar: Story = {
+  args: {
+    ...defaultValues,
+    isOpen: false,
+  },
 };
