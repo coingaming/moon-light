@@ -23,6 +23,12 @@ export const COLORS = [
   "nappa",
 ];
 
+export const SEARCH_CDMK_ITEMS = [
+  { label: "Aurum" },
+  { label: "Argentum" },
+  { label: "Zinc" },
+  { label: "Plumbum" },
+];
 export const positions = [
   "top-start",
   "top-end",
