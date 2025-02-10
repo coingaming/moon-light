@@ -143,7 +143,5 @@ export default meta;
 type Story = StoryObj<CarouselComponentProps>;
 
 export const Carousel: Story = {
-  args: {
-    ...defaultValues,
-  },
+  args: defaultValues,
 };
