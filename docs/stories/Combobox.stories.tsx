@@ -146,15 +146,15 @@ const meta: Meta<ComboboxComponentProps> = {
       defaultValues,
     );
 
-    const [selected0, setSelected0] = useState(value);
-    const [query0, setQuery0] = useState<string>("");
-    const filteredPeople0 = filter(query0, people);
+    const [selected, setSelected] = useState(value);
+    const [query, setQuery] = useState<string>("");
+    const filteredPeople0 = filter(query, people);
 
     return (
       <ComboboxComponent
-        value={selected0}
-        onChange={setSelected0}
-        onQueryChange={setQuery0}
+        value={selected}
+        onChange={setSelected}
+        onQueryChange={setQuery}
         {...rootProps}
       >
         {({ open }) => (
@@ -171,7 +171,7 @@ const meta: Meta<ComboboxComponentProps> = {
             </ComboboxComponent.Trigger>
             <ComboboxComponent.Transition>
               <ComboboxComponent.Options>
-                {filteredPeople0.length === 0 && query0 !== "" ? (
+                {filteredPeople0.length === 0 && query !== "" ? (
                   <div className="relative cursor-default select-none py-2 px-4 text-trunks">
                     Nothing found.
                   </div>
