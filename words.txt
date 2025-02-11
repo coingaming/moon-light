@@ -11,6 +11,7 @@ bombay
 bottomsheet
 bulma
 Cantarell
+Clintock
 circularprogress
 classname
 cmdk
