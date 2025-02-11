@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Input as InputComponent } from "@heathmont/moon-core-tw";
+import { InsetInput as InsetInputComponent } from "@heathmont/moon-core-tw";
 
-type InputComponentType = typeof InputComponent;
+type InsetInputComponentType = typeof InsetInputComponent;
 
-const meta: Meta<InputComponentType> = {
-  title: "Moon DS/Input",
+const meta: Meta<InsetInputComponentType> = {
+  title: "Moon DS/InsetInput",
   tags: ["autodocs"],
   argTypes: {
     size: {
-      description: "Size of the Input",
+      description: "Size of the InsetInput",
       table: {
         type: {},
         defaultValue: { summary: "md" },
@@ -17,7 +17,7 @@ const meta: Meta<InputComponentType> = {
       options: ["sm", "md", "lg"],
     },
     type: {
-      description: "Type of the Input",
+      description: "Type of the InsetInput",
       table: {
         type: {},
         defaultValue: { summary: "text" },
@@ -37,11 +37,11 @@ const meta: Meta<InputComponentType> = {
       ],
     },
     placeholder: {
-      description: "Custom placeholder for the input.",
+      description: "Custom placeholder for the Insetinput.",
       type: "string",
     },
     error: {
-      description: "Sets error state for input",
+      description: "Sets error state for Insetinput",
       table: {
         type: {},
         defaultValue: { summary: "false" },
@@ -57,7 +57,7 @@ const meta: Meta<InputComponentType> = {
       control: { type: "boolean" },
     },
     readOnly: {
-      description: "Sets readonly state for input",
+      description: "Sets readonly state for Insetinput",
       table: {
         type: {},
         defaultValue: { summary: "false" },
@@ -65,27 +65,29 @@ const meta: Meta<InputComponentType> = {
       control: { type: "boolean" },
     },
     className: {
-      description: "Additional CSS class for the input.",
+      description: "Additional CSS class for the Insetinput.",
       type: "string",
     },
   },
   render: ({ size, placeholder, type, ...args }) => (
-    <InputComponent
+    <InsetInputComponent
       size={size}
       placeholder={placeholder}
       type={type}
       {...args}
-    />
+    >
+      <InsetInputComponent.Label>Label</InsetInputComponent.Label>
+    </InsetInputComponent>
   ),
 };
 
 export default meta;
 
-type Story = StoryObj<InputComponentType>;
+type Story = StoryObj<InsetInputComponentType>;
 
-export const Input: Story = {
+export const InsetInput: Story = {
   args: {
-    placeholder: "this is a test",
+    placeholder: "placeholder",
     error: false,
     disabled: false,
     readOnly: false,
