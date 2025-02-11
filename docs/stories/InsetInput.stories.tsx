@@ -42,7 +42,7 @@ const meta: Meta<InsetInputComponentType> = {
     disabled: {
       description: "Set disabled/non-disabled",
       table: {
-        type: {},
+        type: { summary: "boolean" },
         defaultValue: { summary: "false" },
       },
       control: { type: "boolean" },
@@ -50,7 +50,7 @@ const meta: Meta<InsetInputComponentType> = {
     readOnly: {
       description: "Sets readonly state for Insetinput",
       table: {
-        type: {},
+        type: { summary: "boolean" },
         defaultValue: { summary: "false" },
       },
       control: { type: "boolean" },
