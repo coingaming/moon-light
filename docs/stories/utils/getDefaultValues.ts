@@ -1,9 +1,11 @@
 import React from "react";
 
-const getDefaultValues = (
-  obj: Record<string, string | boolean | number | React.ReactNode | undefined>,
-  defaultValues: Record<string, string | boolean | number | undefined>,
-) => {
+export type DefaultValue = Record<
+  string,
+  string | boolean | number | React.ReactNode | undefined
+>;
+
+const getDefaultValues = (obj: DefaultValue, defaultValues: DefaultValue) => {
   const obj2 = Object.entries(obj).reduce((acc, [key, value]) => {
     return value !== defaultValues[key] ? { ...acc, [key]: value } : acc;
   }, {});

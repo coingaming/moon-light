@@ -103,3 +103,20 @@ export const SEARCH_ITEMS = [
     ],
   },
 ];
+
+export const iconButtonSizes = ["xs", "sm", "md", "lg", "xl"] as const;
+export type IconButtonSize = (typeof iconButtonSizes)[number] | undefined;
+
+export const iconButtonAnimations = [
+  "progress",
+  "success",
+  "error",
+  "pulse",
+] as const;
+export type IconButtonAnimation = (typeof iconButtonAnimations)[number];
+
+export const iconButtonAsOptions = ["a", "button"] as const;
+export type IconButtonAsOption = (typeof iconButtonAsOptions)[number];
+
+export const iconButtonVariants = ["fill", "outline", "ghost"] as const;
+export type IconButtonVariant = (typeof iconButtonVariants)[number];
