@@ -1,40 +1,31 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { InsetInput as InsetInputComponent } from "@heathmont/moon-core-tw";
+import { inputTypes } from "./constants";
+import getDefaultValues from "./utils/getDefaultValues";
 
 type InsetInputComponentType = typeof InsetInputComponent;
+
+const defaultValues = {
+  placeholder: "",
+  error: false,
+  disabled: false,
+  readOnly: false,
+  className: "",
+  type: "text",
+};
 
 const meta: Meta<InsetInputComponentType> = {
   title: "Moon DS/InsetInput",
   tags: ["autodocs"],
   argTypes: {
-    size: {
-      description: "Size of the InsetInput",
-      table: {
-        type: {},
-        defaultValue: { summary: "md" },
-      },
-      control: { type: "select" },
-      options: ["sm", "md", "lg"],
-    },
     type: {
       description: "Type of the InsetInput",
       table: {
-        type: {},
+        type: { summary: inputTypes.join(" | ") },
         defaultValue: { summary: "text" },
       },
       control: { type: "select" },
-      options: [
-        "date",
-        "datetime-local",
-        "email",
-        "number",
-        "password",
-        "search",
-        "tel",
-        "text",
-        "time",
-        "url",
-      ],
+      options: inputTypes,
     },
     placeholder: {
       description: "Custom placeholder for the Insetinput.",
@@ -43,7 +34,7 @@ const meta: Meta<InsetInputComponentType> = {
     error: {
       description: "Sets error state for Insetinput",
       table: {
-        type: {},
+        type: { summary: "boolean" },
         defaultValue: { summary: "false" },
       },
       control: { type: "boolean" },
@@ -69,16 +60,25 @@ const meta: Meta<InsetInputComponentType> = {
       type: "string",
     },
   },
-  render: ({ size, placeholder, type, ...args }) => (
-    <InsetInputComponent
-      size={size}
-      placeholder={placeholder}
-      type={type}
-      {...args}
-    >
-      <InsetInputComponent.Label>Label</InsetInputComponent.Label>
-    </InsetInputComponent>
-  ),
+  render: ({
+    placeholder,
+    error,
+    type,
+    disabled,
+    readOnly,
+    className,
+    ...args
+  }) => {
+    const rootProps = getDefaultValues(
+      { placeholder, error, type, disabled, readOnly, className },
+      defaultValues,
+    );
+    return (
+      <InsetInputComponent {...rootProps} {...args}>
+        <InsetInputComponent.Label>Label</InsetInputComponent.Label>
+      </InsetInputComponent>
+    );
+  },
 };
 
 export default meta;
@@ -86,12 +86,5 @@ export default meta;
 type Story = StoryObj<InsetInputComponentType>;
 
 export const InsetInput: Story = {
-  args: {
-    placeholder: "placeholder",
-    error: false,
-    disabled: false,
-    readOnly: false,
-    className: "",
-    type: "text",
-  },
+  args: defaultValues,
 };
