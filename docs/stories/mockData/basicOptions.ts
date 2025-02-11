@@ -1,4 +1,4 @@
-export const options = [
+export const basicOptions = [
   { name: "01" },
   { name: "02" },
   { name: "03" },
