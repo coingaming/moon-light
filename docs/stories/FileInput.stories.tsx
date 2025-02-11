@@ -42,11 +42,11 @@ const meta: Meta<FileInputComponentType> = {
       type: "string",
     },
     placeholder: {
-      description: "Custom placeholder for the Fileinput.",
+      description: "Custom placeholder for the FileInput.",
       type: "string",
     },
     error: {
-      description: "Sets error state for Fileinput",
+      description: "Sets error state for FileInput",
       table: {
         type: { summary: "boolean" },
         defaultValue: { summary: "false" },
@@ -60,14 +60,14 @@ const meta: Meta<FileInputComponentType> = {
       },
     },
     readOnly: {
-      description: "Sets readonly state for Fileinput",
+      description: "Sets readonly state for FileInput",
       table: {
         type: { summary: "boolean" },
         defaultValue: { summary: "false" },
       },
     },
     className: {
-      description: "Additional CSS class for the Fileinput.",
+      description: "Additional CSS class for the FileInput.",
       type: "string",
     },
     // TBD
