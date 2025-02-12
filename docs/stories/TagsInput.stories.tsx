@@ -1,27 +1,13 @@
 import { TagsInput as TagsInputComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
-import { useState } from "react";
 import { useCallback } from "react";
 import { useArgs } from "@storybook/preview-api";
+import { inputSizes, inputTypes } from "./constants";
 
 const DEFAULT_SIZE = "md";
-const sizes = ["sm", DEFAULT_SIZE, "lg"] as const;
 
-type SizeType = (typeof sizes)[number];
-const types = [
-  "date",
-  "datetime-local",
-  "email",
-  "number",
-  "password",
-  "search",
-  "tel",
-  "text",
-  "time",
-  "url",
-  "string",
-] as const;
+type SizeType = (typeof inputSizes)[number];
 
 const defaultValues = {
   selected: [],
@@ -53,7 +39,7 @@ const meta: Meta<typeof TagsInputComponent> = {
     size: {
       description: "Set input sizing",
       control: "select",
-      options: sizes,
+      options: inputSizes,
       defaultValue: {
         summary: DEFAULT_SIZE,
       },
@@ -61,10 +47,10 @@ const meta: Meta<typeof TagsInputComponent> = {
     type: {
       description: "Set input type",
       control: "select",
-      options: types,
+      options: inputTypes,
       table: {
         type: {
-          summary: types.join(" | "),
+          summary: inputTypes.join(" | "),
         },
       },
       defaultValue: {
