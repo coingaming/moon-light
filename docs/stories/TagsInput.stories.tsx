@@ -6,7 +6,7 @@ import { useCallback } from "react";
 import { useArgs } from "@storybook/preview-api";
 
 const DEFAULT_SIZE = "md";
-const sizes = ["sm", "md", "lg"] as const;
+const sizes = ["sm", DEFAULT_SIZE, "lg"] as const;
 
 type SizeType = (typeof sizes)[number];
 const types = [
@@ -41,6 +41,9 @@ const meta: Meta<typeof TagsInputComponent> = {
           summary: "string[]",
         },
       },
+      defaultValue: {
+        summary: "[]",
+      },
     },
     label: {
       description: "Add label title",
@@ -51,6 +54,9 @@ const meta: Meta<typeof TagsInputComponent> = {
       description: "Set input sizing",
       control: "select",
       options: sizes,
+      defaultValue: {
+        summary: DEFAULT_SIZE,
+      },
     },
     type: {
       description: "Set input type",
@@ -60,6 +66,9 @@ const meta: Meta<typeof TagsInputComponent> = {
         type: {
           summary: types.join(" | "),
         },
+      },
+      defaultValue: {
+        summary: "text",
       },
     },
     placeholder: {
