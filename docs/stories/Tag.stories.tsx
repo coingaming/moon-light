@@ -2,12 +2,12 @@ import { Tag as TagComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
 
-const DEFAULT_SIZE_VALUE = "2xs";
-const sizes = [DEFAULT_SIZE_VALUE, "xs"] as const;
+const DEFAULT_SIZE_VALUE = "xs";
+const sizes = [DEFAULT_SIZE_VALUE, "2xs"] as const;
 type Size = (typeof sizes)[number];
 
 const defaultValues = {
-  size: "xs" as Size,
+  size: DEFAULT_SIZE_VALUE as Size,
   isUppercase: true,
   className: "",
 };
