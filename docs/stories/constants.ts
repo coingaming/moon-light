@@ -120,3 +120,6 @@ export type IconButtonAsOption = (typeof iconButtonAsOptions)[number];
 
 export const iconButtonVariants = ["fill", "outline", "ghost"] as const;
 export type IconButtonVariant = (typeof iconButtonVariants)[number];
+
+export const dir = ["ltr", "rtl", "auto"] as const;
+export type DirType = (typeof dir)[number] | undefined;
