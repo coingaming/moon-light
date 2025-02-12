@@ -137,3 +137,6 @@ export type IconButtonVariant = (typeof iconButtonVariants)[number];
 
 export const dir = ["ltr", "rtl", "auto"] as const;
 export type DirType = (typeof dir)[number] | undefined;
+
+export const inputSizes = ["sm", "md", "lg"] as const;
+export type InputSize = (typeof inputSizes)[number];
