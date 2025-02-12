@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FileInput as FileInputComponent } from "@heathmont/moon-core-tw";
+import { InsetFileInput as InsetFileInputComponent } from "@heathmont/moon-core-tw";
 import getDefaultValues, { DefaultValue } from "./utils/getDefaultValues";
-import { InputSize, inputSizes } from "./constants";
+import { useState } from "react";
 
-type FileInputComponentType = typeof FileInputComponent;
+type InsetFileInputComponentType = typeof InsetFileInputComponent;
 
 const defaultValues: DefaultValue = {
-  placeholder: "",
-  size: "md" as InputSize,
   error: false,
   disabled: false,
   readOnly: false,
+  label: "",
   className: "",
   maxFileSize: 100 * 1014 * 1024,
   accept: "",
@@ -18,36 +17,28 @@ const defaultValues: DefaultValue = {
   onFileRemove: undefined,
   initFile: undefined,
   errorMessages: undefined,
-  // dir: undefined, // TBD
 };
 
-const meta: Meta<FileInputComponentType> = {
-  title: "Moon DS/FileInput",
+const meta: Meta<InsetFileInputComponentType> = {
+  title: "Moon DS/InsetFileInput",
   tags: ["autodocs"],
   argTypes: {
-    size: {
-      description: "Size of the FileInput",
-      table: {
-        type: { summary: inputSizes.join(" | ") },
-        defaultValue: { summary: "md" },
-      },
-      control: { type: "select" },
-      options: inputSizes,
-    },
     id: {
       description: "Id to call native browser's file input behavior",
       type: "string",
     },
-    placeholder: {
-      description: "Custom placeholder for the FileInput.",
-      type: "string",
+    label: {
+      control: "text",
+      description: "Custom label for the InsetFileInput.",
+      table: { type: { summary: "ReactNode | undefined" } },
     },
     error: {
-      description: "Sets error state for FileInput",
+      description: "Sets error state for InsetFileInput",
       table: {
         type: { summary: "boolean" },
         defaultValue: { summary: "false" },
       },
+      control: { type: "boolean" },
     },
     disabled: {
       description: "Set disabled/non-disabled",
@@ -55,29 +46,20 @@ const meta: Meta<FileInputComponentType> = {
         type: { summary: "boolean" },
         defaultValue: { summary: "false" },
       },
+      control: { type: "boolean" },
     },
     readOnly: {
-      description: "Sets readonly state for FileInput",
+      description: "Sets readonly state for InsetFileInput",
       table: {
         type: { summary: "boolean" },
         defaultValue: { summary: "false" },
       },
+      control: { type: "boolean" },
     },
     className: {
-      description: "Additional CSS class for the FileInput.",
+      description: "Additional CSS class for the InsetFileInput.",
       type: "string",
     },
-    // TBD
-    // dir: {
-    //   description: "RTL/LTR direction of component",
-    //   control: { type: "select" },
-    //   options: dir,
-    //   table: {
-    //     type: {
-    //       summary: [...dir, "undefined"].join(" | "),
-    //     },
-    //   },
-    // },
     accept: {
       description:
         "Accepted formats. It follows same 'accept' attribute as a regular file input. See Developer Mozilla docs input file #accept attribute for more information. e.g. image/*,video/*,.pdf",
@@ -129,22 +111,34 @@ const meta: Meta<FileInputComponentType> = {
       },
     },
   },
-  render: ({
-    id,
-    size,
-    placeholder,
-    className,
-    accept,
-    maxFileSize,
-    ...args
-  }) => {
+  render: ({ id, label, className, accept, maxFileSize, ...args }) => {
     const rootProps = getDefaultValues(
-      { size, placeholder, className, accept, maxFileSize },
+      {
+        label: label as string,
+        className,
+        accept,
+        maxFileSize,
+      },
       defaultValues,
     );
+
+    const [, setFile] = useState<File>();
+    const fileHandler = (file: File | undefined) => {
+      setFile(file);
+    };
+
+    const removeFileHandler = () => {
+      setFile(undefined);
+    };
+
     return (
       <div className="w-72">
-        <FileInputComponent {...rootProps} {...args} id={id} />
+        <InsetFileInputComponent
+          id={id}
+          onFileUpload={fileHandler}
+          onFileRemove={removeFileHandler}
+          {...rootProps}
+        />
       </div>
     );
   },
@@ -152,8 +146,8 @@ const meta: Meta<FileInputComponentType> = {
 
 export default meta;
 
-type Story = StoryObj<FileInputComponentType>;
+type Story = StoryObj<InsetFileInputComponentType>;
 
-export const FileInput: Story = {
+export const InsetFileInput: Story = {
   args: { id: "file-input-id", ...defaultValues },
 };
