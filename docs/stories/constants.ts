@@ -104,6 +104,20 @@ export const SEARCH_ITEMS = [
   },
 ];
 
+export const inputTypes = [
+  "date",
+  "datetime-local",
+  "email",
+  "number",
+  "password",
+  "search",
+  "tel",
+  "text",
+  "time",
+  "url",
+];
+export type InputType = (typeof inputTypes)[number];
+
 export const iconButtonSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 export type IconButtonSize = (typeof iconButtonSizes)[number] | undefined;
 

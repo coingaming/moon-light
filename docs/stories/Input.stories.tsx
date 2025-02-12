@@ -1,20 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Input as InputComponent, Label } from "@heathmont/moon-core-tw";
+import { Input as InputComponent } from "@heathmont/moon-core-tw";
 
 type InputComponentType = typeof InputComponent;
 
 const meta: Meta<InputComponentType> = {
   title: "Moon DS/Input",
   tags: ["autodocs"],
-  render: ({ size, placeholder, type, ...args }) => (
-    <InputComponent
-      size={size}
-      placeholder={placeholder}
-      type={type}
-      id="datetimelocal-type"
-      {...args}
-    />
-  ),
   argTypes: {
     size: {
       description: "Size of the Input",
@@ -78,6 +69,14 @@ const meta: Meta<InputComponentType> = {
       type: "string",
     },
   },
+  render: ({ size, placeholder, type, ...args }) => (
+    <InputComponent
+      size={size}
+      placeholder={placeholder}
+      type={type}
+      {...args}
+    />
+  ),
 };
 
 export default meta;
