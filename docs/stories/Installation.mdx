@@ -56,7 +56,9 @@ pnpm run doc test
 ## Architecture
 
 Our <a href="https://pnpm.io/motivation" style={{ color: "#000" }} target="\_blank">pnpm</a> monorepo publishes key layers as individual `@heathmont/moon-` packages:
-`docs/` - Style guide and documentation
-`packages/` - Moon Design System
+
+1 - `docs/` - Style guide and documentation
+
+2 - `packages/` - Moon Design System
 
 Packages are developed inside their respective src folders, utilizing <a href="https://pnpm.io/workspaces" style={{ color: "#000" }} target="\_blank">pnpm workspaces</a> for dependency linking/sharing. The distributable code is generated in each package's lib by the TypeScript compiler
