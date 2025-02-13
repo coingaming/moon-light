@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const meta: Meta<typeof RadioButtonComponent> = {
   component: RadioButtonComponent,
-  title: "Moon DS/RadioButton",
+  title: "Components/RadioButton",
   tags: ["autodocs"],
   argTypes: {
     className: {

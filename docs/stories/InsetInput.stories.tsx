@@ -15,7 +15,7 @@ const defaultValues = {
 };
 
 const meta: Meta<InsetInputComponentType> = {
-  title: "Moon DS/InsetInput",
+  title: "Components/InsetInput",
   tags: ["autodocs"],
   argTypes: {
     type: {

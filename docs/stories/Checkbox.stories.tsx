@@ -5,7 +5,7 @@ type CheckboxComponentProps = typeof CheckboxComponent;
 
 const meta: Meta<CheckboxComponentProps> = {
   component: CheckboxComponent,
-  title: "Moon DS/Checkbox",
+  title: "Components/Checkbox",
   tags: ["autodocs"],
   argTypes: {
     label: {

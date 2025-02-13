@@ -22,7 +22,7 @@ const defaultValues: DefaultValue = {
 };
 
 const meta: Meta<FileInputComponentType> = {
-  title: "Moon DS/FileInput",
+  title: "Components/FileInput",
   tags: ["autodocs"],
   argTypes: {
     size: {

@@ -2,7 +2,7 @@ import { Tabs as TabsComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof TabsComponent> = {
-  title: "Moon DS/Tabs",
+  title: "Components/Tabs",
   tags: ["autodocs"],
   argTypes: {
     onChange: {

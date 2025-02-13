@@ -42,7 +42,7 @@ const filter = (
 
 const meta: Meta<ComboboxComponentProps> = {
   component: ComboboxComponent,
-  title: "Moon DS/Combobox",
+  title: "Components/Combobox",
   tags: ["autodocs"],
   argTypes: {
     className: {

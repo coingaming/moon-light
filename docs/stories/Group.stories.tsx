@@ -20,7 +20,7 @@ const defaultValues = {
 
 const meta: Meta<GroupComponentProps> = {
   component: GroupComponent,
-  title: "Moon DS/Group",
+  title: "Components/Group",
   tags: ["autodocs"],
   argTypes: {
     className: {

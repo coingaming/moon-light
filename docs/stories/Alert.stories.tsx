@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
 
 const meta: Meta<typeof AlertComponent> = {
-  title: "Moon DS/Alert",
+  title: "Components/Alert",
   tags: ["autodocs"],
   argTypes: {
     className: {

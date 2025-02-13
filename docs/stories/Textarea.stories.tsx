@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof TextareaComponent> = {
   component: TextareaComponent,
-  title: "Moon DS/Textarea",
+  title: "Components/Textarea",
   tags: ["autodocs"],
   argTypes: {
     error: {

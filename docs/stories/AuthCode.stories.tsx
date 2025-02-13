@@ -15,7 +15,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof AuthCodeComponent> = {
-  title: "Moon DS/AuthCode",
+  title: "Components/AuthCode",
   tags: ["autodocs"],
   argTypes: {
     onChange: {

@@ -20,7 +20,7 @@ type TooltipType = {
 };
 
 const meta: Meta<TooltipType> = {
-  title: "Moon DS/Tooltip",
+  title: "Components/Tooltip",
   tags: ["autodocs"],
 
   argTypes: {

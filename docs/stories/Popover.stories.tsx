@@ -47,7 +47,7 @@ const defaultValues = {
 
 const meta: Meta<PopoverComponentComponentProps> = {
   component: PopoverComponent,
-  title: "Moon DS/Popover",
+  title: "Components/Popover",
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
