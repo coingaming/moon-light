@@ -16,7 +16,7 @@ type Item = {
 };
 
 const meta: Meta<typeof SearchCmdkComponent> = {
-  title: "Moon DS/SearchCmdk",
+  title: "Components/SearchCmdk",
   tags: ["autodocs"],
   argTypes: {
     open: {

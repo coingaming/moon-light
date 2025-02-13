@@ -12,7 +12,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof ProgressComponent> = {
-  title: "Moon DS/Progress",
+  title: "Components/Progress",
   tags: ["autodocs"],
   argTypes: {
     size: {

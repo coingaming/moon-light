@@ -14,7 +14,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof SnackbarComponent> = {
-  title: "Moon DS/Snackbar",
+  title: "Components/Snackbar",
   tags: ["autodocs"],
   argTypes: {
     autoClose: {

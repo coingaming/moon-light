@@ -30,7 +30,7 @@ const defaultValues = {
 
 const meta: Meta<DropdownComponentProps> = {
   component: DropdownComponent,
-  title: "Moon DS/Dropdown",
+  title: "Components/Dropdown",
   tags: ["autodocs"],
   argTypes: {
     className: {

@@ -10,7 +10,7 @@ const defaultProps = {
 };
 
 const meta: Meta<typeof LoaderComponent> = {
-  title: "Moon DS/Loader",
+  title: "Components/Loader",
   component: LoaderComponent,
   tags: ["autodocs"],
   argTypes: {

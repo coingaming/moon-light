@@ -1,0 +1,64 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Installation Guide" />
+
+# Installation Guide
+
+<a
+  href="https://pnpm.io/installation"
+  target="_blank"
+  style={{ color: "#000" }}
+>
+  Install pnpm
+</a>
+
+```bash
+corepack enable
+```
+
+Note that we are using pnpm version 8
+
+```bash
+corepack prepare pnpm@8.15.6 --activate
+```
+
+Install dependencies and link local packages together
+
+```bash
+pnpm install
+```
+
+Compile and build all packages
+
+```bash
+pnpm run build
+```
+
+Run storybook for development at `localhost:3000`
+
+```bash
+pnpm run doc dev
+```
+
+Build and run storybook for production at `localhost:80`
+
+```bash
+pnpm run doc build
+pnpm run doc start
+```
+
+Run e2e tests:
+
+```bash
+pnpm run doc test
+```
+
+## Architecture
+
+Our <a href="https://pnpm.io/motivation" style={{ color: "#000" }} target="\_blank">pnpm</a> monorepo publishes key layers as individual `@heathmont/moon-` packages:
+
+1 - `docs/` - Style guide and documentation
+
+2 - `packages/` - Moon Design System
+
+Packages are developed inside their respective src folders, utilizing <a href="https://pnpm.io/workspaces" style={{ color: "#000" }} target="\_blank">pnpm workspaces</a> for dependency linking/sharing. The distributable code is generated in each package's lib by the TypeScript compiler

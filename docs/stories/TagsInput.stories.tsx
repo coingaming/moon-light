@@ -16,7 +16,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof TagsInputComponent> = {
-  title: "Moon DS/TagsInput",
+  title: "Components/TagsInput",
   tags: ["autodocs"],
   argTypes: {
     selected: {

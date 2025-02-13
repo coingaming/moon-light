@@ -14,7 +14,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof InsetNativeSelectComponent> = {
-  title: "Moon DS/InsetNativeSelect",
+  title: "Components/InsetNativeSelect",
   component: InsetNativeSelectComponent,
   tags: ["autodocs"],
   argTypes: {

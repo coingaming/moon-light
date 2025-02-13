@@ -4,7 +4,7 @@ import { Button, Modal as ModalComponent } from "@heathmont/moon-core-tw";
 import { useArgs } from "@storybook/preview-api";
 
 export default {
-  title: "Moon DS/Modal",
+  title: "Components/Modal",
   component: ModalComponent,
   tags: ["autodocs"],
   argTypes: {

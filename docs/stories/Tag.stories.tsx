@@ -13,7 +13,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof TagComponent> = {
-  title: "Moon DS/Tag",
+  title: "Components/Tag",
   tags: ["autodocs"],
   argTypes: {
     children: {

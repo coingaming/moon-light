@@ -33,7 +33,7 @@ type FormComponentProps = React.ComponentProps<typeof FormComponent> &
 
 const meta: Meta<FormComponentProps> = {
   component: FormComponent,
-  title: "Moon DS/Form",
+  title: "Components/Form",
   tags: ["autodocs"],
   argTypes: {
     className: {

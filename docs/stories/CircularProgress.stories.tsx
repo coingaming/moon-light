@@ -14,7 +14,7 @@ const defaultValues = {
 
 const meta: Meta<CircularProgressComponentProps> = {
   component: CircularProgressComponent,
-  title: "Moon DS/CircularProgress",
+  title: "Components/CircularProgress",
   tags: ["autodocs"],
   argTypes: {
     className: {
