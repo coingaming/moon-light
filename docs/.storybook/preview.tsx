@@ -5,12 +5,16 @@ import "../app/globals.css";
 export const globalTypes = {
   theme: {
     name: "Theme",
-    description: "Choose between light and dark theme",
+    description: "Choose between Light and Dark themes",
     defaultValue: "light",
     toolbar: {
-      icon: "circlehollow",
-      items: ["light", "dark"],
+      icon: "contrast",
+      items: [
+        { value: "light", title: "🌞 Light Theme" },
+        { value: "dark", title: "🌙 Dark Theme" },
+      ],
       showName: true,
+      dynamicTitle: true,
     },
   },
 };
@@ -34,6 +38,10 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    backgrounds: { disable: true },
+    viewport: { disable: true },
+    measure: { disable: true },
+    outline: { disable: true },
   },
   decorators: [withThemeWrapper],
 };
