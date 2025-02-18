@@ -44,7 +44,8 @@ export const SUPPORTIVE_COLORS = [
 ];
 
 export const COLORS = [...MAIN_COLORS, ...SUPPORTIVE_COLORS];
-
+export const FONT_WEIGHTS = ["font-normal", "font-medium", "font-semibold"];
+export const TEXT_DECORATIONS = ["underline", "overline", "line-through"];
 export const SEARCH_CDMK_ITEMS = [
   { label: "Aurum" },
   { label: "Argentum" },
