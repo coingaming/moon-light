@@ -1,6 +1,7 @@
 import React from "react";
 import type { Decorator, Preview } from "@storybook/react";
 import "../app/globals.css";
+import { useEffect } from "react";
 
 export const globalTypes = {
   theme: {
@@ -20,8 +21,18 @@ export const globalTypes = {
 };
 
 const withThemeWrapper: Decorator = (Story, context) => {
-  const themeClass =
-    context.globals.theme === "dark" ? "theme-moon-dark" : "theme-moon-light";
+  const isDarkTheme = context.globals.theme === "dark";
+  const themeClass = isDarkTheme ? "theme-moon-dark" : "theme-moon-light";
+  const backgroundColor = isDarkTheme ? "#0b0b0b" : "#e5e7eb";
+
+  useEffect(() => {
+    document.body.style.backgroundColor = backgroundColor;
+    const docsStory = document.querySelector(".docs-story") as HTMLElement;
+
+    if (docsStory) {
+      docsStory.style.backgroundColor = backgroundColor;
+    }
+  }, [isDarkTheme]);
 
   return (
     <div className={themeClass} style={{ minHeight: "100vh", padding: "1rem" }}>
@@ -39,11 +50,7 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: "light",
-      values: [
-        { name: "light", value: "#000" },
-        { name: "dark", value: "#fff" },
-      ],
+      disable: true,
     },
     viewport: { disable: true },
     measure: { disable: true },
