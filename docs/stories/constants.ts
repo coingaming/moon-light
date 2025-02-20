@@ -140,6 +140,14 @@ export const inputTypes = [
 ];
 export type InputType = (typeof inputTypes)[number];
 
+export const DARK_THEME = "dark";
+export const LIGHT_THEME = "light";
+export const LTR = "ltr";
+export const RTL = "rtl";
+
+export type ThemeType = typeof DARK_THEME | typeof LIGHT_THEME;
+export type TextDirectionType = typeof LTR | typeof RTL;
+
 export const iconButtonSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 export type IconButtonSize = (typeof iconButtonSizes)[number] | undefined;
 
