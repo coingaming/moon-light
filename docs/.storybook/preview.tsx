@@ -38,7 +38,13 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    backgrounds: { disable: true },
+    backgrounds: {
+      default: "light",
+      values: [
+        { name: "light", value: "#000" },
+        { name: "dark", value: "#fff" },
+      ],
+    },
     viewport: { disable: true },
     measure: { disable: true },
     outline: { disable: true },
