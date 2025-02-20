@@ -142,6 +142,28 @@ export const inputTypes = [
 export type InputType = (typeof inputTypes)[number];
 
 export const iconButtonSizes = ["xs", "sm", "md", "lg", "xl"] as const;
+export const textSizes = [
+  "text-moon-9",
+  "text-moon-10",
+  "text-moon-12",
+  "text-moon-14",
+  "text-moon-16",
+  "text-moon-18",
+  "text-moon-20",
+  "text-moon-24",
+  "text-moon-32",
+  "text-moon-40",
+  "text-moon-48",
+  "text-moon-56",
+  "text-moon-64",
+  "text-moon-72",
+] as const;
+
+export const captionsSizes = [
+  "text-moon-9-caption",
+  "text-moon-10-caption",
+] as const;
+
 export type IconButtonSize = (typeof iconButtonSizes)[number] | undefined;
 
 export const iconButtonAnimations = [

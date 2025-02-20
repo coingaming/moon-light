@@ -1,21 +1,24 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { captionsSizes } from "./constants";
 
 type Size = { size: string };
-
-const sizes = ["text-moon-9-caption", "text-moon-10-caption"] as const;
 
 const meta: Meta<Size> = {
   title: "Typography/Caption",
   tags: ["autodocs"],
   argTypes: {
     size: {
-      type: "string",
+      table: {
+        type: {
+          summary: captionsSizes.join(" | "),
+        },
+      },
       description:
         "By default, there are just two caption sizes with different letter-spacing, and are defined with text-moon-XX-caption class names. You also need to make them uppercase.",
       control: {
         type: "select",
       },
-      options: sizes,
+      options: captionsSizes,
     },
   },
   render: ({ size }: Size) => {
