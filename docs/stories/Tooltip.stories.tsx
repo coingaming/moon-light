@@ -20,9 +20,8 @@ type TooltipType = {
 };
 
 const meta: Meta<TooltipType> = {
-  title: "Components/Tooltip",
+  title: "Messaging & feedback/Tooltip",
   tags: ["autodocs"],
-
   argTypes: {
     position: {
       description: "Position of the tooltip",

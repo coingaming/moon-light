@@ -14,7 +14,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof SnackbarComponent> = {
-  title: "Components/Snackbar",
+  title: "Messaging & feedback/Snackbar",
   tags: ["autodocs"],
   argTypes: {
     autoClose: {
