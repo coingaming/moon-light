@@ -14,7 +14,7 @@ type IconProps = {
 const defaultValues = { className: "" };
 
 const meta: Meta<IconProps> = {
-  title: "Components/Icons",
+  title: "Content Display/Icons",
   tags: ["autodocs"],
   argTypes: {
     className: {

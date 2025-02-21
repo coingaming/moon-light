@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof ChipComponent> = {
   component: ChipComponent,
-  title: "Components/Chip",
+  title: "Forms & selection controls/Chip",
   tags: ["autodocs"],
   argTypes: {
     isActive: {

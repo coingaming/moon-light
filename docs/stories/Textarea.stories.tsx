@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof TextareaComponent> = {
   component: TextareaComponent,
-  title: "Components/Textarea",
+  title: "Forms & selection controls/Textarea",
   tags: ["autodocs"],
   argTypes: {
     error: {

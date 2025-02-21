@@ -4,7 +4,7 @@ import { NativeSelect as NativeSelectComponent } from "@heathmont/moon-core-tw";
 type NativeSelectType = typeof NativeSelectComponent;
 
 const meta: Meta<NativeSelectType> = {
-  title: "Components/Select",
+  title: "Forms & selection controls/Select",
   tags: ["autodocs"],
   component: NativeSelectComponent,
   argTypes: {

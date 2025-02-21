@@ -15,7 +15,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof AuthCodeComponent> = {
-  title: "Components/AuthCode",
+  title: "Forms & selection controls/AuthCode",
   tags: ["autodocs"],
   argTypes: {
     onChange: {

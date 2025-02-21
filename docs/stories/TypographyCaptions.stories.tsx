@@ -4,7 +4,7 @@ import { captionsSizes } from "./constants";
 type Size = { size: string };
 
 const meta: Meta<Size> = {
-  title: "Typography/Caption",
+  title: "Content Display/Typography/Caption",
   tags: ["autodocs"],
   argTypes: {
     size: {

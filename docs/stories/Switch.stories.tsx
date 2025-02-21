@@ -15,7 +15,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof SwitchComponent> = {
-  title: "Components/Switch",
+  title: "Forms & selection controls/Switch",
   tags: ["autodocs"],
   argTypes: {
     size: {

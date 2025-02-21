@@ -20,7 +20,7 @@ const defaultValues = {
 
 const meta: Meta<CarouselComponentProps> = {
   component: CarouselComponent,
-  title: "Components/Carousel",
+  title: "Content Display/Carousel",
   tags: ["autodocs"],
   argTypes: {
     scrollTo: {

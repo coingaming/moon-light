@@ -10,7 +10,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof MenuItemComponent> = {
-  title: "Components/MenuItem",
+  title: "Navigation/MenuItem",
   component: MenuItemComponent,
   tags: ["autodocs"],
   argTypes: {

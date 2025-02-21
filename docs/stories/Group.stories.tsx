@@ -20,7 +20,7 @@ const defaultValues = {
 
 const meta: Meta<GroupComponentProps> = {
   component: GroupComponent,
-  title: "Components/Group",
+  title: "Forms & selection controls/Group",
   tags: ["autodocs"],
   argTypes: {
     className: {

@@ -20,7 +20,7 @@ const defaultValues: DefaultValue = {
 };
 
 const meta: Meta<InsetFileInputComponentType> = {
-  title: "Components/InsetFileInput",
+  title: "Forms & selection controls/InsetFileInput",
   tags: ["autodocs"],
   argTypes: {
     id: {

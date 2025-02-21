@@ -11,7 +11,7 @@ const defaultValues: Record<string, string | boolean> = {
 };
 
 const meta: Meta<typeof AccordionComponent> = {
-  title: "Components/Accordion",
+  title: "Content Display/Accordion",
   tags: ["autodocs"],
   argTypes: {
     itemSize: {

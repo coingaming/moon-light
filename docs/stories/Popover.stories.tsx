@@ -47,7 +47,7 @@ const defaultValues = {
 
 const meta: Meta<PopoverComponentComponentProps> = {
   component: PopoverComponent,
-  title: "Components/Popover",
+  title: "Containers & layout/Popover",
   tags: ["autodocs"],
   parameters: {
     layout: "centered",

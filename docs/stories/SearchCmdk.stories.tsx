@@ -16,7 +16,7 @@ type Item = {
 };
 
 const meta: Meta<typeof SearchCmdkComponent> = {
-  title: "Components/SearchCmdk",
+  title: "Forms & selection controls/SearchCmdk",
   tags: ["autodocs"],
   argTypes: {
     open: {

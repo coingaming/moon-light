@@ -12,7 +12,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof ProgressComponent> = {
-  title: "Components/Progress",
+  title: "Indicators & status/Progress",
   tags: ["autodocs"],
   argTypes: {
     size: {

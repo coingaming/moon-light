@@ -22,7 +22,7 @@ const defaultValues: DefaultValue = {
 };
 
 const meta: Meta<FileInputComponentType> = {
-  title: "Components/FileInput",
+  title: "Forms & selection controls/FileInput",
   tags: ["autodocs"],
   argTypes: {
     size: {

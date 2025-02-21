@@ -4,7 +4,7 @@ import { Input as InputComponent } from "@heathmont/moon-core-tw";
 type InputComponentType = typeof InputComponent;
 
 const meta: Meta<InputComponentType> = {
-  title: "Components/Input",
+  title: "Forms & selection controls/Input",
   tags: ["autodocs"],
   argTypes: {
     size: {
