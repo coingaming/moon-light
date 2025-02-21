@@ -10,7 +10,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof PaginationComponent> = {
-  title: "Components/Pagination",
+  title: "Navigation/Pagination",
   tags: ["autodocs"],
   argTypes: {
     totalPages: {
