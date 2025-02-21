@@ -1,11 +1,14 @@
 import { Checkbox as CheckboxComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
+import { DOCS_HIERARCHY } from "./constants";
 
 type CheckboxComponentProps = typeof CheckboxComponent;
 
+const title = `${DOCS_HIERARCHY.FORMS_SELECTION_CONTROLS}/Checkbox`;
+
 const meta: Meta<CheckboxComponentProps> = {
   component: CheckboxComponent,
-  title: "Components/Checkbox",
+  title,
   tags: ["autodocs"],
   argTypes: {
     label: {

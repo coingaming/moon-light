@@ -141,6 +141,16 @@ export const inputTypes = [
 ];
 export type InputType = (typeof inputTypes)[number];
 
+export const DOCS_HIERARCHY = {
+  ACTIONS: "Actions",
+  FORMS_SELECTION_CONTROLS: "Forms & selection controls",
+  CONTENT_DISPLAY: "Content Display",
+  INDICATORS_STATUS: "Indicators & status",
+  CONTAINERS_LAYOUT: "Containers & layout",
+  MESSAGING_FEEDBACK: "Messaging & feedback",
+  NAVIGATION: "Navigation",
+};
+
 export const iconButtonSizes = ["xs", "sm", "md", "lg", "xl"] as const;
 export const textSizes = [
   "text-moon-9",

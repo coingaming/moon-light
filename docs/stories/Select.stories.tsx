@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { NativeSelect as NativeSelectComponent } from "@heathmont/moon-core-tw";
+import { DOCS_HIERARCHY } from "./constants";
 
 type NativeSelectType = typeof NativeSelectComponent;
 
+const title = `${DOCS_HIERARCHY.FORMS_SELECTION_CONTROLS}/Select`;
+
 const meta: Meta<NativeSelectType> = {
-  title: "Components/Select",
+  title,
   tags: ["autodocs"],
   component: NativeSelectComponent,
   argTypes: {

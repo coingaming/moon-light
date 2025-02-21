@@ -1,6 +1,7 @@
 import { AuthCode as AuthCodeComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
+import { DOCS_HIERARCHY } from "./constants";
 
 const defaultValues = {
   className: "",
@@ -14,8 +15,10 @@ const defaultValues = {
   ariaLabel: "Character `${i + 1}`",
 };
 
+const title = `${DOCS_HIERARCHY.FORMS_SELECTION_CONTROLS}/AuthCode`;
+
 const meta: Meta<typeof AuthCodeComponent> = {
-  title: "Components/AuthCode",
+  title,
   tags: ["autodocs"],
   argTypes: {
     onChange: {
