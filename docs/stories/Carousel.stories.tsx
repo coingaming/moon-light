@@ -5,7 +5,6 @@ import {
 } from "@heathmont/moon-icons-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
-import { DOCS_HIERARCHY } from "./constants";
 
 type CarouselComponentProps = typeof CarouselComponent;
 
@@ -19,11 +18,9 @@ const defaultValues = {
   isSwipeDragDisabled: false,
 };
 
-const title = `${DOCS_HIERARCHY.CONTENT_DISPLAY}/Carousel`;
-
 const meta: Meta<CarouselComponentProps> = {
   component: CarouselComponent,
-  title,
+  title: "Content Display/Carousel",
   tags: ["autodocs"],
   argTypes: {
     scrollTo: {
