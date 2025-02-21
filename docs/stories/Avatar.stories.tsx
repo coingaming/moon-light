@@ -1,9 +1,12 @@
 import { Avatar as AvatarComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
+import { DOCS_HIERARCHY } from "./constants";
+
+const title = `${DOCS_HIERARCHY.CONTENT_DISPLAY}/Avatar`;
 
 const meta: Meta<typeof AvatarComponent> = {
   component: AvatarComponent,
-  title: "Components/Avatar",
+  title,
   tags: ["autodocs"],
   argTypes: {
     size: {

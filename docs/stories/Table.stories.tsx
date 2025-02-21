@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Table as TableComponent } from "@heathmont/moon-table-v8-tw";
-import { COLORS } from "./constants";
+import { COLORS, DOCS_HIERARCHY } from "./constants";
 
 type TableType = typeof TableComponent;
 
+const title = `${DOCS_HIERARCHY.CONTENT_DISPLAY}/Table`;
+
 const meta: Meta<TableType> = {
-  title: "Components/Table",
+  title,
   tags: ["autodocs"],
   render: ({ ...args }) => {
     return <TableComponent {...args} />;

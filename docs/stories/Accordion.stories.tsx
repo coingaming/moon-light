@@ -2,6 +2,7 @@ import { Accordion as AccordionComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 import getDefaultValues from "./utils/getDefaultValues";
+import { DOCS_HIERARCHY } from "./constants";
 
 const defaultValues: Record<string, string | boolean> = {
   itemSize: "md",
@@ -10,8 +11,10 @@ const defaultValues: Record<string, string | boolean> = {
   className: "",
 };
 
+const title = `${DOCS_HIERARCHY.CONTENT_DISPLAY}/Accordion`;
+
 const meta: Meta<typeof AccordionComponent> = {
-  title: "Components/Accordion",
+  title,
   tags: ["autodocs"],
   argTypes: {
     itemSize: {
