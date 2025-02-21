@@ -84,7 +84,7 @@ const ThemeWrapper = ({ children }) => {
   );
 };
 
-const withThemeWrapper: Decorator = (Story, context) => {
+const withThemeWrapper: Decorator = (Story) => {
   return (
     <ThemeWrapper>
       <Story />
