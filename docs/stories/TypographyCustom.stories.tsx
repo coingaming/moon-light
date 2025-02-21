@@ -13,7 +13,7 @@ type CustomType = {
 };
 
 const meta: Meta<CustomType> = {
-  title: "Typography/Custom",
+  title: "Content Display/Typography/Custom",
   tags: ["autodocs"],
   argTypes: {
     color: {

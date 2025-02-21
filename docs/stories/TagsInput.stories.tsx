@@ -16,7 +16,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof TagsInputComponent> = {
-  title: "Components/TagsInput",
+  title: "Forms & selection controls/TagsInput",
   tags: ["autodocs"],
   argTypes: {
     selected: {

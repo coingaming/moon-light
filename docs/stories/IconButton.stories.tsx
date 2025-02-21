@@ -23,7 +23,7 @@ const defaultValues: DefaultValue = {
 };
 
 const meta: Meta<typeof IconButtonComponent> = {
-  title: "Components/IconButton",
+  title: "Actions/IconButton",
   tags: ["autodocs"],
   argTypes: {
     animation: {

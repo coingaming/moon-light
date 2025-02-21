@@ -14,7 +14,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof InsetNativeSelectComponent> = {
-  title: "Components/InsetNativeSelect",
+  title: "Forms & selection controls/InsetNativeSelect",
   component: InsetNativeSelectComponent,
   tags: ["autodocs"],
   argTypes: {

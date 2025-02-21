@@ -42,7 +42,7 @@ const filter = (
 
 const meta: Meta<ComboboxComponentProps> = {
   component: ComboboxComponent,
-  title: "Components/Combobox",
+  title: "Forms & selection controls/Combobox",
   tags: ["autodocs"],
   argTypes: {
     className: {

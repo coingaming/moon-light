@@ -6,7 +6,7 @@ type SizeType = {
 };
 
 const meta: Meta<SizeType> = {
-  title: "Typography/Size",
+  title: "Content Display/Typography/Size",
   tags: ["autodocs"],
   argTypes: {
     size: {

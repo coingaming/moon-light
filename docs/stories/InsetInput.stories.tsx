@@ -15,7 +15,7 @@ const defaultValues = {
 };
 
 const meta: Meta<InsetInputComponentType> = {
-  title: "Components/InsetInput",
+  title: "Forms & selection controls/InsetInput",
   tags: ["autodocs"],
   argTypes: {
     type: {
