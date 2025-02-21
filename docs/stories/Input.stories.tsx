@@ -1,13 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input as InputComponent } from "@heathmont/moon-core-tw";
-import { DOCS_HIERARCHY } from "./constants";
 
 type InputComponentType = typeof InputComponent;
 
-const title = `${DOCS_HIERARCHY.FORMS_SELECTION_CONTROLS}/Input`;
-
 const meta: Meta<InputComponentType> = {
-  title,
+  title: "Forms & selection controls/Input",
   tags: ["autodocs"],
   argTypes: {
     size: {

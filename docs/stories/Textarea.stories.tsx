@@ -1,12 +1,9 @@
 import { Textarea as TextareaComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
-import { DOCS_HIERARCHY } from "./constants";
-
-const title = `${DOCS_HIERARCHY.FORMS_SELECTION_CONTROLS}/Textarea`;
 
 const meta: Meta<typeof TextareaComponent> = {
   component: TextareaComponent,
-  title,
+  title: "Forms & selection controls/Textarea",
   tags: ["autodocs"],
   argTypes: {
     error: {

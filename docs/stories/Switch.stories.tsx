@@ -2,7 +2,6 @@ import { Switch as SwitchComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
 import { useArgs } from "@storybook/preview-api";
-import { DOCS_HIERARCHY } from "./constants";
 
 const sizes = ["2xs", "xs", "sm"] as const;
 type Size = (typeof sizes)[number];
@@ -15,10 +14,8 @@ const defaultValues = {
   value: undefined,
 };
 
-const title = `${DOCS_HIERARCHY.FORMS_SELECTION_CONTROLS}/Switch`;
-
 const meta: Meta<typeof SwitchComponent> = {
-  title,
+  title: "Forms & selection controls/Switch",
   tags: ["autodocs"],
   argTypes: {
     size: {

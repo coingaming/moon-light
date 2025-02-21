@@ -1,12 +1,9 @@
 import { Chip as ChipComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
-import { DOCS_HIERARCHY } from "./constants";
-
-const title = `${DOCS_HIERARCHY.FORMS_SELECTION_CONTROLS}/Chip`;
 
 const meta: Meta<typeof ChipComponent> = {
   component: ChipComponent,
-  title,
+  title: "Forms & selection controls/Chip",
   tags: ["autodocs"],
   argTypes: {
     isActive: {

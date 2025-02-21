@@ -1,13 +1,10 @@
 import { Radio as RadioButtonComponent } from "@heathmont/moon-core-tw";
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { DOCS_HIERARCHY } from "./constants";
-
-const title = `${DOCS_HIERARCHY.FORMS_SELECTION_CONTROLS}/Radio`;
 
 const meta: Meta<typeof RadioButtonComponent> = {
   component: RadioButtonComponent,
-  title,
+  title: "Forms & selection controls/Radio",
   tags: ["autodocs"],
   argTypes: {
     className: {
