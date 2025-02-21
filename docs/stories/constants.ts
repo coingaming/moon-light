@@ -1,28 +1,51 @@
-export const COLORS = [
+export const MAIN_COLORS = [
   "piccolo",
-  "goten",
-  "bulma",
   "hit",
   "beerus",
-  "gohan",
   "goku",
+  "gohan",
+  "bulma",
   "trunks",
+  "goten",
   "popo",
   "jiren",
   "heles",
   "zeno",
-  "krillin",
-  "chichi",
-  "roshi",
-  "dodoria",
-  "cell",
-  "raditz",
-  "whis",
-  "frieza",
-  "nappa",
-  "nappa",
 ];
 
+export const SUPPORTIVE_COLORS = [
+  "krillin",
+  "krillin-60",
+  "krillin-10",
+  "chichi",
+  "chichi-60",
+  "chichi-10",
+  "roshi",
+  "roshi-60",
+  "roshi-10",
+  "dodoria",
+  "dodoria-60",
+  "dodoria-10",
+  "cell",
+  "cell-60",
+  "cell-10",
+  "raditz",
+  "raditz-60",
+  "raditz-10",
+  "whis",
+  "whis-60",
+  "whis-10",
+  "frieza",
+  "frieza-60",
+  "frieza-10",
+  "nappa",
+  "nappa-60",
+  "nappa-10",
+];
+
+export const COLORS = [...MAIN_COLORS, ...SUPPORTIVE_COLORS];
+export const FONT_WEIGHTS = ["font-normal", "font-medium", "font-semibold"];
+export const TEXT_DECORATIONS = ["underline", "overline", "line-through"];
 export const SEARCH_CDMK_ITEMS = [
   { label: "Aurum" },
   { label: "Argentum" },
@@ -119,6 +142,28 @@ export const inputTypes = [
 export type InputType = (typeof inputTypes)[number];
 
 export const iconButtonSizes = ["xs", "sm", "md", "lg", "xl"] as const;
+export const textSizes = [
+  "text-moon-9",
+  "text-moon-10",
+  "text-moon-12",
+  "text-moon-14",
+  "text-moon-16",
+  "text-moon-18",
+  "text-moon-20",
+  "text-moon-24",
+  "text-moon-32",
+  "text-moon-40",
+  "text-moon-48",
+  "text-moon-56",
+  "text-moon-64",
+  "text-moon-72",
+] as const;
+
+export const captionsSizes = [
+  "text-moon-9-caption",
+  "text-moon-10-caption",
+] as const;
+
 export type IconButtonSize = (typeof iconButtonSizes)[number] | undefined;
 
 export const iconButtonAnimations = [
@@ -137,3 +182,6 @@ export type IconButtonVariant = (typeof iconButtonVariants)[number];
 
 export const dir = ["ltr", "rtl", "auto"] as const;
 export type DirType = (typeof dir)[number] | undefined;
+
+export const inputSizes = ["sm", "md", "lg"] as const;
+export type InputSize = (typeof inputSizes)[number];

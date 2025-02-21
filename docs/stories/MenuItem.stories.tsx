@@ -10,7 +10,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof MenuItemComponent> = {
-  title: "Moon DS/MenuItem",
+  title: "Navigation/MenuItem",
   component: MenuItemComponent,
   tags: ["autodocs"],
   argTypes: {

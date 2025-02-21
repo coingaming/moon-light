@@ -11,7 +11,7 @@ const defaultValues = {
 
 const meta: Meta<BreadcrumbComponentProps> = {
   component: BreadcrumbComponent,
-  title: "Moon DS/Breadcrumb",
+  title: "Navigation/Breadcrumb",
   tags: ["autodocs"],
   argTypes: {
     breadcrumbs: {

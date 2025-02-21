@@ -11,7 +11,7 @@ import getDefaultValues from "./utils/getDefaultValues";
 import { SEARCH_ITEMS } from "./constants";
 
 const meta: Meta<typeof SearchComponent> = {
-  title: "Moon DS/Search",
+  title: "Forms & selection controls/Search",
   tags: ["autodocs"],
   argTypes: {
     search: {

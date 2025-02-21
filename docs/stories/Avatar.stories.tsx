@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof AvatarComponent> = {
   component: AvatarComponent,
-  title: "Moon DS/Avatar",
+  title: "Content Display/Avatar",
   tags: ["autodocs"],
   argTypes: {
     size: {

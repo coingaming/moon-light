@@ -12,7 +12,7 @@ const defaultValues: Record<string, string | boolean> = {
 };
 
 const meta: Meta<typeof BottomSheetComponent> = {
-  title: "Moon DS/BottomSheet",
+  title: "Containers & layout/BottomSheet",
   tags: ["autodocs"],
   argTypes: {
     open: {

@@ -23,7 +23,7 @@ const defaultValues: DefaultValue = {
 };
 
 const meta: Meta<typeof IconButtonComponent> = {
-  title: "Moon DS/IconButton",
+  title: "Actions/IconButton",
   tags: ["autodocs"],
   argTypes: {
     animation: {

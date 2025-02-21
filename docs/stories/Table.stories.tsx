@@ -5,7 +5,7 @@ import { COLORS } from "./constants";
 type TableType = typeof TableComponent;
 
 const meta: Meta<TableType> = {
-  title: "Moon DS/Table",
+  title: "Content Display/Table",
   tags: ["autodocs"],
   render: ({ ...args }) => {
     return <TableComponent {...args} />;

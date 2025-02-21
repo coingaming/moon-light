@@ -15,7 +15,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof SwitchComponent> = {
-  title: "Moon DS/Switch",
+  title: "Forms & selection controls/Switch",
   tags: ["autodocs"],
   argTypes: {
     size: {

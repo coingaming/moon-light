@@ -20,7 +20,7 @@ type DrawerComponentProps = React.ComponentProps<typeof DrawerComponent> &
   PanelProps;
 
 const meta: Meta<DrawerComponentProps> = {
-  title: "Moon DS/Drawer",
+  title: "Containers & layout/Drawer",
   tags: ["autodocs"],
   argTypes: {
     open: {
