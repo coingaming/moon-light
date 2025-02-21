@@ -10,6 +10,13 @@ const defaultValues: Record<string, string | boolean> = {
   className: "",
 };
 
+type AccordionProps = React.ComponentProps<typeof AccordionComponent> & {
+  children?: React.ReactNode;
+};
+
+const Accordion: React.FC<AccordionProps> = ({ children, ...props }) => (
+  <AccordionComponent {...props}>{children}</AccordionComponent>
+);
 const meta: Meta<typeof AccordionComponent> = {
   title: "Content Display/Accordion",
   tags: ["autodocs"],
@@ -63,7 +70,7 @@ const meta: Meta<typeof AccordionComponent> = {
       },
     },
   },
-  render: ({ itemSize, singleOpen, className, defaultValue, ...args }) => {
+  render: ({ itemSize, singleOpen, className, defaultValue }) => {
     const rootProps = getDefaultValues(
       {
         itemSize,
@@ -73,9 +80,8 @@ const meta: Meta<typeof AccordionComponent> = {
       },
       defaultValues,
     );
-
     return (
-      <AccordionComponent {...rootProps}>
+      <Accordion {...rootProps}>
         <AccordionComponent.Item
           value="item-1"
           className="border border-beerus rounded-moon-s-sm"
@@ -120,7 +126,7 @@ const meta: Meta<typeof AccordionComponent> = {
             {/* cSpell:enable */}
           </AccordionComponent.Content>
         </AccordionComponent.Item>
-      </AccordionComponent>
+      </Accordion>
     );
   },
 };
@@ -129,7 +135,7 @@ export default meta;
 
 type Story = StoryObj<typeof AccordionComponent>;
 
-export const Accordion: Story = {
+export const Playground: Story = {
   args: {
     singleOpen: false,
     className: "",

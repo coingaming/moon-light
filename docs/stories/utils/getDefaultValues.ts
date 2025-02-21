@@ -2,7 +2,7 @@ import React from "react";
 
 export type DefaultValue = Record<
   string,
-  string | boolean | number | React.ReactNode | undefined
+  string | boolean | number | React.ReactNode | object | undefined
 >;
 
 const getDefaultValues = (obj: DefaultValue, defaultValues: DefaultValue) => {

@@ -6,7 +6,25 @@ import {
 import type { Meta, StoryObj } from "@storybook/react";
 import getDefaultValues from "./utils/getDefaultValues";
 
-type CarouselComponentProps = typeof CarouselComponent;
+type CarouselRootProps = {
+  scrollTo?: number;
+  className?: string;
+  step?: number;
+  selectedIndex?: number;
+  autoSlideDelay?: number;
+  isSwipeDragDisabled?: boolean;
+  isRtl?: boolean;
+  children?:
+    | React.ReactNode
+    | ((data: {
+        scrollLeftToStep?: () => void;
+        scrollRightToStep?: () => void;
+        canScrollLeft?: boolean;
+        canScrollRight?: boolean;
+        firstVisibleIndex?: number;
+        lastVisibleIndex?: number;
+      }) => React.ReactElement);
+};
 
 const defaultValues = {
   step: 5,
@@ -18,7 +36,11 @@ const defaultValues = {
   isSwipeDragDisabled: false,
 };
 
-const meta: Meta<CarouselComponentProps> = {
+const Carousel = ({ children, ...restProps }: CarouselRootProps) => {
+  return <CarouselComponent {...restProps}>{children}</CarouselComponent>;
+};
+
+const meta: Meta<CarouselRootProps> = {
   component: CarouselComponent,
   title: "Content Display/Carousel",
   tags: ["autodocs"],
@@ -114,7 +136,7 @@ const meta: Meta<CarouselComponentProps> = {
     );
 
     return (
-      <CarouselComponent {...rootProps}>
+      <Carousel {...rootProps}>
         <CarouselComponent.LeftArrow data-testid="left-arrow">
           <ControlsChevronLeftSmall />
         </CarouselComponent.LeftArrow>
@@ -133,15 +155,15 @@ const meta: Meta<CarouselComponentProps> = {
         <CarouselComponent.RightArrow data-testid="right-arrow">
           <ControlsChevronRightSmall />
         </CarouselComponent.RightArrow>
-      </CarouselComponent>
+      </Carousel>
     );
   },
 };
 
 export default meta;
 
-type Story = StoryObj<CarouselComponentProps>;
+type Story = StoryObj<CarouselRootProps>;
 
-export const Carousel: Story = {
+export const Playground: Story = {
   args: defaultValues,
 };
