@@ -13,7 +13,7 @@ const defaultValues = {
 };
 
 const meta: Meta<typeof TagComponent> = {
-  title: "Components/Tag",
+  title: "Indicators & status/Tag",
   tags: ["autodocs"],
   argTypes: {
     children: {

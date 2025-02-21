@@ -10,7 +10,7 @@ const defaultProps = {
 };
 
 const meta: Meta<typeof LoaderComponent> = {
-  title: "Components/Loader",
+  title: "Indicators & status/Loader",
   component: LoaderComponent,
   tags: ["autodocs"],
   argTypes: {
