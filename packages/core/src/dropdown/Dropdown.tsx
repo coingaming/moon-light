@@ -1,4 +1,4 @@
-import React, { Fragment, forwardRef } from "react";
+import React, { ElementType, Fragment, forwardRef } from "react";
 import { Listbox } from "@headlessui/react";
 import { usePopper } from "react-popper";
 import type DropdownRootProps from "./private/types/DropdownRootProps";
@@ -24,6 +24,7 @@ const DropdownRoot = ({
   className,
   onClear,
   position = "bottom-start",
+  as,
   ...rest
 }: DropdownRootProps) => {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>();
@@ -69,6 +70,7 @@ const DropdownRoot = ({
           value={value}
           onChange={onChange}
           disabled={disabled}
+          as={as}
           {...rest}
         >
           {({ open }) => (
@@ -297,13 +299,15 @@ const InsetMultiSelect = ({
 const Trigger = ({
   children,
   className,
+  as,
   ...rest
-}: WithChildren<{ className?: string }>) => {
+}: WithChildren<{ className?: string; as?: ElementType }>) => {
   const { popper } = useDropdownContext("Dropdown.Trigger");
   return (
     <Listbox.Button
       ref={popper?.setAnchor}
       className={className && className}
+      as={as}
       {...rest}
     >
       {children}
