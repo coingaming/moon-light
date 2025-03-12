@@ -12,6 +12,7 @@ interface PopoverRootProps
   autoPositionDisable?: boolean;
   className?: string;
   children?: React.ReactNode | ((data: { open?: boolean }) => React.ReactNode);
+  portalElement?: React.ReactNode;
 }
 
 export default PopoverRootProps;
