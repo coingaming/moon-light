@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Popover as HeadlessPopover } from "@headlessui/react";
+import { Popover as HeadlessPopover, Portal } from "@headlessui/react";
 import { usePopper } from "react-popper";
 import type CallableChildren from "./private/types/CallableChildren";
 import type GroupProps from "./private/types/GroupProps";
@@ -15,6 +15,7 @@ const PopoverRoot = ({
   position = "bottom",
   className,
   autoPositionDisable = false,
+  portalElement,
 }: PopoverRootProps) => {
   const [anchorEl, setAnchorEl] = React.useState<Element | null>();
   const [popperEl, setPopperEl] = React.useState<HTMLElement | null>();
@@ -62,6 +63,7 @@ const PopoverRoot = ({
     typeof children !== "function" ? React.Children.toArray(children) : [];
   const callableChildren =
     typeof children === "function" && (children as CallableChildren);
+
   return (
     <PopoverContext.Provider value={{ ...states, ...state, registerChild }}>
       <HeadlessPopover className={mergeClassnames("relative", className)}>
@@ -70,6 +72,11 @@ const PopoverRoot = ({
             {typeof children === "function"
               ? callableChildren && callableChildren({ open })
               : childArray.map((ch) => ch)}
+            {portalElement && (
+              <Portal>
+                <Panel>{portalElement}</Panel>
+              </Portal>
+            )}
           </>
         )}
       </HeadlessPopover>
