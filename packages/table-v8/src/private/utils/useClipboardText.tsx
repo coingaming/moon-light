@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { CopyTextToClipboardOutputType } from "../types/CellCopiedClipboardTypes";
-
+import { CellCopyTextOuputType } from "../types/CellCopy";
 const TOOLTIP_TIME_OUT = 850;
 
-export const useCopyTextToClipboard = (): CopyTextToClipboardOutputType => {
+export const useCellCopyText = (): CellCopyTextOuputType => {
   const [mouseEnter, setMouseEnter] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
   const [wasCopiedSuccess, setWasCopiedSuccess] = useState<boolean>(false);
   const textRef = useRef<HTMLDivElement>(null);
-  const timeoutTooltip = useRef<NodeJS.Timeout | null>(null);
+  const timeoutTooltip = useRef<number | null>(null);
 
   useEffect(() => {
     if (!copied) {

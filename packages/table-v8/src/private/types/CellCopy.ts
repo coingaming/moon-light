@@ -1,6 +1,6 @@
 import { RefObject } from "react";
 
-export type CopyTextToClipboardOutputType = {
+export type CellCopyTextOuputType = {
   wasCopiedSuccess: boolean;
   mouseEnterHandler: () => void;
   mouseLeaveHandler: () => void;
@@ -9,7 +9,7 @@ export type CopyTextToClipboardOutputType = {
   onClickHandler: () => void;
 };
 
-export type CellCopiedClipboardWrapperProps = {
+export type CellCopyWrapperProps = {
   children: React.ReactNode;
   classes?: {
     wrapperClass?: string;

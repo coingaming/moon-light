@@ -1,13 +1,10 @@
 import React from "react";
 import { FilesCopy } from "@heathmont/moon-icons-tw";
 import { Tooltip } from "@heathmont/moon-core-tw";
-import { useCopyTextToClipboard } from "../private/utils/useCopyTextToClipboard";
-import { CellCopiedClipboardWrapperProps } from "../private/types/CellCopiedClipboardTypes";
+import { useCellCopyText } from "../private/utils/useClipboardText";
+import { CellCopyWrapperProps } from "../private/types/CellCopy";
 
-const CellCopiedClipboardWrapper = ({
-  children,
-  classes,
-}: CellCopiedClipboardWrapperProps) => {
+const CellCopyWrapper = ({ children, classes }: CellCopyWrapperProps) => {
   const {
     wasCopiedSuccess,
     mouseEnterHandler,
@@ -15,7 +12,7 @@ const CellCopiedClipboardWrapper = ({
     textRef,
     mouseEnter,
     onClickHandler,
-  } = useCopyTextToClipboard();
+  } = useCellCopyText();
   const wrapperClasses = `cursor-pointer flex ${classes?.wrapperClass ?? ""}`;
   const iconClass = `text-moon-18 top-0 ${classes?.iconClass ?? ""}`;
 
@@ -52,4 +49,4 @@ const CellCopiedClipboardWrapper = ({
   );
 };
 
-export default CellCopiedClipboardWrapper;
+export default CellCopyWrapper;
