@@ -21,6 +21,7 @@ type TDProps = {
   columnData?: ColumnData;
   textClip?: ClipProps;
   withBorder?: CellBorderType;
+  isCellDataCopiedToClipboard: boolean;
 };
 
 export default TDProps;
