@@ -47,7 +47,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   onRowSelectionChange?: OnChangeFn<RowSelectionState>;
   onSortingChange?: OnChangeFn<SortingState>;
   onColumnVisibilityChange?: OnChangeFn<VisibilityState>;
-  isCellDataCopiedToClipboard?:boolean;
+  isCellDataCopiedToClipboard?: boolean;
 };
 
 export default TableProps;

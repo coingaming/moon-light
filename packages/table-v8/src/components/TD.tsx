@@ -43,7 +43,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>((props, ref) => {
     columnData,
     textClip,
     withBorder,
-    isCellDataCopiedToClipboard
+    isCellDataCopiedToClipboard,
   } = props;
   const stickyColumn: StickyColumn = cell.column.parent
     ? cell.column.parent?.columnDef
@@ -75,7 +75,6 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>((props, ref) => {
     );
   }
 
-
   return (
     <td
       key={cell.id}
@@ -95,12 +94,13 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>((props, ref) => {
       )}
       ref={ref}
     >
-      
-      {isCellDataCopiedToClipboard ?
+      {isCellDataCopiedToClipboard ? (
         <CellCopiedClipboardWrapper>
           <TDContent {...props} stickySide={stickySide} />
         </CellCopiedClipboardWrapper>
-      : <TDContent {...props} stickySide={stickySide} />}
+      ) : (
+        <TDContent {...props} stickySide={stickySide} />
+      )}
     </td>
   );
 });

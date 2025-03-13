@@ -54,7 +54,7 @@ const Table: React.FC<TableProps> = ({
   onRowSelectionChange,
   onSortingChange,
   onColumnVisibilityChange,
-  isCellDataCopiedToClipboard = false
+  isCellDataCopiedToClipboard = false,
 }) => {
   const [columnResizeMode] = React.useState<ColumnResizeMode>("onChange");
 
