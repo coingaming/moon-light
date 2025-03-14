@@ -1,6 +1,6 @@
 import { RefObject } from "react";
 
-export type CellCopyTextOuputType = {
+export type CellCopyTextOutputType = {
   wasCopiedSuccess: boolean;
   mouseEnterHandler: () => void;
   mouseLeaveHandler: () => void;
