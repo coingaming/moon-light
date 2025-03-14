@@ -5,36 +5,21 @@ import { useCellCopyText } from "../private/utils/useClipboardText";
 import { CellCopyWrapperProps } from "../private/types/CellCopy";
 
 const CellCopyWrapper = ({ children, classes }: CellCopyWrapperProps) => {
-  const {
-    wasCopiedSuccess,
-    mouseEnterHandler,
-    mouseLeaveHandler,
-    textRef,
-    mouseEnter,
-    onClickHandler,
-  } = useCellCopyText();
-  const wrapperClasses = `cursor-pointer flex ${classes?.wrapperClass ?? ""}`;
-  const iconClass = `text-moon-18 top-0 ${classes?.iconClass ?? ""}`;
+  const { wasCopiedSuccess, textRef, onClickHandler } = useCellCopyText();
+  const wrapperClasses = `cursor-pointer flex group ${
+    classes?.wrapperClass ?? ""
+  }`;
+  const iconClass = `hidden group-hover:inline-block text-moon-18 top-0 ${
+    classes?.iconClass ?? ""
+  }`;
 
   return (
-    <div
-      ref={textRef}
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
-      className={wrapperClasses}
-      onClick={onClickHandler}
-    >
+    <div ref={textRef} className={wrapperClasses} onClick={onClickHandler}>
       <p className="relative flex whitespace-nowrap">
-        {mouseEnter ? (
-          <>
-            {children}
-            <span className={iconClass}>
-              <FilesCopy />
-            </span>
-          </>
-        ) : (
-          children
-        )}
+        {children}
+        <span className={iconClass}>
+          <FilesCopy />
+        </span>
         {wasCopiedSuccess ? (
           <Tooltip>
             {
