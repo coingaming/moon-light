@@ -16,6 +16,7 @@ interface DropdownRootProps
   position?: Placement;
   children?: React.ReactNode | ((data: { open?: boolean }) => React.ReactNode);
   ref?: React.Ref<HTMLElement>;
+  as?: React.ElementType;
 }
 
 export default DropdownRootProps;
