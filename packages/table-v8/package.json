@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@heathmont/moon-core-tw": "^10.20.0",
-    "@heathmont/moon-icons-tw": "^9.29.6",
     "@tanstack/react-table": "^8.20.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"

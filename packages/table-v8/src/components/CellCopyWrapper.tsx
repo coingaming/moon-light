@@ -1,8 +1,8 @@
 import React from "react";
-import { FilesCopy } from "@heathmont/moon-icons-tw";
-import { Tooltip } from "@heathmont/moon-core-tw";
+import { Popover } from "@heathmont/moon-core-tw";
 import { useCellCopyText } from "../private/utils/useClipboardText";
 import { CellCopyWrapperProps } from "../private/types/CellCopy";
+import { FilesCopy } from "../private/icons/FilesCopy";
 
 const CellCopyWrapper = ({ children, classes }: CellCopyWrapperProps) => {
   const { wasCopiedSuccess, textRef, onClickHandler } = useCellCopyText();
@@ -14,23 +14,25 @@ const CellCopyWrapper = ({ children, classes }: CellCopyWrapperProps) => {
   }`;
 
   return (
-    <div ref={textRef} className={wrapperClasses} onClick={onClickHandler}>
-      <p className="relative flex whitespace-nowrap">
-        {children}
-        <span className={iconClass}>
-          <FilesCopy />
-        </span>
-        {wasCopiedSuccess ? (
-          <Tooltip>
-            {
-              <p className="absolute bg-bulma p-2 text-goku z-[60] translate-y-full top-[-7px]">
-                Copied to clipboard
-              </p>
-            }
-          </Tooltip>
-        ) : null}
-      </p>
-    </div>
+    <Popover
+      data-testid="popover"
+      portalElement={
+        wasCopiedSuccess ? (
+          <p className="p-2 flex justify-center">Copied to clipboard</p>
+        ) : null
+      }
+    >
+      <Popover.Trigger data-testid="popover-trigger">
+        <div ref={textRef} className={wrapperClasses} onClick={onClickHandler}>
+          <p className="relative flex whitespace-nowrap">
+            {children}
+            <span className={iconClass}>
+              <FilesCopy />
+            </span>
+          </p>
+        </div>
+      </Popover.Trigger>
+    </Popover>
   );
 };
 
