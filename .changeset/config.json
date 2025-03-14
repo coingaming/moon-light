@@ -9,8 +9,7 @@
       "@heathmont/moon-cmdk-tw",
       "@heathmont/moon-core-tw",
       "@heathmont/moon-table-v8-tw",
-      "@heathmont/moon-themes-tw",
-      "docs"
+      "@heathmont/moon-themes-tw"
     ]
   ],
   "access": "restricted",
