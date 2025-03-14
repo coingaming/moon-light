@@ -1,8 +1,8 @@
 # docs
 
-## 10.23.0
+## 10.22.1
 
-### Minor Changes
+### Patch Changes
 
 - bffa150: feat: add Snackbar story [MDS-1556]
 - 73a8f9d: feat: Add Form story [MDS-1542]
@@ -25,6 +25,7 @@
 - 6efc0ff: feat: Add Drawer story [MDS-1540]
 - 2a1355f: feat: add releases section [MDS-1636]
 - 7fa4fb2: fix: place components in proper sections [MDS-1652]
+- 7e9d1e7: fix: remove storybook [MDS-1692]
 - 05cbf15: feat: add Tabs story [MDS-1558]
 - 3b860ca: add pagination story [MDS-1551]
 - ed1cf8c: feat: Add Breadcrumb story [MDS-1536]
@@ -32,6 +33,8 @@
 - 897e73c: feat: add popover story [MDS-1552]
 - cf0a99e: feat: add Typography documentation [MDS-1642]
 - a98c7f2: feat: add Tag story [MDS-1559]
+- Updated dependencies [129cc44]
+  - @heathmont/moon-core-tw@10.22.1
 
 ## 10.22.0
 
