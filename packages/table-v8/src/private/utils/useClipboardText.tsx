@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { CellCopyTextOuputType } from "../types/CellCopy";
+import { CellCopyTextOutputType } from "../types/CellCopy";
 const TOOLTIP_TIME_OUT = 850;
 
-export const useCellCopyText = (): CellCopyTextOuputType => {
+export const useCellCopyText = (): CellCopyTextOutputType => {
   const [mouseEnter, setMouseEnter] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
   const [wasCopiedSuccess, setWasCopiedSuccess] = useState<boolean>(false);
