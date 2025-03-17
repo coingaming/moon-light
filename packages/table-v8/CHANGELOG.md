@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.21.1
+
+### Patch Changes
+
+- c7cf657: fix: update core dependency [MDS-1664]
+
 ## 10.21.0
 
 ### Minor Changes
