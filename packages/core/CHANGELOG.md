@@ -1,5 +1,12 @@
 # @heathmont/moon-core-tw
 
+## 10.21.1
+
+### Patch Changes
+
+- 72d82f9: fix: fix scroll behavior when clicking on icon [MDS-1663]
+- 129cc44: fix: allows portal component - popover [MDS-1668]
+
 ## 10.21.0
 
 ### Patch Changes
