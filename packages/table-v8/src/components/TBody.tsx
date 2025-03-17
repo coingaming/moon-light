@@ -19,6 +19,7 @@ const TBody = ({
   rowHoverColor,
   textClip,
   withBorder,
+  isCellDataCopiedToClipboard,
   getOnRowClickHandler,
 }: TBodyProps) => {
   const isRowElementClicked = (event: unknown) =>
@@ -110,6 +111,7 @@ const TBody = ({
                 }
                 textClip={textClip}
                 withBorder={withBorder}
+                isCellDataCopiedToClipboard={isCellDataCopiedToClipboard}
               />
             ))}
           </tr>

@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.21.0
+
+### Minor Changes
+
+- 9172ccd: feat: allow copying text to clipboard [MDS-1664]
+
 ## 10.20.0
 
 ### Minor Changes
