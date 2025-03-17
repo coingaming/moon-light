@@ -28,17 +28,15 @@ export const useCellCopyText = (): CellCopyTextOutputType => {
     };
   }, [wasCopiedSuccess]);
 
-  const onClickHandler = () => {
-    (async () => {
-      try {
-        if (textRef?.current) {
-          await navigator?.clipboard.writeText(textRef.current.innerText);
-          setWasCopiedSuccess(true);
-        }
-      } catch (err) {
-        console.error("Failed to copy:", err);
+  const onClickHandler = async () => {
+    try {
+      if (textRef?.current) {
+        await navigator?.clipboard.writeText(textRef.current.innerText);
+        setWasCopiedSuccess(true);
       }
-    })();
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
   };
 
   return {

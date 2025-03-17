@@ -18,7 +18,7 @@ const CellCopyWrapper = ({ children, classes }: CellCopyWrapperProps) => {
       data-testid="popover"
       portalElement={
         wasCopiedSuccess ? (
-          <p className="p-2 flex justify-center">Copied to clipboard</p>
+          <p className="p-1 flex justify-center">Copied to clipboard</p>
         ) : null
       }
     >
