@@ -209,7 +209,7 @@ importers:
   packages/table-v8:
     dependencies:
       '@heathmont/moon-core-tw':
-        specifier: ^10.20.0
+        specifier: ^10.21.1
         version: link:../core
       '@tanstack/react-table':
         specifier: ^8.20.5
