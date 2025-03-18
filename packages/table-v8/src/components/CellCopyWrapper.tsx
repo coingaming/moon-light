@@ -1,38 +1,34 @@
 import React from "react";
-import { Popover } from "@heathmont/moon-core-tw";
 import { useCellCopyText } from "../private/utils/useClipboardText";
 import { CellCopyWrapperProps } from "../private/types/CellCopy";
 import { FilesCopy } from "../private/icons/FilesCopy";
+import GenericCheckRounded from "../private/icons/GenericCheckRounded";
 
-const CellCopyWrapper = ({ children, classes }: CellCopyWrapperProps) => {
+const CellCopyWrapper = ({ children }: CellCopyWrapperProps) => {
   const { wasCopiedSuccess, textRef, onClickHandler } = useCellCopyText();
-  const wrapperClasses = `cursor-pointer flex group ${
-    classes?.wrapperClass ?? ""
-  }`;
-  const iconClass = `hidden group-hover:inline-block text-moon-18 top-0 ${
-    classes?.iconClass ?? ""
-  }`;
 
   return (
-    <Popover
-      data-testid="popover"
-      portalElement={
-        wasCopiedSuccess ? (
-          <p className="p-1 flex justify-center">Copied to clipboard</p>
-        ) : null
-      }
+    <span
+      className="cursor-pointer group"
+      onClick={onClickHandler}
+      ref={textRef}
     >
-      <Popover.Trigger data-testid="popover-trigger">
-        <div ref={textRef} className={wrapperClasses} onClick={onClickHandler}>
-          <p className="relative flex whitespace-nowrap">
-            {children}
-            <span className={iconClass}>
+      {children}
+      <span className="absolute">
+        <span className="hidden group-hover:inline-block text-moon-18 top-0">
+          {wasCopiedSuccess ? (
+            <span className="text-moon-18 top-2">
+              <GenericCheckRounded />
+            </span>
+          ) : (
+            <span className="hidden group-hover:inline-block text-moon-18 top-2">
+              {" "}
               <FilesCopy />
             </span>
-          </p>
-        </div>
-      </Popover.Trigger>
-    </Popover>
+          )}
+        </span>
+      </span>
+    </span>
   );
 };
 

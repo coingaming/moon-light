@@ -8,8 +8,4 @@ export type CellCopyTextOutputType = {
 
 export type CellCopyWrapperProps = {
   children: React.ReactNode;
-  classes?: {
-    wrapperClass?: string;
-    iconClass?: string;
-  };
 };
