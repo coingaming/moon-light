@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.22.0
+
+### Minor Changes
+
+- fix: place copy behavoiur in core [MDS-1664]
+
 ## 10.21.1
 
 ### Patch Changes
