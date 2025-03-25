@@ -1,5 +1,13 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.21.2
+
+### Patch Changes
+
+- fix: place copy behavoiur in core [MDS-1664]
+- Updated dependencies
+  - @heathmont/moon-core-tw@10.22.0
+
 ## 10.21.1
 
 ### Patch Changes

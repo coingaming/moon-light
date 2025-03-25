@@ -6,7 +6,6 @@ import type { Cell } from "../private/types";
 import type StickyColumn from "../private/types/StickyColumn";
 import type TDProps from "../private/types/TDProps";
 import TDContent from "./TDContent";
-import CellCopyWrapper from "./CellCopyWrapper";
 
 const getStickyShift = (
   cells: Cell<{}, unknown>[],
@@ -43,7 +42,6 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>((props, ref) => {
     columnData,
     textClip,
     withBorder,
-    isCellDataCopiedToClipboard,
   } = props;
   const stickyColumn: StickyColumn = cell.column.parent
     ? cell.column.parent?.columnDef
@@ -94,13 +92,7 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>((props, ref) => {
       )}
       ref={ref}
     >
-      {isCellDataCopiedToClipboard ? (
-        <CellCopyWrapper>
-          <TDContent {...props} stickySide={stickySide} />
-        </CellCopyWrapper>
-      ) : (
-        <TDContent {...props} stickySide={stickySide} />
-      )}
+      <TDContent {...props} stickySide={stickySide} />
     </td>
   );
 });

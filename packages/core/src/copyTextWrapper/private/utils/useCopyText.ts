@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { CellCopyTextOutputType } from "../types/CellCopy";
+import { CellCopyTextOutputType } from "../types/copyTextTypes";
+
 const TOOLTIP_TIME_OUT = 700;
 
-export const useCellCopyText = (): CellCopyTextOutputType => {
+export const useCopyText = (): CellCopyTextOutputType => {
   const [wasCopiedSuccess, setWasCopiedSuccess] = useState<boolean>(false);
   const textRef = useRef<HTMLDivElement>(null);
   const timeoutTooltip = useRef<number | null>(null);

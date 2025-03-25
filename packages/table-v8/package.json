@@ -1,7 +1,7 @@
 {
   "name": "@heathmont/moon-table-v8-tw",
   "sideEffects": false,
-  "version": "10.21.1",
+  "version": "10.21.2",
   "files": [
     "lib"
   ],
@@ -15,7 +15,7 @@
     "build": "tsc --project tsconfig.esm.json"
   },
   "dependencies": {
-    "@heathmont/moon-core-tw": "^10.21.1",
+    "@heathmont/moon-core-tw": "^10.22.0",
     "@tanstack/react-table": "^8.20.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"

@@ -92,3 +92,4 @@ export { default as InsetFileInput } from "./insetFileInput/InsetFileInput";
 export * from "./insetFileInput/InsetFileInput";
 export { default as Badge } from "./badge/Badge";
 export * from "./badge/Badge";
+export * from "./copyTextWrapper/CopyTextWrapper";
