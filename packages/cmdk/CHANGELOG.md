@@ -1,5 +1,13 @@
 # @heathmont/moon-cmdk-tw
 
+## 10.22.1
+
+### Patch Changes
+
+- feat: add readme files to moon-light packages [MDS-1568]
+- Updated dependencies
+  - @heathmont/moon-core-tw@10.22.1
+
 ## 10.17.3
 
 ### Patch Changes
