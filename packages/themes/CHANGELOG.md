@@ -1,5 +1,11 @@
 # @heathmont/moon-themes-tw
 
+## 10.22.1
+
+### Patch Changes
+
+- feat: add readme files to moon-light packages [MDS-1568]
+
 ## 10.18.1
 
 ### Patch Changes
