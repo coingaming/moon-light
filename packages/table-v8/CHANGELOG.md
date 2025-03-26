@@ -1,5 +1,13 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.22.2
+
+### Patch Changes
+
+- fix: add readme files
+- Updated dependencies
+  - @heathmont/moon-core-tw@10.22.2
+
 ## 10.22.1
 
 ### Patch Changes

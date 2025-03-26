@@ -1,5 +1,11 @@
 # @heathmont/moon-base-tw
 
+## 10.22.2
+
+### Patch Changes
+
+- fix: add readme files
+
 ## 10.22.1
 
 ### Patch Changes
