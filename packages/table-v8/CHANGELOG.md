@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.22.3
+
+### Patch Changes
+
+- fix: installation script for table-v8
+
 ## 10.22.2
 
 ### Patch Changes
