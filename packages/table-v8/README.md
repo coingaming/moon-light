@@ -15,19 +15,19 @@ A Table component designed to provide flexibility and reusability for building d
 Install via npm:
 
 ```bash
-npm install @heathmont/moon-table-tw
+npm install @heathmont/moon-table-v8-tw
 ```
 
 Or using pnpm:
 
 ```bash
-pnpm install @heathmont/moon-table-tw
+pnpm install @heathmont/moon-table-v8-tw
 ```
 
 Or yarn:
 
 ```bash
-yarn @heathmont/moon-table-tw
+yarn @heathmont/moon-table-v8-tw
 ```
 
 ## 🎯 Usage
