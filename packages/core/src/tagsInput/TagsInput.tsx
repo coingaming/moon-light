@@ -42,7 +42,7 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
       useNavigationTags(selected.length);
 
     useEffect(() => {
-      if (selectedTagIndex && !isFocused) {
+      if (selectedTagIndex !== NO_FOCUS_TAG && !isFocused) {
         inputRef?.current && inputRef.current.focus();
       }
     }, [selectedTagIndex, isFocused]);
@@ -225,9 +225,7 @@ const SelectedItem = ({
           onClick={onClick}
           {...(selectedTagIndex === index
             ? {
-                className: classNameTagOnFocus
-                  ? classNameTagOnFocus
-                  : "bg-piccolo",
+                className: classNameTagOnFocus ?? "bg-piccolo",
               }
             : {})}
         >
