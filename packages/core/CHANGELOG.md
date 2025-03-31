@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.23.0
+
+### Minor Changes
+
+- fix: add navigation behaviour - TagsInput [MDS-1711]
+
 ## 10.22.2
 
 ### Patch Changes
