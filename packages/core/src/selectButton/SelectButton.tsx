@@ -110,7 +110,12 @@ const Value = ({ children }: { children?: React.ReactNode }) => {
   );
 };
 
-const Label = ({ children, labelSize, idDisabled }: LabelProps) => {
+const Label = ({
+  children,
+  labelSize,
+  idDisabled,
+  htmlFor = "",
+}: LabelProps) => {
   const { size } = useSelectButtonContext("SelectButton.Label");
   const currentSize = labelSize || size;
   return (
@@ -120,6 +125,7 @@ const Label = ({ children, labelSize, idDisabled }: LabelProps) => {
         currentSize === "sm" ? "text-moon-14" : "text-moon-16",
         idDisabled && "opacity-60 cursor-not-allowed",
       )}
+      htmlFor={htmlFor}
     >
       {children}
     </Listbox.Label>
@@ -159,9 +165,15 @@ const Control = () => {
   );
 };
 
-const Chip = ({ children, onClear, isUppercase, ...rest }: ChipProps) => {
+const Chip = ({
+  children,
+  onClear,
+  isUppercase,
+  onClick,
+  ...rest
+}: ChipProps) => {
   const { size } = useSelectButtonContext("SelectButton.Control");
-  const clickHandler = useCallback(
+  const closeOnClick = useCallback(
     (e: any) => {
       e.preventDefault();
       onClear && onClear();
@@ -171,8 +183,9 @@ const Chip = ({ children, onClear, isUppercase, ...rest }: ChipProps) => {
   return (
     <Tag
       size={size === "sm" ? "2xs" : "xs"}
+      {...(onClick ? { onClick } : {})}
       iconRight={
-        <ControlsCloseSmall onClick={clickHandler} className="cursor-pointer" />
+        <ControlsCloseSmall onClick={closeOnClick} className="cursor-pointer" />
       }
       isUppercase={isUppercase}
       {...rest}
