@@ -253,7 +253,7 @@ const SelectedItem = ({
           onClick={onClick}
           className={mergeClassnames(
             selectedTagIndex === index
-              ? classNameTagOnFocus ?? "bg-piccolo"
+              ? (classNameTagOnFocus ?? "bg-piccolo")
               : "",
           )}
         >
