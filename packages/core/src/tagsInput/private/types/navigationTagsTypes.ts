@@ -5,8 +5,12 @@ export enum KEYS {
   ARROW_LEFT = "ArrowLeft",
 }
 
+export type ArrowKeysType = KEYS.ARROW_LEFT | KEYS.ARROW_RIGHT;
+
+export const ARROW_KEYS = [KEYS.ARROW_LEFT, KEYS.ARROW_RIGHT] as const;
+
 export type NavigationTagsOutput = {
   selectedTagIndex: number;
-  onKeyDownNavigationTags: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyDownNavigationTags: (keyCode: ArrowKeysType | false) => void;
   setSelectedTagIndex: (newIndex: number) => void;
 };

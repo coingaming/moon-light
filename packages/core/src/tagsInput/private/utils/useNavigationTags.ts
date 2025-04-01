@@ -1,40 +1,41 @@
 import { useState } from "react";
-import { KEYS, NavigationTagsOutput } from "../types/navigationTagsTypes";
+import {
+  ArrowKeysType,
+  KEYS,
+  NavigationTagsOutput,
+} from "../types/navigationTagsTypes";
 
 export const NO_FOCUS_TAG = -1;
+
+const navigateTags = (
+  selectedTagIndex: number,
+  tagsLength: number,
+  keyCode: ArrowKeysType,
+) => {
+  if (keyCode === KEYS.ARROW_RIGHT) {
+    return selectedTagIndex < tagsLength ? selectedTagIndex + 1 : NO_FOCUS_TAG;
+  }
+
+  return selectedTagIndex === NO_FOCUS_TAG
+    ? tagsLength - 1
+    : selectedTagIndex - 1;
+};
 
 export const useNavigationTags = (tagsLength: number): NavigationTagsOutput => {
   const [selectedTagIndex, setSelectedTagIndex] =
     useState<number>(NO_FOCUS_TAG);
 
-  const onKeyDownNavigationTags = (
-    e: React.KeyboardEvent<HTMLInputElement>,
-  ) => {
-    if (e?.code === KEYS.ARROW_RIGHT) {
-      if (selectedTagIndex === NO_FOCUS_TAG) {
-        return;
-      }
-
-      const newValue =
-        selectedTagIndex + 1 === tagsLength
-          ? NO_FOCUS_TAG
-          : selectedTagIndex + 1;
-
-      setSelectedTagIndex(newValue);
+  const onKeyDownNavigationTags = (keyCode: ArrowKeysType | false) => {
+    if (
+      !keyCode ||
+      (keyCode === KEYS.ARROW_RIGHT && selectedTagIndex === NO_FOCUS_TAG) ||
+      (keyCode === KEYS.ARROW_LEFT && !selectedTagIndex)
+    ) {
+      return;
     }
 
-    if (e?.code === KEYS.ARROW_LEFT) {
-      if (selectedTagIndex === 0) {
-        return;
-      }
-
-      const newValue =
-        selectedTagIndex === NO_FOCUS_TAG
-          ? tagsLength - 1
-          : selectedTagIndex - 1;
-
-      setSelectedTagIndex(newValue);
-    }
+    const newValue = navigateTags(selectedTagIndex, tagsLength, keyCode);
+    setSelectedTagIndex(newValue);
   };
 
   return {

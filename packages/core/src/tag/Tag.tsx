@@ -17,7 +17,7 @@ const Tag = ({
   onClick,
 }: TagProps) => (
   <div
-    {...(onClick ? { onClick } : {})}
+    onClick={onClick}
     className={mergeClassnames(
       "flex items-center rounded-moon-i-xs gap-1 select-none text-goku bg-bulma",
       getSize({ size, iconRight, iconLeft }),

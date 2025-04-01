@@ -9,7 +9,11 @@ import {
   useTagsInputContext,
 } from "./private/utils/useTagsInputContext";
 import { Input as NativeInput, SelectButton, mergeClassnames } from "../index";
-import { KEYS } from "./private/types/navigationTagsTypes";
+import {
+  ARROW_KEYS,
+  ArrowKeysType,
+  KEYS,
+} from "./private/types/navigationTagsTypes";
 import {
   NO_FOCUS_TAG,
   useNavigationTags,
@@ -115,6 +119,35 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
       setInputValue("");
     };
 
+    const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      const value = (e.target as HTMLInputElement).value;
+      const keyCode = e.code as KEYS;
+
+      addTag(keyCode, value);
+      clearTags(keyCode, value);
+
+      if (inputValue) {
+        return;
+      }
+
+      const arrowKey: ArrowKeysType | false = ARROW_KEYS.includes(
+        keyCode as ArrowKeysType,
+      )
+        ? (keyCode as ArrowKeysType)
+        : false;
+
+      onKeyDownNavigationTags(arrowKey);
+    };
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+      setInputValue(e.target.value);
+
+    const onFocus = (e: any) => {
+      setIsFocused(true);
+    };
+
+    const onInput = (e: React.FormEvent<HTMLInputElement>) => checkValidity(e);
+
     return (
       <TagsInputContext.Provider value={states}>
         <Listbox horizontal={false}>
@@ -161,17 +194,12 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
               error={isError || isInvalid}
               disabled={disabled}
               type={type}
-              onChange={(e) => setInputValue(e.target.value)}
+              onChange={onChange}
               value={inputValue}
-              onKeyDown={(e) => {
-                const value = (e.target as HTMLInputElement).value;
-                addTag(e.code as KEYS, value);
-                clearTags(e.code as KEYS, value);
-                onKeyDownNavigationTags(e);
-              }}
-              onFocus={() => setIsFocused(true)}
+              onKeyDown={onKeyDown}
+              onFocus={onFocus}
               onBlur={addTagsOnBlur}
-              onInput={(e) => checkValidity(e)}
+              onInput={onInput}
             />
           </span>
         </Listbox>

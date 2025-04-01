@@ -173,7 +173,7 @@ const Chip = ({
   ...rest
 }: ChipProps) => {
   const { size } = useSelectButtonContext("SelectButton.Control");
-  const closeOnClick = useCallback(
+  const onCloseHandler = useCallback(
     (e: any) => {
       e.preventDefault();
       onClear && onClear();
@@ -183,9 +183,12 @@ const Chip = ({
   return (
     <Tag
       size={size === "sm" ? "2xs" : "xs"}
-      {...(onClick ? { onClick } : {})}
+      onClick={onClick}
       iconRight={
-        <ControlsCloseSmall onClick={closeOnClick} className="cursor-pointer" />
+        <ControlsCloseSmall
+          onClick={onCloseHandler}
+          className="cursor-pointer"
+        />
       }
       isUppercase={isUppercase}
       {...rest}
