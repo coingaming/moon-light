@@ -89,7 +89,7 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
       if (
         keyCode !== KEYS.BACKSPACE ||
         value.length ||
-        selected.length === 0 ||
+        !selected.length ||
         !onClear
       ) {
         return;
@@ -251,11 +251,11 @@ const SelectedItem = ({
           isUppercase={isUppercase}
           onClear={() => !disabled && onClear && onClear(index)}
           onClick={onClick}
-          {...(selectedTagIndex === index
-            ? {
-                className: classNameTagOnFocus ?? "bg-piccolo",
-              }
-            : {})}
+          className={mergeClassnames(
+            selectedTagIndex === index
+              ? classNameTagOnFocus ?? "bg-piccolo"
+              : "",
+          )}
         >
           <span className="break-all truncate">{label}</span>
         </SelectButton.Chip>
