@@ -3,7 +3,6 @@ type SelectedItemProps = {
   label: string;
   className?: string;
   isUppercase?: boolean;
-  indexSelectedTag: number;
   classNameTagOnFocus?: string;
 };
 
