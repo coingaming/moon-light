@@ -1,5 +1,17 @@
 # @heathmont/moon-base-tw
 
+## 10.22.2
+
+### Patch Changes
+
+- fix: add readme files
+
+## 10.22.1
+
+### Patch Changes
+
+- feat: add readme files to moon-light packages [MDS-1568]
+
 ## 10.18.1
 
 ### Patch Changes

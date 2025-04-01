@@ -1,5 +1,27 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.22.3
+
+### Patch Changes
+
+- fix: installation script for table-v8
+
+## 10.22.2
+
+### Patch Changes
+
+- fix: add readme files
+- Updated dependencies
+  - @heathmont/moon-core-tw@10.22.2
+
+## 10.22.1
+
+### Patch Changes
+
+- feat: add readme files to moon-light packages [MDS-1568]
+- Updated dependencies
+  - @heathmont/moon-core-tw@10.22.1
+
 ## 10.21.2
 
 ### Patch Changes

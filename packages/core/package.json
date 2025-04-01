@@ -1,7 +1,7 @@
 {
   "name": "@heathmont/moon-core-tw",
   "sideEffects": false,
-  "version": "10.22.0",
+  "version": "10.22.2",
   "files": [
     "lib"
   ],
@@ -9,6 +9,7 @@
   "module": "lib/es/index.js",
   "typings": "lib/index.d.ts",
   "repository": "https://github.com/coingaming/moon-light",
+  "homepage": "https://moon.io",
   "author": "Yolo Group",
   "license": "MIT",
   "scripts": {

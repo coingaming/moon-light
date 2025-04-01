@@ -117,13 +117,11 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
     isRtl,
     handleMouseDown,
     handleMouseUp,
-    debounceMouseDown,
     debounceMouseUp,
     isDragging,
   } = useCarouselContext("Carousel.Reel");
   const arrayChildren = Children.toArray(children);
   const revertChildren = arrayChildren.reverse();
-  const debouncedMouseDown = debounceMouseDown ? debounceMouseDown() : null;
   const debouncedMouseUp = debounceMouseUp ? debounceMouseUp() : null;
 
   return (
@@ -187,7 +185,7 @@ const LeftArrow = ({ children, className, ...rest }: SubcomponentProps) => {
       size="sm"
       className={mergeClassnames(
         "max-sm:hidden shadow-moon-sm bg-goku text-bulma",
-        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -start-4",
+        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -start-4 rtl:-end-4 rtl:start-[auto]",
         className,
       )}
       onClick={scrollLeftToStep}
@@ -209,7 +207,7 @@ const RightArrow = ({ children, className, ...rest }: SubcomponentProps) => {
       size="sm"
       className={mergeClassnames(
         "max-sm:hidden shadow-moon-sm bg-goku text-bulma",
-        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -end-4",
+        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -end-4 rtl:-start-4 rtl:end-[auto]",
         className,
       )}
       onClick={scrollRightToStep}

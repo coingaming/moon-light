@@ -149,7 +149,7 @@ importers:
         specifier: 1.7.16
         version: 1.7.16(react-dom@18.2.0)(react@18.2.0)
       '@heathmont/moon-core-tw':
-        specifier: workspace:^10.17.3
+        specifier: workspace:^10.22.2
         version: link:../core
       cmdk:
         specifier: 0.2.0
@@ -209,7 +209,7 @@ importers:
   packages/table-v8:
     dependencies:
       '@heathmont/moon-core-tw':
-        specifier: ^10.22.0
+        specifier: ^10.22.2
         version: link:../core
       '@tanstack/react-table':
         specifier: ^8.20.5
