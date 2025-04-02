@@ -45,11 +45,10 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
     const { onKeyDownNavigationTags, selectedTagIndex, setSelectedTagIndex } =
       useNavigationTags(selected.length);
 
-    useEffect(() => {
-      if (selectedTagIndex !== NO_FOCUS_TAG && !isFocused) {
-        inputRef?.current && inputRef.current.focus();
-      }
-    }, [selectedTagIndex, isFocused]);
+    const selectTagOnClick = (newIndex: number) => {
+      setSelectedTagIndex(newIndex);
+      inputRef.current?.focus();
+    };
 
     const states = {
       isUppercase,
@@ -59,7 +58,7 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
       isError: isError || isInvalid,
       onClear: onClear,
       selectedTagIndex,
-      setSelectedTagIndex,
+      selectTagOnClick,
     };
 
     const checkValidity = (event: React.FormEvent<HTMLInputElement>) => {
@@ -117,6 +116,8 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
       setIsFocused(false);
       inputValue && onEnter && onEnter(inputValue);
       setInputValue("");
+
+      selectedTagIndex !== NO_FOCUS_TAG && setSelectedTagIndex(NO_FOCUS_TAG);
     };
 
     const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -142,7 +143,7 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
       setInputValue(e.target.value);
 
-    const onFocus = (e: any) => {
+    const onFocus = () => {
       setIsFocused(true);
     };
 
@@ -222,15 +223,15 @@ const SelectedItem = ({
     isError,
     onClear,
     selectedTagIndex,
-    setSelectedTagIndex,
+    selectTagOnClick,
   } = useTagsInputContext("TagsInput.SelectedItem");
 
   const onClick = () => {
-    if (!setSelectedTagIndex) {
+    if (!selectTagOnClick) {
       return;
     }
 
-    setSelectedTagIndex(index);
+    selectTagOnClick(index);
   };
   return (
     <div
