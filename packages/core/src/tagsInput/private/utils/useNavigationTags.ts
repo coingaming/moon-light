@@ -13,7 +13,9 @@ const navigateTags = (
   keyCode: ArrowKeysType,
 ) => {
   if (keyCode === KEYS.ARROW_RIGHT) {
-    return selectedTagIndex < tagsLength ? selectedTagIndex + 1 : NO_FOCUS_TAG;
+    return selectedTagIndex < tagsLength - 1
+      ? selectedTagIndex + 1
+      : NO_FOCUS_TAG;
   }
 
   return selectedTagIndex === NO_FOCUS_TAG

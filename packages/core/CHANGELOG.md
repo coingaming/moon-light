@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.23.2
+
+### Patch Changes
+
+- fix: focus issue - TagsInput [MDS-1711]
+
 ## 10.23.1
 
 ### Patch Changes

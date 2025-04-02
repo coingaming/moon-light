@@ -7,7 +7,7 @@ type TagsInputState = {
   isError?: boolean;
   onClear?: (index: number) => void;
   selectedTagIndex?: number;
-  setSelectedTagIndex?: (newSelectedTag: number) => void;
+  selectTagOnClick?: (newSelectedTag: number) => void;
 };
 
 export default TagsInputState;
