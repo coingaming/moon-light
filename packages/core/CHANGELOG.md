@@ -1,5 +1,23 @@
 # @heathmont/moon-core-tw
 
+## 10.23.0
+
+### Minor Changes
+
+- fix: add navigation behaviour - TagsInput [MDS-1711]
+
+## 10.22.5
+
+### Patch Changes
+
+- fix: set width to fit-content [MDS-1691]
+
+## 10.22.4
+
+### Patch Changes
+
+- 6a4866f: fix positioning for carousel arrows on rtl [MDS-1673]
+
 ## 10.22.2
 
 ### Patch Changes

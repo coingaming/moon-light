@@ -3,6 +3,7 @@ type SelectedItemProps = {
   label: string;
   className?: string;
   isUppercase?: boolean;
+  classNameTagOnFocus?: string;
 };
 
 export default SelectedItemProps;

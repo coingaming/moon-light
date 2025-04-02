@@ -17,4 +17,5 @@ export interface TagsInputRootProps
   onEnter?: (value: string) => void;
   onClear?: (index: number) => void;
   isUppercase?: boolean;
+  id?: string;
 }

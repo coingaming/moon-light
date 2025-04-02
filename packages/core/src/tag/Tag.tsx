@@ -14,10 +14,12 @@ const Tag = ({
   size = "xs",
   isUppercase = true,
   className,
+  onClick,
 }: TagProps) => (
   <div
+    onClick={onClick}
     className={mergeClassnames(
-      "flex items-center rounded-moon-i-xs gap-1 select-none text-goku bg-bulma",
+      "flex w-fit items-center rounded-moon-i-xs gap-1 select-none text-goku bg-bulma",
       getSize({ size, iconRight, iconLeft }),
       getFontSize({ isUppercase, size }),
       color,
