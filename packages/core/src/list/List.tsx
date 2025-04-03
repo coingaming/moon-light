@@ -16,7 +16,7 @@ export const Item = ({ children, classNames }: ListItemProps) => {
     >
       <p
         className={mergeClassnames(
-          "w-100 flex justify-around gap-4 border-b-1 border-bulma pt-1 pb-1 w-full",
+          "w-100 flex justify-between border-b-1 border-bulma pt-1 pb-1 w-full",
           classNames?.itemContent ?? "",
         )}
       >
