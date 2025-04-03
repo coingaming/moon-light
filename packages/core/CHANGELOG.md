@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.0
+
+### Minor Changes
+
+- feat: add list component [MDS-1744]
+
 ## 10.23.0
 
 ### Minor Changes
