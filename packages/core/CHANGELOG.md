@@ -6,6 +6,18 @@
 
 - feat: add list component [MDS-1744]
 
+## 10.23.2
+
+### Patch Changes
+
+- fix: focus issue - TagsInput [MDS-1711]
+
+## 10.23.1
+
+### Patch Changes
+
+- fix: fix positioning for carousel arrows on rtl [MDS-1673]
+
 ## 10.23.0
 
 ### Minor Changes
