@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.0
+
+### Minor Changes
+
+- feat: add Placeholder component [MDS-1746]
+
 ## 10.23.2
 
 ### Patch Changes
