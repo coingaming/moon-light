@@ -4,6 +4,7 @@
 
 ### Minor Changes
 
+- feat: add list component [MDS-1744]
 - feat: add Placeholder component [MDS-1746]
 
 ## 10.23.2
