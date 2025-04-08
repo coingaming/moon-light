@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const Footer = () => (
-  <footer className="flex flex-col gap-4 pt-8 pb-6 lg:pb-12 items-center text-moon-14 text-bulma">
+  <footer className="flex flex-col gap-space-16 pt-space-32 pb-space-24 lg:pb-space-48 items-center text-body-300 text-primary">
     <p>
       With the help of the{" "}
       <Link
@@ -14,7 +14,7 @@ const Footer = () => (
       </Link>{" "}
       ❤️
     </p>
-    <div className="flex gap-x-4 gap-y-2 flex-wrap justify-center items-center text-trunks">
+    <div className="flex gap-x-space-16 gap-y-space-8 flex-wrap justify-center items-center text-secondary">
       <Link
         href="https://github.com/coingaming/moon-light"
         className="hover:underline"

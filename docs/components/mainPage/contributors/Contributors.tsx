@@ -9,16 +9,14 @@ const Contributors = () => {
     <>
       {topContributors.length > 0 && (
         <>
-          <h3 className="text-moon-40 font-medium max-w-3xl text-bulma">
-            {title}
-          </h3>
-          <div className="flex gap-2">
+          <h3 className="text-heading-400 max-w-3xl text-primary">{title}</h3>
+          <div className="flex gap-space-16">
             {topContributors.map((contributor, i) => (
               <Card
                 key={i}
                 contributor={contributor}
                 size={96}
-                className="w-12 h-12"
+                className="size-space-48"
               />
             ))}
           </div>
@@ -26,16 +24,16 @@ const Contributors = () => {
       )}
       {otherContributors.length > 0 && (
         <>
-          <h4 className="text-moon-32 font-medium max-w-3xl text-bulma">
+          <h4 className="text-heading-300 max-w-3xl text-primary">
             Other contributors
           </h4>
-          <div className="flex gap-2">
+          <div className="flex gap-">
             {otherContributors.map((contributor, i) => (
               <Card
                 key={i}
                 contributor={contributor}
                 size={64}
-                className="w-8 h-8"
+                className="size-space-32"
               />
             ))}
           </div>

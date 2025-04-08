@@ -1,4 +1,6 @@
-import { Tag } from "@heathmont/moon-base-tw";
+"use client";
+
+import { mergeClassnames, Tag } from "@heathmont/moon-core-tw";
 import type { TagTypes } from "@/types";
 
 export interface TitleTagsProps {
@@ -7,26 +9,25 @@ export interface TitleTagsProps {
 }
 
 const backgroundColors: Record<TagTypes, string> = {
-  ARIA: "bg-nappa",
-  RTL: "bg-whis",
-  "IN PROGRESS": "bg-krillin",
+  ARIA: "bg-discovery",
+  RTL: "bg-info",
+  "IN PROGRESS": "bg-caution",
 };
 
 const textColors: Record<TagTypes, string> = {
-  ARIA: "text-goten",
-  RTL: "text-goten",
-  "IN PROGRESS": "text-popo",
+  ARIA: "text-force-light",
+  RTL: "text-force-light",
+  "IN PROGRESS": "text-force-dark",
 };
 
 export function TitleTags({ tags = [], className = "" }: TitleTagsProps) {
   return (
-    <div className={`flex gap-2 ${className}`}>
+    <div className={`flex gap-space-8 ${className}`}>
       {tags?.map?.((tag: TagTypes) => (
         <Tag
           key={tag}
           size="2xs"
-          bgColor={backgroundColors[tag]}
-          color={textColors[tag]}
+          className={mergeClassnames(backgroundColors[tag], textColors[tag])}
         >
           {tag}
         </Tag>

@@ -17,9 +17,9 @@ const DESCRIPTION =
   "Every HEX color in all supportive colors is represented by three shades. The difference between shades is in their transparency levels. Some colors may have a semantic purpose. `krillin` is usually used for warnings, `chichi` for errors, and `roshi` for success colors. Other colors are used for variety of secondary reasons.";
 
 const SupportiveColors = () => (
-  <div className="max-w-3xl flex flex-col w-full gap-6">
-    <h2 className="text-moon-24 font-medium">Supportive colors</h2>
-    <div className="flex flex-col gap-4 text-moon-16 text-bulma">
+  <div className="max-w-3xl flex flex-col w-full gap-space-24">
+    <h2 className="text-heading-200">Supportive colors</h2>
+    <div className="flex flex-col gap-space-16 text-body-400 text-primary">
       <MDX markdown={DESCRIPTION} />
     </div>
     <ColorSet colors={SUPPORTIVE_COLORS} />

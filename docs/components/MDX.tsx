@@ -11,12 +11,12 @@ const defaultComponents: ComponentProps<any> = {
     />
   ),
   h2: (props: HTMLProps<HTMLHeadingElement>) => (
-    <h2 {...props} className="text-moon-24 font-semibold">
+    <h2 {...props} className="text-heading-200">
       {props.children}
     </h2>
   ),
   h3: (props: HTMLProps<HTMLHeadingElement>) => (
-    <h3 {...props} className="text-base font-semibold">
+    <h3 {...props} className="text-heading-100">
       {props.children}
     </h3>
   ),
@@ -24,7 +24,7 @@ const defaultComponents: ComponentProps<any> = {
     <a
       as={Link}
       {...props}
-      className="transition-colors underline hover:text-piccolo"
+      className="transition-colors underline hover:text-brand"
       target="_blank"
     >
       {props.children}
@@ -36,7 +36,7 @@ const defaultComponents: ComponentProps<any> = {
     </span>
   ),
   ul: (props: HTMLProps<HTMLUListElement>) => (
-    <ul {...props} className="list-disc ps-4 mb-6">
+    <ul {...props} className="list-disc ps-space-16 mb-space-24">
       {props.children}
     </ul>
   ),
@@ -49,20 +49,26 @@ const defaultComponents: ComponentProps<any> = {
     const { type, ...rest } = props;
 
     return (
-      <ol {...rest} className="list-decimal ps-4 gap-2 flex flex-col">
+      <ol
+        {...rest}
+        className="list-decimal ps-space-16 gap-space-8 flex flex-col"
+      >
         {props.children}
       </ol>
     );
   },
   code: (props: HTMLProps<HTMLPreElement>) => (
-    <code {...props} className="p-1 bg-gohan rounded-md text-bulma font-mono">
+    <code
+      {...props}
+      className="p-space-4 bg-secondary rounded-6 text-primary font-mono"
+    >
       {props.children}
     </code>
   ),
   pre: (props: HTMLProps<HTMLPreElement>) => (
     <pre
       {...props}
-      className="theme-moon-dark bg-gohan rounded-md text-bulma overflow-y-auto p-4"
+      className="dark-theme bg-secondary rounded-6 text-primary overflow-y-auto p-space-16"
     >
       {props.children}
     </pre>

@@ -8,12 +8,12 @@ export const Disabled = () => (
     <Accordion.Item
       disabled
       value="item-1"
-      className="border border-beerus rounded-moon-s-sm"
+      className="border border-primary rounded-8"
     >
       <Accordion.Header className="moon-open:[&_svg]:rotate-180" disabled>
         <Accordion.Button>
           <span>Test accordion</span>
-          <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
+          <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
         </Accordion.Button>
       </Accordion.Header>
       <Accordion.Content>

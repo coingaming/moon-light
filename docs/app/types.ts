@@ -837,12 +837,19 @@ export type Examples = {
   "contribution": {
     "page": "string"
   },
+  "css": {
+    "moon-base": "string"
+  },
   "figma": {
     "Video": "string",
     "page": "string"
   },
   "installation": {
     "page": "string"
+  },
+  "js": {
+    "moon-base-preset": "string",
+    "moon-components": "string"
   },
   "releases": {
     "page": "string"

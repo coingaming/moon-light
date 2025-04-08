@@ -13,12 +13,12 @@ const ReviewCard = ({ title, component, description }: ReviewCardType) => {
   return (
     <Link
       href={uri}
-      className="flex flex-col flex-grow gap-y-4 justify-start min-w-72 max-w-md w-full bg-goku rounded-2xl border border-beerus p-2 grayscale hover:shadow-md hover:grayscale-0"
+      className="flex flex-col flex-grow gap-y-space-16 justify-start min-w-72 max-w-md w-full bg-primary rounded-16 border border-primary p-space-16 grayscale hover:shadow-200 hover:grayscale-0"
     >
       <ComponentImage title={title} />
-      <div className="flex flex-col gap-y-2 px-4 mb-4">
-        <h3 className="text-moon-20 font-medium">{title}</h3>
-        <p className="h-12 text-moon-14 text-ellipsis overflow-hidden">
+      <div className="flex flex-col gap-y-space-8 px-space-16 mb-space-16">
+        <h3 className="text-heading-200">{title}</h3>
+        <p className="h-space-48 text-body-300 text-ellipsis overflow-hidden">
           {description}
         </p>
       </div>

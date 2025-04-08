@@ -18,7 +18,7 @@ const MainLayout = ({
       <aside className="hidden lg:block lg:fixed h-[calc(100vh-72px)]">
         <Sidebar />
       </aside>
-      <main className="box-content min-h-screen lg:ms-72 xl:me-64 bg-goku text-bulma flex-1 flex flex-col p-5 lg:p-6">
+      <main className="box-content min-h-screen lg:ms-72 xl:me-64 bg-primary text-primary flex-1 flex flex-col p-space-20 lg:p-space-24">
         {children}
       </main>
       <Footer />

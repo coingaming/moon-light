@@ -20,7 +20,7 @@ const RightSidebarItem = ({
       <Link
         href={`#${href}`}
         className={mergeClassnames(
-          "text-moon-14 transition-colors hover:underline",
+          "text-body-300 transition-colors hover:underline",
           className,
         )}
       >

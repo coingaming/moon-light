@@ -13,7 +13,7 @@ const Card = ({ contributor, size, className }: CardProps) => (
           width={size}
           height={size}
           className={mergeClassnames(
-            "rounded-full ring-1 ring-beerus",
+            "rounded-full ring-1 ring-primary",
             className,
           )}
         />

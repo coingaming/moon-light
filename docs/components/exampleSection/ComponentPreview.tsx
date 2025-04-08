@@ -1,7 +1,7 @@
 const ComponentPreview = ({ component }: { component: JSX.Element }) => (
   <div
     className={
-      "relative flex flex-wrap items-center justify-around p-4 gap-2 w-full rounded-t-lg border border-beerus bg-goku"
+      "relative flex flex-wrap items-center justify-around p-space-16 gap-space-8 w-full rounded-t-8 border border-primary bg-primary"
     }
   >
     {component}
