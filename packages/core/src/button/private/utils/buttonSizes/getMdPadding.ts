@@ -8,18 +8,18 @@ const getMdPadding = ({
   fullWidth,
 }: ButtonSettingsProps): string => {
   if (fullWidth) {
-    return "px-4";
+    return "px-space-16";
   }
   if (icon === "left" || iconLeft) {
-    return "ps-2 pe-4";
+    return "ps-space-8 pe-space-16";
   }
   if (icon === "right" || iconRight) {
-    return "ps-4 pe-2";
+    return "ps-space-16 pe-space-8";
   }
   if (icon === "only" || iconOnly) {
-    return "px-2";
+    return "px-space-8";
   }
-  return "px-4";
+  return "px-space-16";
 };
 
 export default getMdPadding;

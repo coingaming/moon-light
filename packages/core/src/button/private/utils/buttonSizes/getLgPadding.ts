@@ -8,18 +8,18 @@ const getLgPadding = ({
   fullWidth,
 }: ButtonSettingsProps): string => {
   if (fullWidth) {
-    return "px-4";
+    return "px-space-16";
   }
   if (icon === "left" || iconLeft) {
-    return "ps-3 pe-4";
+    return "ps-space-12 pe-space-16";
   }
   if (icon === "right" || iconRight) {
-    return "ps-4 pe-3";
+    return "ps-space-16 pe-space-12";
   }
   if (icon === "only" || iconOnly) {
-    return "px-3";
+    return "px-space-12";
   }
-  return "px-4";
+  return "px-space-16";
 };
 
 export default getLgPadding;

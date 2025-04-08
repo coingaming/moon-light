@@ -318,22 +318,22 @@ module.exports = {
       addComponents({
         // deprecated classname. You may use "text-goten bg-piccolo"
         ".btn-primary": {
-          color: "rgb(var(--goten))",
-          backgroundColor: `rgb(var(--piccolo))`,
+          color: "var(--semantic-text-force-light)",
+          backgroundColor: "var(--semantic-background-brand)",
         },
         // deprecated classname. You may use "text-bulma bg-transparent ring-inset ring-1 ring-trunks hover:ring-bulma"
         ".btn-secondary": {
-          color: "rgb(var(--bulma))",
+          color: "var(--semantic-text-primary)",
           background: "none",
-          boxShadow: `inset 0 0 0 1px rgb(var(--trunks)/1)`,
+          boxShadow: "inset 0 0 0 1px var(--semantic-border-secondary)",
           "&:hover": {
-            boxShadow: `inset 0 0 0 1px rgb(var(--bulma))`,
+            boxShadow: "inset 0 0 0 1px var(--semantic-border-primary)",
           },
         },
         // deprecated classname. You may use "text-goten bg-hit"
         ".btn-tertiary": {
-          color: "rgb(var(--goten))",
-          backgroundColor: "rgb(var(--hit))",
+          color: "var(--semantic-text-force-light)",
+          backgroundColor: "var(--semantic-background-discovery)",
         },
         ".anim-error": {
           transform: "translate3d(0, 0, 0)",
@@ -341,7 +341,7 @@ module.exports = {
           perspective: "1000px",
         },
         ".anim-pulse": {
-          boxShadow: "0 0 0 0 rgb(var(--piccolo))",
+          boxShadow: "0 0 0 0 var(--semantic-background-brand)",
         },
         ".input-number-clear": {
           MozAppearance: "textfield",

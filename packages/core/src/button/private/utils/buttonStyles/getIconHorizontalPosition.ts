@@ -11,26 +11,26 @@ const getIconHorizontalPosition = ({
     switch (size) {
       case "xs":
       case "sm":
-        return "end-1";
+        return "end-space-4";
       case "lg":
-        return "end-3";
+        return "end-space-12";
       case "xl":
-        return "end-4";
+        return "end-space-16";
       default:
-        return "end-2";
+        return "end-space-8";
     }
   }
   if (iconLeft) {
     switch (size) {
       case "xs":
       case "sm":
-        return "start-1";
+        return "start-space-4";
       case "lg":
-        return "start-3";
+        return "start-space-12";
       case "xl":
-        return "start-4";
+        return "start-space-16";
       default:
-        return "start-2";
+        return "start-space-8";
     }
   }
   return "";
