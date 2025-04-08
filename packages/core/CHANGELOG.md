@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.1
+
+### Patch Changes
+
+- fix: add validation on onBlur - TagsInput [MDS-1756]
+
 ## 10.24.0
 
 ### Minor Changes
