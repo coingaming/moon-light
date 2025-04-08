@@ -114,7 +114,7 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
 
     const addTagsOnBlur = () => {
       setIsFocused(false);
-      inputValue && onEnter && onEnter(inputValue);
+      inputValue && !isInvalid && onEnter?.(inputValue);
       setInputValue("");
 
       selectedTagIndex !== NO_FOCUS_TAG && setSelectedTagIndex(NO_FOCUS_TAG);
