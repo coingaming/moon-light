@@ -114,8 +114,10 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
 
     const addTagsOnBlur = () => {
       setIsFocused(false);
-      inputValue && !isInvalid && onEnter?.(inputValue);
-      setInputValue("");
+      if (inputValue && !isInvalid && onEnter) {
+        onEnter(inputValue);
+        setInputValue("");
+      }
 
       selectedTagIndex !== NO_FOCUS_TAG && setSelectedTagIndex(NO_FOCUS_TAG);
     };
@@ -254,7 +256,7 @@ const SelectedItem = ({
           onClick={onClick}
           className={mergeClassnames(
             selectedTagIndex === index
-              ? (classNameTagOnFocus ?? "bg-piccolo")
+              ? classNameTagOnFocus ?? "bg-piccolo"
               : "",
           )}
         >
