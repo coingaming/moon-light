@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.3
+
+### Patch Changes
+
+- fix: add styles on focus state - Checkbox [MDS-1768]
+
 ## 10.24.2
 
 ### Patch Changes

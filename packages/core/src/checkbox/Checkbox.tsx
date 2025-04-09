@@ -45,7 +45,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           readOnly={rest.readOnly}
           aria-label={ariaLabelValue}
           ref={ref}
-          className="peer appearance-none size-space-24 outline-none align-top select-none"
+          className="peer appearance-none size-space-24 outline-none align-top select-none rounded-4"
           type="checkbox"
           aria-checked={indeterminate ? "mixed" : isChecked}
           checked={isChecked}
@@ -63,7 +63,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         />
         <span
           className={mergeClassnames(
-            "absolute top-space-4 start-space-4 flex size-space-16 items-center justify-center ring-1 ring-inset ring-primary transition-colors text-body-400 rounded-4 peer-checked:ring-none text-force-light",
+            "absolute top-space-4 start-space-4 flex size-space-16 items-center justify-center ring-1 ring-inset ring-primary transition-colors text-body-400 rounded-4 peer-focus:outline peer-focus:outline-2 peer-focus:outline-active text-force-light",
             (isChecked || indeterminate) && bgColor,
             indeterminate && "ring-none",
             className && className,
