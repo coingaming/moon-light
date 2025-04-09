@@ -2,21 +2,21 @@ import type SizeProps from "../types/SizeProps";
 
 const getWrapperSize = (size?: SizeProps) => {
   if (size === "xs") {
-    return "h-6 w-6 text-moon-10-caption";
+    return "size-space-24 text-body-100";
   }
   if (size === "sm") {
-    return "h-8 w-8 text-moon-12";
+    return "size-space-32 text-body-200";
   }
   if (size === "md") {
-    return "h-10 w-10 text-moon-14";
+    return "size-space-40 text-body-300";
   }
   if (size === "lg") {
-    return "h-12 w-12 text-moon-16";
+    return "size-space-48 text-body-400";
   }
   if (size === "xl") {
-    return "h-14 w-14 text-moon-16";
+    return "size-space-56 text-body-400";
   }
-  return "h-16 w-16 text-moon-20";
+  return "size-space-64 text-heading-100";
 };
 
 export default getWrapperSize;

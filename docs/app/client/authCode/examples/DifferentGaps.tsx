@@ -13,9 +13,9 @@ export const DifferentGaps = () => {
     setResult2(result12);
   };
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-space-16">
       <AuthCode onChange={handleOnChange1} />
-      <AuthCode onChange={handleOnChange2} className="gap-4" />
+      <AuthCode onChange={handleOnChange2} className="gap-space-16" />
     </div>
   );
 };

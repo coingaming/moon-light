@@ -155,14 +155,12 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
           }}
           maxLength={1}
           className={mergeClassnames(
-            "h-[72px] w-full max-w-[48px] rounded-moon-i-sm bg-goku text-moon-24 appearance-none",
-            "text-bulma text-center shadow-input hover:shadow-input-hov transition-shadow py-4",
-            "focus:shadow-input-focus focus:outline-none focus-visible::shadow-input-focus",
-            "focus-visible::outline-none",
+            "h-space-72 w-full max-w-space-48 rounded-8 bg-primary text-heading-200 font-normal appearance-none",
+            "text-primary text-center ring-1 ring-inset ring-primary hover:ring-2 transition-shadow py-space-16",
+            "focus:ring-active focus:ring-2 focus:outline-none",
             !isValid &&
-              "text-chichi shadow-input-err hover:shadow-input-err focus:shadow-input-err",
-            disabled &&
-              "opacity-60 shadow-input focus:shadow-input hover:shadow-input cursor-not-allowed",
+              "text-negative ring-negative ring-2 hover:ring-negative focus:ring-negative",
+            disabled && "opacity-disabled cursor-not-allowed",
           )}
           autoComplete={i === 0 ? "one-time-code" : "off"}
           aria-label={
@@ -177,7 +175,9 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
     }
 
     return (
-      <div className={mergeClassnames("flex gap-2", className)}>{inputs}</div>
+      <div className={mergeClassnames("flex gap-space-8", className)}>
+        {inputs}
+      </div>
     );
   },
 );
