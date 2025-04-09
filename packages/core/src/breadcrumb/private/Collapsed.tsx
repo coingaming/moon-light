@@ -28,9 +28,12 @@ const Collapsed = ({ breadcrumbs, divider }: Props) => {
   });
   return (
     <nav aria-label="Breadcrumb">
-      <ol className="flex flex-wrap gap-2 items-center text-moon-14">
-        <li key={"crumb" + 0} className="flex items-center gap-2 text-trunks">
-          <span className="text-trunks transition-colors duration-200 hover:text-bulma">
+      <ol className="flex flex-wrap gap-space-8 items-center text-body-300">
+        <li
+          key={"crumb" + 0}
+          className="flex items-center gap-space-8 text-secondary"
+        >
+          <span className="text-secondary transition-colors duration-200 hover:text-primary">
             {collapseBreadcrumbs && collapseBreadcrumbs[0]}
           </span>
           {divider ? divider : <ArrowsRight className="rtl:rotate-180" />}
@@ -41,15 +44,15 @@ const Collapsed = ({ breadcrumbs, divider }: Props) => {
               variant="ghost"
               size="xs"
               onClick={clickHandle}
-              icon={<Other3DotsHorizontal className="text-moon-16" />}
+              icon={<Other3DotsHorizontal className="text-body-400" />}
               aria-label="Show more breadcrumbs"
             />
             {isOpen && (
-              <ol className="absolute start-0 top-full bg-goku p-1 mt-3 flex flex-col gap-2 shadow-moon-lg rounded-moon-s-md z-10000 min-w-[8.5rem]">
+              <ol className="absolute start-0 top-full bg-primary p-space-4 mt-space-12 flex flex-col gap-space-8 shadow-400 rounded-12 z-10000 min-w-space-136">
                 {restBreadcrumbs.map((crumb, index) => (
                   <li
                     key={"innercrumb" + index}
-                    className="flex flex-col items-stretch text-bulma text-moon-14 p-2 rounded-moon-i-xs cursor-pointer transition-colors hover:bg-heles"
+                    className="flex flex-col items-stretch text-primary text-body-300 p-space-8 rounded-4 cursor-pointer transition-colors hover:bg-hover"
                   >
                     {crumb}
                   </li>
@@ -64,18 +67,18 @@ const Collapsed = ({ breadcrumbs, divider }: Props) => {
             return (
               <li
                 key={"crumb" + index + 1}
-                className="flex items-center gap-2 text-trunks"
+                className="flex items-center gap-space-8 text-secondary"
               >
                 {divider ? (
                   divider
                 ) : (
-                  <ArrowsRight className="rtl:rotate-180 text-moon-16" />
+                  <ArrowsRight className="rtl:rotate-180 text-body-400" />
                 )}
                 <span
                   className={mergeClassnames(
-                    "text-trunks transition-colors duration-200 hover:text-bulma",
+                    "text-secondary transition-colors duration-200 hover:text-primary",
                     index === collapseBreadcrumbs.length - 1 &&
-                      "text-bulma font-medium",
+                      "text-primary font-medium",
                   )}
                 >
                   {crumb && crumb}

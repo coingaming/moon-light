@@ -4,10 +4,10 @@ import { Chip } from "@heathmont/moon-core-tw";
 
 const Sizes = () => (
   <>
-    <Chip className="border border-beerus" size="sm">
+    <Chip className="border border-primary" size="sm">
       Small
     </Chip>
-    <Chip className="border border-beerus">Medium is Default</Chip>
+    <Chip className="border border-primary">Medium is Default</Chip>
   </>
 );
 

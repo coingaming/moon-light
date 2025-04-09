@@ -9,7 +9,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     {
       ariaLabel,
       label,
-      bgColor = "bg-piccolo",
+      bgColor = "bg-brand",
       className,
       indeterminate,
       ...rest
@@ -34,8 +34,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       <label
         htmlFor={rest.id}
         className={mergeClassnames(
-          "relative flex items-center gap-2 text-moon-14 text-bulma cursor-pointer",
-          rest.disabled && "opacity-60 cursor-not-allowed select-none",
+          "relative flex items-center gap-space-8 text-body-300 text-primary cursor-pointer",
+          rest.disabled && "opacity-disabled cursor-not-allowed select-none",
           rest.readOnly && "cursor-not-allowed select-none",
         )}
       >
@@ -45,7 +45,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           readOnly={rest.readOnly}
           aria-label={ariaLabelValue}
           ref={ref}
-          className="peer appearance-none h-6 w-6 outline-none align-top select-none"
+          className="peer appearance-none size-space-24 outline-none align-top select-none"
           type="checkbox"
           aria-checked={indeterminate ? "mixed" : isChecked}
           checked={isChecked}
@@ -63,9 +63,9 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         />
         <span
           className={mergeClassnames(
-            "absolute top-1 start-1 flex w-4 h-4 items-center justify-center shadow-[0_0_0_1px_inset] transition-colors text-moon-16 rounded-moon-s-xs shadow-trunks peer-checked:shadow-none text-goten",
+            "absolute top-space-4 start-space-4 flex size-space-16 items-center justify-center ring-1 ring-inset ring-primary transition-colors text-body-400 rounded-4 peer-checked:ring-none text-force-light",
             (isChecked || indeterminate) && bgColor,
-            indeterminate && "shadow-none",
+            indeterminate && "ring-none",
             className && className,
           )}
           aria-hidden="true"

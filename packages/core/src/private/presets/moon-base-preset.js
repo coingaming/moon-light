@@ -223,7 +223,14 @@ module.exports = {
     }),
     plugin(function ({ addUtilities }) {
       const iconUtilities = generateIconUtilities(iconClasses);
-      addUtilities(iconUtilities);
+      const strokeUtilities = Object.entries(commonBorderColors).reduce(
+        (acc, [key, value]) => {
+          acc[`.stroke-${key}`] = { stroke: value };
+          return acc;
+        },
+        {},
+      );
+      addUtilities({ ...iconUtilities, ...strokeUtilities });
     }),
   ],
   theme: {
@@ -241,6 +248,7 @@ module.exports = {
       divideColor: commonBorderColors,
       ringColor: commonBorderColors,
       outlineColor: commonBorderColors,
+      stroke: commonBorderColors,
       fontFamily: fontFamily,
       opacity: opacity,
     },
