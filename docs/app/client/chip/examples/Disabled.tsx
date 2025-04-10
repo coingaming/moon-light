@@ -7,7 +7,7 @@ const Disabled = () => (
     <Chip variant="ghost" disabled>
       Ghost variant
     </Chip>
-    <Chip className="border border-beerus" disabled>
+    <Chip className="border border-primary" disabled>
       Default variant
     </Chip>
   </>

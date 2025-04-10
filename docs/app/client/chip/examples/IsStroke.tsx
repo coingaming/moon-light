@@ -5,19 +5,19 @@ import { OtherFrame } from "@heathmont/moon-icons-tw";
 
 const StrokeOnHover = () => (
   <>
-    <Chip className="border border-beerus" isStroke>
+    <Chip className="border border-primary" isStroke>
       Hover me
     </Chip>
     <Chip
-      iconRight={<OtherFrame className="text-moon-24" />}
+      iconRight={<OtherFrame className="text-heading-200" />}
       isStroke
-      className="border border-beerus"
+      className="border border-primary"
     >
       Right Icon
     </Chip>
     <Chip
-      className="border border-beerus"
-      iconLeft={<OtherFrame className="text-moon-24" />}
+      className="border border-primary"
+      iconLeft={<OtherFrame className="text-heading-200" />}
       isStroke
     >
       Left Icon

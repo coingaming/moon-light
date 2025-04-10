@@ -5,9 +5,9 @@ const getDisabled = ({
   isStroke,
 }: Pick<ChipProps, "disabled" | "isStroke">): string =>
   disabled
-    ? "opacity-60 cursor-not-allowed"
+    ? "opacity-disabled cursor-not-allowed"
     : isStroke
-      ? "hover:shadow-interactive hover:text-piccolo hover:bg-jiren"
-      : "hover:text-piccolo hover:bg-jiren";
+      ? "hover:ring-inset hover:ring-2 hover:ring-brand hover:text-brand hover:bg-brand-subtle"
+      : "hover:text-brand hover:bg-brand-subtle";
 
 export default getDisabled;

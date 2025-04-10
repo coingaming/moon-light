@@ -22,7 +22,7 @@ const Default = () => {
           {items.map((_, index) => (
             <Carousel.Item
               key={index}
-              className="w-full max-w-80 h-48 border border-beerus"
+              className="w-full max-w-80 h-48 border border-primary"
               data-testid={`carousel-${index}`}
             >
               {index}

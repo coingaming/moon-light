@@ -19,15 +19,15 @@ const RightSidebar = ({
   return (
     <aside
       className={mergeClassnames(
-        "fixed top-[72px] end-0 w-64 pt-6 px-3 bg-goku overflow-y-auto border-s border-beerus hidden xl:block",
+        "fixed top-space-72 end-0 w-64 pt-space-24 px-space-12 bg-primary overflow-y-auto border-s border-primary hidden xl:block",
         className,
       )}
     >
-      <nav className="flex flex-col gap-5" aria-label={purpose}>
-        <p className="text-moon-10-caption font-medium uppercase text-trunks">
+      <nav className="flex flex-col gap-space-20" aria-label={purpose}>
+        <p className="text-body-100 font-medium uppercase text-secondary">
           {title}
         </p>
-        <ul className="flex flex-col gap-2">{children}</ul>
+        <ul className="flex flex-col gap-space-8">{children}</ul>
       </nav>
     </aside>
   );

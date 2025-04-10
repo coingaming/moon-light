@@ -8,11 +8,11 @@ const RTLSupport = () => {
   const items = Array.from({ length: 5 }, (index) => index);
   return (
     <div
-      className="flex flex-col items-center gap-4 w-full"
+      className="flex flex-col items-center gap-space-16 w-full"
       dir="rtl"
       data-testid="carousel"
     >
-      <div className="flex gap-1">
+      <div className="flex gap-space-4">
         {items.map((_, index) => (
           <Chip
             key={index}
@@ -30,7 +30,7 @@ const RTLSupport = () => {
           {items.map((_, index) => (
             <Carousel.Item
               key={index}
-              className="w-80 h-48 border border-beerus"
+              className="w-80 h-48 border border-primary"
               data-testid={`carousel-${index}`}
             >
               {index}

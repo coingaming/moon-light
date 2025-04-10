@@ -23,7 +23,7 @@ const getButtonSize = ({
         iconOnly,
         fullWidth,
       }),
-      "h-6 py-1 gap-1 text-moon-12 rounded-moon-i-xs",
+      "h-space-24 py-space-4 gap-space-4 text-body-200 rounded-4",
     );
   }
   if (size === "sm") {
@@ -35,7 +35,7 @@ const getButtonSize = ({
         iconOnly,
         fullWidth,
       }),
-      "h-8 py-1 gap-1 text-moon-14 rounded-moon-i-sm",
+      "h-space-32 py-space-4 gap-space-4 text-body-300 rounded-8",
     );
   }
   if (size === "lg") {
@@ -47,7 +47,7 @@ const getButtonSize = ({
         iconOnly,
         fullWidth,
       }),
-      "h-12 py-3 gap-2 text-moon-16 rounded-moon-i-sm",
+      "h-space-48 py-space-12 gap-space-8 text-body-400 rounded-8",
     );
   }
   if (size === "xl") {
@@ -59,12 +59,12 @@ const getButtonSize = ({
         iconOnly,
         fullWidth,
       }),
-      "h-14 py-4 gap-2 text-moon-16 rounded-moon-i-md",
+      "h-space-56 py-space-16 gap-space-8 text-body-400 rounded-12",
     );
   }
   return mergeClassnames(
     getMdPadding({ icon, iconLeft, iconRight, iconOnly, fullWidth }),
-    "h-10 py-2 gap-2 text-moon-14 rounded-moon-i-sm",
+    "h-space-40 py-space-8 gap-space-8 text-body-300 rounded-8",
   );
 };
 

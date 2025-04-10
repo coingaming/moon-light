@@ -8,12 +8,12 @@ export const Sizes = () => (
     <Accordion itemSize="xl">
       <Accordion.Item
         value="item-1"
-        className="border border-beerus rounded-moon-s-sm"
+        className="border border-primary rounded-8"
       >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>X Large (xl)</span>
-            <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
+            <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
           </Accordion.Button>
         </Accordion.Header>
         <Accordion.Content>
@@ -32,12 +32,12 @@ export const Sizes = () => (
     <Accordion itemSize="lg">
       <Accordion.Item
         value="item-1"
-        className="border border-beerus rounded-moon-s-sm"
+        className="border border-primary rounded-8"
       >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>Large (lg)</span>
-            <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
+            <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
           </Accordion.Button>
         </Accordion.Header>
         <Accordion.Content>
@@ -56,12 +56,12 @@ export const Sizes = () => (
     <Accordion>
       <Accordion.Item
         value="item-2"
-        className="border border-beerus rounded-moon-s-sm"
+        className="border border-primary rounded-8"
       >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>Medium is default (md)</span>
-            <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
+            <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
           </Accordion.Button>
         </Accordion.Header>
         <Accordion.Content>
@@ -80,12 +80,12 @@ export const Sizes = () => (
     <Accordion itemSize="sm">
       <Accordion.Item
         value="item-3"
-        className="border border-beerus rounded-moon-s-sm"
+        className="border border-primary rounded-8"
       >
         <Accordion.Header className="moon-open:[&_svg]:rotate-180">
           <Accordion.Button>
             <span>Small (sm)</span>
-            <ControlsChevronDownSmall className="text-trunks text-moon-16 transition duration-200 moon-open:text-bulma" />
+            <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
           </Accordion.Button>
         </Accordion.Header>
         <Accordion.Content>

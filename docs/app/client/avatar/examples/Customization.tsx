@@ -5,22 +5,22 @@ import { GenericUser } from "@heathmont/moon-icons-tw";
 
 const Customization = () => (
   <>
-    <Avatar className="text-chichi border border-beerus">
-      <GenericUser className="text-moon-24" />
+    <Avatar className="text-negative border border-primary">
+      <GenericUser className="text-heading-200" />
     </Avatar>
-    <Avatar className="bg-piccolo text-goten">
-      <GenericUser className="text-moon-24" />
+    <Avatar className="bg-brand text-force-light">
+      <GenericUser className="text-heading-200" />
     </Avatar>
-    <Avatar className="rounded-full border border-beerus">
-      <GenericUser className="text-moon-24" />
+    <Avatar className="rounded-full border border-primary">
+      <GenericUser className="text-heading-200" />
     </Avatar>
-    <Avatar className="border border-beerus">
-      <GenericUser className="text-moon-24" />
-      <Avatar.Status className="bg-chichi" />
+    <Avatar className="border border-primary">
+      <GenericUser className="text-heading-200" />
+      <Avatar.Status className="bg-negative" />
     </Avatar>
-    <Avatar className="border border-beerus">
-      <GenericUser className="text-moon-24" />
-      <Avatar.Status className="border-chichi" />
+    <Avatar className="border border-primary">
+      <GenericUser className="text-heading-200" />
+      <Avatar.Status className="border-negative" />
     </Avatar>
   </>
 );

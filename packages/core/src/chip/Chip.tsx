@@ -29,10 +29,10 @@ const Chip = forwardRef(
         ref={ref}
         {...rest}
         className={mergeClassnames(
-          "z-0 overflow-hidden flex flex-row items-center justify-center text-moon-14 relative",
-          "rounded-moon-i-sm cursor-pointer transition duration-200 user-select-none space-between",
-          size === "sm" ? "h-8 gap-1" : "h-10 gap-2",
-          variant === "default" && "bg-goku",
+          "z-0 overflow-hidden flex flex-row items-center justify-center text-body-400 relative",
+          "rounded-8 cursor-pointer transition duration-200 user-select-none space-between",
+          size === "sm" ? "h-space-32 gap-space-4" : "h-space-40 gap-space-8",
+          variant === "default" && "bg-primary",
           getPadding({ size, iconLeft, iconRight, iconOnly }),
           getActive({ isActive, isStroke }),
           getDisabled({ disabled, isStroke }),
