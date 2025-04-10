@@ -17,11 +17,11 @@ export const ReleaseSection = async ({
 }: Props) => (
   <PageSection title={title} href={href} date={date}>
     {change && (
-      <ul className="ps-6">
+      <ul className="ps-space-24">
         <li className="list-disc">
           {change}
           {description && (
-            <ul className="ps-6">
+            <ul className="ps-space-24">
               <li className="list-disc">{description}</li>
             </ul>
           )}

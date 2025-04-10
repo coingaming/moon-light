@@ -4,13 +4,13 @@ const getPadding = (isContentInside?: boolean, size?: AccordionSizes) => {
   if (isContentInside) {
     switch (size) {
       case "xl":
-        return "p-4";
+        return "p-space-16";
       case "lg":
-        return "p-3";
+        return "p-space-12";
       case "sm":
-        return "p-2";
+        return "p-space-8";
       default:
-        return "py-2 ps-3 pe-2";
+        return "py-space-8 ps-space-12 pe-space-8";
     }
   }
   return "";

@@ -10,7 +10,7 @@ const RtlSwitcher = ({ className }: { className?: string }) => {
     <IconButton
       variant="outline"
       className={mergeClassnames(
-        "lg:block rounded-full h-8 w-8 p-1 lg:h-10 lg:w-10 lg:p-2 ring-beerus",
+        "lg:block rounded-full h-space-32 w-space-32 p-space-4 lg:h-space-40 lg:w-space-40 lg:p-space-8 ring-primary",
         className,
       )}
       icon={isRtl ? <TextRightAlign /> : <TextLeftAlign />}

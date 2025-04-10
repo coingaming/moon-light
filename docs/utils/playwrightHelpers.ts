@@ -18,31 +18,31 @@ export async function setDarkTheme(page: Page) {
   await page.evaluate(() => {
     const bodyElement = document?.querySelector("body");
     if (bodyElement) {
-      bodyElement.classList.add("theme-moon-dark");
+      bodyElement.classList.add("dark-theme");
       bodyElement.classList.add("text-bulma");
     } else {
       test.fail(true, "setDarkTheme error: body element was not found");
       throw new Error("setDarkTheme error: body element was not found");
     }
   });
-  await page.waitForSelector("body.theme-moon-dark");
+  await page.waitForSelector("body.dark-theme");
 }
 
 export async function setLightTheme(page: Page) {
   await page.evaluate(() => {
     const bodyElement = document?.querySelector("body");
     if (bodyElement) {
-      if (!bodyElement.classList.contains("theme-moon-light")) {
+      if (!bodyElement.classList.contains("light-theme")) {
         // Case the theme is dark
-        bodyElement.classList.remove("theme-moon-dark");
-        bodyElement.classList.add("theme-moon-light");
+        bodyElement.classList.remove("dark-theme");
+        bodyElement.classList.add("light-theme");
       }
     } else {
       test.fail(true, "setLightTheme error: body element was not found");
       throw new Error("setLightTheme error: body element was not found");
     }
   });
-  await page.waitForSelector("body.theme-moon-light");
+  await page.waitForSelector("body.light-theme");
 }
 
 export function setupTest(name: string) {
