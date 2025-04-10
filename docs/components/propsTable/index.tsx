@@ -97,21 +97,21 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
     () => [
       {
         id: "name",
-        header: () => <span className="text-seconary font-normal">Name</span>,
+        header: () => <span className="text-secondary font-normal">Name</span>,
         cell: (props) => props.getValue(),
         accessorKey: "name",
         size: 100,
       },
       {
         id: "type",
-        header: () => <span className="text-seconary font-normal">Type</span>,
+        header: () => <span className="text-secondary font-normal">Type</span>,
         cell: (props) => props.getValue(),
         accessorKey: "type",
       },
       {
         id: "default",
         header: () => (
-          <span className="text-seconary font-normal">Default</span>
+          <span className="text-secondary font-normal">Default</span>
         ),
         cell: (props) => props.getValue(),
         accessorKey: "default",
