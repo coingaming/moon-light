@@ -13,8 +13,8 @@ const SearchCmdkRoot = ({
 }: React.ComponentProps<typeof Command.Dialog>) => (
   <Command.Dialog
     className={mergeClassnames(
-      "z-[60] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full bg-goku",
-      "sm:max-w-lg md:max-w-xl shadow-moon-md rounded-moon-s-md flex flex-col overflow-hidden",
+      "z-[60] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full bg-primary",
+      "sm:max-w-lg md:max-w-xl shadow-300 rounded-12 flex flex-col overflow-hidden",
       className,
     )}
     open={open}
@@ -32,7 +32,10 @@ const InputWrapper = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={mergeClassnames("flex items-center gap-4 px-4", className)}
+    className={mergeClassnames(
+      "flex items-center gap-space-16 px-space-16",
+      className,
+    )}
     {...props}
   >
     {children}
@@ -47,8 +50,8 @@ const Input = ({
   <Command.Input
     placeholder={placeholder}
     className={mergeClassnames(
-      "py-4 border-0 w-full focus:outline-none focus:border-0 focus:ring-0 bg-transparent",
-      "placeholder-trunks text-bulma text-moon-16",
+      "py-space-16 border-0 w-full focus:outline-none focus:border-0 focus:ring-0 bg-transparent",
+      "placeholder-secondary text-primary text-body-400",
       className,
     )}
     {...props}
@@ -62,7 +65,7 @@ const Icon = ({
   <div>
     <GenericSearch
       className={mergeClassnames(
-        "pointer-events-none text-bulma text-moon-24",
+        "pointer-events-none icon-primary text-heading-200",
         className,
       )}
       {...props}
@@ -77,7 +80,7 @@ const Kbd = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <kbd
     className={mergeClassnames(
-      "select-none hover:cursor-pointer text-trunks text-moon-14",
+      "select-none hover:cursor-pointer text-secondary text-body-300",
       className,
     )}
     {...props}
@@ -92,7 +95,7 @@ const Overlay = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={mergeClassnames(
-      "fixed w-screen inset-0 bg-zeno transition-opacity z-[55]",
+      "fixed w-screen inset-0 bg-backdrop transition-opacity z-[55]",
       className,
     )}
     {...props}
@@ -104,7 +107,7 @@ const Separator = ({
 }: React.ComponentProps<typeof Command.Separator>) => (
   <Command.Separator
     alwaysRender
-    className={mergeClassnames("h-px bg-beerus", className)}
+    className={mergeClassnames("h-px bg-tertiary", className)}
   />
 );
 
@@ -115,7 +118,7 @@ const Group = ({
 }: React.ComponentProps<typeof Command.Group>) => (
   <Command.Group
     className={mergeClassnames(
-      "w-full max-h-[50vh] overflow-y-auto p-2 space-y-1 bg-goku shadow-none",
+      "w-full max-h-[50vh] overflow-y-auto p-space-8 space-y-space-4 bg-primary shadow-none",
       className,
     )}
     {...props}
@@ -136,7 +139,7 @@ const Result = ({
       scrollPaddingBlockEnd: "0.5rem",
     }}
     className={mergeClassnames(
-      "w-full max-h-[50vh] overflow-y-auto p-2 space-y-1 bg-goku shadow-moon-md",
+      "w-full max-h-[50vh] overflow-y-auto p-space-8 space-y-space-4 bg-primary shadow-300",
       className,
     )}
     {...props}
@@ -151,7 +154,7 @@ const NoResults = ({
 }: React.ComponentProps<typeof Command.Empty>) => (
   <Command.Empty
     className={mergeClassnames(
-      "p-3 text-moon-14 text-trunks flex items-center",
+      "p-space-12 text-body-300 text-secondary flex items-center",
       className,
     )}
   >
@@ -167,9 +170,9 @@ const ResultItem = ({
 }: React.ComponentProps<typeof Command.Item>) => (
   <Command.Item
     className={mergeClassnames(
-      "flex gap-2 justify-between items-center p-2 bg-transparent rounded-moon-i-sm",
-      "text-moon-14 text-bulma focus:outline-none focus:shadow-focus cursor-pointer",
-      "hover:bg-heles transition data-[selected=true]:bg-heles",
+      "flex gap-space-8 justify-between items-center p-space-8 bg-transparent rounded-8",
+      "text-body-300 text-primary focus:outline-none focus:shadow-focus cursor-pointer",
+      "hover:bg-hover transition data-[selected=true]:bg-hover",
       className,
     )}
     onSelect={onSelect}
@@ -187,8 +190,8 @@ const Trigger = ({
   <button
     aria-label="Search"
     className={mergeClassnames(
-      "flex gap-2 h-10 cursor-text items-center text-trunks w-full",
-      "rounded-moon-i-sm border border-beerus bg-goku px-2 text-moon-14",
+      "flex gap-space-8 h-space-40 cursor-text items-center text-secondary w-full",
+      "rounded-8 border border-primary bg-primary px-space-8 text-body-300",
       className,
     )}
     {...props}
@@ -202,7 +205,7 @@ const TriggerIcon = ({
   ...props
 }: React.ComponentProps<typeof GenericSearch>) => (
   <GenericSearch
-    className={mergeClassnames("text-moon-24 text-bulma", className)}
+    className={mergeClassnames("text-heading-200 icon-primary", className)}
     {...props}
   />
 );
@@ -213,7 +216,10 @@ const TriggerKbd = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <kbd
-    className={mergeClassnames("text-moon-12 text-trunks ms-auto", className)}
+    className={mergeClassnames(
+      "text-body-200 text-secondary ms-auto",
+      className,
+    )}
     {...props}
   >
     {children}

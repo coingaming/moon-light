@@ -8,7 +8,7 @@ const CodePreview = ({ code }: { code: string }) => (
       language="typescript"
       id="code"
       style={codeStyle}
-      className="!p-4 !pb-12 lg:!pe-12 !bg-gohan"
+      className="!p-space-16 !pb-space-48 lg:!pe-space-48 !bg-secondary"
     >
       {code}
     </SyntaxHighlighter>

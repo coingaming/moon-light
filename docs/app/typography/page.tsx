@@ -70,7 +70,7 @@ const examples: Props = {
 
 const TypographyPage = () => (
   <MainLayout>
-    <div className="flex w-full max-w-7xl mx-auto flex-col gap-12 text-moon-14 pb-10">
+    <div className="flex w-full max-w-7xl mx-auto flex-col gap-space-48 text-body-300 pb-space-40">
       <PageHeadComponent title={pageTitle} description={pageDescription} />
       {Object.keys(examples.title).map((exampleKey, index) => {
         const example = exampleKey as keyof typeof examples.title;

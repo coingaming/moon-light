@@ -6,11 +6,11 @@ const BadgeAnchorElement = () => (
   <>
     <div className="relative">
       <span>Absolute position</span>
-      <Badge className="absolute top-0 -right-2" />
+      <Badge className="absolute top-0 -right-space-8" />
     </div>
     <div>
       <Badge />
-      <span className="ml-2">Inline position</span>
+      <span className="ml-space-8">Inline position</span>
     </div>
   </>
 );

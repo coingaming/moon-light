@@ -19,7 +19,7 @@ const Tag = ({
   <div
     onClick={onClick}
     className={mergeClassnames(
-      "flex w-fit items-center rounded-moon-i-xs gap-1 select-none text-goku bg-bulma",
+      "flex w-fit items-center rounded-4 gap-1 select-none text-inverse bg-inverse",
       getSize({ size, iconRight, iconLeft }),
       getFontSize({ isUppercase, size }),
       color,

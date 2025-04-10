@@ -6,10 +6,10 @@ const Review = () => {
   const descriptions = componentDescriptions as { [key: string]: string };
   return (
     <>
-      <h2 className="text-moon-48 font-medium max-w-3xl text-bulma">
+      <h2 className="text-heading-400 max-w-3xl text-primary">
         Accelerate your development journey with moon components.
       </h2>
-      <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 2xl:grid-cols-3 auto-rows-auto w-full gap-x-5 gap-y-5">
+      <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 2xl:grid-cols-3 auto-rows-auto w-full gap-x-space-20 gap-y-space-20">
         {Object.keys(COMPONENTS).map((componentKey, index) => {
           const { title } = COMPONENTS[componentKey as keyof typeof COMPONENTS];
           return (

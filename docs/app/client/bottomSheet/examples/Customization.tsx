@@ -17,13 +17,13 @@ export const Customization = () => {
         Customized BottomSheet
       </Button>
       <BottomSheet open={isOpen} onClose={closeBottomSheet}>
-        <BottomSheet.Panel className="bg-raditz p-4">
-          <BottomSheet.Draghandle className="after:bg-piccolo">
-            <BottomSheet.Title className="pt-2 text-goten">
+        <BottomSheet.Panel className="bg-discovery p-space-16">
+          <BottomSheet.Draghandle className="after:bg-brand">
+            <BottomSheet.Title className="pt-space-8 text-force-light">
               BottomSheet Title
             </BottomSheet.Title>
           </BottomSheet.Draghandle>
-          <div className="flex grow items-center justify-center bg-jiren text-piccolo">
+          <div className="flex grow items-center justify-center bg-brand-subtle text-brand">
             BottomSheet content
           </div>
         </BottomSheet.Panel>

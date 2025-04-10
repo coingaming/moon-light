@@ -4,11 +4,11 @@ const getLoaderColor = (variant?: ButtonVariants): string => {
   switch (variant) {
     case "secondary":
     case "outline":
-      return "border-bulma";
+      return "border-primary";
     case "ghost":
-      return "border-trunks";
+      return "border-primary";
     default:
-      return "border-goten";
+      return "border-force-light";
   }
 };
 

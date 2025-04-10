@@ -3,11 +3,11 @@ import type AccordionSizes from "../types/AccordionSizes";
 const getFont = (size?: AccordionSizes) => {
   switch (size) {
     case "xl":
-      return `text-moon-16`;
+      return `text-body-400`;
     case "sm":
-      return `text-moon-12`;
+      return `text-body-200`;
     default:
-      return `text-moon-14`;
+      return `text-body-300`;
   }
 };
 

@@ -1,5 +1,5 @@
 const Sizes = () => (
-  <div className="flex flex-col gap-2 w-full">
+  <div className="flex flex-col gap-space-8 w-full">
     <p className="text-moon-9">Size 9</p>
     <p className="text-moon-10">Size 10</p>
     <p className="text-moon-12">Size 12</p>

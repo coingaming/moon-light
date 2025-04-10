@@ -39,7 +39,7 @@ const CodeCopy = ({ code }: { code: string }) => {
         onClick={copyCode}
         variant="outline"
         icon={<FilesCopy />}
-        className="theme-moon-dark absolute top-2 end-2 z-1 bg-gohan"
+        className="dark-theme absolute top-space-8 end-space-8 z-1 bg-secondary"
       />
       <Snackbar
         isOpen={snackbar === "isOpen"}
@@ -47,8 +47,8 @@ const CodeCopy = ({ code }: { code: string }) => {
         position="bottom-center"
         autoClose={3000}
       >
-        <Snackbar.Message className="flex gap-2">
-          <GenericCheckAlternative className="text-moon-24 text-roshi" />
+        <Snackbar.Message className="flex gap-space-8">
+          <GenericCheckAlternative className="text-body-500 text-positive" />
           Copied
         </Snackbar.Message>
       </Snackbar>
