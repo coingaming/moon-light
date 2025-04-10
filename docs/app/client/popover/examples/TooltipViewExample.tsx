@@ -8,7 +8,7 @@ const TooltipViewExample = () => {
       <Popover.Trigger data-testid="popover-trigger">
         <Chip>Trigger</Chip>
       </Popover.Trigger>
-      <Popover.Panel className="w-auto min-w-[12rem] overflow-y-visible p-3 rounded-moon-s-xs text-moon-12 text-bulma bg-goku">
+      <Popover.Panel className="w-auto min-w-[12rem] overflow-y-visible p-space-12 rounded-4 text-body-200 text-primary bg-primary">
         This is the popover with arrow (tooltip)
         <Popover.Arrow />
       </Popover.Panel>

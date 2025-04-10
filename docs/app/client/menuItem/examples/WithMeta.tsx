@@ -7,12 +7,12 @@ const WithMeta = () => (
   <>
     <MenuItem className="w-56">
       <MenuItem.Title>Your value</MenuItem.Title>
-      <span className="text-moon-12 text-trunks">Meta</span>
+      <span className="text-body-200 text-secondary">Meta</span>
     </MenuItem>
     <MenuItem className="w-56">
       <OtherFrame className="text-moon-24" />
       <MenuItem.Title>Your value</MenuItem.Title>
-      <span className="text-moon-12 text-trunks">Meta</span>
+      <span className="text-body-200 text-secondary">Meta</span>
     </MenuItem>
   </>
 );

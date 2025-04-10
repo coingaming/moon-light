@@ -4,7 +4,7 @@ import { Popover, Button } from "@heathmont/moon-core-tw";
 
 const Position = () => {
   return (
-    <div className="flex align-middle justify-around items-center w-full gap-2">
+    <div className="flex align-middle justify-around items-center w-full gap-space-8">
       <Popover position="top">
         <Popover.Trigger data-testid="popover-trigger">
           <Button>Top</Button>
@@ -36,7 +36,7 @@ const Position = () => {
 };
 
 const Content: React.FC = () => (
-  <p className="p-4 text-moon-14">
+  <p className="p-space-16 text-body-300">
     {/* cSpell:disable */}
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
