@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.4
+
+### Patch Changes
+
+- fix: pass proper classes to focus checkbox [MDS-1768]
+
 ## 10.24.3
 
 ### Patch Changes
