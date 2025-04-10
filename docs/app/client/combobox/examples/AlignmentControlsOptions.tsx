@@ -42,7 +42,7 @@ const Example = () => {
   const filteredPeople1 = filter(query1, books);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-center items-center w-full gap-4">
+    <div className="flex flex-col lg:flex-row lg:justify-center items-center w-full gap-space-16">
       <Combobox
         value={selected0}
         onChange={setSelected0}
@@ -65,10 +65,10 @@ const Example = () => {
             <Combobox.Transition>
               <Combobox.Options
                 menuWidth="w-48"
-                className="rounded-moon-s-md box-border bg-goku shadow-moon-lg py-2 px-1 my-2"
+                className="rounded-8 box-border bg-primary shadow-400 py-space-8 px-space-4 my-space-8"
               >
                 {filteredPeople0.length === 0 && query0 !== "" ? (
-                  <div className="relative cursor-default select-none py-2 px-4 text-trunks">
+                  <div className="relative cursor-default select-none py-space-8 px-space-16 text-secondary">
                     Nothing found.
                   </div>
                 ) : (
@@ -79,7 +79,7 @@ const Example = () => {
                           <MenuItem.Title>{person.label}</MenuItem.Title>
                           <MenuItem.Checkbox
                             isSelected={selected}
-                            className="relative mx-1 top-auto"
+                            className="relative mx-space-4 top-auto"
                           />
                         </MenuItem>
                       )}
@@ -111,10 +111,10 @@ const Example = () => {
             <Combobox.Transition>
               <Combobox.Options
                 menuWidth="w-48"
-                className="rounded-moon-s-md box-border bg-goku shadow-moon-lg py-2 px-1 my-2"
+                className="rounded-8 box-border bg-primary shadow-400 py-space-8 px-space-4 my-space-8"
               >
                 {filteredPeople1.length === 0 && query1 !== "" ? (
-                  <div className="relative cursor-default select-none py-2 px-4 text-trunks">
+                  <div className="relative cursor-default select-none py-space-8 px-space-16 text-secondary">
                     Nothing found.
                   </div>
                 ) : (
@@ -125,7 +125,7 @@ const Example = () => {
                           <MenuItem.Title>{person.label}</MenuItem.Title>
                           <MenuItem.Radio
                             isSelected={selected}
-                            className="mx-1"
+                            className="mx-space-4"
                           />
                         </MenuItem>
                       )}

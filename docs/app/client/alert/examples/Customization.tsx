@@ -7,21 +7,21 @@ const Customization = () => (
   <>
     <Alert>
       <Alert.Message>
-        <OtherFrame className="text-moon-24 text-roshi" />
+        <OtherFrame className="text-heading-200 text-positive" />
         Generic style with colored icon
       </Alert.Message>
       <Alert.Close />
     </Alert>
-    <Alert className="bg-transparent outline outline-1 outline-offset-[-1px] outline-roshi">
-      <Alert.Message className="text-roshi">
-        <OtherFrame className="text-moon-24" />
+    <Alert className="bg-transparent outline outline-1 outline-offset-[-1px] outline-positive">
+      <Alert.Message className="text-positive">
+        <OtherFrame className="text-heading-200" />
         Outline style
       </Alert.Message>
       <Alert.Close />
     </Alert>
-    <Alert className="bg-roshi-10">
+    <Alert className="bg-brand-subtle">
       <Alert.Message>
-        <OtherFrame className="text-moon-24" />
+        <OtherFrame className="text-heading-200" />
         Colorful style
       </Alert.Message>
       <Alert.Close />

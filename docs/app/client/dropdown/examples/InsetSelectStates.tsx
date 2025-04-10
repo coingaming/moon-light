@@ -22,7 +22,7 @@ export const InsetSelectStates = () => {
   const [selected3, setSelected3] = useState<People | null>(null);
   const [selected4, setSelected4] = useState<People | null>(null);
   return (
-    <div className="flex flex-col lg:flex-row justify-around items-center w-full gap-2">
+    <div className="flex flex-col lg:flex-row justify-around items-center w-full gap-space-8">
       <Dropdown value={selected} onChange={setSelected} isError={true}>
         {({ open }) => (
           <>

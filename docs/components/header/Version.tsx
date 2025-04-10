@@ -28,7 +28,9 @@ const Version = ({ packageName }: Props) => {
     return null;
   }
   return (
-    <span className="text-moon-14 text-trunks">{packageVersionFormatted}</span>
+    <span className="text-body-300 text-secondary">
+      {packageVersionFormatted}
+    </span>
   );
 };
 

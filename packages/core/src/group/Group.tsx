@@ -33,11 +33,11 @@ const GroupRoot: GroupComponentProps = ({
     <GroupContext.Provider value={states}>
       <div
         className={mergeClassnames(
-          "flex border-none shadow-input relative h-fit bg-goku",
+          "flex border-none ring-1 ring-inset ring-primary relative h-fit bg-primary",
           orientation === "horizontal" ? "flex-row" : "flex-col",
-          size === "sm" ? "rounded-moon-i-xs" : "rounded-moon-i-sm",
+          size === "sm" ? "rounded-4" : "rounded-8",
           error &&
-            "shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-error",
+            "ring-2 ring-negative hover:ring-2 hover:ring-negative focus:ring-2 focus:ring-negative",
           className && className,
         )}
       >
@@ -122,7 +122,7 @@ const LastInput = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={mergeClassnames(
-          "relative last-element before:absolute before:block before:bg-beerus  before:transition-opacity",
+          "relative last-element before:absolute before:block before:bg-tertiary before:transition-opacity",
           isVertical && "before:h-px before:top-0 before:inset-x-0",
           isHorizontal && "before:w-px before:start-0 before:inset-y-0",
           error && "before:opacity-0",
@@ -236,7 +236,7 @@ const LastInsetInputRoot = forwardRef<
         disabled={disabled}
         readOnly={readOnly}
         className={mergeClassnames(
-          "last-element before:absolute before:block before:bg-beerus before:transition-opacity",
+          "last-element before:absolute before:block before:bg-tertiary before:transition-opacity",
           isVertical &&
             !error &&
             " [&_input]:input-tbb-hidden before:h-px before:top-0 before:inset-x-0",
@@ -351,7 +351,7 @@ const LastSelect = forwardRef<
         readOnly={readOnly}
         size={size}
         className={mergeClassnames(
-          "last-element before:absolute before:block before:bg-beerus before:transition-opacity",
+          "last-element before:absolute before:block before:bg-tertiary before:transition-opacity",
           isVertical &&
             "[&_select]:!rounded-t-none before:h-px before:top-0 before:inset-x-0",
           isVertical && !error && "[&_select]:input-tbb-hidden",
@@ -457,7 +457,7 @@ const LastInsetSelect = forwardRef<
         disabled={disabled}
         readOnly={readOnly}
         className={mergeClassnames(
-          "last-element before:absolute before:block before:bg-beerus before:transition-opacity",
+          "last-element before:absolute before:block before:bg-tertiary before:transition-opacity",
           isVertical &&
             "[&_select]:!rounded-t-none before:h-px before:top-0 before:inset-x-0",
           isVertical && !error && "[&_select]:input-tbb-hidden",

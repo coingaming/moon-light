@@ -51,7 +51,7 @@ const Example = () => {
   );
 
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-center items-start w-full gap-4">
+    <div className="flex flex-col lg:flex-row lg:justify-center items-start w-full gap-space-16">
       <Combobox
         value={selected1}
         onChange={setSelected1}
@@ -73,7 +73,7 @@ const Example = () => {
             <Combobox.Transition>
               <Combobox.Options>
                 {filteredPeople1.length === 0 && query1 !== "" ? (
-                  <div className="relative cursor-default select-none py-2 px-4 text-trunks">
+                  <div className="relative cursor-default select-none py-space-8 px-space-16 text-secondary">
                     Nothing found.
                   </div>
                 ) : (
@@ -119,7 +119,7 @@ const Example = () => {
             <Combobox.Transition>
               <Combobox.Options>
                 {filteredPeople2.length === 0 && query2 !== "" ? (
-                  <div className="relative cursor-default select-none py-2 px-4 text-trunks">
+                  <div className="relative cursor-default select-none py-space-8 px-space-16 text-secondary">
                     Nothing found.
                   </div>
                 ) : (

@@ -45,7 +45,7 @@ const NativeSelect = forwardRef<
       <span
         className={mergeClassnames(
           "block relative w-full",
-          disabled && "opacity-60 cursor-not-allowed",
+          disabled && "opacity-disabled cursor-not-allowed",
           readOnly && "cursor-not-allowed",
           className && className,
         )}
@@ -54,16 +54,17 @@ const NativeSelect = forwardRef<
           ref={ref}
           disabled={disabled || readOnly}
           className={mergeClassnames(
-            "block w-full max-w-full py-0 px-4 m-0 appearance-none text-moon-16 text-bulma transition-shadow box-border relative z-[2] cursor-pointer",
-            "bg-goku shadow-input hover:shadow-input-hov",
-            "focus:shadow-input-focus focus:outline-none",
+            "block w-full max-w-full py-0 px-space-16 m-0 appearance-none text-body-400 text-primary transition-shadow box-border relative z-[2] cursor-pointer",
+            "bg-primary ring-1 ring-inset ring-primary hover:ring-2",
+            "focus:ring-2 focus:ring-active focus:outline-none",
             error &&
-              "shadow-input-err hover:shadow-input-err focus:shadow-input-err",
-            "invalid:shadow-input-err invalid:hover:shadow-input-err invalid:focus:shadow-input-err",
+              "ring-2 ring-negative hover:ring-2 hover:ring-negative focus:ring-2 focus:ring-negative",
+            "invalid:ring-2 invalid:ring-negative invalid:hover:ring-2  invalid:hover:ring-negative invalid:focus:ring-2 invalid:focus:ring-negative",
             getSizeStyles(size as string),
             "before:box-border after:box-border",
-            "placeholder:text-trunks placeholder:opacity-100 placeholder:transition-opacity placeholder:delay-75",
-            (disabled || readOnly) && "cursor-not-allowed hover:shadow-input",
+            "placeholder:text-secondary placeholder:opacity-100 placeholder:transition-opacity placeholder:delay-75",
+            (disabled || readOnly) &&
+              "cursor-not-allowed hover:ring-1 hover:ring-primary",
           )}
           {...rest}
         >
@@ -71,9 +72,9 @@ const NativeSelect = forwardRef<
         </select>
         <ControlsChevronDownSmall
           className={mergeClassnames(
-            "absolute top-1/2 end-3 -translate-y-1/2 z-5 pointer-events-none",
-            "text-trunks flex-shrink-0 transition-transform",
-            size === "sm" ? "text-moon-16" : "text-moon-24",
+            "absolute top-1/2 end-space-12 -translate-y-1/2 z-[5] pointer-events-none",
+            "icon-secondary flex-shrink-0 transition-transform",
+            size === "sm" ? "text-body-400" : "text-heading-200",
           )}
         />
       </span>

@@ -16,14 +16,13 @@ const people = [
 export const TriggerElements = () => {
   const [option, setOption] = useState(null);
   const [option2, setOption2] = useState(null);
-  const [option3, setOption3] = useState(null);
   return (
-    <div className="flex flex-col lg:flex-row align-middle justify-around items-center w-full gap-2">
+    <div className="flex flex-col lg:flex-row align-middle justify-around items-center w-full gap-space-8">
       {/** ***** Custom trigger element ***** */}
       <Dropdown value={option} onChange={setOption}>
         <Dropdown.Trigger
           aria-label="Dropdown trigger"
-          className="w-10 h-10 bg-gohan rounded-moon-i-md flex align-middle justify-center items-center cursor-pointer transition-colors hover:bg-piccolo/20 text-moon-24 text-trunks"
+          className="size-space-40 bg-secondary rounded-12 flex align-middle justify-center items-center cursor-pointer transition-colors hover:bg-brand-subtle text-heading-200 text-secondary"
         >
           <ControlsChevronDown />
         </Dropdown.Trigger>

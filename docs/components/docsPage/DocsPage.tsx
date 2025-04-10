@@ -47,7 +47,7 @@ const DocsPage = (props: DocsPageProps) => {
       componentName={componentName}
       contentSidebar={ordered}
     >
-      <div className="flex w-full max-w-7xl mx-auto flex-col gap-12 text-moon-14 pb-10">
+      <div className="flex w-full max-w-7xl mx-auto flex-col gap-space-48 text-body-300 pb-space-40">
         <PageHeadComponent
           title={title}
           packageName={packageName}
@@ -74,7 +74,7 @@ const DocsPage = (props: DocsPageProps) => {
               description={
                 <p>
                   These are props specific to the{" "}
-                  <span className="text-frieza">{name}</span> component:
+                  <span className="text-info">{name}</span> component:
                 </p>
               }
               data={propsTable[name]}

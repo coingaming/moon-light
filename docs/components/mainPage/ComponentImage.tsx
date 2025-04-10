@@ -17,7 +17,7 @@ export const ComponentImage = ({ title }: ComponentImageType) => {
         fill
         sizes="100% 100%"
         alt={alt}
-        className="rounded-xl object-cover"
+        className="rounded-12 object-cover"
       />
     </div>
   ) : undefined;

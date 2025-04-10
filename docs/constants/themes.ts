@@ -13,10 +13,6 @@ export const themes: Themes = {
     dark: "theme-bombay-club",
     light: "theme-bombay-club",
   },
-  // comms: {
-  //   dark: 'theme-comms-dark',
-  //   light: 'theme-comms-light',
-  // },
   empire: {
     dark: "theme-empire-dark",
     light: "theme-empire-light",
@@ -34,8 +30,8 @@ export const themes: Themes = {
     light: "theme-livecasino-light",
   },
   moonDesign: {
-    dark: "theme-moon-dark",
-    light: "theme-moon-light",
+    dark: "dark-theme",
+    light: "light-theme",
   },
   partners: {
     dark: "theme-partners-light",
