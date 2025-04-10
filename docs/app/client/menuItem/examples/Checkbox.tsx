@@ -17,7 +17,7 @@ const Checkbox = () => {
       </MenuItem>
       <MenuItem isSelected={activeOpt2} onClick={toggle2} className="w-56">
         <MenuItem.Title>Your value</MenuItem.Title>
-        <MenuItem.Checkbox className="rounded-none shadow-roshi moon-checked:bg-roshi" />
+        <MenuItem.Checkbox className="rounded-none shadow-positive moon-checked:bg-positive" />
       </MenuItem>
     </>
   );

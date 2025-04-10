@@ -1,13 +1,13 @@
 const getSizeStyles = (size?: string) => {
   switch (size) {
     case "xl":
-      return "h-14 leading-[3.5rem] rounded-moon-i-sm rtl:[&:not([disabled])]:hover:rounded-moon-i-sm rtl:[&:not([disabled])]:focus:rounded-moon-i-sm rtl:invalid:rounded-moon-i-sm ltr:[&:not([disabled])]:hover:rounded-moon-i-sm ltr:[&:not([disabled])]:focus:rounded-moon-i-sm ltr:invalid:rounded-moon-i-sm";
+      return "h-space-56 leading-space-56 rounded-8 rtl:[&:not([disabled])]:hover:rounded-8 rtl:[&:not([disabled])]:focus:rounded-8 rtl:invalid:rounded-8 ltr:[&:not([disabled])]:hover:rounded-8 ltr:[&:not([disabled])]:focus:rounded-8 ltr:invalid:rounded-8";
     case "lg":
-      return "h-12 leading-[3rem] rounded-moon-i-sm rtl:[&:not([disabled])]:hover:rounded-moon-i-sm rtl:[&:not([disabled])]:focus:rounded-moon-i-sm rtl:invalid:rounded-moon-i-sm ltr:[&:not([disabled])]:hover:rounded-moon-i-sm ltr:[&:not([disabled])]:focus:rounded-moon-i-sm ltr:invalid:rounded-moon-i-sm";
+      return "h-space-48 leading-space-48 rounded-8 rtl:[&:not([disabled])]:hover:rounded-8 rtl:[&:not([disabled])]:focus:rounded-8 rtl:invalid:rounded-8 ltr:[&:not([disabled])]:hover:rounded-8 ltr:[&:not([disabled])]:focus:rounded-8 ltr:invalid:rounded-8";
     case "sm":
-      return "h-8 leading-8 rounded-moon-i-xs rtl:[&:not([disabled])]:hover:rounded-moon-i-xs rtl:[&:not([disabled])]:focus:rounded-moon-i-xs rtl:invalid:rounded-moon-i-xs ltr:[&:not([disabled])]:hover:rounded-moon-i-xs ltr:[&:not([disabled])]:focus:rounded-moon-i-xs ltr:invalid:rounded-moon-i-xs";
+      return "h-space-32 leading-space-32 rounded-4 rtl:[&:not([disabled])]:hover:rounded-4 rtl:[&:not([disabled])]:focus:rounded-4 rtl:invalid:rounded-4 ltr:[&:not([disabled])]:hover:rounded-4 ltr:[&:not([disabled])]:focus:rounded-4 ltr:invalid:rounded-4";
     default:
-      return "h-10 leading-10 rounded-moon-i-sm rtl:[&:not([disabled])]:hover:rounded-moon-i-sm rtl:[&:not([disabled])]:focus:rounded-moon-i-sm rtl:invalid:rounded-moon-i-sm ltr:[&:not([disabled])]:hover:rounded-moon-i-sm ltr:[&:not([disabled])]:focus:rounded-moon-i-sm ltr:invalid:rounded-moon-i-sm";
+      return "h-space-40 leading-space-40 rounded-8 rtl:[&:not([disabled])]:hover:rounded-8 rtl:[&:not([disabled])]:focus:rounded-8 rtl:invalid:rounded-8 ltr:[&:not([disabled])]:hover:rounded-8 ltr:[&:not([disabled])]:focus:rounded-8 ltr:invalid:rounded-8";
   }
 };
 

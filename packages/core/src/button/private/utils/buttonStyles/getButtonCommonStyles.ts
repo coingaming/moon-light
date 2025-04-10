@@ -5,9 +5,9 @@ const getButtonCommonStyles = ({
   disabled,
 }: Pick<ButtonSettingsProps, "disabled">): string =>
   mergeClassnames(
-    "relative z-0 flex justify-center items-center font-medium no-underline overflow-hidden",
+    "relative z-0 flex justify-center items-center no-underline overflow-hidden",
     "whitespace-nowrap select-none transition duration-200",
-    disabled ? "opacity-60 cursor-not-allowed" : "active:scale-90",
+    disabled ? "opacity-disabled cursor-not-allowed" : "active:scale-90",
   );
 
 export default getButtonCommonStyles;

@@ -5,10 +5,10 @@ import { OtherFrame } from "@heathmont/moon-icons-tw";
 
 const MultiLineItems = () => {
   return (
-    <div className="w-94 bg-gohan flex flex-col gap-3 rounded-moon-s-lg p-6">
+    <div className="w-94 bg-secondary flex flex-col gap-space-12 rounded-16 p-space-24">
       <MenuItem isActive>
-        <span className="bg-piccolo/10 rounded-moon-i-sm w-10 h-10 flex justify-center items-center">
-          <OtherFrame className="text-moon-24 text-piccolo" />
+        <span className="bg-brand-subtle rounded-8 size-space-40 flex justify-center items-center">
+          <OtherFrame className="text-heading-200 icon-brand" />
         </span>
         <MenuItem.MultiTitle
           title="Job Board"
@@ -16,18 +16,18 @@ const MultiLineItems = () => {
         />
       </MenuItem>
       <MenuItem>
-        <span className="bg-piccolo/10 rounded-moon-i-sm w-10 h-10 flex justify-center items-center">
-          <OtherFrame className="text-moon-24 text-piccolo" />
+        <span className="bg-brand-subtle rounded-8 size-space-40 flex justify-center items-center">
+          <OtherFrame className="text-heading-200 icon-brand" />
         </span>
         <MenuItem.MultiTitle
           title="Freelance Projects"
           text={<span>An exclusive list for contract work</span>}
         />
       </MenuItem>
-      <hr className="border-top border-beerus" />
+      <hr className="border-top border-primary" />
       <MenuItem>
-        <span className="bg-krillin-10 rounded-moon-i-sm w-10 h-10 flex justify-center items-center">
-          <OtherFrame className="text-moon-24 text-krillin" />
+        <span className="bg-discovery-subtle rounded-8 size-space-40 flex justify-center items-center">
+          <OtherFrame className="text-heading-200 icon-discovery" />
         </span>
         <MenuItem.MultiTitle
           title="Want freelance design projects?"
@@ -35,8 +35,8 @@ const MultiLineItems = () => {
         />
       </MenuItem>
       <MenuItem>
-        <span className="bg-chichi-10 rounded-moon-i-sm w-10 h-10 flex justify-center items-center">
-          <OtherFrame className="text-moon-24 text-chichi" />
+        <span className="bg-negative-subtle rounded-8 size-space-40 flex justify-center items-center">
+          <OtherFrame className="text-heading-200 text-negative" />
         </span>
         <MenuItem.MultiTitle
           title="Personalized your profile with video"

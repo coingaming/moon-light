@@ -64,7 +64,7 @@ const Example = () => {
   }, [setSelected, setIsAllSelected]);
 
   return (
-    <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-end w-full gap-4">
+    <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-end w-full gap-space-16">
       <Combobox
         value={selected}
         onChange={onChange}
@@ -88,7 +88,7 @@ const Example = () => {
             <Combobox.Transition>
               <Combobox.Options>
                 {filteredPeople.length === 0 && query !== "" ? (
-                  <div className="relative cursor-default select-none py-2 px-4 text-trunks">
+                  <div className="relative cursor-default select-none py-space-8 px-space-16 text-secondary">
                     Nothing found.
                   </div>
                 ) : (

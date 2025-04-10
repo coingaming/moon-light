@@ -3,10 +3,10 @@ import type TagProps from "../types/TagProps";
 const getFontSize = ({ size, isUppercase }: TagProps) => {
   if (isUppercase) {
     return size === "2xs"
-      ? "text-moon-9-caption uppercase font-medium"
-      : "text-moon-10-caption uppercase font-medium";
+      ? "text-body-100 uppercase font-medium"
+      : "text-body-100 uppercase font-medium";
   }
-  return size === "2xs" ? "text-moon-10" : "text-moon-12";
+  return size === "2xs" ? "text-body-100" : "text-body-100";
 };
 
 export default getFontSize;

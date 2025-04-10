@@ -38,20 +38,22 @@ const IconWrapper = ({ children, name }: IconProps) => {
 
   const renderIcon = (name: string) => {
     const IconComponent = Icons[name as keyof typeof Icons];
-    return IconComponent ? <IconComponent className="text-moon-24" /> : null;
+    return IconComponent ? (
+      <IconComponent className="text-heading-200" />
+    ) : null;
   };
 
   return (
     <>
-      <div className="flex flex-col gap-1 items-center w-14">
+      <div className="flex flex-col gap-space-4 items-center w-space-56">
         <Chip
           variant="ghost"
           aria-label={name}
           onClick={copyCode}
           iconOnly={children}
-          className="text-moon-24"
+          className="text-heading-200"
         />
-        <p className="w-full text-moon-10 text-trunks text-center truncate hover:w-auto hover:bg-goku hover:px-2 hover:z-1">
+        <p className="w-full text-body-100 text-secondary text-center truncate hover:w-auto hover:bg-primary hover:px-space-8 hover:z-[1]">
           {name}
         </p>
       </div>
@@ -60,8 +62,8 @@ const IconWrapper = ({ children, name }: IconProps) => {
         onOpenChange={setSnackbar}
         position="bottom-center"
       >
-        <Snackbar.Message className="flex gap-2">
-          <Icons.GenericCheckAlternative className="text-moon-24 text-roshi" />
+        <Snackbar.Message className="flex gap-space-8">
+          <Icons.GenericCheckAlternative className="text-heading-200 text-positive" />
           Icon {renderIcon(name)} copied for import
         </Snackbar.Message>
       </Snackbar>

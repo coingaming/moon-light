@@ -8,26 +8,26 @@ const getPadding = ({
 }: ChipProps): string => {
   if (size === "sm") {
     if (iconLeft && !iconRight) {
-      return "py-1 ps-1 pe-2";
+      return "py-space-4 ps-space-4 pe-space-8";
     }
     if (iconRight && !iconLeft) {
-      return "py-1 ps-2 pe-1";
+      return "py-space-4 ps-space-8 pe-space-4";
     }
     if (!iconRight && !iconLeft && !iconOnly) {
-      return "py-1 px-2";
+      return "py-space-4 px-space-8";
     }
-    return "p-1";
+    return "p-space-4";
   }
   if (iconLeft && !iconRight) {
-    return "py-2 ps-2 pe-3";
+    return "py-space-8 ps-space-8 pe-space-12";
   }
   if (iconRight && !iconLeft) {
-    return "py-2 ps-3 pe-2";
+    return "py-space-8 ps-space-12 pe-space-8";
   }
   if (!iconRight && !iconLeft && !iconOnly) {
-    return "py-2 px-3";
+    return "py-space-8 px-space-12";
   }
-  return "p-2";
+  return "p-space-8";
 };
 
 export default getPadding;

@@ -79,7 +79,7 @@ export const PrevButton = <C extends React.ElementType = "button">({
     <Component
       {...rest}
       className={mergeClassnames(
-        "moon-disabled:cursor-not-allowed moon-disabled:opacity-60",
+        "moon-disabled:cursor-not-allowed moon-disabled:opacity-disabled",
         className,
       )}
       onClick={() => previous()}
@@ -127,7 +127,7 @@ export const NextButton = <C extends React.ElementType = "button">({
     <Component
       {...rest}
       className={mergeClassnames(
-        "moon-disabled:cursor-not-allowed moon-disabled:opacity-60",
+        "moon-disabled:cursor-not-allowed moon-disabled:opacity-disabled",
         className,
       )}
       onClick={() => next()}
@@ -150,7 +150,7 @@ const TruncableElement = ({
 
   return (isPreviousTruncable && prev === true) ||
     (isNextTruncable && !prev) ? (
-    <span className="truncable flex justify-center min-w-[2rem]">
+    <span className="truncable flex justify-center min-w-space-32">
       {children}
     </span>
   ) : null;
@@ -174,11 +174,11 @@ const Pages = <C extends React.ElementType = "a">({
       href={pagination.hrefsArray && pagination.hrefsArray[page - 1]}
       type={as === "button" ? "button" : undefined}
       className={mergeClassnames(
-        "flex items-center justify-center cursor-pointer w-8 h-8 rounded-moon-s-sm focus:outline-none transition-colors",
+        "flex items-center justify-center cursor-pointer size-space-32 rounded-8 focus:outline-none transition-colors",
         className,
         pagination.currentPage + 1 === page
-          ? "text-goten bg-piccolo font-medium"
-          : "text-bulma hover:bg-jiren focus:bg-jiren",
+          ? "text-force-light bg-brand font-medium"
+          : "text-primary hover:bg-hover focus:bg-hover",
       )}
       {...rest}
     >
@@ -189,7 +189,7 @@ const Pages = <C extends React.ElementType = "a">({
   return (
     <nav
       className={mergeClassnames(
-        "flex gap-1 items-center justify-center w-full h-10 text-moon-14 flex-grow",
+        "flex gap-space-4 items-center justify-center w-full h-space-40 text-body-300 flex-grow",
         className,
       )}
       aria-label="pagination"

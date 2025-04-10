@@ -74,7 +74,7 @@ const Customization = () => {
         <Snackbar
           isOpen={snackbar === "always-light"}
           onOpenChange={setSnackbar}
-          className="theme-moon-light"
+          className="light-theme"
         >
           <Snackbar.Message>Applying light theme</Snackbar.Message>
         </Snackbar>
@@ -89,7 +89,7 @@ const Customization = () => {
         <Snackbar
           isOpen={snackbar === "always-dark"}
           onOpenChange={setSnackbar}
-          className="theme-moon-dark"
+          className="dark-theme"
         >
           <Snackbar.Message>Applying dark theme</Snackbar.Message>
         </Snackbar>

@@ -54,7 +54,7 @@ type PanelProps = {
 };
 const Panel = ({ children, className }: WithChildren<PanelProps>) => (
   <div className="fixed inset-0 overflow-y-auto">
-    <div className="flex min-h-full items-center justify-center p-4">
+    <div className="flex min-h-full items-center justify-center p-space-16">
       <Transition.Child
         enter="transition duration-300 ease-out"
         enterFrom="transform scale-95 opacity-0"
@@ -66,7 +66,7 @@ const Panel = ({ children, className }: WithChildren<PanelProps>) => (
       >
         <Dialog.Panel
           className={mergeClassnames(
-            "w-full max-w-sm inline-block transform rounded-xl bg-goku align-middle shadow-moon-lg transition-all",
+            "w-full max-w-sm inline-block transform rounded-12 bg-primary align-middle shadow-400 transition-all",
             className,
           )}
         >
@@ -85,10 +85,7 @@ type TitleProps = {
 const Title = ({ children, className }: TitleProps) => (
   <Dialog.Title
     as="h3"
-    className={mergeClassnames(
-      "text-moon-18 font-medium text-gray-900",
-      className,
-    )}
+    className={mergeClassnames("text-heading-100 text-primary", className)}
   >
     {children}
   </Dialog.Title>

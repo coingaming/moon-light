@@ -32,9 +32,9 @@ export const SearchResults = ({
             }
           }}
         >
-          <span className="text-moon-14">{action.name}</span>
+          <span className="text-body-300">{action.name}</span>
           {action.section && (
-            <span className="text-moon-14 text-piccolo">{action.section}</span>
+            <span className="text-body-300 text-brand">{action.section}</span>
           )}
         </SearchCmdk.ResultItem>
       ))}

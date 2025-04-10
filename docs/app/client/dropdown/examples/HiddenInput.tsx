@@ -15,7 +15,7 @@ const people2 = [
 export const HiddenInput = () => {
   const [option, setOption] = useState<string | undefined>(undefined);
   return (
-    <div className="flex flex-col lg:flex-row justify-around items-end w-80 gap-2">
+    <div className="flex flex-col lg:flex-row justify-around items-end w-80 gap-space-8">
       <Dropdown value={option} onChange={setOption}>
         {({ open }) => (
           <>

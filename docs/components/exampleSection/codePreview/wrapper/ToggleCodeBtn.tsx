@@ -10,18 +10,21 @@ const ToggleCodeBtn = ({ expand, clickHandler }: Props) => {
   return (
     <div
       className={mergeClassnames(
-        "theme-moon-dark absolute bottom-0 inset-x-0 h-32 flex items-end z-0 bg-gradient-to-b from-25% from-transparent to-gohan",
-        expand && "h-10",
+        "dark-theme absolute bottom-0 inset-x-0 h-space-128 flex items-end z-0 bg-gradient-to-b from-25% from-transparent to-gohan",
+        expand && "h-space-40",
       )}
     >
       <Button
         onClick={clickHandler}
         variant="ghost"
         fullWidth
-        className="active:scale-100 bg-gohan"
+        className="active:scale-100 bg-secondary"
         iconRight={
           <ControlsChevronDownSmall
-            className={mergeClassnames("text-moon-24", expand && "rotate-180")}
+            className={mergeClassnames(
+              "text-heading-200",
+              expand && "rotate-180",
+            )}
           />
         }
       >

@@ -48,18 +48,18 @@ const WithSelect = () => {
       <Modal open={isOpen} onClose={closeModal} className="z-50">
         <Modal.Backdrop />
         <Modal.Panel>
-          <div className="border-b-[0.063rem] border-beerus pt-5 pb-4 px-6 relative">
-            <h3 className="text-moon-18 text-bulma font-medium">Modal title</h3>
+          <div className="border-b-px border-primary pt-space-20 pb-space-16 px-space-24 relative">
+            <h3 className="text-heading-100 text-primary">Modal title</h3>
             <IconButton
               variant="ghost"
               size="sm"
-              className="absolute top-4 end-5"
+              className="absolute top-space-16 end-space-20"
               onClick={closeModal}
             >
-              <ControlsCloseSmall className="text-moon-24" />
+              <ControlsCloseSmall className="text-heading-200" />
             </IconButton>
           </div>
-          <div className="px-6 py-4 flex flex-col gap-3">
+          <div className="px-space-24 py-space-16 flex flex-col gap-space-12">
             <Dropdown value={size} onChange={setSize} size="xl">
               {({ open }) => (
                 <>
@@ -139,7 +139,7 @@ const WithSelect = () => {
               )}
             </Dropdown>
           </div>
-          <div className="flex gap-2 p-4 justify-end pt-2">
+          <div className="flex gap-space-8 p-space-16 justify-end pt-space-8">
             <Button variant="outline" onClick={closeModal}>
               Cancel
             </Button>

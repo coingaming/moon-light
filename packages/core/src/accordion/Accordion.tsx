@@ -28,7 +28,7 @@ const AccordionRoot = ({
   const RadixAccordionRoot = singleOpen ? AccordionSingle : AccordionMultiple;
   return (
     <RadixAccordionRoot
-      className={mergeClassnames("flex w-full gap-2 flex-col", className)}
+      className={mergeClassnames("flex w-full gap-space-8 flex-col", className)}
       defaultValue={defaultValue}
       value={value}
       onValueChange={onValueChange}
@@ -62,7 +62,7 @@ const Item = ({ children, value, className, disabled }: ItemProps) => {
 const Header = ({ children, className }: HeaderProps) => (
   <RadixAccordion.Header
     className={mergeClassnames(
-      "w-full rounded-moon-s-sm bg-goku moon-open:rounded-b-none",
+      "w-full rounded-8 bg-primary moon-open:rounded-b-none",
       className,
     )}
   >
@@ -78,8 +78,8 @@ const Button = ({ children, className }: ButtonProps) => {
       className={mergeClassnames(
         getPadding(true, size),
         getFont(size),
-        "w-full justify-between flex items-center relative gap-1 cursor-pointer flex-1 font-medium",
-        "text-bulma text-start data-[disabled]:cursor-not-allowed data-[disabled]:opacity-60",
+        "w-full justify-between flex items-center relative gap-space-4 cursor-pointer flex-1 font-medium",
+        "text-primary text-start data-[disabled]:cursor-not-allowed data-[disabled]:opacity-disabled",
         className,
       )}
     >
@@ -93,8 +93,8 @@ const Content = ({ children, className }: ContentProps) => {
   return (
     <RadixAccordion.Content
       className={mergeClassnames(
-        "moon-open:flex bg-goku rounded-moon-s-sm rounded-t-none p-2 border-t border-beerus",
-        "text-moon-14 w-full text-bulma",
+        "moon-open:flex bg-primary rounded-8 rounded-t-none p-space-8 border-t border-primary",
+        "text-body-300 w-full text-primary",
         className,
       )}
       ref={contentElement}
@@ -110,7 +110,7 @@ const ContentOutside = ({ children, className }: ContentProps) => {
     <RadixAccordion.Content
       className={mergeClassnames(
         getMargin(size),
-        "moon-open:flex w-full text-bulma text-moon-14",
+        "moon-open:flex w-full text-primary text-body-300",
         className,
       )}
     >

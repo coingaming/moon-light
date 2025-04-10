@@ -3,7 +3,7 @@
 import { Input, Label } from "@heathmont/moon-core-tw";
 
 const Sizes = () => (
-  <div className="flex flex-col lg:flex-row justify-around items-start w-full gap-2">
+  <div className="flex flex-col lg:flex-row justify-around items-start w-full gap-space-8">
     <div className="w-full">
       <Label htmlFor="size-sm" size="sm">
         Small

@@ -32,8 +32,8 @@ export const Sizes = () => {
           Default small BottomSheet
         </Button>
         <BottomSheet open={isSmallOpen} onClose={closeSmallBottomSheet}>
-          <BottomSheet.Panel className="flex flex-col gap-2 items-center">
-            <div className="flex grow w-full items-center justify-center bg-jiren text-piccolo">
+          <BottomSheet.Panel className="flex flex-col gap-space-8 items-center">
+            <div className="flex grow w-full items-center justify-center bg-brand-subtle text-brand">
               BottomSheet content
             </div>
             <Button onClick={closeSmallBottomSheet}>Optional close</Button>
@@ -46,8 +46,8 @@ export const Sizes = () => {
           Medium BottomSheet
         </Button>
         <BottomSheet open={isMediumOpen} onClose={closeMediumBottomSheet}>
-          <BottomSheet.Panel className="flex flex-col gap-2 items-center h-2/3">
-            <div className="flex grow w-full items-center justify-center bg-jiren text-piccolo">
+          <BottomSheet.Panel className="flex flex-col gap-space-8 items-center h-2/3">
+            <div className="flex grow w-full items-center justify-center bg-brand-subtle text-brand">
               BottomSheet content
             </div>
             <Button onClick={closeMediumBottomSheet}>Optional close</Button>
@@ -60,8 +60,8 @@ export const Sizes = () => {
           Fullscreen BottomSheet
         </Button>
         <BottomSheet open={isFullOpen} onClose={closeFullBottomSheet}>
-          <BottomSheet.Panel className="flex flex-col gap-2 items-center h-full">
-            <div className="flex grow w-full items-center justify-center bg-jiren text-piccolo">
+          <BottomSheet.Panel className="flex flex-col gap-space-8 items-center h-full">
+            <div className="flex grow w-full items-center justify-center bg-brand-subtle text-brand">
               BottomSheet content
             </div>
             <Button onClick={closeFullBottomSheet}>Optional close</Button>
