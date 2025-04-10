@@ -51,7 +51,7 @@ const Status = ({
   <div
     className={mergeClassnames(
       "status",
-      "absolute border-solid border-gohan rounded-full bg-roshi",
+      "absolute border-solid border-secondary rounded-full bg-positive",
       position && position.vertical === "top" && "top-0",
       position && position.vertical === "bottom" && "bottom-0",
       position && position.horizontal === "left" && "start-0",

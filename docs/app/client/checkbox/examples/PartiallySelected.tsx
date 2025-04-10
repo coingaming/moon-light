@@ -9,14 +9,14 @@ export const PartiallySelected = () => {
   const allChecked = checkedItems.every(Boolean);
   const isIndeterminate = checkedItems.some(Boolean) && !allChecked;
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-space-8">
       <Checkbox
         checked={allChecked}
         indeterminate={isIndeterminate}
         onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}
         label="Parent "
       />
-      <div className="flex flex-col ps-4">
+      <div className="flex flex-col ps-space-16">
         <Checkbox
           checked={checkedItems[0]}
           onChange={(e) => setCheckedItems([e.target.checked, checkedItems[1]])}

@@ -16,7 +16,7 @@ const Wrapper = ({
   <div
     className={mergeClassnames(
       "relative overflow-hidden uppercase font-medium flex items-center justify-center bg-cover",
-      "text-bulma bg-goku",
+      "text-primary bg-primary",
       color,
       bgColor,
       getWrapperSize(size),

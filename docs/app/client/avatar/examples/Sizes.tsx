@@ -5,32 +5,32 @@ import { GenericUser } from "@heathmont/moon-icons-tw";
 import image from "../avatar_example.jpeg";
 
 const sharedProps = {
-  className: "border border-beerus",
+  className: "border border-primary",
 };
 
 const Example = () => (
   <>
-    <div className="flex flex-wrap items-center justify-around gap-2 w-full">
+    <div className="flex flex-wrap items-center justify-around gap-space-8 w-full">
       <Avatar {...sharedProps} size="xs">
-        <GenericUser className="text-moon-16" />
+        <GenericUser className="text-body-400" />
       </Avatar>
       <Avatar {...sharedProps} size="sm">
-        <GenericUser className="text-moon-24" />
+        <GenericUser className="text-heading-200" />
       </Avatar>
       <Avatar {...sharedProps}>
-        <GenericUser className="text-moon-24" />
+        <GenericUser className="text-heading-200" />
       </Avatar>
       <Avatar {...sharedProps} size="lg">
-        <GenericUser className="text-moon-24" />
+        <GenericUser className="text-heading-200" />
       </Avatar>
       <Avatar {...sharedProps} size="xl">
-        <GenericUser className="text-moon-24" />
+        <GenericUser className="text-heading-200" />
       </Avatar>
       <Avatar {...sharedProps} size="2xl">
-        <GenericUser className="text-moon-32" />
+        <GenericUser className="text-heading-300" />
       </Avatar>
     </div>
-    <div className="flex flex-wrap items-center justify-around gap-2 w-full">
+    <div className="flex flex-wrap items-center justify-around gap-space-8 w-full">
       <Avatar {...sharedProps} size="xs">
         xs
       </Avatar>
@@ -48,7 +48,7 @@ const Example = () => (
         2xl
       </Avatar>
     </div>
-    <div className="flex flex-wrap items-center justify-around gap-2 w-full">
+    <div className="flex flex-wrap items-center justify-around gap-space-8 w-full">
       <Avatar imageUrl={image.src} size="xs" />
       <Avatar imageUrl={image.src} size="sm" />
       <Avatar imageUrl={image.src} />

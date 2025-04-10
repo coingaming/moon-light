@@ -21,8 +21,8 @@ const InsetInputRoot = forwardRef<HTMLInputElement, InsetInputProps>(
       <InsetInputContext.Provider value={{ ...state, registerChild }}>
         <div
           className={mergeClassnames(
-            "w-full relative rounded-moon-i-sm bg-goku",
-            disabled && "opacity-60 cursor-not-allowed",
+            "w-full relative rounded-8 bg-primary",
+            disabled && "opacity-disabled cursor-not-allowed",
             className && className,
           )}
         >
@@ -33,20 +33,20 @@ const InsetInputRoot = forwardRef<HTMLInputElement, InsetInputProps>(
             disabled={disabled}
             max={getMaxDate(rest.type)}
             className={mergeClassnames(
-              "block w-full py-0 px-4 m-0 appearance-none text-moon-16 text-bulma",
-              "transition-shadow box-border relative z-[2] bg-transparent shadow-input",
-              "hover:shadow-input-hov focus:shadow-input-focus focus:outline-none",
-              "focus-visible:shadow-input-focus focus-visible:outline-none h-14 leading-[3.5rem]",
-              "rounded-moon-i-sm placeholder:text-trunks placeholder:opacity-100",
+              "block w-full py-0 px-space-16 m-0 appearance-none text-body-400 text-primary",
+              "transition-shadow box-border relative z-[2] bg-transparent ring-1 ring-inset ring-primary",
+              "hover:ring-2 focus:ring-2 focus:ring-active focus:outline-none",
+              "h-space-56 leading-space-56",
+              "rounded-8 placeholder:text-secondary placeholder:opacity-100",
               "placeholder:transition-opacity placeholder:delay-75 read-only:outline-0",
-              "read-only:border-none read-only:cursor-not-allowed read-only:hover:shadow-input",
-              "read-only:focus:shadow-input read-only:focus-visible:shadow-input",
-              "invalid:shadow-input-err invalid:hover:shadow-input-err input-xl-dt-shared",
-              "invalid:focus:shadow-input-err invalid:focus-visible:shadow-input-err",
+              "read-only:border-none read-only:cursor-not-allowed read-only:hover:ring-1",
+              "read-only:focus:ring-1 read-only:focus:ring-primary",
+              "invalid:ring-2 invalid:ring-negative invalid:hover:ring-2 invalid:hover:ring-negative",
+              "invalid:focus:ring-2 invalid:focus:ring-negative",
               error &&
-                "shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-err",
+                "ring-2 ring-negative hover:ring-2 hover:ring-negative focus:ring-2 focus:ring-negative",
               getTypeStyles(rest.type),
-              isLabel && "input-xl pt-[1.125rem] input-xl-dt-label",
+              isLabel && "pt-space-18",
             )}
             {...rest}
           />
@@ -65,7 +65,7 @@ const Label = ({ children, className }: LabelProps) => {
   return (
     <label
       className={mergeClassnames(
-        "absolute text-moon-12 text-trunks top-3 start-4 z-[1] transition-all",
+        "absolute text-body-200 text-secondary top-space-12 start-space-16 z-[1] transition-all",
         className,
       )}
     >

@@ -7,13 +7,13 @@ export const Customization = () => (
   <>
     <Accordion>
       <Accordion.Item value="item-1">
-        <Accordion.Header className="moon-open:[&_svg]:rotate-180 bg-beerus">
+        <Accordion.Header className="moon-open:[&_svg]:rotate-180 bg-tertiary">
           <Accordion.Button>
             <span>Test accordion with background</span>
-            <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
+            <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
           </Accordion.Button>
         </Accordion.Header>
-        <Accordion.Content className="bg-beerus">
+        <Accordion.Content className="bg-tertiary">
           {/* cSpell:disable */}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

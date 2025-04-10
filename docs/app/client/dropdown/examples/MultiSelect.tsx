@@ -22,7 +22,7 @@ export const MultiSelect = () => {
   const [selected3, setSelected3] = useState<People[]>([]);
 
   return (
-    <div className="flex flex-col lg:flex-row justify-around items-start w-full gap-2">
+    <div className="flex flex-col lg:flex-row justify-around items-start w-full gap-space-8">
       <Dropdown
         value={selected}
         onChange={setSelected}

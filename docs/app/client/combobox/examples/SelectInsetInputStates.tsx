@@ -41,7 +41,7 @@ const Example = () => {
   const filteredPeople1 = filter(query1, people);
 
   return (
-    <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start w-full gap-4">
+    <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start w-full gap-space-16">
       <Combobox
         value={selected0}
         onChange={setSelected0}
@@ -62,7 +62,7 @@ const Example = () => {
             <Combobox.Transition>
               <Combobox.Options>
                 {filteredPeople0.length === 0 && query0 !== "" ? (
-                  <div className="relative cursor-default select-none py-2 px-4 text-trunks">
+                  <div className="relative cursor-default select-none py-space-8 px-space-16 text-secondary">
                     Nothing found.
                   </div>
                 ) : (
@@ -108,7 +108,7 @@ const Example = () => {
             <Combobox.Transition>
               <Combobox.Options>
                 {filteredPeople1.length === 0 && query1 !== "" ? (
-                  <div className="relative cursor-default select-none py-2 px-4 text-trunks">
+                  <div className="relative cursor-default select-none py-space-8 px-space-16 text-secondary">
                     Nothing found.
                   </div>
                 ) : (

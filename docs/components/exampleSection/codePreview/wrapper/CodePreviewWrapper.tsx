@@ -31,13 +31,13 @@ const CodePreviewWrapper = ({
     <div
       ref={wrapperRef}
       className={mergeClassnames(
-        "relative text-bulma overflow-hidden border border-t-0 border-beerus rounded-b-lg",
+        "relative text-primary overflow-hidden border border-t-0 border-primary rounded-b-8",
         className,
       )}
     >
       <div
         className={mergeClassnames(
-          "theme-moon-dark max-h-32 transition-[max-height] ease-in-out overflow-hidden overflow-x-auto",
+          "dark-theme max-h-space-128 transition-[max-height] ease-in-out overflow-hidden overflow-x-auto",
           expand && "max-h-96 overflow-auto",
         )}
       >

@@ -51,14 +51,14 @@ const Input = ({ children, className }: InputProps) => {
     <button
       {...rest}
       className={mergeClassnames(
-        "flex items-center justify-between gap-2",
-        "w-full bg-goku border-beerus",
+        "flex items-center justify-between gap-space-8",
+        "w-full bg-primary border-primary",
         "shadow-input hover:shadow-input-hov transition-shadow duration-200 ",
         "focus:shadow-input-focus focus:outline-none",
         getSelectSize(size),
         isError &&
           "shadow-input-err hover:shadow-input-err focus:shadow-input-err",
-        idDisabled && "opacity-60 cursor-not-allowed hover:shadow-input",
+        idDisabled && "opacity-disabled cursor-not-allowed hover:shadow-input",
         className && className,
       )}
     >
@@ -78,17 +78,17 @@ const InsetInput = ({ children, className }: InputProps) => {
       {...rest}
       className={mergeClassnames(
         "flex items-center justify-between",
-        "w-full bg-goku border-beerus",
+        "w-full bg-primary border-primary",
         "shadow-input hover:shadow-input-hov transition-shadow duration-200 ",
         "focus:shadow-input-focus focus:outline-none",
-        "h-14 py-2 px-4 rounded-moon-i-md",
+        "h-space-56 py-space-8 px-space-16 rounded-12",
         isError &&
           "shadow-input-err hover:shadow-input-err focus:shadow-input-err",
         idDisabled && "opacity-60 cursor-not-allowed hover:shadow-input",
         className && className,
       )}
     >
-      <span className="flex gap-2 items-center overflow-hidden">
+      <span className="flex gap-space-8 items-center overflow-hidden">
         {children}
       </span>
       <Control />
@@ -101,8 +101,8 @@ const Value = ({ children }: { children?: React.ReactNode }) => {
   return (
     <span
       className={mergeClassnames(
-        size === "sm" ? "text-moon-14" : "text-moon-16",
-        "w-full text-bulma truncate",
+        size === "sm" ? "text-body-300" : "text-body-400",
+        "w-full text-primary truncate",
       )}
     >
       {children}
@@ -121,9 +121,9 @@ const Label = ({
   return (
     <Listbox.Label
       className={mergeClassnames(
-        "block text-bulma pb-2",
-        currentSize === "sm" ? "text-moon-14" : "text-moon-16",
-        idDisabled && "opacity-60 cursor-not-allowed",
+        "block text-primary pb-space-8",
+        currentSize === "sm" ? "text-body-300" : "text-body-400",
+        idDisabled && "opacity-disabled cursor-not-allowed",
       )}
       htmlFor={htmlFor}
     >
@@ -133,7 +133,7 @@ const Label = ({
 };
 
 const FloatingLabel = ({ children }: { children?: React.ReactNode }) => (
-  <Listbox.Label className="w-full text-moon-12 text-trunks text-start truncate">
+  <Listbox.Label className="w-full text-body-200 text-secondary text-start truncate">
     {children}
   </Listbox.Label>
 );
@@ -143,8 +143,8 @@ const Placeholder = ({ children }: { children?: React.ReactNode }) => {
   return (
     <span
       className={mergeClassnames(
-        size === "sm" ? "text-moon-14" : "text-moon-16",
-        "w-full text-trunks text-start truncate",
+        size === "sm" ? "text-body-300" : "text-body-400",
+        "w-full text-secondary text-start truncate",
       )}
     >
       {children}
@@ -157,8 +157,8 @@ const Control = () => {
   return (
     <ControlsChevronDownSmall
       className={mergeClassnames(
-        "text-trunks flex-shrink-0 transition-transform",
-        size === "sm" ? "text-moon-16" : "text-moon-24",
+        "text-secondary flex-shrink-0 transition-transform",
+        size === "sm" ? "text-body-400" : "text-heading-200",
         open && "rotate-[-180deg]",
       )}
     />

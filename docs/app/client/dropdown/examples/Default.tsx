@@ -22,7 +22,7 @@ export const Default = () => {
   return (
     <div className="w-56">
       <Dropdown value={option} onChange={setOption}>
-        <Dropdown.Trigger className="p-2 cursor-pointer text-bulma hover:text-piccolo border border-beerus rounded-moon-i-sm w-full">
+        <Dropdown.Trigger className="p-space-8 cursor-pointer text-primary hover:text-brand border border-primary rounded-8 w-full">
           {option?.name}
         </Dropdown.Trigger>
 

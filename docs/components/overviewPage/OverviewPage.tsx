@@ -9,7 +9,7 @@ const OverviewPage = (props: OverviewPageProps) => {
     <MainLayout>
       <div
         className={mergeClassnames(
-          "flex w-full max-w-7xl mx-auto flex-col gap-12 text-moon-14 pb-10",
+          "flex w-full max-w-7xl mx-auto flex-col gap-space-48 text-body-300 pb-space-40",
           className,
         )}
       >

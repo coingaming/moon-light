@@ -5,10 +5,10 @@ import getSize from "./private/utils/getSize";
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
 const commonStyles =
-  "absolute w-full h-full rounded-full animate-[rotation_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] border-x-transparent border-b-transparent";
+  "absolute w-full h-full rounded-full animate-[spin_1.2s_cubic-bezier(0.5,0,0.5,1)_infinite] border-x-transparent border-b-transparent";
 
 const Loader = ({
-  color = "border-hit",
+  color = "border-discovery",
   size = "md",
   ariaLabel = "Loading",
 }: LoaderProps) => (
