@@ -24,7 +24,7 @@ const IconsBlock = ({ title, children, className, href }: Props) => (
         <GenericLink className="text-brand text-body-400 opacity-0 transition-opacity" />
       </Link>
     </h2>
-    <div className="flex flex-wrap gap-space-8 p-space-16 text-bosy-400 rounded-8 bg-primary border border-primary">
+    <div className="flex flex-wrap gap-space-8 p-space-16 text-body-400 rounded-8 bg-primary border border-primary">
       {children}
     </div>
   </>
