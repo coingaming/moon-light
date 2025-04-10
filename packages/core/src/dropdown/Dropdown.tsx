@@ -109,7 +109,7 @@ const Options = ({
       {...popper?.attributes?.popper}
       className={mergeClassnames(
         menuWidth ? menuWidth : "w-full min-w-[18.75rem]",
-        "z-5 absolute p-1 my-2 rounded-moon-s-md box-border bg-goku shadow-moon-lg overflow-y-auto focus:outline-none",
+        "z-[5] absolute p-space-4 my-space-8 rounded-12 box-border bg-primary shadow-400 overflow-y-auto focus:outline-none",
         className && className,
       )}
       {...rest}
@@ -240,7 +240,7 @@ const MultiSelect = ({
           {...rest}
         >
           <SelectButton.Input className={mergeClassnames(className)}>
-            <span className="flex w-full gap-2 items-center">
+            <span className="flex w-full gap-space-8 items-center">
               {counter > 0 && (
                 <SelectButton.Chip onClear={onClear}>
                   {counter}
@@ -280,7 +280,7 @@ const InsetMultiSelect = ({
         {...rest}
       >
         <SelectButton.InsetInput
-          className={mergeClassnames(className, "[&_>_span]:gap-4")}
+          className={mergeClassnames(className, "[&_>_span]:gap-space-16")}
         >
           {counter > 0 && (
             <SelectButton.Chip onClear={onClear}>{counter}</SelectButton.Chip>

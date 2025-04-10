@@ -156,18 +156,16 @@ const Trigger = forwardRef<HTMLDivElement, WithChildren<SelectProps>>(
       <div
         tabIndex={-1}
         className={mergeClassnames(
-          "relative",
-          "flex flex-nowrap w-full align-middle items-center rounded-lg py-2 px-3 bg-goku gap-x-2",
+          "relative flex flex-nowrap w-full align-middle items-center rounded-8 py-space-8 px-space-12 bg-primary gap-x-space-8",
           getSizeStyles(size as string, innerLabel as boolean),
           input?.isFocused
-            ? "shadow-input-focus hover:shadow-input-focus"
-            : "shadow-input hover:shadow-input-hov",
-          "focus:shadow-input-focus focus:outline-none",
-          "focus-visible::shadow-input-focus focus-visible::outline-none",
+            ? "ring-2 ring-inset ring-active hover:ring-2 hover:ring-active"
+            : "ring-1 ring-inset ring-primary hover:ring-2",
+          "focus:ring-2 focus:ring-active focus:ring-inset focus:outline-none",
           isError &&
-            "shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-err",
+            "ring-2 ring-inset ring-negative hover:ring-2 hover:ring-inset hover:ring-negative focus:ring-2 focus:ring-inset focus:ring-negative",
           disabled &&
-            "opacity-60 shadow-input focus:shadow-input hover:shadow-input cursor-not-allowed",
+            "opacity-disabled ring-1 ring-inset ring-primary hover:ring-1 hover:ring-inset hover:ring-primary focus:ring-1 focus:ring-inset focus:ring-primary cursor-not-allowed",
           className,
         )}
         ref={popper?.setAnchor}
@@ -254,16 +252,11 @@ const InsetInput = ({
         type={type ? type : "text"}
         disabled={disabled}
         className={mergeClassnames(
-          "flex-grow h-full border-0 !rounded-none bg-transparent px-0",
+          "flex-grow h-full border-0 !rounded-none bg-transparent px-0 leading-5",
           "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
-          label !== undefined &&
-            label.length > 0 &&
-            (placeholder === undefined || placeholder.length === 0) &&
-            "input-xl",
-          label !== undefined && label.length > 0 && "pt-3 input-xl-dt-label",
+          label !== undefined && label.length > 0 && "pt-space-12",
           getTextSizes(size),
           className,
-          "leading-5",
         )}
         error={isError}
         onFocus={handleOnFocus}
@@ -273,7 +266,7 @@ const InsetInput = ({
         {...rest}
         ref={popper?.setAnchor}
       />
-      <InputInset.Label className="w-auto -top-0.5 !inset-x-0 whitespace-nowrap overflow-x-hidden">
+      <InputInset.Label className="w-auto -top-space-2 !inset-x-0 whitespace-nowrap overflow-x-hidden">
         {label}
       </InputInset.Label>
     </span>
@@ -305,10 +298,10 @@ const VisualSelectInput = ({
     <span
       className={mergeClassnames(
         "w-full flex flex-col",
-        !selected.length ? "gap-y-0" : "gap-y-1",
+        !selected.length ? "gap-y-0" : "gap-y-space-4",
       )}
     >
-      <div className="flex flex-wrap justify-start items-start gap-1">
+      <div className="flex flex-wrap justify-start items-start gap-space-4">
         {selected.map(({ id, label }) => {
           return <SelectedItem index={id} label={label} />;
         })}
@@ -323,16 +316,11 @@ const VisualSelectInput = ({
         type={type ? type : "text"}
         disabled={disabled}
         className={mergeClassnames(
-          "flex-grow w-full h-full border-0 !rounded-none bg-transparent px-0",
+          "flex-grow w-full h-full border-0 !rounded-none bg-transparent px-0 leading-5",
           "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
-          label !== undefined &&
-            label.length > 0 &&
-            (placeholder === undefined || placeholder.length === 0) &&
-            "input-xl",
-          label !== undefined && label.length > 0 && "pt-3 input-xl-dt-label",
+          label !== undefined && label.length > 0 && "pt-space-12",
           getTextSizes(size),
           className,
-          "leading-5",
         )}
         error={isError}
         aria-label={rest["aria-label"]}
@@ -361,10 +349,10 @@ const Button = ({
   return (
     <HeadlessCombobox.Button
       className={mergeClassnames(
-        "w-6 h-6",
-        size === "sm" ? "w-4 h-4 text-moon-16" : "text-moon-24",
+        "size-space-24",
+        size === "sm" ? "size-space-16 text-body-400" : "text-heading-200",
         open && "-rotate-180",
-        "text-bulma transition-transform flex-grow-0 flex-shrink-0 self-center",
+        "text-primary transition-transform flex-grow-0 flex-shrink-0 self-center",
         disabled && "cursor-not-allowed",
         className,
       )}
@@ -394,7 +382,7 @@ const Options = ({
       className={mergeClassnames(
         menuWidth
           ? menuWidth
-          : "w-full max-h-[18.75rem] py-2 px-1 my-1 rounded-moon-s-md box-border bg-goku shadow-moon-lg absolute",
+          : "w-full max-h-[18.75rem] py-space-8 px-space-4 my-space-4 rounded-12 box-border bg-primary shadow-400 absolute",
         "z-10 overflow-y-auto focus:outline-none",
         className,
       )}
@@ -430,7 +418,7 @@ const Counter = ({ open, className, counter, ...rest }: SelectProps) => {
   return (
     <span
       className={mergeClassnames(
-        "flex gap-2 items-center flex-grow-0 flex-shrink-0 self-center",
+        "flex gap-space-8 items-center flex-grow-0 flex-shrink-0 self-center",
         className,
       )}
     >
@@ -465,7 +453,7 @@ const SelectedItem = ({
   return (
     <span
       className={mergeClassnames(
-        "flex gap-2 items-center flex-grow-0 flex-shrink-0 self-center",
+        "flex gap-space-8 items-center flex-grow-0 flex-shrink-0 self-center",
         className,
       )}
     >

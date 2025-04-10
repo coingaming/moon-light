@@ -4,7 +4,7 @@ import { Chip } from "@heathmont/moon-core-tw";
 import { OtherFrame } from "@heathmont/moon-icons-tw";
 
 const sharedProps = {
-  className: "border border-beerus",
+  className: "border border-primary",
 };
 
 const Icons = () => (

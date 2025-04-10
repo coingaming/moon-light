@@ -3,13 +3,13 @@ import type InputProps from "../types/InputProps";
 const getTypeStyles = (type?: InputProps["type"]): string | undefined => {
   switch (type) {
     case "number":
-      return "input-number-clear";
+      return "";
     case "date":
-      return "ltr:input-d rtl:input-d-rtl ";
+      return "";
     case "time":
-      return "ltr:input-t rtl:input-t-rtl ";
+      return "";
     case "datetime-local":
-      return "ltr:input-d rtl:input-dt-local-rtl";
+      return "";
     default:
       return;
   }

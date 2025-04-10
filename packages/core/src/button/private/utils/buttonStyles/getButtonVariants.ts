@@ -10,12 +10,11 @@ const getButtonVariants = ({
     return animation === "error"
       ? mergeClassnames(
           "text-negative bg-transparent ring-inset ring-1 ring-negative",
-          !disabled && "hover-supported:hover:bg-negative/10",
+          !disabled && "hover:bg-negative/10",
         )
       : mergeClassnames(
           "text-primary bg-transparent ring-inset ring-1 ring-primary",
-          !disabled &&
-            "hover-supported:hover:ring-primary hover-supported:[&>.hover]:hover:bg-hover",
+          !disabled && "hover:ring-primary [&>.hover]:hover:bg-hover",
         );
   }
   if (variant === "tertiary") {
@@ -27,17 +26,16 @@ const getButtonVariants = ({
     return animation === "error"
       ? mergeClassnames(
           "text-negative bg-transparent",
-          !disabled && "hover-supported:hover:bg-negative/10",
+          !disabled && "hover:bg-negative/10",
         )
       : mergeClassnames(
           "text-secondary bg-transparent",
-          !disabled &&
-            "hover-supported:hover:text-primary hover-supported:[&>.hover]:hover:bg-hover",
+          !disabled && "hover:text-primary [&>.hover]:hover:bg-hover",
         );
   }
   return animation === "error"
     ? "text-force-light bg-negative"
-    : "text-force-light bg-brand hover-supported:[&>.hover]:hover:bg-hover";
+    : "text-force-light bg-brand [&>.hover]:hover:bg-hover";
 };
 
 export default getButtonVariants;

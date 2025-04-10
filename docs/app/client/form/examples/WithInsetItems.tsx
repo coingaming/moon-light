@@ -22,7 +22,7 @@ const options = [
 
 const WithInsetItems = () => (
   <Form
-    className="flex flex-col gap-4 w-full max-w-sm"
+    className="flex flex-col gap-space-16 w-full max-w-sm"
     method="get"
     id="login"
     onSubmit={() => console.log("Submit")}
@@ -41,7 +41,7 @@ const WithInsetItems = () => (
         <InsetInput.Label>Email</InsetInput.Label>
       </InsetInput>
     </Form.Item>
-    <Form.Item className="flex gap-2">
+    <Form.Item className="flex gap-space-8">
       <fieldset className="w-full">
         <InsetNativeSelect id="month" label="Month">
           {options.map((opt, key) => (

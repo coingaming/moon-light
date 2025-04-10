@@ -171,7 +171,7 @@ const ResultItem = ({
   <Command.Item
     className={mergeClassnames(
       "flex gap-space-8 justify-between items-center p-space-8 bg-transparent rounded-8",
-      "text-body-300 text-primary focus:outline-none focus:shadow-focus cursor-pointer",
+      "text-body-300 text-primary focus:outline-none focus:ring-2 focus:ring-active cursor-pointer",
       "hover:bg-hover transition data-[selected=true]:bg-hover",
       className,
     )}

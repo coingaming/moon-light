@@ -12,14 +12,20 @@ import {
 const options = [
   {
     name: "Option 1",
-    icon: <OtherLightning className="text-moon-24 text-bulma" />,
+    icon: <OtherLightning className="text-heading-200 icon-primary" />,
   },
   {
     name: "Option 2",
-    icon: <OtherWater className="text-moon-24 text-bulma" />,
+    icon: <OtherWater className="text-heading-200 icon-primary" />,
   },
-  { name: "Option 3", icon: <OtherSun className="text-moon-24 text-bulma" /> },
-  { name: "Option 4", icon: <OtherMoon className="text-moon-24 text-bulma" /> },
+  {
+    name: "Option 3",
+    icon: <OtherSun className="text-heading-200 icon-primary" />,
+  },
+  {
+    name: "Option 4",
+    icon: <OtherMoon className="text-heading-200 icon-primary" />,
+  },
 ];
 
 const languages = [
@@ -53,13 +59,13 @@ export const OptionsVariants = () => {
   }, [selectedCountry]);
 
   return (
-    <div className="flex flex-col lg:flex-row align-middle justify-around items-center w-full gap-2">
+    <div className="flex flex-col lg:flex-row align-middle justify-around items-center w-full gap-space-8">
       <Dropdown value={option} onChange={setOption}>
         <Dropdown.Trigger>
           <Button
             as="span"
             role="button"
-            className="border border-beerus"
+            className="border border-primary"
             variant="ghost"
           >
             Sort by
@@ -84,7 +90,7 @@ export const OptionsVariants = () => {
           <Button
             as="span"
             role="button"
-            className="border border-beerus"
+            className="border border-primary"
             variant="ghost"
           >
             Select language
@@ -113,7 +119,7 @@ export const OptionsVariants = () => {
           <Button
             as="span"
             role="button"
-            className="border border-beerus"
+            className="border border-primary"
             variant="ghost"
           >
             Select countries

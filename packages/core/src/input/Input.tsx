@@ -37,20 +37,19 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         disabled={disabled}
         max={getMaxDate(type)}
         className={mergeClassnames(
-          "block w-full max-w-full py-0 px-4 m-0 appearance-none text-moon-16 text-bulma",
-          "transition-shadow box-border relative z-[2] bg-goku shadow-input hover:shadow-input-hov",
-          "focus:shadow-input-focus focus:outline-none focus-visible:shadow-input-focus",
-          "focus-visible:outline-none before:box-border after:box-border placeholder:delay-75",
-          "placeholder:text-trunks placeholder:opacity-100 placeholder:transition-opacity",
+          "block w-full max-w-full py-0 px-space-16 m-0 appearance-none text-body-400 text-primary",
+          "transition-shadow box-border relative z-[2] bg-primary ring-1 ring-inset ring-primary hover:ring-2",
+          "focus:ring-2 focus:ring-active focus:outline-none",
+          "before:box-border after:box-border placeholder:delay-75",
+          "placeholder:text-secondary placeholder:opacity-100 placeholder:transition-opacity",
           "read-only:outline-0 read-only:border-none read-only:cursor-not-allowed",
-          "read-only:hover:shadow-input read-only:focus:shadow-input",
-          "read-only:focus-visible:shadow-input invalid:focus-visible:shadow-input-err",
-          "invalid:shadow-input-err invalid:hover:shadow-input-err invalid:focus:shadow-input-err",
+          "read-only:hover:ring-1 read-only:focus:ring-1",
+          "invalid:ring-2 invalid:ring-negative invalid:hover:ring-2 invalid:hover:ring-negative invalid:focus:ring-2 invalid:focus:ring-negative",
           getSizeStyles(size),
           getTypeStyles(type),
           error &&
-            "shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-err",
-          disabled && "opacity-60 cursor-not-allowed",
+            "ring-2 ring-negative hover:ring-2 hover:ring-negative focus:ring-2 focus:ring-negative",
+          disabled && "opacity-disabled cursor-not-allowed",
           className && className,
         )}
         {...rest}

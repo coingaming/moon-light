@@ -3,8 +3,8 @@
 import { Group } from "@heathmont/moon-core-tw";
 
 const Options = () => (
-  <div className="flex flex-col xl:flex-row gap-6 justify-center items-center">
-    <div className="flex flex-col gap-6 justify-center items-justify">
+  <div className="flex flex-col xl:flex-row gap-space-24 justify-center items-center">
+    <div className="flex flex-col gap-space-24 justify-center items-justify">
       <Group orientation="horizontal">
         <Group.FirstInput placeholder="First input" />
         <Group.LastInput placeholder="Last input" />
@@ -42,7 +42,7 @@ const Options = () => (
         </Group.LastSelect>
       </Group>
     </div>
-    <div className="flex flex-col gap-6 justify-center items-justify">
+    <div className="flex flex-col gap-space-24 justify-center items-justify">
       <Group orientation="horizontal">
         <Group.FirstInsetInput placeholder="First inset input" />
         <Group.LastInsetInput placeholder="Last inset input" />
