@@ -8,8 +8,8 @@ const ITEMS = Array.from({ length: 5 }, (index) => index);
 const SwipeDragDisabled = () => {
   const [selected, setSelected] = useState(0);
   return (
-    <div className="items-center gap-4 w-full flex flex-col">
-      <div className="flex gap-1">
+    <div className="items-center gap-space-16 w-full flex flex-col">
+      <div className="flex gap-space-4">
         {ITEMS.map((_, index) => (
           <Chip
             key={index}
@@ -33,7 +33,7 @@ const SwipeDragDisabled = () => {
           {ITEMS.map((_, index) => (
             <Carousel.Item
               key={index}
-              className="w-full h-48 border border-beerus"
+              className="w-full h-48 border border-primary"
               data-testid={`carousel-${index}`}
             >
               {index}

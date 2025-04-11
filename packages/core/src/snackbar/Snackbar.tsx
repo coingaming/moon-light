@@ -34,7 +34,7 @@ const SnackbarRoot = ({
     >
       <div
         className={mergeClassnames(
-          "flex w-fit max-w-xs items-center gap-4 p-4 bg-goku shadow-moon-lg rounded-moon-s-sm",
+          "flex w-fit max-w-xs items-center gap-space-16 p-space-16 bg-primary shadow-400 rounded-8",
           className,
         )}
       >
@@ -52,7 +52,7 @@ const Header = ({
 }: WithChildren<{ className?: string }>) => (
   <p
     className={mergeClassnames(
-      "w-full text-moon-14 font-medium transition-colors text-bulma",
+      "w-full text-body-300 font-medium transition-colors text-primary",
       className,
     )}
     {...rest}
@@ -68,7 +68,7 @@ const Message = ({
 }: WithChildren<{ className?: string }>) => (
   <p
     className={mergeClassnames(
-      "w-full text-moon-14 transition-colors text-bulma",
+      "w-full text-body-300 transition-colors text-primary",
       className,
     )}
     {...rest}
@@ -95,7 +95,7 @@ const Icon = ({
   <div
     aria-hidden="true"
     className={mergeClassnames(
-      "flex h-8 aspect-square items-center justify-center rounded-moon-s-sm text-moon-32",
+      "flex h-space-32 aspect-square items-center justify-center rounded-8 text-heading-300",
       className,
     )}
     {...rest}
@@ -108,7 +108,7 @@ const Close = ({ className, ariaLabel = "Close", ...rest }: CloseProps) => (
   <ToastPrimitive.Close
     aria-label={ariaLabel}
     className={mergeClassnames(
-      "flex h-8 aspect-square items-center justify-center text-bulma text-moon-24",
+      "flex h-space-32 aspect-square items-center justify-center text-primary text-heading-200",
       className,
     )}
     {...rest}

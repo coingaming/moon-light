@@ -3,12 +3,12 @@ import type Size from "../types/Size";
 const getIconSize = (size?: Size) => {
   switch (size) {
     case "2xs":
-      return "text-moon-12";
+      return "text-body-200";
     case "xs":
-      return "text-moon-16";
+      return "text-body-400";
     case "sm":
     default:
-      return "text-moon-24";
+      return "text-heading-200";
   }
 };
 

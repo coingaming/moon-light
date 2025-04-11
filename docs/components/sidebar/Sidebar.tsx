@@ -4,13 +4,13 @@ import COMPONENTS from "@/components.constants.mjs";
 
 const Sidebar = () => (
   <nav
-    className="flex flex-col gap-6 h-full w-full lg:w-72 bg-goku overflow-y-auto lg:border-e lg:border-beerus px-3 py-6"
+    className="flex flex-col gap-space-24 h-full w-full lg:w-72 bg-primary overflow-y-auto lg:border-e lg:border-primary px-space-12 py-space-24"
     aria-label="Sidebar"
   >
-    <p className="ps-2 text-moon-10-caption font-medium uppercase text-trunks">
+    <p className="ps-space-8 text-body-100 font-medium uppercase text-secondary">
       Overview
     </p>
-    <ul className="flex flex-col gap-2 mb-4">
+    <ul className="flex flex-col gap-space-8 mb-space-16">
       {navigation.map((item) => (
         <li key={item.name}>
           <SidebarItem href={item.href}>
@@ -20,10 +20,10 @@ const Sidebar = () => (
         </li>
       ))}
     </ul>
-    <p className="ps-2 text-moon-10-caption font-medium uppercase text-trunks">
+    <p className="ps-space-8 text-body-100 font-medium uppercase text-secondary">
       Components
     </p>
-    <ul role="list" className="flex flex-col gap-1">
+    <ul role="list" className="flex flex-col gap-space-4">
       {Object.keys(COMPONENTS).map((key: string) => {
         const data = COMPONENTS[key as keyof typeof COMPONENTS] as {
           title: string;

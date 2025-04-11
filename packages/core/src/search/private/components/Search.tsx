@@ -141,9 +141,9 @@ const SearchRoot = ({
     <div ref={ref} onKeyDown={onKeyDown} onClick={openSearch}>
       <div
         className={mergeClassnames(
-          "relative w-full h-full bg-goku flex flex-col border border-beerus transition-all",
-          "[&_.moon-search-result]:top-10 [&_.moon-search-transition>.moon-search-result]:top-0",
-          isOpen ? "rounded-t-moon-s-sm" : "rounded-moon-s-sm",
+          "relative w-full h-full bg-primary flex flex-col border border-primary transition-all",
+          "[&_.moon-search-result]:top-space-40 [&_.moon-search-transition>.moon-search-result]:top-0",
+          isOpen ? "rounded-t-8" : "rounded-8",
           className,
         )}
       >
@@ -178,7 +178,7 @@ const Transition = ({
       leave="ease-in duration-200"
       leaveFrom="opacity-100 scale-100"
       leaveTo="opacity-0 scale-95"
-      className={mergeClassnames("moon-search-transition z-5", className)}
+      className={mergeClassnames("moon-search-transition z-[5]", className)}
     >
       {children}
     </HeadlessTransition>
@@ -200,8 +200,8 @@ const Result = ({
     <div
       className={mergeClassnames(
         "moon-search-result",
-        "absolute z-5 w-full flex-1 focus:outline-none p-2 space-y-4 bg-goku shadow-moon-md ",
-        isOpen ? "rounded-b-moon-s-sm" : "rounded-moon-s-sm",
+        "absolute z-[5] w-full flex-1 focus:outline-none p-space-8 space-y-space-16 bg-primary shadow-300",
+        isOpen ? "rounded-b-8" : "rounded-8",
         className,
       )}
       tabIndex={-1}
@@ -219,7 +219,7 @@ const ResultHeading = ({
 }: React.HTMLAttributes<HTMLHeadingElement>) => (
   <h5
     className={mergeClassnames(
-      "text-bulma text-moon-14 font-medium px-2 py-1",
+      "text-primary text-body-300 font-medium px-space-8 py-space-4",
       className,
     )}
     {...props}

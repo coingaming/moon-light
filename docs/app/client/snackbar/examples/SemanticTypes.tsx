@@ -31,7 +31,7 @@ const SemanticTypes = () => {
           Success
         </Button>
         <Snackbar isOpen={snackbar === "success"} onOpenChange={setSnackbar}>
-          <Snackbar.Icon className="h-10 bg-roshi-10 text-roshi">
+          <Snackbar.Icon className="h-space-40 bg-positive-subtle icon-positive">
             <OtherFrame />
           </Snackbar.Icon>
           <Snackbar.Content>
@@ -49,7 +49,7 @@ const SemanticTypes = () => {
           Warning
         </Button>
         <Snackbar isOpen={snackbar === "warning"} onOpenChange={setSnackbar}>
-          <Snackbar.Icon className="h-10 bg-krillin-10 text-krillin">
+          <Snackbar.Icon className="h-space-40 bg-caution-subtle icon-caution">
             <OtherFrame />
           </Snackbar.Icon>
           <Snackbar.Content>
@@ -64,7 +64,7 @@ const SemanticTypes = () => {
           Error
         </Button>
         <Snackbar isOpen={snackbar === "error"} onOpenChange={setSnackbar}>
-          <Snackbar.Icon className="h-10 bg-chichi-10 text-chichi">
+          <Snackbar.Icon className="h-space-40 bg-negative-subtle icon-negative">
             <OtherFrame />
           </Snackbar.Icon>
           <Snackbar.Content>

@@ -1,9 +1,9 @@
 const getLabelSize = (size?: string) => {
   switch (size) {
     case "sm":
-      return "text-moon-14";
+      return "text-body-300";
     default:
-      return "text-moon-16";
+      return "text-body-400";
   }
 };
 

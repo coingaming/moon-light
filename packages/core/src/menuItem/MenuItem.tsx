@@ -36,11 +36,11 @@ const MenuItemRoot = React.forwardRef(
         <Component
           ref={ref}
           className={mergeClassnames(
-            "flex gap-2 justify-between items-center p-2 bg-transparent rounded-moon-i-sm",
-            "text-moon-14 text-bulma focus:outline-none focus:shadow-focus cursor-pointer",
-            "hover:bg-heles transition",
+            "flex gap-space-8 justify-between items-center p-space-8 bg-transparent rounded-8",
+            "text-body-300 text-primary focus:outline-none focus:ring-2 focus:ring-active cursor-pointer",
+            "hover:bg-hover transition",
             width ? width : "w-full",
-            (innerSelected || isActive) && "bg-heles",
+            (innerSelected || isActive) && "bg-hover",
             className && className,
           )}
           {...((!as || as === "button") && { type: "button" })}
@@ -59,7 +59,7 @@ const Title = ({ children }: { children?: ReactNode }) => {
     registerChild && registerChild("Title");
   }, []);
   return (
-    <span className="block grow text-start text-bulma overflow-hidden">
+    <span className="block grow text-start text-primary overflow-hidden">
       {children}
     </span>
   );
@@ -71,9 +71,9 @@ const MultiTitle = ({ title, text }: MultiTitleProps) => {
     registerChild && registerChild("MultiTitle");
   }, []);
   return (
-    <span className="block grow text-start text-bulma overflow-hidden">
-      <span className="block text-bulma text-moon-14">{title}</span>
-      <span className="flex text-trunks text-moon-12">
+    <span className="block grow text-start text-primary overflow-hidden">
+      <span className="block text-primary text-body-300">{title}</span>
+      <span className="flex text-secondary text-body-200">
         <span className="flex-1 truncate">{text}</span>
       </span>
     </span>
@@ -92,16 +92,16 @@ const Radio = ({
   }, []);
   const ariaLabelValue = ariaLabel ? ariaLabel : "Radio option";
   return (
-    <span className="flex w-6 h-6 justify-center items-center">
+    <span className="flex size-space-24 justify-center items-center">
       <span
         role="radio"
         aria-checked={selected}
         aria-label={ariaLabelValue}
         className={mergeClassnames(
-          "block relative w-4 h-4 rounded-full shadow-[0_0_0_1px_inset] shadow-trunks",
-          "moon-checked:shadow-piccolo after:h-2 after:w-2 after:rounded-full after:absolute",
+          "block relative size-space-16 rounded-full shadow-[0_0_0_1px_inset] shadow-primary",
+          "moon-checked:shadow-brand after:size-space-8 after:rounded-full after:absolute",
           "after:top-1/2 after:left-1/2 after:-translate-y-1/2 after:-translate-x-1/2",
-          "after:bg-piccolo after:transition-transform after:scale-0",
+          "after:bg-brand after:transition-transform after:scale-0",
           "moon-checked:after:scale-100",
           className,
         )}
@@ -122,15 +122,15 @@ const Checkbox = ({
   }, []);
   const ariaLabelValue = ariaLabel ? ariaLabel : "Checkbox";
   return (
-    <span className="flex w-6 h-6 justify-center items-center relative">
+    <span className="flex size-space-24 justify-center items-center relative">
       <span
         role="checkbox"
         aria-checked={selected}
         aria-label={ariaLabelValue}
         className={mergeClassnames(
-          "absolute top-1 start-1 flex w-4 h-4 items-center justify-center",
-          "shadow-[0_0_0_1px_inset] transition-colors text-moon-16 rounded-moon-s-xs shadow-trunks",
-          "text-goten moon-checked:shadow-none moon-checked:bg-piccolo",
+          "absolute top-space-4 start-space-4 flex size-space-16 items-center justify-center",
+          "shadow-[0_0_0_1px_inset] transition-colors text-body-400 rounded-4 shadow-primary",
+          "text-force-light moon-checked:shadow-none moon-checked:bg-brand",
           className,
         )}
       >

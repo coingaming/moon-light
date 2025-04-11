@@ -35,7 +35,7 @@ const Panel = ({ children, className, position = "end" }: PanelProps) => (
   >
     <Dialog.Panel
       className={mergeClassnames(
-        "fixed w-full bg-goku text-bulma shadow-moon-xl",
+        "fixed w-full bg-primary text-primary shadow-500",
         getPositionStyles(position),
         className,
       )}

@@ -119,7 +119,7 @@ const Panel = ({ children, className, isStatic }: PanelProps) => {
       style={popper?.styles?.popper}
       {...popper?.attributes?.popper}
       className={mergeClassnames(
-        "w-72 z-[999999] rounded-moon-s-md box-border bg-goku shadow-moon-lg overflow-y-auto",
+        "w-72 z-[999999] rounded-12 box-border bg-primary shadow-400 overflow-y-auto",
         isArrow && "shadow-none drop-shadow-[0_0_1px_rgba(0,0,0,0.4)]",
         "focus:outline-none",
         className && className,
@@ -157,7 +157,7 @@ const Arrow = ({ className }: { className?: string }) => {
       style={popper?.styles?.arrow}
       data-placement={placement}
     >
-      <div className="block relative rotate-45 w-3 h-3 rounded-sm bg-goku" />
+      <div className="block relative rotate-45 size-space-12 rounded-2 bg-primary" />
     </div>
   );
 };

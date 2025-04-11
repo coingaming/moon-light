@@ -5,9 +5,9 @@ const getActive = ({
   isStroke,
 }: Pick<ChipProps, "isActive" | "isStroke">): string =>
   isStroke && isActive
-    ? "shadow-interactive bg-jiren text-piccolo"
+    ? "ring-inset ring-2 ring-brand bg-brand-subtle text-brand"
     : isActive
-      ? "bg-jiren text-piccolo"
-      : "text-bulma";
+      ? "bg-brand-subtle text-brand"
+      : "text-primary";
 
 export default getActive;

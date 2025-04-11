@@ -23,7 +23,7 @@ const options = [
 const Sizes = () => (
   <>
     <Form
-      className="flex flex-col gap-4 w-full max-w-sm"
+      className="flex flex-col gap-space-16 w-full max-w-sm"
       method="get"
       id="login"
       onSubmit={() => console.log("Submit")}
@@ -41,7 +41,7 @@ const Sizes = () => (
         <Label htmlFor="email">Email</Label>
         <Input placeholder="Your Email..." id="email" type="email" />
       </Form.Item>
-      <Form.Item className="flex gap-2">
+      <Form.Item className="flex gap-space-8">
         <fieldset className="w-full">
           <Label htmlFor="month">Month</Label>
           <NativeSelect id="month">
@@ -72,7 +72,7 @@ const Sizes = () => (
       </Button>
     </Form>
     <Form
-      className="flex flex-col gap-4 w-full max-w-sm"
+      className="flex flex-col gap-space-12 w-full max-w-sm"
       method="get"
       id="login"
       onSubmit={() => console.log("Submit")}
@@ -90,7 +90,7 @@ const Sizes = () => (
         <Label htmlFor="email">Email</Label>
         <Input placeholder="Your Email..." id="email" type="email" />
       </Form.Item>
-      <Form.Item className="flex gap-2">
+      <Form.Item className="flex gap-space-8">
         <fieldset className="w-full">
           <Label htmlFor="month">Month</Label>
           <NativeSelect id="month">

@@ -10,7 +10,7 @@ const Wrapper = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={mergeClassnames(
-      "flex items-center px-2 gap-2 moon-search-input",
+      "flex items-center px-space-8 gap-space-8 moon-search-input",
       className,
     )}
     {...props}
@@ -27,7 +27,7 @@ const Icon = ({
   <div>
     <GenericSearch
       className={mergeClassnames(
-        "pointer-events-none text-bulma text-moon-24",
+        "pointer-events-none icon-primary text-heading-200",
         className,
       )}
       {...props}
@@ -53,8 +53,8 @@ const InnerInput = forwardRef(
         ref={(ref || inputRef) as LegacyRef<HTMLInputElement>}
         spellCheck={false}
         className={mergeClassnames(
-          "moon-search-input py-2 px-0 border-0 w-full focus:outline-none focus:border-0",
-          "focus:ring-0 bg-transparent placeholder-bulma text-bulma text-moon-14",
+          "moon-search-input py-space-8 px-0 border-0 w-full focus:outline-none focus:border-0",
+          "focus:ring-0 bg-transparent placeholder-primary text-primary text-body-300",
           className,
         )}
         onClick={() => {
@@ -98,7 +98,7 @@ export const ButtonClear = ({
       tabIndex={-1}
       type="button"
       className={mergeClassnames(
-        "cursor-pointer text-trunks text-moon-14 transition transform",
+        "cursor-pointer text-secondary text-body-300 transition transform",
         className,
       )}
       onClick={(e) => {

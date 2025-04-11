@@ -13,23 +13,23 @@ const WithStyledContent = () => {
       <Button onClick={openModal}>Open modal</Button>
       <Modal open={isOpen} onClose={closeModal} className="z-50">
         <Modal.Backdrop />
-        <Modal.Panel className="lg:max-w-md bg-roshi text-goten rounded-none">
+        <Modal.Panel className="lg:max-w-md bg-positive text-force-light rounded-none">
           <IconButton
             variant="ghost"
             size="sm"
-            className="absolute top-4 end-5 text-goten"
+            className="absolute top-space-16 end-space-20 icon-force-light"
             onClick={closeModal}
           >
-            <ControlsCloseSmall className="text-moon-24" />
+            <ControlsCloseSmall className="text-heading-200" />
           </IconButton>
-          <div className="p-4 pt-11">
-            <div className="mt-2">
-              <h3 className="text-moon-24 text-goten font-medium text-center">
+          <div className="p-space-16 pt-space-44">
+            <div className="mt-space-8">
+              <h3 className="text-heading-200 text-force-light text-center">
                 Your payment has been successfully submitted.
               </h3>
             </div>
           </div>
-          <div className="p-4 flex items-center justify-center">
+          <div className="p-space-16 flex items-center justify-center">
             <Button variant="outline" onClick={closeModal}>
               Got it, thanks!
             </Button>

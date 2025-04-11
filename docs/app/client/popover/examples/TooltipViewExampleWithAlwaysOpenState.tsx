@@ -10,7 +10,7 @@ const TooltipViewAlwaysOpen = () => {
       </Popover.Trigger>
       <Popover.Panel
         isStatic
-        className="w-auto min-w-[12rem] overflow-y-visible p-3 rounded-moon-s-xs text-moon-12 text-bulma bg-goku"
+        className="w-auto min-w-[12rem] overflow-y-visible p-space-12 rounded-4 text-body-200 text-primary bg-primary"
       >
         This is the popover with arrow (tooltip)
         <Popover.Arrow />

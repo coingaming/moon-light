@@ -93,7 +93,7 @@ const Options = () => {
           isOpen={snackbar === "multiline-with-icon"}
           onOpenChange={setSnackbar}
         >
-          <Snackbar.Icon className="h-10">
+          <Snackbar.Icon className="h-space-40">
             <OtherFrame />
           </Snackbar.Icon>
           <Snackbar.Content>

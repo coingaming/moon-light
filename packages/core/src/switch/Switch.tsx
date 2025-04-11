@@ -45,19 +45,19 @@ const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
           "block cursor-pointer rounded-full transition",
           getSwitchSize(size),
           enabled ? onBgColor : offBgColor,
-          !onBgColor && !offBgColor && "bg-beerus moon-checked:bg-piccolo",
-          rest?.disabled && "opacity-60 cursor-not-allowed select-none",
+          !onBgColor && !offBgColor && "bg-tertiary moon-checked:bg-brand",
+          rest?.disabled && "opacity-disabled cursor-not-allowed select-none",
           className,
         )}
         aria-readonly={rest?.disabled}
         {...rest}
       >
-        <span className="block relative h-full w-full">
+        <span className="block relative size-full">
           {onIcon && (
             <span
               className={mergeClassnames(
                 "absolute start-0 top-1/2 -translate-y-1/2 transition-opacity",
-                "text-goten",
+                "text-force-light",
                 getIconSize(size),
                 enabled ? "opacity-100" : "opacity-0",
               )}
@@ -70,7 +70,7 @@ const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
             <span
               className={mergeClassnames(
                 "absolute end-0 top-1/2 -translate-y-1/2 transition-opacity",
-                "text-bulma",
+                "text-primary",
                 getIconSize(size),
                 enabled ? "opacity-0" : "opacity-100",
               )}
@@ -82,8 +82,8 @@ const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
           <span
             aria-hidden="true"
             className={mergeClassnames(
-              "slider absolute top-1/2 -translate-y-1/2 shadow-moon-sm pointer-events-none rounded-full",
-              "bg-goten transition-all",
+              "slider absolute top-1/2 -translate-y-1/2 shadow-200 pointer-events-none rounded-full",
+              "bg-force-light transition-all",
               getToggleSize(size),
               enabled ? getTogglePosition(size) : "start-0",
             )}

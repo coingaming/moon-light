@@ -20,7 +20,8 @@
     "start": "next start -p 80",
     "test": "playwright test",
     "test:pa11y": "node scripts/cli/index.mjs pa11y",
-    "clean:next": "rimraf .next"
+    "clean:next": "rimraf .next",
+    "moon-css": "npx @heathmont/moon-css --with-preset --with-components"
   },
   "dependencies": {
     "@heathmont/moon-base-tw": "workspace:^10.18.1",

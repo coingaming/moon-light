@@ -3,16 +3,16 @@ import type Sizes from "../types/Sizes";
 const getSize = (size?: Sizes) => {
   switch (size) {
     case "6xs":
-      return "h-0.5";
+      return "h-space-2";
     case "5xs":
-      return "h-1";
+      return "h-space-4";
     case "4xs":
-      return "h-2";
+      return "h-space-8";
     case "3xs":
-      return "h-3";
+      return "h-space-12";
     case "2xs":
     default:
-      return "h-4";
+      return "h-space-16";
   }
 };
 

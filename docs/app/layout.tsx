@@ -23,7 +23,7 @@ export default async function RootLayout({
     cookies().get("dir"),
   ]);
 
-  const defaultTheme = themeCookie?.value || "theme-moon-light";
+  const defaultTheme = themeCookie?.value || "light-theme";
   const defaultLayoutDir = dirCookie?.value || "ltr";
 
   return (
@@ -32,7 +32,12 @@ export default async function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
       <GoogleAnalytics />
-      <body className={mergeClassnames(defaultTheme, "bg-goku")}>
+      <body
+        className={mergeClassnames(
+          defaultTheme,
+          "bg-primary text-primary font-primary",
+        )}
+      >
         <SearchProvider actions={actions}>
           <div id="__next">{children}</div>
         </SearchProvider>

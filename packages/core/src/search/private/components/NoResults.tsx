@@ -12,7 +12,7 @@ const NoResults = ({
   const { search } = useContext(SearchContext);
   return (
     <ListItem index={0} showType={false} {...props}>
-      <p className={mergeClassnames("truncate text-bulma", className)}>
+      <p className={mergeClassnames("truncate text-primary", className)}>
         {label} <span className="font-medium">"{search}"</span>
       </p>
     </ListItem>

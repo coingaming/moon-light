@@ -15,7 +15,7 @@ const TextInputTypes = () => {
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
+      <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-space-8">
         <div className="w-full">
           <Label>Number</Label>
           <Input type="number" placeholder="e.g. 12345" />
@@ -30,7 +30,7 @@ const TextInputTypes = () => {
           <Input type="time" id="time-type" />
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
+      <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-space-8">
         <div className="w-full">
           <Label htmlFor="datetimelocal-type">Datetime local</Label>
           <Input type="datetime-local" id="datetimelocal-type" />
@@ -44,7 +44,7 @@ const TextInputTypes = () => {
           <Input type="password" placeholder="Password" />
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
+      <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-space-8">
         <div className="w-full">
           <Label>Search</Label>
           <Input type="search" placeholder="e.g. Search something" />
@@ -58,7 +58,7 @@ const TextInputTypes = () => {
           <Input type="url" placeholder="e.g. https://domain.com" />
         </div>
       </div>
-      <div className="flex flex-col lg:grid lg:grid-cols-3 gap-2 w-full">
+      <div className="flex flex-col lg:grid lg:grid-cols-3 gap-space-8 w-full">
         <div>
           <Label>File</Label>
           <FileInput
