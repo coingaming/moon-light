@@ -26,7 +26,7 @@ export const ExampleSection = async ({
 }: Props) => (
   <div className="flex flex-col gap-space-16 relative">
     <HeaderSection title={title} description={description} href={href} />
-    <div className="bg-secondary rounded-8">
+    <div className="bg-tertiary rounded-8">
       <ComponentPreview component={component} />
       <CodePreview code={code} />
     </div>

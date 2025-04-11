@@ -22,7 +22,7 @@ export const TriggerElements = () => {
       <Dropdown value={option} onChange={setOption}>
         <Dropdown.Trigger
           aria-label="Dropdown trigger"
-          className="size-space-40 bg-secondary rounded-12 flex align-middle justify-center items-center cursor-pointer transition-colors hover:bg-brand-subtle text-heading-200 text-secondary"
+          className="size-space-40 bg-tertiary rounded-12 flex align-middle justify-center items-center cursor-pointer transition-colors hover:bg-brand-subtle text-heading-200 text-secondary"
         >
           <ControlsChevronDown />
         </Dropdown.Trigger>

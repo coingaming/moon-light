@@ -24,7 +24,7 @@ const Default = () => {
 const Content: React.FC = () => (
   <>
     <MenuItem data-testid="first-item">
-      <span className="flex size-space-44 bg-secondary items-center justify-center rounded-8">
+      <span className="flex size-space-44 bg-tertiary items-center justify-center rounded-8">
         <OtherFrame className="icon-primary text-heading-200" />
       </span>
       <MenuItem.MultiTitle
@@ -33,7 +33,7 @@ const Content: React.FC = () => (
       />
     </MenuItem>
     <MenuItem data-testid="second-item">
-      <span className="flex size-space-44 bg-secondary items-center justify-center">
+      <span className="flex size-space-44 bg-tertiary items-center justify-center">
         <OtherFrame className="icon-primary text-heading-200" />
       </span>
       <MenuItem.MultiTitle
@@ -42,7 +42,7 @@ const Content: React.FC = () => (
       />
     </MenuItem>
     <MenuItem data-testid="third-item">
-      <span className="flex size-space-44 bg-secondary items-center justify-center">
+      <span className="flex size-space-44 bg-tertiary items-center justify-center">
         <OtherFrame className="icon-primary text-heading-200" />
       </span>
       <MenuItem.MultiTitle

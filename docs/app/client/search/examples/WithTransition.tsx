@@ -99,7 +99,7 @@ const WithTransition = () => {
           <Search.Result>
             {filteredItems.length ? (
               filteredItems.map((list: Items) => (
-                <ul className="space-y-1" key={list.id}>
+                <ul className="space-y-space-4" key={list.id}>
                   <li>
                     <Search.ResultHeading>{list.heading}</Search.ResultHeading>
                     {list.items.map(({ id, children, href, ...rest }: Item) => (
@@ -113,7 +113,7 @@ const WithTransition = () => {
                           <a href={href}>
                             <MenuItem>
                               <MenuItem.Title>{children}</MenuItem.Title>
-                              <span className="text-moon-12 text-trunks">
+                              <span className="text-body-200 text-secondary">
                                 {href}
                               </span>
                             </MenuItem>
@@ -121,7 +121,7 @@ const WithTransition = () => {
                         ) : (
                           <MenuItem>
                             <MenuItem.Title>{children}</MenuItem.Title>
-                            <span className="text-moon-12 text-trunks">
+                            <span className="text-body-200 text-secondary">
                               Action
                             </span>
                           </MenuItem>

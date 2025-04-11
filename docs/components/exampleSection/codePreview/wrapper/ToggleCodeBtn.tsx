@@ -18,7 +18,7 @@ const ToggleCodeBtn = ({ expand, clickHandler }: Props) => {
         onClick={clickHandler}
         variant="ghost"
         fullWidth
-        className="active:scale-100 bg-secondary"
+        className="active:scale-100 bg-tertiary"
         iconRight={
           <ControlsChevronDownSmall
             className={mergeClassnames(

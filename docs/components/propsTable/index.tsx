@@ -125,7 +125,7 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
     <section className="flex flex-col gap-space-8">
       <div className="flex flex-col gap-space-16">
         <HeaderSection title={title} description={description} />
-        <div className="border border-primary rounded-8 overflow-hidden bg-secondary">
+        <div className="border border-primary rounded-8 overflow-hidden bg-tertiary">
           <Table
             columns={columns}
             data={tableData}

@@ -18,7 +18,7 @@ const ExpandCollapse = () => {
 
   return (
     <div className="flex items-start flex-wrap justify-around gap-space-8 w-full">
-      <div className="w-56 bg-secondary flex flex-col gap-space-8 rounded-16 p-space-16">
+      <div className="w-56 bg-tertiary flex flex-col gap-space-8 rounded-16 p-space-16">
         <MenuItem as="a" href="/">
           Vision
         </MenuItem>
@@ -68,7 +68,7 @@ const ExpandCollapse = () => {
         )}
       </div>
 
-      <div className="w-56 bg-secondary flex flex-col gap-space-8 rounded-16 p-space-16">
+      <div className="w-56 bg-tertiary flex flex-col gap-space-8 rounded-16 p-space-16">
         <MenuItem>
           <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
             <p className="font-medium text-body-100">B</p>
