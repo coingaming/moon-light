@@ -1,10 +1,16 @@
 # @heathmont/moon-core-tw
 
+## 10.24.5
+
+### Patch Changes
+
+- fix: pass refs in Dropdown & Combobox [MDS-1771]
+
 ## 10.24.4
 
 ### Patch Changes
 
-- fix: pass refs accordingly in Dropdown & Combobox [MDS-1771]
+- fix: pass proper classes to focus checkbox [MDS-1768]
 
 ## 10.24.3
 
