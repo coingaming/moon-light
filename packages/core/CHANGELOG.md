@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.4
+
+### Patch Changes
+
+- fix: pass refs accordingly in Dropdown & Combobox [MDS-1771]
+
 ## 10.24.3
 
 ### Patch Changes
