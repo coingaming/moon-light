@@ -31,6 +31,7 @@ const Table: React.FC<TableProps> = ({
   state,
   withFooter = false,
   headerBackgroundColor = "gohan",
+  footerBackgroundColor = "gohan",
   bodyBackgroundColor = "gohan",
   defaultRowBackgroundColor = "goku",
   evenRowBackgroundColor = "goku",
@@ -169,7 +170,7 @@ const Table: React.FC<TableProps> = ({
         {withFooter && (
           <TFoot
             table={table}
-            backgroundColor={headerBackgroundColor}
+            backgroundColor={footerBackgroundColor}
             rowSize={rowSize}
             rowGap={rowGap}
             isSticky={isSticky}
