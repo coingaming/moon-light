@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.6
+
+### Patch Changes
+
+- fix: prevent force button click [MDS-1783]
+
 ## 10.24.5
 
 ### Patch Changes
