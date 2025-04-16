@@ -3,7 +3,7 @@
 import { Chip } from "@heathmont/moon-core-tw";
 
 const Default = () => (
-  <Chip className="border border-beerus" as="div">
+  <Chip className="border border-primary" as="div">
     I am not a button
   </Chip>
 );

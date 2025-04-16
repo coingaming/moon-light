@@ -241,6 +241,7 @@ module.exports = {
       divideColor: commonBorderColors,
       ringColor: commonBorderColors,
       outlineColor: commonBorderColors,
+      stroke: commonBorderColors,
       fontFamily: fontFamily,
       opacity: opacity,
     },

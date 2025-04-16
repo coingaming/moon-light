@@ -5,7 +5,7 @@ import { GenericHome, ControlsChevronRight } from "@heathmont/moon-icons-tw";
 
 const breadcrumbs = [
   <a href="#" aria-label="Home" key="Home">
-    <GenericHome className="text-moon-24" />
+    <GenericHome className="text-heading-200" />
   </a>,
   <a href="#" key="Page 1">
     Page 1
@@ -25,7 +25,7 @@ const breadcrumbs = [
 export const CustomDivider = () => (
   <Breadcrumb
     breadcrumbs={breadcrumbs}
-    divider={<ControlsChevronRight className="text-moon-16 rtl:rotate-180" />}
+    divider={<ControlsChevronRight className="text-body-400 rtl:rotate-180" />}
   />
 );
 

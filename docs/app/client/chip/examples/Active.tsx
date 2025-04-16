@@ -21,14 +21,14 @@ const IsActive = () => {
   );
 
   return (
-    <div className="flex items-center gap-2 mt-2">
-      <p className="text-moon-14">Hobbies (Poker is mandatory):</p>
-      <Chip className="border border-beerus" isActive>
+    <div className="flex items-center gap-space-8 mt-space-8">
+      <p className="text-body-400">Hobbies (Poker is mandatory):</p>
+      <Chip className="border border-primary" isActive>
         Poker
       </Chip>
       {sports.map((item: string) => (
         <Chip
-          className="border border-beerus"
+          className="border border-primary"
           onClick={() => onClick(item)}
           isActive={isActive.includes(item)}
           isStroke

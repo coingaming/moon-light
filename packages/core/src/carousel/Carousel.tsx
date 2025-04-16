@@ -127,7 +127,7 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
   return (
     <ul
       className={mergeClassnames(
-        "flex overflow-x-auto overflow-y-hidden h-auto hidden-scroll gap-4",
+        "flex overflow-x-auto overflow-y-hidden h-auto hidden-scroll gap-space-16",
         "[-webkit-overflow-scrolling:touch] [scrollbar-width:none]",
         "[-ms-overflow-style:-ms-autohiding-scrollbar]",
         '[&>li]:list-none [&>li]:before:absolute [&>li]:before:content-["\\200B"]',
@@ -166,7 +166,7 @@ const Item = ({ children, className, ...rest }: SubcomponentProps) => {
   return (
     <li
       className={mergeClassnames(
-        "snap-center flex bg-goku rounded-moon-s-sm items-center justify-center",
+        "snap-center flex bg-primary rounded-8 items-center justify-center",
         className,
       )}
       ref={itemRef}
@@ -184,8 +184,8 @@ const LeftArrow = ({ children, className, ...rest }: SubcomponentProps) => {
     <IconButton
       size="sm"
       className={mergeClassnames(
-        "max-sm:hidden shadow-moon-sm bg-goku text-bulma",
-        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -start-4 rtl:-end-4 rtl:start-[auto]",
+        "max-sm:hidden shadow-200 bg-primary text-primary",
+        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -start-space-16 rtl:-end-space-16 rtl:start-[auto]",
         className,
       )}
       onClick={scrollLeftToStep}
@@ -206,8 +206,8 @@ const RightArrow = ({ children, className, ...rest }: SubcomponentProps) => {
     <IconButton
       size="sm"
       className={mergeClassnames(
-        "max-sm:hidden shadow-moon-sm bg-goku text-bulma",
-        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -end-4 rtl:-start-4 rtl:end-[auto]",
+        "max-sm:hidden shadow-200 bg-primary text-primary",
+        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -end-space-16 rtl:-start-space-16 rtl:end-[auto]",
         className,
       )}
       onClick={scrollRightToStep}
@@ -238,7 +238,7 @@ const Indicators = ({ className, ...rest }: SubcomponentProps) => {
   return (
     <div
       className={mergeClassnames(
-        "flex absolute bottom-8 left-1/2 -translate-x-1/2 rtl:flex-row-reverse",
+        "flex absolute bottom-space-32 left-1/2 -translate-x-1/2 rtl:flex-row-reverse",
         className,
       )}
       {...rest}
@@ -246,8 +246,8 @@ const Indicators = ({ className, ...rest }: SubcomponentProps) => {
       {items?.map((_, index) => (
         <div
           className={mergeClassnames(
-            "w-2 h-2 mx-1 rounded-full bg-beerus",
-            activeIndex === index && "bg-piccolo",
+            "size-space-8 mx-space-4 rounded-full bg-tertiary",
+            activeIndex === index && "bg-brand",
           )}
           key={index}
         />

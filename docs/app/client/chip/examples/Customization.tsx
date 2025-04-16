@@ -17,8 +17,8 @@ const Customization = () => {
         isStroke
         className={
           isActive
-            ? "outline-none text-bulma hover:text-chichi shadow shadow-bulma hover:shadow-bulma"
-            : "border border-beerus text-chichi hover:bg-chichi-10 hover:shadow-none"
+            ? "outline-none text-primary hover:text-negative border border-brand hover:border-primary"
+            : "border border-primary text-negative hover:bg-brand-subtle hover:shadow-none"
         }
       >
         Custom Chip

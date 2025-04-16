@@ -5,7 +5,7 @@ import { CircularProgress } from "@heathmont/moon-core-tw";
 const Customization = () => (
   <CircularProgress
     value={75}
-    className="[&_.background]:stroke-whis [&_.progress]:stroke-dodoria"
+    className="[&_.background]:stroke-info [&_.progress]:stroke-negative"
   />
 );
 

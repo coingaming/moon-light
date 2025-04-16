@@ -27,18 +27,18 @@ const CircularProgress = ({
         dashRatio={1}
         pathRadius={PATH_RADIUS}
         classes={mergeClassnames(
-          "background stroke-[0.5rem] stroke-trunks/[.24]",
+          "background stroke-[0.5rem] stroke-secondary",
           bgColor /* deprecated */,
         )}
       />
       <Path
         dashRatio={pathRatio}
         pathRadius={PATH_RADIUS}
-        classes={mergeClassnames(
-          "progress stroke-[0.5rem] rtl:-scale-x-100 rtl:translate-x-full stroke-piccolo",
+        classes={[
+          "progress stroke-[0.5rem] rtl:-scale-x-100 rtl:translate-x-full stroke-brand",
           "transition-[stroke-dashoffset]",
           progressColor, // deprecated
-        )}
+        ].join(" ")}
       />
     </svg>
   );
