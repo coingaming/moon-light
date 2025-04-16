@@ -6,10 +6,10 @@ import image from "../avatar_example.jpeg";
 
 const Variants = () => (
   <>
-    <Avatar className="border-beerus border">
-      <GenericUser className="text-moon-24" />
+    <Avatar className="border-primary border">
+      <GenericUser className="text-heading-200" />
     </Avatar>
-    <Avatar className="border-beerus border">md</Avatar>
+    <Avatar className="border-primary border">md</Avatar>
     <Avatar imageUrl={image.src} />
   </>
 );

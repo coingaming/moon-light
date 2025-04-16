@@ -20,9 +20,9 @@ const AlertRoot = ({ className, children }: Props) => {
       <div
         role="alert"
         className={mergeClassnames(
-          "relative flex flex-col w-full gap-x-3 gap-y-1 p-4 rounded-moon-s-sm bg-goku",
-          "text-moon-14 text-bulma",
-          isClose && "pe-14",
+          "relative flex flex-col w-full gap-x-space-12 gap-y-space-4 p-space-16 rounded-8 bg-primary",
+          "text-body-300 text-primary",
+          isClose && "pe-space-56",
           className,
         )}
       >
@@ -33,13 +33,13 @@ const AlertRoot = ({ className, children }: Props) => {
 };
 
 const Title = ({ className, children }: TextProps) => (
-  <p className={mergeClassnames("flex gap-3 font-medium", className)}>
+  <p className={mergeClassnames("flex gap-space-12 font-medium", className)}>
     {children}
   </p>
 );
 
 const Message = ({ className, children }: TextProps) => (
-  <p className={mergeClassnames("flex gap-3", className)}>{children}</p>
+  <p className={mergeClassnames("flex gap-space-12", className)}>{children}</p>
 );
 
 const Close = ({ className, ariaLabel = "close", onClick }: CloseProps) => {
@@ -53,7 +53,7 @@ const Close = ({ className, ariaLabel = "close", onClick }: CloseProps) => {
       variant="ghost"
       aria-label={ariaLabel}
       className={mergeClassnames(
-        "absolute end-4 top-4 text-moon-16 text-bulma",
+        "absolute end-space-16 top-space-16 text-body-400 text-primary",
         className,
       )}
       onClick={onClick}

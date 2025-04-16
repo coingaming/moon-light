@@ -10,7 +10,7 @@ const Badge: React.FC<Props> = ({ className, children }) => {
   return (
     <div
       className={mergeClassnames(
-        "bg-hit rounded-full min-w-2 min-h-2 w-fit h-fit px-1 py-0 text-goten inline-block font-dm-sans font-normal text-xs",
+        "bg-discovery rounded-full min-w-space-8 min-h-space-8 size-fit px-space-4 py-0 text-force-light inline-block text-body-200",
         className,
       )}
     >

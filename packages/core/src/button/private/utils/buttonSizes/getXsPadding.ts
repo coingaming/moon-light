@@ -8,18 +8,18 @@ const getXsPadding = ({
   fullWidth,
 }: ButtonSettingsProps): string => {
   if (fullWidth) {
-    return "px-2";
+    return "px-space-8";
   }
   if (icon === "left" || iconLeft) {
-    return "ps-1 pe-2";
+    return "ps-space-4 pe-space-8";
   }
   if (icon === "right" || iconRight) {
-    return "ps-2 pe-1";
+    return "ps-space-8 pe-space-4";
   }
   if (icon === "only" || iconOnly) {
-    return "px-1";
+    return "px-space-4";
   }
-  return "px-2";
+  return "px-space-8";
 };
 
 export default getXsPadding;

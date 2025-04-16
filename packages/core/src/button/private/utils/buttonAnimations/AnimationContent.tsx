@@ -36,7 +36,7 @@ const AnimationContent = ({
         />
       )}
     </span>
-    <span className="flex gap-2 items-center opacity-0">
+    <span className="flex gap-space-8 items-center opacity-0">
       {iconLeft && (
         <IconLeft fullWidth={fullWidth} iconLeft={iconLeft} size={size} />
       )}

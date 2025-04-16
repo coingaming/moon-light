@@ -9,33 +9,35 @@ const getButtonVariants = ({
   if (variant === "secondary" || variant === "outline") {
     return animation === "error"
       ? mergeClassnames(
-          "text-chichi bg-transparent ring-inset ring-1 ring-chichi",
-          !disabled && "hover-supported:hover:bg-chichi-10",
+          "text-negative bg-transparent ring-inset ring-1 ring-negative",
+          !disabled && "hover-supported:hover:bg-negative/10",
         )
       : mergeClassnames(
-          "text-bulma bg-transparent ring-inset ring-1 ring-trunks",
+          "text-primary bg-transparent ring-inset ring-1 ring-primary",
           !disabled &&
-            "hover-supported:hover:ring-bulma hover-supported:[&>.hover]:hover:bg-heles",
+            "hover-supported:hover:ring-primary hover-supported:[&>.hover]:hover:bg-hover",
         );
   }
   if (variant === "tertiary") {
-    return animation === "error" ? "text-goten bg-chichi" : "text-goten bg-hit";
+    return animation === "error"
+      ? "text-force-light bg-negative"
+      : "text-force-light bg-discovery";
   }
   if (variant === "ghost") {
     return animation === "error"
       ? mergeClassnames(
-          "text-chichi bg-transparent",
-          !disabled && "hover-supported:hover:bg-chichi-10",
+          "text-negative bg-transparent",
+          !disabled && "hover-supported:hover:bg-negative/10",
         )
       : mergeClassnames(
-          "text-trunks bg-transparent",
+          "text-secondary bg-transparent",
           !disabled &&
-            "hover-supported:hover:text-bulma hover-supported:[&>.hover]:hover:bg-jiren",
+            "hover-supported:hover:text-primary hover-supported:[&>.hover]:hover:bg-hover",
         );
   }
   return animation === "error"
-    ? "text-goten bg-chichi"
-    : "text-goten bg-piccolo hover-supported:[&>.hover]:hover:bg-heles";
+    ? "text-force-light bg-negative"
+    : "text-force-light bg-brand hover-supported:[&>.hover]:hover:bg-hover";
 };
 
 export default getButtonVariants;

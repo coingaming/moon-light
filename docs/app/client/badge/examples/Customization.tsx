@@ -4,8 +4,8 @@ import { Badge } from "@heathmont/moon-core-tw";
 
 const BadgeCustomization = () => (
   <>
-    <Badge className="bg-dodoria" />
-    <Badge className="bg-whis">222</Badge>
+    <Badge className="bg-negative" />
+    <Badge className="bg-info">222</Badge>
   </>
 );
 

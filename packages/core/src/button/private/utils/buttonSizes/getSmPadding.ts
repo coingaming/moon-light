@@ -8,18 +8,18 @@ const getSmPadding = ({
   fullWidth,
 }: ButtonSettingsProps): string => {
   if (fullWidth) {
-    return "px-3";
+    return "px-space-12";
   }
   if (icon === "left" || iconLeft) {
-    return "ps-1 pe-3";
+    return "ps-space-4 pe-space-12";
   }
   if (icon === "right" || iconRight) {
-    return "ps-3 pe-1";
+    return "ps-space-12 pe-space-1";
   }
   if (icon === "only" || iconOnly) {
-    return "px-1";
+    return "px-space-1";
   }
-  return "px-3";
+  return "px-space-12";
 };
 
 export default getSmPadding;
