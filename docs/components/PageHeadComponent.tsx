@@ -16,12 +16,12 @@ export const PageHeadComponent = ({
   description,
   tags,
 }: PageHeadComponentProps) => (
-  <div className="flex max-w-3xl flex-col gap-4 lg:gap-6 text-moon-16">
-    <div className="flex flex-col gap-2">
-      <h1 className="flex items-baseline gap-3 font-medium text-moon-32 lg:text-moon-40">
+  <div className="flex max-w-3xl flex-col gap-space-16 lg:gap-space-24 text-body-400">
+    <div className="flex flex-col gap-space-8">
+      <h1 className="flex items-baseline gap-space-12 text-heading-300 lg:text-heading-400">
         {title} <Version packageName={packageName} />
       </h1>
-      {tags && <TitleTags className="mb-4" tags={tags} />}
+      {tags && <TitleTags className="mb-space-16" tags={tags} />}
     </div>
     {description && <MDX markdown={description} />}
   </div>

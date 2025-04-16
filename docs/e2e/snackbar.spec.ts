@@ -814,7 +814,7 @@ test.describe("Snackbar in Light Theme", () => {
       const snackbar = await page.locator('li[data-state="open"] > div');
       await expect(snackbar).toBeVisible();
       await expect((await snackbar.getAttribute("class"))?.split(" ")).toEqual(
-        expect.arrayContaining(["theme-moon-light"]),
+        expect.arrayContaining(["light-theme"]),
       );
     });
 
@@ -853,7 +853,7 @@ test.describe("Snackbar in Light Theme", () => {
       const snackbar = await page.locator('li[data-state="open"] > div');
       await expect(snackbar).toBeVisible();
       await expect((await snackbar.getAttribute("class"))?.split(" ")).toEqual(
-        expect.arrayContaining(["theme-moon-dark"]),
+        expect.arrayContaining(["dark-theme"]),
       );
     });
 

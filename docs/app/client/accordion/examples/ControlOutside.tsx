@@ -12,19 +12,19 @@ export const ControlOutside = () => {
     values.length === 0 ? setValues(items) : setValues([]);
 
   return (
-    <div className="flex flex-col gap-4 w-full">
-      <Button className="w-32" onClick={toggleAll}>
+    <div className="flex flex-col gap-space-16 w-full">
+      <Button className="w-space-128" onClick={toggleAll}>
         Toggle All
       </Button>
       <Accordion value={values} onValueChange={setValues}>
         <Accordion.Item
           value="item-1"
-          className="border border-beerus rounded-moon-s-sm"
+          className="border border-primary rounded-8"
         >
           <Accordion.Header className="moon-open:[&_svg]:rotate-180">
             <Accordion.Button>
               <span>Default</span>
-              <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
+              <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
             </Accordion.Button>
           </Accordion.Header>
           <Accordion.Content>
@@ -41,12 +41,12 @@ export const ControlOutside = () => {
         </Accordion.Item>
         <Accordion.Item
           value="item-2"
-          className="border border-beerus rounded-moon-s-sm"
+          className="border border-primary rounded-8"
         >
           <Accordion.Header className="moon-open:[&_svg]:rotate-180">
             <Accordion.Button>
               <span>Test accordion</span>
-              <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
+              <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
             </Accordion.Button>
           </Accordion.Header>
           <Accordion.Content>

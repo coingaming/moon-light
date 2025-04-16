@@ -5,14 +5,11 @@ import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
 export const SingleOpen = () => (
   <Accordion singleOpen>
-    <Accordion.Item
-      value="item-1"
-      className="border border-beerus rounded-moon-s-sm"
-    >
+    <Accordion.Item value="item-1" className="border border-primary rounded-8">
       <Accordion.Header className="moon-open:[&_svg]:rotate-180">
         <Accordion.Button>
           <span>Test accordion</span>
-          <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
+          <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
         </Accordion.Button>
       </Accordion.Header>
       <Accordion.Content>
@@ -27,14 +24,11 @@ export const SingleOpen = () => (
         {/* cSpell:enable */}
       </Accordion.Content>
     </Accordion.Item>
-    <Accordion.Item
-      value="item-2"
-      className="border border-beerus rounded-moon-s-sm"
-    >
+    <Accordion.Item value="item-2" className="border border-primary rounded-8">
       <Accordion.Header className="moon-open:[&_svg]:rotate-180">
         <Accordion.Button>
           <span>Test accordion</span>
-          <ControlsChevronDownSmall className="text-trunks text-moon-24 transition duration-200 moon-open:text-bulma" />
+          <ControlsChevronDownSmall className="icon-secondary text-heading-200 transition duration-200 moon-open:icon-primary" />
         </Accordion.Button>
       </Accordion.Header>
       <Accordion.Content>

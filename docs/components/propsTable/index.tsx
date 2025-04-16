@@ -30,16 +30,16 @@ const renderType = (item: PropsTablePropTypes) => {
 };
 
 const Name = (prop: PropsTableProp) => (
-  <div className="flex flex-row gap-2 items-center">
-    <Tag className="bg-frieza-10 text-frieza gap-1" isUppercase={false}>
+  <div className="flex flex-row gap-space-8 items-center">
+    <Tag className="bg-brand-subtle text-info gap-space-4" isUppercase={false}>
       {prop.name}
       {prop.required && <span>*</span>}
     </Tag>
     <Popover position="top">
       <Popover.Trigger aria-label="info">
-        <GenericInfo className="text-moon-16" />
+        <GenericInfo className="text-body-400" />
       </Popover.Trigger>
-      <Popover.Panel className="w-auto min-w-[12rem] overflow-y-visible p-3 rounded-moon-s-xs text-moon-12 text-bulma bg-goku">
+      <Popover.Panel className="w-fit min-w-[12rem] overflow-y-visible p-space-12 rounded-4 text-body-100 text-primary bg-primary">
         {prop.description}
         <Popover.Arrow />
       </Popover.Panel>
@@ -54,16 +54,16 @@ const Type = (prop: PropsTableProp) => {
   const isDefaultType = prop.type.map(renderType).join(" | ");
 
   return (
-    <span className="text-trunks">
+    <span className="text-secondary">
       {isLongType ? (
         <Popover position="top" className="items-center flex">
           <Popover.Trigger>
             <div className="flex flex-row items-center">
               enum
-              <GenericInfo className="text-moon-14 hover:bg-heles hover:text-piccolo text-bulma rounded-full" />
+              <GenericInfo className="text-body-300 hover:bg-hover hover:text-brand text-primary rounded-full" />
             </div>
           </Popover.Trigger>
-          <Popover.Panel className="w-auto min-w-[12rem] overflow-y-visible p-3 rounded-moon-s-xs text-moon-12 text-bulma bg-goku">
+          <Popover.Panel className="w-auto min-w-[12rem] overflow-y-visible p-space-12 rounded-4 text-body-100 text-primary bg-primary">
             {isDefaultType}
           </Popover.Panel>
         </Popover>
@@ -84,7 +84,7 @@ const makeData = (data: PropsTableProp[]) => {
     return {
       name: <Name {...prop} />,
       type: <Type {...prop} />,
-      default: <span className="text-bulma">{prop.defaultState || "-"}</span>,
+      default: <span className="text-primary">{prop.defaultState || "-"}</span>,
     };
   });
 };
@@ -97,20 +97,22 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
     () => [
       {
         id: "name",
-        header: () => <span className="text-trunks font-normal">Name</span>,
+        header: () => <span className="text-secondary font-normal">Name</span>,
         cell: (props) => props.getValue(),
         accessorKey: "name",
         size: 100,
       },
       {
         id: "type",
-        header: () => <span className="text-trunks font-normal">Type</span>,
+        header: () => <span className="text-secondary font-normal">Type</span>,
         cell: (props) => props.getValue(),
         accessorKey: "type",
       },
       {
         id: "default",
-        header: () => <span className="text-trunks font-normal">Default</span>,
+        header: () => (
+          <span className="text-secondary font-normal">Default</span>
+        ),
         cell: (props) => props.getValue(),
         accessorKey: "default",
         size: 100,
@@ -120,10 +122,10 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
   );
 
   return (
-    <section className="flex flex-col gap-2">
-      <div className="flex flex-col gap-6">
+    <section className="flex flex-col gap-space-8">
+      <div className="flex flex-col gap-space-16">
         <HeaderSection title={title} description={description} />
-        <div className="border border-beerus rounded-lg overflow-hidden bg-beerus">
+        <div className="border border-primary rounded-8 overflow-hidden bg-secondary">
           <Table
             columns={columns}
             data={tableData}
@@ -134,8 +136,8 @@ export const PropsTable = ({ data, title, description }: TableProps) => {
         </div>
       </div>
       {hasRequiredProps && (
-        <p className="text-trunks text-moon-12">
-          Properties indicated with <span className="text-frieza">*</span> are
+        <p className="text-secondary text-body-100">
+          Properties indicated with <span className="text-info">*</span> are
           required.
         </p>
       )}

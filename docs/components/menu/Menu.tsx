@@ -11,24 +11,24 @@ import RtlSwitcher from "../settings/RtlSwitcher";
 const Menu = ({ isOpen, setIsOpen, handleClick }: Props) => (
   <Drawer open={isOpen} setOpen={setIsOpen}>
     <Drawer.Panel className="flex flex-col w-full lg:hidden">
-      <div className="flex-grow flex items-center justify-between border-b border-beerus px-5 py-4">
+      <div className="flex-grow flex items-center justify-between border-b border-primary px-space-20 py-space-16">
         <Link href="/" aria-label="Home page">
           <Logo />
         </Link>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-space-12">
           <ThemeSwitcher />
           <RtlSwitcher />
           <IconButton
             variant="outline"
             size="sm"
-            className="rounded-full text-moon-24 ring-beerus"
+            className="rounded-full text-heading-200 ring-primary"
             icon={<ControlsCloseSmall />}
             aria-label="Close menu"
             onClick={handleClick}
           />
         </div>
       </div>
-      <div className="py-6 px-5 border-b border-beerus">
+      <div className="py-space-24 px-space-20 border-b border-primary">
         <SearchButton />
       </div>
       <Sidebar />

@@ -14,9 +14,9 @@ const DESCRIPTION =
   "The main colors serve a specific purpose. `piccolo` and `hit` are used for accent colors; `beerus` for borders and lines; `goku` and `gohan` for backgrounds; `bulma` and `trunks` for text and icons; `goten` and `popo` for forced theme-less colors; and `jiren`, `heles`, and `zeno` for semi-transparent overlays.";
 
 const MainColors = () => (
-  <div className="max-w-3xl flex flex-col w-full gap-6">
-    <h2 className="text-moon-24 font-medium">Main colors</h2>
-    <div className="flex flex-col gap-4 text-moon-16 text-bulma">
+  <div className="max-w-3xl flex flex-col w-full gap-space-24">
+    <h2 className="text-heading-200">Main colors</h2>
+    <div className="flex flex-col gap-space-16 text-body-300 text-primary">
       <MDX markdown={DESCRIPTION} />
     </div>
     <ColorSet colors={MAIN_COLORS} />

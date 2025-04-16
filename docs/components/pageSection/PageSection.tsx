@@ -15,10 +15,10 @@ export const PageSection = async ({
   children,
   date,
 }: Props) => (
-  <div className="flex flex-col gap-4 relative">
-    <div className="flex flex-col gap-2 relative">
+  <div className="flex flex-col gap-space-16 relative">
+    <div className="flex flex-col gap-space-8 relative">
       <HeaderSection title={title} description={description} href={href} />
-      {date && <span className="text-trunks">{date}</span>}
+      {date && <span className="text-secondary">{date}</span>}
     </div>
     {children}
   </div>
