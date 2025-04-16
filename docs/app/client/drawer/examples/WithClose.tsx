@@ -15,7 +15,7 @@ export const WithClose = () => {
       </Button>
       <Drawer open={isOpen} setOpen={setIsOpen}>
         <Drawer.Panel>
-          <div className="flex justify-between items-center p-3 border-b border-trunks">
+          <div className="flex justify-between items-center p-space-12 border-b border-primary">
             <p>Header</p>
             <IconButton
               variant="ghost"
@@ -25,7 +25,7 @@ export const WithClose = () => {
               <ControlsCloseSmall />
             </IconButton>
           </div>
-          <div className="p-3">Drawer content</div>
+          <div className="p-space-12">Drawer content</div>
         </Drawer.Panel>
       </Drawer>
     </>

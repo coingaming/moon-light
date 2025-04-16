@@ -48,7 +48,7 @@ const Collapsed = ({ breadcrumbs, divider }: Props) => {
               aria-label="Show more breadcrumbs"
             />
             {isOpen && (
-              <ol className="absolute start-0 top-full bg-primary p-space-4 mt-space-12 flex flex-col gap-space-8 shadow-400 rounded-12 z-10000 min-w-space-136">
+              <ol className="absolute start-0 top-full bg-primary p-space-4 mt-space-12 flex flex-col gap-space-8 shadow-400 rounded-12 z-[10000] min-w-space-136">
                 {restBreadcrumbs.map((crumb, index) => (
                   <li
                     key={"innercrumb" + index}

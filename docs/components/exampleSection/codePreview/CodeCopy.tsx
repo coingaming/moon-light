@@ -39,7 +39,7 @@ const CodeCopy = ({ code }: { code: string }) => {
         onClick={copyCode}
         variant="outline"
         icon={<FilesCopy />}
-        className="dark-theme absolute top-space-8 end-space-8 z-1 bg-secondary"
+        className="dark-theme absolute top-space-8 end-space-8 z-[1] bg-secondary"
       />
       <Snackbar
         isOpen={snackbar === "isOpen"}

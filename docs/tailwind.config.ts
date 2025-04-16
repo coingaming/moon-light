@@ -5,10 +5,10 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@heathmont/moon-core-tw/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@heathmont/moon-base-tw/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@heathmont/moon-cmdk-tw/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@heathmont/moon-table-v8-tw/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heathmont/moon-core-tw/lib/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heathmont/moon-base-tw/lib/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heathmont/moon-cmdk-tw/lib/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heathmont/moon-table-v8-tw/lib/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -20,9 +20,6 @@ const config: Config = {
     },
   },
   plugins: [],
-  presets: [
-    require("@heathmont/moon-core-tw/lib/es/private/presets/ds-moon-preset"),
-    require("./app/js/moon-base-preset"),
-  ],
+  presets: [require("./app/js/moon-base-preset")],
 };
 export default config;

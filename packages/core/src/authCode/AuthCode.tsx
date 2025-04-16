@@ -160,7 +160,7 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
             "focus:ring-active focus:ring-2 focus:outline-none",
             !isValid &&
               "text-negative ring-negative ring-2 hover:ring-negative focus:ring-negative",
-            disabled && "opacity-disabled cursor-not-allowed",
+            disabled && "opacity-disabled cursor-not-allowed hover:ring-1",
           )}
           autoComplete={i === 0 ? "one-time-code" : "off"}
           aria-label={
