@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from "react";
+import React, { FocusEvent, forwardRef, useEffect } from "react";
 import {
   Combobox as HeadlessCombobox,
   Transition as HeadlessTransition,
@@ -25,6 +25,7 @@ import {
 } from "../index";
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
 import { assignRef } from "../private/utils/assignRef";
+import useClickOutside from "../private/hooks/useClickOutside";
 
 const ComboboxRoot = ({
   value,
@@ -57,10 +58,16 @@ const ComboboxRoot = ({
   const blurredRef = React.useRef<boolean>(false);
   const prevSelected = React.useRef<unknown | undefined>({});
 
-  const handleOnFocus: React.FocusEventHandler<HTMLInputElement> = (event) => {
+  const handleOnFocus = (
+    event: FocusEvent<HTMLInputElement>,
+    shouldForceClick = true,
+  ) => {
     setIsInputFocused(true);
 
-    if (event.relatedTarget?.id?.includes("headlessui-combobox-button")) {
+    if (
+      event.relatedTarget?.id?.includes("headlessui-combobox-button") ||
+      !shouldForceClick
+    ) {
       return;
     }
 
@@ -184,7 +191,15 @@ const Trigger = forwardRef<HTMLDivElement, WithChildren<SelectProps>>(
 
 const Input = forwardRef<HTMLElement, InputProps>(
   (
-    { displayValue, placeholder, type, className, label, ...rest }: InputProps,
+    {
+      displayValue,
+      placeholder,
+      type,
+      className,
+      label,
+      preventButtonForceClick,
+      ...rest
+    }: InputProps,
     ref,
   ) => {
     const {
@@ -215,7 +230,13 @@ const Input = forwardRef<HTMLElement, InputProps>(
         )}
         disabled={disabled}
         error={isError}
-        onFocus={handleOnFocus}
+        onFocus={(e) => {
+          if (!handleOnFocus) {
+            return;
+          }
+
+          preventButtonForceClick ? handleOnFocus(e, false) : handleOnFocus(e);
+        }}
         onKeyDown={handleOnKeyDown}
         onBlur={handleOnBlur}
         aria-label={rest["aria-label"]}
@@ -231,7 +252,15 @@ const Input = forwardRef<HTMLElement, InputProps>(
 
 const InsetInput = forwardRef<HTMLElement, InputProps>(
   (
-    { displayValue, placeholder, type, className, label, ...rest }: InputProps,
+    {
+      displayValue,
+      placeholder,
+      type,
+      className,
+      label,
+      preventButtonForceClick,
+      ...rest
+    }: InputProps,
     ref,
   ) => {
     const {
@@ -268,7 +297,15 @@ const InsetInput = forwardRef<HTMLElement, InputProps>(
             "leading-5",
           )}
           error={isError}
-          onFocus={handleOnFocus}
+          onFocus={(e) => {
+            if (!handleOnFocus) {
+              return;
+            }
+
+            preventButtonForceClick
+              ? handleOnFocus(e, false)
+              : handleOnFocus(e);
+          }}
           onKeyDown={handleOnKeyDown}
           onBlur={handleOnBlur}
           aria-label={rest["aria-label"]}
@@ -288,7 +325,15 @@ const InsetInput = forwardRef<HTMLElement, InputProps>(
 
 const VisualSelectInput = forwardRef<HTMLElement, InputProps>(
   (
-    { displayValue, placeholder, type, className, label, ...rest }: InputProps,
+    {
+      displayValue,
+      placeholder,
+      type,
+      className,
+      label,
+      preventButtonForceClick,
+      ...rest
+    }: InputProps,
     ref,
   ) => {
     const {
@@ -344,7 +389,15 @@ const VisualSelectInput = forwardRef<HTMLElement, InputProps>(
             popper?.setAnchor(nodeElement);
             assignRef(ref, nodeElement);
           }}
-          onFocus={handleOnFocus}
+          onFocus={(e) => {
+            if (!handleOnFocus) {
+              return;
+            }
+
+            preventButtonForceClick
+              ? handleOnFocus(e, false)
+              : handleOnFocus(e);
+          }}
           onKeyDown={handleOnKeyDown}
           onBlur={handleOnBlur}
         />
@@ -613,6 +666,8 @@ const MultiSelect = forwardRef<
     const { size, popper, disabled } = useComboboxContext(
       "Combobox.MultiSelect",
     );
+    const [, hasClickedOutside] = useClickOutside();
+    const shouldPreventForceClick = open && !hasClickedOutside;
 
     return (
       <Listbox>
@@ -641,6 +696,7 @@ const MultiSelect = forwardRef<
             placeholder={placeholder}
             displayValue={displayValue}
             aria-label={rest["aria-label"]}
+            preventButtonForceClick={shouldPreventForceClick}
           />
           <Button open={open}>{children}</Button>
         </Listbox.Button>
@@ -717,6 +773,8 @@ const InsetMultiSelect = forwardRef<
     ref,
   ) => {
     const { popper } = useComboboxContext("Combobox.MultiSelect");
+    const [, hasClickedOutside] = useClickOutside();
+    const shouldPreventForceClick = open && !hasClickedOutside;
 
     return (
       <Listbox>
@@ -742,6 +800,7 @@ const InsetMultiSelect = forwardRef<
             placeholder={placeholder}
             displayValue={displayValue}
             aria-label={rest["aria-label"]}
+            preventButtonForceClick={shouldPreventForceClick}
           />
           <Button open={open}>{children}</Button>
         </Listbox.Button>
@@ -772,6 +831,9 @@ const VisualMultiSelect = forwardRef<
     const { size, popper, disabled, value } = useComboboxContext(
       "Combobox.VisualMultiSelect",
     );
+
+    const [, hasClickedOutside] = useClickOutside();
+    const shouldPreventForceClick = open && !hasClickedOutside;
 
     useEffect(() => {
       // Do nothing if forceUpdate is false.
@@ -806,6 +868,7 @@ const VisualMultiSelect = forwardRef<
             placeholder={placeholder}
             displayValue={displayValue}
             aria-label={rest["aria-label"]}
+            preventButtonForceClick={shouldPreventForceClick}
           />
           <Button open={open}>{children}</Button>
         </Listbox.Button>
