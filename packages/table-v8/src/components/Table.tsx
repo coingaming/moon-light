@@ -30,11 +30,11 @@ const Table: React.FC<TableProps> = ({
   fixedWidth = "w-full",
   state,
   withFooter = false,
-  headerBackgroundColor = "gohan",
-  bodyBackgroundColor = "gohan",
-  defaultRowBackgroundColor = "goku",
-  evenRowBackgroundColor = "goku",
-  rowSelectColor = "heles",
+  headerBackgroundColor = "tertiary",
+  bodyBackgroundColor = "tertiary",
+  defaultRowBackgroundColor = "primary",
+  evenRowBackgroundColor = "primary",
+  rowSelectColor = "hover",
   rowActiveColor,
   rowHoverColor,
   rowGap = "2px",
@@ -123,13 +123,13 @@ const Table: React.FC<TableProps> = ({
     width: tableWidth,
     tableLayout,
     borderSpacing: `0 ${rowGap}`,
-    "--tableBGColor": `rgba(var(--${bodyBackgroundColor}, var(--gohan)))`,
+    "--tableBGColor": `var(--semantic-background-${bodyBackgroundColor}, var(--semantic-background-tertiary))`,
   } as const;
 
   const renderTableComponent = (
     <TableWrapper
       style={Object.fromEntries(wrapperStyles)}
-      className={mergeClassnames("rounded-lg", isSticky && "overflow-auto")}
+      className={mergeClassnames("rounded-8", isSticky && "overflow-auto")}
       tableWrapperRef={tableWrapperRef}
     >
       <table

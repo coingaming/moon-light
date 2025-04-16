@@ -47,7 +47,7 @@ const Customization = () => {
         <Snackbar
           isOpen={snackbar === "background"}
           onOpenChange={setSnackbar}
-          className="bg-roshi"
+          className="bg-positive"
         >
           <Snackbar.Message>Custom background color</Snackbar.Message>
         </Snackbar>
@@ -100,10 +100,10 @@ const Customization = () => {
         </Button>
         <Snackbar isOpen={snackbar === "fonts"} onOpenChange={setSnackbar}>
           <Snackbar.Content>
-            <Snackbar.Message className="text-moon-24 text-chichi">
+            <Snackbar.Message className="text-body-500 text-negative">
               Custom fonts.
             </Snackbar.Message>
-            <Snackbar.Message className="text-moon-12 font-medium">
+            <Snackbar.Message className="text-body-200 font-medium">
               Even more custom fonts.
             </Snackbar.Message>
           </Snackbar.Content>

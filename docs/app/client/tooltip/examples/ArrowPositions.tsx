@@ -4,10 +4,10 @@ import { Tooltip, Chip } from "@heathmont/moon-core-tw";
 
 const ArrowPositions = () => (
   <>
-    <div className="grid grid-cols-2 xl:grid-cols-4 gap-2 w-full">
+    <div className="grid grid-cols-2 xl:grid-cols-4 gap-space-8 w-full">
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">top-start</Chip>
+          <Chip className="border border-primary">top-start</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content position="top-start">
           Top-start position
@@ -16,7 +16,7 @@ const ArrowPositions = () => (
       </Tooltip>
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">top-center (default)</Chip>
+          <Chip className="border border-primary">top-center (default)</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content>
           Top-center is default position
@@ -25,7 +25,7 @@ const ArrowPositions = () => (
       </Tooltip>
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">top-end</Chip>
+          <Chip className="border border-primary">top-end</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content position="top-end">
           Top-end position
@@ -34,7 +34,7 @@ const ArrowPositions = () => (
       </Tooltip>
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">right</Chip>
+          <Chip className="border border-primary">right</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content position="right">
           Right side position
@@ -43,7 +43,7 @@ const ArrowPositions = () => (
       </Tooltip>
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">bottom-start</Chip>
+          <Chip className="border border-primary">bottom-start</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content position="bottom-start">
           Bottom-start position
@@ -52,7 +52,7 @@ const ArrowPositions = () => (
       </Tooltip>
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">bottom-center</Chip>
+          <Chip className="border border-primary">bottom-center</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content position="bottom-center">
           Bottom-center position
@@ -61,7 +61,7 @@ const ArrowPositions = () => (
       </Tooltip>
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">bottom-end</Chip>
+          <Chip className="border border-primary">bottom-end</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content position="bottom-end">
           Bottom-end position
@@ -70,7 +70,7 @@ const ArrowPositions = () => (
       </Tooltip>
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">left</Chip>
+          <Chip className="border border-primary">left</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content position="left">
           Left side position

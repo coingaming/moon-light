@@ -81,13 +81,13 @@ const TD = forwardRef<HTMLTableCellElement, TDProps>((props, ref) => {
         "relative box-border text-start",
         getFontSize(rowSize),
         getPadding(rowSize),
-        isFirstColumn && !noGap && "rounded-s-lg after:rounded-s-lg",
-        isLastColumn && !noGap && "rounded-e-lg after:rounded-e-lg",
+        isFirstColumn && !noGap && "rounded-s-8 after:rounded-s-8",
+        isLastColumn && !noGap && "rounded-e-8 after:rounded-e-8",
         stickySide && "sticky z-[1] before:-z-[1] after:-z-[1]",
         stickySide &&
-          "before:absolute before:top-0 before:left-0 before:-right-[1px] before:h-full",
+          "before:absolute before:top-0 before:left-0 before:-right-space-1 before:h-full",
         stickySide &&
-          "after:absolute after:top-0 after:left-0 after:-right-[1px] after:h-full",
+          "after:absolute after:top-0 after:left-0 after:-right-space-1 after:h-full",
         className,
       )}
       ref={ref}

@@ -15,16 +15,18 @@ const THead = ({
   const top = isSticky && rowGap ? rowGap : undefined;
   const styles = {
     top,
-    "--headerBGColor": `rgba(var(--${backgroundColor || "gohan"}))`,
-    boxShadow: `0 ${rowGap} rgba(var(--${backgroundColor}, var(--gohan)))`,
+    "--headerBGColor": `var(--semantic-background-${
+      backgroundColor || "tertiary"
+    }))`,
+    boxShadow: `0 ${rowGap} var(--semantic-background-${backgroundColor}, var(--semantic-background-tertiary))`,
   } as const;
 
-  const beforeBg = "gohan";
+  const beforeBg = "tertiary";
 
   return isSticky ? (
     <thead
       style={styles}
-      className={`sticky z-[2] before:content-[''] before:absolute before:-top-[2px] before:left-0 before:w-full before:max-h-[8px] before:h-[8px] before:bg-[color:var(--headerBGColor)]`}
+      className={`sticky z-[2] before:content-[''] before:absolute before:-top-space-2 before:left-0 before:w-full before:max-h-space-8 before:h-space-8 before:bg-[color:var(--headerBGColor)]`}
     >
       {table.getHeaderGroups().map((headerGroup, indexHG) => (
         <tr key={indexHG}>

@@ -2,9 +2,9 @@
 title: Default
 ---
 
-All icons are set to the default size of `text-moon-14`. You have two options for importing icons:
+All icons are set to the default size of `text-body-300`. You have two options for importing icons:
 
-- Import individually:
+- Import individually
 
 `import { OtherFrame } from '@heathmont/moon-icons-tw';`
 

@@ -19,7 +19,7 @@ export const Item: React.FC<ListItemProps> = ({
     <li data-testid={dataTestId} className={classNames?.itemContainer}>
       <p
         className={mergeClassnames(
-          "flex justify-between border-b-1 border-bulma pt-1 pb-1 w-full",
+          "flex justify-between border-b-1 border-primary pt-1 pb-1 w-full",
           classNames?.itemContent ?? "",
         )}
       >

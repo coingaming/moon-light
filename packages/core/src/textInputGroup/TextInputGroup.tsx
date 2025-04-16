@@ -8,7 +8,7 @@ const TextInputGroup = ({
   orientation = "horizontal",
   inputProps,
   isRtl,
-  backgroundColor = "bg-goku",
+  backgroundColor = "bg-primary",
 }: TextInputGroupProps) => {
   const dir = isRtl ? "rtl" : "ltr";
   const isXLarge =

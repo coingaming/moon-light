@@ -166,31 +166,30 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
           <span
             tabIndex={-1}
             className={mergeClassnames(
-              "w-full flex flex-col justify-between bg-goku transition-shadow",
-              states.value.length && "gap-y-1",
+              "w-full flex flex-col justify-between bg-primary transition-shadow",
+              states.value.length && "gap-y-space-4",
               isFocused
-                ? "shadow-input-focus hover:shadow-input-focus"
-                : "shadow-input hover:shadow-input-hov",
-              "focus:shadow-input-focus focus:outline-none",
-              "focus-visible::shadow-input-focus focus-visible::outline-none",
+                ? "ring-2 ring-inset ring-active hover:ring-2 hover:ring-inset hover:ring-active"
+                : "ring-1 ring-inset ring-primary hover:ring-1 hover:ring-inset hover:ring-primary",
+              "focus:ring-2 focus:ring-inset focus:ring-active focus:outline-none",
               getWrapperStyle(size),
               (isError || isInvalid) &&
-                "shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-err",
+                "ring-2 ring-inset ring-negative hover:ring-2 hover:ring-inset hover:ring-negative focus:ring-2 focus:ring-inset focus:ring-negative",
               disabled &&
-                "opacity-60 shadow-input focus:shadow-input hover:shadow-input cursor-not-allowed",
+                "opacity-disabled ring-1 ring-inset ring-primary hover:ring-1 hover:ring-inset hover:ring-primary cursor-not-allowed",
               className,
             )}
             ref={ref}
           >
-            <div className="flex flex-wrap justify-start items-start gap-1">
+            <div className="flex flex-wrap justify-start items-start gap-space-4">
               {children}
             </div>
             <NativeInput
               ref={inputRef}
               id={id}
               className={mergeClassnames(
-                "flex-grow border-0 !rounded-none bg-transparent px-0 leading-6 h-6",
-                "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
+                "flex-grow border-0 !rounded-none bg-transparent px-0 leading-space-24 h-space-24",
+                "!ring-none hover:ring-none focus:ring-none",
                 getTextSize(size),
               )}
               placeholder={placeholder}
@@ -239,7 +238,7 @@ const SelectedItem = ({
     <div
       key={index}
       className={mergeClassnames(
-        "flex gap-2 items-center flex-grow-0 flex-shrink-0 self-center max-w-full [&>div]:max-w-full",
+        "flex gap-space-8 items-center flex-grow-0 flex-shrink-0 self-center max-w-full [&>div]:max-w-full",
         className,
       )}
     >
@@ -256,7 +255,7 @@ const SelectedItem = ({
           onClick={onClick}
           className={mergeClassnames(
             selectedTagIndex === index
-              ? (classNameTagOnFocus ?? "bg-piccolo")
+              ? (classNameTagOnFocus ?? "bg-brand")
               : "",
           )}
         >

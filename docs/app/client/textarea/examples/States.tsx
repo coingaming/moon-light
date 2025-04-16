@@ -4,7 +4,7 @@ import { Hint, Textarea } from "@heathmont/moon-core-tw";
 import { GenericInfo } from "@heathmont/moon-icons-tw";
 
 const States = () => (
-  <div className="flex flex-wrap xl:flex-nowrap items-center justify-around gap-2 w-full">
+  <div className="flex flex-wrap xl:flex-nowrap items-center justify-around gap-space-8 w-full">
     <div className="w-full">
       <Textarea disabled placeholder="Disabled" />
       <Hint disabled>Informative message holder</Hint>

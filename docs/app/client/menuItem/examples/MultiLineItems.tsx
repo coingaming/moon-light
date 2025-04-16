@@ -5,7 +5,7 @@ import { OtherFrame } from "@heathmont/moon-icons-tw";
 
 const MultiLineItems = () => {
   return (
-    <div className="w-94 bg-secondary flex flex-col gap-space-12 rounded-16 p-space-24">
+    <div className="w-94 bg-tertiary flex flex-col gap-space-12 rounded-16 p-space-24">
       <MenuItem isActive>
         <span className="bg-brand-subtle rounded-8 size-space-40 flex justify-center items-center">
           <OtherFrame className="text-heading-200 icon-brand" />

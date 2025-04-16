@@ -97,7 +97,7 @@ const Example = () => {
 
   const ColumnsVisibilityControls = () => {
     return (
-      <ul className="flex flex-wrap gap-2">
+      <ul className="flex flex-wrap gap-space-8">
         {columns.map((column) => (
           <li key={column.id}>
             <Checkbox
@@ -115,9 +115,9 @@ const Example = () => {
   };
 
   return (
-    <div className="w-full max-w-screen-lg flex flex-col gap-3">
+    <div className="w-full max-w-screen-lg flex flex-col gap-space-12">
       <ColumnsVisibilityControls />
-      <div className="w-full border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full border border-primary rounded-8 overflow-hidden">
         <Table
           columns={columns}
           data={data}

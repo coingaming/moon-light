@@ -34,7 +34,7 @@ const Content: React.FC<RenderProps> = ({ open, close }) => {
   return (
     <>
       <MenuItem>
-        <span className="flex size-space-44 bg-secondary items-center justify-center rounded-8">
+        <span className="flex size-space-44 bg-tertiary items-center justify-center rounded-8">
           <OtherFrame className="icon-primary text-heading-200" />
         </span>
         <MenuItem.MultiTitle
@@ -43,7 +43,7 @@ const Content: React.FC<RenderProps> = ({ open, close }) => {
         />
       </MenuItem>
       <MenuItem>
-        <span className="flex size-space-44 bg-secondary items-center justify-center">
+        <span className="flex size-space-44 bg-tertiary items-center justify-center">
           <OtherFrame className="icon-primary text-heading-200" />
         </span>
         <MenuItem.MultiTitle
@@ -52,7 +52,7 @@ const Content: React.FC<RenderProps> = ({ open, close }) => {
         />
       </MenuItem>
       <MenuItem>
-        <span className="flex size-space-44 bg-secondary items-center justify-center">
+        <span className="flex size-space-44 bg-tertiary items-center justify-center">
           <OtherFrame className="icon-primary text-heading-200" />
         </span>
         <MenuItem.MultiTitle

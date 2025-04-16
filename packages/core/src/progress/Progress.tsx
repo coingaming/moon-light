@@ -17,7 +17,7 @@ const ProgressRoot = ({
   <ProgressContext.Provider value={{ value, size }}>
     <div
       className={mergeClassnames(
-        "w-full rounded-full bg-beerus",
+        "w-full rounded-full bg-tertiary",
         bgColor,
         getSize(size),
         className,
@@ -31,7 +31,7 @@ const ProgressRoot = ({
       <div
         style={{ width: `${value}%` }}
         className={mergeClassnames(
-          "progress relative h-full rounded-full start-0 transition-all bg-piccolo",
+          "progress relative h-full rounded-full start-0 transition-all bg-brand",
           progressColor,
         )}
       >
@@ -47,12 +47,12 @@ const Pin = ({ className }: PinProps) => {
   return (
     <div
       className={mergeClassnames(
-        "absolute box-content flex items-center justify-center w-8 h-8 border-2 font-medium",
-        "text-moon-10-caption uppercase text-goten bg-popo border-goten rounded-full",
+        "absolute box-content flex items-center justify-center size-space-32 border-2 font-medium",
+        "text-body-100 uppercase text-force-light bg-force-dark border-force-light rounded-full",
         "shadow-[0_2px_8px_0_rgba(0,0,0,0.16)] before:shadow-[0_2px_8px_0_rgba(0,0,0,0.16)]",
-        "before:absolute before:bg-goten before:rounded-full",
-        "after:absolute after:w-0 after:h-0 after:border-x-4 after:border-x-transparent",
-        "after:-bottom-[6px] after:border-t-[6px] after:border-t-goten",
+        "before:absolute before:bg-force-light before:rounded-full",
+        "after:absolute after:size-0 after:border-x-space-16 after:border-x-transparent",
+        "after:-bottom-space-6 after:border-t-space-6 after:border-t-force-light",
         getPinStyle(size),
         className,
       )}

@@ -72,15 +72,15 @@ const Example = () => {
   );
 
   return (
-    <div className="border border-beerus rounded-lg overflow-hidden">
+    <div className="border border-primary rounded-8 overflow-hidden">
       <Table
         columns={columns}
         data={data}
         width={800}
         height={400}
         layout="stretched-auto"
-        rowActiveColor="goku"
-        rowHoverColor="beerus"
+        rowActiveColor="primary"
+        rowHoverColor="hover"
         isSelectable={true}
         getOnRowClickHandler={(row: Row<{}>) => () => {
           console.log(`You clicked row with ID - ${row.id}`);

@@ -87,15 +87,15 @@ const Select = ({
         <div
           className={mergeClassnames(
             "w-full",
-            disabled && "opacity-60 cursor-not-allowed",
+            disabled && "opacity-disabled cursor-not-allowed",
           )}
         >
           <div className="relative">
             {label && size !== "xl" && (
               <Listbox.Label
                 className={mergeClassnames(
-                  "block text-bulma pb-2",
-                  size === "sm" ? "text-moon-14" : "text-moon-16",
+                  "block text-primary pb-space-8",
+                  size === "sm" ? "text-body-300" : "text-body-400",
                 )}
               >
                 {label}
@@ -111,15 +111,15 @@ const Select = ({
               >
                 <div className="flex flex-col items-start overflow-hidden text-ellipsis whitespace-nowrap">
                   {label && size === "xl" && (
-                    <Listbox.Label className="block text-moon-12 text-trunks">
+                    <Listbox.Label className="block text-body-200 text-secondary">
                       {label}
                     </Listbox.Label>
                   )}
                   {option ? (
                     <span
                       className={mergeClassnames(
-                        size === "sm" ? "text-moon-14" : "text-moon-16",
-                        "text-bulma",
+                        size === "sm" ? "text-body-300" : "text-body-400",
+                        "text-primary",
                       )}
                     >
                       {(formatOptionLabel && formatOptionLabel(option)) ||
@@ -128,8 +128,8 @@ const Select = ({
                   ) : placeholder ? (
                     <span
                       className={mergeClassnames(
-                        size === "sm" ? "text-moon-14" : "text-moon-16",
-                        "text-trunks",
+                        size === "sm" ? "text-body-300" : "text-body-400",
+                        "text-secondary",
                       )}
                     >
                       {placeholder}
@@ -145,7 +145,7 @@ const Select = ({
                 ref={setPopperEl}
                 style={styles.popper}
                 {...attributes.popper}
-                className="z-5 absolute"
+                className="z-[5] absolute"
               >
                 <Options
                   options={options}

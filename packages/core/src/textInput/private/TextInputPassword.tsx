@@ -27,7 +27,7 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
       isSharpBottomSide,
       isTopBottomBorderHidden,
       isSideBorderHidden,
-      bgColor = "bg-goku",
+      bgColor = "bg-primary",
       ...rest
     } = props;
 
@@ -70,7 +70,7 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
               isPassword
               {...inputProps}
             />
-            <label className="absolute text-moon-12 text-trunks top-3 z-[1] transition-all start-4">
+            <label className="absolute text-body-200 text-secondary top-space-12 z-[1] transition-all start-space-16">
               {label}
             </label>
             <ShowPassword onClick={togglePasswordVisibility}>
@@ -88,7 +88,7 @@ const TextInputPassword = forwardRef<HTMLInputElement, TextInputProps>(
             dir={dir}
             htmlFor={id}
             className={mergeClassnames(
-              "block text-bulma pb-2",
+              "block text-primary pb-space-8",
               getLabelSize(inputSize),
             )}
           >

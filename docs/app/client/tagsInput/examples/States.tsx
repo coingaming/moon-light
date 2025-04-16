@@ -42,7 +42,7 @@ const Example = () => {
 
   return (
     <div className="flex flex-col items-center w-full h-50">
-      <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start w-full gap-2">
+      <div className="flex flex-col items-center lg:flex-row lg:justify-center lg:items-start w-full gap-space-8">
         <div className="flex flex-col w-full max-w-sm lg:max-w-md">
           <TagsInput
             selected={selected1}
@@ -60,7 +60,7 @@ const Example = () => {
         <div className="flex flex-col w-full max-w-sm lg:max-w-md">
           <TagsInput
             selected={selected2}
-            label={<span className="text-chichi">Error</span>}
+            label={<span className="text-negative">Error</span>}
             isError
             onEnter={onEnter2}
             onClear={onClear2}

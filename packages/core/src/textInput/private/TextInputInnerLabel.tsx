@@ -24,7 +24,7 @@ const TextInputInnerLabel = forwardRef<HTMLInputElement, TextInputProps>(
       isSharpBottomSide,
       isTopBottomBorderHidden,
       isSideBorderHidden,
-      bgColor = "bg-goku",
+      bgColor = "bg-primary",
       ...rest
     } = props;
     const inputProps = {
@@ -58,7 +58,7 @@ const TextInputInnerLabel = forwardRef<HTMLInputElement, TextInputProps>(
             isRtl={dir === "rtl"}
             {...inputProps}
           />
-          <label className="absolute text-moon-12 text-trunks top-3 z-[1] transition-all ease-in-out duration-200 start-4">
+          <label className="absolute text-body-200 text-secondary top-space-12 z-[1] transition-all ease-in-out duration-200 start-space-16">
             {label}
           </label>
         </div>

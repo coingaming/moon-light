@@ -40,7 +40,7 @@ const Option = ({ value, children, className, disabled }: OptionProps) => {
       value={value}
       disabled={disabled}
       className={mergeClassnames(
-        "flex gap-2 cursor-pointer text-moon-14 text-bulma moon-disabled:opacity-60",
+        "flex gap-space-8 cursor-pointer text-body-300 text-primary moon-disabled:opacity-disabled",
         "moon-disabled:cursor-default",
         className,
       )}
@@ -54,11 +54,11 @@ const Option = ({ value, children, className, disabled }: OptionProps) => {
 const Indicator = ({ className }: { className?: string }) => (
   <div
     className={mergeClassnames(
-      "relative flex items-center justify-center w-4 h-4 aspect-square m-1 rounded-full border",
-      "transition-colors after:absolute after:w-0 after:h-0 after:rounded-full after:top-1/2",
+      "relative flex items-center justify-center size-space-16 aspect-square m-space-4 rounded-full border",
+      "transition-colors after:absolute after:size-0 after:rounded-full after:top-1/2",
       "after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:transition-all",
-      "moon-checked:after:w-2 moon-checked:after:h-2 border-trunks moon-checked:border-piccolo",
-      "after:bg-piccolo",
+      "moon-checked:after:size-space-8 border-primary moon-checked:border-brand",
+      "after:bg-brand",
       className,
     )}
   />

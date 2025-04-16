@@ -3,12 +3,12 @@ import type Size from "../types/Size";
 const getToggleSize = (size?: Size) => {
   switch (size) {
     case "2xs":
-      return "w-3 h-3";
+      return "size-space-12";
     case "xs":
-      return "w-4 h-4";
+      return "size-space-16";
     case "sm":
     default:
-      return "w-6 h-6";
+      return "size-space-24";
   }
 };
 

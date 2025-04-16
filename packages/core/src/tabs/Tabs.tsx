@@ -23,7 +23,7 @@ const List = ({ children, className, size = "md" }: ListProps) => {
     <TabsContext.Provider value={states}>
       <HeadlessTab.List
         className={mergeClassnames(
-          "flex items-center justify-center w-fit gap-2",
+          "flex items-center justify-center w-fit gap-space-8",
           className,
         )}
       >
@@ -41,8 +41,8 @@ const Segment = ({ children, className, size = "md" }: ListProps) => {
     <TabsContext.Provider value={states}>
       <HeadlessTab.List
         className={mergeClassnames(
-          "flex items-center justify-center w-fit gap-1 p-1 bg-gohan",
-          size === "md" ? "rounded-moon-s-md" : "rounded-moon-s-sm",
+          "flex items-center justify-center w-fit gap-space-4 p-space-4 bg-tertiary",
+          size === "md" ? "rounded-12" : "rounded-8",
           className,
         )}
       >
@@ -61,16 +61,17 @@ const Tab = React.forwardRef(
         className={({ selected }: { selected: boolean }) =>
           mergeClassnames(
             getTabSize(size),
-            "relative flex items-center justify-center w-full whitespace-nowrap text-moon-14",
-            "text-bulma font-medium cursor-pointer after:absolute after:start-0 after:bottom-0",
-            "after:w-full after:h-[2px] after:bg-piccolo after:transition-transform",
+            "relative flex items-center justify-center w-full whitespace-nowrap text-body-300",
+            "text-primary font-medium cursor-pointer after:absolute after:start-0 after:bottom-0",
+            "after:w-full after:h-space-2 after:bg-brand after:transition-transform",
             "after:duration-300 ltr:after:origin-top-left rtl:after:origin-top-right",
             "after:scale-x-0 after:scale-y-100 ltr:hover:after:origin-top-left",
-            "rtl:hover:after:origin-top-right hover:after:scale-100 hover:text-piccolo",
+            "rtl:hover:after:origin-top-right hover:after:scale-100 hover:text-brand",
             "focus:outline-none",
-            isDisabled && "opacity-60 hover:after:scale-0 cursor-not-allowed",
+            isDisabled &&
+              "opacity-disabled hover:after:scale-0 cursor-not-allowed",
             selected &&
-              "ltr:after:origin-top-left rtl:after:origin-top-right after:scale-x-100 text-piccolo",
+              "ltr:after:origin-top-left rtl:after:origin-top-right after:scale-x-100 text-brand",
             typeof className === "function"
               ? className({ selected: selected })
               : className,
@@ -95,11 +96,12 @@ const Pill = React.forwardRef(
         className={({ selected }: { selected: boolean }) =>
           mergeClassnames(
             getTabSize(size),
-            "flex items-center justify-center w-full whitespace-nowrap text-moon-14 text-bulma",
-            "font-medium rounded-moon-i-sm transition-colors cursor-pointer hover:bg-goku",
+            "flex items-center justify-center w-full whitespace-nowrap text-body-300 text-primary",
+            "font-medium rounded-8 transition-colors cursor-pointer hover:bg-primary",
             "focus:outline-none",
-            selected && "bg-goku",
-            isDisabled && "opacity-60 hover:bg-transparent cursor-not-allowed",
+            selected && "bg-primary",
+            isDisabled &&
+              "opacity-disabled hover:bg-transparent cursor-not-allowed",
             typeof className === "function"
               ? className({ selected: selected })
               : className,

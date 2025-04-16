@@ -15,13 +15,13 @@ type InputBtnProps = {
 const getSelectSize = (size?: SelectSize) => {
   switch (size) {
     case "xl":
-      return "h-14 py-2 px-4 rounded-moon-i-md";
+      return "h-space-56 py-space-8 px-space-16 rounded-8";
     case "lg":
-      return "h-12 py-3 px-4 rounded-moon-i-sm";
+      return "h-space-48 py-space-12 px-space-16 rounded-8";
     case "sm":
-      return "h-8 py-1 p-3 rounded-moon-i-xs";
+      return "h-space-32 py-space-4 p-space-12 rounded-4";
     default:
-      return "h-10 py-2 px-3 rounded-moon-i-sm";
+      return "h-space-40 py-space-8 px-space-12 rounded-8";
   }
 };
 const InputBtn = ({
@@ -35,11 +35,11 @@ const InputBtn = ({
   <Listbox.Button
     {...rest}
     className={mergeClassnames(
-      "flex items-center justify-between w-full bg-goku border-beerus shadow-input duration-200",
-      "transition-shadow hover:shadow-input-hov focus:shadow-input-focus focus:outline-none",
+      "flex items-center justify-between w-full bg-primary ring-1 ring-inset ring-primary duration-200",
+      "transition-shadow hover:ring-2 focus:ring-2 focus:ring-active focus:outline-none",
       getSelectSize(size),
       isError &&
-        "shadow-input-err hover:shadow-input-err focus:shadow-input-err",
+        "ring-2 ring-negative hover:ring-2 hover:ring-negative focus:ring-2 focus:ring-negative",
       disabled && "cursor-not-allowed",
     )}
   >
@@ -47,7 +47,7 @@ const InputBtn = ({
     <ControlsChevronDownSmall
       className={mergeClassnames(
         "flex-shrink-0 transition-transform",
-        size === "sm" ? "text-moon-16" : "text-moon-24",
+        size === "sm" ? "text-body-400" : "text-heading-200",
         open && "rotate-[-180deg]",
       )}
     />

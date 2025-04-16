@@ -233,7 +233,7 @@ const Example = () => {
   const data = useMemo(() => makeData(40), [makeData]);
 
   return (
-    <div className="border border-beerus rounded-lg overflow-hidden">
+    <div className="border border-primary rounded-8 overflow-hidden">
       <Table
         columns={columns}
         data={data}

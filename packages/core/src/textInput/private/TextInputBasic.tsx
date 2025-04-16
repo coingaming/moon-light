@@ -24,7 +24,7 @@ const TextInputBasic = forwardRef<HTMLInputElement, TextInputProps>(
       isSharpBottomSide,
       isTopBottomBorderHidden,
       isSideBorderHidden,
-      bgColor = "bg-goku",
+      bgColor = "bg-primary",
       ...rest
     } = props;
     const inputProps = {
@@ -47,9 +47,9 @@ const TextInputBasic = forwardRef<HTMLInputElement, TextInputProps>(
             dir={dir}
             htmlFor={id}
             className={mergeClassnames(
-              "block text-bulma pb-2",
+              "block text-primary pb-space-8",
               getLabelSize(inputSize),
-              disabled && "opacity-60 cursor-not-allowed",
+              disabled && "opacity-disabled cursor-not-allowed",
             )}
           >
             {label}

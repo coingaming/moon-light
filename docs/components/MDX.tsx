@@ -60,7 +60,7 @@ const defaultComponents: ComponentProps<any> = {
   code: (props: HTMLProps<HTMLPreElement>) => (
     <code
       {...props}
-      className="p-space-4 bg-secondary rounded-6 text-primary font-mono"
+      className="p-space-4 bg-tertiary rounded-6 text-primary font-mono"
     >
       {props.children}
     </code>
@@ -68,7 +68,7 @@ const defaultComponents: ComponentProps<any> = {
   pre: (props: HTMLProps<HTMLPreElement>) => (
     <pre
       {...props}
-      className="dark-theme bg-secondary rounded-6 text-primary overflow-y-auto p-space-16"
+      className="dark-theme bg-tertiary rounded-6 text-primary overflow-y-auto p-space-16"
     >
       {props.children}
     </pre>
