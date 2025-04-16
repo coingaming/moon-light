@@ -60,13 +60,13 @@ const ComboboxRoot = ({
 
   const handleOnFocus = (
     event: FocusEvent<HTMLInputElement>,
-    shouldForceClick = true,
+    preventButtonForceClick = false,
   ) => {
     setIsInputFocused(true);
 
     if (
       event.relatedTarget?.id?.includes("headlessui-combobox-button") ||
-      !shouldForceClick
+      preventButtonForceClick
     ) {
       return;
     }
@@ -235,7 +235,7 @@ const Input = forwardRef<HTMLElement, InputProps>(
             return;
           }
 
-          preventButtonForceClick ? handleOnFocus(e, false) : handleOnFocus(e);
+          handleOnFocus(e, preventButtonForceClick);
         }}
         onKeyDown={handleOnKeyDown}
         onBlur={handleOnBlur}
@@ -302,9 +302,7 @@ const InsetInput = forwardRef<HTMLElement, InputProps>(
               return;
             }
 
-            preventButtonForceClick
-              ? handleOnFocus(e, false)
-              : handleOnFocus(e);
+            handleOnFocus(e, preventButtonForceClick);
           }}
           onKeyDown={handleOnKeyDown}
           onBlur={handleOnBlur}
@@ -394,9 +392,7 @@ const VisualSelectInput = forwardRef<HTMLElement, InputProps>(
               return;
             }
 
-            preventButtonForceClick
-              ? handleOnFocus(e, false)
-              : handleOnFocus(e);
+            handleOnFocus(e, preventButtonForceClick);
           }}
           onKeyDown={handleOnKeyDown}
           onBlur={handleOnBlur}
