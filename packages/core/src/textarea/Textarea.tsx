@@ -20,7 +20,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         ref={ref}
         disabled={rest.disabled || formItemDisabled}
         className={mergeClassnames(
-          "block appearance-none resize-none w-full p-space-16 text-mbody-400 text-primary bg-primary",
+          "block appearance-none resize-none w-full p-space-16 text-body-400 text-primary bg-primary",
           "rounded-8 placeholder:text-secondary transition-shadow ring-1 ring-inset ring-primary",
           "hover:ring-2 focus:ring-2 focus:ring-active focus:outline-none",
           "read-only:outline-0 read-only:border-none read-only:cursor-not-allowed",
