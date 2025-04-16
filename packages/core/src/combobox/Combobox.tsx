@@ -24,6 +24,7 @@ import {
   Input as NativeInput,
 } from "../index";
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
+import { assignRef } from "../private/utils/assignRef";
 
 const ComboboxRoot = ({
   value,
@@ -168,7 +169,10 @@ const Trigger = forwardRef<HTMLDivElement, WithChildren<SelectProps>>(
             "opacity-disabled ring-1 ring-inset ring-primary hover:ring-1 hover:ring-inset hover:ring-primary focus:ring-1 focus:ring-inset focus:ring-primary cursor-not-allowed",
           className,
         )}
-        ref={popper?.setAnchor}
+        ref={(nodeElement) => {
+          popper?.setAnchor(nodeElement);
+          assignRef(ref, nodeElement);
+        }}
       >
         {children}
       </div>
@@ -176,163 +180,168 @@ const Trigger = forwardRef<HTMLDivElement, WithChildren<SelectProps>>(
   },
 );
 
-const Input = ({
-  displayValue,
-  placeholder,
-  type,
-  className,
-  label,
-  ...rest
-}: InputProps) => {
-  const {
-    size,
-    popper,
-    disabled,
-    isError,
-    onQueryChange,
-    handleOnFocus,
-    handleOnKeyDown,
-    handleOnBlur,
-  } = useComboboxContext("Combobox.Input");
+const Input = forwardRef<HTMLElement, InputProps>(
+  (
+    { displayValue, placeholder, type, className, label, ...rest }: InputProps,
+    ref,
+  ) => {
+    const {
+      size,
+      popper,
+      disabled,
+      isError,
+      onQueryChange,
+      handleOnFocus,
+      handleOnKeyDown,
+      handleOnBlur,
+    } = useComboboxContext("Combobox.Input");
 
-  return (
-    <HeadlessCombobox.Input
-      onChange={({ target: { value } }) => {
-        onQueryChange ? onQueryChange(value) : () => {};
-      }}
-      as={NativeInput}
-      displayValue={displayValue}
-      placeholder={placeholder}
-      type={type ? type : "text"}
-      className={mergeClassnames(
-        "flex-grow h-full border-0 !rounded-none bg-transparent px-0",
-        "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
-        getTextSizes(size),
-        className,
-      )}
-      disabled={disabled}
-      error={isError}
-      onFocus={handleOnFocus}
-      onKeyDown={handleOnKeyDown}
-      onBlur={handleOnBlur}
-      aria-label={rest["aria-label"]}
-      {...rest}
-      ref={popper?.setAnchor}
-    />
-  );
-};
-
-const InsetInput = ({
-  displayValue,
-  placeholder,
-  type,
-  className,
-  label,
-  ...rest
-}: InputProps) => {
-  const {
-    size,
-    popper,
-    disabled,
-    isError,
-    onQueryChange,
-    handleOnFocus,
-    handleOnKeyDown,
-    handleOnBlur,
-  } = useComboboxContext("Combobox.InsetInput");
-  return (
-    <span className={mergeClassnames("relative", "flex flex-grow w-full")}>
+    return (
       <HeadlessCombobox.Input
         onChange={({ target: { value } }) => {
           onQueryChange ? onQueryChange(value) : () => {};
         }}
         as={NativeInput}
         displayValue={displayValue}
-        placeholder={placeholder === undefined ? "" : `${placeholder}`}
+        placeholder={placeholder}
         type={type ? type : "text"}
-        disabled={disabled}
         className={mergeClassnames(
-          "flex-grow h-full border-0 !rounded-none bg-transparent px-0 leading-5",
-          "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
-          label !== undefined && label.length > 0 && "pt-space-12",
+          "flex-grow h-full border-0 !rounded-none bg-transparent !px-0 leading-space-20",
+          "!ring-none hover:ring-none focus:ring-none focus-visible:ring-none",
           getTextSizes(size),
           className,
         )}
+        disabled={disabled}
         error={isError}
         onFocus={handleOnFocus}
         onKeyDown={handleOnKeyDown}
         onBlur={handleOnBlur}
         aria-label={rest["aria-label"]}
         {...rest}
-        ref={popper?.setAnchor}
-      />
-      <InputInset.Label className="w-auto -top-space-2 !inset-x-0 whitespace-nowrap overflow-x-hidden">
-        {label}
-      </InputInset.Label>
-    </span>
-  );
-};
-
-const VisualSelectInput = ({
-  displayValue,
-  placeholder,
-  type,
-  className,
-  label,
-  ...rest
-}: InputProps) => {
-  const {
-    value,
-    size,
-    popper,
-    disabled,
-    isError,
-    onQueryChange,
-    handleOnFocus,
-    handleOnKeyDown,
-    handleOnBlur,
-  } = useComboboxContext("Combobox.VisualSelectInput");
-  const selected = value as [];
-
-  return (
-    <span
-      className={mergeClassnames(
-        "w-full flex flex-col",
-        !selected.length ? "gap-y-0" : "gap-y-space-4",
-      )}
-    >
-      <div className="flex flex-wrap justify-start items-start gap-space-4">
-        {selected.map(({ id, label }) => {
-          return <SelectedItem index={id} label={label} />;
-        })}
-      </div>
-      <HeadlessCombobox.Input
-        onChange={({ target: { value } }) => {
-          onQueryChange ? onQueryChange(value) : () => {};
+        ref={(nodeElement) => {
+          popper?.setAnchor(nodeElement);
+          assignRef(ref, nodeElement);
         }}
-        as={NativeInput}
-        displayValue={displayValue}
-        placeholder={placeholder === undefined ? "" : `${placeholder}`}
-        type={type ? type : "text"}
-        disabled={disabled}
-        className={mergeClassnames(
-          "flex-grow w-full h-full border-0 !rounded-none bg-transparent px-0 leading-5",
-          "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
-          label !== undefined && label.length > 0 && "pt-space-12",
-          getTextSizes(size),
-          className,
-        )}
-        error={isError}
-        aria-label={rest["aria-label"]}
-        {...rest}
-        ref={popper?.setAnchor}
-        onFocus={handleOnFocus}
-        onKeyDown={handleOnKeyDown}
-        onBlur={handleOnBlur}
       />
-    </span>
-  );
-};
+    );
+  },
+);
+
+const InsetInput = forwardRef<HTMLElement, InputProps>(
+  (
+    { displayValue, placeholder, type, className, label, ...rest }: InputProps,
+    ref,
+  ) => {
+    const {
+      size,
+      popper,
+      disabled,
+      isError,
+      onQueryChange,
+      handleOnFocus,
+      handleOnKeyDown,
+      handleOnBlur,
+    } = useComboboxContext("Combobox.InsetInput");
+    return (
+      <span className={mergeClassnames("relative", "flex flex-grow w-full")}>
+        <HeadlessCombobox.Input
+          onChange={({ target: { value } }) => {
+            onQueryChange ? onQueryChange(value) : () => {};
+          }}
+          as={NativeInput}
+          displayValue={displayValue}
+          placeholder={placeholder === undefined ? "" : `${placeholder}`}
+          type={type ? type : "text"}
+          disabled={disabled}
+          className={mergeClassnames(
+            "flex-grow h-full border-0 !rounded-none bg-transparent !px-0",
+            "!ring-none hover:ring-none focus:ring-none focus-visible:ring-none",
+            label !== undefined && label.length > 0 && "pt-space-12",
+            getTextSizes(size),
+            className,
+            "leading-space-20",
+          )}
+          error={isError}
+          onFocus={handleOnFocus}
+          onKeyDown={handleOnKeyDown}
+          onBlur={handleOnBlur}
+          aria-label={rest["aria-label"]}
+          {...rest}
+          ref={(nodeElement) => {
+            popper?.setAnchor(nodeElement);
+            assignRef(ref, nodeElement);
+          }}
+        />
+        <InputInset.Label className="w-auto -top-space-2 !inset-x-0 whitespace-nowrap overflow-x-hidden">
+          {label}
+        </InputInset.Label>
+      </span>
+    );
+  },
+);
+
+const VisualSelectInput = forwardRef<HTMLElement, InputProps>(
+  (
+    { displayValue, placeholder, type, className, label, ...rest }: InputProps,
+    ref,
+  ) => {
+    const {
+      value,
+      size,
+      popper,
+      disabled,
+      isError,
+      onQueryChange,
+      handleOnFocus,
+      handleOnKeyDown,
+      handleOnBlur,
+    } = useComboboxContext("Combobox.VisualSelectInput");
+    const selected = value as [];
+
+    return (
+      <span
+        className={mergeClassnames(
+          "w-full flex flex-col",
+          !selected.length ? "gap-y-0" : "gap-y-space-4",
+        )}
+      >
+        <div className="flex flex-wrap justify-start items-start gap-space-4">
+          {selected.map(({ id, label }) => {
+            return <SelectedItem index={id} label={label} />;
+          })}
+        </div>
+        <HeadlessCombobox.Input
+          onChange={({ target: { value } }) => {
+            onQueryChange ? onQueryChange(value) : () => {};
+          }}
+          as={NativeInput}
+          displayValue={displayValue}
+          placeholder={placeholder === undefined ? "" : `${placeholder}`}
+          type={type ? type : "text"}
+          disabled={disabled}
+          className={mergeClassnames(
+            "flex-grow w-full h-full border-0 !rounded-none bg-transparent !px-0",
+            "!ring-none hover:ring-none focus:ring-none focus-visible:ring-none",
+            label !== undefined && label.length > 0 && "pt-space-12",
+            getTextSizes(size),
+            className,
+            "leading-space-20",
+          )}
+          error={isError}
+          aria-label={rest["aria-label"]}
+          {...rest}
+          ref={(nodeElement) => {
+            popper?.setAnchor(nodeElement);
+            assignRef(ref, nodeElement);
+          }}
+          onFocus={handleOnFocus}
+          onKeyDown={handleOnKeyDown}
+          onBlur={handleOnBlur}
+        />
+      </span>
+    );
+  },
+);
 
 const Button = ({
   open,
@@ -365,114 +374,147 @@ const Button = ({
   );
 };
 
-const Options = ({
-  children,
-  menuWidth,
-  className,
-  open,
-  ...rest
-}: WithChildren<OptionsProps>) => {
-  const { popper } = useComboboxContext("Combobox.Options");
-  const OptionsComponent = (
-    <HeadlessCombobox.Options
-      ref={popper?.setPopper}
-      style={popper?.styles?.popper}
-      {...popper?.attributes?.popper}
-      static={open ?? true}
-      className={mergeClassnames(
-        menuWidth
-          ? menuWidth
-          : "w-full max-h-[18.75rem] py-space-8 px-space-4 my-space-4 rounded-12 box-border bg-primary shadow-400 absolute",
-        "z-10 overflow-y-auto focus:outline-none",
-        className,
-      )}
-      {...rest}
-    >
-      {children}
-    </HeadlessCombobox.Options>
-  );
-
-  if (open === undefined) {
-    return OptionsComponent;
-  }
-
-  return open && OptionsComponent;
-};
-
-const Option = ({ children, value }: OptionProps) => {
-  return (
-    <HeadlessCombobox.Option as="span" value={value}>
-      {({ selected, disabled, active }) =>
-        typeof children === "function"
-          ? children({ selected, disabled, active })
-          : children
-      }
-    </HeadlessCombobox.Option>
-  );
-};
-
-const Counter = ({ open, className, counter, ...rest }: SelectProps) => {
-  const { size, isError, disabled, onClear } =
-    useComboboxContext("Combobox.Counter");
-
-  return (
-    <span
-      className={mergeClassnames(
-        "flex gap-space-8 items-center flex-grow-0 flex-shrink-0 self-center",
-        className,
-      )}
-    >
-      <SelectButton
-        size={size}
-        open={open}
-        isError={isError}
-        idDisabled={disabled}
+const Options = forwardRef<HTMLElement, WithChildren<OptionsProps>>(
+  (
+    {
+      children,
+      menuWidth,
+      className,
+      open,
+      ...rest
+    }: WithChildren<OptionsProps>,
+    ref,
+  ) => {
+    const { popper } = useComboboxContext("Combobox.Options");
+    const OptionsComponent = (
+      <HeadlessCombobox.Options
+        ref={(nodeElement) => {
+          popper?.setPopper(nodeElement);
+          assignRef(ref, nodeElement);
+        }}
+        style={popper?.styles?.popper}
+        {...popper?.attributes?.popper}
+        static={open ?? true}
+        className={mergeClassnames(
+          menuWidth
+            ? menuWidth
+            : "w-full max-h-[18.75rem] py-space-8 px-space-4 my-space-4 rounded-12 box-border bg-primary shadow-400 absolute",
+          "z-10 overflow-y-auto focus:outline-none",
+          className,
+        )}
         {...rest}
       >
-        <SelectButton.Value>
-          <SelectButton.Chip onClear={onClear}>{counter}</SelectButton.Chip>
-        </SelectButton.Value>
-      </SelectButton>
-    </span>
-  );
-};
+        {children}
+      </HeadlessCombobox.Options>
+    );
 
-const SelectedItem = ({
-  open,
-  className,
-  index,
-  label,
-  ...rest
-}: {
-  index: number | string;
-  label: number | string;
-} & SelectProps) => {
-  const { size, isError, disabled, onClear } =
-    useComboboxContext("Combobox.Counter");
+    if (open === undefined) {
+      return OptionsComponent;
+    }
 
-  return (
-    <span
-      className={mergeClassnames(
-        "flex gap-space-8 items-center flex-grow-0 flex-shrink-0 self-center",
-        className,
-      )}
-    >
-      <SelectButton
-        size={size}
-        open={open}
-        isError={isError}
-        idDisabled={disabled}
-        {...rest}
+    return open && OptionsComponent;
+  },
+);
+
+const Option = forwardRef<HTMLElement, OptionProps>(
+  ({ children, value }: OptionProps, ref) => {
+    return (
+      <HeadlessCombobox.Option
+        as="span"
+        value={value}
+        ref={(nodeElement) => {
+          assignRef(ref, nodeElement);
+        }}
       >
-        <SelectButton.Value>
-          <SelectButton.Chip onClear={() => onClear && onClear(index)}>
-            {label}
-          </SelectButton.Chip>
-        </SelectButton.Value>
-      </SelectButton>
-    </span>
-  );
-};
+        {({ selected, disabled, active }) =>
+          typeof children === "function"
+            ? children({ selected, disabled, active })
+            : children
+        }
+      </HeadlessCombobox.Option>
+    );
+  },
+);
+
+const Counter = forwardRef<HTMLElement, SelectProps>(
+  ({ open, className, counter, ...rest }: SelectProps, ref) => {
+    const { size, isError, disabled, onClear } =
+      useComboboxContext("Combobox.Counter");
+
+    return (
+      <span
+        className={mergeClassnames(
+          "flex gap-space-8 items-center flex-grow-0 flex-shrink-0 self-center",
+          className,
+        )}
+      >
+        <SelectButton
+          size={size}
+          open={open}
+          isError={isError}
+          idDisabled={disabled}
+          {...rest}
+          ref={(nodeElement) => assignRef(ref, nodeElement)}
+        >
+          <SelectButton.Value>
+            <SelectButton.Chip onClear={onClear}>{counter}</SelectButton.Chip>
+          </SelectButton.Value>
+        </SelectButton>
+      </span>
+    );
+  },
+);
+
+const SelectedItem = forwardRef<
+  HTMLElement,
+  {
+    index: number | string;
+    label: number | string;
+  } & SelectProps
+>(
+  (
+    {
+      open,
+      className,
+      index,
+      label,
+      ...rest
+    }: {
+      index: number | string;
+      label: number | string;
+    } & SelectProps,
+    ref,
+  ) => {
+    const { size, isError, disabled, onClear } =
+      useComboboxContext("Combobox.Counter");
+
+    return (
+      <span
+        className={mergeClassnames(
+          "flex gap-space-8 items-center flex-grow-0 flex-shrink-0 self-center",
+          className,
+        )}
+      >
+        <SelectButton
+          size={size}
+          open={open}
+          isError={isError}
+          idDisabled={disabled}
+          {...rest}
+          ref={(nodeElement) => {
+            assignRef(ref, nodeElement);
+          }}
+        >
+          <SelectButton.Value>
+            <SelectButton.Chip onClear={() => onClear && onClear(index)}>
+              {label}
+            </SelectButton.Chip>
+          </SelectButton.Value>
+        </SelectButton>
+      </span>
+    );
+  },
+);
 
 const Transition = ({ children, ...rest }: WithChildren) => {
   const { onQueryChange } = useComboboxContext("Combobox.Counter");
@@ -491,218 +533,276 @@ const Transition = ({ children, ...rest }: WithChildren) => {
   );
 };
 
-const Select = ({
-  open,
-  label,
-  placeholder,
-  children,
-  className,
-  multiple,
-  counter,
-  displayValue,
-  ...rest
-}: WithChildren<SelectProps & InputProps>) => {
-  const { size, popper, disabled } = useComboboxContext("Combobox.Select");
+const Select = forwardRef<HTMLElement, WithChildren<SelectProps & InputProps>>(
+  (
+    {
+      open,
+      label,
+      placeholder,
+      children,
+      className,
+      multiple,
+      counter,
+      displayValue,
+      ...rest
+    }: WithChildren<SelectProps & InputProps>,
+    ref,
+  ) => {
+    const { size, popper, disabled } = useComboboxContext("Combobox.Select");
 
-  return (
-    <Listbox>
-      {label && (
-        <SelectButton.Label labelSize={size} idDisabled={disabled}>
-          {label}
-        </SelectButton.Label>
-      )}
-      <Listbox.Button
-        open={open}
-        as={Trigger}
-        ref={popper?.setAnchor}
-        className={className}
-        multiple={multiple !== undefined}
-        counter={counter}
-        {...rest}
-      >
-        <Input
+    return (
+      <Listbox>
+        {label && (
+          <SelectButton.Label labelSize={size} idDisabled={disabled}>
+            {label}
+          </SelectButton.Label>
+        )}
+        <Listbox.Button
           open={open}
-          placeholder={placeholder}
-          displayValue={displayValue}
-          aria-label={rest["aria-label"]}
-        />
-        <Button open={open}>{children}</Button>
-      </Listbox.Button>
-    </Listbox>
-  );
-};
+          as={Trigger}
+          ref={(nodeElement) => {
+            popper?.setAnchor(nodeElement);
+            assignRef(ref, nodeElement);
+          }}
+          className={className}
+          multiple={multiple !== undefined}
+          counter={counter}
+          {...rest}
+        >
+          <Input
+            open={open}
+            placeholder={placeholder}
+            displayValue={displayValue}
+            aria-label={rest["aria-label"]}
+          />
+          <Button open={open}>{children}</Button>
+        </Listbox.Button>
+      </Listbox>
+    );
+  },
+);
 
-const MultiSelect = ({
-  open,
-  label,
-  placeholder,
-  children,
-  className,
-  multiple = true,
-  counter,
-  displayValue,
-  ...rest
-}: WithChildren<SelectProps & InputProps>) => {
-  const { size, popper, disabled } = useComboboxContext("Combobox.MultiSelect");
+const MultiSelect = forwardRef<
+  HTMLElement,
+  WithChildren<SelectProps & InputProps>
+>(
+  (
+    {
+      open,
+      label,
+      placeholder,
+      children,
+      className,
+      multiple = true,
+      counter,
+      displayValue,
+      ...rest
+    }: WithChildren<SelectProps & InputProps>,
+    ref,
+  ) => {
+    const { size, popper, disabled } = useComboboxContext(
+      "Combobox.MultiSelect",
+    );
 
-  return (
-    <Listbox>
-      {label && (
-        <SelectButton.Label labelSize={size} idDisabled={disabled}>
-          {label}
-        </SelectButton.Label>
-      )}
-      <Listbox.Button
-        open={open}
-        as={Trigger}
-        ref={popper?.setAnchor}
-        className={className}
-        multiple={multiple}
-        counter={counter}
-        {...rest}
-      >
-        {counter !== undefined && counter > 0 && <Counter counter={counter} />}
-        <Input
+    return (
+      <Listbox>
+        {label && (
+          <SelectButton.Label labelSize={size} idDisabled={disabled}>
+            {label}
+          </SelectButton.Label>
+        )}
+        <Listbox.Button
           open={open}
-          placeholder={placeholder}
-          displayValue={displayValue}
-          aria-label={rest["aria-label"]}
-        />
-        <Button open={open}>{children}</Button>
-      </Listbox.Button>
-    </Listbox>
-  );
-};
+          as={Trigger}
+          ref={(nodeElement) => {
+            popper?.setAnchor(nodeElement);
+            assignRef(ref, nodeElement);
+          }}
+          className={className}
+          multiple={multiple}
+          counter={counter}
+          {...rest}
+        >
+          {counter !== undefined && counter > 0 && (
+            <Counter counter={counter} />
+          )}
+          <Input
+            open={open}
+            placeholder={placeholder}
+            displayValue={displayValue}
+            aria-label={rest["aria-label"]}
+          />
+          <Button open={open}>{children}</Button>
+        </Listbox.Button>
+      </Listbox>
+    );
+  },
+);
 
-const InsetSelect = ({
-  open,
-  label,
-  placeholder,
-  children,
-  className,
-  multiple,
-  counter,
-  displayValue,
-  ...rest
-}: WithChildren<SelectProps & InputProps>) => {
-  const { popper } = useComboboxContext("Combobox.Select");
+const InsetSelect = forwardRef<
+  HTMLElement,
+  WithChildren<SelectProps & InputProps>
+>(
+  (
+    {
+      open,
+      label,
+      placeholder,
+      children,
+      className,
+      multiple,
+      counter,
+      displayValue,
+      ...rest
+    }: WithChildren<SelectProps & InputProps>,
+    ref,
+  ) => {
+    const { popper } = useComboboxContext("Combobox.Select");
 
-  return (
-    <Listbox>
-      <Listbox.Button
-        open={open}
-        as={Trigger}
-        ref={popper?.setAnchor}
-        className={className}
-        multiple={multiple !== undefined}
-        counter={counter}
-        innerLabel={true}
-        {...rest}
-      >
-        <InsetInput
+    return (
+      <Listbox>
+        <Listbox.Button
           open={open}
-          label={label}
-          placeholder={placeholder}
-          displayValue={displayValue}
-          aria-label={rest["aria-label"]}
-        />
-        <Button open={open}>{children}</Button>
-      </Listbox.Button>
-    </Listbox>
-  );
-};
+          as={Trigger}
+          ref={(nodeElement) => {
+            popper?.setAnchor(nodeElement);
+            assignRef(ref, nodeElement);
+          }}
+          className={className}
+          multiple={multiple !== undefined}
+          counter={counter}
+          innerLabel={true}
+          {...rest}
+        >
+          <InsetInput
+            open={open}
+            label={label}
+            placeholder={placeholder}
+            displayValue={displayValue}
+            aria-label={rest["aria-label"]}
+          />
+          <Button open={open}>{children}</Button>
+        </Listbox.Button>
+      </Listbox>
+    );
+  },
+);
 
-const InsetMultiSelect = ({
-  open,
-  label,
-  placeholder,
-  children,
-  className,
-  multiple = true,
-  counter,
-  displayValue,
-  ...rest
-}: WithChildren<SelectProps & InputProps>) => {
-  const { popper } = useComboboxContext("Combobox.MultiSelect");
+const InsetMultiSelect = forwardRef<
+  HTMLElement,
+  WithChildren<SelectProps & InputProps>
+>(
+  (
+    {
+      open,
+      label,
+      placeholder,
+      children,
+      className,
+      multiple = true,
+      counter,
+      displayValue,
+      ...rest
+    }: WithChildren<SelectProps & InputProps>,
+    ref,
+  ) => {
+    const { popper } = useComboboxContext("Combobox.MultiSelect");
 
-  return (
-    <Listbox>
-      <Listbox.Button
-        open={open}
-        as={Trigger}
-        ref={popper?.setAnchor}
-        className={className}
-        multiple={multiple}
-        counter={counter}
-        innerLabel={true}
-        {...rest}
-      >
-        {counter !== undefined && counter > 0 && <Counter counter={counter} />}
-        <InsetInput
+    return (
+      <Listbox>
+        <Listbox.Button
           open={open}
-          label={label}
-          placeholder={placeholder}
-          displayValue={displayValue}
-          aria-label={rest["aria-label"]}
-        />
-        <Button open={open}>{children}</Button>
-      </Listbox.Button>
-    </Listbox>
-  );
-};
+          as={Trigger}
+          ref={(nodeElement) => {
+            popper?.setAnchor(nodeElement);
+            assignRef(ref, nodeElement);
+          }}
+          className={className}
+          multiple={multiple}
+          counter={counter}
+          innerLabel={true}
+          {...rest}
+        >
+          {counter !== undefined && counter > 0 && (
+            <Counter counter={counter} />
+          )}
+          <InsetInput
+            open={open}
+            label={label}
+            placeholder={placeholder}
+            displayValue={displayValue}
+            aria-label={rest["aria-label"]}
+          />
+          <Button open={open}>{children}</Button>
+        </Listbox.Button>
+      </Listbox>
+    );
+  },
+);
 
-const VisualMultiSelect = ({
-  open,
-  label,
-  placeholder,
-  children,
-  className,
-  multiple = true,
-  counter,
-  displayValue,
-  forceUpdate,
-  ...rest
-}: WithChildren<SelectProps & InputProps> & { forceUpdate?: boolean }) => {
-  const { size, popper, disabled, value } = useComboboxContext(
-    "Combobox.VisualMultiSelect",
-  );
+const VisualMultiSelect = forwardRef<
+  HTMLElement,
+  WithChildren<SelectProps & InputProps> & { forceUpdate?: boolean }
+>(
+  (
+    {
+      open,
+      label,
+      placeholder,
+      children,
+      className,
+      multiple = true,
+      counter,
+      displayValue,
+      forceUpdate,
+      ...rest
+    }: WithChildren<SelectProps & InputProps> & { forceUpdate?: boolean },
+    ref,
+  ) => {
+    const { size, popper, disabled, value } = useComboboxContext(
+      "Combobox.VisualMultiSelect",
+    );
 
-  useEffect(() => {
-    // Do nothing if forceUpdate is false.
-    if (!forceUpdate) {
-      return;
-    }
-    if (typeof popper?.forceUpdate === "function") {
-      popper.forceUpdate();
-    }
-  }, [value]);
+    useEffect(() => {
+      // Do nothing if forceUpdate is false.
+      if (!forceUpdate) {
+        return;
+      }
+      if (typeof popper?.forceUpdate === "function") {
+        popper.forceUpdate();
+      }
+    }, [value]);
 
-  return (
-    <Listbox>
-      {label && (
-        <SelectButton.Label labelSize={size} idDisabled={disabled}>
-          {label}
-        </SelectButton.Label>
-      )}
-      <Listbox.Button
-        open={open}
-        as={Trigger}
-        ref={popper?.setAnchor}
-        className={className}
-        multiple={multiple}
-        {...rest}
-      >
-        <VisualSelectInput
+    return (
+      <Listbox>
+        {label && (
+          <SelectButton.Label labelSize={size} idDisabled={disabled}>
+            {label}
+          </SelectButton.Label>
+        )}
+        <Listbox.Button
           open={open}
-          placeholder={placeholder}
-          displayValue={displayValue}
-          aria-label={rest["aria-label"]}
-        />
-        <Button open={open}>{children}</Button>
-      </Listbox.Button>
-    </Listbox>
-  );
-};
+          as={Trigger}
+          ref={(nodeElement) => {
+            popper?.setAnchor(nodeElement);
+            assignRef(ref, nodeElement);
+          }}
+          className={className}
+          multiple={multiple}
+          {...rest}
+        >
+          <VisualSelectInput
+            open={open}
+            placeholder={placeholder}
+            displayValue={displayValue}
+            aria-label={rest["aria-label"]}
+          />
+          <Button open={open}>{children}</Button>
+        </Listbox.Button>
+      </Listbox>
+    );
+  },
+);
 
 const Hint = ({
   children,
