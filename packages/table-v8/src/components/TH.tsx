@@ -71,10 +71,13 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
       ["width", `${header.column.getSize()}px`],
       ["minWidth", `${header.column.columnDef.minSize}px`],
       ["maxWidth", `${header.column.columnDef.maxSize}px`],
-      ["--headerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
+      [
+        "--headerBGColor",
+        `var(--semantic-background-${backgroundColor}, var(--semantic-background-tertiary)))`,
+      ],
       [
         "boxShadow",
-        `0 ${rowGap} rgba(var(--${backgroundColor}, var(--gohan)))`,
+        `0 ${rowGap} var(--semantic-background-${backgroundColor}, var(--semantic-background-tertiary))`,
       ],
     ]);
 
@@ -129,11 +132,11 @@ const TH = forwardRef<HTMLTableCellElement, THProps>(
         {isResizable && (
           <div
             className={mergeClassnames(
-              "resizer absolute z-50 w-4 h-full top-0 right-0 rounded-sm bg-transparent cursor-col-resize ltr",
+              "resizer absolute z-50 w-space-16 h-full top-0 right-0 rounded-2 bg-transparent cursor-col-resize ltr",
               columnSizingInfo &&
                 !columnSizingInfo.isResizingColumn &&
-                "hover:bg-black/20",
-              header.column.getIsResizing() ? "isResizing bg-black/20" : "",
+                "hover:bg-hover",
+              header.column.getIsResizing() ? "isResizing bg-hover" : "",
             )}
             onMouseDown={header.getResizeHandler()}
             onTouchStart={header.getResizeHandler()}

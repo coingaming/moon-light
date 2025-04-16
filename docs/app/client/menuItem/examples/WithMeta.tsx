@@ -10,7 +10,7 @@ const WithMeta = () => (
       <span className="text-body-200 text-secondary">Meta</span>
     </MenuItem>
     <MenuItem className="w-56">
-      <OtherFrame className="text-moon-24" />
+      <OtherFrame className="text-heading-200" />
       <MenuItem.Title>Your value</MenuItem.Title>
       <span className="text-body-200 text-secondary">Meta</span>
     </MenuItem>

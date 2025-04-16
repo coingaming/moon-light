@@ -15,7 +15,7 @@ const Example = () => {
       <div id="box" data-testid="box-container" />
       <Tooltip>
         <Tooltip.Trigger>
-          <Chip className="border border-beerus">Trigger</Chip>
+          <Chip className="border border-primary">Trigger</Chip>
         </Tooltip.Trigger>
         <Tooltip.Content container={container}>
           This is the default tooltip

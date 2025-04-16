@@ -14,7 +14,7 @@ export default async function FigmaPage() {
           href="https://www.figma.com/community/file/1002945721703152933"
           target="_blank"
           rel="noreferrer"
-          className="underline text-piccolo"
+          className="underline text-info"
         >
           Figma community
         </a>

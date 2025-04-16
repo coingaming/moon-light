@@ -36,12 +36,12 @@ const TBody = ({
 
   const styles = {
     borderWidth: rowGap,
-    "--bodyBGColor": `rgba(var(--${backgroundColor}, var(--gohan)))`,
-    "--rowEvenColor": `rgba(var(--${evenRowBGColor}, var(--goku)))`,
-    "--rowOddColor": `rgba(var(--${oddRowBGColor}, var(--goku)))`,
-    "--rowSelectColor": `rgba(var(--${rowSelectColor}))`,
-    "--rowHoverColor": `rgba(var(--${rowHoverColor}))`,
-    "--rowActiveColor": `rgba(var(--${rowActiveColor}))`,
+    "--bodyBGColor": `var(--semantic-background-${backgroundColor}, var(--semantic-background-tertiary))`,
+    "--rowEvenColor": `var(--semantic-background-${evenRowBGColor}, var(--semantic-background-primary))`,
+    "--rowOddColor": `var(--semantic-background-${oddRowBGColor}, var(--semantic-background-primary))`,
+    "--rowSelectColor": `var(--semantic-background-${rowSelectColor})`,
+    "--rowHoverColor": `var(--semantic-background-${rowHoverColor})`,
+    "--rowActiveColor": `var(--semantic-background-${rowActiveColor})`,
   } as const;
 
   return (

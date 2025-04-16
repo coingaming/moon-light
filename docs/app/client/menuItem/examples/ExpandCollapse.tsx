@@ -154,13 +154,13 @@ const ExpandCollapse = () => {
             <MenuItem.Title>Responsible...</MenuItem.Title>
           </MenuItem>
         </div>
-        <div className="flex flex-col gap-2 rounded-moon-s-lg ">
+        <div className="flex flex-col gap-2 rounded-16">
           <MenuItem>
             <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
               <p className="font-medium text-body-100">L</p>
             </span>
             <MenuItem.Title>
-              <p className="text-moon-14 font-medium">Livecasino</p>
+              <p className="text-body-300 font-medium">Livecasino</p>
             </MenuItem.Title>
           </MenuItem>
           <MenuItem className="ps-space-24">

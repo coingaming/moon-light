@@ -26,7 +26,7 @@ const Arrow = ({ className }: ArrowProps) => {
     <RadixTooltip.Arrow asChild>
       <div
         className={mergeClassnames(
-          "relative top-[-7px] rotate-45 w-3 h-3 rounded-sm bg-goku",
+          "relative top-[-7px] rotate-45 size-space-12 rounded-2 bg-primary",
           className,
         )}
       />
@@ -60,7 +60,7 @@ const Content = ({
           align={getAlign(position)}
           sideOffset={isArrow ? 4 : 8}
           className={mergeClassnames(
-            "p-3 rounded-moon-s-xs text-moon-12 text-bulma bg-goku",
+            "p-space-12 rounded-4 text-body-200 text-primary bg-primary",
             "shadow-[0_6px_6px_-6px_rgba(0,0,0,0.16)] drop-shadow-[0_0_1px_rgba(0,0,0,0.4)]",
             className,
           )}

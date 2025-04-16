@@ -42,7 +42,7 @@ const CellScroller = ({
     <div
       tabIndex={0}
       className={mergeClassnames(
-        "px-3 py-2 text-moon-14 flex items-center overflow-x-auto outline-none",
+        "px-space-12 py-space-8 text-body-300 flex items-center overflow-x-auto outline-none",
         className,
         "cell-scroller",
       )}

@@ -15,7 +15,7 @@ const TFoot = ({
   const styles = {
     bottom: bottom,
     "--beforeShift": bottom,
-    "--footerBGColor": `rgba(var(--${backgroundColor}, var(--gohan)))`,
+    "--footerBGColor": `var(--semantic-background-${backgroundColor}, var(--semantic-background-tertiary))`,
   } as const;
 
   const cmLength = columnMap?.length || 0;

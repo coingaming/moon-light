@@ -98,14 +98,18 @@ const Example = () => {
 
   const currency = useMemo(
     () => (
-      <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
+      <Tag className="bg-secondary text-body-500 text-secondary max-w-fit">
+        USD
+      </Tag>
     ),
     [],
   );
 
   const success = useMemo(
     () => (
-      <Tag className="bg-roshi-10 text-lg text-roshi max-w-fit">SUCCESS</Tag>
+      <Tag className="bg-positive-subtle text-body-500 text-positive max-w-fit">
+        SUCCESS
+      </Tag>
     ),
     [],
   );
@@ -138,7 +142,7 @@ const Example = () => {
   const textClip = "clip" as ClipProps;
 
   return (
-    <div className="border border-beerus rounded-lg overflow-hidden">
+    <div className="border border-primary rounded-8 overflow-hidden">
       <Table
         columns={columns}
         data={data}

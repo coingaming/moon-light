@@ -20,15 +20,14 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         ref={ref}
         disabled={rest.disabled || formItemDisabled}
         className={mergeClassnames(
-          "block appearance-none resize-none w-full p-4 text-moon-16 text-bulma bg-goku",
-          "rounded-moon-s-sm placeholder:text-trunks transition-shadow shadow-textarea",
-          "hover:shadow-textarea-hov focus:shadow-textarea-focus focus:outline-none",
+          "block appearance-none resize-none w-full p-space-16 text-mbody-400 text-primary bg-primary",
+          "rounded-8 placeholder:text-secondary transition-shadow ring-1 ring-inset ring-primary",
+          "hover:ring-2 focus:ring-2 focus:ring-active focus:outline-none",
           "read-only:outline-0 read-only:border-none read-only:cursor-not-allowed",
-          "read-only:hover:shadow-textarea read-only:focus:shadow-textarea",
-          "read-only:focus-visible:shadow-textarea",
+          "read-only:hover:ring-1 read-only:focus:ring-1 read-only:focus:ring-primary",
           error &&
-            "shadow-textarea-err hover:shadow-textarea-err focus:shadow-textarea-err",
-          rest.disabled && "opacity-60 cursor-not-allowed",
+            "ring-2 ring-negative hover:ring-2 hover:ring-negative focus:ring-2 focus:ring-negative",
+          rest.disabled && "opacity-disabled cursor-not-allowed",
           className,
         )}
         aria-label={ariaLabelValue}

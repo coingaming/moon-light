@@ -37,10 +37,12 @@ const Example = () => {
   const tooltip = useMemo(
     () => (
       <Tooltip>
-        <Tooltip.Trigger className="max-h-6">
+        <Tooltip.Trigger className="max-h-space-24">
           <Chip
             variant="ghost"
-            iconOnly={<ArrowsRefreshRound className="text-moon-24 max-h-6" />}
+            iconOnly={
+              <ArrowsRefreshRound className="text-heading-200 max-h-space-24" />
+            }
             onClick={() => {
               window.location.reload();
             }}
@@ -109,7 +111,7 @@ const Example = () => {
                 style={{
                   paddingLeft: `${row.depth * 2}rem`,
                 }}
-                className="flex gap-x-1"
+                className="flex gap-x-space-4"
               >
                 <>
                   {row.getCanExpand() ? (
@@ -195,7 +197,7 @@ const Example = () => {
   );
 
   return (
-    <div className="border border-beerus rounded-lg overflow-hidden">
+    <div className="border border-primary rounded-8 overflow-hidden">
       <Table
         columns={columns}
         data={data}

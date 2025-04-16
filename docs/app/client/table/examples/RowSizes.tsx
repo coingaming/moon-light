@@ -76,22 +76,22 @@ const Example = () => {
 
   return (
     <>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} rowSize="xs" />
       </div>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} rowSize="sm" />
       </div>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} />
       </div>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} rowSize="lg" />
       </div>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} rowSize="xl" />
       </div>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} rowSize="2xl" />
       </div>
     </>

@@ -3,7 +3,7 @@
 import { Tabs } from "@heathmont/moon-core-tw";
 
 const TabsOnlyView = () => (
-  <div className="flex flex-col gap-4">
+  <div className="flex flex-col gap-space-16">
     <Tabs>
       <Tabs.List>
         <Tabs.Tab>Tab 1</Tabs.Tab>
@@ -14,13 +14,13 @@ const TabsOnlyView = () => (
 
     <Tabs>
       <Tabs.List>
-        <Tabs.Pill className="border border-beerus hover:bg-gohan">
+        <Tabs.Pill className="border border-primary hover:bg-hover">
           Tab 1
         </Tabs.Pill>
-        <Tabs.Pill className="border border-beerus hover:bg-gohan">
+        <Tabs.Pill className="border border-primary hover:bg-hover">
           Tab 2
         </Tabs.Pill>
-        <Tabs.Pill className="border border-beerus hover:bg-gohan">
+        <Tabs.Pill className="border border-primary hover:bg-hover">
           Tab 3
         </Tabs.Pill>
       </Tabs.List>

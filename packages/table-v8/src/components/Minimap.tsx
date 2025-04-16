@@ -27,7 +27,7 @@ const Minimap = ({ tableWrapperRef, numberOfColumns }: MinimapProps) => {
       width: `${(viewportWidth / fullWidth) * 100}%`,
       top: `${(scrollTop / fullHeight) * 100}%`,
       left: `${(scrollLeft / fullWidth) * 100}%`,
-      borderColor: "rgb(var(--piccolo))",
+      borderColor: "var(--semantic-border-brand)",
     });
 
     setVisible(true);
@@ -57,20 +57,20 @@ const Minimap = ({ tableWrapperRef, numberOfColumns }: MinimapProps) => {
   return (
     <div
       className={mergeClassnames(
-        "absolute z-10 w-auto h-16 bottom-5 end-5 rounded-moon-s-sm p-1 bg-goku shadow-md",
-        "border border-beerus pointer-events-none transition-opacity",
+        "absolute z-10 w-auto h-space-64 bottom-space-20 end-space-20 rounded-8 p-space-4 bg-primary shadow-300",
+        "border border-primary pointer-events-none transition-opacity",
         visible ? "opacity-1" : "opacity-0",
       )}
     >
-      <div className="grid grid-flow-col h-full gap-1 p-0.5 relative auto-cols-[minmax(0,_2fr)]">
+      <div className="grid grid-flow-col h-full gap-space-4 p-space-2 relative auto-cols-[minmax(0,_2fr)]">
         <div
           style={styles}
-          className="absolute w-0 h-0 overflow-hidden rounded-moon-i-xs border-2"
+          className="absolute size-0 overflow-hidden rounded-4 border-2"
         />
         {[...new Array(numberOfColumns)].map((_, index) => (
           <div
             key={index}
-            className="h-full w-2 bg-beerus rounded-moon-i-xs"
+            className="h-full w-space-8 bg-primary rounded-4"
             children={""}
           />
         ))}

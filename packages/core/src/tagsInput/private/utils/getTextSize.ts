@@ -2,9 +2,9 @@ import Size from "../types/Size";
 
 const getTextSize = (size: Size) =>
   ({
-    sm: "text-moon-14",
-    md: "text-moon-16",
-    lg: "text-moon-16",
-  })[size] || "text-moon-16";
+    sm: "text-body-300",
+    md: "text-body-400",
+    lg: "text-body-400",
+  })[size] || "text-body-400";
 
 export default getTextSize;

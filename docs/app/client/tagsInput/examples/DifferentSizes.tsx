@@ -25,7 +25,7 @@ const TagsInputWithLogic = ({ size }: { size?: Size }) => {
       onEnter={onEnter}
       onClear={onClear}
       size={size as Size}
-      className="mb-4"
+      className="mb-space-16"
     >
       {selected.map((text, index) => (
         <TagsInput.SelectedItem key={index} index={index} label={text} />

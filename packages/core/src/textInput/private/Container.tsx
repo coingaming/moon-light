@@ -12,7 +12,7 @@ const Container = ({ children, disabled, inputSize }: Props) => (
   <div
     className={mergeClassnames(
       "w-full max-w-full relative z-0",
-      disabled && "opacity-60 cursor-not-allowed",
+      disabled && "opacity-disabled cursor-not-allowed",
       getBorderRadius(inputSize),
     )}
   >

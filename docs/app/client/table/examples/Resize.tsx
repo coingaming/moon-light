@@ -79,8 +79,8 @@ const Example = () => {
   };
 
   return (
-    <div className="flex flex-col gap-y-2 overflow-hidden">
-      <div className="w-full border border-beerus rounded-lg overflow-hidden bg-gohan">
+    <div className="flex flex-col gap-y-space-8 overflow-hidden">
+      <div className="w-full border border-primary rounded-8 overflow-hidden bg-tertiary">
         <Table
           columns={columns}
           data={data}
@@ -89,7 +89,7 @@ const Example = () => {
           isResizable
         />
       </div>
-      <div className="w-full border border-beerus rounded-lg overflow-hidden bg-gohan">
+      <div className="w-full border border-primary rounded-8 overflow-hidden bg-tertiary">
         <Table
           columns={columns}
           data={data}
@@ -99,7 +99,7 @@ const Example = () => {
           isResizable
         />
       </div>
-      <div className="w-full border border-beerus rounded-lg overflow-hidden bg-gohan">
+      <div className="w-full border border-primary rounded-8 overflow-hidden bg-tertiary">
         <Table
           columns={columns}
           data={data}

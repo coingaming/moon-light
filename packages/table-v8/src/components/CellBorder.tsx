@@ -3,7 +3,7 @@ import { mergeClassnames } from "@heathmont/moon-core-tw";
 import type CellBorderType from "../private/types/CellBorderType";
 
 const mainClass =
-  "absolute left-0 top-[6px] w-[1px] h-[calc(100%-12px)] bg-beerus";
+  "absolute left-0 top-space-6 w-space-1 h-[calc(100%-12px)] bg-tertiary";
 
 const Border = ({ isFirstColumn }: { isFirstColumn?: boolean }) =>
   !isFirstColumn && <div className={mainClass}></div>;

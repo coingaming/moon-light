@@ -8,11 +8,11 @@ const makeBorder = (
   if (error) return "";
   if (isSideBorderHidden) {
     if (isRtl) {
-      return isFirst ? "input-lsb-hidden" : "input-rsb-hidden";
+      return isFirst ? "" : "";
     }
-    return isFirst ? "input-rsb-hidden" : "input-lsb-hidden";
+    return isFirst ? "" : "";
   } else if (isTopBottomBorderHidden) {
-    return isFirst ? "input-bbb-hidden" : "input-tbb-hidden";
+    return isFirst ? "" : "";
   }
   return "";
 };

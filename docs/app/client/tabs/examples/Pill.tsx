@@ -8,21 +8,21 @@ const PillDefault = () => {
       <Tabs.List>
         <Tabs.Pill
           className={({ selected }: { selected: boolean }) =>
-            selected ? "" : "border border-beerus hover:bg-gohan"
+            selected ? "" : "border border-primary hover:bg-hover"
           }
         >
           Tab 1
         </Tabs.Pill>
         <Tabs.Pill
           className={({ selected }: { selected: boolean }) =>
-            selected ? "" : "border border-beerus hover:bg-gohan"
+            selected ? "" : "border border-primary hover:bg-hover"
           }
         >
           Tab 2
         </Tabs.Pill>
         <Tabs.Pill
           className={({ selected }: { selected: boolean }) =>
-            selected ? "" : "border border-beerus hover:bg-gohan"
+            selected ? "" : "border border-primary hover:bg-hover"
           }
         >
           Tab 3

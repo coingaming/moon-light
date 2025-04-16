@@ -10,7 +10,7 @@ const ToggleCodeBtn = ({ expand, clickHandler }: Props) => {
   return (
     <div
       className={mergeClassnames(
-        "dark-theme absolute bottom-0 inset-x-0 h-space-128 flex items-end z-0 bg-gradient-to-b from-25% from-transparent to-gohan",
+        "dark-theme absolute bottom-0 inset-x-0 h-space-128 flex items-end z-0 bg-gradient-to-b from-25% from-transparent to-secondary",
         expand && "h-space-40",
       )}
     >

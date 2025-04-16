@@ -57,7 +57,10 @@ const TF = forwardRef<HTMLTableCellElement, THProps>(
         "maxWidth",
         `${stickySide ? header.column.getSize() : columnDefinition.maxSize}px`,
       ],
-      ["--footerBGColor", `rgba(var(--${backgroundColor}, var(--gohan)))`],
+      [
+        "--footerBGColor",
+        `var(--semantic-background-${backgroundColor}, var(--semantic-background-tertiary))`,
+      ],
     ]);
 
     if (stickySide) {

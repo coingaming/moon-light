@@ -24,15 +24,15 @@ const headerCell = (header: Header<{}, DataTypeHelper>, cellLabel: string) => {
   return (
     <div
       className={mergeClassnames(
-        "flex gap-x-1 items-center",
+        "flex gap-x-space-4 items-center",
         header.column.getCanSort() ? "cursor-pointer select-none" : "",
       )}
       onClick={header.column.getToggleSortingHandler()}
     >
       {cellLabel}
       {{
-        asc: <ArrowsSorting className="min-w-[20px] min-h-[20px]" />,
-        desc: <ArrowsSorting className="min-w-[20px] min-h-[20px]" />,
+        asc: <ArrowsSorting className="min-w-space-20 min-h-space-20" />,
+        desc: <ArrowsSorting className="min-w-space-20 min-h-space-20" />,
       }[header.column.getIsSorted() as string] ?? null}
     </div>
   );
@@ -205,7 +205,7 @@ const Example = () => {
   );
 
   return (
-    <div className="border border-beerus rounded-lg overflow-hidden">
+    <div className="border border-primary rounded-8 overflow-hidden">
       <Table
         columns={columns}
         data={data}

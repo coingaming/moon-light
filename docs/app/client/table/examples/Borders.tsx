@@ -75,7 +75,7 @@ const Example = () => {
   const data = useMemo(() => makeData(5), [makeData]);
 
   return (
-    <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+    <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
       <Table
         columns={columns}
         data={data}

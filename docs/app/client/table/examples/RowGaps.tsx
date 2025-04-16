@@ -76,19 +76,19 @@ const Example = () => {
 
   return (
     <>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} rowGap="0" />
       </div>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} />
       </div>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} rowGap="4px" />
       </div>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} rowGap="8px" />
       </div>
-      <div className="w-full max-w-screen-lg border border-beerus rounded-lg overflow-hidden">
+      <div className="w-full max-w-screen-lg border border-primary rounded-8 overflow-hidden">
         <Table columns={columns} data={data} rowGap="12px" />
       </div>
     </>

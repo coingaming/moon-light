@@ -34,7 +34,11 @@ interface DataTypeHelper extends DataHelper {
 }
 
 const columnShift = (depth: number) => {
-  const shiftMap: { [key: number]: string } = ["ps-0", "ps-6", "ps-12"];
+  const shiftMap: { [key: number]: string } = [
+    "ps-0",
+    "ps-space-24",
+    "ps-space-48",
+  ];
 
   return shiftMap[depth];
 };
@@ -50,10 +54,12 @@ const Example = () => {
   const tooltip = useMemo(
     () => (
       <Tooltip>
-        <Tooltip.Trigger className="max-h-6">
+        <Tooltip.Trigger className="max-h-space-24">
           <Chip
             variant="ghost"
-            iconOnly={<ArrowsRefreshRound className="text-moon-24 max-h-6" />}
+            iconOnly={
+              <ArrowsRefreshRound className="text-heading-200 max-h-space-24" />
+            }
             onClick={() => {
               window.location.reload();
             }}
@@ -240,7 +246,7 @@ const Example = () => {
           {
             id: "select",
             header: ({ table }) => (
-              <div className="flex px-0 gap-x-1">
+              <div className="flex px-0 gap-x-space-4">
                 <Checkbox
                   checked={table.getIsAllRowsSelected()}
                   indeterminate={table.getIsSomeRowsSelected()}
@@ -258,7 +264,7 @@ const Example = () => {
             cell: ({ row, table }) => (
               <div
                 className={mergeClassnames(
-                  "flex gap-x-1",
+                  "flex gap-x-space-4",
                   columnShift(row.depth),
                 )}
               >
@@ -354,7 +360,7 @@ const Example = () => {
   );
 
   return (
-    <div className="border border-beerus rounded-lg overflow-hidden">
+    <div className="border border-primary rounded-8 overflow-hidden">
       <Table
         columns={columns}
         data={data}

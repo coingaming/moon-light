@@ -2,9 +2,9 @@ import type Size from "../types/Size";
 
 const getWrapperStyle = (size: Size) =>
   ({
-    sm: "rounded-moon-i-xs px-2 py-1",
-    md: "rounded-moon-i-sm px-3 py-2",
-    lg: "rounded-moon-i-sm px-3 py-3",
-  })[size] || "rounded-moon-i-sm px-3 py-2";
+    sm: "rounded-4 px-space-8 py-space-4",
+    md: "rounded-8 px-space-12 py-space-8",
+    lg: "rounded-8 px-space-12 py-space-12",
+  })[size] || "rounded-8 px-space-12 py-space-8";
 
 export default getWrapperStyle;

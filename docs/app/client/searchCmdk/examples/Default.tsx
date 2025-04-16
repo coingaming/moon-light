@@ -44,7 +44,7 @@ function Default() {
         }}
       >
         <SearchCmdk.TriggerIcon />
-        <span className="text-moon-16">Search...</span>
+        <span className="text-body-400">Search...</span>
         <SearchCmdk.TriggerKbd>⌘K</SearchCmdk.TriggerKbd>
       </SearchCmdk.Trigger>
 

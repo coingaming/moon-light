@@ -6,7 +6,7 @@ const Customization = () => (
   <>
     <Textarea
       placeholder="Custom colors"
-      className="outline-chichi hover:outline-piccolo focus:outline-krillin bg-roshi-10 text-krillin placeholder:text-whis"
+      className="outline-positive hover:outline-brand focus:outline-caution bg-positive-subtle text-caution placeholder:text-info"
     />
     <Textarea placeholder="Vertical and horizontal resize" className="resize" />
   </>

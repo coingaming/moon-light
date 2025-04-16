@@ -1,13 +1,13 @@
 const getSizeStyles = (size?: string) => {
   switch (size) {
     case "xl":
-      return "h-14 leading-[3.5rem] rounded-moon-i-sm hover:rounded-moon-i-sm focus:rounded-moon-i-sm invalid:rounded-moon-i-sm";
+      return "h-space-56 leading-space-56 rounded-8 hover:rounded-8 focus:rounded-8 invalid:rounded-8";
     case "lg":
-      return "h-12 leading-[3rem] rounded-moon-i-sm hover:rounded-moon-i-sm focus:rounded-moon-i-sm invalid:rounded-moon-i-sm";
+      return "h-space-48 leading-space-48 rounded-8 hover:rounded-8 focus:rounded-8 invalid:rounded-8";
     case "sm":
-      return "h-8 leading-8 rounded-moon-i-xs hover:rounded-moon-i-xs focus:rounded-moon-i-xs invalid:rounded-moon-i-xs";
+      return "h-space-32 leading-space-32 rounded-4 hover:rounded-4 focus:rounded-4 invalid:rounded-4";
     default:
-      return "h-10 leading-10 rounded-moon-i-xs hover:rounded-moon-i-xs focus:rounded-moon-i-xs invalid:rounded-moon-i-xs";
+      return "h-space-40 leading-space-40 rounded-4 hover:rounded-4 focus:rounded-4 invalid:rounded-4";
   }
 };
 

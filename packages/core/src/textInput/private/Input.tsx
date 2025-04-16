@@ -34,29 +34,16 @@ const Input = forwardRef<
         type={type}
         placeholder={placeholder}
         className={mergeClassnames(
-          "block w-full max-w-full py-0 px-4 m-0 appearance-none text-moon-16 text-bulma transition-shadow box-border relative z-[2]",
-          "shadow-input hover:shadow-input-hov",
-          "focus:shadow-input-focus focus:outline-none",
+          "block w-full max-w-full py-0 px-space-16 m-0 appearance-none text-body-400 text-primary transition-shadow box-border relative z-[2]",
+          "ring-1 ring-inset ring-primary hover:ring-2",
+          "focus:ring-2 focus:ring-active focus:outline-none",
           isError &&
-            "shadow-input-err hover:shadow-input-err focus:shadow-input-err",
+            "ring-2 ring-negative hover:ring-2 hover:ring-negative focus:ring-2 focus:ring-negative",
           bgColor ? bgColor : "bg-transparent",
           getSizeStyles(inputSize as string),
           "before:box-border after:box-border",
-          "placeholder:text-trunks placeholder:opacity-100 placeholder:transition-opacity placeholder:delay-75",
-          "read-only:outline-0 read-only:border-none read-only:cursor-not-allowed read-only:hover:shadow-input read-only:focus:shadow-input",
-          type === "number" && "input-number-clear",
-          type === "date" && "input-d",
-          type === "date" && isRtl && "input-d-rtl",
-          type === "time" && "input-t",
-          type === "time" && isRtl && "input-t-rtl",
-          type === "datetime-local" && "input-d",
-          type === "datetime-local" && isRtl && "input-dt-local-rtl",
-          inputSize === "xl" && "input-xl-dt-shared",
-          inputSize === "xl" &&
-            isLabel &&
-            "input-xl pt-[1.125rem] input-xl-dt-label",
-          inputSize === "lg" && "input-lg-dt-shared",
-          "input-dt-shared",
+          "placeholder:text-secondary placeholder:opacity-100 placeholder:transition-opacity placeholder:delay-75",
+          "read-only:outline-0 read-only:border-none read-only:cursor-not-allowed read-only:hover:ring-1 read-only:focus:ring-1 read-only:focus:ring-primary",
           (isSharpLeftSide || isSharpTopSide) && !isError && "rounded-ss-none",
           (isSharpRightSide || isSharpTopSide) && !isError && "rounded-se-none",
           (isSharpLeftSide || isSharpBottomSide) &&
@@ -65,7 +52,7 @@ const Input = forwardRef<
           (isSharpRightSide || isSharpBottomSide) &&
             !isError &&
             "rounded-ee-none",
-          "invalid:shadow-input-err invalid:hover:shadow-input-err invalid:focus:shadow-input-err",
+          "invalid:ring-2 invalid:ring-negative invalid:hover:ring-2 invalid:hover:ring-negative invalid:focus:ring-2 invalid:focus:ring-negative",
           makeBorder(
             isSideBorderHidden,
             isTopBottomBorderHidden,

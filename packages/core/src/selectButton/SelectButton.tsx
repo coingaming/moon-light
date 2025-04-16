@@ -53,12 +53,13 @@ const Input = ({ children, className }: InputProps) => {
       className={mergeClassnames(
         "flex items-center justify-between gap-space-8",
         "w-full bg-primary border-primary",
-        "shadow-input hover:shadow-input-hov transition-shadow duration-200 ",
-        "focus:shadow-input-focus focus:outline-none",
+        "ring-1 ring-inset ring-primary hover:ring-2 transition-shadow duration-200",
+        "focus:ring-2 focus:ring-active focus:outline-none",
         getSelectSize(size),
         isError &&
-          "shadow-input-err hover:shadow-input-err focus:shadow-input-err",
-        idDisabled && "opacity-disabled cursor-not-allowed hover:shadow-input",
+          "ring-2 ring-negative hover:ring-2 hover:ring-negative focus:ring-2 focus:ring-negative",
+        idDisabled &&
+          "opacity-disabled cursor-not-allowed hover:ring-1 hover:ring-primary",
         className && className,
       )}
     >
@@ -79,12 +80,13 @@ const InsetInput = ({ children, className }: InputProps) => {
       className={mergeClassnames(
         "flex items-center justify-between",
         "w-full bg-primary border-primary",
-        "shadow-input hover:shadow-input-hov transition-shadow duration-200 ",
-        "focus:shadow-input-focus focus:outline-none",
+        "ring-1 ring-inset ring-primary hover:ring-2 transition-shadow duration-200",
+        "focus:ring-2 focus:ring-active focus:outline-none",
         "h-space-56 py-space-8 px-space-16 rounded-12",
         isError &&
-          "shadow-input-err hover:shadow-input-err focus:shadow-input-err",
-        idDisabled && "opacity-60 cursor-not-allowed hover:shadow-input",
+          "ring-2 ring-negative hover:ring-2 hover:ring-negative focus:ring-2 focus:ring-negative",
+        idDisabled &&
+          "opacity-disabled cursor-not-allowed hover:ring-1 hover:ring-primary",
         className && className,
       )}
     >

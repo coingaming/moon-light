@@ -5,7 +5,7 @@
       {
         "name": "bgColor",
         "type": ["string"],
-        "defaultState": "bg-piccolo",
+        "defaultState": "bg-brand",
         "description": "Checked state of checkbox"
       },
       {

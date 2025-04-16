@@ -18,7 +18,7 @@ const Options = ({ options, formatOptionLabel, menuWidth }: OptionsProps) => (
   <Listbox.Options
     className={mergeClassnames(
       menuWidth ? menuWidth : "w-full min-w-[18.75rem]",
-      "max-h-[18.75rem] z-1 py-2 px-1 my-2 rounded-moon-s-md box-border bg-goku shadow-moon-lg overflow-y-auto",
+      "max-h-[18.75rem] z-space-4 py-space-8 px-space-4 my-space-8 rounded-12 box-border bg-primary shadow-400 overflow-y-auto",
       "focus:outline-none",
     )}
   >
@@ -27,8 +27,8 @@ const Options = ({ options, formatOptionLabel, menuWidth }: OptionsProps) => (
         key={`${option.id}${optionId}`}
         value={option}
         className={({ active }) =>
-          `p-2 mb-1 last:mb-0 cursor-pointer text-moon-14 text-bulma rounded-moon-s-sm hover:bg-heles ${
-            active && "bg-heles"
+          `p-space-8 mb-space-4 last:mb-0 cursor-pointer text-body-300 text-primary rounded-8 hover:bg-hover ${
+            active && "bg-hover"
           }`
         }
       >

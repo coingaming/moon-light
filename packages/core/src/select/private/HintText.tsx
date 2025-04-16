@@ -10,8 +10,8 @@ const HintText = ({ children, isError }: Props) => (
   <p
     role="alert"
     className={mergeClassnames(
-      "inline-block mt-2 ps-4 text-moon-12",
-      isError ? "text-chichi" : "text-trunks",
+      "inline-block mt-space-8 ps-space-16 text-body-200",
+      isError ? "text-negative" : "text-secondary",
     )}
   >
     {children}

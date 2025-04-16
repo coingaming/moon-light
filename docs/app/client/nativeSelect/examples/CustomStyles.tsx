@@ -5,7 +5,7 @@ import { NativeSelect, Label, Hint } from "@heathmont/moon-core-tw";
 const CustomStyles = () => (
   <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-space-8">
     <div className="w-full">
-      <Label htmlFor="c-1" className="text-piccolo">
+      <Label htmlFor="c-1" className="text-brand">
         Medium (Default: md)
       </Label>
       <NativeSelect

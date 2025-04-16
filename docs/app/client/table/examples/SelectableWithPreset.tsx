@@ -36,7 +36,9 @@ const Example = () => {
         <Tooltip.Trigger className="max-h-6">
           <Chip
             variant="ghost"
-            iconOnly={<ArrowsRefreshRound className="text-moon-24 max-h-6" />}
+            iconOnly={
+              <ArrowsRefreshRound className="text-heading-200 max-h-space-24" />
+            }
             onClick={() => {
               window.location.reload();
             }}
@@ -127,7 +129,7 @@ const Example = () => {
   );
 
   return (
-    <div className="border border-beerus rounded-lg overflow-hidden">
+    <div className="border border-primary rounded-8 overflow-hidden">
       <Table
         columns={columns}
         data={data}

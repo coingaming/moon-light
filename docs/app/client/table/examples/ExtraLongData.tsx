@@ -87,7 +87,9 @@ const Example = () => {
 
   const currency = useMemo(
     () => (
-      <Tag className="bg-gray-100 text-lg text-gray-600 max-w-fit">USD</Tag>
+      <Tag className="bg-secondary text-body-500 text-secondary max-w-fit">
+        USD
+      </Tag>
     ),
     [],
   );
@@ -95,10 +97,12 @@ const Example = () => {
   const tooltip = useMemo(
     () => (
       <Tooltip>
-        <Tooltip.Trigger className="max-h-6">
+        <Tooltip.Trigger className="max-h-space-24">
           <Chip
             variant="default"
-            iconOnly={<Other3DotsHorizontal className="text-moon-24 max-h-6" />}
+            iconOnly={
+              <Other3DotsHorizontal className="text-heading-200 max-h-space-24" />
+            }
           />
         </Tooltip.Trigger>
         <Tooltip.Content position="top-start" className="z-[2]">
@@ -116,11 +120,11 @@ const Example = () => {
         const [key, range] = Object.entries(value)[0];
         return (
           <Fragment key={index}>
-            <span className="me-[5px]">{key}</span>
+            <span className="me-space-6">{key}</span>
             <span>({range.start ? range.start : ""}</span>
             <span>-</span>
             <span>{range.end ? range.end : ""})</span>
-            {index < src.length - 1 && <span className="mx-2">|</span>}
+            {index < src.length - 1 && <span className="mx-space-8">|</span>}
           </Fragment>
         );
       });
@@ -139,7 +143,7 @@ const Example = () => {
           <Chip
             size="sm"
             className="bg-transparent"
-            iconLeft={<TimeCalendarDate className="text-moon-24" />}
+            iconLeft={<TimeCalendarDate className="text-heading-200" />}
           >
             23.10.01 - 23.10.31
           </Chip>
@@ -155,7 +159,7 @@ const Example = () => {
           <Chip
             size="sm"
             className="bg-transparent"
-            iconLeft={<TimeCalendarDate className="text-moon-24" />}
+            iconLeft={<TimeCalendarDate className="text-heading-200" />}
           >
             23.10.01 - 23.10.31
           </Chip>
@@ -182,7 +186,7 @@ const Example = () => {
           <Chip
             size="sm"
             className="bg-transparent"
-            iconLeft={<TimeCalendarDate className="text-moon-24" />}
+            iconLeft={<TimeCalendarDate className="text-heading-200" />}
           >
             23.10.01 - 23.10.31
           </Chip>
@@ -202,7 +206,7 @@ const Example = () => {
           <Chip
             size="sm"
             className="bg-transparent"
-            iconLeft={<TimeCalendarDate className="text-moon-24" />}
+            iconLeft={<TimeCalendarDate className="text-heading-200" />}
           >
             23.12.01 -
           </Chip>
@@ -222,7 +226,7 @@ const Example = () => {
           <Chip
             size="sm"
             className="bg-transparent"
-            iconLeft={<TimeCalendarDate className="text-moon-24" />}
+            iconLeft={<TimeCalendarDate className="text-heading-200" />}
           >
             23.11.01 - 23.11.30
           </Chip>
@@ -242,7 +246,7 @@ const Example = () => {
           <Chip
             size="sm"
             className="bg-transparent"
-            iconLeft={<TimeCalendarDate className="text-moon-24" />}
+            iconLeft={<TimeCalendarDate className="text-heading-200" />}
           >
             23.11.01 -
           </Chip>
@@ -266,7 +270,7 @@ const Example = () => {
           <Chip
             size="sm"
             className="bg-transparent"
-            iconLeft={<TimeCalendarDate className="text-moon-24" />}
+            iconLeft={<TimeCalendarDate className="text-heading-200" />}
           >
             23.05.01 - 23.10.31
           </Chip>
@@ -286,7 +290,7 @@ const Example = () => {
   };
 
   return (
-    <div className="border border-beerus rounded-lg overflow-hidden">
+    <div className="border border-primary rounded-8 overflow-hidden">
       <Table
         columns={columns}
         data={data}
