@@ -13,13 +13,13 @@ const Default = () => {
       <Modal open={isOpen} onClose={closeModal} className="z-50">
         <Modal.Backdrop />
         <Modal.Panel>
-          <div className="p-4 border-b-2 border-beerus">
-            <h3 className="text-moon-18 text-bulma font-medium">
+          <div className="p-space-16 border-b-space-8 border-primary">
+            <h3 className="text-heading-100 text-primary">
               Payment successful
             </h3>
           </div>
-          <div className="p-4">
-            <p className="text-moon-sm text-trunks">
+          <div className="p-space-16">
+            <p className="text-body-300 text-secondary">
               {/* cSpell:disable */}
               Your payment has been successfully submitted. We’ve sent you an
               email with all of the details of your order. Lorem ipsum dolor sit
@@ -31,7 +31,7 @@ const Default = () => {
               {/* cSpell:enable */}
             </p>
           </div>
-          <div className="p-4 border-t-2 border-beerus">
+          <div className="p-space-16 border-t-space-8 border-primary">
             <Button onClick={closeModal}>Got it, thanks!</Button>
           </div>
         </Modal.Panel>

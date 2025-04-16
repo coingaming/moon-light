@@ -17,8 +17,8 @@ const ExpandCollapse = () => {
   }, [activeOpt]);
 
   return (
-    <div className="flex items-start flex-wrap justify-around gap-2 w-full">
-      <div className="w-56 bg-gohan flex flex-col gap-2 rounded-moon-s-lg p-4">
+    <div className="flex items-start flex-wrap justify-around gap-space-8 w-full">
+      <div className="w-56 bg-secondary flex flex-col gap-space-8 rounded-16 p-space-16">
         <MenuItem as="a" href="/">
           Vision
         </MenuItem>
@@ -42,11 +42,13 @@ const ExpandCollapse = () => {
         </MenuItem>
         <MenuItem isActive={activeOpt} onClick={toggleOpt}>
           Tailwind
-          <ControlsChevronDown className={`w-6 ${activeOpt && "rotate-180"}`} />
+          <ControlsChevronDown
+            className={`w-space-24 ${activeOpt && "rotate-180"}`}
+          />
         </MenuItem>
 
         {activeOpt && (
-          <div className="ps-6" data-testid="expandable-1">
+          <div className="ps-space-24" data-testid="expandable-1">
             <MenuItem as="a" href="/">
               <MenuItem.Title> Accordion</MenuItem.Title>
             </MenuItem>
@@ -66,102 +68,104 @@ const ExpandCollapse = () => {
         )}
       </div>
 
-      <div className="w-56 bg-gohan flex flex-col gap-2 rounded-moon-s-lg p-4">
+      <div className="w-56 bg-secondary flex flex-col gap-space-8 rounded-16 p-space-16">
         <MenuItem>
-          <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-            <p className="font-medium text-moon-10">B</p>
+          <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+            <p className="font-medium text-body-100">B</p>
           </span>
           <MenuItem.Title>
-            <p className="text-moon-14 font-medium">Bitcasino</p>
+            <p className="text-body-300 font-medium">Bitcasino</p>
           </MenuItem.Title>
         </MenuItem>
         <MenuItem
-          className="ps-6"
+          className="ps-space-24"
           onClick={toggleClick}
           data-testid="right-trigger"
         >
-          <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-            <p className="font-medium text-moon-10">CX</p>
+          <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+            <p className="font-medium text-body-100">CX</p>
           </span>
           <MenuItem.Title> Customer...</MenuItem.Title>
-          <ControlsChevronDown className={`w-6 ${isOpen && "rotate-180"}`} />
+          <ControlsChevronDown
+            className={`w-space-24 ${isOpen && "rotate-180"}`}
+          />
         </MenuItem>
 
         {isOpen && (
-          <div className="ps-10" data-testid="expandable-2">
+          <div className="ps-space-40" data-testid="expandable-2">
             <MenuItem>
-              <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-                <p className="font-medium text-moon-10">S</p>
+              <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+                <p className="font-medium text-body-100">S</p>
               </span>
               <MenuItem.Title>Sub nested item</MenuItem.Title>
             </MenuItem>
             <MenuItem>
-              <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-                <p className="font-medium text-moon-10">S</p>
+              <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+                <p className="font-medium text-body-100">S</p>
               </span>
               <MenuItem.Title>Sub nested item</MenuItem.Title>
             </MenuItem>
           </div>
         )}
 
-        <MenuItem className="ps-6">
-          <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-            <p className="font-medium text-moon-10">CX</p>
+        <MenuItem className="ps-space-24">
+          <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+            <p className="font-medium text-body-100">CX</p>
           </span>
           <MenuItem.Title>Quality...</MenuItem.Title>
         </MenuItem>
-        <MenuItem className="ps-6">
-          <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-            <p className="font-medium text-moon-10">RG</p>
+        <MenuItem className="ps-space-24">
+          <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+            <p className="font-medium text-body-100">RG</p>
           </span>
           <MenuItem.Title>Responsible...</MenuItem.Title>
         </MenuItem>
-        <MenuItem className="ps-6">
-          <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-            <p className="font-medium text-moon-10">RG</p>
+        <MenuItem className="ps-space-24">
+          <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+            <p className="font-medium text-body-100">RG</p>
           </span>
           <MenuItem.Title>Responsible...</MenuItem.Title>
         </MenuItem>
-        <div className="flex flex-col gap-2 rounded-moon-s-lg">
+        <div className="flex flex-col gap-space-8 rounded-16">
           <MenuItem>
-            <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-              <p className="font-medium text-moon-10">S</p>
+            <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+              <p className="font-medium text-body-100">S</p>
             </span>
             <MenuItem.Title>
-              <p className="text-moon-14 font-medium">Sportsbet</p>
+              <p className="text-body-300 font-medium">Sportsbet</p>
             </MenuItem.Title>
           </MenuItem>
-          <MenuItem className="ps-6">
-            <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-              <p className="font-medium text-moon-10">RG</p>
+          <MenuItem className="ps-space-24">
+            <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+              <p className="font-medium text-body-100">RG</p>
             </span>
             <MenuItem.Title>Customer...</MenuItem.Title>
           </MenuItem>
-          <MenuItem className="ps-6">
-            <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-              <p className="font-medium text-moon-10">CX</p>
+          <MenuItem className="ps-space-24">
+            <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+              <p className="font-medium text-body-100">CX</p>
             </span>
             <MenuItem.Title>Quality...</MenuItem.Title>
           </MenuItem>
-          <MenuItem className="ps-6">
-            <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-              <p className="font-medium text-moon-10">RG</p>
+          <MenuItem className="ps-space-24">
+            <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+              <p className="font-medium text-body-100">RG</p>
             </span>
             <MenuItem.Title>Responsible...</MenuItem.Title>
           </MenuItem>
         </div>
         <div className="flex flex-col gap-2 rounded-moon-s-lg ">
           <MenuItem>
-            <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-              <p className="font-medium text-moon-10">L</p>
+            <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+              <p className="font-medium text-body-100">L</p>
             </span>
             <MenuItem.Title>
               <p className="text-moon-14 font-medium">Livecasino</p>
             </MenuItem.Title>
           </MenuItem>
-          <MenuItem className="ps-6">
-            <span className="bg-goku w-6 h-6 rounded-full flex justify-center items-center">
-              <p className="font-medium text-moon-10">RG</p>
+          <MenuItem className="ps-space-24">
+            <span className="bg-primary size-space-24 rounded-full flex justify-center items-center">
+              <p className="font-medium text-body-100">RG</p>
             </span>
             <MenuItem.Title>Customer...</MenuItem.Title>
           </MenuItem>

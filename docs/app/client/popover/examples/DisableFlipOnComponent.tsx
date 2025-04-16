@@ -9,7 +9,7 @@ const DisableFlipOnComponent = () => {
       <Popover.Trigger data-testid="popover-trigger">
         <Button>Toggle Popover</Button>
       </Popover.Trigger>
-      <Popover.Panel className="p-2 flex flex-col gap-1">
+      <Popover.Panel className="p-space-8 flex flex-col gap-space-4">
         <Content />
       </Popover.Panel>
     </Popover>
@@ -19,8 +19,8 @@ const DisableFlipOnComponent = () => {
 const Content: React.FC = () => (
   <>
     <MenuItem>
-      <span className="flex w-11 h-11 bg-gohan items-center justify-center rounded-lg">
-        <OtherFrame className="text-bulma text-moon-24" />
+      <span className="flex size-space-44 bg-secondary items-center justify-center rounded-8">
+        <OtherFrame className="icon-primary text-heading-200" />
       </span>
       <MenuItem.MultiTitle
         title="Tournaments"
@@ -28,8 +28,8 @@ const Content: React.FC = () => (
       />
     </MenuItem>
     <MenuItem>
-      <span className="flex w-11 h-11 bg-gohan items-center justify-center">
-        <OtherFrame className="text-bulma text-moon-24" />
+      <span className="flex size-space-44 bg-secondary items-center justify-center">
+        <OtherFrame className="icon-primary text-heading-200" />
       </span>
       <MenuItem.MultiTitle
         title="Promotions"
@@ -37,8 +37,8 @@ const Content: React.FC = () => (
       />
     </MenuItem>
     <MenuItem>
-      <span className="flex w-11 h-11 bg-gohan items-center justify-center">
-        <OtherFrame className="text-bulma text-moon-24" />
+      <span className="flex size-space-44 bg-secondary items-center justify-center">
+        <OtherFrame className="icon-primary text-heading-200" />
       </span>
       <MenuItem.MultiTitle
         title="Providers"

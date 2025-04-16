@@ -3,7 +3,7 @@
 import { NativeSelect, Label } from "@heathmont/moon-core-tw";
 
 const Sizes = () => (
-  <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
+  <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-space-8">
     <div className="w-full">
       <Label htmlFor="test-1" size="sm">
         Small (sm)

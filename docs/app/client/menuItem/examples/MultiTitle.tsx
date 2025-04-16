@@ -10,7 +10,7 @@ const MultiTitle = () => {
     <>
       <MenuItem className="w-56" data-testid="menu-item-1">
         <span>
-          <OtherFrame className="text-moon-24" />
+          <OtherFrame className="text-heading-200" />
         </span>
         <MenuItem.MultiTitle
           title="Your value"
@@ -21,7 +21,7 @@ const MultiTitle = () => {
             </span>
           }
         />
-        <span className="text-moon-12 text-trunks">Meta</span>
+        <span className="text-body-200 text-secondary">Meta</span>
       </MenuItem>
       <MenuItem
         isSelected={active}
@@ -29,8 +29,8 @@ const MultiTitle = () => {
         className="w-56"
         data-testid="menu-item-2"
       >
-        <span className="px-2">
-          <OtherFrame className="text-moon-24" />
+        <span className="px-space-8">
+          <OtherFrame className="text-heading-200" />
         </span>
         <MenuItem.MultiTitle
           title="Your value"
@@ -41,7 +41,7 @@ const MultiTitle = () => {
             </span>
           }
         />
-        <span className="px-2">
+        <span className="px-space-8">
           <MenuItem.Checkbox />
         </span>
       </MenuItem>

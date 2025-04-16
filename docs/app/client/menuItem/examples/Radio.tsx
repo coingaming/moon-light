@@ -22,7 +22,7 @@ const Radio = () => {
         className="w-56"
       >
         <MenuItem.Title>Your value</MenuItem.Title>
-        <MenuItem.Radio className="moon-checked:shadow-hit after:bg-hit" />
+        <MenuItem.Radio className="moon-checked:shadow-discovery after:bg-discovery" />
       </MenuItem>
     </>
   );
