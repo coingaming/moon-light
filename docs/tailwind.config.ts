@@ -20,9 +20,6 @@ const config: Config = {
     },
   },
   plugins: [],
-  presets: [
-    // require("@heathmont/moon-core-tw/lib/es/private/presets/ds-moon-preset"),
-    require("./app/js/moon-base-preset"),
-  ],
+  presets: [require("./app/js/moon-base-preset")],
 };
 export default config;

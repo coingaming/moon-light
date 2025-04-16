@@ -10,7 +10,7 @@ const getButtonVariants = ({
     return animation === "error"
       ? mergeClassnames(
           "text-negative bg-transparent ring-inset ring-1 ring-negative",
-          !disabled && "hover:bg-negative/10",
+          !disabled && "hover:bg-negative-subtle",
         )
       : mergeClassnames(
           "text-primary bg-transparent ring-inset ring-1 ring-primary",
@@ -26,7 +26,7 @@ const getButtonVariants = ({
     return animation === "error"
       ? mergeClassnames(
           "text-negative bg-transparent",
-          !disabled && "hover:bg-negative/10",
+          !disabled && "hover:bg-negative-subtle",
         )
       : mergeClassnames(
           "text-secondary bg-transparent",

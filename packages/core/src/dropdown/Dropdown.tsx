@@ -13,6 +13,7 @@ import useFormItemContext from "../form/private/utils/useFormItemContext";
 import GenericHint from "../hint/Hint";
 import { SelectButton } from "../index";
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
+import { assignRef } from "../private/utils/assignRef";
 
 const DropdownRoot = ({
   children,
@@ -92,230 +93,300 @@ const HiddenInput = forwardRef<
 >(({ ...props }, ref) => {
   const { value: innerValue } = useDropdownContext("Dropdown.Select");
   const currentValue = props?.value || innerValue;
-  return <input ref={ref} hidden {...props} value={currentValue} />;
+  return (
+    <input
+      ref={(nodeElement) => {
+        assignRef(ref, nodeElement);
+      }}
+      hidden
+      {...props}
+      value={currentValue}
+    />
+  );
 });
 
-const Options = ({
-  children,
-  menuWidth,
-  className,
-  ...rest
-}: WithChildren<OptionsProps>) => {
-  const { popper } = useDropdownContext("Dropdown.Options");
-  return (
-    <Listbox.Options
-      ref={popper?.setPopper}
-      style={popper?.styles?.popper}
-      {...popper?.attributes?.popper}
-      className={mergeClassnames(
-        menuWidth ? menuWidth : "w-full min-w-[18.75rem]",
-        "z-[5] absolute p-space-4 my-space-8 rounded-12 box-border bg-primary shadow-400 overflow-y-auto focus:outline-none",
-        className && className,
-      )}
-      {...rest}
-    >
-      {children}
-    </Listbox.Options>
-  );
-};
-
-const Option = ({ children, value }: OptionProps) => {
-  return (
-    <Listbox.Option as="span" value={value}>
-      {({ selected, active }) =>
-        typeof children === "function"
-          ? children({ selected, active })
-          : children
-      }
-    </Listbox.Option>
-  );
-};
-
-const Select = ({
-  open,
-  value,
-  label,
-  placeholder,
-  children,
-  className,
-  ...rest
-}: WithChildren<SelectProps>) => {
-  const { size, popper, isError, disabled } =
-    useDropdownContext("Dropdown.Select");
-  return (
-    <>
-      {label && (
-        <SelectButton.Label labelSize={size} idDisabled={disabled}>
-          {label}
-        </SelectButton.Label>
-      )}
-      <Listbox.Button as={Fragment}>
-        <SelectButton
-          size={size}
-          open={open}
-          isError={isError}
-          idDisabled={disabled}
-          ref={popper?.setAnchor}
-          {...rest}
-        >
-          <SelectButton.Input className={className}>
-            {children ? (
-              <SelectButton.Value>{children}</SelectButton.Value>
-            ) : (
-              <SelectButton.Placeholder>{placeholder}</SelectButton.Placeholder>
-            )}
-          </SelectButton.Input>
-        </SelectButton>
-      </Listbox.Button>
-    </>
-  );
-};
-
-//Dropdown.InsetSelect
-const InsetSelect = ({
-  open,
-  value,
-  label,
-  placeholder,
-  children,
-  className,
-  ...rest
-}: WithChildren<SelectProps>) => {
-  const { size, popper, isError, disabled } = useDropdownContext(
-    "Dropdown.InsetSelect",
-  );
-  return (
-    <Listbox.Button as={Fragment}>
-      <SelectButton
-        size={size}
-        open={open}
-        isError={isError}
-        idDisabled={disabled}
-        ref={popper?.setAnchor}
+const Options = forwardRef<HTMLElement, WithChildren<OptionsProps>>(
+  (
+    { children, menuWidth, className, ...rest }: WithChildren<OptionsProps>,
+    ref,
+  ) => {
+    const { popper } = useDropdownContext("Dropdown.Options");
+    return (
+      <Listbox.Options
+        ref={(nodeElement) => {
+          popper?.setPopper(nodeElement);
+          assignRef(ref, nodeElement);
+        }}
+        style={popper?.styles?.popper}
+        {...popper?.attributes?.popper}
+        className={mergeClassnames(
+          menuWidth ? menuWidth : "w-full min-w-[18.75rem]",
+          "z-[5] absolute p-space-4 my-space-8 rounded-12 box-border bg-primary shadow-400 overflow-y-auto focus:outline-none",
+          className && className,
+        )}
         {...rest}
       >
-        <SelectButton.InsetInput className={className}>
-          <span className="flex flex-col items-start truncate">
-            <SelectButton.FloatingLabel>{label}</SelectButton.FloatingLabel>
-            {children ? (
-              <SelectButton.Value>{children}</SelectButton.Value>
-            ) : (
-              <SelectButton.Placeholder>{placeholder}</SelectButton.Placeholder>
-            )}
-          </span>
-        </SelectButton.InsetInput>
-      </SelectButton>
-    </Listbox.Button>
-  );
-};
+        {children}
+      </Listbox.Options>
+    );
+  },
+);
 
-//Dropdown.MultiSelect
-const MultiSelect = ({
-  open,
-  value,
-  label,
-  placeholder,
-  children,
-  className,
-  counter = 0,
-  ...rest
-}: WithChildren<SelectProps & { counter?: number }>) => {
-  const { size, popper, isError, disabled, onClear } = useDropdownContext(
-    "Dropdown.MultiSelect",
-  );
-  return (
-    <>
-      {label && (
-        <SelectButton.Label labelSize={size} idDisabled={disabled}>
-          {label}
-        </SelectButton.Label>
-      )}
+const Option = forwardRef<HTMLElement, OptionProps>(
+  ({ children, value }: OptionProps, ref) => {
+    return (
+      <Listbox.Option
+        as="span"
+        value={value}
+        ref={(nodeElement) => {
+          assignRef(ref, nodeElement);
+        }}
+      >
+        {({ selected, active }) =>
+          typeof children === "function"
+            ? children({ selected, active })
+            : children
+        }
+      </Listbox.Option>
+    );
+  },
+);
+
+const Select = forwardRef<HTMLElement, WithChildren<SelectProps>>(
+  (
+    {
+      open,
+      value,
+      label,
+      placeholder,
+      children,
+      className,
+      ...rest
+    }: WithChildren<SelectProps>,
+    ref,
+  ) => {
+    const { size, popper, isError, disabled } =
+      useDropdownContext("Dropdown.Select");
+    return (
+      <>
+        {label && (
+          <SelectButton.Label labelSize={size} idDisabled={disabled}>
+            {label}
+          </SelectButton.Label>
+        )}
+        <Listbox.Button as={Fragment}>
+          <SelectButton
+            size={size}
+            open={open}
+            isError={isError}
+            idDisabled={disabled}
+            ref={(nodeElement) => {
+              popper?.setAnchor(nodeElement);
+              assignRef(ref, nodeElement);
+            }}
+            {...rest}
+          >
+            <SelectButton.Input className={className}>
+              {children ? (
+                <SelectButton.Value>{children}</SelectButton.Value>
+              ) : (
+                <SelectButton.Placeholder>
+                  {placeholder}
+                </SelectButton.Placeholder>
+              )}
+            </SelectButton.Input>
+          </SelectButton>
+        </Listbox.Button>
+      </>
+    );
+  },
+);
+
+const InsetSelect = forwardRef<HTMLElement, WithChildren<SelectProps>>(
+  (
+    {
+      open,
+      value,
+      label,
+      placeholder,
+      children,
+      className,
+      ...rest
+    }: WithChildren<SelectProps>,
+    ref,
+  ) => {
+    const { size, popper, isError, disabled } = useDropdownContext(
+      "Dropdown.InsetSelect",
+    );
+    return (
       <Listbox.Button as={Fragment}>
         <SelectButton
           size={size}
           open={open}
           isError={isError}
           idDisabled={disabled}
-          ref={popper?.setAnchor}
+          ref={(nodeElement) => {
+            popper?.setAnchor(nodeElement);
+            assignRef(ref, nodeElement);
+          }}
           {...rest}
         >
-          <SelectButton.Input className={mergeClassnames(className)}>
-            <span className="flex w-full gap-space-8 items-center">
-              {counter > 0 && (
-                <SelectButton.Chip onClear={onClear}>
-                  {counter}
-                </SelectButton.Chip>
+          <SelectButton.InsetInput className={className}>
+            <span className="flex flex-col items-start truncate">
+              <SelectButton.FloatingLabel>{label}</SelectButton.FloatingLabel>
+              {children ? (
+                <SelectButton.Value>{children}</SelectButton.Value>
+              ) : (
+                <SelectButton.Placeholder>
+                  {placeholder}
+                </SelectButton.Placeholder>
               )}
+            </span>
+          </SelectButton.InsetInput>
+        </SelectButton>
+      </Listbox.Button>
+    );
+  },
+);
+
+const MultiSelect = forwardRef<
+  HTMLElement,
+  WithChildren<SelectProps & { counter?: number }>
+>(
+  (
+    {
+      open,
+      value,
+      label,
+      placeholder,
+      children,
+      className,
+      counter = 0,
+      ...rest
+    }: WithChildren<SelectProps & { counter?: number }>,
+    ref,
+  ) => {
+    const { size, popper, isError, disabled, onClear } = useDropdownContext(
+      "Dropdown.MultiSelect",
+    );
+    return (
+      <>
+        {label && (
+          <SelectButton.Label labelSize={size} idDisabled={disabled}>
+            {label}
+          </SelectButton.Label>
+        )}
+        <Listbox.Button as={Fragment}>
+          <SelectButton
+            size={size}
+            open={open}
+            isError={isError}
+            idDisabled={disabled}
+            ref={(nodeElement) => {
+              popper?.setAnchor(nodeElement);
+              assignRef(ref, nodeElement);
+            }}
+            {...rest}
+          >
+            <SelectButton.Input className={mergeClassnames(className)}>
+              <span className="flex w-full gap-space-8 items-center">
+                {counter > 0 && (
+                  <SelectButton.Chip onClear={onClear}>
+                    {counter}
+                  </SelectButton.Chip>
+                )}
+                <SelectButton.Placeholder>
+                  {placeholder}
+                </SelectButton.Placeholder>
+              </span>
+            </SelectButton.Input>
+          </SelectButton>
+        </Listbox.Button>
+      </>
+    );
+  },
+);
+
+const InsetMultiSelect = forwardRef<
+  HTMLElement,
+  WithChildren<SelectProps & { counter?: number }>
+>(
+  (
+    {
+      open,
+      value,
+      label,
+      placeholder,
+      children,
+      className,
+      counter = 0,
+      ...rest
+    }: WithChildren<SelectProps & { counter?: number }>,
+    ref,
+  ) => {
+    const { size, popper, isError, disabled, onClear } = useDropdownContext(
+      "Dropdown.InsetMultiSelect",
+    );
+    return (
+      <Listbox.Button as={Fragment}>
+        <SelectButton
+          size={size}
+          open={open}
+          isError={isError}
+          idDisabled={disabled}
+          ref={(nodeElement) => {
+            popper?.setAnchor(nodeElement);
+            assignRef(ref, nodeElement);
+          }}
+          {...rest}
+        >
+          <SelectButton.InsetInput
+            className={mergeClassnames(className, "[&_>_span]:gap-space-16")}
+          >
+            {counter > 0 && (
+              <SelectButton.Chip onClear={onClear}>{counter}</SelectButton.Chip>
+            )}
+            <span className="flex flex-col items-start truncate">
+              <SelectButton.FloatingLabel>{label}</SelectButton.FloatingLabel>
               <SelectButton.Placeholder>{placeholder}</SelectButton.Placeholder>
             </span>
-          </SelectButton.Input>
+          </SelectButton.InsetInput>
         </SelectButton>
       </Listbox.Button>
-    </>
-  );
-};
+    );
+  },
+);
 
-//Dropdown.InsetMultiSelect
-const InsetMultiSelect = ({
-  open,
-  value,
-  label,
-  placeholder,
-  children,
-  className,
-  counter = 0,
-  ...rest
-}: WithChildren<SelectProps & { counter?: number }>) => {
-  const { size, popper, isError, disabled, onClear } = useDropdownContext(
-    "Dropdown.InsetMultiSelect",
-  );
-  return (
-    <Listbox.Button as={Fragment}>
-      <SelectButton
-        size={size}
-        open={open}
-        isError={isError}
-        idDisabled={disabled}
-        ref={popper?.setAnchor}
+const Trigger = forwardRef<
+  HTMLElement,
+  WithChildren<{ className?: string; as?: ElementType }>
+>(
+  (
+    {
+      children,
+      className,
+      as,
+      ...rest
+    }: WithChildren<{ className?: string; as?: ElementType }>,
+    ref,
+  ) => {
+    const { popper } = useDropdownContext("Dropdown.Trigger");
+    return (
+      <Listbox.Button
+        ref={(nodeElement) => {
+          popper?.setAnchor(nodeElement);
+          assignRef(ref, nodeElement);
+        }}
+        className={className && className}
+        as={as}
         {...rest}
       >
-        <SelectButton.InsetInput
-          className={mergeClassnames(className, "[&_>_span]:gap-space-16")}
-        >
-          {counter > 0 && (
-            <SelectButton.Chip onClear={onClear}>{counter}</SelectButton.Chip>
-          )}
-          <span className="flex flex-col items-start truncate">
-            <SelectButton.FloatingLabel>{label}</SelectButton.FloatingLabel>
-            <SelectButton.Placeholder>{placeholder}</SelectButton.Placeholder>
-          </span>
-        </SelectButton.InsetInput>
-      </SelectButton>
-    </Listbox.Button>
-  );
-};
+        {children}
+      </Listbox.Button>
+    );
+  },
+);
 
-//Dropdown.Trigger
-const Trigger = ({
-  children,
-  className,
-  as,
-  ...rest
-}: WithChildren<{ className?: string; as?: ElementType }>) => {
-  const { popper } = useDropdownContext("Dropdown.Trigger");
-  return (
-    <Listbox.Button
-      ref={popper?.setAnchor}
-      className={className && className}
-      as={as}
-      {...rest}
-    >
-      {children}
-    </Listbox.Button>
-  );
-};
-
-//Dropdown.Hint
 const Hint = ({
   children,
   className,
