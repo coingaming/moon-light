@@ -138,9 +138,9 @@ const Panel = ({
     >
       <Dialog.Panel
         className={mergeClassnames(
-          "absolute flex flex-col inset-x-0 bottom-0 rounded-t-moon-i-md bg-goku p-2 h-1/3",
+          "absolute flex flex-col inset-x-0 bottom-0 rounded-t-12 bg-primary p-space-8 h-1/3",
           height, // deprecated
-          hasShadow && "shadow-moon-lg", // deprecated
+          hasShadow && "shadow-400", // deprecated
           isTransition && "duration-200 transition-all", // deprecated
           className,
         )}
@@ -162,9 +162,9 @@ const Draghandle = ({ children, className }: DraghandleProps) => {
   return (
     <div
       className={mergeClassnames(
-        "relative flex items-center justify-center pb-2 after:absolute after:-top-1",
-        "after:left-1/2 after:rounded-full after:-translate-x-1/2 after:w-10 after:h-1",
-        "after:bg-beerus [&_.bottomsheet-title]:pt-2",
+        "relative flex items-center justify-center pb-space-8 after:absolute after:-top-space-4",
+        "after:left-1/2 after:rounded-full after:-translate-x-1/2 after:w-space-40 after:h-space-4",
+        "after:bg-tertiary [&_.bottomsheet-title]:pt-space-8",
         className,
       )}
       ref={draghandleRef}
@@ -178,7 +178,7 @@ const Title = ({ children, className }: TitleProps) => (
   <Dialog.Title
     as="p"
     className={mergeClassnames(
-      "bottomsheet-title text-moon-16 text-bulma font-medium text-center",
+      "bottomsheet-title text-body-400 text-primary font-medium text-center",
       className,
     )}
   >

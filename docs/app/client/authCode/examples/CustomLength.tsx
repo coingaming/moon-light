@@ -16,7 +16,7 @@ export const CustomLength = () => {
   return (
     <Form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col justify-between items-end gap-y-2"
+      className="flex flex-col justify-between items-end gap-y-space-8"
     >
       <Controller
         name="authCode"

@@ -19,7 +19,7 @@ export const WithDraghandle = () => {
       <BottomSheet open={isOpen} onClose={closeBottomSheet}>
         <BottomSheet.Panel>
           <BottomSheet.Draghandle />
-          <div className="flex grow items-center justify-center bg-jiren text-piccolo">
+          <div className="flex grow items-center justify-center bg-brand-subtle text-brand">
             BottomSheet content
           </div>
         </BottomSheet.Panel>

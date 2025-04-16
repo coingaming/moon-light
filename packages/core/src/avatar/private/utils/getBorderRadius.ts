@@ -5,12 +5,12 @@ const getWrapperSize = (size?: SizeProps, isRounded?: boolean) => {
     return "rounded-full";
   }
   if (size === "xs") {
-    return "rounded-moon-i-xs";
+    return "rounded-4";
   }
   if (size === "2xl") {
-    return "rounded-moon-i-md";
+    return "rounded-12";
   }
-  return "rounded-moon-i-sm";
+  return "rounded-8";
 };
 
 export default getWrapperSize;
