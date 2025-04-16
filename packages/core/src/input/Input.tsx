@@ -43,7 +43,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           "before:box-border after:box-border placeholder:delay-75",
           "placeholder:text-secondary placeholder:opacity-100 placeholder:transition-opacity",
           "read-only:outline-0 read-only:border-none read-only:cursor-not-allowed",
-          "read-only:hover:ring-1 read-only:focus:ring-1",
+          "read-only:hover:ring-1 read-only:focus:ring-1 read-only:focus:ring-primary",
           "invalid:ring-2 invalid:ring-negative invalid:hover:ring-2 invalid:hover:ring-negative invalid:focus:ring-2 invalid:focus:ring-negative",
           getSizeStyles(size),
           getTypeStyles(type),

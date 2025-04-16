@@ -35,7 +35,7 @@ const FileInput = memo(
           <Input
             type="text"
             className={mergeClassnames(
-              "top-0 start-0 pe-10",
+              "top-0 start-0 pe-space-40",
               className && className,
             )}
             placeholder={placeholder}

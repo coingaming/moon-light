@@ -14,7 +14,7 @@ const ControllingAnInput = () => {
           setColor(e.target.value);
         }}
       />
-      <p className="text-moon-18 pt-2">
+      <p className="text-heading-100">
         <b>Result:</b> {color}
       </p>
     </div>

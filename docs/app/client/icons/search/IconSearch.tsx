@@ -49,7 +49,9 @@ const IconSearch = () => {
 
   const renderIcon = (iconName: string) => {
     const IconComponent = Icons[iconName as keyof typeof Icons];
-    return IconComponent ? <IconComponent className="text-moon-24" /> : null;
+    return IconComponent ? (
+      <IconComponent className="text-heading-200" />
+    ) : null;
   };
 
   return (
@@ -64,9 +66,9 @@ const IconSearch = () => {
           <Search.Input.Icon />
           <Search.Input.Input
             placeholder="Search icons"
-            className="placeholder:text-trunks"
+            className="placeholder:text-secondary"
           />
-          <Search.Input.ButtonClear className="relative translate-x-0 translate-y-0 flex end-2">
+          <Search.Input.ButtonClear className="relative translate-x-0 translate-y-0 flex end-space-8">
             Clear
           </Search.Input.ButtonClear>
         </Search.Input>
@@ -74,16 +76,16 @@ const IconSearch = () => {
         <Search.Transition>
           <Search.Result>
             {search && filteredIcons.length ? (
-              <div className="flex flex-wrap gap-2 p-4 text-moon-14">
+              <div className="flex flex-wrap gap-space-8 p-space-16 text-body-300">
                 {filteredIcons.map((iconName, index) => (
                   <div
                     key={iconName}
-                    className="flex flex-col gap-1 items-center w-14"
+                    className="flex flex-col gap-space-4 items-center w-space-56"
                   >
                     <Search.ResultItem
                       index={index}
                       closeOnSelect={true}
-                      className="flex flex-col gap-1 items-center w-14"
+                      className="flex flex-col gap-space-4 items-center w-space-56"
                     >
                       <Chip
                         as="span"
@@ -91,10 +93,10 @@ const IconSearch = () => {
                         aria-label={iconName}
                         onClick={copyCode(iconName)}
                         iconOnly={renderIcon(iconName)}
-                        className="text-moon-24"
+                        className="text-heading-200"
                       />
                     </Search.ResultItem>
-                    <p className="w-full text-moon-10 text-trunks text-center truncate hover:w-auto hover:bg-goku hover:px-2 hover:z-1">
+                    <p className="w-full text-body-100 text-secondary text-center truncate hover:w-auto hover:bg-primary hover:px-space-8 hover:z-[1]">
                       {iconName}
                     </p>
                   </div>
@@ -111,8 +113,8 @@ const IconSearch = () => {
         onOpenChange={setSnackbar}
         position="bottom-center"
       >
-        <Snackbar.Message className="flex gap-2">
-          <Icons.GenericCheckAlternative className="text-moon-24 text-roshi" />
+        <Snackbar.Message className="flex gap-space-8">
+          <Icons.GenericCheckAlternative className="text-heading-200 text-positive" />
           Icon {renderIcon(lastClickedIcon)} copied for import
         </Snackbar.Message>
       </Snackbar>
