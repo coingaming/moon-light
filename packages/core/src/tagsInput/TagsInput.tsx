@@ -254,7 +254,9 @@ const SelectedItem = ({
           onClear={() => !disabled && onClear && onClear(index)}
           onClick={onClick}
           className={mergeClassnames(
-            selectedTagIndex === index ? classNameTagOnFocus ?? "bg-brand" : "",
+            selectedTagIndex === index
+              ? (classNameTagOnFocus ?? "bg-brand")
+              : "",
           )}
         >
           <span className="break-all truncate">{label}</span>
