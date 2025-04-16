@@ -3,4 +3,4 @@
 "@heathmont/moon-core-tw": major
 ---
 
-chore: migrate components to new token system [MDS-1759]
+feat: migrate Button, IconButton, Tag, Accordion, SearchCmdk to new tokens [MDS-1759]
