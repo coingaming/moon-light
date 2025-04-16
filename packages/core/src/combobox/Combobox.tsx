@@ -256,11 +256,7 @@ const InsetInput = forwardRef<HTMLElement, InputProps>(
           className={mergeClassnames(
             "flex-grow h-full border-0 !rounded-none bg-transparent !px-0",
             "!ring-none hover:ring-none focus:ring-none focus-visible:ring-none",
-            label !== undefined &&
-              label.length > 0 &&
-              (placeholder === undefined || placeholder.length === 0) &&
-              "input-xl",
-            label !== undefined && label.length > 0 && "pt-3 input-xl-dt-label", // ???
+            label !== undefined && label.length > 0 && "pt-space-12",
             getTextSizes(size),
             className,
             "leading-space-20",
@@ -326,11 +322,7 @@ const VisualSelectInput = forwardRef<HTMLElement, InputProps>(
           className={mergeClassnames(
             "flex-grow w-full h-full border-0 !rounded-none bg-transparent !px-0",
             "!ring-none hover:ring-none focus:ring-none focus-visible:ring-none",
-            label !== undefined &&
-              label.length > 0 &&
-              (placeholder === undefined || placeholder.length === 0) &&
-              "input-xl",
-            label !== undefined && label.length > 0 && "pt-3 input-xl-dt-label", // ???
+            label !== undefined && label.length > 0 && "pt-space-12",
             getTextSizes(size),
             className,
             "leading-space-20",
@@ -452,7 +444,7 @@ const Counter = forwardRef<HTMLElement, SelectProps>(
     return (
       <span
         className={mergeClassnames(
-          "flex gap-2 items-center flex-grow-0 flex-shrink-0 self-center",
+          "flex gap-space-8 items-center flex-grow-0 flex-shrink-0 self-center",
           className,
         )}
       >
