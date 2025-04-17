@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.22.4
+
+### Patch Changes
+
+- fix: wrong validations for TD classes [MDS-1779]
+
 ## 10.22.3
 
 ### Patch Changes
