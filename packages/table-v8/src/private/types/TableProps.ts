@@ -24,6 +24,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   height?: string | number;
   fixedWidth?: string | number;
   headerBackgroundColor?: string;
+  footerBackgroundColor?: string;
   bodyBackgroundColor?: string;
   defaultRowBackgroundColor?: string;
   evenRowBackgroundColor?: string;

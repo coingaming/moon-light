@@ -51,11 +51,10 @@ const TBody = ({
         const lastIndex = cells.length - 1;
         const isEvenRow = rowIndex % 2 === 0;
         const noGap = rowGap === "" || !!rowGap.match(/^[0]+[\D]*/);
-        const isRowSelected =
-          isSelectable &&
-          (row.getCanExpand()
-            ? row.getIsAllSubRowsSelected()
-            : row.getIsSelected());
+
+        const isRowSelected = row.getCanExpand()
+          ? row.getIsAllSubRowsSelected()
+          : row.getIsSelected();
 
         const useRowSelection = (event: unknown) => {
           isSelectable && !preventSelectionByRowClick
@@ -90,12 +89,15 @@ const TBody = ({
                   isSelectable &&
                     !preventSelectionByRowClick &&
                     "cursor-pointer",
-                  isRowSelected &&
+                  isSelectable &&
+                    isRowSelected &&
                     "group/rows bg-[color:var(--rowSelectColor)] group/rows after:bg-[color:var(--rowSelectColor)]",
-                  !isRowSelected &&
+                  isSelectable &&
+                    !isRowSelected &&
                     isEvenRow &&
                     "group/rows bg-[color:var(--rowEvenColor)] group/rows after:bg-[color:var(--rowEvenColor)]",
-                  !isRowSelected &&
+                  isSelectable &&
+                    !isRowSelected &&
                     !isEvenRow &&
                     "group/rows bg-[color:var(--rowOddColor)] group/rows after:bg-[color:var(--rowOddColor)]",
                   rowHoverColor &&
