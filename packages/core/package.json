@@ -1,7 +1,7 @@
 {
   "name": "@heathmont/moon-core-tw",
   "sideEffects": false,
-  "version": "10.24.6",
+  "version": "10.24.7",
   "files": [
     "lib"
   ],

@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.7
+
+### Patch Changes
+
+- fix: clean value and prevent onChange on Blur event [MDS-1787]
+
 ## 10.24.6
 
 ### Patch Changes
