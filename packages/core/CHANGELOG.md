@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.8
+
+### Patch Changes
+
+- fix: rename Placeholder folder to remove uppercase [MDS-1797]
+
 ## 10.24.7
 
 ### Patch Changes
