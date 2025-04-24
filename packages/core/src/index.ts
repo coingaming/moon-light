@@ -94,4 +94,4 @@ export { default as Badge } from "./badge/Badge";
 export * from "./badge/Badge";
 export * from "./copyTextWrapper/CopyTextWrapper";
 export * from "./list/List";
-export * from "./Placeholder/Placeholder";
+export * from "./placeholder/Placeholder";
