@@ -93,3 +93,5 @@ export * from "./insetFileInput/InsetFileInput";
 export { default as Badge } from "./badge/Badge";
 export * from "./badge/Badge";
 export * from "./copyTextWrapper/CopyTextWrapper";
+export * from "./list/List";
+export * from "./placeholder/Placeholder";
