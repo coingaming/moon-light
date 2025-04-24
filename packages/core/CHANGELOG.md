@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.7
+
+### Patch Changes
+
+- fix: export List and Placeholder [MDS-1797]
+
 ## 10.24.6
 
 ### Patch Changes
