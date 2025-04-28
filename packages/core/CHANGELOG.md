@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.9
+
+### Patch Changes
+
+- fix: add proper export - Placeholder, List & CopyTextWrapper [MDS-1797]
+
 ## 10.24.8
 
 ### Patch Changes
