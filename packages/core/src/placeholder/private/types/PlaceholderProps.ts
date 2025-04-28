@@ -6,5 +6,4 @@ export enum Shape {
 export type PlaceholderProps = {
   shape: Shape;
   className?: string;
-  dataTestId?: string;
 };
