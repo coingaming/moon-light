@@ -1,10 +1,28 @@
 # @heathmont/moon-core-tw
 
+## 10.24.10
+
+### Patch Changes
+
+- fix: prevent onChange action against onBlur event, and clean value - Combobox [MDS-1787]
+
+## 10.24.9
+
+### Patch Changes
+
+- fix: add proper export - Placeholder, List & CopyTextWrapper [MDS-1797]
+
+## 10.24.8
+
+### Patch Changes
+
+- fix: rename Placeholder folder to remove uppercase [MDS-1797]
+
 ## 10.24.7
 
 ### Patch Changes
 
-- fix: clean value and prevent onChange on Blur event [MDS-1787]
+- fix: export List and Placeholder [MDS-1797]
 
 ## 10.24.6
 
