@@ -26,6 +26,7 @@ import {
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
 import { assignRef } from "../private/utils/assignRef";
 import useClickOutside from "../private/hooks/useClickOutside";
+import useDeepCompareEffect from "use-deep-compare-effect";
 
 const ComboboxRoot = ({
   value,
@@ -55,8 +56,13 @@ const ComboboxRoot = ({
   });
 
   const comboboxButtonRef = React.useRef<HTMLButtonElement | null>(null);
-  const blurredRef = React.useRef<boolean>(false);
-  const prevSelected = React.useRef<unknown | undefined>({});
+
+  useDeepCompareEffect(() => {
+    if (value && anchorEl) {
+      const input = anchorEl.querySelector("input");
+      if (input) input.value = "";
+    }
+  }, [value]);
 
   const handleOnFocus = (
     event: FocusEvent<HTMLInputElement>,
@@ -76,18 +82,6 @@ const ComboboxRoot = ({
 
   const handleOnBlur: React.FocusEventHandler<HTMLInputElement> = () => {
     setIsInputFocused(false);
-    if (blurredRef.current) {
-      onChange(prevSelected.current);
-    }
-  };
-
-  const handleOnKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (
-    event,
-  ) => {
-    if (event.key === "Tab") {
-      blurredRef.current = true;
-      prevSelected.current = value;
-    }
   };
 
   const states = {
@@ -113,7 +107,6 @@ const ComboboxRoot = ({
     comboboxButtonRef,
     handleOnFocus,
     handleOnBlur,
-    handleOnKeyDown,
   };
 
   const childArray =
@@ -209,7 +202,6 @@ const Input = forwardRef<HTMLElement, InputProps>(
       isError,
       onQueryChange,
       handleOnFocus,
-      handleOnKeyDown,
       handleOnBlur,
     } = useComboboxContext("Combobox.Input");
 
@@ -237,7 +229,6 @@ const Input = forwardRef<HTMLElement, InputProps>(
 
           handleOnFocus(e, preventButtonForceClick);
         }}
-        onKeyDown={handleOnKeyDown}
         onBlur={handleOnBlur}
         aria-label={rest["aria-label"]}
         {...rest}
@@ -270,7 +261,6 @@ const InsetInput = forwardRef<HTMLElement, InputProps>(
       isError,
       onQueryChange,
       handleOnFocus,
-      handleOnKeyDown,
       handleOnBlur,
     } = useComboboxContext("Combobox.InsetInput");
     return (
@@ -304,7 +294,6 @@ const InsetInput = forwardRef<HTMLElement, InputProps>(
 
             handleOnFocus(e, preventButtonForceClick);
           }}
-          onKeyDown={handleOnKeyDown}
           onBlur={handleOnBlur}
           aria-label={rest["aria-label"]}
           {...rest}
@@ -342,7 +331,6 @@ const VisualSelectInput = forwardRef<HTMLElement, InputProps>(
       isError,
       onQueryChange,
       handleOnFocus,
-      handleOnKeyDown,
       handleOnBlur,
     } = useComboboxContext("Combobox.VisualSelectInput");
     const selected = value as [];
@@ -394,7 +382,6 @@ const VisualSelectInput = forwardRef<HTMLElement, InputProps>(
 
             handleOnFocus(e, preventButtonForceClick);
           }}
-          onKeyDown={handleOnKeyDown}
           onBlur={handleOnBlur}
         />
       </span>

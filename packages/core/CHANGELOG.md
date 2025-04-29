@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.10
+
+### Patch Changes
+
+- fix: prevent onChange action against onBlur event, and clean value - Combobox [MDS-1787]
+
 ## 10.24.9
 
 ### Patch Changes
