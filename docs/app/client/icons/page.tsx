@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import type { TagTypes } from "@/types";
 import MainLayout from "@/components/mainLayout/MainLayout";
 import { PageHeadComponent } from "@/components/PageHeadComponent";

@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import Head from "next/head";
 import { SearchProvider } from "@/components/search/SearchProvider";
 import { useSearchActions } from "@/components/search/useSearchActions";

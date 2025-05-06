@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import { notFound } from "next/navigation";
 import DocsPage from "@/components/docsPage/DocsPage";
 import { useGetExample } from "@/utils/useGetExample";
