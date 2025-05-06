@@ -61,7 +61,7 @@ const Tab = React.forwardRef(
       </Component>
     );
   },
-) as unknown as typeof React.forwardRef;
+);
 
 const Pill = React.forwardRef(
   <C extends React.ElementType = "a">(
@@ -103,7 +103,7 @@ const Pill = React.forwardRef(
       </Component>
     );
   },
-) as unknown as typeof React.forwardRef;
+);
 
 // const Pill: TabComponentProps = React.forwardRef(
 //   <C extends React.ElementType = 'a'>(
