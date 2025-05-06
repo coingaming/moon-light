@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "pnpm --filter \"./packages/table-v8\" --filter \"./packages/core\" -r run build",
+    "build": "pnpm --filter \"./packages/**\" -r run build",
     "clean": "rimraf packages/**/lib && rimraf docs/{lib,dist,.cache,.next}",
     "doc": "pnpm run --filter \"docs\"",
     "fmt": "prettier --write .",
@@ -15,7 +15,7 @@
   "author": "Karl Kallavus",
   "license": "MIT",
   "dependencies": {
-    "typescript": "^5.3.2"
+    "typescript": "5.3.2"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
