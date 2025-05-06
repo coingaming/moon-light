@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import React from "react";
 import IconsBlock from "@/components/IconsBlock";
 import useGroupedIcons from "@/hooks/useGroupedIcons";

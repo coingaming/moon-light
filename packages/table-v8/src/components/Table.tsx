@@ -54,6 +54,7 @@ const Table: React.FC<TableProps> = ({
   onRowSelectionChange,
   onSortingChange,
   onColumnVisibilityChange,
+  getRowId,
 }) => {
   const [columnResizeMode] = React.useState<ColumnResizeMode>("onChange");
 
@@ -77,7 +78,7 @@ const Table: React.FC<TableProps> = ({
     getExpandedRowModel: getExpandedRowModel(),
     getSortedRowModel: getSortedRowModel(),
     onColumnVisibilityChange,
-    /* debugTable: true, */
+    getRowId,
   });
 
   const tableResizeInfo = table.getState().columnSizingInfo;

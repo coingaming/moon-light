@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.22.4
+
+### Patch Changes
+
+- fix: add getRowId prop - Table [MDS-1818]
+
 ## 10.22.3
 
 ### Patch Changes
