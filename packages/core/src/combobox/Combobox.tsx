@@ -61,6 +61,8 @@ const ComboboxRoot = ({
     if (value && anchorEl) {
       const input = anchorEl.querySelector("input");
       if (input) input.value = "";
+
+      onQueryChange?.("");
     }
   }, [value]);
 
