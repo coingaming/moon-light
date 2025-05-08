@@ -1,7 +1,8 @@
 type Props = {
-  breadcrumbs: React.ReactNode[];
+  breadcrumbs: React.ReactElement[];
   divider?: React.ReactNode;
   collapseAfter?: number;
+  lastBreadcrumbIndex?: number;
 };
 
 export default Props;
