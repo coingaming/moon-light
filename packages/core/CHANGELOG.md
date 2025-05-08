@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.11
+
+### Patch Changes
+
+- fix: clean search query - Combobox [MDS-1821]
+
 ## 10.24.10
 
 ### Patch Changes
