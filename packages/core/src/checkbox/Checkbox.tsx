@@ -31,21 +31,24 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             ? rest.name
             : "Checkbox";
     return (
-      <label
-        htmlFor={rest.id}
-        className={mergeClassnames(
-          "relative flex items-center gap-2 text-moon-14 text-bulma cursor-pointer",
-          rest.disabled && "opacity-60 cursor-not-allowed select-none",
-          rest.readOnly && "cursor-not-allowed select-none",
-        )}
-      >
+      <div className="relative flex items-center gap-2 text-moon-14 text-bulma">
+        <label
+          htmlFor={rest.id}
+          className={mergeClassnames(
+            "cursor-pointer sr-only",
+            rest.disabled && "opacity-60 cursor-not-allowed select-none",
+            rest.readOnly && "cursor-not-allowed select-none",
+          )}
+        >
+          {label}
+        </label>
         <input
           id={rest.id}
           disabled={rest.disabled}
           readOnly={rest.readOnly}
           aria-label={ariaLabelValue}
           ref={ref}
-          className="peer appearance-none h-6 w-6 outline-none align-top select-none"
+          className="peer appearance-none h-6 w-6 outline-none align-top select-none z-10"
           type="checkbox"
           aria-checked={indeterminate ? "mixed" : isChecked}
           checked={isChecked}
@@ -83,8 +86,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             />
           )}
         </span>
-        {label}
-      </label>
+      </div>
     );
   },
 );
