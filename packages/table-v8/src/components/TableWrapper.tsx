@@ -59,7 +59,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
             (target as HTMLInputElement).type?.toLowerCase() === "checkbox");
 
         if (isSpecialElement) {
-          event.currentTarget.focus();
+          event.currentTarget.focus({ preventScroll: true });
         }
       },
       [],
