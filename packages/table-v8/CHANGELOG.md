@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.22.5
+
+### Patch Changes
+
+- fix: prevent scroll - TableWrapper [MDS-1819]
+
 ## 10.22.4
 
 ### Patch Changes
