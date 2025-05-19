@@ -49,22 +49,6 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       [isFocused],
     );
 
-    const getBackLostFocus = useCallback(
-      (event: React.MouseEvent<HTMLDivElement>) => {
-        const target = event.target as HTMLElement;
-        const isSpecialElement =
-          target.tagName.toUpperCase() === "SVG" ||
-          target.tagName.toUpperCase() === "BUTTON" ||
-          (target.tagName.toUpperCase() === "INPUT" &&
-            (target as HTMLInputElement).type?.toLowerCase() === "checkbox");
-
-        if (isSpecialElement) {
-          event.currentTarget.focus();
-        }
-      },
-      [],
-    );
-
     return (
       <div
         ref={tableWrapperRef}
@@ -80,7 +64,6 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
         onKeyDown={(e) => {
           handleKbDown(e);
         }}
-        onClick={getBackLostFocus}
       >
         {children}
       </div>
