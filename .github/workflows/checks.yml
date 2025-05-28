@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: streetsidesoftware/cspell-action@357d91b7153520efd453f404d76424cff0a29797 # v2.7.0
+      - uses: streetsidesoftware/cspell-action@69543c3f9f14d4fcc6004c7bee03c4d366f11d64 # v2.7.0
 
   changeset:
     name: Changeset
