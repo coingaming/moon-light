@@ -114,14 +114,11 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
   const {
     containerRef,
     isSwipeDragDisabled,
-    isRtl,
     handleMouseDown,
     handleMouseUp,
     debounceMouseUp,
     isDragging,
   } = useCarouselContext("Carousel.Reel");
-  const arrayChildren = Children.toArray(children);
-  const revertChildren = arrayChildren.reverse();
   const debouncedMouseUp = debounceMouseUp ? debounceMouseUp() : null;
 
   return (
@@ -155,7 +152,7 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
       ref={containerRef}
       {...rest}
     >
-      {isRtl ? revertChildren : children}
+      {children}
     </ul>
   );
 };

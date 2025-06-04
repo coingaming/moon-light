@@ -108,17 +108,7 @@ const COMPONENTS = {
     title: "Carousel",
     packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA"],
-    examples: [
-      "Default",
-      "CustomizedArrows",
-      "Indicators",
-      "Spaces",
-      "VisibleIndices",
-      "SelectIndex",
-      "AutoSlide",
-      "RTLSupport",
-      "SwipeDragDisabled",
-    ],
+    examples: ["Default"],
   },
   checkbox: {
     title: "Checkbox",
