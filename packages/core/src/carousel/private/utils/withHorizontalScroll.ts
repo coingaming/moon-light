@@ -156,17 +156,43 @@ const showHideIndicator = (
   const lastVisibleIndex = findLastVisibleIndex(itemRefs);
   setFirstVisibleIndex(firstVisibleIndex);
   setLastVisibleIndex(lastVisibleIndex);
-  lastVisibleIndex < itemRefs.length - 1
-    ? setRightIndicator(true)
-    : setRightIndicator(false);
-  // firstVisibleIndex > 0 ? setLeftIndicator(true) : setLeftIndicator(false);
-  // if (firstVisibleIndex === -1) {
-  //   itemRefs.length > 0 ? setLeftIndicator(true) : setLeftIndicator(false);
-  // }
-  setLeftIndicator(true);
-  if (lastVisibleIndex === -1) {
-    itemRefs.length > 0 ? setRightIndicator(true) : setRightIndicator(false);
+
+  const visibileItemsLength = lastVisibleIndex - firstVisibleIndex + 1;
+
+  if (visibileItemsLength === itemRefs.length) {
+    setLeftIndicator(false);
+    setRightIndicator(false);
+    return;
   }
+
+  showHideIndicatorRtlLtr(
+    itemRefs,
+    firstVisibleIndex,
+    lastVisibleIndex,
+    setLeftIndicator,
+    setRightIndicator,
+  );
+};
+
+const showHideIndicatorRtlLtr = (
+  itemRefs: HTMLElement[],
+  firstVisibleIndex: any,
+  lastVisibleIndex: any,
+  setLeftIndicator: (isShow: boolean) => void,
+  setRightIndicator: (isShow: boolean) => void,
+) => {
+  const isRtl = document.documentElement.dir === "rtl";
+  const lastIndex = itemRefs.length - 1;
+  const isLastIndexShown = lastIndex === lastVisibleIndex;
+
+  if (isRtl) {
+    setLeftIndicator(!isLastIndexShown);
+    setRightIndicator(firstVisibleIndex > 0);
+    return;
+  }
+
+  setLeftIndicator(firstVisibleIndex > 0);
+  setRightIndicator(!isLastIndexShown);
 };
 
 export const withHorizontalScroll = (options: Options): any => {
@@ -178,7 +204,7 @@ export const withHorizontalScroll = (options: Options): any => {
   const [isDragging, setIsDragging] = React.useState(false);
   const containerRef = React.useRef(null);
 
-  const { scrollStep, scrollInContainer, scrollTo, isRtl } = options;
+  const { scrollStep, scrollInContainer, scrollTo } = options;
 
   const itemRefs: HTMLElement[] = [];
   let scrollIntoViewSmoothly: any = scrollIntoView;
