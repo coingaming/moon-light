@@ -87,36 +87,61 @@ const calculateActualScrollForIndex = (
 ) => {
   const isRtl = document.documentElement.dir === "rtl";
 
-  if (isRtl) {
-    if (toLeft) {
-      const lastVisibleIndex = findLastVisibleIndex(itemRefs);
-      const lastIndex = itemRefs.length - 1;
-      const actualScrollForIndex =
-        lastIndex - lastVisibleIndex < scrollStep
-          ? lastIndex
-          : lastVisibleIndex + scrollStep;
-
-      return actualScrollForIndex;
-    }
-    const firstVisibleIndex = findFirstVisibleIndex(itemRefs);
-    const actualScrollForIndex =
-      firstVisibleIndex < scrollStep ? 0 : firstVisibleIndex - scrollStep;
-
-    return actualScrollForIndex;
-  }
-
   if (toLeft) {
-    const firstVisibleIndex = findFirstVisibleIndex(itemRefs);
-    const actualScrollForIndex =
-      firstVisibleIndex < scrollStep ? 0 : firstVisibleIndex - scrollStep;
-    return actualScrollForIndex;
+    return calculateActualScrollForIndexForwardLeft(
+      itemRefs,
+      scrollStep,
+      isRtl,
+    );
   }
+
+  return calculateActualScrollForIndexForwardRight(itemRefs, scrollStep, isRtl);
+};
+
+const calculateActualScrollForIndexForwardLeft = (
+  itemRefs: HTMLElement[],
+  scrollStep: number,
+  isRtl: boolean,
+) => {
+  if (isRtl) {
+    return calculateActualScrollForIndexForward(itemRefs, scrollStep);
+  }
+  return calculateActualScrollForIndexBackward(itemRefs, scrollStep);
+};
+
+const calculateActualScrollForIndexForwardRight = (
+  itemRefs: HTMLElement[],
+  scrollStep: number,
+  isRtl: boolean,
+) => {
+  if (isRtl) {
+    return calculateActualScrollForIndexBackward(itemRefs, scrollStep);
+  }
+  return calculateActualScrollForIndexForward(itemRefs, scrollStep);
+};
+
+const calculateActualScrollForIndexForward = (
+  itemRefs: HTMLElement[],
+  scrollStep: number,
+) => {
   const lastVisibleIndex = findLastVisibleIndex(itemRefs);
   const lastIndex = itemRefs.length - 1;
   const actualScrollForIndex =
     lastIndex - lastVisibleIndex < scrollStep
       ? lastIndex
       : lastVisibleIndex + scrollStep;
+
+  return actualScrollForIndex;
+};
+
+const calculateActualScrollForIndexBackward = (
+  itemRefs: HTMLElement[],
+  scrollStep: number,
+) => {
+  const firstVisibleIndex = findFirstVisibleIndex(itemRefs);
+  const actualScrollForIndex =
+    firstVisibleIndex < scrollStep ? 0 : firstVisibleIndex - scrollStep;
+
   return actualScrollForIndex;
 };
 
