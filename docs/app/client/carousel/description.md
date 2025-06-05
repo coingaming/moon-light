@@ -2,16 +2,17 @@
 title: Carousel
 packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA"]
-examples: [
+examples:
+  [
     "Default",
-    # "CustomizedArrows",
-    # "Indicators",
-    # "Spaces",
-    # "VisibleIndices",
-    # "SelectIndex",
-    # "AutoSlide",
-    # "RTLSupport",
-    # "SwipeDragDisabled",
+    "CustomizedArrows",
+    "Indicators",
+    "Spaces",
+    "VisibleIndices",
+    "SelectIndex",
+    "AutoSlide",
+    "RTLSupport",
+    "SwipeDragDisabled",
   ]
 ---
 
