@@ -157,9 +157,9 @@ const showHideIndicator = (
   setFirstVisibleIndex(firstVisibleIndex);
   setLastVisibleIndex(lastVisibleIndex);
 
-  const visibileItemsLength = lastVisibleIndex - firstVisibleIndex + 1;
+  const visibleItemsLength = lastVisibleIndex - firstVisibleIndex + 1;
 
-  if (visibileItemsLength === itemRefs.length) {
+  if (visibleItemsLength === itemRefs.length) {
     setLeftIndicator(false);
     setRightIndicator(false);
     return;
