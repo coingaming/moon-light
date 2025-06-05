@@ -34,11 +34,10 @@ const scrollToIndex = async (
   isNotSmooth?: boolean,
 ) => {
   if (itemRef) {
-    await scrollIntoViewSmoothly(itemRef, {
+    itemRef.scrollIntoView({
       block: "nearest",
       inline: scrollStep === 1 ? "center" : "nearest",
       behavior: isNotSmooth ? undefined : "smooth",
-      boundary: containerRef,
     });
   }
 };
@@ -86,6 +85,26 @@ const calculateActualScrollForIndex = (
   scrollStep: number,
   toLeft: boolean,
 ) => {
+  const isRtl = document.documentElement.dir === "rtl";
+
+  if (isRtl) {
+    if (toLeft) {
+      const lastVisibleIndex = findLastVisibleIndex(itemRefs);
+      const lastIndex = itemRefs.length - 1;
+      const actualScrollForIndex =
+        lastIndex - lastVisibleIndex < scrollStep
+          ? lastIndex
+          : lastVisibleIndex + scrollStep;
+
+      return actualScrollForIndex;
+    }
+    const firstVisibleIndex = findFirstVisibleIndex(itemRefs);
+    const actualScrollForIndex =
+      firstVisibleIndex < scrollStep ? 0 : firstVisibleIndex - scrollStep;
+
+    return actualScrollForIndex;
+  }
+
   if (toLeft) {
     const firstVisibleIndex = findFirstVisibleIndex(itemRefs);
     const actualScrollForIndex =
@@ -115,10 +134,11 @@ const showHideIndicator = (
   lastVisibleIndex < itemRefs.length - 1
     ? setRightIndicator(true)
     : setRightIndicator(false);
-  firstVisibleIndex > 0 ? setLeftIndicator(true) : setLeftIndicator(false);
-  if (firstVisibleIndex === -1) {
-    itemRefs.length > 0 ? setLeftIndicator(true) : setLeftIndicator(false);
-  }
+  // firstVisibleIndex > 0 ? setLeftIndicator(true) : setLeftIndicator(false);
+  // if (firstVisibleIndex === -1) {
+  //   itemRefs.length > 0 ? setLeftIndicator(true) : setLeftIndicator(false);
+  // }
+  setLeftIndicator(true);
   if (lastVisibleIndex === -1) {
     itemRefs.length > 0 ? setRightIndicator(true) : setRightIndicator(false);
   }
@@ -191,23 +211,14 @@ export const withHorizontalScroll = (options: Options): any => {
   React.useEffect(() => {
     if (!itemRefs.length) return;
     setItemsCount(itemRefs.length);
-    if (isRtl) {
-      scrollToIndex(
-        itemRefs[itemRefs.length - 1],
-        scrollIntoViewSmoothly,
-        scrollInContainer && containerRef && containerRef.current,
-        undefined,
-        true,
-      );
-    }
   }, []);
 
   React.useEffect(() => {
     if (!scrollTo || !itemRefs.length) {
       return;
     }
-    const revertScrollTo = itemRefs.length - scrollTo - 1;
-    const currentScrollTo = isRtl ? revertScrollTo : scrollTo;
+    const currentScrollTo = scrollTo;
+
     // We scroll for another extra item because we defined our THRESHOLD = 0.75;
     // It means that item will be visible for 75%.
     // We scroll one more to guarantee 100% visibility.
