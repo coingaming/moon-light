@@ -9,7 +9,7 @@ import FileInputBaseProps from "./types/FileInputBaseProps";
 
 const FileInputBase = forwardRef<FileInputRef, FileInputBaseProps>(
   (props, ref) => {
-    const { id, accept = "*/*", children } = props;
+    const { id, accept = "*/*", children, disabled } = props;
 
     const {
       file,
@@ -30,12 +30,13 @@ const FileInputBase = forwardRef<FileInputRef, FileInputBaseProps>(
               "absolute w-full h-full top-0 start-0 cursor-pointer z-20 rounded-moon-i-sm hover:shadow-input-hov transition-shadow",
               hasErrors &&
                 "shadow-input-err hover:shadow-input-err focus:shadow-input-err focus-visible:shadow-input-err focus:outline-none",
+              disabled && "cursor-not-allowed hover:shadow-none ",
             )}
             tabIndex={0}
             onKeyDown={handleKeyDown}
           />
           {typeof children === "function" ? children(file) : children}
-          {!file && (
+          {!file && !disabled && (
             <GenericUpload className="absolute end-4 top-1/2 transform -translate-y-1/2 z-10 size-6" />
           )}
           {file && (
@@ -51,6 +52,7 @@ const FileInputBase = forwardRef<FileInputRef, FileInputBaseProps>(
             ref={inputFileRef}
             onChange={handleFileUpload}
             accept={accept}
+            disabled={disabled}
           />
         </div>
         <ul className="text-chichi">

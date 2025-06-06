@@ -2,15 +2,14 @@
 title: Input
 packageName: "@heathmont/moon-core-tw"
 tags: ["ARIA", "RTL"]
-examples:
-  [
-    "Default",
-    "WithLabelAndHint",
-    "Sizes",
-    "DifferentStates",
+examples: [
+    # "Default",
+    # "WithLabelAndHint",
+    # "Sizes",
+    # "DifferentStates",
     "TextInputTypes",
-    "ControllingAnInput",
-    "Customization",
+    # "ControllingAnInput",
+    # "Customization",
   ]
 ---
 
