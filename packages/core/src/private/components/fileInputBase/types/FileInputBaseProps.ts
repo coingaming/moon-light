@@ -9,6 +9,8 @@ type FileInputBaseProps = {
   initFile?: File;
   errorMessages?: Errors;
   id?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
 };
 
 export default FileInputBaseProps;
