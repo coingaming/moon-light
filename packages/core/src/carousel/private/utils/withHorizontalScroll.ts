@@ -37,7 +37,7 @@ const scrollToIndex = async (
     itemRef.scrollIntoView({
       block: "nearest",
       inline: scrollStep === 1 ? "center" : "nearest",
-      behavior: isNotSmooth ? undefined : "smooth",
+      behavior: isNotSmooth ? "auto" : "smooth",
     });
   }
 };
@@ -176,8 +176,8 @@ const showHideIndicator = (
 
 const showHideIndicatorRtlLtr = (
   itemRefs: HTMLElement[],
-  firstVisibleIndex: any,
-  lastVisibleIndex: any,
+  firstVisibleIndex: number,
+  lastVisibleIndex: number,
   setLeftIndicator: (isShow: boolean) => void,
   setRightIndicator: (isShow: boolean) => void,
 ) => {
