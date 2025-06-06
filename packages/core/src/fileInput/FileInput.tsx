@@ -17,6 +17,7 @@ const FileInput = memo(
       accept,
       maxFileSize,
       errorMessages,
+      readOnly,
       disabled,
       ...rest
     } = props;
@@ -31,6 +32,7 @@ const FileInput = memo(
         onFileRemove={onFileRemove}
         errorMessages={errorMessages}
         ref={ref}
+        readOnly={readOnly}
         disabled={disabled}
         aria-disabled={disabled}
       >

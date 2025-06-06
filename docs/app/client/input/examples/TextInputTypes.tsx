@@ -18,12 +18,12 @@ const TextInputTypes = () => {
       <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
         <div className="w-full">
           <Label>Number</Label>
-          <Input type="number" placeholder="e.g. 12345" disabled />
+          <Input type="number" placeholder="e.g. 12345" />
         </div>
 
         <div className="w-full">
           <Label>Date</Label>
-          <Input type="date" aria-label="Date" disabled />
+          <Input type="date" aria-label="Date" readOnly />
         </div>
         <div className="w-full">
           <Label htmlFor="time-type">Time</Label>
@@ -68,7 +68,7 @@ const TextInputTypes = () => {
             placeholder="Choose a file"
             accept=".jpg, .png, video/mp4, .pdf"
             maxFileSize={4000 * 1024}
-            disabled
+            readOnly
           />
           {file && <Hint>File uploaded: {file.name}</Hint>}
         </div>
