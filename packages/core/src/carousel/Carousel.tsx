@@ -114,14 +114,11 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
   const {
     containerRef,
     isSwipeDragDisabled,
-    isRtl,
     handleMouseDown,
     handleMouseUp,
     debounceMouseUp,
     isDragging,
   } = useCarouselContext("Carousel.Reel");
-  const arrayChildren = Children.toArray(children);
-  const revertChildren = arrayChildren.reverse();
   const debouncedMouseUp = debounceMouseUp ? debounceMouseUp() : null;
 
   return (
@@ -132,7 +129,7 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
         "[-ms-overflow-style:-ms-autohiding-scrollbar]",
         '[&>li]:list-none [&>li]:before:absolute [&>li]:before:content-["\\200B"]',
         "[&>*]:flex-[0_0_auto] [&>img]:h-full [&>img]:basis-auto [&>img]:w-auto",
-        "snap-x snap-mandatory rtl:flex-row-reverse",
+        "snap-x snap-mandatory justify-start",
         isSwipeDragDisabled && "overflow-x-hidden",
         className,
       )}
@@ -155,7 +152,7 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
       ref={containerRef}
       {...rest}
     >
-      {isRtl ? revertChildren : children}
+      {children}
     </ul>
   );
 };
