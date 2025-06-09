@@ -6,7 +6,7 @@ const useInterval = (
   isDragging?: boolean,
 ) => {
   const savedCallback = useRef<() => void>();
-  const intervalId = useRef<NodeJS.Timeout | undefined>();
+  const intervalId = useRef<number | undefined>();
 
   useEffect(() => {
     savedCallback.current = callback;
@@ -26,7 +26,7 @@ const useInterval = (
     }
 
     if (!isDragging && delay !== null) {
-      intervalId.current = setInterval(tick, delay);
+      intervalId.current = window.setInterval(tick, delay);
       return () => {
         clearInterval(intervalId.current);
         intervalId.current = undefined;
