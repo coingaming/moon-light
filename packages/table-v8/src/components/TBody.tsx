@@ -20,6 +20,8 @@ const TBody = ({
   textClip,
   withBorder,
   getOnRowClickHandler,
+  rowClassName,
+  cellClassName,
 }: TBodyProps) => {
   const isRowElementClicked = (event: unknown) =>
     ["TD", "DIV"].includes(
@@ -74,6 +76,7 @@ const TBody = ({
               rowIndex === 0 && "border-t-transparent",
               "border-r-transparent border-b-transparent border-l-transparent",
               "group/rows",
+              rowClassName,
             )}
             onClick={useRowSelection}
           >
@@ -102,6 +105,7 @@ const TBody = ({
                     "group-hover/rows:bg-[color:var(--rowHoverColor)] group-hover/rows:after:bg-[color:var(--rowHoverColor)]",
                   rowActiveColor &&
                     "group-active/rows:bg-[color:var(--rowActiveColor)] group-active/rows:after:bg-[color:var(--rowActiveColor)]",
+                  cellClassName,
                 )}
                 isFirstColumn={cellIndex === 0}
                 isLastColumn={cellIndex === lastIndex}

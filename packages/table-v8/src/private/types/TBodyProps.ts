@@ -20,6 +20,8 @@ type TBodyProps = {
   textClip?: ClipProps;
   withBorder?: CellBorderType;
   getOnRowClickHandler?: (row: Row<{}>) => () => void | (() => void);
+  rowClassName?: string;
+  cellClassName?: string;
 };
 
 export default TBodyProps;

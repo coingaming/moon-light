@@ -55,6 +55,8 @@ const Table: React.FC<TableProps> = ({
   onSortingChange,
   onColumnVisibilityChange,
   getRowId,
+  rowClassName,
+  cellClassName,
 }) => {
   const [columnResizeMode] = React.useState<ColumnResizeMode>("onChange");
 
@@ -166,6 +168,8 @@ const Table: React.FC<TableProps> = ({
           textClip={textClip}
           withBorder={withCellBorder}
           getOnRowClickHandler={getOnRowClickHandler}
+          rowClassName={rowClassName}
+          cellClassName={cellClassName}
         />
         {withFooter && (
           <TFoot
