@@ -55,8 +55,7 @@ const Table: React.FC<TableProps> = ({
   onSortingChange,
   onColumnVisibilityChange,
   getRowId,
-  rowClassName,
-  cellClassName,
+  className,
 }) => {
   const [columnResizeMode] = React.useState<ColumnResizeMode>("onChange");
 
@@ -140,6 +139,7 @@ const Table: React.FC<TableProps> = ({
         style={tableStyles}
         className={mergeClassnames(
           "border-separate bg-[color:var(--tableBGColor)]",
+          className,
         )}
       >
         <THead
@@ -168,8 +168,6 @@ const Table: React.FC<TableProps> = ({
           textClip={textClip}
           withBorder={withCellBorder}
           getOnRowClickHandler={getOnRowClickHandler}
-          rowClassName={rowClassName}
-          cellClassName={cellClassName}
         />
         {withFooter && (
           <TFoot
