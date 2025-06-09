@@ -26,7 +26,7 @@ const useInterval = (
     }
 
     if (!isDragging && delay !== null) {
-      intervalId.current = window.setInterval(tick, delay);
+      intervalId.current = setInterval(tick, delay);
       return () => {
         clearInterval(intervalId.current);
         intervalId.current = undefined;

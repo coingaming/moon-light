@@ -17,7 +17,7 @@ export const useCopyText = (): CellCopyTextOutputType => {
       clearTimeout(timeoutTooltip.current);
     }
 
-    timeoutTooltip.current = window.setTimeout(
+    timeoutTooltip.current = setTimeout(
       () => setWasCopiedSuccess(false),
       TOOLTIP_TIME_OUT,
     );

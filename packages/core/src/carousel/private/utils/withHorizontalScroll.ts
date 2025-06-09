@@ -245,7 +245,7 @@ export const withHorizontalScroll = (options: Options): any => {
     let timer: number;
     return (...args: any) => {
       clearTimeout(timer);
-      timer = window.setTimeout(() => {
+      timer = setTimeout(() => {
         fallback(...args);
       }, delay);
     };
