@@ -242,7 +242,7 @@ export const withHorizontalScroll = (options: Options): any => {
   };
 
   const debounce = (fallback: (...args: any) => void, delay: number) => {
-    let timer: number;
+    let timer: NodeJS.Timeout;
     return (...args: any) => {
       clearTimeout(timer);
       timer = setTimeout(() => {
