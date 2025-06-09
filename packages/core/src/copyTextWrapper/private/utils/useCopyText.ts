@@ -6,7 +6,7 @@ const TOOLTIP_TIME_OUT = 700;
 export const useCopyText = (): CellCopyTextOutputType => {
   const [wasCopiedSuccess, setWasCopiedSuccess] = useState<boolean>(false);
   const textRef = useRef<HTMLDivElement>(null);
-  const timeoutTooltip = useRef<number | null>(null);
+  const timeoutTooltip = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (!wasCopiedSuccess) {
