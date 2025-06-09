@@ -48,6 +48,7 @@ type TableProps<D extends DataHelper = DataHelper> = {
   onSortingChange?: OnChangeFn<SortingState>;
   onColumnVisibilityChange?: OnChangeFn<VisibilityState>;
   getRowId?: (row: DataHelper) => string;
+  className?: string;
 };
 
 export default TableProps;

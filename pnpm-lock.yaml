@@ -46,7 +46,7 @@ importers:
         specifier: ^9.29.6
         version: 9.30.0(react-dom@18.3.1)(react@18.3.1)
       '@heathmont/moon-table-v8-tw':
-        specifier: workspace:^10.20.0
+        specifier: workspace:^10.22.5
         version: link:../packages/table-v8
       '@heathmont/moon-themes-tw':
         specifier: workspace:^10.18.1
