@@ -2,4 +2,4 @@
 "@heathmont/moon-table-v8-tw": patch
 ---
 
-fix: Add row & cell classname props [MDS-1842]
+fix: Add table classname prop [MDS-1842]
