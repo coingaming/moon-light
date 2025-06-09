@@ -1,7 +1,7 @@
 {
   "name": "@heathmont/moon-table-v8-tw",
   "sideEffects": false,
-  "version": "10.22.5",
+  "version": "10.22.6",
   "files": [
     "lib"
   ],
