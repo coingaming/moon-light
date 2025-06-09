@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.22.6
+
+### Patch Changes
+
+- fa97288: fix: Add table classname prop [MDS-1842]
+
 ## 10.22.5
 
 ### Patch Changes
