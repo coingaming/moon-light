@@ -18,7 +18,7 @@ export const Header = () => {
   }, [setIsOpen]);
   return (
     <>
-      <header className="sticky flex top-0 z-50 py-4 lg:p-0 lg:h-[72px] justify-between items-center border-b border-beerus bg-goku text-bulma">
+      <header className="sticky flex top-8 z-50 py-4 lg:p-0 lg:h-[72px] justify-between items-center border-b border-beerus bg-goku text-bulma">
         <div className="w-72 flex items-center lg:border-e lg:border-beerus h-full lg:ps-6 ps-5">
           <Link href="/" aria-label="Home page">
             <Logo />
