@@ -68,7 +68,6 @@ const TextInputTypes = () => {
             placeholder="Choose a file"
             accept=".jpg, .png, video/mp4, .pdf"
             maxFileSize={4000 * 1024}
-            readOnly
           />
           {file && <Hint>File uploaded: {file.name}</Hint>}
         </div>
