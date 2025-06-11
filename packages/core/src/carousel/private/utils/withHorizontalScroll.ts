@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import scrollIntoView from "scroll-into-view-if-needed";
 import smoothScrollIntoView from "smooth-scroll-into-view-if-needed";
 
@@ -47,11 +47,13 @@ const scrollLeftToStep = (
   itemRefs: HTMLElement[],
   scrollIntoViewSmoothly: any,
   containerRef?: any,
+  isRtl = false,
 ) => {
   const actualScrollForIndex = calculateActualScrollForIndex(
     itemRefs,
     scrollStep,
     true,
+    isRtl,
   );
   scrollToIndex(
     itemRefs[actualScrollForIndex],
@@ -66,11 +68,13 @@ const scrollRightToStep = (
   itemRefs: HTMLElement[],
   scrollIntoViewSmoothly: any,
   containerRef?: any,
+  isRtl = false,
 ) => {
   const actualScrollForIndex = calculateActualScrollForIndex(
     itemRefs,
     scrollStep,
     false,
+    isRtl,
   );
   scrollToIndex(
     itemRefs[actualScrollForIndex],
@@ -84,9 +88,8 @@ const calculateActualScrollForIndex = (
   itemRefs: HTMLElement[],
   scrollStep: number,
   toLeft: boolean,
+  isRtl = false,
 ) => {
-  const isRtl = document.documentElement.dir === "rtl";
-
   if (toLeft) {
     return calculateActualScrollForIndexForwardLeft(
       itemRefs,
@@ -151,6 +154,7 @@ const showHideIndicator = (
   setRightIndicator: (isShow: boolean) => void,
   setFirstVisibleIndex: (index: number) => void,
   setLastVisibleIndex: (index: number) => void,
+  isRtl = false,
 ) => {
   const firstVisibleIndex = findFirstVisibleIndex(itemRefs);
   const lastVisibleIndex = findLastVisibleIndex(itemRefs);
@@ -171,6 +175,7 @@ const showHideIndicator = (
     lastVisibleIndex,
     setLeftIndicator,
     setRightIndicator,
+    isRtl,
   );
 };
 
@@ -180,8 +185,8 @@ const showHideIndicatorRtlLtr = (
   lastVisibleIndex: number,
   setLeftIndicator: (isShow: boolean) => void,
   setRightIndicator: (isShow: boolean) => void,
+  isRtl = false,
 ) => {
-  const isRtl = document.documentElement.dir === "rtl";
   const lastIndex = itemRefs.length - 1;
   const isLastIndexShown = lastIndex === lastVisibleIndex;
 
@@ -208,6 +213,7 @@ export const withHorizontalScroll = (options: Options): any => {
 
   const itemRefs: HTMLElement[] = [];
   let scrollIntoViewSmoothly: any = scrollIntoView;
+  const isRtl = document.documentElement.dir === "rtl";
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -222,6 +228,7 @@ export const withHorizontalScroll = (options: Options): any => {
             setRightIndicator,
             setFirstVisibleIndex,
             setLastVisibleIndex,
+            isRtl,
           );
         });
       },
@@ -332,6 +339,7 @@ export const withHorizontalScroll = (options: Options): any => {
         itemRefs,
         scrollIntoViewSmoothly,
         scrollInContainer && containerRef && containerRef.current,
+        isRtl,
       ),
     scrollRightToStep: () =>
       scrollRightToStep(
@@ -339,6 +347,7 @@ export const withHorizontalScroll = (options: Options): any => {
         itemRefs,
         scrollIntoViewSmoothly,
         scrollInContainer && containerRef && containerRef.current,
+        isRtl,
       ),
     scrollToIndex: (index: number) =>
       scrollToIndex(
