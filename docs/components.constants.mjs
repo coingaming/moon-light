@@ -215,7 +215,15 @@ const COMPONENTS = {
     title: "Input",
     packageName: "@heathmont/moon-core-tw",
     tags: ["ARIA", "RTL"],
-    examples: ["TextInputTypes"],
+    examples: [
+      "Default",
+      "WithLabelAndHint",
+      "Sizes",
+      "DifferentStates",
+      "TextInputTypes",
+      "ControllingAnInput",
+      "Customization",
+    ],
   },
   insetInput: {
     title: "InsetInput",
