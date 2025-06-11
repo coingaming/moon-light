@@ -23,7 +23,7 @@ const TextInputTypes = () => {
 
         <div className="w-full">
           <Label>Date</Label>
-          <Input type="date" aria-label="Date" readOnly />
+          <Input type="date" aria-label="Date" />
         </div>
         <div className="w-full">
           <Label htmlFor="time-type">Time</Label>
@@ -33,7 +33,7 @@ const TextInputTypes = () => {
       <div className="flex flex-col lg:flex-row justify-around items-end w-full gap-2">
         <div className="w-full">
           <Label htmlFor="datetimelocal-type">Datetime local</Label>
-          <Input type="datetime-local" id="datetimelocal-type" disabled />
+          <Input type="datetime-local" id="datetimelocal-type" />
         </div>
         <div className="w-full">
           <Label>Email</Label>
