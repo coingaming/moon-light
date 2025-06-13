@@ -33,11 +33,32 @@ const scrollToIndex = async (
   scrollStep?: number,
   isNotSmooth?: boolean,
 ) => {
-  if (itemRef) {
-    itemRef.scrollIntoView({
-      block: "nearest",
-      inline: scrollStep === 1 ? "center" : "nearest",
-      behavior: isNotSmooth ? "auto" : "smooth",
+  console.log("in here oe scrolltoIndex", {
+    itemRef,
+    scrollStep,
+    containerRef,
+    itemRefOffsetLeft: itemRef.offsetLeft,
+  });
+  // if (itemRef) {
+  //   // itemRef.scrollIntoView({
+  //   //   block: "nearest",
+  //   //   inline: scrollStep === 1 ? "center" : "nearest",
+  //   //   behavior: isNotSmooth ? "auto" : "smooth",
+  //   // });
+  //   itemRef.scrollTo({
+  //     // block: "nearest",
+  //     top: 0,
+  //     left: 5000,
+  //     // inline: scrollStep === 1 ? "center" : "nearest",
+  //     behavior: "smooth",
+  //   });
+  // }
+
+  if (containerRef) {
+    containerRef.scrollTo({
+      top: 0,
+      left: itemRef.offsetLeft,
+      behavior: "smooth",
     });
   }
 };
@@ -275,7 +296,7 @@ export const withHorizontalScroll = (options: Options): any => {
     if (!scrollTo || !itemRefs.length) {
       return;
     }
-    const currentScrollTo = scrollTo;
+    const currentScrollTo = scrollTo - 1;
 
     // We scroll for another extra item because we defined our THRESHOLD = 0.75;
     // It means that item will be visible for 75%.
@@ -283,9 +304,9 @@ export const withHorizontalScroll = (options: Options): any => {
     // "items.length - 1" because indices start from 0.
     if (currentScrollTo && currentScrollTo < itemRefs.length - 1) {
       scrollToIndex(
-        itemRefs[currentScrollTo + 1],
+        itemRefs[currentScrollTo],
         scrollIntoViewSmoothly,
-        scrollInContainer && containerRef && containerRef.current,
+        containerRef.current,
         undefined,
         false,
       );
@@ -295,7 +316,7 @@ export const withHorizontalScroll = (options: Options): any => {
       scrollToIndex(
         itemRefs[currentScrollTo],
         scrollIntoViewSmoothly,
-        scrollInContainer && containerRef && containerRef.current,
+        containerRef.current,
         undefined,
         false,
       );
@@ -338,7 +359,7 @@ export const withHorizontalScroll = (options: Options): any => {
         scrollStep || 0,
         itemRefs,
         scrollIntoViewSmoothly,
-        scrollInContainer && containerRef && containerRef.current,
+        containerRef.current,
         isRtl,
       ),
     scrollRightToStep: () =>
@@ -346,14 +367,14 @@ export const withHorizontalScroll = (options: Options): any => {
         scrollStep || 0,
         itemRefs,
         scrollIntoViewSmoothly,
-        scrollInContainer && containerRef && containerRef.current,
+        containerRef.current,
         isRtl,
       ),
     scrollToIndex: (index: number) =>
       scrollToIndex(
         itemRefs[index],
         scrollIntoViewSmoothly,
-        scrollInContainer && containerRef && containerRef.current,
+        containerRef.current,
       ),
     canScrollLeft: leftIndicator,
     canScrollRight: rightIndicator,
@@ -364,6 +385,7 @@ export const withHorizontalScroll = (options: Options): any => {
     handleMouseUp,
     debounceMouseDown,
     debounceMouseUp,
+    isRtl,
   };
 };
 

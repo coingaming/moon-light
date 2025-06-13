@@ -38,7 +38,7 @@ const CarouselRoot = ({
     debounceMouseUp,
   } = withHorizontalScroll({
     scrollStep: step || 5,
-    scrollTo: scrollTo,
+    scrollTo,
     scrollInContainer: true,
     isRtl,
   });
