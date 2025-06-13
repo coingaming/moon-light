@@ -16,7 +16,6 @@ const CarouselRoot = ({
   selectedIndex,
   autoSlideDelay,
   isSwipeDragDisabled,
-  isRtl,
   ...rest
 }: CarouselRootProps) => {
   const {
@@ -36,11 +35,11 @@ const CarouselRoot = ({
     handleMouseUp,
     debounceMouseDown,
     debounceMouseUp,
+    isRtl,
   } = withHorizontalScroll({
     scrollStep: step || 5,
     scrollTo,
     scrollInContainer: true,
-    isRtl,
   });
 
   useInterval(
