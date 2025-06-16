@@ -187,7 +187,11 @@ export const withHorizontalScroll = (options: Options): any => {
   const { scrollStep, scrollTo } = options;
 
   const itemRefs: HTMLElement[] = [];
-  const isRtl = document.documentElement.dir === "rtl";
+  let isRtl = false;
+
+  if (typeof document !== "undefined") {
+    isRtl = document.documentElement.dir === "rtl";
+  }
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
