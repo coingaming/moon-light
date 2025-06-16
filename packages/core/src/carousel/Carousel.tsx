@@ -69,9 +69,9 @@ const CarouselRoot = (props: CarouselRootProps) => {
 
   useEffect(() => {
     if (selectedIndex !== undefined) {
-      scrollToIndex(isRtl ? itemsCount - selectedIndex - 1 : selectedIndex);
+      scrollToIndex(selectedIndex);
     }
-  }, [selectedIndex, isRtl, itemsCount]);
+  }, [selectedIndex]);
 
   return (
     <CarouselContext.Provider
@@ -238,7 +238,7 @@ const Indicators = ({ className, ...rest }: SubcomponentProps) => {
   return (
     <div
       className={mergeClassnames(
-        "flex absolute bottom-8 left-1/2 -translate-x-1/2 rtl:flex-row-reverse",
+        "flex absolute bottom-8 left-1/2 -translate-x-1/2",
         className,
       )}
       {...rest}
