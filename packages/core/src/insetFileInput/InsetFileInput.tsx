@@ -16,6 +16,8 @@ const InsetFileInput = memo(
       errorMessages,
       label = "Choose a file",
       placeholder = "No file chosen",
+      readOnly,
+      disabled,
       ...rest
     } = props;
 
@@ -37,6 +39,9 @@ const InsetFileInput = memo(
         onFileRemove={fileRemoveHandler}
         errorMessages={errorMessages}
         ref={ref}
+        readOnly={readOnly}
+        disabled={disabled}
+        aria-disabled={disabled}
       >
         {(file: File | undefined) => (
           <InsetInput
