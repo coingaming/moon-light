@@ -184,13 +184,13 @@ export const withHorizontalScroll = (options: Options): any => {
   const [isDragging, setIsDragging] = React.useState(false);
   const containerRef = React.useRef(null);
 
-  const { scrollStep, scrollTo } = options;
+  const { scrollStep, scrollTo, isRtl: isRtlProp } = options;
 
   const itemRefs: HTMLElement[] = [];
-  let isRtl = false;
+  let isRtl = isRtlProp ?? false;
 
   if (typeof document !== "undefined") {
-    isRtl = document.documentElement.dir === "rtl";
+    isRtl = isRtlProp ?? document.documentElement.dir === "rtl";
   }
 
   React.useEffect(() => {

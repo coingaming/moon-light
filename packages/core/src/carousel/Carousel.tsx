@@ -8,16 +8,19 @@ import withHorizontalScroll from "./private/utils/withHorizontalScroll";
 import IconButton from "../iconButton/IconButton";
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
-const CarouselRoot = ({
-  children,
-  scrollTo,
-  className,
-  step,
-  selectedIndex,
-  autoSlideDelay,
-  isSwipeDragDisabled,
-  ...rest
-}: CarouselRootProps) => {
+const CarouselRoot = (props: CarouselRootProps) => {
+  const {
+    children,
+    scrollTo,
+    className,
+    step,
+    selectedIndex,
+    autoSlideDelay,
+    isSwipeDragDisabled,
+    isRtl: isRtlProp,
+    ...rest
+  } = props;
+
   const {
     itemRef,
     scrollLeftToStep,
@@ -40,6 +43,7 @@ const CarouselRoot = ({
     scrollStep: step || 5,
     scrollTo,
     scrollInContainer: true,
+    isRtl: isRtlProp,
   });
 
   useInterval(
