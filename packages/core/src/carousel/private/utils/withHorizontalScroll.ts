@@ -189,8 +189,9 @@ export const withHorizontalScroll = (options: Options): any => {
   const itemRefs: HTMLElement[] = [];
   let isRtl = isRtlProp ?? false;
 
-  if (typeof document !== "undefined") {
-    isRtl = isRtlProp ?? document.documentElement.dir === "rtl";
+  if (typeof document !== "undefined" && containerRef.current !== null) {
+    const computedDirection = getComputedStyle(containerRef.current).direction;
+    isRtl = isRtlProp ?? computedDirection === "rtl";
   }
 
   React.useEffect(() => {
