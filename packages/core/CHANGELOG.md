@@ -1,5 +1,12 @@
 # @heathmont/moon-core-tw
 
+## 10.24.12
+
+### Patch Changes
+
+- db66472: fix: Carousel arrows & content alignment on rtl scenario [MDS-1673]
+- 7880ea4: fix: disable & read only functionality [MDS-1601]
+
 ## 10.24.11
 
 ### Patch Changes
