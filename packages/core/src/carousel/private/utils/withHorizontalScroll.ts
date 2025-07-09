@@ -179,6 +179,18 @@ const showHideIndicatorRtlLtr = (
   setRightIndicator(!isLastIndexShown);
 };
 
+const isComputedRtl = (
+  containerRef: React.MutableRefObject<null>,
+  isRtlProp?: boolean,
+) => {
+  if (!containerRef.current) {
+    return isRtlProp ?? false;
+  }
+
+  const computedDirection = getComputedStyle(containerRef.current).direction;
+  return isRtlProp ?? computedDirection === "rtl";
+};
+
 export const withHorizontalScroll = (options: Options): any => {
   const [leftIndicator, setLeftIndicator] = React.useState(false);
   const [rightIndicator, setRightIndicator] = React.useState(false);
@@ -193,9 +205,8 @@ export const withHorizontalScroll = (options: Options): any => {
   const itemRefs: HTMLElement[] = [];
   let isRtl = isRtlProp ?? false;
 
-  if (typeof document !== "undefined" && containerRef.current !== null) {
-    const computedDirection = getComputedStyle(containerRef.current).direction;
-    isRtl = isRtlProp ?? computedDirection === "rtl";
+  if (typeof document !== "undefined") {
+    isRtl = isComputedRtl(containerRef, isRtlProp);
   }
 
   React.useEffect(() => {
@@ -206,12 +217,7 @@ export const withHorizontalScroll = (options: Options): any => {
             ? entry.target.setAttribute("visible", "true")
             : entry.target.removeAttribute("visible");
 
-          if (containerRef.current !== null) {
-            const computedDirection = getComputedStyle(
-              containerRef.current,
-            ).direction;
-            isRtl = isRtlProp ?? computedDirection === "rtl";
-          }
+          isRtl = isComputedRtl(containerRef, isRtlProp);
 
           showHideIndicator(
             itemRefs,
