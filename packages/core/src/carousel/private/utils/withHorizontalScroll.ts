@@ -25,9 +25,13 @@ const findFirstVisibleIndex = (childRefs: any[]): any => {
 
 const scrollToIndex = async (itemRef: HTMLElement, containerRef?: any) => {
   if (containerRef && itemRef) {
+    const scrollPosition =
+      itemRef.offsetLeft -
+      containerRef.clientWidth / 2 +
+      itemRef.clientWidth / 2;
     containerRef.scrollTo({
       top: 0,
-      left: itemRef.offsetLeft,
+      left: scrollPosition,
       behavior: "smooth",
     });
   }
@@ -201,6 +205,14 @@ export const withHorizontalScroll = (options: Options): any => {
           entry.intersectionRatio >= THRESHOLD
             ? entry.target.setAttribute("visible", "true")
             : entry.target.removeAttribute("visible");
+
+          if (containerRef.current !== null) {
+            const computedDirection = getComputedStyle(
+              containerRef.current,
+            ).direction;
+            isRtl = isRtlProp ?? computedDirection === "rtl";
+          }
+
           showHideIndicator(
             itemRefs,
             setLeftIndicator,
