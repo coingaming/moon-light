@@ -1,5 +1,11 @@
 # @heathmont/moon-core-tw
 
+## 10.24.13
+
+### Patch Changes
+
+- 6b7f6ab: fix: canScrollLeft & canScrollRight for both LTR & RTL in carousel [MDS-1673]
+
 ## 10.24.12
 
 ### Patch Changes

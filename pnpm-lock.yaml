@@ -40,7 +40,7 @@ importers:
         specifier: workspace:^10.17.3
         version: link:../packages/cmdk
       '@heathmont/moon-core-tw':
-        specifier: workspace:^10.24.12
+        specifier: workspace:^10.24.13
         version: link:../packages/core
       '@heathmont/moon-icons-tw':
         specifier: ^9.29.6
