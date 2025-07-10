@@ -182,7 +182,7 @@ const showHideIndicatorRtlLtr = (
 const isComputedRtl = (
   containerRef: React.MutableRefObject<null>,
   isRtlProp?: boolean,
-) => {
+): boolean => {
   if (isRtlProp !== undefined) {
     return isRtlProp;
   }
