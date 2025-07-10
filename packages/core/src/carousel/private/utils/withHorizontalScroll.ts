@@ -183,8 +183,12 @@ const isComputedRtl = (
   containerRef: React.MutableRefObject<null>,
   isRtlProp?: boolean,
 ) => {
+  if (isRtlProp !== undefined) {
+    return isRtlProp;
+  }
+
   if (!containerRef.current) {
-    return isRtlProp ?? false;
+    return false;
   }
 
   const computedDirection = getComputedStyle(containerRef.current).direction;
