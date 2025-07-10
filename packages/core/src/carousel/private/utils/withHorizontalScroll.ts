@@ -25,9 +25,13 @@ const findFirstVisibleIndex = (childRefs: any[]): any => {
 
 const scrollToIndex = async (itemRef: HTMLElement, containerRef?: any) => {
   if (containerRef && itemRef) {
+    const scrollPosition =
+      itemRef.offsetLeft -
+      containerRef.clientWidth / 2 +
+      itemRef.clientWidth / 2;
     containerRef.scrollTo({
       top: 0,
-      left: itemRef.offsetLeft,
+      left: scrollPosition,
       behavior: "smooth",
     });
   }
@@ -175,6 +179,22 @@ const showHideIndicatorRtlLtr = (
   setRightIndicator(!isLastIndexShown);
 };
 
+const isComputedRtl = (
+  containerRef: React.MutableRefObject<null>,
+  isRtlProp?: boolean,
+): boolean => {
+  if (isRtlProp !== undefined) {
+    return isRtlProp;
+  }
+
+  if (!containerRef.current) {
+    return false;
+  }
+
+  const computedDirection = getComputedStyle(containerRef.current).direction;
+  return isRtlProp ?? computedDirection === "rtl";
+};
+
 export const withHorizontalScroll = (options: Options): any => {
   const [leftIndicator, setLeftIndicator] = React.useState(false);
   const [rightIndicator, setRightIndicator] = React.useState(false);
@@ -189,9 +209,8 @@ export const withHorizontalScroll = (options: Options): any => {
   const itemRefs: HTMLElement[] = [];
   let isRtl = isRtlProp ?? false;
 
-  if (typeof document !== "undefined" && containerRef.current !== null) {
-    const computedDirection = getComputedStyle(containerRef.current).direction;
-    isRtl = isRtlProp ?? computedDirection === "rtl";
+  if (typeof document !== "undefined") {
+    isRtl = isComputedRtl(containerRef, isRtlProp);
   }
 
   React.useEffect(() => {
@@ -201,6 +220,9 @@ export const withHorizontalScroll = (options: Options): any => {
           entry.intersectionRatio >= THRESHOLD
             ? entry.target.setAttribute("visible", "true")
             : entry.target.removeAttribute("visible");
+
+          isRtl = isComputedRtl(containerRef, isRtlProp);
+
           showHideIndicator(
             itemRefs,
             setLeftIndicator,
