@@ -2,6 +2,7 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import Footer from "@/components/footer/Footer";
 import ProductSidebar from "../productSidebar/ProductSidebar";
 import { Header } from "../header/Header";
+import BetaBanner from "../betaBanner/BetaBanner";
 import type MainLayoutProps from "./types/MainLayoutProps";
 
 const MainLayout = ({
@@ -14,8 +15,9 @@ const MainLayout = ({
     children
   ) : (
     <>
+      <BetaBanner />
       <Header />
-      <aside className="hidden lg:block lg:fixed h-[calc(100vh-72px)]">
+      <aside className="hidden lg:block lg:fixed h-[calc(100vh-104px)]">
         <Sidebar />
       </aside>
       <main className="box-content min-h-screen lg:ms-72 xl:me-64 bg-goku text-bulma flex-1 flex flex-col p-5 lg:p-6">
