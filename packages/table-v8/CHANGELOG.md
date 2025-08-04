@@ -1,5 +1,11 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.22.7
+
+### Patch Changes
+
+- fix: allow className for rows [MDS-1914]
+
 ## 10.22.6
 
 ### Patch Changes
