@@ -22,4 +22,9 @@ type TBodyProps = {
   getOnRowClickHandler?: (row: Row<{}>) => () => void | (() => void);
 };
 
+export type RowArbitraryData = {
+  rowClassName?: string;
+  [key: string]: unknown;
+};
+
 export default TBodyProps;
