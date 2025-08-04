@@ -8,14 +8,14 @@ import { RowArbitraryData } from "../private/types/TBodyProps";
 const getBackgroundRowClass = (
   isSelected: boolean,
   isEvenRow: boolean,
-  customBackground: string | undefined,
+  customBackgroundClass: string | undefined,
 ): string => {
   if (isSelected) {
     return "group/rows bg-[color:var(--rowSelectColor)] group/rows after:bg-[color:var(--rowSelectColor)]";
   }
 
-  if (customBackground) {
-    return customBackground;
+  if (customBackgroundClass) {
+    return customBackgroundClass;
   }
 
   return isEvenRow
