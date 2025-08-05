@@ -3,6 +3,25 @@ import { mergeClassnames } from "@heathmont/moon-core-tw";
 import TD from "./TD";
 import type TBodyProps from "../private/types/TBodyProps";
 import type { Row } from "../private/types";
+import { RowArbitraryData } from "../private/types/TBodyProps";
+
+const getBackgroundRowClass = (
+  isSelected: boolean,
+  isEvenRow: boolean,
+  customBackgroundClass: string | undefined,
+): string => {
+  if (isSelected) {
+    return "group/rows bg-[color:var(--rowSelectColor)] group/rows after:bg-[color:var(--rowSelectColor)]";
+  }
+
+  if (customBackgroundClass) {
+    return customBackgroundClass;
+  }
+
+  return isEvenRow
+    ? "group/rows bg-[color:var(--rowEvenColor)] group/rows after:bg-[color:var(--rowEvenColor)]"
+    : "group/rows bg-[color:var(--rowOddColor)] group/rows after:bg-[color:var(--rowOddColor)]";
+};
 
 const TBody = ({
   table,
@@ -47,6 +66,7 @@ const TBody = ({
   return (
     <tbody>
       {table.getRowModel().rows.map((row, rowIndex) => {
+        const rowData: RowArbitraryData = row.original;
         const cells = row.getVisibleCells();
         const lastIndex = cells.length - 1;
         const isEvenRow = rowIndex % 2 === 0;
@@ -90,14 +110,11 @@ const TBody = ({
                   isSelectable &&
                     !preventSelectionByRowClick &&
                     "cursor-pointer",
-                  isRowSelected &&
-                    "group/rows bg-[color:var(--rowSelectColor)] group/rows after:bg-[color:var(--rowSelectColor)]",
-                  !isRowSelected &&
-                    isEvenRow &&
-                    "group/rows bg-[color:var(--rowEvenColor)] group/rows after:bg-[color:var(--rowEvenColor)]",
-                  !isRowSelected &&
-                    !isEvenRow &&
-                    "group/rows bg-[color:var(--rowOddColor)] group/rows after:bg-[color:var(--rowOddColor)]",
+                  getBackgroundRowClass(
+                    isRowSelected,
+                    isEvenRow,
+                    rowData?.rowClassName,
+                  ),
                   rowHoverColor &&
                     "group-hover/rows:bg-[color:var(--rowHoverColor)] group-hover/rows:after:bg-[color:var(--rowHoverColor)]",
                   rowActiveColor &&
