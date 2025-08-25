@@ -2,8 +2,7 @@
 title: Table
 packageName: "@heathmont/moon-table-v8-tw"
 tags: ["ARIA", "RTL"]
-examples:
-  [
+examples: [
     "Default",
     "RowGaps",
     "RowSizes",
@@ -11,7 +10,7 @@ examples:
     "Clickable",
     "ExpandableWithPreset",
     "SelectableWithPreset",
-    "CheckboxesWithPreset",
+    # "CheckboxesWithPreset",
     "ExpandableCheckboxes",
     "Minimap",
     "WithSorting",
