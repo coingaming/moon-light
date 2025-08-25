@@ -368,7 +368,7 @@ const COMPONENTS = {
       "Clickable",
       "ExpandableWithPreset",
       "SelectableWithPreset",
-      "CheckboxesWithPreset",
+      // "CheckboxesWithPreset",
       "ExpandableCheckboxes",
       "Minimap",
       "WithSorting",
