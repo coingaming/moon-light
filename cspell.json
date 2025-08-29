@@ -20,7 +20,6 @@
     ".git",
     "node_modules",
     "docs/generated/changelog.ts",
-    "docs/public/stories/**",
     ".config/aws-task-definition.json",
     ".config/Dockerfile",
     ".gitignore",

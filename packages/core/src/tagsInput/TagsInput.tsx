@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import { Listbox } from "@headlessui/react";
 import SelectedItemProps from "./private/types/SelectedItemProps";
 import { TagsInputRootProps } from "./private/types/TagsInputRootProps";
@@ -9,6 +9,15 @@ import {
   useTagsInputContext,
 } from "./private/utils/useTagsInputContext";
 import { Input as NativeInput, SelectButton, mergeClassnames } from "../index";
+import {
+  ARROW_KEYS,
+  ArrowKeysType,
+  KEYS,
+} from "./private/types/navigationTagsTypes";
+import {
+  NO_FOCUS_TAG,
+  useNavigationTags,
+} from "./private/utils/useNavigationTags";
 
 const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
   (
@@ -25,11 +34,21 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
       onEnter,
       onClear,
       isUppercase,
+      id = "",
     },
     ref,
   ) => {
+    const inputRef = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
     const [isInvalid, setIsInvalid] = useState(false);
+    const [inputValue, setInputValue] = useState<string>("");
+    const { onKeyDownNavigationTags, selectedTagIndex, setSelectedTagIndex } =
+      useNavigationTags(selected.length);
+
+    const selectTagOnClick = (newIndex: number) => {
+      setSelectedTagIndex(newIndex);
+      inputRef.current?.focus();
+    };
 
     const states = {
       isUppercase,
@@ -38,6 +57,8 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
       disabled: disabled,
       isError: isError || isInvalid,
       onClear: onClear,
+      selectedTagIndex,
+      selectTagOnClick,
     };
 
     const checkValidity = (event: React.FormEvent<HTMLInputElement>) => {
@@ -63,11 +84,82 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
       );
     };
 
+    const clearTags = (keyCode: KEYS, value: string) => {
+      if (
+        keyCode !== KEYS.BACKSPACE ||
+        value.length ||
+        !selected.length ||
+        !onClear
+      ) {
+        return;
+      }
+
+      if (selectedTagIndex !== NO_FOCUS_TAG) {
+        onClear(selectedTagIndex);
+        setSelectedTagIndex(NO_FOCUS_TAG);
+        return;
+      }
+
+      setSelectedTagIndex(selected.length - 1);
+    };
+
+    const addTag = (keyCode: KEYS, value: string) => {
+      if (keyCode !== KEYS.ENTER || isInvalid || !value.length || !onEnter) {
+        return;
+      }
+
+      onEnter(value);
+      setInputValue("");
+    };
+
+    const addTagsOnBlur = () => {
+      setIsFocused(false);
+      if (inputValue && !isInvalid && onEnter) {
+        onEnter(inputValue);
+        setInputValue("");
+      }
+
+      selectedTagIndex !== NO_FOCUS_TAG && setSelectedTagIndex(NO_FOCUS_TAG);
+    };
+
+    const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      const value = (e.target as HTMLInputElement).value;
+      const keyCode = e.code as KEYS;
+
+      addTag(keyCode, value);
+      clearTags(keyCode, value);
+
+      if (inputValue) {
+        return;
+      }
+
+      const arrowKey: ArrowKeysType | false = ARROW_KEYS.includes(
+        keyCode as ArrowKeysType,
+      )
+        ? (keyCode as ArrowKeysType)
+        : false;
+
+      onKeyDownNavigationTags(arrowKey);
+    };
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+      setInputValue(e.target.value);
+
+    const onFocus = () => {
+      setIsFocused(true);
+    };
+
+    const onInput = (e: React.FormEvent<HTMLInputElement>) => checkValidity(e);
+
     return (
       <TagsInputContext.Provider value={states}>
         <Listbox horizontal={false}>
           {label && (
-            <SelectButton.Label labelSize={size} idDisabled={disabled}>
+            <SelectButton.Label
+              htmlFor={id}
+              labelSize={size}
+              idDisabled={disabled}
+            >
               {label}
             </SelectButton.Label>
           )}
@@ -94,6 +186,8 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
               {children}
             </div>
             <NativeInput
+              ref={inputRef}
+              id={id}
               className={mergeClassnames(
                 "flex-grow border-0 !rounded-none bg-transparent px-0 leading-6 h-6",
                 "!shadow-none hover:shadow-none focus:shadow-none focus-visible:shadow-none",
@@ -103,24 +197,12 @@ const TagsInputRoot = forwardRef<HTMLSpanElement, TagsInputRootProps>(
               error={isError || isInvalid}
               disabled={disabled}
               type={type}
-              onKeyDown={(e) => {
-                e.code === "Enter" &&
-                  !isInvalid &&
-                  !!(e.target as HTMLInputElement).value.length &&
-                  onEnter &&
-                  onEnter((e.target as HTMLInputElement).value);
-                e.code === "Enter" &&
-                  !isInvalid &&
-                  ((e.target as HTMLInputElement).value = "");
-                e.code === "Backspace" &&
-                  !(e.target as HTMLInputElement).value.length &&
-                  selected.length !== 0 &&
-                  onClear &&
-                  onClear(selected.length - 1);
-              }}
-              onFocus={() => setIsFocused(true)}
-              onBlur={() => setIsFocused(false)}
-              onInput={(e) => checkValidity(e)}
+              onChange={onChange}
+              value={inputValue}
+              onKeyDown={onKeyDown}
+              onFocus={onFocus}
+              onBlur={addTagsOnBlur}
+              onInput={onInput}
             />
           </span>
         </Listbox>
@@ -134,11 +216,25 @@ const SelectedItem = ({
   index,
   label,
   isUppercase,
+  classNameTagOnFocus,
   ...rest
 }: SelectedItemProps) => {
-  const { size, disabled, isError, onClear } = useTagsInputContext(
-    "TagsInput.SelectedItem",
-  );
+  const {
+    size,
+    disabled,
+    isError,
+    onClear,
+    selectedTagIndex,
+    selectTagOnClick,
+  } = useTagsInputContext("TagsInput.SelectedItem");
+
+  const onClick = () => {
+    if (!selectTagOnClick) {
+      return;
+    }
+
+    selectTagOnClick(index);
+  };
   return (
     <div
       key={index}
@@ -157,6 +253,12 @@ const SelectedItem = ({
         <SelectButton.Chip
           isUppercase={isUppercase}
           onClear={() => !disabled && onClear && onClear(index)}
+          onClick={onClick}
+          className={mergeClassnames(
+            selectedTagIndex === index
+              ? (classNameTagOnFocus ?? "bg-piccolo")
+              : "",
+          )}
         >
           <span className="break-all truncate">{label}</span>
         </SelectButton.Chip>

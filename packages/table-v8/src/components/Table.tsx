@@ -54,6 +54,8 @@ const Table: React.FC<TableProps> = ({
   onRowSelectionChange,
   onSortingChange,
   onColumnVisibilityChange,
+  getRowId,
+  className,
 }) => {
   const [columnResizeMode] = React.useState<ColumnResizeMode>("onChange");
 
@@ -77,7 +79,7 @@ const Table: React.FC<TableProps> = ({
     getExpandedRowModel: getExpandedRowModel(),
     getSortedRowModel: getSortedRowModel(),
     onColumnVisibilityChange,
-    /* debugTable: true, */
+    getRowId,
   });
 
   const tableResizeInfo = table.getState().columnSizingInfo;
@@ -137,6 +139,7 @@ const Table: React.FC<TableProps> = ({
         style={tableStyles}
         className={mergeClassnames(
           "border-separate bg-[color:var(--tableBGColor)]",
+          className,
         )}
       >
         <THead

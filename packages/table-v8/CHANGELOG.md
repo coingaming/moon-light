@@ -1,5 +1,71 @@
 # @heathmont/moon-table-v8-tw
 
+## 10.22.7
+
+### Patch Changes
+
+- fix: allow className for rows [MDS-1914]
+
+## 10.22.6
+
+### Patch Changes
+
+- fa97288: fix: Add table classname prop [MDS-1842]
+
+## 10.22.5
+
+### Patch Changes
+
+- fix: prevent scroll - TableWrapper [MDS-1819]
+
+## 10.22.4
+
+### Patch Changes
+
+- fix: add getRowId prop - Table [MDS-1818]
+
+## 10.22.3
+
+### Patch Changes
+
+- fix: installation script for table-v8
+
+## 10.22.2
+
+### Patch Changes
+
+- fix: add readme files
+- Updated dependencies
+  - @heathmont/moon-core-tw@10.22.2
+
+## 10.22.1
+
+### Patch Changes
+
+- feat: add readme files to moon-light packages [MDS-1568]
+- Updated dependencies
+  - @heathmont/moon-core-tw@10.22.1
+
+## 10.21.2
+
+### Patch Changes
+
+- fix: place copy behavoiur in core [MDS-1664]
+- Updated dependencies
+  - @heathmont/moon-core-tw@10.22.0
+
+## 10.21.1
+
+### Patch Changes
+
+- c7cf657: fix: update core dependency [MDS-1664]
+
+## 10.21.0
+
+### Minor Changes
+
+- 9172ccd: feat: allow copying text to clipboard [MDS-1664]
+
 ## 10.20.0
 
 ### Minor Changes

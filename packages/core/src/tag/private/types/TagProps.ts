@@ -7,6 +7,7 @@ type TagProps = {
   isUppercase?: boolean;
   children?: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 };
 
 export default TagProps;

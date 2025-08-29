@@ -1,11 +1,8 @@
 import React, { forwardRef } from "react";
 import { mergeClassnames } from "@heathmont/moon-core-tw";
-import { flexRender } from "../private/utils";
 import getFontSize from "../private/utils/getFontSize";
 import getPadding from "../private/utils/getPadding";
-import CellBorder from "./CellBorder";
 import type { Cell } from "../private/types";
-import type ClipProps from "../private/types/ClipProps";
 import type StickyColumn from "../private/types/StickyColumn";
 import type TDProps from "../private/types/TDProps";
 import TDContent from "./TDContent";

@@ -925,9 +925,6 @@ export type Examples = {
       }
     }
   },
-  "stories": {
-    "page": "string"
-  },
   "themes": {
     "ColorSet": "string",
     "MainColors": "string",

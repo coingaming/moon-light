@@ -1,5 +1,41 @@
 # docs
 
+## 10.22.1
+
+### Patch Changes
+
+- bffa150: feat: add Snackbar story [MDS-1556]
+- 73a8f9d: feat: Add Form story [MDS-1542]
+- 2d5d22a: feat: Add Icons story [MDS-1545]
+- 33452c4: feat: Add Combobox default story [MDS-1539]
+- 1aa58fe: feat: Add InsetInput story [MDS-1546]
+- 45c9aaf: feat: add Progress story [MDS-1553]
+- 0afb0e8: feat: Add Group story [MDS-1543]
+- e121ff8: feat: Add IconButton story [MDS-1544]
+- b2d63de: feat: add Search story [MDS-1554]
+- 36779cd: feat: Add Carousel story [MDS-1537]
+- bea110c: feat: Add FileInput story [MDS-1598]
+- eae87ba: feat: add Switch story [MDS-1557]
+- c0c7882: feat: add Themes section - storybook [MDS-1640]
+- 4bd9f68: feat: add TagsInput story [MDS-1560]
+- d498d2f: feat: Add CircularProgress story [MDS-1538]
+- 1b3b197: feat: Add Dropdown default story [MDS-1541]
+- c0382a2: feat: add story - SearchCmdk [MDS-1555]
+- 25b33b7: feat: Add InsetFileInput story [MDS-1599]
+- 6efc0ff: feat: Add Drawer story [MDS-1540]
+- 2a1355f: feat: add releases section [MDS-1636]
+- 7fa4fb2: fix: place components in proper sections [MDS-1652]
+- 7e9d1e7: fix: remove storybook [MDS-1692]
+- 05cbf15: feat: add Tabs story [MDS-1558]
+- 3b860ca: add pagination story [MDS-1551]
+- ed1cf8c: feat: Add Breadcrumb story [MDS-1536]
+- 1f170a6: feat: add installation and contribution pages [MDS-1606]
+- 897e73c: feat: add popover story [MDS-1552]
+- cf0a99e: feat: add Typography documentation [MDS-1642]
+- a98c7f2: feat: add Tag story [MDS-1559]
+- Updated dependencies [129cc44]
+  - @heathmont/moon-core-tw@10.22.1
+
 ## 10.22.0
 
 ### Minor Changes

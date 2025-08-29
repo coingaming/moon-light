@@ -17,6 +17,8 @@ const FileInput = memo(
       accept,
       maxFileSize,
       errorMessages,
+      readOnly,
+      disabled,
       ...rest
     } = props;
 
@@ -30,6 +32,9 @@ const FileInput = memo(
         onFileRemove={onFileRemove}
         errorMessages={errorMessages}
         ref={ref}
+        readOnly={readOnly}
+        disabled={disabled}
+        aria-disabled={disabled}
       >
         {(file: File | undefined) => (
           <Input
@@ -41,6 +46,7 @@ const FileInput = memo(
             placeholder={placeholder}
             value={file?.name || ""}
             readOnly
+            disabled={disabled}
             {...rest}
           />
         )}

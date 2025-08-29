@@ -11,6 +11,7 @@ type InputProps = {
   disabled?: boolean;
   isError?: boolean;
   ["aria-label"]?: string;
+  preventButtonForceClick?: boolean;
 };
 
 export default InputProps;

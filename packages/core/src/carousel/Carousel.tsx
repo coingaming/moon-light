@@ -8,17 +8,19 @@ import withHorizontalScroll from "./private/utils/withHorizontalScroll";
 import IconButton from "../iconButton/IconButton";
 import mergeClassnames from "../mergeClassnames/mergeClassnames";
 
-const CarouselRoot = ({
-  children,
-  scrollTo,
-  className,
-  step,
-  selectedIndex,
-  autoSlideDelay,
-  isSwipeDragDisabled,
-  isRtl,
-  ...rest
-}: CarouselRootProps) => {
+const CarouselRoot = (props: CarouselRootProps) => {
+  const {
+    children,
+    scrollTo,
+    className,
+    step,
+    selectedIndex,
+    autoSlideDelay,
+    isSwipeDragDisabled,
+    isRtl: isRtlProp,
+    ...rest
+  } = props;
+
   const {
     itemRef,
     scrollLeftToStep,
@@ -36,11 +38,12 @@ const CarouselRoot = ({
     handleMouseUp,
     debounceMouseDown,
     debounceMouseUp,
+    isRtl,
   } = withHorizontalScroll({
     scrollStep: step || 5,
-    scrollTo: scrollTo,
+    scrollTo,
     scrollInContainer: true,
-    isRtl,
+    isRtl: isRtlProp,
   });
 
   useInterval(
@@ -66,9 +69,9 @@ const CarouselRoot = ({
 
   useEffect(() => {
     if (selectedIndex !== undefined) {
-      scrollToIndex(isRtl ? itemsCount - selectedIndex - 1 : selectedIndex);
+      scrollToIndex(selectedIndex);
     }
-  }, [selectedIndex, isRtl, itemsCount]);
+  }, [selectedIndex]);
 
   return (
     <CarouselContext.Provider
@@ -114,16 +117,11 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
   const {
     containerRef,
     isSwipeDragDisabled,
-    isRtl,
     handleMouseDown,
     handleMouseUp,
-    debounceMouseDown,
     debounceMouseUp,
     isDragging,
   } = useCarouselContext("Carousel.Reel");
-  const arrayChildren = Children.toArray(children);
-  const revertChildren = arrayChildren.reverse();
-  const debouncedMouseDown = debounceMouseDown ? debounceMouseDown() : null;
   const debouncedMouseUp = debounceMouseUp ? debounceMouseUp() : null;
 
   return (
@@ -134,7 +132,7 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
         "[-ms-overflow-style:-ms-autohiding-scrollbar]",
         '[&>li]:list-none [&>li]:before:absolute [&>li]:before:content-["\\200B"]',
         "[&>*]:flex-[0_0_auto] [&>img]:h-full [&>img]:basis-auto [&>img]:w-auto",
-        "snap-x snap-mandatory rtl:flex-row-reverse",
+        "snap-x snap-mandatory justify-start",
         isSwipeDragDisabled && "overflow-x-hidden",
         className,
       )}
@@ -157,7 +155,7 @@ const Reel = ({ children, className, ...rest }: SubcomponentProps) => {
       ref={containerRef}
       {...rest}
     >
-      {isRtl ? revertChildren : children}
+      {children}
     </ul>
   );
 };
@@ -187,7 +185,7 @@ const LeftArrow = ({ children, className, ...rest }: SubcomponentProps) => {
       size="sm"
       className={mergeClassnames(
         "max-sm:hidden shadow-moon-sm bg-goku text-bulma",
-        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -start-4",
+        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -start-4 rtl:-end-4 rtl:start-[auto]",
         className,
       )}
       onClick={scrollLeftToStep}
@@ -209,7 +207,7 @@ const RightArrow = ({ children, className, ...rest }: SubcomponentProps) => {
       size="sm"
       className={mergeClassnames(
         "max-sm:hidden shadow-moon-sm bg-goku text-bulma",
-        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -end-4",
+        "absolute top-1/2 -translate-y-1/2 origin-[top_center] z-5 -end-4 rtl:-start-4 rtl:end-[auto]",
         className,
       )}
       onClick={scrollRightToStep}
@@ -240,7 +238,7 @@ const Indicators = ({ className, ...rest }: SubcomponentProps) => {
   return (
     <div
       className={mergeClassnames(
-        "flex absolute bottom-8 left-1/2 -translate-x-1/2 rtl:flex-row-reverse",
+        "flex absolute bottom-8 left-1/2 -translate-x-1/2",
         className,
       )}
       {...rest}
