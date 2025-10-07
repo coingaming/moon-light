@@ -1,3 +1,5 @@
+This repository is deprecated! Please, consider migrating to [New Moon](https://github.com/coingaming/moon-react)
+
 # Moon Light Design System
 
 ## Installing Moon Light Design
