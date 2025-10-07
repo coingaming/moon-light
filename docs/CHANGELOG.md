@@ -1,5 +1,17 @@
 # docs
 
+## 10.23.0
+
+### Minor Changes
+
+- feat: add Modal to New Moon on the main page
+
+### Patch Changes
+
+- 68520d2: fix: Table page examples
+- 6b38bc5: feat: add link to beta.moon.io
+- d0480f2: fix: Table docs page freezing
+
 ## 10.22.1
 
 ### Patch Changes
