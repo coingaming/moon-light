@@ -67,7 +67,7 @@ const WelcomeDialog: React.FC<WelcomeDialogWrapperProps> = ({ children }) => {
   };
 
   const handleGoToNew = () => {
-    window.open("https://beta.moon.io", "_blank");
+    window.open("https://moondesignsystem.com", "_blank");
     setShowWelcomeDialog(false);
   };
 
